@@ -1,0 +1,380 @@
+:: Avatar [pos_1273_215]
+\
+\
+<<set _u=$player.isWearingOn($itemTypes.Underwear)>>\
+\
+<<switch $player.isMind()>>\
+<<case 0>>\
+	<<set _arms="arms_relaxed.png">>\
+<<case 1>>\
+	<<if $player.owns($items.GarishManicure)>>\
+		<<set _arms="arms_spread_fake_nails.png">>\
+	<<else>>\
+		<<set _arms="arms_spread.png">>\
+	<<endif>>\
+<<default>>\
+	<<if $player.owns($items.GarishManicure)>>\
+		<<set _arms="arms_flirty_fake_nails.png">>\
+	<<else>>\
+		<<set _arms="arms_flirty.png">>\
+	<<endif>>\
+<</switch>>\
+\
+<<if $player.owns($items.AssEnhancingXL)>>\
+	<<set _hips="hips_2.png">>\
+	<<set _hs=2>>\
+<<elseif $player.owns($items.AssEnhancing)>>\
+	<<set _hips="hips_1.png">>\
+	<<set _hs=1>>\
+<<else>>\
+	<<set _hips="hips_0.png">>\
+	<<set _hs=0>>\
+<<endif>>\
+\
+<<set _f=$player.isWearingOn($itemTypes.Shoes)>>\
+<<if _f>>\
+	<<if _f.female>>\
+		<<if _f.daringRec gte 6>>\
+			<<if _f.curAlt eq 0>>\
+				<<set _feets="feets_stripper_a.png">>\
+			<<elseif _f.curAlt eq 1>>\
+				<<set _feets="feets_stripper_b.png">>\
+			<<elseif _f.curAlt eq 2>>\
+				<<set _feets="feets_stripper_c.png">>\
+			<<else>>\
+				<<set _feets="feets_stripper_d.png">>\
+			<<endif>>\
+		<<else>>\
+			<<if _f.curAlt eq 0>>\
+				<<set _feets="feets_heels_a.png">>\
+			<<elseif _f.curAlt eq 2>>\
+				<<set _feets="feets_heels_b.png">>\
+			<<elseif _f.curAlt eq 3>>\
+				<<set _feets="feets_heels_c.png">>\
+			<<else>>\
+				<<set _feets="feets_heels_d.png">>\
+			<<endif>>\
+		<<endif>>\
+	<<else>>\
+		<<if _f.school>>\
+			<<set _feets="feets_shoes.png">>\
+		<<else>>\
+			<<set _feets="feets_sneakers.png">>\
+		<<endif>>\
+	<<endif>>\
+<<else>>\
+	<<if $player.heelsSkill lte 6>>\
+		<<set _feets="feets_stand.png">>\
+	<<else>>\
+		<<set _feets="feets_stretch.png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $player.owns($items.breastImplantsDD)>>\
+	<<set _chest="chest_dd.png">>\
+	<<set _bs=4>>\
+<<elseif $player.owns($items.breastImplantsC)>>\
+	<<set _chest="chest_c.png">>\
+	<<set _bs=3>>\
+<<elseif $player.owns($items.breastImplantsB)>>\
+	<<set _chest="chest_b.png">>\
+	<<set _bs=2>>\
+<<elseif $player.owns($items.breastImplantsA)>>\
+	<<set _chest="chest_a.png">>\
+	<<set _bs=1>>\
+<<else>>\
+	<<set _chest="chest_male.png">>\
+	<<set _bs=0>>\
+<<endif>>\
+\
+<<if $player.owns($items.surgerySexualReassignment)>>\
+	<<set _groin="groin_pussy.png">>\
+<<elseif $player.isWearingOn($itemTypes.Chastity)>>\
+	<<if $player.owns($items.PenisShrinking)>>\
+		<<set _groin="groin_chastity_1.png">>\
+	<<else>>\
+		<<set _groin="groin_chastity_2.png">>\
+	<<endif>>\
+<<else>>\
+	<<if $player.owns($items.PenisShrinking)>>\
+		<<set _groin="groin_penis_1.png">>\
+	<<else>>\
+		<<set _groin="groin_penis_2.png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $player.haveHeavyMakeup()>>\
+	<<if $player.owns($items.tattooHeart)>>\
+	<<set _face="face_makeup_3_heart.png">>\
+	<<else>>\
+	<<set _face="face_makeup_3.png">>\
+	<<endif>>\
+<<elseif $player.haveBimboMakeup()>>\
+	<<if $player.owns($items.tattooHeart)>>\
+	<<set _face="face_makeup_2_heart.png">>\
+	<<else>>\
+	<<set _face="face_makeup_2.png">>\
+	<<endif>>\
+<<elseif $player.haveMakeup()>>\
+	<<if $player.owns($items.tattooHeart)>>\
+	<<set _face="face_makeup_1_heart.png">>\
+	<<else>>\
+	<<set _face="face_makeup_1.png">>\
+	<<endif>>\
+<<else>>\
+	<<if $player.owns($items.tattooHeart)>>\
+	<<set _face="face_makeup_0_heart.png">>\
+	<<else>>\
+	<<set _face="face_makeup_0.png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $player.owns($items.LipsEnhancingXL)>>\
+	<<if $player.haveHeavyMakeup()>>\
+		<<set _lips="lips_33.png">>\
+	<<elseif $player.haveBimboMakeup()>>\
+		<<set _lips="lips_32.png">>\
+	<<elseif $player.haveMakeup()>>\
+		<<set _lips="lips_31.png">>\
+	<<else>>\
+		<<set _lips="lips_30.png">>\
+	<<endif>>\
+<<elseif $player.owns($items.LipsEnhancing)>>\
+	<<if $player.haveHeavyMakeup()>>\
+		<<set _lips="lips_23.png">>\
+	<<elseif $player.haveBimboMakeup()>>\
+		<<set _lips="lips_22.png">>\
+	<<elseif $player.haveMakeup()>>\
+		<<set _lips="lips_21.png">>\
+	<<else>>\
+		<<set _lips="lips_20.png">>\
+	<<endif>>\
+<<else>>\
+	<<if $player.haveHeavyMakeup()>>\
+		<<set _lips="lips_13.png">>\
+	<<elseif $player.haveBimboMakeup()>>\
+		<<set _lips="lips_12.png">>\
+	<<elseif $player.haveMakeup()>>\
+		<<set _lips="lips_11.png">>\
+	<<else>>\
+		<<set _lips="lips_10.png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $player.haveHaircut()>>\
+	<<if $player.owns($items.HairShort)>>\
+		<<set _hair="hair_short_">>\
+	<<elseif $player.owns($items.HairMedium)>>\
+		<<set _hair="hair_medium_">>\
+	<<elseif $player.owns($items.HairLong)>>\
+		<<set _hair="hair_long_">>\
+	<<elseif $player.owns($items.HairPigtails)>>\
+		<<set _hair="hair_tails_">>\
+	<<elseif $player.owns($items.HairCurly)>>\
+		<<set _hair="hair_curly_">>\
+	<<endif>>\
+	<<if $player.hairColor eq 0>>\
+		<<set _hair+="black.png">>\
+	<<elseif $player.hairColor eq 1>>\
+		<<set _hair+="brown.png">>\
+	<<elseif $player.hairColor eq 2>>\
+		<<set _hair+="red.png">>\
+	<<elseif $player.hairColor eq 3>>\
+		<<set _hair+="blonde.png">>\
+	<<elseif $player.hairColor eq 4>>\
+		<<set _hair+="silver.png">>\
+	<<else>>\
+		<<set _hair+="pink.png">>\
+	<<endif>>\
+<<else>>\
+	<<set _hair="hair_default_brown.png">>\
+<<endif>>\
+\
+<<set _sk=false>>\
+\
+\
+<<if $avatar.mode eq 0>>\
+	<<if $player.isWearing($items.sluttyDress) or $player.isWearing($items.skirtTop)>>\
+		<<set _chest="clothes_slutty_top_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _sk=true>>\
+		<<if _u>>\
+			<<set _chest2="clothes_slutty_skirt_hips_">>\
+		<<else>>\
+			<<set _chest2="clothes_slutty_skirt_low_hips_">>\
+		<<endif>>\
+		<<set _chest2+=_hs>>\
+		<<set _chest2+=".png">>\
+	<<elseif $player.isWearing($items.schoolMale)>>\
+		<<if _bs lte 2>>\
+			<<set _bs = 0>>\
+		<<endif>>\
+		<<set _chest="clothes_school_male_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<elseif $player.isWearing($items.schoolFemale)>>\
+		<<if _bs eq 2>>\
+			<<set _bs = 1>>\
+		<<endif>>\
+		<<if _hs gt 0>>\
+			<<set _sk=true>>\
+			<<set _chest2="clothes_school_female_hips_">>\
+			<<set _chest2+=_hs>>\
+			<<set _chest2+=".png">>\
+		<<endif>>\
+		<<set _chest="clothes_school_female_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<elseif $player.isWearing($items.sluttyschoolFemale)>>\
+		<<if _bs lt 2>>\
+			<<set _bs = 2>>\
+		<<endif>>\
+		<<set _sk=true>>\
+		<<set _chest="clothes_school_slutty_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _chest2="clothes_school_slutty_hips_">>\
+		<<set _chest2+=_hs>>\
+		<<set _chest2+=".png">>\
+		<<set _arms="none">>\
+	<<elseif $player.isWearing($items.silkyTeddy)>>\
+		<<if _bs eq 2>>\
+			<<set _bs = 1>>\
+		<<endif>>\
+		<<set _chest="clothes_nightie_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<elseif $player.isWearing($items.pyjamasMale)>>\
+		<<set _chest="clothes_pyjamas_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<elseif $player.isWearing($items.maidOutfit)>>\
+		<<set _chest="clothes_maid_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+		<<set _feets="feets_maid_heels.png">>\
+	<<elseif $player.isWearing($items.summerDress)>>\
+		<<if (_bs lte 3) and (_bs gte 1)>>\
+			<<set _bs = 1>>\
+		<<endif>>\
+		<<set _chest="clothes_casual_dress_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+	<<elseif $player.isWearing($items.casualMale)>>\
+		<<set _chest="clothes_casual_br_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+="_hips_">>\
+		<<set _chest+=_hs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $avatar.mode lte 1>>\
+	<<if $player.isWearing($items.jocksLucky)>>\
+		<<set _groin="underwear_boxers_hips_">>\
+		<<set _groin+=_hs>>\
+		<<set _groin+=".png">>\
+	<<elseif $player.isWearing($items.pantiesCotton)>>\
+		<<set _groin="underwear_cotton_hips_">>\
+		<<set _groin+=_hs>>\
+		<<set _groin+=".png">>\
+	<<elseif $player.isWearing($items.pantiesLatex)>>\
+		<<set _groin="underwear_satin_hips_">>\
+		<<set _groin+=_hs>>\
+		<<set _groin+=".png">>\
+	<<elseif $player.isWearing($items.gString)>>\
+		<<if $player.isWearingOn($itemTypes.Chastity)>>\
+			<<set _groin="underwear_gstring_chastity_hips_">>\
+		<<elseif $player.isHorny()>>\
+			<<set _groin="underwear_gstring_alt_hips_">>\
+		<<else>>\
+			<<set _groin="underwear_gstring_hips_">>\
+		<<endif>>\
+		<<set _groin+=_hs>>\
+		<<set _groin+=".png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<print '<<showMultiImage "avatar_' + $avatarSize + '" "torso.png">>'>>\
+\
+<<if _arms neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _arms>>'>>\
+<<endif>>\
+\
+<<if _hips neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hips>>'>>\
+<<endif>>\
+\
+<<if _feets neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _feets>>'>>\
+<<endif>>\
+\
+<<if _groin neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _groin>>'>>\
+<<endif>>\
+\
+<<print '<<showMultiImage "avatar_' + $avatarSize + '" _chest>>'>>\
+\
+<<if _sk>>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _chest2>>'>>\
+<<endif>>\
+\
+<<if _face neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _face>>'>>\
+<<endif>>\
+\
+<<if _lips neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _lips>>'>>\
+<<endif>>\
+\
+<<if $player.owns($items.PiercingLips)>>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "piercing_lips.png">>'>>\
+<<endif>>\
+\
+<<if _face neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hair>>'>>\
+<<endif>>\
+\
+<<if $player.owns($items.PiercingEars)>>\
+	<<if $player.isWearing($items.diamondStuds)>>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_diamond.png">>'>>\
+	<<elseif $player.isWearing($items.rubyEarrings)>>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_ruby.png">>'>>\
+	<<elseif $player.isWearing($items.hoopsEarrings)>>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_hoops.png">>'>>\
+	<<endif>>\
+<<endif>>\
+\
+<<if (not $player.flags.avatarHelp)>>\
+	<<set $player.flags.avatarHelp = true>>\
+	<<print '<<showMultiImage "avatar_0" "avatar_help.png" "general">>'>>\
+<<endif>>\
+\
+<<if ($avatar.divider gte 0) and ($avatar.divider lte 8)>>\
+	<<print '<<showMultiImage "divider' + $avatarSize + '" "divider'+$avatar.divider+'.png">>'>>\
+<<endif>>\
+\
+<<if $avatar.divider gt 0>>\
+	@@.avatar_text_div_r;<<print '<<click " → ">><<set $avatar.divider-->><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+<<endif>>\
+<<if $avatar.divider lt 8>>\
+	@@.avatar_text_div_l;<<print '<<click " ← ">><<set $avatar.divider++>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+<<endif>>\
+<<if $avatarSize gt 0>>\
+	@@.avatar_text_size_d;<<print '<<click " ↓ ">><<set $avatarSize-->><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+<<endif>>\
+<<if $avatarSize lt 6>>\
+	@@.avatar_text_size_u;<<print '<<click " ↑ ">><<set $avatarSize++>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+<<endif>>\
+@@.avatar_mode_0;<<print '<<click " C ">><<set $avatar.mode=0>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+@@.avatar_mode_1;<<print '<<click " U ">><<set $avatar.mode=1>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+@@.avatar_mode_2;<<print '<<click " N ">><<set $avatar.mode=2>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
+\
+
+

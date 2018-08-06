@@ -1,0 +1,56 @@
+:: DreamGame Widget [pos_1907_25 widget]
+\
+<<widget "DreamGame">>\
+	<<if $dreamgame.state.lastActionId gte 0>>\
+		<<print $dreamgame.getActionById($dreamgame.state.lastActionId).action>> \
+			<<if not $player.daringFlag.sleepingGrope>>\
+				<<if $player.daring eq 0>>\
+				<<Daring 1>>\
+				<<elseif $player.daring eq 1>>\
+				<<Daring 2>>\
+				<<endif>>\
+			<<set $player.daringFlag.sleepingGrope=true>>\
+			<<endif>>\
+			<<if (not $player.flags.dreamgameCaught) and $player.perversion.guardian gte 1>>\
+				<<set $player.flags.dreamgameCaught=true>>\
+			<<endif>>\
+	<<endif>>\
+	<<set _ds to $dreamgame.getRandomDream()>>\
+	<<if $dreamgame.state.lastActionSuccess eq 0>>\
+		You hear her give a few shallow breaths before she relaxes again. \
+	<<elseif $dreamgame.state.lastActionSuccess eq 1>>\
+		You listen carefully, but she seems to have no reaction. \
+	<<elseif $dreamgame.state.lastActionSuccess eq 2>>\
+		You hear her breathing become a little deeper. You think it worked. \
+	<<endif>>\
+	<<if $dreamgame.canWin()>>\
+		
+		
+		She moans softly. Now is your chance to probe her horny ass. \
+	<<endif>>\
+	<<if $dreamgame.state.lastActionSuccess gte 0>>\
+
+	<<endif>>\
+
+	<<print _ds.clue>>
+	<<if _ds.success>>\
+	<<print ' @@.heroT;" _ds.hint "@@'>>
+	<<endif>>\
+	
+	What would you like to do?
+	<<for _i to 0; _i lt $dreamgame.actions.length; _i++>>\
+		<<set _o to $dreamgame.actions[_i]>>\
+		<<set _m to "$dreamgame.processAction(" + _ds.id + ", " + _o.id + ");$time.addMinutes(5)">>\
+		<<print '[[' + _o.option + '|Dream game][' + _m + ']]'>>
+	<</for>>\
+	
+	[[Leave and have breakfast|Have breakfast][$time.hour=$time.guardian.wakeHour;$time.minute=$time.guardian.wakeMinute]]
+	<!--
+	--Debug--
+	Current dream: _ds.option
+	Dreaminess: $dreamgame.state.dreaminess
+	Alertness: $dreamgame.state.alertness
+	-->
+<</widget>>\
+
+

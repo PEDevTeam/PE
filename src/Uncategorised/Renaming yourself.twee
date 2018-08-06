@@ -1,0 +1,21 @@
+:: Renaming yourself [pos_409_210]
+\
+<<if $random.stored eq 0>>\
+What's your new name?
+<<textbox "$player.name" "" autofocus>>
+
+[[Confirm name|Renaming yourself][$random.stored=1]]
+<<else>>\
+	<<if ($player.name.length lt 1) or ($player.name.length gt 20)>>\
+		The name you entered for yourself must be between 2 and 20 characters.  Please try again.
+		
+		[[Try again|Renaming yourself][$random.stored=0]]
+	<<else>>\
+		<<set $player.name to $player.name.toProperCase()>>\
+		Your new name is $player.name.
+		
+		[[Get up and prepare breakfast|Have breakfast]]
+	<<endif>>\
+<<endif>>\
+
+

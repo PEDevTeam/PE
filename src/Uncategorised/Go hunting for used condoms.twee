@@ -1,0 +1,37 @@
+:: Go hunting for used condoms [pos_2596_226]
+\
+<<if $time.hour gt 19>>\
+	<<showImage "chores" "trashbin.jpg">>\
+<<elseif (($time.day % 7 eq 5) or ($time.day % 7 eq 6)) and ($time.hour gte 18)>>\
+	<<showImage "chores" "dumpster.jpg">>\
+<<else>>\
+	<<showImage "chores" "used_condom.jpg">>\
+<<endif>>\
+\
+<<if $player.flags.guardianCondomsAsk>>\
+Having no idea where else to get the necessary amount of sperm for your morning meal, you go to collect some used condoms.
+<<endif>>\
+\
+<<if $time.hour gt 19>>\
+	The brothel is open, so you go around to the rear car park where they keep their trashcans.  It's a goldmine of used condoms and empty lube bottles.  Some of the condoms haven't been knotted up and have leaked everywhere, and the smell is horrendous.  But you hold your breath as much as you can and start scooping up as many condoms as you can into your school bag.  Once your bag feels heavy enough, you quietly replace the trash can lid and run off home.
+
+At home, you pick out the freshest looking condoms from your bag and store them in the kitchen cum box for the morning, and throw away the rest.  Then you head to the bathroom for a shower to wash off.
+<<elseif (($time.day % 7 eq 5) or ($time.day % 7 eq 6)) and ($time.hour gte 18)>>\
+	The local gay bar is open for business so you go around the back and find their dumpster.  Once you prop it open, you hoist yourself up and drop inside amongst the disgusting trash.  It doesn't take to long to find condom after used condom, and you start stashing them in your bag.  After your bag feels heavy enough, you climb out and run back home.
+
+At home, you pick out the freshest looking condoms from your bag and store them in the kitchen cum box for the morning, and throw away the rest.  You then head to the bathroom for a shower to wash off.
+<<else>>\
+	None of the obvious places are open, so you start walking the streets, looking in the gutters, going through the park rubbish bins, and occasionally finding gold in the form of a used condom.
+	
+	It takes a long time before you feel like you've got enough, and then trudge back home.
+	<<if (not $player.flags.guardianCondomsAsk)>>\
+	It's been slim pickings, and you're forced to put all of the condoms, including the leaky ones, into the kitchen cum box for the morning.  Then you wash your hands for an eternity.
+	<<endif>>\
+<<set $time.addMinutes(30)>>\
+<<endif>>\
+<<set $time.addMinutes(30)>>\
+<<set $player.flags.guardianCondomsDone = true>>\
+
+[[Go to your bedroom|Go to bedroom]]
+
+

@@ -1,0 +1,28 @@
+:: Car racing fun [pos_2120_2476]
+\
+You play by yourself \
+<<set _crf to random(2)>>\
+<<if _crf eq 0>>\
+and are beaten easily by the computer players. This game must be rigged.
+<<elseif _crf eq 1>>\
+<<set $player.money+=1>>\
+and hold your own against the computer players, but you mess up the last turn and are overtaken, crossing the line in second. The machine spits out a single prize ticket that you cash in.
+
+@@.reward;You just won $1!@@
+
+<<else>>\
+<<set $player.money+=5>>\
+and play with the skill of a veteran, easily holding the lead until you cross the finish line in first place. The machine churns out a bunch of tickets that you cash in.
+
+@@.reward;You just won $5!@@
+
+<<endif>>\
+What would you like to do now?
+
+<<if $misc.isArcadeOpen() and $player.money gt 0>>\
+	[[Play again|Car racing video game]]
+	[[Basketball skill tester]]
+<<endif>>\
+[[Return to the mall|Go to the mall]]
+
+

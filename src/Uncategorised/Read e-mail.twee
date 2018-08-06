@@ -1,0 +1,21 @@
+:: Read e-mail [pos_300_1753]
+\
+<<set _m=$email.activeMessage()>>\
+<<if _m.image neq "">>\
+    <<print '<<showImage "email" _m.image>>'>>\
+<<endif>>\
+<table class="email">
+    <tr><th>From:</th><td>_m.sender</td></tr>
+    <tr><th>Subject:</th><td>_m.subject</td></tr>
+    <tr><td colspan="2">_m.body</td></tr>
+</table>
+<<if _m.passage.name and ((not _m.viewed) or _m.passage.repeat)>>\
+    <<display _m.passage.name>>
+<<endif>>\
+<<if _m.allowInbox or (_m.viewed and (not _m.passage.repeat))>>\
+    [[Delete e-mail|Show inbox][_m.delete=true]]
+    [[Show inbox]]
+<<endif>>\
+<<set _m.viewed=true>>\
+
+

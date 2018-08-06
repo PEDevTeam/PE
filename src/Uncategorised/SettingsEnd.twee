@@ -1,0 +1,35 @@
+:: SettingsEnd [pos_2705_10]
+\
+<<if (not _mainSetings)>>\
+<b>\
+<<click "Back">>
+<<script>>
+	Dialog.setup("Settings");
+	Dialog.wiki(Story.get("Settings").processText());
+	Dialog.open();
+<</script>>\
+<</click>>\
+</b>\
+@@.inv_action_faded; - @@\
+<<endif>>\
+<<set _apply=false>>\
+<<set $staticPassages=['Go to bedroom', 'Check yourself', 'Check bedroom', 'Masturbate', 'Perform chores', 'Have a nap', 'Play in the arcade', 'Go to clinic', 'Beauty Salon']>>\
+<<if $staticPassages.includes(passage())>>\
+	<b>\
+	<<click "Apply">>
+	<<script>>
+		Dialog.close();
+		Engine.play(passage());
+	<</script>>\
+	<</click>>\
+	</b>\
+<<else>>\
+	<b>\
+	<<click "Exit">><<script>>Dialog.close();<</script>><</click>>\
+	</b>\
+
+	@@.halftransparent;Changes would apply at the next scene@@
+<<endif>>\
+\
+
+

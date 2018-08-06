@@ -1,0 +1,12 @@
+:: Ask friend for an oil massage (subsequent) [pos_4571_991]
+\
+<<set _u to $player.isWearingOn($itemTypes.Underwear)>>\
+<<if (not _u) and (not $player.flags.friendNakedMassage)>>\
+	<<display [[Proceed with oil massage]]>>\
+<<else>>\
+	You strip off your clothes while trying not to feel self-conscious, and lie face down on the bed as usual with $friend sitting next to you.
+	
+	<<display [[Oil massage from friend]]>>\
+<<endif>>\
+
+

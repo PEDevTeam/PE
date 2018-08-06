@@ -1,0 +1,86 @@
+:: Settings [pos_2705_10]
+\
+<span id="settingsListMain">\
+@@.centerAlign;\
+<<if true>>\
+@@.frame100;\
+<<if passage() eq "Begin">>\
+To transfer your progress from the newer version of the game, use the Import feature
+<b><<click "IMPORT">>
+<<script>>
+	Dialog.setup("Import");
+	Dialog.wiki(Story.get("Import").processText());
+	Dialog.open();
+<</script>>
+<</click>></b>\
+<<else>>\
+To transfer your progress to the newer version of the game, use the Export feature
+<b><<click "EXPORT">>
+<<script>>
+	Dialog.setup("Export screen");
+	Dialog.wiki(Story.get("Export screen").processText());
+	Dialog.open();
+<</script>>
+<</click>></b>\
+<<endif>>\
+@@\
+
+@@.frame100;\
+<<set _kinkDesc = "Images">>\
+<<set $scene = $misc.toggleKink( $showimages )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set $showimages = (not $showimages)>>\
+<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext">Uncheck to disable images</span></div> \
+<<if not $showimages>>\
+<<set $avatar.active = false>>\
+<<endif>>\
+&#9702; \
+<<set _kinkDesc = "Drawn avatar">>\
+<<set $scene = $misc.toggleKink( $avatar.active )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set $avatar.active = (not $avatar.active)>>\
+<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext">Check to show drawn avatar instead of default images</span></div> \
+<<if true>>\
+@@.halftransparent; (Currently available only to Patreon contributors)@@
+<<endif>>\
+@@\
+
+@@.frame80;\
+<<set _kinkDesc = "Debug/Cheat mode">>\
+<<set $scene = $misc.toggleKink( $player.debugA )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set $player.debugA = (not $player.debugA)>>\
+<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> \
+@@\
+
+@@.frame100;\
+<b>\
+<<click "List of core content">>
+<<script>>
+	Dialog.setup("List of core content");
+	Dialog.wiki(Story.get("SettingsCoreKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "Configure optional content">>
+<<script>>
+	Dialog.setup("List of optional content");
+	Dialog.wiki(Story.get("SettingsKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "List of excluded content">>
+<<script>>
+	Dialog.setup("List of excluded content");
+	Dialog.wiki(Story.get("SettingsExcludedKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>>\
+</b>\
+<<endif>>\
+
+<<set _mainSetings=true>>\
+<<display [[SettingsEnd]]>>\
+@@\
+
+

@@ -1,0 +1,71 @@
+:: Task Get hit on [pos_1659_2905]
+\
+<<set _sl = $player.slutScore()>>\
+<<set _slb = $player.slutScoreBasic()>>\
+<<if ($tasksTeacher.getHitOn.status eq 1)>>\
+You wait for a while near the food court, wondering how you can get a guy to hit on you.
+
+	<<if (random(10) gt 0) or (_sl lt 26)>>\
+	Deciding that waiting further is pointless, you decide to act.
+
+	[[Ask a guy to pretend to hit on you|Task Get hit on][$tasksTeacher.getHitOn.status=(4+random(2))]]
+	<<else>>\
+	To your surprise some guy walks up to you and attempts a cheesy pick-up line.
+	
+	@@.hero;Huh?!@@
+	You just check your phone, thank the guy (to his confusion) and walk off, happy you were able to finish this task so quickly.
+
+	[[Return|Go to the mall][$tasksTeacher.getHitOn.status=2]]
+	<<endif>>\
+<<elseif ($tasksTeacher.getHitOn.status eq 4)>>\
+You walk up to some random guy and ask him to pretend to hit on you.
+
+	<<if (_slb lt 5)>>\
+	<<set $tasksTeacher.getHitOn.status = 2>>\
+	To your surprise, his girlfriend comes up and encourages him to help you out. Blushing and staring daggers at you, the guy allows you to film his awkward pick-up attempt while his girlfriend chokes back her own laughter from outside the shot.
+	
+	You thank them and leave quickly before the guy gets rid of his girlfriend and smashes your face.
+	
+	[[Return|Go to the mall]]
+	<<else>>\
+	Suddenly, a girl walks up and slaps you for hitting on her boyfriend. You make your escape, leaving the guy to explain himself to his girlfriend.
+	
+	[[Try again|Task Get hit on][$tasksTeacher.getHitOn.status=5]]
+	[[Maybe another time|Go to the mall][$tasksTeacher.getHitOn.status=1]]
+	<<endif>>\
+<<elseif ($tasksTeacher.getHitOn.status eq 5)>>\
+You find some random guy and ask him to pretend to hit on you.
+
+The guy tells you that he'll help you for $<<print 10>>.
+
+	<<if $player.money gte 10>>\
+		[[Pay up|Task Get hit on][$tasksTeacher.getHitOn.status=10; $player.money-=10]]
+		[[Look for someone else|Task Get hit on][$tasksTeacher.getHitOn.status=(4+random(2))]]
+		[[Maybe another time|Go to the mall][$tasksTeacher.getHitOn.status=1]]
+	<<else>>\
+		You don't have enough money.
+	
+		[[Look for someone else|Task Get hit on][$tasksTeacher.getHitOn.status=(4+random(2))]]
+		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=1]]
+	<<endif>>\
+<<elseif ($tasksTeacher.getHitOn.status eq 10)>>\
+You pay up and the guy helps you record him hitting on you.
+
+[[Return|Go to the mall][$tasksTeacher.getHitOn.status=2]]
+<<else>>\
+You find some random guy and ask him to pretend to hit on you.
+
+	<<if (_sl lt 5)>>\
+		He tells you that he is no fag, just before popping you in the face and stalking off angrily.
+
+		After this you decide to stop tempting fate.
+
+		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=3]]
+	<<else>>\
+		Strangely enough, the guy helps you without any questions asked, and even looks a bit disappointed when you walk away.
+		
+		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=2]]
+	<<endif>>\
+<<endif>>\
+
+

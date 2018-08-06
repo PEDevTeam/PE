@@ -1,0 +1,179 @@
+:: Shop events [pos_1800_2092]
+\
+<<set _item = $player.getItemByName($player.bought)>>\
+<<if $scene eq "general">>\
+	<<if _item>>\
+		<<set _repeat=false>>\
+		<<if $player.isMind_0()>>\
+			<<if ($player.bought eq $items.summerDress.name) or ($player.bought eq $items.skirtTop.name)>>\
+				<<set $items.summerDress.daringRec = 5.5>>\
+				<<set $items.skirtTop.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.flats.name) or ($player.bought eq $items.highHeel3.name)>>\
+				<<set $items.flats.daringRec = 5.5>>\
+				<<set $items.highHeel3.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.girlsneakers.name)>>\
+				<<set $items.girlsneakers.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.pantiesLatex.name) or ($player.bought eq $items.gString.name)>>\
+				<<set $items.pantiesLatex.daringRec = 5.5>>\
+				<<set $items.gString.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.silkyTeddy.name)>>\
+				<<set $items.silkyTeddy.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.bra.name) or ($player.bought eq $items.braSexy.name)>>\
+				<<set $items.bra.daringRec = 5.5>>\
+				<<set $items.braSexy.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.socks.name)>>\
+				<<set $items.socks.daringRec = 5.5>>\
+			<<elseif ($player.bought eq $items.stockings.name)>>\
+				<<set $items.stockings.daringRec = 5.5>>\
+			<<endif>>\
+		<<endif>>\
+		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
+			<<if (not $player.flags.firstBuyDress) and (_item.clothingType eq $itemTypes.Outerwear)>>\
+				<<set $player.flags.firstBuyDress = true>>\
+				<<set $player.perversion.mall++>>\
+				<<set $scene = "first buy female">>\
+				<<set _repeat=true>>\
+			<<elseif (not $player.flags.firstBuyShoes) and (_item.clothingType eq $itemTypes.Shoes)>>\
+				<<set $player.flags.firstBuyShoes = true>>\
+				<<set $player.perversion.mall++>>\
+				<<set $scene = "first buy female">>\
+				<<set _repeat=true>>\
+			<<elseif (not $player.flags.firstBuyPanties) and (_item.clothingType eq $itemTypes.Underwear)>>\
+				<<set $player.flags.firstBuyPanties = true>>\
+				<<set $player.perversion.mall++>>\
+				<<set $scene = "first buy female">>\
+				<<set _repeat=true>>\
+			<<elseif (not $player.flags.firstBuyBras) and (_item.clothingType eq $itemTypes.Bras)>>\
+				<<set $player.flags.firstBuyBras = true>>\
+				<<set $player.perversion.mall++>>\
+				<<set $scene = "first buy female">>\
+				<<set _repeat=true>>\
+			<<elseif (not $player.flags.firstBuyStockings) and (_item.clothingType eq $itemTypes.Stockings)>>\
+				<<set $player.perversion.mall++>>\
+				<<set $player.flags.firstBuyStockings = true>>\
+				<<set $scene = "first buy female">>\
+				<<set _repeat=true>>\
+			<<endif>>\
+		<<endif>>\
+		<<if ($player.bought eq $items.schoolFemale.name) and ((not $items.socks.ownAlt[0]) or ((not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])))>>\
+			<<set $player.perversion.mall++>>\
+			<<set $scene = "female Uniform">>\
+			<<set _repeat=true>>\
+		<<endif>>\
+		<<if _repeat>>\
+			<<goto [[Shop events]]>>\
+		<<endif>>\
+	<<endif>>\
+<<elseif $scene eq "first buy female">><!--<First buy events>-->\
+	<<if _item and ($player.perversion.mall lte 1)>>\
+		<<set $player.flags.firstBuyFemale = true>>\
+		It's extremely embarrassing to buy the <<print _item.name.toLowerCase()>>. Clutching\ 
+		<<if (_item.clothingType eq $itemTypes.Outerwear)>>\
+			it\
+		<<else>>\
+			them\
+		<<endif>>\
+		in your hands, you approach the cashier and put\
+		<<if (_item.clothingType eq $itemTypes.Outerwear)>>\
+			it\
+		<<else>>\
+			them\
+		<<endif>>\
+		on the counter.
+		
+		The cashier glances at the\
+		<<if (_item.clothingType eq $itemTypes.Outerwear)>>\
+			feminine garment you've chosen\
+		<<elseif (_item.clothingType eq $itemTypes.Shoes)>>\
+			feminine footwear\
+		<<elseif (_item.clothingType eq $itemTypes.Underwear)>>\
+			unmistakably feminine underwear you're buying\
+		<<elseif (_item.clothingType eq $itemTypes.Bras)>>\
+			bra\
+		<<elseif (_item.clothingType eq $itemTypes.Stockings)>>\
+			<<if ($player.bought eq $items.socks.name)>>\
+				feminine socks\
+			<<else>>\
+				stockings\
+			<<endif>>\
+		<<endif>>\
+		and turns to you, lifting one eyebrow. Scarlet red, you hand the money to her, not daring to make eye contact.
+		
+		@@.heroT;\
+		<<if (_item.clothingType eq $itemTypes.Outerwear)>>\
+			"It's, \
+		<<elseif (_item.clothingType eq $itemTypes.Shoes)>>\
+			"They're, \
+		<<elseif (_item.clothingType eq $itemTypes.Underwear)>>\
+			"They're, \
+		<<endif>>\
+		um, for... my sister?"@@
+		
+		Hearing your own voice, you cringe inwardly. It sounds unconvincing and pitiful, even to you.
+		
+		A chuckle from the checkout clerk confirms you failed to fool anyone else, either. She presents your newly-purchased <<print _item.name.toLowerCase()>> to you with a cheerful invitation to come back anytime.
+		
+		Turning away from the counter, you look around to find all the other customers looking at you in amusement. They're staring at the <<print _item.name.toLowerCase()>> dangling from your fingers, and you just stand there, paralyzed by fear. One guy reaches for his cellphone. You dart for the exit in panic, while mocking catcalls follow you out.
+		
+		@@.hero;That was humiliating. Why couldn't I think of a better excuse?@@
+		
+		Without stopping, you rush outside and go home.
+		
+		[[Go home|Go to bedroom][$time.addMinutes(30)]]
+	<<elseif _item>>\
+		<<set $player.flags.secondBuyFemale = true>>\
+		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. The cashier courteously invites you to enjoy it and come back again soon.
+		
+		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.
+		
+		@@.reward;You get your first\
+		<<if (_item.clothingType eq $itemTypes.Outerwear)>>\
+			<<if _item.sleepWear>>\
+				feminine nightwear.\
+			<<else>>\
+				feminine clothes.\
+			<<endif>>\
+		<<elseif (_item.clothingType eq $itemTypes.Shoes)>>\
+			feminine footwear.\
+		<<elseif (_item.clothingType eq $itemTypes.Underwear)>>\
+			feminine underwear.\
+		<<elseif (_item.clothingType eq $itemTypes.Bras)>>\
+			bra.\
+		<<elseif (_item.clothingType eq $itemTypes.Stockings)>>\
+			<<if ($player.bought eq $items.socks.name)>>\
+				feminine socks.\
+			<<else>>\
+				stockings.\
+			<<endif>>\
+		<<endif>>\
+		@@\
+		
+		[[Return to the mall|Go to the mall]]
+	<<endif>>\
+	<<set $scene = "general">>\
+	<<set $player.bought="">>\
+<!--</First buy events>-->\
+<<elseif $scene eq "female Uniform">><!--<Extra items for school dress>-->\
+	Psyching yourself up you buy female school uniform.
+	
+	You also pick\
+	<<if (not $items.socks.ownAlt[0])>>\
+		<<addToInv $items.socks.name>>\
+		black knee high socks\
+		<<if (not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])>>\
+			and\
+		<<endif>>\
+	<<endif>>\
+	<<if (not $items.flats.ownAlt[0])>>\
+		<<addToInv $items.flats.name>>\
+		a pair of flats\
+	<<endif>>\
+	to complete the set.
+
+	[[Return|Go to the mall]]
+	<<set $scene = "general">>\
+	<<set $player.bought="">>\
+<!--</Extra items for school dress>-->\
+<<endif>>\
+
+

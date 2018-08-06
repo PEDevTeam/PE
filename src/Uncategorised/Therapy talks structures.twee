@@ -1,0 +1,199 @@
+:: Therapy talks structures [pos_128_224]
+\
+<<set $therapistTalks={
+	talkStealing: {
+		name: "Talk about the bedroom incident",
+		passage: "talkStealing",
+		finished: false,
+		progress: 0,
+		time: 10,
+		start: true,
+		check: function() {
+			return [0,1,2,3].includes($player.perversion.guardian) && ($player.flags.guardianSnoopingCaught);
+		}
+	},
+	talkUnderwear: {
+		name: "Talk about girly underwear",
+		passage: "talkUnderwear",
+		finished: false,
+		progress: 0,
+		time: 10,
+		start: false,
+		check: function() {
+			return [0,1,2,3].includes($player.perversion.teacher);
+		}
+	},
+	talkNightwear: {
+		name: "Talk about sleeping in female lingerie",
+		passage: "talkNightwear",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: false,
+		check: function() {
+			return [3].includes($player.perversion.guardian);
+		}
+	},
+	talkClinicWork: {
+		name: "Talk about being caught wearing a dress at the clinic",
+		passage: "talkClinicWork",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: true,
+		check: function() {
+			return [3].includes($player.perversion.guardian) && $player.flags.talkClinicWork;
+		}
+	},
+	talkChastity: {
+		name: "Talk about chastity cage",
+		passage: "talkChastity",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: false,
+		check: function() {
+			return !$player.flags.chastityKey;
+		}
+	},
+	talkButtplug: {
+		name: "Talk about butt-plug",
+		passage: "talkButtplug",
+		finished: false,
+		progress: 0,
+		time: 10,
+		start: false,
+		check: function() {
+			return [2,3,4,5].includes($player.perversion.teacher) && ($therapistTalks.talkChastity.finished || $therapistTalks.talkChastityKey.finished);
+		}
+	},
+	talkChastityKey: {
+		name: "Talk about giving up chastity key",
+		passage: "talkChastityKey",
+		finished: false,
+		progress: 0,
+		time: 30,
+		start: true,
+		check: function() {
+			return $player.flags.chastityKey;
+		}
+	},
+	talkChastitySleep: {
+		name: "Talk about troubles with sleep",
+		passage: "talkChastitySleep",
+		finished: false,
+		progress: 0,
+		time: 10,
+		start: false,
+		check: function() {
+			return [0,1,2,3,4].includes($player.perversion.guardian) && $therapistTalks.talkChastityKey.finished && (not $therapistTalks.talkVibratorCaught.finished);
+		}
+	},
+	talkCrossdressing: {
+		name: "Talk about going out dressed as a girl",
+		passage: "talkCrossdressing",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: false,
+		check: function() {
+			return true;
+		}
+	},
+	talkVibrator: {
+		name: "Talk about masturbating with vibrator",
+		passage: "talkVibrator",
+		finished: false,
+		progress: 0,
+		time: 30,
+		start: false,
+		check: function() {
+			return [0,1,2,3,4,5].includes($player.perversion.guardian) && (not $therapistTalks.talkVibratorCaught.finished);
+		}
+	},
+	talkVibratorCaught: {
+		name: "Talk about being caught with vibrator",
+		passage: "talkVibratorCaught",
+		finished: false,
+		progress: 0,
+		time: 30,
+		start: true,
+		check: function() {
+			return [4,5].includes($player.perversion.guardian) && $player.flags.vibratorCaught;
+		}
+	},
+	talkUpload: {
+		name: "Talk about uploading a video",
+		passage: "talkUpload",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: true,
+		check: function() {
+			return [4,5,6].includes($player.perversion.guardian) && ($player.perversion.upload gt 0) && (not $therapistTalks.talkUploadCaught.finished);
+		}
+	},
+	talkUploadCaught: {
+		name: "Talk about your video being discovered",
+		passage: "talkUploadCaught",
+		finished: false,
+		progress: 0,
+		time: 30,
+		start: true,
+		check: function() {
+			return [5,6].includes($player.perversion.guardian) && $player.flags.uploadCaught && (not $therapistTalks.talkMaid.finished);
+		}
+	},
+	talkMaid: {
+		name: "Talk about becoming a maid",
+		passage: "talkMaid",
+		finished: false,
+		progress: 0,
+		time: 30,
+		start: true,
+		check: function() {
+			return [5,6].includes($player.perversion.guardian);
+		}
+	},
+	talkFuta: {
+		name: "Talk about shemales",
+		passage: "talkFuta",
+		finished: false,
+		progress: 0,
+		time: 60,
+		start: true,
+		check: function() {
+			return $kink.futa && ($player.perversion.assistant gte 6 || $player.perversion.teacher gte 7);
+		}
+	},
+	talkPenisShrinking: {
+		name: "Talk about chastity being too tight",
+		passage: "talkPenisShrinking",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: true,
+		check: function() {
+			return $kink.penisShrink && $therapistTalks.talkChastityKey.finished;
+		}
+	},
+	talkPenisShrinkingEnd: {
+		name: "Talk about your penis diminished size",
+		passage: "talkPenisShrinkingEnd",
+		finished: false,
+		progress: 0,
+		time: 20,
+		start: false,
+		check: function() {
+			return $kink.penisShrink;
+		}
+	}
+}
+>>\
+\
+<<if (not $resetSwitch)>>\
+<<goto [[Friend structures]]>>\
+<<endif>>\
+\
+
+
