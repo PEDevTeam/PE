@@ -1,0 +1,1138 @@
+:: Start
+\
+<<set $random={
+	getIntInclusive: function(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	},
+	stored: null,
+	store: function(maxArray) {
+		if (Array.isArray(maxArray)) {
+			this.stored=[];
+			for (var i=0; i lt maxArray.length; i++) {
+				this.stored.push(this.getIntInclusive(0, maxArray[i]));
+			}
+		} else {
+			this.stored=this.getIntInclusive(0, maxArray);
+		}
+	}
+}>>\
+<<set $time={
+	day: 0,
+	hour: 0,
+	minute: 0,
+	weekDay: function() {
+		return this.day % 7;
+	},
+	guardian: {
+		wakeHour: 0,
+		wakeMinute: 0,
+		isAwake: function() {
+			return ($time.hour * 60 + $time.minute) gte (this.wakeHour * 60 + this.wakeMinute);
+		},
+		isShowering: function() {
+			var t=($time.hour * 60 + $time.minute) - (this.wakeHour * 60 + this.wakeMinute);
+			return (t gte 0) && (t lte ($player.alarmClockGuardian ? 30 : 15));
+		}
+	},
+	addMinutes: function(minutes) {
+		this.minute+=minutes;
+		while (this.minute gte 60) {
+			this.addHours(1);
+			this.minute-=60;
+		}
+	},
+	addHours: function(hours) {
+		this.hour+=hours;
+		while (this.hour gte 24) {
+			this.day++;
+			this.hour-=24;
+		}
+	},
+	newDay: function() {
+		if ((this.day eq 0) || (this.hour gte 15)) {
+			this.day++;
+		}
+		this.guardian.wakeHour=8;
+		this.guardian.wakeMinute=0;
+		if ($player.owns($items.alarmClock) || $player.isMaid()) {
+			this.hour=7;
+			this.minute=30;
+			if (!$player.alarmClockGuardian) {
+				this.guardian.wakeMinute=$random.getIntInclusive(1, 3)*15;
+			}
+		} else if ($player.alarmClockGuardian) {
+			this.hour=8;
+			this.minute=0;
+		} else {
+			this.hour=8;
+			this.minute=0;
+			this.addMinutes($random.getIntInclusive(1, 14)*5);
+			this.guardian.wakeHour=this.hour;
+			this.guardian.wakeMinute=this.minute;
+		}
+		if ($player.blowjobsToday gt $player.maxBlowjobs) {
+			$player.maxBlowjobs++;
+			$player.flags.moreBlowjobs=true;
+		} else {
+			$player.flags.moreBlowjobs=false;		
+		}
+		$player.blowjobsToday=0;
+		$player.flags.bribePaid=false;
+		$player.flags.bribeFail=false;
+		$dreamgame.state.reset();
+		$coachgame.state.reset();
+	},
+	isWeekend: function() {
+		return (this.day % 7 eq 0) || (this.day % 7 eq 6);
+	},
+	isMonday: function() {
+		return (this.day % 7 eq 1);
+	},
+	isFriday: function() {
+		return (this.day % 7 eq 5);
+	},
+	isThursday: function() {
+		return (this.day % 7 eq 4);
+	},
+	isSaturday: function() {
+		return (this.day % 7 eq 6);
+	},
+	isSunday: function() {
+		return (this.day % 7 eq 0);
+	},
+	minutesToStr: function(minutes) {
+		var m=minutes;
+		var d=Math.floor(m / 1440);
+		m-=d*1440;
+		var h=Math.floor(m / 60);
+		var s='';
+		if (d gt 0) {
+			s=d + ' day' + (d gt 1 ? 's' : '');
+		}
+		if (h gt 0) {
+			if (d gt 0) {
+				s+=', ';
+			}
+			s+=h + ' hour' + (h gt 1 ? 's' : '');
+		}
+		if (d eq 0 && h eq 0) {
+			return 'Just now';
+		} else {
+			return s + ' ago';
+		}
+	}
+}>>\
+<<set $bribeAmount=0>>\
+<<set $showimages=true>>\
+<<set $scene="">>\
+<<set $status="">>\
+<<set $selectScene = {}>>\
+<<set $player={
+	name: "",
+	debugA: false,
+	debugM: false,
+	debugQ: false,
+	debugN: 0,
+	money: 0,
+	bought: "",
+	daring: 0,
+	arousal: 0,
+	eager: 0,
+	reluctant: 0,
+	workLastDay: 0,
+	blowjobsToday: 0,
+	maxBlowjobs: 1,
+	heelsSkill: 0,
+	daysInPanties: 0,
+	hairColor: 1,
+	quickSet: 0,
+	shoppingType: 0,
+	sleepCheck: 0,
+	chastityUsedTo: 0,
+	vibratorUsedTo: 0,
+	uploadType: 0,
+	checkPlace: 0,
+	semiPermBoobs: 0,
+	semiPermLips: 0,
+	semiPermAss: 0,
+	semiPermManicure: 0,
+	semiPermMakeup: 0,
+	semiPermAnal: 0,
+	permBoobs: 0,
+	permLips: 0,
+	permAss: 0,
+	permManicure: 0,
+	permMakeup: 0,
+	permAnal: 0,
+	masturbationType: 0,
+	buttplugInflate: 0,
+	alarmProgress: 0,
+	bjDildoProgress: 0,
+	choresPercent: 100,
+	choreSpeed: 1,
+	currentChore: 0,
+	choreFails: 0,
+	choreFailsCurrent: 0,
+	choreFailPercent: 0,
+	chorePunishmentHeels: 0,
+	chorePunishmentDildo: 0,
+	chorePunishmentDildoCooldown: 0,
+	chorePunishmentDildoLimit: 3,
+	salonTab: 0,
+	salonSoftLimit: 400,
+	salonLimit: 1000,
+	schoolLastDay: 0,
+	schoolTruantDays: 0,
+	therapistMode: false,
+	therapistLastDay: 0,
+	therapistDays: [],
+	therapistTime: 0,
+	activateTherapist: function(numDays) {
+		this.therapistMode=true;
+		if (numDays lt 4) {
+			var d=$time.day+1;
+			for (var i=0; i lt numDays; i++) {
+				this.therapistDays.push(d % 7);
+				d+=Math.floor(7 / numDays);
+			}
+		} else {
+			this.therapistDays.push([1,2,3,4,5]);
+		}
+	},
+	room: {
+		style: 0,
+		lamp: 0,
+		morning: 0,
+		junkMax: 11,
+		junkMaxGirl: 5,
+		junk: [],
+		jacket: 0,
+		tie: 0,
+		girljacket: 0,
+		skirt: 0,
+		girlstie: 0,
+		drawer: false
+	},
+	daringFlag: {
+		bathroomDoor: false,
+		bribe: false,
+		snooping: false,
+		sleepingGrope: false,
+		femaleClothes: false,
+		femaleUnderwear: false,
+		toiletsMasturbating: false,
+		noUnderwear: false,
+		posingtoCoach: false,
+		handjob: false,
+		bjBully: false,
+		coachGame: false,
+		coachGameWin: false,
+		stunBully: false,
+		quickFemaleSchool: false,
+		quickFemaleCasual: false
+	},
+	tasks: {
+		penalty: 0,
+		penaltyMonday: 0,
+		punSeverity: 0,
+		lastPunName: 0,
+		aphrodisiacDuration: 0,
+		penaltySkipped: false,
+		penaltyCollar: false,
+		penaltyWaxed: false,
+		penaltyClinic: false,
+		penaltyTrials: false,
+		penaltySissyShow: false,
+		nailPolishPenalty: false,
+		nailPolishPenaltyOver: false,
+		refusedToPay: false,
+		refusedToCrossdress: false
+	},
+	jobs: {
+		active: false,
+		salonPlan: 0,
+		fastfoodPerversion: 0,
+		adultstoreActive: false,
+		adultstorePerversion: 0,
+		maidActive: false,
+		maidPerversion: 0,
+		workedToday: false
+	},
+	flags: {
+		arrowsHelp: false,
+		roomHelp: false,
+		avatarHelp: false,
+		checkSelfHelp: false,
+		bribePaid: false,
+		bribeTransfered: false,
+		bribeFail: false,
+		forcedHorny: false,
+		showDreamImage: false,
+		restlessDream: false,
+		catStuff: false,
+		foxStuff: false,
+		arcadeWin: false,
+		PSBoxAnnoyed: false,
+		exhausted: false,
+		tired: false,
+		redecorate: false,
+		roomFuschia: false,
+		roomOrchid: false,
+		roomBdsm: false,
+		spyCamLooked: false,
+		sleepGuardianRoom: false,
+		schoolWalk: false,
+		aprilsFools: false,
+		aprilsFoolsChast: false,
+		trainingCockSuck: false,
+		penisShrinkSleep: false,
+		penisShrinkPunishment: false,
+		walletForgottenStart: false,
+		walletForgottenEnd: false,
+		firstBuyDress: false,
+		firstBuyShoes: false,
+		firstBuyPanties: false,
+		firstBuyBras: false,
+		firstBuyStockings: false,
+		firstBuyFemale: false,
+		secondBuyFemale: false,
+		friendNamed: false,
+		friendIsMale: true,
+		friendButtplugGame: false,
+		friendNakedMassage: false,
+		friendNoticeSalonPenalty: false,
+		friendNoticeMakeup: false,
+		friendNoticeBreastsDD: false,
+		friendNoticeBreastsC: false,
+		friendNoticeBreastsB: false,
+		friendNoticeTattooHeart: false,
+		friendNoticeLipsEnhancing: false,
+		friendNoticeLipsEnhancingXL: false,
+		friendNoticeManicure: false,
+		friendNoticeNoseClassic: false,
+		friendNoticeNoseButton: false,
+		friendNoticeNosePiggy: false,
+		friendNoticeBeautyMark: false,
+		friendNoticePiercingEars: false,
+		friendNoticePiercingLips: false,
+		friendNoticePiercingNose: false,
+		friendNoticePiercingTongue: false,
+		friendNoticeHairMedium: false,
+		friendNoticeHairLong: false,
+		friendNoticeHairPigtails: false,
+		friendNoticeHairCurly: false,
+		maidWriter: false,
+		maidUniform: false,
+		teacherPanties: false,
+		hairRibbon: false,
+		heelsOff: false,
+		batteriesExpire: false,
+		bathroomPeep: false,
+		nightieSleep: false,
+		sleepWarning: false,
+		sissyConfession: false,
+		sissyConfessionStart: false,
+		sissyConfessionShown: false,
+		mallBlowjob: false,
+		jogger: false,
+		clinicDonorsHelp: false,
+		femaleSchool: false,
+		femaleClass: false,
+		femaleHall: false,
+		heelsFall: false,
+		schoolButtplug: false,
+		schoolChastity: false,
+		nailGloss: false,
+		cameraRecording: false,
+		pissRecorded: false,
+		pissDrunk: false,
+		pissCaught: false,
+		assistantTaskGiven: false,
+		bullyTaskGiven: false,
+		bullyRecorded: false,
+		bullySucked: false,
+		bullySteal: false,
+		bullyDoubleteam: false,
+		touristsMeet: false,
+		whoreRecorded: false,
+		whoreFucked: false,
+		newBoyfriendIntro: false,
+		newBoyfriend: false,
+		guardianEvil: false,
+		guardianBoyfriendIntro: false,
+		guardianCumDrink: false,
+		guardianCondoms: false,
+		guardianCondomsAsk: false,
+		guardianCondomsDone: false,
+		guardianSnooping: false,
+		guardianSnoopingCaught: false,
+		guardianWork: false,
+		talkClinicWork: false,
+		guardianBfAgree: false,
+		guardianBfBlame: false,
+		guardianFuckedByStrapon: false,
+		guardianTeacherTalk: false,
+		guardianPunishDressUp: false,
+		guardianPunishVibrator: false,
+		guardianRuinedDress: false,
+		straponForced: false,
+		teacherNoticeHairRemovalPerm: false,
+		teacherNoticeManicure: false,
+		teacherNoticeManicurePerm: false,
+		teacherNoticeNoseClassic: false,
+		teacherNoticeNoseButton: false,
+		teacherNoticeNosePiggy: false,
+		teacherNoticeBreastsDD: false,
+		teacherNoticeBreastsC: false,
+		teacherNoticeBreastsB: false,
+		teacherNoticeBreastsA: false,
+		teacherNoticeAssEnhancingXL: false,
+		teacherNoticeLipsEnhancingXL: false,
+		teacherNoticePiercingLips: false,
+		teacherNoticePiercingNose: false,
+		teacherNoticePiercingBelly: false,
+		teacherNoticePiercingTongue: false,
+		teacherNoticePiercingNipples: false,
+		teacherNoticeSubtleMakeup: false,
+		teacherNoticeNormalMakeup: false,
+		teacherNoticeBimboMakeup: false,
+		teacherNoticeHeavyMakeup: false,
+		teacherNoticeAnalSmooth2: false,
+		teacherNoticeAnalSmooth3: false,
+		guardianNoticesalonPenalty: false,
+		guardianNoticeNormalMakeup: false,
+		guardianNoticeBimboMakeup: false,
+		guardianNoticeHeavyMakeup: false,
+		guardianNoticeBreastsDD: false,
+		guardianNoticeBreastsC: false,
+		guardianNoticeBreastsB: false,
+		guardianNoticeBreastsA: false,
+		guardianNoticetattooHeart: false,
+		guardianNoticeLipsEnhancing: false,
+		guardianNoticeLipsEnhancingXL: false,
+		guardianNoticeManicure: false,
+		guardianNoticeGarishManicure: false,
+		guardianNoticenoseClassic: false,
+		guardianNoticenoseButton: false,
+		guardianNoticenosePiggy: false,
+		guardianNoticebeautyMark: false,
+		guardianNoticePiercingEars: false,
+		guardianNoticePiercingLips: false,
+		guardianNoticePiercingNose: false,
+		guardianNoticePiercingTongue: false,
+		guardianNoticeHairShort: false,
+		guardianNoticeHairMedium: false,
+		guardianNoticeHairLong: false,
+		guardianNoticeHairPigtails: false,
+		guardianNoticeHairCurly: false,
+		guardianNoticeChastity: false,
+		guardianShopping: false,
+		guardianShopCloth: false,
+		guardianShopPhoto: false,
+		guardianShopAdult: false,
+		guardianShopTrig: false,
+		gTrialLatexMaid: false,
+		gTrialPenisGag: false,
+		gTrialGiantVibroPlug: false,
+		gTrialStrapOn: false,
+		guardianStrapon: false,
+		gTrialBalletHeels: false,
+		gTrialCorset: false,
+		gTrialChains: false,
+		gTrialCollar: false,
+		gTrialWhip: false,
+		gTrialToilet: false,
+		WebHorseCock: false,
+		shoesCheck: false,
+		laundryAccident: false,
+		laundryAccident2: false,
+		vibratorCaught: false,
+		uploadDone: false,
+		uploadCaught: false,
+		boyfriendCaught: false,
+		dreamgameCaught: false,
+		dreamgameCaughtWin: false,
+		dreamgameCaughtTalk: false,
+		chastityKey: false,
+		chastityLocked: false,
+		collarLocked: false,
+		wardrobeSelector: true,
+		wardrobeSelectorFull: true,
+		chastityWarning: false,
+		lockedWeekend: false,
+		chastityAgree: false,
+		coachPosing: false,
+		coachPosingHappy: false,
+		coachPosingAngry: false,
+		buttplugLost: false,
+		taskGuideHandGirl: false,
+		taskGuideHandWomanMan: false,
+		taskGuideHandCouple: false,
+		taskGuideHandTrap: false,
+		roomOffer: false,
+		choreCheck: false,
+		choreLazy: false,
+		confiscatedPSBox: false,
+		confiscatedInternet: false,
+		confiscatedVibrator: false,
+		chorePunishment: false,
+		chorePunMode: false,
+		choreReward: false,
+		choreRewAllowance: false,
+		chorePunAllowance: false,
+		choreRewCallOfHonor: false,
+		choreRewSpinning: false,
+		chorePunishmentHeels: false,
+		chorePunishmentDildo: false,
+		checkingGift: false,
+		choreForcedFail: false,
+		dominatrixDress: false,
+		newCallOfHonorPlayed: false,
+		chorePunOffer: false,
+		chorePunKinky: false,
+		choreRewClothes: false,
+		salonVisited: false,
+		salonVisitedFirst: false,
+		salonHairRemoval: false,
+		salonManicure: false,
+		salonMakeup: false,
+		salonBreast: false,
+		salonLips: false,
+		salonNose: false,
+		salonAss: false,
+		salonPenis: false,
+		salonCorset: false,
+		salonAnal: false,
+		salonSemiPerm: false,
+		salonPickNose: false,
+		salonPenalty: false,
+		salonPenaltyPayed: false,
+		salonPiggyCoin: false
+	},
+	perversion: {
+		guardian: 0,
+		guardianCooldown: 0,
+		guardianWatch: 0,
+		guardianCorruption: 0,
+		teacher: 0,
+		teacherCooldown: 0,
+		teacherPermChastity: 0,
+		therapist: 0,
+		therapistCooldown: 0,
+		therapistTalk: 0,
+		therapistTalkLevel: 0,
+		assistant: 0,
+		bullies: 0,
+		boyfriend: 0,
+		coach: 0,
+		photogirl: 0,
+		friend: 0,
+		upload: 0,
+		uploadCooldown: 0,
+		crossdressing: 0,
+		mall: 0,
+		noseWagerCount: 0,
+		bjFirst: 0,	// 1-Bully, 2-Coach
+		bjSkill: 0,
+		analFirst: 0, // 1-Guardian, 2-Photo shop girl, 3-Coach, 4-Guardians boyfriend 
+		analSkill: 0
+	},
+	detention: false,
+	isWearing: function(item) {
+		return this.clothes.indexOf(item.name) gte 0;
+	},
+	isWearingOn: function(clothingType) {
+		var o;
+		for (var j=0; j lt Object.keys($items).length; j++) {
+			o=$items[Object.keys($items)[j]];
+			if ((o.clothingType & clothingType) gt 0) {
+				if (this.clothes.indexOf(o.name) gte 0) {
+					return o;
+				}
+			}
+		}
+		return false;
+	},
+	getItemByName: function(name) {
+		var o;
+		for (var j=0; j lt Object.keys($items).length; j++) {
+			o=$items[Object.keys($items)[j]];
+			if (o.name == name) {
+				return o;
+			}
+		}
+		return false;
+	},
+	getNaked: function() {
+		var c=this.isWearingOn($itemTypes.Chastity);
+		this.clothes=[];
+		if (c && (this.flags.chastityKey || this.flags.chastityLocked)) {
+			this.clothes.push(c.name);
+		}
+	},
+	addPenalty:	function (penalties) {
+		if (penalties lt this.tasks.penalty) {
+			this.tasks.penalty += penalties/this.tasks.penalty;
+		}
+		if (penalties eq this.tasks.penalty) {
+			this.tasks.penalty += 1;
+		}
+		if (penalties gt this.tasks.penalty) {
+			this.tasks.penalty = penalties;
+		}
+		if (this.day % 7 eq 1) {
+			if (penalties lt this.tasks.penaltyMonday) {
+				this.tasks.penaltyMonday += penalties/this.tasks.penaltyMonday;
+			}
+			if (penalties eq this.tasks.penaltyMonday) {
+				this.tasks.penaltyMonday += 1;
+			}
+			if (penalties gt this.tasks.penaltyMonday) {
+				this.tasks.penaltyMonday = penalties;
+			}
+			this.tasks.penaltyMonday = 0.01*Math.floor(100*this.tasks.penaltyMonday);
+		}
+		this.tasks.penalty = 0.01*Math.floor(100*this.tasks.penalty);
+	},
+	updateSeverity:	function (penalties) {
+		if (penalties == 0 and this.tasks.punSeverity gt 1) {
+			this.tasks.punSeverity -= 1;
+		}
+		if (penalties gte this.tasks.punSeverity) {
+			this.tasks.punSeverity += 1;
+			if (penalties gt (this.tasks.punSeverity*2)) {
+				this.tasks.punSeverity += 1;
+			}
+		}
+	},
+	masturbate: {
+		lastDay: 0,
+		lastHour: 0,
+		lastMinute: 0,
+		refractoryMinutes: 180,
+		DayTemp: 0,
+		HourTemp: 0,
+		MinuteTemp: 0,
+		DayTease: 0,
+		HourTease: 0,
+		MinuteTease: 0,
+		daysToHalfHorny: 1,
+		daysToHorny: 5,
+		isReady: function() {
+			return (($time.day * 1440 + $time.hour * 60 + $time.minute) - (this.lastDay * 1440 + this.lastHour * 60 + this.lastMinute)) gte this.refractoryMinutes;
+		},
+		isCalm: function() {
+			return ($time.day * 1440 + $time.hour * 60 + $time.minute) lte (this.DayTemp * 1440 + this.HourTemp * 60 + this.MinuteTemp);
+		},
+		isTeased: function() {
+			return ($time.day * 1440 + $time.hour * 60 + $time.minute) lte (this.DayTease * 1440 + this.HourTease * 60 + this.MinuteTease);
+		},
+		sinceLastCum: function() {
+			return ($time.day * 1440 + $time.hour * 60 + $time.minute) - (this.lastDay * 1440 + this.lastHour * 60 + this.lastMinute);
+		},
+		tease: function(hours) {
+			this.DayTease=$time.day;
+			this.HourTease=$time.hour;
+			this.MinuteTease=$time.minute;
+			this.HourTease+=hours;
+			while (this.HourTease gte 24) {
+				this.DayTease++;
+				this.HourTease-=24;
+			}
+		},
+		tempRelief: function(hours) {
+			if (this.isCalm()) {
+				return;
+			}
+			$player.changeArousal(5);
+			$player.flags.forcedHorny=false;
+			this.DayTemp=$time.day;
+			this.HourTemp=$time.hour;
+			this.MinuteTemp=$time.minute;
+			this.HourTemp+=hours;
+			while (this.HourTemp gte 24) {
+				this.DayTemp++;
+				this.HourTemp-=24;
+			}
+		},
+		cum: function() {
+			$player.changeArousal(-100);
+			$player.status.setStatus("Satisfied",3,0);
+			$player.flags.forcedHorny=false;
+			this.lastDay=$time.day;
+			this.lastHour=$time.hour;
+			this.lastMinute=$time.minute;
+		}
+	},
+	changeArousal: function(Delta) {
+		$player.arousal=Math.floor($player.arousal + Delta);
+		$player.arousal=Math.max($player.arousal, 0);
+		$player.arousal=Math.min($player.arousal, 100);
+	},
+	upArousalTo: function(Delta, Max) {
+		var change=Math.max(Max - $player.arousal, 0);
+		$player.arousal=Math.floor($player.arousal + change);
+		$player.arousal=Math.max($player.arousal, 0);
+		$player.arousal=Math.min($player.arousal, 100);
+	},
+	status: {
+		endDay: 0,
+		endHour: 0,
+		endMinute: 0,
+		scenesCounter: 0,
+		setStatus: function(string, scenes, hours) {
+			$status=string;
+			this.scenesCounter=scenes;
+			this.endDay=$time.day;
+			this.endHour=$time.hour+hours;
+			this.endMinute=$time.minute;
+			while (this.endHour gte 24) {
+				this.endDay++;
+				this.endHour-=24;
+			}
+		},
+		checkStatus: function() {
+			if ($status neq "") {
+				if ((($time.day * 1440 + $time.hour * 60 + $time.minute) gt (this.endDay * 1440 + this.endHour * 60 + this.endMinute)) || this.scenesCounter lte 0) {
+					$status="";
+					return false;
+				}
+				this.scenesCounter--;
+				return true;
+			}
+			return false;
+		}
+	},
+	isHalfHorny: function() {
+		return (!this.isNotHorny() && !this.isHorny());
+	},
+	isNotHorny: function() {
+		return $player.arousal lt 20;
+		/*	return (($time.day * 1440 + $time.hour * 60 + $time.minute) - (this.masturbate.lastDay * 1440 + this.masturbate.lastHour * 60 + this.masturbate.lastMinute)) lt 1440 * this.masturbate.daysToHalfHorny;	*/
+	},
+	isHorny: function() {
+		return $player.arousal gte 50;
+		/*	return ((($time.day * 1440 + $time.hour * 60 + $time.minute) - (this.masturbate.lastDay * 1440 + this.masturbate.lastHour * 60 + this.masturbate.lastMinute)) gt 1440 * this.masturbate.daysToHorny) || this.flags.forcedHorny;	*/
+	},
+	hornyLevel: function() {
+		if (this.isNotHorny()) {return 0;}
+		if (this.isHalfHorny()) {return 1;}
+		if (this.isHorny()) {return 2;}
+		return 0;
+	},
+	isMind_0: function() {
+		return (this.perversion.therapist lt 4);
+	},
+	isMind_1: function() {
+		return (this.perversion.therapist eq 4);
+	},
+	isMind_2: function() {
+		return (this.perversion.therapist gt 4);
+	},
+	isMind: function() {
+		if (this.isMind_0()) {return 0;}
+		if (this.isMind_1()) {return 1;}
+		if (this.isMind_2()) {return 2;}
+		return 0;
+	},
+	isMaid: function() {
+		return (this.perversion.guardian gte 5);
+	},
+	isButtslut: function() {
+		return (this.perversion.teacher gte 8);
+	},
+	isWaxed: function() {
+		return (this.owns($items.Waxing));
+	},
+	isHairless: function() {
+		return (this.owns($items.Depilatory) || this.owns($items.LaserHairRemoval));
+	},
+	haveHaircut: function() {
+		return (this.owns($items.HairShort) || this.owns($items.HairMedium) || this.owns($items.HairLong) || this.owns($items.HairPigtails) || this.owns($items.HairCurly));
+	},
+	hairStyle: function() {
+		var style = 0;
+		if (this.owns($items.HairShort)) { style = 1; }
+		if (this.owns($items.HairMedium)) { style = 2; }
+		if (this.owns($items.HairLong)) { style = 3; }
+		if (this.owns($items.HairPigtails)) { style = 4; }
+		if (this.owns($items.HairCurly)) { style = 5; }
+		return style;
+	},
+	scoreMakeup: function() {
+		var makeupStyle = 0;
+		if (this.owns($items.SubtleMakeup)) { makeupStyle = 1; }
+		if (this.owns($items.NormalMakeup)) { makeupStyle = 2; }
+		if (this.owns($items.BimboMakeup)) { makeupStyle = 3; }
+		if (this.owns($items.HeavyMakeup)) { makeupStyle = 4; }
+		return makeupStyle;
+	},
+	scoreBoobs: function() {
+		var boobsSize = 0;
+		if (this.owns($items.breastImplantsA)) { boobsSize = 1; }
+		if (this.owns($items.breastImplantsB)) { boobsSize = 2; }
+		if (this.owns($items.breastImplantsC)) { boobsSize = 3; }
+		if (this.owns($items.breastImplantsDD)) { boobsSize = 4; }
+		return boobsSize;
+	},
+	scoreAss: function() {
+		var assSize = 0;
+		if (this.owns($items.AssEnhancing)) { assSize = 1; }
+		if (this.owns($items.AssEnhancingXL)) { assSize = 2; }
+		return assSize;
+	},
+	scoreLips: function() {
+		var lipsSize = 0;
+		if (this.owns($items.LipsEnhancing)) { lipsSize = 1; }
+		if (this.owns($items.LipsEnhancingXL)) { lipsSize = 2; }
+		return lipsSize;
+	},
+	scoreAnalSmooth: function() {
+		var analSmooth = 0;
+		if (this.owns($items.analSmoothing1)) { analSmooth = 1; }
+		if (this.owns($items.analSmoothing2)) { analSmooth = 2; }
+		if (this.owns($items.analSmoothing3)) { analSmooth = 3; }
+		return analSmooth;
+	},
+	haveMakeup: function() {
+		return (this.owns($items.SubtleMakeup) || this.owns($items.NormalMakeup) || this.owns($items.BimboMakeup) || this.owns($items.HeavyMakeup));
+	},
+	haveBimboMakeup: function() {
+		return (this.owns($items.BimboMakeup) || this.owns($items.HeavyMakeup));
+	},
+	haveHeavyMakeup: function() {
+		return (this.owns($items.HeavyMakeup));
+	},
+	havePermanentMakeup: function() {
+		return (this.permMakeup gt 0 || this.semiPermMakeup gt 0);
+	},
+	haveGirlyFace: function() {
+		return ((this.scoreMakeup() gt 1) || this.owns($items.softeningFacial) || this.owns($items.surgeryFacial));
+	},
+	haveBoobs: function() {
+		return (this.owns($items.breastImplantsA) || this.owns($items.breastImplantsB) || this.owns($items.breastImplantsC) || this.owns($items.breastImplantsDD));
+	},
+	haveBplus: function() {
+		return (this.owns($items.breastImplantsB) || this.owns($items.breastImplantsC) || this.owns($items.breastImplantsDD));
+	},
+	haveCplus: function() {
+		return (this.owns($items.breastImplantsC) || this.owns($items.breastImplantsDD));
+	},
+	haveLips: function() {
+		return (this.owns($items.LipsEnhancing) || this.owns($items.LipsEnhancingXL));
+	},
+	haveAss: function() {
+		return (this.owns($items.AssEnhancing) || this.owns($items.AssEnhancingXL));
+	},
+	slutScoreBasic: function() {
+		var score=0;
+		var s=this.isWearingOn($itemTypes.Shoes);
+		var st=(this.isWearing($items.stilettoHeels) || this.isWearing($items.maidOutfit));
+		var o=this.isWearingOn($itemTypes.Outerwear);
+		var u=this.isWearingOn($itemTypes.Underwear);
+		var b=this.isWearingOn($itemTypes.AnalPlug);
+		var c=this.isWearingOn($itemTypes.Chastity);
+		var e=this.isWearingOn($itemTypes.Earrings);
+		// Score
+		if ((this.haveHeavyMakeup() && this.owns($items.LipsEnhancingXL) && this.owns($items.breastImplantsDD) && this.owns($items.AssEnhancingXL)) || (this.haveHeavyMakeup() && this.owns($items.breastImplantsDD) && this.haveLips() && this.haveAss() && (e && e.slutty) && (st))) {
+			score=9;
+			return score;
+			// total whore
+		}
+		if ((this.haveHeavyMakeup() && (e && e.slutty) && (st)) || (this.haveHeavyMakeup() && (this.owns($items.LipsEnhancingXL) || this.owns($items.breastImplantsDD) || this.owns($items.AssEnhancingXL))) || (this.haveMakeup() && this.haveCplus() && this.haveLips() && this.haveAss() && (e && e.slutty) && (st))) {
+			score=8;
+			return score;
+			// whorish girl
+		}
+		if (this.haveHeavyMakeup() || (this.haveBimboMakeup() && (st)) || (this.haveBimboMakeup() && this.haveCplus() && this.haveLips() && this.haveAss()) || (this.haveMakeup() && this.haveCplus() && this.haveLips() && (e) && (s && s.slutty))) {
+			score=7;
+			return score;
+			//slutty girl
+		}
+		if (this.haveGirlyFace() && this.haveHaircut() && this.haveLips() && (this.haveCplus() || ((this.haveBplus() || this.haveAss()) && (s && s.slutty)))) {
+			score=6;
+			return score;
+			//sexy girl
+		}
+		if (this.haveGirlyFace() && this.haveHaircut() && (this.haveBplus() || this.haveLips() || this.haveAss())) {
+			score=5;
+			return score;
+			//ordinary girl
+		}
+		if (this.haveGirlyFace() || ((this.hairStyle() gt 1) && this.haveMakeup()) || this.haveBplus()) {
+			score=4;
+			return score;
+			//plain looking girl
+		}
+		if (this.haveHaircut() || (this.owns($items.HairShort) && this.isHairless() && (this.owns($items.breastImplantsA) || this.owns($items.Manicure) || this.haveMakeup()))) {
+			score=3;
+			return score;
+			//very feminine boy
+		}
+		if (this.owns($items.breastImplantsA) || this.owns($items.Manicure) || (this.isHairless() && (!o || (o && o.female)))) {
+			score=2;
+			return score;
+			//feminine boy
+		}
+		if ((u && u.female) || (c) || (b)) {
+			score=1;
+			return score;
+			//ordinary boy
+		}
+		return score;
+	},
+	slutScore: function() {
+		var score=this.slutScoreBasic();
+		var o=this.isWearingOn($itemTypes.Outerwear);
+		if (o) {
+			if (o.female) {
+				score+=10;
+				}
+			if (o.slutty) {
+				score+=10;
+				}
+		}
+		return score;
+	},
+	heelsCheck: function() {
+		var s=$player.isWearingOn($itemTypes.Shoes);
+		if (s) {
+			if (s.daringRec gt 6) {
+				if (($random.getIntInclusive(0, 10) gte this.heelsSkill) && ($random.getIntInclusive(0, 2) eq 0)) {
+					this.heelsSkill=this.heelsSkill+1;
+					this.flags.heelsFall=true;
+					return true;
+				}
+				if ($random.getIntInclusive(0, 9) gte this.heelsSkill) {
+					this.heelsSkill=this.heelsSkill+1;
+				}
+				return false;
+			}
+			if (s.daringRec gt 3) {
+				if (($random.getIntInclusive(0, 5) gte this.heelsSkill) && ($random.getIntInclusive(0, 2) eq 0)) {
+					this.heelsSkill=this.heelsSkill+1;
+					this.flags.heelsFall=true;
+					return true;
+				}
+				if ($random.getIntInclusive(0, 4) gte this.heelsSkill) {
+					this.heelsSkill=this.heelsSkill+1;
+				}
+				return false;
+			}
+		}
+		return false;
+	},
+	alarmClockGuardian: false,
+	camera: {
+		bathroom: false,
+		bedroom: false
+	},
+	batteryExpireDay: 0,
+	batterySneakDay: 0,
+	surgery: {
+		breasts: false,
+		face: false,
+	},
+	hasSurgery: function() {
+		return this.surgery.breasts || this.surgery.face;
+	},
+	bribeDiscount: 0,
+	bribeDay: 1,
+	bribeIncrease: 10,
+	bribeCap: 200,
+	friendLastVisit: 0,
+	payBribe: function() {
+		this.money=this.money-Math.max(0, $bribeAmount-this.bribeDiscount);
+		this.bribeDiscount=0;
+		$bribeAmount=this.nextBribeAmount();
+		this.flags.bribePaid=true;
+	},
+	payBribePartial: function() {
+		this.bribeDiscount=this.bribeDiscount+this.money;
+		this.bribeDiscount=this.bribeDiscount-$bribeAmount;
+		this.money=0;
+		this.flags.bribePaid=true;
+		this.flags.bribeFail=true;
+		$bribeAmount=this.nextBribeAmount();
+	},
+	payBribeRefusal: function() {
+		this.bribeDiscount=this.bribeDiscount-$bribeAmount;
+		this.flags.bribePaid=true;
+		this.flags.bribeFail=true;
+		$bribeAmount=this.nextBribeAmount();
+	},
+	nextBribeAmount: function() {
+		return Math.min($bribeAmount + this.bribeIncrease, this.bribeCap);
+	},
+	owns: function(item) {
+		return $inventory.indexOf(item.name) gte 0;
+	},
+	ownsType: function(clothingType) {
+		for (var j=0; j lt Object.keys($items).length; j++) {
+			o=$items[Object.keys($items)[j]];
+			if ((o.clothingType & clothingType) gt 0) {
+				if (this.clothes.indexOf(o.name) gte 0) {
+					return true;
+				}
+			}
+		}
+		return false;
+	},
+	clothes: [],
+	saveQuickSlot: function(slot) {
+		var cl=$player.clothes;
+		if ((cl.length eq 0) || ((cl.length eq 1) && (this.isWearingOn($itemTypes.Chastity)))) {
+			this.deleteQuickSlot(slot);
+			return;
+			}
+		$quickSlot[slot].types=[];
+		$quickSlot[slot].clothes=[];
+		for (var i=0; i lt $player.clothes.length; i++) {
+			var c=$player.clothes[i];
+			for (var j=0; j lt Object.keys($items).length; j++) {
+				var o=$items[Object.keys($items)[j]];
+				if (this.owns(o) && (o.name eq c) && (o.clothingType neq $itemTypes.Chastity)) {
+					$quickSlot[slot].clothes.push(o.name);
+					var t=0;
+					if (o.maxAlt) {
+						t=o.curAlt;
+					}
+					$quickSlot[slot].types.push(t);
+				}
+			}
+		}
+	},
+	deleteQuickSlot: function(slot) {
+		var max=$quickSlot.length - slot;
+		for (var i=0; i lt max; i++) {
+			var n=slot+i;
+			var n2=slot+i+1;
+			if (n2 gte $quickSlot.length) {
+				$quickSlot[n].types=[];
+				$quickSlot[n].clothes=[];
+				return;
+			}
+			if (($quickSlot[n2].clothes.length eq 0) || (not $quickSlot[n2].extra)) {
+				$quickSlot[n].types=[];
+				$quickSlot[n].clothes=[];
+				return;
+			}
+			$quickSlot[n].name=$quickSlot[n2].name;
+			$quickSlot[n].types=$quickSlot[n2].types;
+			$quickSlot[n].clothes=$quickSlot[n2].clothes;
+		}
+	},
+	loadQuickSlot: function(slot) {
+		var ch=this.isWearingOn($itemTypes.Chastity);
+		this.clothes=[];
+		if (ch) {
+			this.clothes.push(ch.name);
+		}
+		for (var i=0; i lt $quickSlot[slot].clothes.length; i++) {
+			var c=$quickSlot[slot].clothes[i];
+			for (var j=0; j lt Object.keys($items).length; j++) {
+				var o=$items[Object.keys($items)[j]];
+				if (this.owns(o) && (o.name eq c) && (o.clothingType neq $itemTypes.Chastity)) {
+					$player.clothes.push(c);
+					if (o.maxAlt) {
+						o.curAlt=$quickSlot[slot].types[i];
+					}
+				}
+			}
+		}
+	},
+	wearPajamas: function() {
+		var c=this.isWearingOn($itemTypes.Chastity);
+		this.clothes=[];
+		if (c) {
+		this.clothes.push(c.name);
+		}
+		var o;
+		for (var i=0; i lt Object.keys($items).length; i++) {
+			o=$items[Object.keys($items)[i]];
+			if (o.sleepWear && this.owns(o) && ((this.perversion.guardian gte 2) || !o.female)) {
+				this.clothes.push(o.name);
+				return;
+			}
+		}
+	}
+}>>\
+<<set $days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]>>\
+<<set $taskMoney={
+	teacher: {
+		femaleUnderwear: 10,
+		femaleClothing: 15,
+		buttplug: 5,
+		insertedPanties: 20,
+		chastity: 10,
+		assistant: 15,
+		bullySex: 20,
+		piss: 60,
+		whore: 80,
+		schoolslut: 30,
+		coachPosing: 15,
+		coachSucking: 25,
+		coachWhoring: 15
+	},
+	upload: {
+		task: 30,
+		s_task: 50
+	},
+	therapist: {
+		special_hypnosis: 50,
+		hypnosis: 20
+	}
+}>>\
+\
+<<set $email={
+    messages: [],
+    activeIndex: -1,
+    activeMessage: function() {
+        return this.messages[this.activeIndex];
+    },
+    addMessage: function(sender, subject, availableInDays) {
+        var m={
+            sender: null,
+            subject: null,
+            body: "",
+			image: "email_anonimous.jpg",
+            date: null,
+            viewed: false,
+            passage: {
+                name: null,
+                repeat: false
+            },
+            allowInbox: true,
+            delete: false
+        };
+        m.sender=sender;
+        m.subject=subject;
+        m.date=$time.day;
+        this.messages.unshift(m);
+        return m;
+    },
+    clean: function() {
+        for (var i=this.messages.length-1; i gte 0; i--) {
+            if (this.messages[i].delete) {
+                this.messages.splice(i, 1);
+            }
+        }
+    },
+    cleanAll: function() {
+        this.messages=[];
+    },
+    setActiveByIndex: function(index) {
+        this.activeIndex=index;
+    }
+}>>\
+\
+<<set $showStats to false>>\
+\
+<<if (not $resetSwitch)>>\
+<<goto [[Setup structures]]>>\
+<<endif>>\
+\
+
+

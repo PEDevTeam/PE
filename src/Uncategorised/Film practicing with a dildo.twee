@@ -1,0 +1,49 @@
+:: Film practicing with a dildo [pos_216_1085]
+\
+<<if not $player.owns($items.vibrator)>>\
+	You don't have any vibrators.
+	
+	[[Return|Go to bedroom]]
+<<elseif $player.flags.confiscatedVibrator>>\
+	Your vibrator is confiscated by $guardian.
+	
+	[[Return|Go to bedroom]]
+<<else>>\
+	<<print '<<showImage "general" "task_dildo_bj_'+random(1)+'.gif">>'>>\
+	You take out your vibrating dildo and set up your phone's camera to record.
+	
+	<<if $player.isMind_0()>>\
+		@@.hero;I can't believe I'm recording myself doing this...@@ 
+		
+		You wrap your lips around the head of the dildo before sliding it into your mouth. You hold it there, gagging a little on the soft plastic, for as long as you can, before spitting it out, coughing as you catch your breath.
+	<<elseif $player.isMind_1()>>\
+		You wrap your lips around the head of the dildo before sliding it into your mouth. 
+		
+		@@.hero;Huh. This isn't so bad...@@ 
+		
+		You hold it there, deepthroating the soft plastic, feeling your throat muscles flex around the invader. After a couple of seconds you pull the dildo smoothly from your mouth, and can't stop yourself from giving the camera a wink before you turn it off. 
+		
+		@@.hero;Why did I do that?@@
+	<<else>>\
+		You stare directly into the camera as you wrap your lips around the head of the dildo. Your lips play over its head for a moment before you slide the whole thing into your mouth. 
+		
+		@@.hero;Oh, this feels nice...@@ 
+		
+		You hold it there, relishing the feeling of having your mouth and throat so full, for a slow count of ten. You moan softly as you pull the fat dildo from your mouth, nuzzling and kissing it as you pant at the camera. 
+		
+		@@.hero;fuck me, I could really go for a real cock right now.@@
+	<<endif>>\
+	
+	<<if ($tasksTeacher.trainDildoBJ.status eq 1)>>\
+		<<set $tasksTeacher.trainDildoBJ.status = 2>>\
+	<<endif>>\
+	<<if ($tasksEmail.WebcamDeepthroat.status gte 2)>>\
+		<<set $tasksEmail.WebcamDeepthroat.status = 3>>\
+		After some time the familiar *bing* from your computer notifies you that a new video of you training with the dildo has successfully recorded.
+
+		[[Send video|UploadPorn]]
+	<<endif>>\
+	[[Return|Go to bedroom]]
+<<endif>>\
+
+

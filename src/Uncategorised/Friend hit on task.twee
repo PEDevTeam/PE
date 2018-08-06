@@ -1,0 +1,32 @@
+:: Friend hit on task [pos_5048_46]
+\
+You tell $friend that for homework in drama class, you have to record being hit on by a guy. He laughs. @@.friend;"No problem. I bet some people in your class will have trouble though. I bet some lonely nerd will have to find a random guy in the mall and end up getting their lights punched out."@@
+
+You both go out to the street, prop your phone on a fence and hit record. You stand against a light pole doing your best to look alluring, while $friend walks into shot. He stops and looks at you, tilts his hips, and puts a finger to his lips in an exaggerated pose.
+
+@@.friend;"Hey sexy"@@ he says to you in an over the top voice, @@.friend;"you doing anything later?"@@ You both lose it immediately and laugh hard. You ask him to try again, but less faggy. 
+
+@@.friend;"Got it"@@ he says.
+
+You both reset your positions, and this time he stops, grabs his crotch, and says @@.friend;"Ooh baby, get over here and suck my cock."@@ You both laugh again, then spend the next 20 minutes toning it down to something that finally seems believable.
+
+You decide to head home to edit the video, so you say goodbye. \
+<<set _rr to $friendRiddles.getRandomRiddle()>>\
+<<if _rr>>\
+	@@.friend;"Hey, I've got a riddle for you"@@ $friend says. @@.friend;"_rr.question"@@
+		
+	You think about it for a moment.
+		
+	@@.friend;"_rr.answer"@@. You grin at $misc.friend.his_her bad joke. \
+<<endif>>\
+@@.friend;"See you next time, $player.name!"@@
+<<set $player.perversion.friendTaskUse = $player.perversion.friendTaskUse + 1>>\
+<<if $player.perversion.friendTaskUse gt 2>>\
+	<<set $tasksTeacher.getHitOn.status to 100>>\
+<<else>>\
+	<<set $tasksTeacher.getHitOn.status to 2>>\
+<<endif>>\
+
+[[Return home|Go to bedroom][$time.addMinutes(30)]]
+
+

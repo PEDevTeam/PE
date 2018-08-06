@@ -1,0 +1,657 @@
+:: Stat Widgets [pos_2302_12 widget]
+\
+<<widget "Daring">>\
+	<<if $args[0] gt $player.daring>>\
+		@@.statUp;You feel <<if ($args[0]-$player.daring) gt 1>>much <<endif>>more daring!@@
+		<<set $player.daring=$args[0]>>\
+	<<endif>>\
+	
+<</widget>>\
+
+<<widget "CheckUnderwear">>\
+	<<set _u=$player.isWearingOn($itemTypes.Underwear)>>\
+	<<set _o=$player.isWearingOn($itemTypes.Outerwear)>>\
+	<<if _u and _u.female and (not $dreamsGuardian.Panties.active)>>\
+		<<set $dreamsGuardian.Panties.active = true>>\
+	<<endif>>\
+	<<if _o and _o.female and (not $therapistTalks.talkCrossdressing.start)>>\
+		<<set $therapistTalks.talkCrossdressing.start=true>>\
+	<<endif>>\
+	<<if _u and _u.female and _u.slutty and (not $player.daringFlag.femaleUnderwear)>>\
+		<<set $player.daringFlag.femaleUnderwear to true>>\
+		It's a little bit scary walking outside wearing slutty female underwear, and it feels like everyone who looks at you can tell.
+
+		<<Daring 4>>\
+	<<endif>>\
+<</widget>>\
+
+<<widget "updateClothes">>\
+<<nobr>>\
+<<replace "#sidebar_clothes">>
+<<if $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
+@@.sidebarImages;
+	<<set _curClothes=[$player.isWearingOn($itemTypes.Outerwear),
+							$player.isWearingOn($itemTypes.Earrings),
+							$player.isWearingOn($itemTypes.Collar),
+							$player.isWearingOn($itemTypes.Hairband),
+							$player.isWearingOn($itemTypes.Extra),
+							$player.isWearingOn($itemTypes.Bras),
+							$player.isWearingOn($itemTypes.Chastity),
+							$player.isWearingOn($itemTypes.Underwear),
+							$player.isWearingOn($itemTypes.AnalPlug),
+							$player.isWearingOn($itemTypes.Shoes),
+							$player.isWearingOn($itemTypes.Stockings)]>>
+
+	<<if _curClothes[8].name eq $items.buttPlugInflate.name>>
+		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5);>>
+		<<set _curClothes[8].image to "buttplug_inflate_">>
+		<<set _curClothes[8].image to _curClothes[8].image + $player.buttplugInflate>>
+		<<set _curClothes[8].image to _curClothes[8].image + ".jpg">>
+	<<endif>>	
+	
+	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
+	
+		<<if $player.flags.gTrialLatexMaid>>\
+			<<set _curClothes[0] = { image: "maid_dress_latex.jpg" }>>
+		<<else>>
+			<<set _curClothes[0] = { image: "maid_dress.jpg" }>>
+		<<endif>>
+		
+		<<if (not _curClothes[2])>>
+			<<if $player.flags.gTrialLatexMaid>>\
+				<<set _curClothes[2] = { image: "choker_05.jpg" }>>
+			<<else>>
+				<<set _curClothes[2] = { image: "choker_00.jpg" }>>
+			<<endif>>
+		<<endif>>
+		
+		<<set _curClothes[3] = { image: "maid_headband.jpg" }>>
+		
+		<<if (not _curClothes[4])>>
+			<<set _curClothes[4] = { image: "maid_duster.jpg" }>>
+		<<endif>>
+		
+		<<if $player.flags.gTrialBalletHeels>>
+			<<wearClothing $items.balletHeels.name>>
+			<<set _curClothes[9] = $items.balletHeels>>
+		<<else>>\
+			<<if $player.flags.gTrialLatexMaid>>
+				<<wearClothing $items.stilettoHeels.name>>
+				<<set $items.stilettoHeels.curAlt=39>>
+				<<set _curClothes[9] = $items.stilettoHeels>>
+			<<else>>
+				<<wearClothing $items.highHeel3.name>>
+				<<set $items.highHeel3.curAlt=39>>
+				<<set _curClothes[9] = $items.highHeel3>>
+			<<endif>>
+		<<endif>>
+		
+		<<if $player.flags.gTrialLatexMaid>>\
+			<<if _curClothes[10].name neq $items.stockingsLatex.name>>
+				<<wearClothing $items.stockingsLatex.name>>
+				<<set $items.stockingsLatex.curAlt=39>>
+				<<set _curClothes[10] = $items.stockingsLatex>>
+			<<endif>>
+		<<else>>
+			<<wearClothing $items.stockings.name>>
+			<<set $items.stockings.curAlt=39>>
+			<<set _curClothes[10] = $items.stockings>>
+		<<endif>>
+		
+	<<endif>>
+	
+	<<set _combineSlot=0>>
+	<<if _curClothes[1]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[2]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[3]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[4]>><<set _combineSlot++>><<endif>>
+	
+	<<for _i to 0; _i lt _curClothes.length; _i++>>
+
+		<<set _small=false>>
+
+		<<if [5,6].includes(_i) and (not $player.secondInvLine)>>
+			<<continue>>
+		<<endif>>
+
+		<<if (_combineSlot eq 0) and [2,3,4].includes(_i)>>
+			<<continue>>
+		<<elseif (_combineSlot eq 1) and (not _curClothes[_i]) and [1,2,3,4].includes(_i)>>
+			<<continue>>
+		<<elseif (_combineSlot gt 1) and [1,2,3,4].includes(_i)>>
+			<<if [2,4].includes(_i)>>
+				<<set _small=1>>
+			<<else>>
+				<<set _small=2>>
+			<<endif>>
+		<<endif>>
+
+		<<if _curClothes[_i]>>
+
+			<<if (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
+				<<showImageSidebar _curClothes[_i].image _curClothes[_i].curAlt _small _i>>
+			<<else>>
+				<<showImageSidebar _curClothes[_i].image 100 _small _i>>
+			<<endif>>
+
+		<<else>>
+
+			<<showImageSidebar "blank_item.png" 100 _small 11>>
+
+		<<endif>>
+
+		<<if (_combineSlot lte 1) and [1,2,3,4].includes(_i)>>
+			<br>
+			<<continue>>
+		<<endif>>
+		
+		<<if (_combineSlot gt 1) and [4].includes(_i)>>
+			<br>
+			<<continue>>
+		<<endif>>
+		
+		<<if [6,8,10].includes(_i)>>
+			<br>
+			<<continue>>
+		<<endif>>
+		
+	<</for>>
+@@
+<!--</Clothes mini-images>-->
+<<elseif $showimages and $avatar.active>><!--<Avatar window>-->
+
+	<<set $avatarRender = true>>
+	
+	<div id="showClothes" class="sideframe_showclothes"></div>
+	
+	@@.transparent;.@@
+	
+	<<set _u=$player.isWearingOn($itemTypes.Underwear)>>
+	
+	<<switch $player.isMind()>>
+	<<case 0>>
+		<<set _arms="arms_relaxed.png">>
+	<<case 1>>
+		<<if $player.owns($items.GarishManicure)>>
+			<<set _arms="arms_spread_fake_nails.png">>
+		<<else>>
+			<<set _arms="arms_spread.png">>
+		<<endif>>
+	<<default>>
+		<<if $player.owns($items.GarishManicure)>>
+			<<set _arms="arms_flirty_fake_nails.png">>
+		<<else>>
+			<<set _arms="arms_flirty.png">>
+		<<endif>>
+	<</switch>>
+
+	<<if $player.scoreAss() eq 2>>
+		<<set _hips="hips_2.png">>
+		<<set _hs=2>>
+	<<elseif $player.scoreAss() eq 1>>
+		<<set _hips="hips_1.png">>
+		<<set _hs=1>>
+	<<else>>
+		<<set _hips="hips_0.png">>
+		<<set _hs=0>>
+	<<endif>>
+
+	<<set _f=$player.isWearingOn($itemTypes.Shoes)>>
+	<<if _f>>
+		<<if _f.female>>
+			<<if _f.daringRec gte 6>>
+				<<if _f.curAlt eq 0>>
+					<<set _feets="feets_stripper_a.png">>
+				<<elseif _f.curAlt eq 1>>
+					<<set _feets="feets_stripper_b.png">>
+				<<elseif _f.curAlt eq 2>>
+					<<set _feets="feets_stripper_c.png">>
+				<<else>>
+					<<set _feets="feets_stripper_d.png">>
+				<<endif>>
+			<<else>>
+				<<if _f.curAlt eq 0>>
+					<<set _feets="feets_heels_a.png">>
+				<<elseif _f.curAlt eq 2>>
+					<<set _feets="feets_heels_b.png">>
+				<<elseif _f.curAlt eq 3>>
+					<<set _feets="feets_heels_c.png">>
+				<<else>>
+					<<set _feets="feets_heels_d.png">>
+				<<endif>>
+			<<endif>>
+		<<else>>
+			<<if _f.school>>
+				<<set _feets="feets_shoes.png">>
+			<<else>>
+				<<set _feets="feets_sneakers.png">>
+			<<endif>>
+		<<endif>>
+	<<else>>
+		<<if $player.heelsSkill lte 6>>
+			<<set _feets="feets_stand.png">>
+		<<else>>
+			<<set _feets="feets_stretch.png">>
+		<<endif>>
+	<<endif>>
+	
+	<<if $player.owns($items.breastImplantsDD)>>
+		<<set _chest="chest_dd.png">>
+		<<set _bs=4>>
+	<<elseif $player.owns($items.breastImplantsC)>>
+		<<set _chest="chest_c.png">>
+		<<set _bs=3>>
+	<<elseif $player.owns($items.breastImplantsB)>>
+		<<set _chest="chest_b.png">>
+		<<set _bs=2>>
+	<<elseif $player.owns($items.breastImplantsA)>>
+		<<set _chest="chest_a.png">>
+		<<set _bs=1>>
+	<<else>>
+		<<set _chest="chest_male.png">>
+		<<set _bs=0>>
+	<<endif>>
+	
+	<<if $player.owns($items.surgerySexualReassignment)>>
+		<<set _groin="groin_pussy.png">>
+	<<elseif $player.isWearingOn($itemTypes.Chastity)>>
+		<<if $player.owns($items.PenisShrinking)>>
+			<<set _groin="groin_chastity_1.png">>
+		<<else>>
+			<<set _groin="groin_chastity_2.png">>
+		<<endif>>
+	<<else>>
+		<<if $player.owns($items.PenisShrinking)>>
+			<<set _groin="groin_penis_1.png">>
+		<<else>>
+			<<set _groin="groin_penis_2.png">>
+		<<endif>>
+	<<endif>>
+	
+	<<if $player.haveHeavyMakeup()>>
+		<<if $player.owns($items.tattooHeart)>>
+		<<set _face="face_makeup_3_heart.png">>
+		<<else>>
+		<<set _face="face_makeup_3.png">>
+		<<endif>>
+	<<elseif $player.haveBimboMakeup()>>
+		<<if $player.owns($items.tattooHeart)>>
+		<<set _face="face_makeup_2_heart.png">>
+		<<else>>
+		<<set _face="face_makeup_2.png">>
+		<<endif>>
+	<<elseif $player.haveMakeup()>>
+		<<if $player.owns($items.tattooHeart)>>
+		<<set _face="face_makeup_1_heart.png">>
+		<<else>>
+		<<set _face="face_makeup_1.png">>
+		<<endif>>
+	<<else>>
+		<<if $player.owns($items.tattooHeart)>>
+		<<set _face="face_makeup_0_heart.png">>
+		<<else>>
+		<<set _face="face_makeup_0.png">>
+		<<endif>>
+	<<endif>>
+	
+	<<if $player.owns($items.LipsEnhancingXL)>>
+		<<if $player.haveHeavyMakeup()>>
+			<<set _lips="lips_33.png">>
+		<<elseif $player.haveBimboMakeup()>>
+			<<set _lips="lips_32.png">>
+		<<elseif $player.haveMakeup()>>
+			<<set _lips="lips_31.png">>
+		<<else>>
+			<<set _lips="lips_30.png">>
+		<<endif>>
+	<<elseif $player.owns($items.LipsEnhancing)>>
+		<<if $player.haveHeavyMakeup()>>
+			<<set _lips="lips_23.png">>
+		<<elseif $player.haveBimboMakeup()>>
+			<<set _lips="lips_22.png">>
+		<<elseif $player.haveMakeup()>>
+			<<set _lips="lips_21.png">>
+		<<else>>
+			<<set _lips="lips_20.png">>
+		<<endif>>
+	<<else>>
+		<<if $player.haveHeavyMakeup()>>
+			<<set _lips="lips_13.png">>
+		<<elseif $player.haveBimboMakeup()>>
+			<<set _lips="lips_12.png">>
+		<<elseif $player.haveMakeup()>>
+			<<set _lips="lips_11.png">>
+		<<else>>
+			<<set _lips="lips_10.png">>
+		<<endif>>
+	<<endif>>
+	
+	<<if $player.haveHaircut()>>
+		<<if $player.owns($items.HairShort)>>
+			<<set _hair="hair_short_">>
+		<<elseif $player.owns($items.HairMedium)>>
+			<<set _hair="hair_medium_">>
+		<<elseif $player.owns($items.HairLong)>>
+			<<set _hair="hair_long_">>
+		<<elseif $player.owns($items.HairPigtails)>>
+			<<set _hair="hair_tails_">>
+		<<elseif $player.owns($items.HairCurly)>>
+			<<set _hair="hair_curly_">>
+		<<endif>>
+		<<if $player.hairColor eq 0>>
+			<<set _hair+="black.png">>
+		<<elseif $player.hairColor eq 1>>
+			<<set _hair+="brown.png">>
+		<<elseif $player.hairColor eq 2>>
+			<<set _hair+="red.png">>
+		<<elseif $player.hairColor eq 3>>
+			<<set _hair+="blonde.png">>
+		<<elseif $player.hairColor eq 4>>
+			<<set _hair+="silver.png">>
+		<<else>>
+			<<set _hair+="pink.png">>
+		<<endif>>
+	<<else>>
+		<<set _hair="hair_default_brown.png">>
+	<<endif>>
+	
+	<<set _sk=false>>
+	
+	
+	<<if $avatar.mode eq 0>>
+		<<if $player.isWearing($items.sluttyDress) or $player.isWearing($items.skirtTop)>>
+			<<set _chest="clothes_slutty_top_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _sk=true>>
+			<<if _u>>
+				<<set _chest2="clothes_slutty_skirt_hips_">>
+			<<else>>
+				<<set _chest2="clothes_slutty_skirt_low_hips_">>
+			<<endif>>
+			<<set _chest2+=_hs>>
+			<<set _chest2+=".png">>
+		<<elseif $player.isWearing($items.schoolMale)>>
+			<<if _bs lte 2>>
+				<<set _bs = 0>>
+			<<endif>>
+			<<set _chest="clothes_school_male_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _arms="none">>
+		<<elseif $player.isWearing($items.schoolFemale)>>
+			<<if _bs eq 2>>
+				<<set _bs = 1>>
+			<<endif>>
+			<<if _hs gt 0>>
+				<<set _sk=true>>
+				<<set _chest2="clothes_school_female_hips_">>
+				<<set _chest2+=_hs>>
+				<<set _chest2+=".png">>
+			<<endif>>
+			<<set _chest="clothes_school_female_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _arms="none">>
+		<<elseif $player.isWearing($items.sluttyschoolFemale)>>
+			<<if _bs lt 2>>
+				<<set _bs = 2>>
+			<<endif>>
+			<<set _sk=true>>
+			<<set _chest="clothes_school_slutty_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _chest2="clothes_school_slutty_hips_">>
+			<<set _chest2+=_hs>>
+			<<set _chest2+=".png">>
+			<<set _arms="none">>
+		<<elseif $player.isWearing($items.silkyTeddy)>>
+			<<if _bs eq 2>>
+				<<set _bs = 1>>
+			<<endif>>
+			<<set _chest="clothes_nightie_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _arms="none">>
+		<<elseif $player.isWearing($items.pyjamasMale)>>
+			<<set _chest="clothes_pyjamas_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _arms="none">>
+		<<elseif $player.isWearing($items.maidOutfit)>>
+			<<set _chest="clothes_maid_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+			<<set _feets="feets_maid_heels.png">>
+		<<elseif $player.isWearing($items.summerDress)>>
+			<<if (_bs lte 3) and (_bs gte 1)>>
+				<<set _bs = 1>>
+			<<endif>>
+			<<set _chest="clothes_casual_dress_breasts_">>
+			<<set _chest+=_bs>>
+			<<set _chest+=".png">>
+		<<elseif $player.isWearing($items.casualMale)>>
+			<<set _chest="clothes_casual_br_">>
+			<<set _chest+=_bs>>
+			<<set _chest+="_hips_">>
+			<<set _chest+=_hs>>
+			<<set _chest+=".png">>
+			<<set _arms="none">>
+		<<endif>>
+	<<endif>>
+	
+	<<if $avatar.mode lte 1>>
+		<<if $player.isWearing($items.jocksLucky)>>
+			<<set _groin="underwear_boxers_hips_">>
+			<<set _groin+=_hs>>
+			<<set _groin+=".png">>
+		<<elseif $player.isWearing($items.pantiesCotton)>>
+			<<set _groin="underwear_cotton_hips_">>
+			<<set _groin+=_hs>>
+			<<set _groin+=".png">>
+		<<elseif $player.isWearing($items.pantiesLatex)>>
+			<<set _groin="underwear_satin_hips_">>
+			<<set _groin+=_hs>>
+			<<set _groin+=".png">>
+		<<elseif $player.isWearing($items.gString)>>
+			<<if $player.isWearingOn($itemTypes.Chastity)>>
+				<<set _groin="underwear_gstring_chastity_hips_">>
+			<<elseif $player.isHorny()>>
+				<<set _groin="underwear_gstring_alt_hips_">>
+			<<else>>
+				<<set _groin="underwear_gstring_hips_">>
+			<<endif>>
+			<<set _groin+=_hs>>
+			<<set _groin+=".png">>
+		<<endif>>
+	<<endif>>
+	
+	<<showAvatarImage "arms_spread_fake_nails">>
+	
+	<<showAvatarImage "arms_spread_fake_nails">>
+	
+	<<if _arms neq "none">>
+		<<showAvatarImage _arms>>
+	<<endif>>
+	
+	<<if _hips neq "none">>
+		<<showAvatarImage _hips>>
+	<<endif>>
+	
+	<<if _feets neq "none">>
+		<<showAvatarImage _feets>>
+	<<endif>>
+	
+	<<if _groin neq "none">>
+		<<showAvatarImage _groin>>
+	<<endif>>
+	
+	<<showAvatarImage _chest>>
+	
+	<<if _sk>>
+		<<showAvatarImage _chest2>>
+	<<endif>>
+	
+	<<if _face neq "none">>
+		<<showAvatarImage _face>>
+	<<endif>>
+	
+	<<if _lips neq "none">>
+		<<showAvatarImage _lips>>
+	<<endif>>
+	
+	<<if $player.owns($items.PiercingLips)>>
+		<<showAvatarImage "piercing_lips.png">>
+	<<endif>>
+	
+	<<if _face neq "none">>
+		<<showAvatarImage _hair>>
+	<<endif>>
+	
+	<<if $player.owns($items.PiercingEars)>>
+		<<if $player.isWearing($items.diamondStuds)>>
+			<<showAvatarImage "earrings_diamond.png">>
+		<<elseif $player.isWearing($items.rubyEarrings)>>
+			<<showAvatarImage "earrings_ruby.png">>
+		<<elseif $player.isWearing($items.hoopsEarrings)>>
+			<<showAvatarImage "earrings_hoops.png">>
+		<<endif>>
+	<<endif>>
+	
+<!--</Avatar window>-->
+<<elseif $player.clothes.length gt 0>>
+	<<for _i=0; _i<$player.clothes.length; _i++>>
+		$player.clothes[_i]<br>
+	<</for>>
+<<else>>
+	You are naked
+<<endif>>
+<</replace>>
+<</nobr>>\
+<</widget>>\
+
+<<widget "updateStats">>\
+<<nobr>>\
+<<replace "#sidebar_stats">>
+	<b>Daring:</b> $player.daring<br>
+	<<if $player.schoolTruantDays gt 0>>
+		<b>Truancy:</b> $player.schoolTruantDays<br>
+	<<endif>>
+	<b>Perversion:</b> <br>
+	<<print $guardian.toProperCase()>>:	$player.perversion.guardian<br>
+	$teacher: $player.perversion.teacher<br>
+	$therapist: $player.perversion.therapist<br>
+	<<if $player.flags.friendNamed>>
+		$friend: $player.perversion.friend<br>
+	<<endif>>
+	<<if $player.debugA>>
+		Penalty score: $player.tasks.penalty<br>
+	<<endif>>
+<</replace>>
+<</nobr>>\
+<</widget>>\
+
+<<widget "updateDebug">>\
+<<replace "#sidebar_debug">>\
+	[[Skip day|Daily resets][$time.hour=16; $time.newDay(); $player.debugN=50]] , \
+	[[Sleep|Daily resets][$time.hour=16; $time.newDay(); $player.debugN=50]] , \
+ 	[[Email|Go to bedroom][$player.debugN=100; $player.perversion.uploadCooldown=0]]
+	[[Visit therapist]] ,\
+	<<if $player.debugN eq 100>>\
+	<<set $player.debugN = 0>>\
+	<<display "Email request">>\
+	<<endif>>\
+	<<print "[[Beauty salon|Go to clinic]]">>\
+	<<if $player.debugN eq 2>>\
+		<<set $player.debugN = 0>>\
+		<<if (not $player.owns($items.gString))>>\
+			<<addToInv $items.gString.name>>\
+		<<endif>>\
+	<<elseif $player.debugN eq 3>>\
+		<<set $player.debugN = 0>>\
+		<<if (not $player.owns($items.chastityDevice))>>\
+			<<addToInv $items.chastityDevice.name>>\
+		<<endif>>\
+		<<if (not $player.owns($items.buttPlugHeart))>>\
+			<<addToInv $items.buttPlugHeart.name>>\
+		<<endif>>\
+	<<elseif $player.debugN eq 4>>\
+		<<set $player.debugN = 0>>\
+		<<if (not $player.owns($items.schoolFemale))>>\
+			<<addToInv $items.schoolFemale.name>>\
+		<<endif>>\
+		<<if (not $player.owns($items.highHeel3))>>\
+			<<addToInv $items.highHeel3.name>>\
+		<<endif>>\
+	<<endif>>\
+	<<if $player.perversion.teacher eq 0>>\
+	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $bribeAmount=50; $player.detention=false; $player.flags.bribePaid=true; $player.daringFlag.bribe=true]] \
+	<<elseif $player.perversion.teacher eq 1>>\
+	[[Teach perv 1 to 2|Go to bedroom][$player.perversion.teacher++;$player.daring=4; $player.debugN=2; $player.daringFlag.femaleUnderwear=true]] \
+	<<elseif $player.perversion.teacher eq 2>>\
+	[[Teach perv 2 to 3|Go to bedroom][$player.perversion.teacher++;$player.daring=5; $player.debugN=3; $player.flags.chastityKey=true; $player.daringFlag.toiletsMasturbating=true; $player.flags.femaleClass=true; $items.schoolFemale.disabled=false]] \
+	<<elseif $player.perversion.teacher eq 3>>\
+	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true]] \
+	<<elseif $player.perversion.teacher eq 4>>\
+	[[Teach perv 4 to 5|Go to bedroom][$player.perversion.teacher++;$player.daring=7; $player.daringFlag.posingtoCoach=true]] \
+	<<elseif $player.perversion.teacher eq 5>>\
+	[[Teach perv 5 to 6|Go to bedroom][$player.perversion.teacher++;$player.daring=8; $player.daringFlag.bjBully=true]] \
+	<<elseif $player.perversion.teacher eq 6>>\
+	[[Teach perv 6 to 7|Go to bedroom][$player.perversion.teacher++;$player.daring=9; $player.daringFlag.coachGame=true]] \
+	<<elseif $player.perversion.teacher eq 7>>\
+	[[Teach perv 7 to 8|Go to bedroom][$player.perversion.teacher++;$player.daring=10; $player.perversion.coach=9; $player.daringFlag.coachGameWin=true]] \
+	<<endif>>\
+	
+	<<if $player.perversion.guardian eq 0>>\
+	[[Guard perv 0 to 1|Good morning][$time.addHours(24);$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
+	<<elseif $player.perversion.guardian eq 1>>\
+	[[Guard perv 1 to 2|Good morning][$player.flags.dreamgameCaught=true]] \
+	<<elseif $player.perversion.guardian eq 2>>\
+	[[Guard perv 2 to 3|Good morning][$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
+	<<elseif $player.perversion.guardian eq 3>>\
+	[[Guard perv 3 to 4|Good morning][$player.flags.vibratorCaught=true]] \
+	<<elseif $player.perversion.guardian eq 4>>\
+	[[Guard perv 4 to 5|Good morning][$player.flags.uploadCaught=true; $player.perversion.upload=4]] \
+	<<elseif $player.perversion.guardian eq 5>>\
+	[[Guard perv 5 to 6-7|Maid cleaning][$player.perversion.guardianCooldown=10]] \
+	<<endif>>\
+	
+	<<if $player.perversion.therapist lt 5>>\
+	[[Therapist perv +1|Go to bedroom][$player.perversion.therapist++]]
+	<<endif>>\
+	<<if $player.perversion.friend lt 11>>\
+	[[Friend perv +1|Go to bedroom][$player.perversion.friend++]]
+	<<endif>>\
+	
+	<<print '<<click " Cooldowns ">><<set $player.perversion.teacherCooldown=10>><<set $player.perversion.guardianCooldown=10>><<updateDebug>><</click>>'>> Te=$player.perversion.teacherCooldown, Gu=$player.perversion.guardianCooldown\
+	
+	<<print '<<click " +500$ ">><<set $player.money+=500>><<updateDebug>><</click>>'>> $player.money\
+		
+	<<print '<<click " Skip day ">><<set $time.addHours(24)>><<display "Daily resets">><<updateDebug>><</click>>'>> $time.day\
+		
+	<<print '<<click " +Daring ">><<set $player.daring++>><<updateDebug>><</click>>'>> $player.daring\
+	
+	
+	<<if (not $resetSwitch)>>\
+		<<print '<<click " Reload scripts ">><<set $resetSwitch=true>><<updateDebug>><</click>>'>>\
+	<<else>>\
+		@@.info;Done@@
+		<<set $resetString=$save.export()>>\
+		<<display "Setup">>\
+		<<display "Setup structures">>\
+		<<display "Items structures">>\
+		<<display "Chores structures">>\
+		<<display "Dreams structures">>\
+		<<display "Tasks structures">>\
+		<<display "Setup logic">>\
+		<<display "Therapy structures">>\
+		<<display "Therapy talks structures">>\
+		<<display "Friend structures">>\
+		<<set $save.import($resetString)>>\
+		<<set $resetSwitch=false>>\
+		<<set $player.debugQ=true>>\
+	<<endif>>\
+<</replace>>\
+<</widget>>\
+
+

@@ -1,0 +1,94 @@
+:: Task crossdressAtPark [pos_2486_2904]
+\
+<<if $scene eq "walk at the park">>\
+	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
+	<<set $tasksTeacher.crossdressAtPark.progress++>>\
+	<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
+		<<if $player.isMind_0()>>\
+			You know a quiet place at the park where you won't be disturbed, and decide that's where you'll need to go to complete $teacher's task. It's still nerve-wracking to think of heading to such a public destination in girl's clothes, but taking a deep breath, you decide to go with it. Anyway, it will definitely be easier than whatever $teacher would probably make you do if you don't.
+		<<elseif $player.isMind_1()>>\
+			You know a quiet place at the park where you won't be disturbed. Still, it's going to be scary, even if it's also somewhat exciting, to be outside in such a public spot in girl's clothes. Taking a deep breath, you decide to go with it. After all, anything $teacher could come up with if you refused would definitely be worse.
+		<<elseif $player.isMind_2()>>\
+			You know a quiet place at the park where you won't be disturbed. You're actually a little excited about being outside in girl's clothes, and such a public destination makes it even more so. You think you might have tried this even if $teacher hadn't asked you to.
+		<<endif>>\
+	<<elseif $player.flags.clothesPurged>>\
+		Having no other choice, if you're going outside dressed as a girl, at least it will be somewhere quiet.
+	<<elseif $player.isMind_2()>>\
+		You feel giddy and excited at the thought of going to the park dressed as a girl.
+	<<endif>>\
+
+	You pack your\
+	<<if $player.owns($items.skirtTop)>>skirt and top<<else>>dress<<endif>>\
+	and go to the park in\
+	<<if $player.flags.clothesPurged>>\
+		<<if $player.owns($items.schoolMale)>>\
+			your school uniform, the only male clothes that you have now.
+		<<else>>\
+			an over-sized, dirty sportsuit you grab from basement. It gets you quite a few weird looks from passersby, but it's not like you have a choice.
+		<<endif>>\
+	<<else>>\
+		your casual clothes.
+	<<endif>>\
+	
+	There is a quiet place at a corner of the park, with an uneven ground and lot of thorny bushes, so there is little to no traffic. You glance around, ensuring that there is nobody nearby, and head for one of the toilet cabins. Inside, you quickly take off your clothes and put on your \
+	<<if $player.owns($items.skirtTop)>>skirt and top<<else>>dress<<endif>>.
+	
+	Keeping quiet with anticipation, you step gingerly out of the cabin. You let out a relieved sigh only when you see the secluded place is still empty, and are thankful to have made it without misadventure. Still trembling with anxiety from being outside in drag, you can't quite rid yourself of the feeling that somebody will come and catch you. You look for a soft place in the lush grass to rest.
+	
+	After a minute passes, and then a few more, you begin to notice how quiet and peaceful it is here. The wind sways the trees, the crickets chirp somewhere in the grass, and the sounds of the city fade into nothing. It feels like you're somewhere deep in the forest, far away from your normal life.
+	
+	You notice a colorful bug carrying a leaf, twice as large as the bug itself, heading somewhere on important bug business. Fascinated, you click a few pictures of it with your phone.
+	
+	You wonder if anyone else comes here to relax. It feels like you're the only person in the world right now. You realize with relief that your anxiety is gone, even if it still feels weird to wear\
+	<<if $player.owns($items.skirtTop)>>a skirt and top<<else>>a dress<<endif>>.\
+	It's more of a //interesting and unusual// feeling now than a //scary and dangerous// one.
+	
+	Carefree at last, you play with the bug, blocking his way with small twigs until you hear the crack of a dry leaf snapping nearby. Your heart jumps, but you quickly see the intruder is just a squirrel who has wandered over.
+	
+	Reaching in your pocket you retrieve a small bag of sunflower seeds, something you've taken with you to the park since you were small.
+	
+	You've never managed to feed a squirrel out of your hand before, despite the local rodents being infamous for almost mugging tourists for food. To your disappointment, the little beasts always evaded you, and you never knew why. You even got teased about it when you were younger.
+	
+	Feeling silly, you put your open palm with a handful of seeds on the ground, wondering if it will be different this time. The squirrel chatters at you, studying you with its little eyes, and it slowly takes a few bounds closer. About a step away from you, it twitches its little nose and freezes, looking at you. You hold your breath, trying not to move.
+	
+	A few seconds pass tensely, with both of you remaining motionless. At last, the squirrel closes the distance and grabs the treat from your palm. You squeal inside from excitement. The little creature begins nibbling seeds, one at a time, taking each from your hand with its tiny paw. Finally, it happened!
+	
+	It's the fulfillment of a childhood wish, you realize, but there's a difference. Instead of being the ranger 'friend of animals' you once imagined yourself, your imagination now paints you as a fairytale princess, charming wild beasts with your beauty. It feels odd to return to such a childlike fantasy place from such a different viewpoint, but it feels every bit as comforting.
+	
+	Startled by a noise, the squirrel scampers off, but you still feel giddy from your silly childhood dream coming true. You're glad that you've decided to come here today, despite your fears.
+
+	@@.hero;I guess it could be kind of cool to dress as a girl sometimes.@@
+	
+	You shudder, feeling a bit chilly from sitting on the ground so long. You get up, ready to go change back to your regular clothes, but find yourself hesitant about breaking the charm of your adventure. You even consider going home like that, feeling bold and oddly confident in yourself.
+	
+	[[Return to home while wearing the dress|Task crossdressAtPark][$scene="walk crossdressed"]]
+	[[Change back in the cabin|Task crossdressAtPark][$scene="change back"]]
+<<elseif $scene eq "walk crossdressed" or $scene eq "change back">>\
+	<<if $scene eq "walk crossdressed">>\
+		You decide to go back in girl's clothes.
+		
+		Halfway, you start having second thoughts about your idea. Shame and fear of your being discovered become much more real as you walk on populated streets. But despite your fears, the walk back goes by without any trouble. Only near your home do you have to detour to avoid a few neighbors.
+		
+		Finally, you get back to your house and slip into your room. The whole trip went far better than you expected.
+	<<elseif $scene eq "change back">>\
+		You decide to change back into your boys' clothes.
+		
+		You return to the restroom cabin without a hitch, but as you exit, you find a voluptuous woman waiting for the restroom. She doesn't say anything, but you avoid looking at her, embarrassed that it took you quite some time to change back to your male clothes.	
+		
+		You slowly walk to your home, surprising random passersby with your goofy smile. The expression keeps returning to your face as you recall the cute little animal munching on a treat from your hand. Whistling a little tune, you check your photos on your phone, marking the good ones to save in your //favorites// folder. You know it's silly, but you wonder if you would make a good fairytale princess.
+		
+		Finally, you get back to your home and slip into your room.
+	<<endif>>\
+	<<if ($player.perversion.crossdressing lte 4)>>\
+		<<set $player.perversion.crossdressing = 5>>\
+	<<elseif ($player.perversion.crossdressing eq 5)>>\
+		<<set $player.perversion.crossdressing = 6>>\
+		Maybe you needed to clear your head a bit or just relax and feel safe, but you realize that your fear about wearing female clothes outside has faded considerably. You still need to be careful and avoid neighbors or people who might recognize you, but you don't freeze at the thought of strangers seeing you in a dress anymore.
+		
+		@@.reward;You're able to go outside in female clothes.@@
+		
+	<<endif>>\
+	[[Go to your bedroom|Go to bedroom]]
+<<endif>>\
+
+

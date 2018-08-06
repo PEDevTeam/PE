@@ -1,0 +1,33 @@
+:: Basketball skill tester [pos_2412_2476]
+\
+<<showImage "general" "basketball.jpg">>\
+<<set $player.money-=1>>\
+<<set $time.addMinutes(5)>>\
+You put a dollar into the game and start shooting.
+
+<<set _bst to random(2)>>\
+<<if _bst eq 0>>\
+Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn't get any prize tickets.
+
+<<elseif _bst eq 1>>\
+Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it's only worth a dollar.
+
+@@.reward;You just won $1!@@
+
+<<set $player.money+=1>>\
+<<else>>\
+You're in the zone, and sink almost every basket. After you finish, you turn around to see a few girls watching you, but they smile and walk off before you can say anything. You grab your prize tickets and cash them in.
+
+@@.reward;You just won $5!@@
+
+<<set $player.money+=5>>\
+<<endif>>\
+What would you like to do now?
+
+<<if $misc.isArcadeOpen() and $player.money gt 0>>\
+	[[Play again|Basketball skill tester]]
+	[[Car racing video game]]
+<<endif>>\
+[[Return to the mall|Go to the mall]]
+
+

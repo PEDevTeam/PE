@@ -1,0 +1,16 @@
+:: Name friend [pos_4042_47]
+\
+Your best friend in the whole world is
+
+<<textbox "$friend" "Joshua" autofocus>>
+
+and is
+
+<<radiobutton "$player.flags.friendIsMale" true checked>> Male
+<<radiobutton "$player.flags.friendIsMale" false>> Female
+
+
+
+[[Go to your friend's house|Visit friend][$time.addMinutes(10);$misc.friend.setPronouns()]]
+
+

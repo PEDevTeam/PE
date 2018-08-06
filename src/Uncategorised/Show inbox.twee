@@ -1,0 +1,21 @@
+:: Show inbox [pos_300_1753]
+\
+<<set $email.clean()>>\
+<table class="inbox">
+    <tr class="header"><th>From</th><th>Subject</th><th>Date Received</th><th>Action</th></tr>
+    <<for _i=0; _i lt $email.messages.length; _i++>>\
+        <<if $email.messages[_i].viewed>>\
+			<<print '<tr class="email_read"><td>$email.messages[_i].sender</td><td>$email.messages[_i].subject</td><td>$email.messages[_i].date</td><td>[[Read|Read e-mail][$email.setActiveByIndex('+_i+')]]</td></tr>'>>\
+        <<else>>\
+			<<print '<tr class="email_unread"><td>$email.messages[_i].sender</td><td>$email.messages[_i].subject</td><td>$email.messages[_i].date</td><td>[[Read|Read e-mail][$email.setActiveByIndex('+_i+')]]</td></tr>'>>\
+        <<endif>>\
+    <</for>>\
+</table>\
+<<if $email.messages.length eq 0>>\
+    Your inbox is empty
+<<endif>>\
+
+[[Delete all|Show inbox][$email.cleanAll()]]
+[[Close E-mail|Go to bedroom]]
+
+

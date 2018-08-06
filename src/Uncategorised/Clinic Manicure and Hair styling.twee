@@ -1,0 +1,491 @@
+:: Clinic Manicure and Hair styling [pos_2920_448]
+\
+<<set _passage="Clinic Manicure and Hair styling">>\
+<<if $scene eq "">>\
+<<set _showManicureOptions = false>>\
+<<if $player.permManicure gte 2>>\
+	Nancy smiles upon seeing your permanent whorish manicure and asks if you want to change your hairstyle.
+<<elseif $player.flags.salonManicure>>\
+	Nancy smiles upon looking at your fresh manicure and asks if you want to change your hair style?
+<<else>>\
+	Nancy offers to work on your nails and asks if you want to change your hairstyle.
+<<endif>>\
+
+<img id="item_preview" class="hidden">\
+<<if not $player.flags.salonManicure>>\
+	<<if ($player.permManicure lte 0) and ($player.semiPermManicure lte 0)>>\
+		<<set _item=$items.Manicure>>\
+		<<set _sceneName="Manicure">>\
+		<<set _override=($tasksTeacherBody.manicure.status gt 0) or ($tasksTeacherBody.manicure_renewal.status gt 0)>>\
+		<<display "Clinic buy menu">>\
+\
+		<<set _item=$items.GarishManicure>>\
+		<<set _sceneName="GarishManicure">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if ($player.permManicure lte 0)>>\
+		<<set _item=$items.token>>\
+		<<set _override=false>>\
+		<<set _item.cost = 10*$items.Manicure.cost>>\
+		<<set _item.image = $items.Manicure.image>>\
+		<<set _item.daringRec = 8>>\
+		<<set _item.name = "Permanent manicure">>\
+		<<set _sceneName="PermanentManicure">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if ($player.permManicure lte 1)>>\
+		<<set _item=$items.token>>\
+		<<set _override=false>>\
+		<<set _item.cost = 3*$items.GarishManicure.cost>>\
+		<<set _item.image = $items.GarishManicure.image>>\
+		<<set _item.daringRec = 9>>\
+		<<set _item.name = "Permanent garish manicure">>\
+		<<set _sceneName="PermanentGarishManicure">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+<<endif>>\
+\
+<<set _item=$items.HairShort>>\
+	<<set _sceneName="HairShort">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<set _item=$items.HairMedium>>\
+	<<set _sceneName="HairMedium">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<set _item=$items.HairLong>>\
+	<<set _sceneName="HairLong">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<set _item=$items.HairPigtails>>\
+	<<set _sceneName="HairPigtails">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<set _item=$items.HairCurly>>\
+	<<set _sceneName="HairCurly">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<if $player.haveHaircut()>>\
+	<<set _item=$items.token>>\
+	<<set _override=false>>\
+	<<set _item.cost = 20>>\
+	<<set _item.daringRec = 3>>\
+\
+	<<if $player.owns($items.HairShort)>>\
+		<<set _hairLine = "hair_short_">>\
+	<<elseif $player.owns($items.HairMedium)>>\
+		<<set _hairLine = "hair_medium_">>\
+	<<elseif $player.owns($items.HairLong)>>\
+		<<set _hairLine = "hair_long_">>\
+	<<elseif $player.owns($items.HairPigtails)>>\
+		<<set _hairLine = "hair_pigtails_">>\
+	<<elseif $player.owns($items.HairCurly)>>\
+		<<set _hairLine = "hair_curly_">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 0>>\
+		<<set _sceneName="Black">>\
+		<<set _item.image = _hairLine+"black.jpg">>\
+		<<set _item.name = "Hair color - Black">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 1>>\
+		<<set _sceneName="Brown">>\
+		<<set _item.image = _hairLine+"brown.jpg">>\
+		<<set _item.name = "Hair color - Brown">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 2>>\
+		<<set _sceneName="Red">>\
+		<<set _item.image = _hairLine+"red.jpg">>\
+		<<set _item.name = "Hair color - Red">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 3>>\
+		<<set _sceneName="Blonde">>\
+		<<set _item.image = _hairLine+"blonde.jpg">>\
+		<<set _item.name = "Hair color - Blonde">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 4>>\
+		<<set _sceneName="Silver">>\
+		<<set _item.image = _hairLine+"silver.jpg">>\
+		<<set _item.name = "Hair color - Silver">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+\
+	<<if $player.hairColor neq 4>>\
+		<<set _sceneName="Pink">>\
+		<<set _item.image = "hairpink.jpg">>\
+		<<set _item.image = _hairLine+"pink.jpg">>\
+		<<display "Clinic buy menu">>\
+	<<endif>>\
+<<endif>>\
+
+[[Return|Beauty Salon][$scene=""; $random.stored=0]]
+\
+	<!--<Clinic manicure>-->\
+<<elseif $scene eq "Manicure">>\
+	<<set _previousManicure = 0>>\
+	<<if $player.owns($items.GarishManicure)>>\
+		<<removeFromInv $items.GarishManicure.name>>\
+		<<set _previousManicure = 2>>\
+	<<endif>>\
+	<<if $player.owns($items.Manicure)>>\
+		<<set _previousManicure = 1>>\
+	<<endif>>\
+	<<set _item=$items.Manicure>>\
+	<<buyItem _item.name>>\
+	<<set $player.flags.salonManicure to true>>\
+
+	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
+
+	<<if _previousManicure eq 2>>\
+		First, she soaks the tips of your fingers in a bowl containing a transparent liquid. Soon, the bond holding your old, garish acrylic nails begins to dissolve and Nancy pops them lose, finishing up with a small brush to remove any leftover residue from your natural nails.
+
+		Next, she lifts your feet into a purpose-made stool with a little basin of the same liquid in it, and she repeats the process with your toenails.
+		
+		@@.nurse;"I'll replace these with a nice, tasteful French manicure and pedicure."@@
+	<<elseif _previousManicure eq 1>>\
+		She soaks the tips of your fingers in bowl containing a transparent liquid. Soon, the bond holding your old acrylic nails begins to dissolve, and then she removes any trace residue with a small brush.
+
+		Next, she lifts your feet into a purpose-made stool with a little basin of the same liquid in it, and she repeats the process with your toenails.
+		
+		@@.nurse;"Let's get these nails looking good again.@@
+	<<else>>\
+		@@.nurse;"These should last about a week,"@@ she says cheerfully as she gets to work.
+		
+		@@.nurse;"I'll be giving you a nice, tasteful French manicure and pedicure."@@
+	<<endif>>\
+	
+	You leave yourself in her more-than-capable hands as she applies fresh acrylic nails on your fingers, buffing them to a brilliant shine once all ten are securely in place.
+
+	Before you know it, the procedure is complete and you have a set of beautiful nails on your very feminine fingers and toes.
+
+	<<if _previousManicure gte 1>>\
+		@@.nurse;"Same as before - I'll see you next week for your next nail treatment."@@
+	<<else>>\
+		@@.nurse;"These may take a bit of getting used to,"@@ she says, @@.nurse;"especially if you've never had long nails before."@@ She giggles, @@.nurse;"But I'm sure //you'll// pick it up fast."@@
+	<<endif>>\
+	
+	@@.reward;You now have a beautiful French manicure and pedicure!@@
+
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+\
+<<elseif $scene eq "GarishManicure">>\
+	<<set _previousManicure = 0>>\
+	<<if $player.owns($items.Manicure)>>\
+	<<removeFromInv $items.Manicure.name>>\
+		<<set _previousManicure = 1>>\
+	<<endif>>\
+	<<if $player.owns($items.GarishManicure)>>\
+		<<set _previousManicure = 2>>\
+	<<endif>>\
+	<<set _item=$items.GarishManicure>>\
+	<<buyItem _item.name>>\
+	<<set $player.flags.salonManicure to true>>\
+	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
+
+	<<if _previousManicure eq 2>>\
+		First, she soaks the tips of your fingers in a bowl containing a transparent liquid. Soon, the bond holding your old, garish acrylic nails begins to dissolve and Nancy pops them lose, finishing up with a small brush to remove any trace residue from your natural nails.
+
+		Next, she lifts your feet into a purpose-made stool with a little basin of the same liquid in it, and she repeats the process with your toenails.
+		
+		@@.nurse;"Lets get this manicure on!@@
+
+	<<elseif _previousManicure eq 1>>\
+		She soaks the tips of your fingers in bowl containing a transparent liquid. Soon, the bond holding your old French-manicured acrylic nails begins to dissolve, and then she removes any trace residue with a small brush.
+
+		Next, she lifts your feet into a purpose-made stool with a little basin of the same liquid in it, and she repeats the process with your toenails.
+
+		@@.nurse;"I'll do a much more stylish mani-pedi this time."@@
+	<<else>>\
+		@@.nurse;"These nails should last about a week,"@@ she states as she gets to work.
+		
+		@@.nurse;"I'll be giving you a //really// stylish manicure and pedicure."@@
+	<<endif>>\
+
+	You watch as she capably applies long, whorishly painted nails on your fingers and toes, her reassuring smile putting you at ease while she enthusiastically turns her stylistic tastes lose on you.
+
+	Before you know it, the process is finished and she helps you up from the spa chair. As you catch your reflection, you can't help but note the dramatically out-sized effect of such little things as your nails.
+
+	<<if _previousManicure gte 1>>\
+		@@.nurse;"I'll see you again next week for your next nail treatment."@@
+	<<else>>\
+		@@.nurse;"These may take a bit of getting used to,"@@ she says, @@.nurse;"especially if you've never had long nails before."@@ She giggles, @@.nurse;"But I'm sure //you'll// pick it up fast."@@
+	<<endif>>\
+	
+	@@.reward;You now have a garish, streetwallker-style manicure and pedicure!@@
+
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+\
+<<elseif $scene eq "PermanentManicure">>\
+	<<if $player.owns($items.GarishManicure)>>\
+	<<removeFromInv $items.GarishManicure.name>>\
+	<<endif>>\
+	<<set _item=$items.Manicure>>\
+	<<buyItem _item.name>>\
+	<<set $player.permManicure = 1>>\
+	<<set $player.flags.salonManicure to true>>\
+	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially-sealed bag.
+
+	She gives your hands and feet a relaxing rubdown, then applies a soothing pomice scrub to them, removing any traces of hair and leaving your skin soft and smooth. However, she doesn't stop there.
+
+	Donning some nitrile gloves, Nancy performs a second pass with a noxious-smelling chemical that tingles as she puts it on. It leaves a lingering sensation that takes a long time to fade. Your skin has been subtly, but permanently altered to stay silky soft.
+
+	@@.nurse;"Now, this next part may hurt a little bit,"@@ she cautions.  @@.nurse;"You should swallow this pill. It'll help you relax and it probably won't bother you after that."@@
+
+	Nancy takes your hands and does something to the first of your nails. There is a weird tugging sensation.... But the pill takes effect surprisingly fast and you space out for some time.
+
+	When you recover from the effects, you are surprised to see neat, French-manicured nails on all your fingers and toes. Aside from their finished appearance, they look like a natural part of you, even on close examination.
+
+	@@.nurse;"You won't need to, or even be able to clip these, as these implants are made from a //really// sturdy polymer. It's, like, space program stuff, or something.
+
+	"Anyway, they'll keep on looking great practically forever, and best of all, you don't have to do anything with them except look beautiful!"@@
+
+	@@.reward;You now have a beautiful, permanent French manicure and pedicure!@@
+
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+<<elseif $scene eq "PermanentGarishManicure">>\
+	<<if $player.owns($items.Manicure)>>\
+	<<removeFromInv $items.Manicure.name>>\
+	<<endif>>\
+	<<set _item=$items.GarishManicure>>\
+	<<buyItem _item.name>>\
+	<<set $player.flags.salonManicure to true>>\
+	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially sealed bag.
+
+	<<if $player.permManicure eq 1>>\
+	She looks over your hands and feet. Since they're permanently soft, smooth and hairless after your last special nail treatment, she smiles and gives you a brief rubdown just to relax you.
+
+	<<else>>\
+	She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth. However, she doesn't stop there.
+
+	Donning some nitrile gloves, Nancy performs a second pass with a noxious-smelling chemical that tingles as she puts it on. It leaves a lingering sensation that takes a long time to fade. Your skin has been subtly, but permanently altered to stay silky soft.
+
+	<<endif>>\
+	@@.nurse;"Now, this treatment hurts a little bit, so we should do something about that,"@@ she says with a note of concern.
+
+	@@.nurse;"Here, swallow this. It's a pill that'll make you relax so the pain won't be a problem, at all."@@
+
+	Nancy takes your hands and does something to your nails. You begin to feel a weird tugging sensation.... But the pill takes effect surprisingly fast and you space out for some time.
+
+	When you recover from the effects, you're surprised to see long, whorishly-painted nails on your hands and feet. Aside from their extraordinarily colorful appearance, they look and feel like a natural part of you, even when you look closely at them.
+
+	@@.nurse;"I asked if you liked any particular style and you chose the sexiest ones. To be honest, I'm impressed by such a bold move. I didn't know you had such a hidden style streak in you."@@ She must have asked you when you were dosed.
+
+	@@.nurse;"These nails should last, well, basically forever,"@@ she says proudly, looking over her work.
+
+	@@.nurse;"You won't need to or be able to clip these, as these are made from a //really// sturdy polymer. It's like, space program stuff, so be careful - your fingers are more likely to break than your new nails. So, now all you have to do is keep on looking fabulous!"@@
+	
+	@@.reward;You now have a permanently whorish manicure and pedicure!@@
+
+	<<set $player.permManicure = 2>>\
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	<!--</Clinic manicure>-->\
+	<!--<Clinic haircut>-->\
+<<elseif $scene eq "HairShort" or $scene eq "HairMedium" or $scene eq "HairLong" or $scene eq "HairPigtails" or $scene eq "HairCurly">>\
+	<<if $player.owns($items.HairShort)>>\
+	<<removeFromInv $items.HairShort.name>>\
+	<<endif>>\
+	<<if $player.owns($items.HairMedium)>>\
+	<<removeFromInv $items.HairMedium.name>>\
+	<<endif>>\
+	<<if $player.owns($items.HairLong)>>\
+	<<removeFromInv $items.HairLong.name>>\
+	<<endif>>\
+	<<if $player.owns($items.HairPigtails)>>\
+	<<removeFromInv $items.HairPigtails.name>>\
+	<<endif>>\
+	<<if $player.owns($items.HairCurly)>>\
+	<<removeFromInv $items.HairCurly.name>>\
+	<<endif>>\
+	<<set $player.tasks.hairCutChange = true>>\
+	<<if $scene eq "HairShort">>\
+		<<set _item=$items.HairShort>>\
+		<<buyItem _item.name>>\
+		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she states.  @@.nurse;"I think this style will look great on you."@@
+
+		She starts adding some hair extensions.  They don't add much length but they do add a lot more fullness and volume to your hair.
+
+		Once she gets the length she wants, she begins doing a very light trim and style.
+
+		When done, your hair looks more androgynous than truly feminine, but it has definitely improved your look.
+
+		@@.nurse;"There,"@@ Nancy says, @@.nurse;"this should last a month or even a couple before you'll need the extensions touched up again.  I hope to see you again soon if you want to try a different look!"@@
+
+		Your hair is done in a short teased style. It looks more androgynous than female.
+		
+		@@.reward;You now have a cute, short hairstyle!@@
+	<<elseif $scene eq "HairMedium">>\
+		<<set _item=$items.HairMedium>>\
+		<<buyItem _item.name>>\
+		@@.nurse;"I'm so glad you wanted to get your hair done!"@@ Nancy beams. @@.nurse;"I think this style will look great on you."@@
+		
+		She smiles congenially, leading you over to a purpose-made salon chair. As you settle in to the plush, comfortable seat, you're naturally draw to your reflection in the large, wall-mounted mirror. Meeting your gaze in the glass, Nancy fluffs your hair with her fingers, then tilts your head back and forth to examine your bone structure in the light.
+
+		With the press of a foot pedal, Nancy lowers and adjusts your chair for the best working angle, draping an apron over you as she does. She lightly sprays a refreshing misting of water over your hair, then draws a comb gently over your scalp. Her light touch is soothing.
+		
+		Nancy starts by adding some length to your hair with extensions. The newly-lengthened strands reach just below your neck, adding a good deal of volume to your hair as well. You glimpse the locks as they brush your shoulders, and see that Nancy has a practiced eye for this - they're an uncanny match for your own hair color, except for their augmented highlights.
+
+		When she's done with that first step, your hair is long and even, but mostly formless. She counters that with several pairs of specialized scissors, combs and sprays that she brings into her process.
+
+		You watch your reflection transform as the expert stylist sections off your hair and adds layer and dimension to it. Blending away any trace of the extensions' attachments, it's not long before it all looks like a seamless whole.
+		
+		Nancy loosely wraps your tresses above your head, and exchanges her other tools for a specially-nozzled blow dryer and a big, round brush. She pauses to spritz in something from a little bottle before each application of the blower. Then, bringing down layers of hair one lock a time, she adds a blowout that greatly boosts your hair's volume and leaves the ends lightly curled.
+		
+		As the last few strands are put in place, Nancy gives them a final once-over. It's apparent that she's given a distinctly feminine mode to your look. Her styling has subtly changed your hair- and fall-lines, creating the skillful illusion of a girlish facial shape. 
+		
+		Your hair is soft, shiny and fashionably highlighted in a beautiful hairstyle.
+
+		@@.nurse;"There,"@@ Nancy says, @@.nurse;"this should last a month or even a couple before you'll need the extensions touched up again. I hope to see you again soon if you want to try a different look!"@@
+		
+		@@.reward;You now have a beautiful, medium-length hairstyle!@@
+	<<elseif $scene eq "HairLong">>\
+		<<set _item=$items.HairLong>>\
+		<<buyItem _item.name>>\
+		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
+
+		She starts adding some length to your hair with hair extensions.  These extensions are premium and go all the way down to the middle of your back!  As a bonus, these extensions have a very feminine permanent wave in them.  You will have very little maintenance to do with this style and you will always look fantastic with it!
+
+		When done, your hair looks extremely feminine and you are actually starting to enjoy this hair style quite a bit.
+
+		@@.nurse;"There,"@@ Nancy says, @@.nurse;"this should last a month or even a couple before you'll need the extensions touched up again.  I hope to see you again soon if you want to try different look!"@@
+
+		Your hair is now down to the middle of your back.  It's long and wavy and looks very feminine!  You find yourself enjoying your hair style.
+		
+		@@.reward;You now have a long, wavy hairstyle!@@
+	<<elseif $scene eq "HairPigtails">>\
+		<<set _item=$items.HairPigtails>>\
+		<<buyItem _item.name>>\
+		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
+
+		She starts adding some length to your hair with hair extensions.  These extensions go just past your shoulders and add a good deal of volume to your hair as well.
+
+		Once she gets the length she wants, Nancy forms two silly looking pigtails.
+
+		When done, your hair looks clearly feminine and you actually think you look pretty good with it!
+
+		@@.nurse;"There,"@@ she says, @@.nurse;"this should last a month or even a couple before you'll need the extensions touched up again.  I hope to see you again soon if you want to try a different look!"@@
+
+		Your hair is in childish pigtails. It's definitely feminine and could look either innocent or extremely slutty, depending on your clothes and makeup.
+		
+		@@.reward;You now have a girly, pigtailed hairstyle!@@
+	<<elseif $scene eq "HairCurly">>\
+		<<set _item=$items.HairCurly>>\
+		<<buyItem _item.name>>\
+			Nancy leads you towards a purpose-made salon chair and helps you relax in its cushioned seat. She swishes an apron over your body, and tells you to get comfortable. 
+			
+			@@.nurse;"I bet you're going to just //love// this look!"@@ Nancy says animatedly.
+			
+			Stepping on the adjustment pedals, she lowers and spins your chair to maneuver you into the best position to work from. You look in the mirror as Nancy starts to examine your head and face, turning your chin this way and that as she decides on her approach.
+			
+			Taking out some highly convincing hair extensions, Nancy begins to work. As she threads in the extra locks, which are a near-perfect match to your own color, you notice a marked increase in the overall length and volume of your hair. The lengthened strands drape a good bit past your shoulder blade in back, and down over your collarbone in front.
+			
+			She follows up with a careful trim to blend all the parts together. When she's through, you'd never have guessed your extensions weren't a natural part of your own hair, if they weren't on your own head. Nancy immediately takes a bottle of a fruity-smelling styling product and pours it in, working your wet-down hair into even parts.
+			
+			@@.nurse;"This is probably the best curling serum ever! It's got a keratin strength booster, a static reducer and a shine enhancer. It's got the //best// long-term hold, but it doesn't make your hair stiff at all, which is a-maz-ing."@@
+			
+			You have almost no idea what any of that implies, but you nod appreciatively upon noticing it smells good and feels pleasantly tingly. Nancy gives the serum several minutes to set in, then grabs a titanium curling iron and turns your chair to face her. You lose sight of the mirror, and have to trust Nancy's skills.
+			
+			Nancy works your hair expertly for the next several minutes, twirling the strands tightly over the long, shiny wand. You watch as the strands individually come away dry and curly, though you can't tell the overall effect of all this yet. Your bangs get a slightly different treatment, and come to rest in a line just above your brow, where she evens them up with a pair of scissors.
+			
+			When she's finished with the iron, she works on arranging your hair for a bit, eyes furrowed in deep concentration. The overall length of your hair seems to have been shortened quite a bit by the curling process, and you can feel they mostly just brush against your chin and neck.
+			
+			With a few final flourishes, Nancy turns you back towards the mirror, lifting her hands to either side of your head in a 'voilà' gesture.
+			
+			Looking at your reflection, you see your hair has been styled in a loosened up-do of fancy ringlets, with your face framed by curls and a girly set of bangs over your forehead. Nancy has also used your hair's placement in subtle fashion, to make your face's lines look feminine and petite. You look like someone brought a doll to life!
+			
+			@@.nurse;"You. Are. Adorbs!"@@ Nancy squeals, clapping her upright hands together in a little arch. "It's so much better than I even thought! And, your hairstyle will last for a long time before you have to get the extensions touched up. You get to look //super// cute every day!"
+			
+			@@.reward;You now have a medium-length hairstyle, done up in swirly ringlets!@@
+	<<endif>>\
+	
+	[[Return|Clinic Manicure and Hair styling][$scene=""]]
+<<elseif $scene eq "Black" or $scene eq "Brown" or $scene eq "Red" or $scene eq "Blonde" or $scene eq "Silver" or $scene eq "Pink">>\
+	<<if $scene eq "Black">>\
+		<<set $player.hairColor = 0>>\
+		<<set $items.HairShort.image="hair_short_black.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_black.jpg">>\
+		<<set $items.HairLong.image="hair_long_black.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_black.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_black.jpg">>\
+	<<elseif $scene eq "Brown">>\
+		<<set $player.hairColor = 1>>\
+		<<set $items.HairShort.image="hair_short_brown.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_brown.jpg">>\
+		<<set $items.HairLong.image="hair_long_brown.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_brown.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_brown.jpg">>\
+	<<elseif $scene eq "Red">>\
+		<<set $player.hairColor = 2>>\
+		<<set $items.HairShort.image="hair_short_red.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_red.jpg">>\
+		<<set $items.HairLong.image="hair_long_red.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_red.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_red.jpg">>\
+	<<elseif $scene eq "Blonde">>\
+		<<set $player.hairColor = 3>>\
+		<<set $items.HairShort.image="hair_short_blonde.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_blonde.jpg">>\
+		<<set $items.HairLong.image="hair_long_blonde.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_blonde.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_blonde.jpg">>\
+	<<elseif $scene eq "Silver">>\
+		<<set $player.hairColor = 4>>\
+		<<set $items.HairShort.image="hair_short_silver.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_silver.jpg">>\
+		<<set $items.HairLong.image="hair_long_silver.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_silver.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_silver.jpg">>\
+	<<else>>\
+		<<set $player.hairColor = 5>>\
+		<<set $items.HairShort.image="hair_short_pink.jpg">>\
+		<<set $items.HairMedium.image="hair_medium_pink.jpg">>\
+		<<set $items.HairLong.image="hair_long_pink.jpg">>\
+		<<set $items.HairPigtails.image="hair_pigtails_pink.jpg">>\
+		<<set $items.HairCurly.image="hair_curly_pink.jpg">>\
+	<<endif>>\
+	<<set $player.money-=20>>\
+	Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to change your hair color,"@@ she starts. @@.nurse;"I think this will look great on you."@@
+	
+	She starts working on your hair.
+	
+	When done, your hair looks clearly different!
+	
+	@@.nurse;"There,"@@ Nancy says, @@.nurse;"this should last a month or even a couple before you'll need to renew it. I hope to see you again soon if you want to try a different look!"@@
+
+		You look in mirror and see that you now have \
+	<<if $player.hairColor eq 0>>\
+		raven black hair.
+	<<elseif $player.hairColor eq 1>>\
+		brown hair.
+	<<elseif $player.hairColor eq 2>>\
+		fiery red hair.
+	<<elseif $player.hairColor eq 3>>\
+		blonde hair.
+	<<elseif $player.hairColor eq 4>>\
+		sparkling white hair.
+	<<else>>\
+		pink hair.
+	<<endif>>\
+	
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	<!--</Clinic haircut>-->\
+<<else>>\
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+<<endif>>\
+
+

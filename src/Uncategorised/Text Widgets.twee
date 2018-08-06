@@ -1,0 +1,16 @@
+:: Text Widgets [pos_2440_12 widget]
+\
+<<widget "guardianPerversion">>\
+<<set _gpm to $args[$player.perversion.guardian]>>\
+<<if (_gpm gte 0) and (_gpm lte 1000)>>\
+	<<print $args[_gpm]>>\
+<<else>>\
+	<<print _gpm>>\
+<<endif>>\
+<</widget>>\
+
+<<widget "Plural">>\
+<<if $args[0] gt 1>>s<<endif>>\
+<</widget>>\
+
+

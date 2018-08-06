@@ -1,0 +1,38 @@
+:: Call test [pos_1276_820]
+\
+<<if $scene eq "header">>\
+<<set $scene = "call_0">>\
+@@.call;\
+<<display "Call test">>\
+@@\
+<<elseif $scene eq "call_0">>\
+@@.PCcall;Hi, how are you?@@
+@@.NPCcall;I'm fine.@@
+@@.PCcall;You sure?@@
+@@.NPCcall;Yes, test test test.
+Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. @@
+
+<span id="call1">\
+<<click "Say 1">><<replace "#call1">><<set $scene = "call_1">><<display "Call test">><</replace>><</click>>
+<<click "Say 2">><<replace "#call1">><<set $scene = "call_2">><<display "Call test">><</replace>><</click>>
+<<click "Say 3">><<replace "#call1">><<set $scene = "call_3">><<display "Call test">><</replace>><</click>>
+</span>\
+<<elseif $scene eq "call_1">>\
+@@.PCcall;I say 1!@@
+@@.NPCcall2;Oh, nice.@@
+
+[[Go to your bedroom|Go to bedroom]]
+<<elseif $scene eq "call_2">>\
+@@.PCcall;I say 2!@@
+@@.NPCcall2;Oh, crap.@@
+
+[[Go to your bedroom|Go to bedroom]]
+<<elseif $scene eq "call_3">>\
+@@.PCcall;I say 3!@@
+@@.NPCcall2;Oh, poop.@@
+
+[[Go to your bedroom|Go to bedroom]]
+<<endif>>\
+\
+
+

@@ -1,0 +1,23 @@
+:: Watch hypnotherapy [pos_1914_1163]
+\
+<<if $showimages>>\
+<<print '<img src="images/therapist/' + $therapy.getHypnoImage()+'">'>>
+<<endif>>\
+<<if $player.isMind_0()>>\
+@@.fading_text_long;Something inside of you flinches away, resisting the therapy.@@
+<<elseif $player.isMind_1()>>\
+@@.fading_text_long;Something inside of you is still hesitant about the therapy.@@
+<<elseif $player.isMind_2()>>\
+@@.fading_text_long;Something inside of you enjoys this, though you still can't quite place exactly what this therapy is.@@
+<<endif>>\
+@@.fading_text_long;But you watch@@\
+@@.fading_text_med;, and watch@@\
+@@.fading_text_fast;, and watch...@@
+
+@@.delayed_text_fast;Submit@@\
+@@.delayed_text_med;, give up@@\
+@@.delayed_text_long;, enjoy@@
+
+<<delayedLink 5 "Finish watching">>
+
+

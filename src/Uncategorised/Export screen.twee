@@ -1,0 +1,23 @@
+:: Export screen [pos_611_1522]
+\
+@@.centerAlign;
+<<if true>>\
+Copy the following string to a clipboard and use it later to import into the new version of the game.
+The string is too long to fit the screen (only small part is shown), so click 'Copy to clipboard' to copy it.
+Alternatively double click the string to select it whole and then right click and select 'copy'.
+
+@@.frame80;\
+<div id="exportString" class="exportLink"><<print $save.export()>></div>\
+@@
+<<click "Copy to clipboard">><<set $save.copyToClip()>><</click>>\
+
+After that launch the new version of the game and select Import option.
+Paste copied string to the empty field and confirm.
+
+<b><u>Use Export at wardrobe page for the most stable result.</u></b>
+
+<<click "Exit">><<script>>Dialog.close();<</script>><</click>>\
+<<endif>>\
+@@
+
+

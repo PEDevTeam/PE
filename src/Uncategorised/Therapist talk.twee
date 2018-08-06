@@ -1,0 +1,1294 @@
+:: Therapist talk [pos_128_224]
+\
+<<set _topics=true>>\
+<<set _return=true>>\
+<<set _home=false>>\
+<<set _tasklist=$therapy.topicsList()>>\
+<<if _tasklist>>\
+	<<for _i to 0; _i lt Object.keys(_tasklist).length; _i++>>\
+		<<set _task=_tasklist[Object.keys(_tasklist)[_i]]>>\
+		<<if _task.passage eq $scene>>\
+			<<set _task.finished=true>>\
+			<<set _i=Object.keys(_tasklist).length>>\
+		<<endif>>\
+	<</for>>\
+<<endif>>\
+<<set _u=$player.isWearingOn($itemTypes.Underwear)>>\
+<<set _o=$player.isWearingOn($itemTypes.Outerwear)>>\
+<<set _c=$player.isWearingOn($itemTypes.Chastity)>>\
+<<set _b=$player.isWearingOn($itemTypes.AnalPlug)>>\
+<!--<talkStealing>-->\
+<<if ($scene eq "talkStealing")>>\
+	You don't really want to talk about it, but she's been cool so far. The reason you're here still hangs unsaid, though. It eats at you, that she hasn't mentioned you being caught in $guardian's bedroom.
+	
+	You start by asking $therapist how people decide to sign on for therapy, but $therapist easily sees through you and goes straight to the core.
+	
+	@@.therapist;"Well, I didn't want to bring it up until you were ready to talk about it. The truth is..."@@
+	
+	She pauses and you freeze in your seat, dreading her judgment. You really don't want her to be mad or angry with you.
+	
+	@@.therapist;"The truth is, I'm not here to solve $guardian's problems. I'm here to help //you.//"@@ She smiles seeing your confused face.
+	
+	@@.therapist;"It's my job to assist you in solving your problems, not to tell you what to do or not to do. Your incident with being too curious with $guardian's things is actually understandable. Just between you and me, if I were a teenage boy with\
+	a <<if $kink.incest>>mother<<else>>guardian<<endif>> as gorgeous as yours, I'm pretty much sure she would have caught me in her dresser, too."@@
+	
+	You are not sure if she's being serious, but she seems genuine about it. You weren't expecting that, and find her words very reassuring. It feels good to lose that worry - you're really glad you've decided to talk about it.
+	
+	@@.hero;She's so cool. What's best is that she totally gets me!@@
+	
+<!--</talkStealing>-->\
+<!--<talkUnderwear>-->\
+<<elseif ($scene eq "talkUnderwear")>>\
+	$therapist said you could talk to her about anything, but it's really embarrassing. You hesitate and question yourself whether it's even appropriate to discuss it with her. Finally, $therapist notices your squirming and calls you on it.
+	
+	@@.therapist;"$player.name, I can see you obviously want to talk about something. Spill it."@@ She gives you one of her encouraging smiles.
+	
+	Unable to resist her charms, you tell her about wearing panties to school. You leave out some embarrassing details - for instance, how you got the panties you wore - but you rush through the main points and get the incident off your chest.
+	
+	Red as a tomato, you lower your eyes and mumble explanations, unsure whether you managed to get it believable or even comprehensible. To your relief, though, $therapist doesn't laugh at you and seems actually intrigued.
+	
+	@@.therapist;"So, how did it feel? Did you like it?"@@
+	
+	@@.heroT;"What?! No!"@@ 
+	
+	@@.therapist;"Was it that bad? Was it so uncomfortable?"@@
+
+	@@.heroT;"Well, no. It wasn't uncomfortable, but panties are for //girls.// Boys don't wear them."@@
+	
+	@@.therapist;"You sure? What if some of your classmates wear panties too? You would never know."@@
+
+	That thought had actually never occurred to you. For a moment, you imagine your classroom with boys wearing frilly panties. It's so weird and confusing, you don't even know how to argue with $therapist.
+	
+	@@.therapist;"Let's forget about the whole //should or shouldn't//. Just describe how it felt, please."@@
+	
+	@@.heroT;"Well, it was soft to the touch and held me, instead of hanging loose like my usual boxers,"@@ you say,\
+	<<if _u and _u.female>>\
+	trying to describe the feeling of wearing them. You almost use present tense, but stop yourself in time.
+	
+	<<else>>\
+	trying to recall how it felt. The sensation of it comes to mind more vividly than you expected.
+	
+	<<endif>>\
+	@@.therapist;"How was it?"@@
+	
+	@@.heroT;"They were kinda nice against my butt."@@
+	
+	@@.therapist;"Go on."@@
+	
+	@@.heroT;"Well, the edges rubbed me in a funny way... not painful or irritating, just kind of distracting. Lighter..."@@
+	
+	@@.therapist;"And?"@@
+	
+	@@.heroT;"And it was tightly snugging my..."@@ You suddenly blush, realizing what you were about to say.
+
+	@@.therapist;"Your... Oh..."@@ She smiles knowingly. @@.therapist;"I see. From your descriptions, it seems you enjoyed it."@@
+	
+	You open you mouth, wanting to argue, but under her questioning gaze you slump back down. No point in arguing with her, given what you've just said.
+	
+	<<if _u and _u.female>>\
+		Suddenly she asks: @@.therapist;"I'm curious. Are you wearing panties right now?"@@
+
+		Extremely embarrassed, you nod and mumble confirmation.
+		
+		She gives you a look. Blushing furiously, you say a bit louder, @@.heroT;"Yes, I'm wearing panties now."@@
+		
+		She suddenly leans toward you, deadly serious. In a false whisper, she says, @@.therapist;"And I'm wearing panties now, too."@@ She widens her eyes dramatically, like she just revealed the killer in a murder mystery.
+		
+		You stare at $therapist, dumbfounded by her goofy reply. Moments later, you both dissolve in giggles. The tension falls away, and you realize you don't mind talking about such things with her.
+		
+		As you calm down, she continues.\
+	<<else>>\
+		She suddenly leans toward you, deadly serious. In a false whisper, she says, @@.therapist;"You know, //I// wear panties sometimes, too."@@ She widens her eyes dramatically, like she just revealed the killer in a murder mystery.
+		
+		You just stare, at her surprisingly goofy reply. A moment later, you both dissolve in giggles. The tension drops away, and you realize you don't mind talking about such things with $therapist.
+		
+	<<endif>>\
+	@@.therapist;"Don't worry about it too much. If you like it, you like it. No shame in enjoying comfortable and pretty underwear."@@
+	
+	<<if $therapistTalks.talkNightwear.finished>>\
+		@@.therapist;"But, I think we already had a similar conversation about your nightwear choices."@@
+		
+	<<endif>>\
+	You talk a bit more about your experience, and she even gives you a few pointers about lingerie. It feels good to discuss it with her. You're glad you opened up.\
+	<<if $player.isMind_0()>>\
+		It actually makes you wonder. @@.hero;Is she right? It's just underwear - no big deal?@@
+		
+	<<elseif $player.isMind_1()>>\
+		It actually makes you wonder. @@.hero;Maybe she //is// right and I should just roll with it. It really feels nice.@@
+		
+	<<else>>\
+		It actually makes you certain. @@.hero;I love to wear pretty panties and there is nothing wrong with it.@@
+		
+	<<endif>>\
+<!--</talkUnderwear>-->\
+<!--<talkNightwear>-->\
+<<elseif ($scene eq "talkNightwear")>>\
+	It's embarrassing, but you tell $therapist how $guardian caught you sleeping in feminine attire.
+	
+	@@.therapist;"Oh... I see how that may have been awkward. So, was it more comfortable to sleep in than your regular clothes?"@@
+	
+	@@.heroT;"What? No! Why would... I wanted to know how to explain this to $myguardian."@@
+	
+	$therapist quirks an eyebrow upward and asks:
+	
+	@@.therapist;"And why did you sleep in such a risque outfit?"@@
+	
+	<<if ($tasksTeacher.selfieNightwear.startDay gt 0)>>\
+		@@.heroT;"It was a task from $teacher."@@
+		
+		@@.therapist;"She told you to sleep in feminine lingerie?"@@
+		
+		@@.heroT;"Err... not exactly, but it's her fault!"@@
+		
+		@@.therapist;"So, what did she ask you to do?"@@
+		
+		@@.heroT;"Well, to pose a bit. And I was tired, and it was so soft. I must have dozed off."@@
+		
+	<<elseif $therapistTalks.talkUnderwear.finished>>\
+		@@.heroT;"You told me there is nothing wrong with liking pretty lingerie."@@
+		
+		@@.therapist;"But I didn't tell you to pose in it in front of $guardian."@@
+		
+		You want to argue, but can't dispute her words. A sudden blush reaches your ears and you lower your eyes instead.
+		
+	<<else>>\
+		@@.heroT;"I... Well... it was just an experiment."@@
+		
+	<<endif>>\
+	@@.therapist;"I see. Are you quite sure you didn't secretly want $guardian to catch you?"@@
+	
+	<<if $player.isMind_0()>>\
+		@@.heroT;"No! It was horrible!"@@
+		
+	<<elseif $player.isMind_1()>>\
+		@@.heroT;"No. It was really embarrassing!"@@
+		
+	<<else>>\
+		@@.heroT;"No? I mean it was embarrassing to be seen dressed like a sissy.@@
+		
+	<<endif>>\
+	@@.therapist;"But you still went for it, knowing $guardian might wake you up and see you?"@@
+	
+	<<if $player.isMind_0()>>\
+		@@.heroT;"But.... No! I just..."@@
+		
+	<<elseif $player.isMind_1()>>\
+		@@.heroT;"But... oh... well, maybe..."@@
+		
+	<<else>>\
+		@@.heroT;"O-ohh... Oh my...@@
+		
+	<<endif>>\
+	@@.therapist;"I suspect you may have wanted her to find out. Maybe not consciously, but still... Anyway, I think it's your business what you wear to bed and what is more comfortable for you. $Guardian may need some time to adjust, but she will come around. You know she loves you."@@
+	
+	You chat a bit more and feel a bit better afterward.\
+	
+	<<if $player.isMind_0()>>\
+		Doubts re-enter your mind, however. @@.hero;Now, I'm confused.@@
+		
+	<<elseif $player.isMind_1()>>\
+		A question re-enters your mind, however: @@.hero;Did I really want $myguardian to find out?@@
+		
+	<<else>>\
+		@@.hero;She's right. That female underwear //is// more comfortable to sleep in.@@
+		
+	<<endif>>\
+<!--</talkNightwear>-->\
+<!--<talkClinicWork>-->\
+<<elseif ($scene eq "talkClinicWork")>>\
+	It's embarrassing, but you tell $therapist how $guardian caught you working at the clinic in feminine attire.
+	
+	@@.therapist;"Oh... I see how that might have been awkward. So, did you like wearing a dress?"@@
+	
+	@@.heroT;"What? No! Why would...? I wanted to know how to explain this to $myguardian."@@
+	
+	$therapist quirks an eyebrow upward and asks:
+	
+	@@.therapist;"And why exactly //did// you go to work in a dress?"@@
+	
+	@@.heroT;"Girls there have it so much easier!"@@
+	
+	@@.therapist;"I see. Are you sure you didn't //want// $guardian to catch you?"@@
+	
+	<<if $player.isMind_0()>>\
+		@@.heroT;"No! It was horrible!"@@
+		
+	<<elseif $player.isMind_1()>>\
+		@@.heroT;"No. It was really embarrassing!"@@
+		
+	<<else>>\
+		@@.heroT;"No? I mean, it was embarrassing to be seen acting like a lazy sissy.@@
+		
+	<<endif>>\
+	@@.therapist;"But you still went for it, knowing that $guardian might recognize you there?"@@
+	
+	<<if $player.isMind_0()>>\
+		@@.heroT;"But... No! I just..."@@
+		
+	<<elseif $player.isMind_1()>>\
+		@@.heroT;"But... oh... well, maybe..."@@
+		
+	<<else>>\
+		@@.heroT;"O-ohh... Oh my...@@
+		
+	<<endif>>\
+
+	@@.therapist;"I suspect you may have wanted her to find out - maybe not consciously, but still.... Anyway, I think it's your business what you wear to work and what is more comfortable for you. $Guardian may need some time to adjust, but she will come around in the end. You know she loves you."@@
+	
+	You chat a bit more and feel a bit better afterward.\
+	<<if $player.isMind_0()>>\
+		Doubts re-enter your mind, however. @@.hero;Now I'm confused.@@
+		
+	<<elseif $player.isMind_1()>>\
+		The question comes back to you, however: @@.hero;Did I really want $myguardian to find out?@@
+		
+	<<else>>\
+		@@.hero;She //is// right. I am more comfortable in a dress.@@
+		
+	<<endif>>\
+
+<!--</talkClinicWork>-->\
+<!--<talkButtplug>-->\
+<<elseif ($scene eq "talkButtplug")>>\
+	$therapist notices you fidgeting, and asks if you want to talk about whatever is troubling you.
+	
+	You don't know how to even start, but $therapist somehow manages to guess.
+	
+	@@.therapist;"Is it about something $teacher is //making// you do?"@@
+	
+	@@.heroT;"Well, yes."@@ You still hesitate, considering whether you should tell her.
+	
+	@@.therapist;"Look, you've already talked to me about other things, so spill it. I won't tell anyone, pinky swear."@@ She quickly reaches over, hooking your pinky finger with her own before you can put your guard up. You both laugh a little.
+	
+	@@.hero;Of course, she won't tell - she's a therapist.@@ Still, her silly demeanor helps you relax.
+	
+	After a deep breath, you open up and tell her that in addition to the chastity cage, you wore a butt-plug in your ass when you went to school.
+	
+	@@.therapist;"And?"@@ She doesn't seem surprised.
+	
+	@@.heroT;"You're not surprised?"@@
+	
+	@@.therapist;"Well, I would say it's a common practice to have a butt-plug if you wear a chastity cage. For some definition of //common// of course. So what's troubling you?"@@
+	
+	You're a bit surprised by her words, but hope she may have some expertise and can help you.
+	
+	@@.heroT;"It makes me feel weird. I have no idea why it's supposed to go with a chastity device. It actually makes it much harder to deal with the cage when I have my butt-plug in."@@
+	
+	@@.therapist;"Hmm... How exactly does it make it harder?"@@ You're pretty sure she knows the answer already, but just wants you to say it.
+	
+	@@.heroT;"Well. It makes it hard... Erm, harder to relax. Yeah, hard to relax."@@ You struggle to find words.  But that's all you can come up with before your thoughts start going in circles.
+	
+	@@.therapist;"Oh, I see. So while the butt-plug makes it //hard//, the chastity doesn't let you relax. Is that it?"@@ You suspect she's just teasing you, but not trusting your mouth you just nod.
+	
+	@@.therapist;"Well, the good news is that nothing is wrong. Butt-plugs are supposed to do that."@@ She smiles at your confused expression.
+	
+	@@.hero;What?@@ @@.heroT;"What?"@@
+	
+	@@.therapist;"The whole point is to stay constantly aroused. And a butt-plug helps immensely with that."@@
+	
+	@@.heroT;"Wha-? How?"@@
+	
+	@@.therapist;"I'm pretty sure you've browsed various erotic materials on the net. Everyone has. So this is something like that, but kind of more public, which makes it more exciting."@@
+	
+	@@.heroT;"But, but..."@@
+	
+	@@.therapist;"No buts. Let me guess something. When you stay excited for a prolonged period with the chastity and butt-plug, what happens?"@@
+	
+	@@.hero;Oh god, she means...@@ You quickly shake your head @@.heroT;"Nothing. Nothing happens."@@ You don't want to admit it, but your furious blush betrays you.
+	
+	@@.therapist;"O-ooh... But it's perfectly natural. Girls do that all the time when they get really excited."@@
+	
+	You still try to deny it. @@.heroT;"I don't know what you're talk-"@@ but $therapist interrupts you. 
+	
+	@@.therapist;"When you sit in your class, watching your hot teacher, with your butt-plug continually pressing against your prostate.... Locked in your cage, you don't have a choice but to endure. You wait, and wait, but your thoughts must be constantly whirling in various fantasies... and what happens?"@@
+	
+	<<if _b>>\
+		You recall what happens in the classroom and your anus instinctively tightens around your butt-plug.\
+		<<if _c>>\
+			Your penis strains against its cage and despite your desperate attempts to hold it you feel something oozing from tip of your chastity on your thighs.\
+		<<endif>>\
+		
+	<<endif>>\
+	@@.heroT;"..."@@
+	
+	You bite your lips and lower your eyes, unable to meet her gaze.
+	
+	@@.therapist;"Hmm?"@@
+	
+	@@.heroT;"I leak."@@ It's very humiliating to admit your butt-plug makes you leak like a horny bitch.
+	
+	@@.therapist;"Good."@@ Surprised by her soft tone, you look up to see she actually looks pleased. @@.therapist;"It may seem weird at first, but it's a quite common experience. No need to be ashamed."@@ She looks thoughtful and adds, @@.therapist;"Or actually, //be// ashamed if that's what you prefer."@@
+	
+	@@.heroT;"I... Ok..."@@ Your thoughts still in disarray, you can't yet take in the implications of $therapist's intense query. You find the whole topic very embarrassing, but to your shame you're also extremely aroused by it.
+	
+	You talk a bit more on related topics and $therapist gives you more advice. She stops asking for quite so many embarrassing details, and you calm down. Gradually, you begin to feel relief in discussing things with her.\
+	<<if $player.isMind_0()>>\
+		@@.hero;She was probably just messing with me. No way leaking precum while being so desperately horny is normal, right?@@
+	<<elseif $player.isMind_1()>>\
+		It actually makes you wonder. @@.hero;Well, yeah, it feels weird, but not in a bad way. Maybe she is right and I //do// actually enjoy it a bit.@@
+	<<else>>\
+		Now that you think about it, leaking like a bitch doesn't seems so bad @@.hero;//Always horny, always up for a fuck//. Sounds kinda nice.@@
+	<<endif>>\
+
+<!--</talkButtplug>-->\
+<!--<talkChastity>-->\
+<<elseif ($scene eq "talkChastity")>>\
+	$therapist notices you behaving strangely and asks if you want to discuss anything specific.
+	
+	It's embarrassing to talk about, but you want her advice on how to deal with your situation. Reluctantly, you tell $therapist how $teacher makes you wear a chastity cage to school. $therapist looks thoughtful and you sit quietly, giving her time to think it through. You hope she can come up with something that'll work.
+
+	@@.therapist;"So you wear it to school, but it's not really locked? I mean, you //could// take it off at any time, right?"@@
+	
+	@@.heroT;"Well, I suppose. But I still have to sit through all classes wearing it. It's horrible!"@@
+	
+	@@.therapist;"Oh, really? Does it actually hurt to wear it?"@@
+	
+	@@.heroT;"Mmmm... no."@@
+	
+	@@.therapist;"Is it painful?"@@
+	
+	@@.heroT;"Well, I wouldn't say painful, but..."@@
+	
+	@@.therapist;"Does it chafe?"@@
+	
+	@@.heroT;"Not especially, but it feels so tight when I..."@@ You glance around the room, not sure how to continue.
+	
+	@@.therapist;"Let me guess: when you get excited, right?"@@ She smiles at your awkward attempt to explain things and you just meekly nod to her, feeling a blush slowly reaching your ears. @@.therapist;"And what makes you... //excited//?"@@
+	
+	@@.heroT;"Ugh... erm... girls, $teacher..."@@ 
+	
+	You shut your mouth, almost biting your tongue. You nervously sit on the edge of your seat, silently beating yourself for this slip up. You’re pretty sure that admitting you have a boner for $teacher wasn't the right thing to say.
+	
+	@@.therapist;"All right. That explains things."@@ She arches one eyebrow. @@.therapist;And what about the cage itself?"@@
+	
+	@@.heroT;"Er, what do you mean?"@@
+	
+	@@.therapist;"Well, do you get excited from being locked up in it? It isn't unusual to want what is denied, and the mere fact of being locked could be... stimulating,"@@ she explains, pausing and emphasizing certain words. She somehow makes the very idea sound erotic. @@.therapist;"Doesn't this constant pressure keep you on edge for hours? Maybe you even find it pleasurable from time to time to feel it tightly encompassing you?"@@
+	
+	<<if _c>>\
+		Your penis strains in its cage as you listen to her. To your shame, nothing she says is untrue. You struggle for the words to reply.
+		
+	<<else>>\
+		It's very confusing, but nothing of what she says is untrue. You stumble for words and just mumble in reply.
+		
+	<<endif>>\
+	@@.heroT;"I... I'm not... Well, maybe, but..."@@
+	
+	You're interrupted by $therapist raising her hand. @@.therapist;"No need to explain."@@ She smiles broadly. @@.therapist;"Just don't spoil your experience by focusing on the negative too much. I //know// you can enjoy it."@@
+	
+	<<if _c>>\
+		She suddenly looks at you, studying you closely. @@.therapist;"Just to be sure, you are wearing it now, aren't you?"@@
+		
+		Knowing there is no point in arguing, you admit it.
+		
+		@@.therapist;"You see, it's not bad to experiment a bit to find what you like. As long as you keep it healthy."@@ $therapist continues to eye you, apparently considering something.
+		
+		@@.therapist;"Have you thought about..."@@ She stops and looks apologetic. @@.therapist;"Sorry, no point in rushing things, take your time."@@
+		
+		@@.heroT;"Ok..."@@ You're not sure what that was about.
+	
+	<<endif>>\
+	It was all very embarrassing - a bit weird and somehow arousing - but in the end, it feels good to have discussed things with $therapist.\
+	<<if $player.isMind_0()>>\
+		The talk with her makes you wonder, @@.hero;What if she is right? What if I like it a little bit?@@
+		
+	<<elseif $player.isMind_1()>>\
+		The talk with her makes you wonder. @@.hero;She wasn't wrong. Maybe I //do// really like it?@@
+		
+	<<else>>\
+		The talk with her makes you wonder. @@.hero;What was she going to bring up, at the end? What if she'd wanted to ask for my key, so she could show me how it feels like to be locked up, for real? Would I have given it to her?@@ For some reason just thinking about it makes you horny.
+
+	<<endif>>\
+<!--</talkChastity>-->\
+<!--<talkChastityKey>-->\
+<<elseif ($scene eq "talkChastityKey")>>\
+	<<if (not $therapistTalks.talkChastity.finished)>>\
+		$therapist notices you behaving strangely, and asks if you want to talk about anything specific.
+		
+		It's embarrassing to discuss, but you do want advice on how to deal with your situation. Reluctantly, you tell $therapist how $teacher told you to wear a chastity cage to school, and after one silly incident she took away your key, releasing you only on weekends. $therapist looks shocked by your words, but quickly regains her composure and tells you she needs to think about it for a bit. You meekly nod and sit quietly, giving her time to think it through. You hope she can come up with something really clever.
+
+		@@.therapist;"So you have to wear it for five whole days at a time, until the weekend?"@@
+		
+		@@.heroT;"Yes, it's horrible!"@@ $therapist looks at you with sympathy and puts her hand on your shoulder.
+		
+		@@.therapist;"Does it hurt to wear it?"@@
+		
+		@@.heroT;"Um... no."@@
+		
+		@@.therapist;"Is it in some way painful?"@@
+		
+		@@.heroT;"Well, I wouldn't say painful, but..."@@
+		
+		@@.therapist;"Does it chafe?"@@
+		
+		@@.heroT;"Sometimes, but not really, it just feels so tight when I..."@@ You bite your lip, realizing what you wanted to say but unsure how to continue.
+		
+		@@.therapist;"Let me guess, it's when you get excited, right?"@@ She smiles at your awkward attempts to explain things and you just meekly nod, feeling your blush slowly reach your ears. @@.therapist;"And what makes you... //excited//?"@@
+		
+		@@.heroT;"Ugh... erm... girls, $teacher..."@@ You shut your mouth, almost biting your tongue. As you nervously sit on the edge of your seat, you silently berate yourself for that slip. Most likely, admitting you have a boner for $teacher wasn't the right thing to do.
+		
+		@@.therapist;"All right. It does explain things."@@ She looks thoughtful, staying silent for a while.
+		
+		Finally, she quirks one eyebrow upward and asks, @@.therapist;"And what about the cage itself?"@@
+		
+		@@.heroT;"Er, what do you mean?"@@
+		
+		@@.therapist;"Well, do you get excited by being locked in it? It isn't unusual to want what's denied, and the mere fact of being locked could be... stimulating,"@@ she explains, pausing to emphasize certain words. She somehow makes the very idea sound erotic. @@.therapist;"Doesn't this constant pressure keep you on edge for hours? Maybe you even find it pleasurable from time to time, feeling it tightly encompassing you?"@@
+		
+		<<if _c>>\
+			Your penis strains in its cage as you listen to her. To your shame, nothing she says is untrue and you struggle to find the words for a reply.
+			
+		<<else>>\
+			It's very confusing, but nothing she says is untrue. You stumble with your words and just mumble in reply.
+			
+		<<endif>>\
+		@@.heroT;"I... I'm not... Well, maybe, but..."@@
+		
+		@@.therapist;"And all this while knowing it is $teacher who haunts your fantasies, who has locked you up... knowing you are utterly under her control."@@
+		
+		<<if $player.isMind_0()>>\
+			It's so wrong, but her words make you squirm in your seat. You can't help but get more and more aroused as $therapist brings out each humiliatingly correct detail.\
+		<<elseif $player.isMind_1()>>\
+			It's so wrong, but you can't stop listening to her. You get more and more aroused as $therapist brings out each humiliatingly correct detail of your fantasies.\
+		<<else>>\
+			She is so right. You can't stop listening as she brings out the most humiliating details of your fantasies. And it makes you so horny!\
+		<<endif>>\
+	<<else>>\
+		You aren't sure how $therapist can help you, but you still want to discuss $teacher taking away your chastity key.
+		
+		Noticing your hesitation, she asks what's wrong. With a heavy sigh, you tell her how an unlucky turn of events has led to $teacher taking away your key. It leaves $therapist quiet for some time, and you hope she's trying to come up with a way to help you. You're a bit unnerved by her dreamy smile as she thinks.
+		
+		Finally, she asks, @@.therapist;"And how exactly do you feel about it?"@@
+		
+		@@.heroT;"I... What do you mean? It's terrible!"@@
+		
+		@@.therapist;"Oh, but we've already talked about this. Is it so much worse now you can't take it off whenever you want?"@@
+		
+		<<if $therapistTalks.talkButtplug.finished>>\
+			@@.therapist;"As I recall, we've also talked about you being so impressed by certain 'additions' that you almost //leaked// with excitement."@@
+			
+		<<endif>>\
+		You blush, lowering your eyes and mumble, @@.heroT;"It's not about... I mean..."@@
+		
+		<<if $player.perversion.teacherCooldown gte 4>>\
+			@@.therapist;"Let me ask you something. On Friday, after being locked up for several days, do you feel extremely horny?"@@
+			
+			@@.heroT;"Yes, by that time I feel I'm about to go crazy."@@
+			
+			@@.therapist;"But I suppose when you are finally released from the trap you experience a very satisfying //release//?"@@
+			
+			$therapist smiles at you but you shyly avert your eyes, knowing she sees right through you.
+			
+		<<endif>>\
+		@@.therapist;"You know, some men,"@@ she says, pausing, @@.therapist;"...and women, too... would actually be ecstatic to be locked in chastity by a //hot teacher//. I bet it's a new and unique experience for you to be in that position, enduring inescapable arousal while waiting for her permission to be granted release? And all this while knowing it is $teacher, the subject of your fantasies, who has locked you away, who has you under her control?"@@
+		
+		<<if $player.isMind_0()>>\
+			You hate it, but she isn't completely wrong. Listening to her actually makes you squirm in your seat, getting more and more aroused as $therapist brings out each humiliatingly correct detail. You see images of $teacher in your head, forcing you to do what she asks, taking control...
+			
+			You try to shake those thoughts from your mind and get a grip on yourself, but aren't entirely successful.
+			
+		<<elseif $player.isMind_1()>>\
+			@@.guardiandream;You suddenly picture $teacher standing over you, dangling your key. Her fashionably heeled foot rests next to you as you lie prostrate on the floor, waiting for her to unlock you. She pivots, shifting her weight from one foot to the other, giving you a fleeting glimpse up her stockinged thighs into her underskirt, as you gaze up at her, waiting for your sweet, sweet release...@@
+			
+			You suddenly find that your overly-aroused body has taken on a mind of its own. You're practically shaking, you are turned on so much. Trying to refocus on the therapy, you are only partially successful.
+			
+			@@.hero; Where did that just come from?@@
+			
+		<<else>>\
+			@@.guardiandream;You're at school, and you're kneeling on your classroom floor. $teacher stands over you, key in hand. She lifts a well-heeled foot and shoves you lightly but firmly, just enough to tip you on your back. She reaches down towards your leaking cage, taking hold of it, and you shudder in anticipation of your release. Her fingertips brush across the base of your cock, across the skin of your balls, then come to rest around the bottom of your cage. Instead of unlocking it, however, she merely pulls you upward by your encapsulated cock. You reflexively lift your hips, utterly under her control, trying to keep from...@@
+			
+			As you come to, you find you are painfully aroused, and realize you were totally gone for a moment. Your cock is streaming steadily with clear fluid, and even your taint is buzzing from the rush of endorphins. Try as you might, you can't get the images of $teacher out of your head. Even when you look back at $therapist, pretending you didn't just lose time, you think you can still feel the actual sensation of $teacher's touch fading against your skin.
+			
+			@@.hero; Holy... what the hell just happened?@@
+			
+		<<endif>>\
+	<<endif>>\
+	@@.therapist;"$player.name, I thought I lost you for a second, there. What I asked was, you have no other option, but to obey her, right?"@@
+	
+	Red as a tomato, you just meekly nod in confirmation.
+	
+	@@.therapist;"Well, it seems you just have to endure, at least until such time as you have earned her //forgiveness//."@@
+	
+	<<if _c>>\
+		@@.therapist;"Let me satisfy my curiosity. You're locked away right now, aren't you?"@@
+		
+		You gulp and confirm her guess. To your surprise, she smiles mischievously and reaches for her purse. Before your widening eyes, she checks her hair, applies a deep red lipstick and undoes a few buttons on her blouse. Leaning back in her seat, she draws her blouse tightly around her breasts, and crosses one leg over the other in a slow, seductive move.
+		
+		Your eyes bulge at this sudden transformation, but the intense pressure from your chastity cage makes you wince. $therapist notices your reaction and looks a bit apologetic at your hurt expression.
+		
+		@@.therapist;"I'm not mocking you. I just wanted to check something. Tell me honestly, would you prefer to talk with me like this, //enduring// your chastity, or go back to how things are usually?"@@
+		
+		You're torn by her question. It's hard to deal with your chastity with such a sexy display on view, but you're still enthralled by her look and don't really want her to stop.\
+		<<if $player.isMind_0()>>\
+			Trying to think rationally, you resolve to tell her it would be bad to agree to this torture. You take a breath... \
+		<<elseif $player.isMind_1()>>\
+			It is //so// tempting, but you have to refuse. You know she's going to endlessly tease you, otherwise. So you say:
+		<<else>>\
+			Not able to hold back you blurt out,\
+		<<endif>>\
+		@@.heroT;"I can handle it like this."@@
+		
+		<<if $player.isMind_0()>>\
+			That wasn't what you were planning to say! @@.hero;Crap.@@
+			
+		<<elseif $player.isMind_1()>>\
+			//That// wasn't what you'd meant to say. @@.hero;Oh, my.@@
+			
+		<<endif>>\
+		$therapist beams at you and turns a bit so her cleavage is even more alluring. All you can do is ogle her and suffer.
+		
+	<<else>>\
+		@@.therapist;"Let me satisfy my curiosity, you aren't locked right now?"@@
+		
+		You gulp and confirm that right now you are free from the devious device.
+		
+		@@.therapist;"Tell me, now that you don't have the key, do you feel a temptation to put it on, knowing you wouldn't be free of it for at least a week?"@@
+		
+		<<if $player.isMind_0()>>\
+			@@.heroT;"Hell no."@@
+			
+		<<elseif $player.isMind_1()>>\
+			@@.heroT;"I... no, I don't."@@
+			
+		<<else>>\
+			@@.heroT;"Well, sometimes."@@
+			
+		<<endif>>\
+		@@.therapist;"Hmm, interesting. Maybe we will talk about it some other time."@@
+
+		That was a really weird question, and now you can't get the idea out of your head!
+		
+	<<endif>>\
+	You talk a bit more on various related topics and $therapist brings out few examples of notorious relationships that secretly featured chastity play. In the end you're left with an impression that being locked and controlled, while extremely humiliating, could also be an intense, erotic experience.
+	
+	<<if $player.isMind_0()>>\
+		You feel very conflicted about this talk. She may be right about some things, but you still hate being locked up all the time.\
+		<<if _c>>\
+			If anything, listening to her only made it worse as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from frustration.\
+		<<endif>>\
+	<<elseif $player.isMind_1()>>\
+		You feel a bit conflicted by this talk. She may be right about some things, but being locked up all the time is so frustrating.\
+		<<if _c>>\
+			If anything, listening to her has only made it more intense as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from pent up arousal.\
+		<<endif>>\
+	<<else>>\
+		You're glad you decided to talk with her. She was totally right about your fantasies of $teacher. It's also true that being locked up all the time is very invigorating, keeping you constantly horny.\
+		<<if _c>>\
+			If anything, listening to her has made it much more intense - your penis is straining madly against its cage right now. You reach for it to shift to a more comfortable position and find you're oozing precum.\
+		<<endif>>\
+	<<endif>>\
+	
+	
+<!--</talkChastityKey>-->\
+<!--<talkChastitySleep>-->\
+<<elseif ($scene eq "talkChastitySleep")>>\
+	Remembering your previous talk about chastity, you decide to ask $therapist about your troubles with sleep. After hearing you out, she stays silent for a bit, then asks you to excuse her and goes to the back room. Finally she returns, beaming at you with a sparkle in her eyes.
+	
+	@@.therapist;"So, I have an idea. It is a bit unorthodox, so I'm not sure if you will agree to go along with it."@@
+	
+	<<if _c>>\
+		You're not sure what to think, so you just tell her to continue. At the very least, you can listen to what she has to say.
+		
+		@@.therapist;"You know how the saying goes, //like cures like//. Well, my idea follows a similar principle: to deal with your sleeping troubles, you should face your chastity."@@
+		
+		You don't really like how this is sounding, but you suppose there could be some logic to it.
+		
+		@@.therapist;"Now, here is the plan: at night, before going to sleep, browse some porn."@@ Your eyes widens at her suggestion. @@.therapist;"Then, take this pill and wait a bit."@@
+		
+		You stare at her, stunned by the proposition. $therapist looks a bit embarrassed.
+		
+		@@.therapist;"I know, I know - it sounds strange. But if you're willing to try, I guarantee you will sleep like a baby for the night."@@
+		
+		You eye her skeptically, but she honestly seems to want to help you.\
+		<<if $player.isMind_0()>>\
+			So you just nod, telling her you'll consider it.
+			
+		<<elseif $player.isMind_1()>>\
+			It seems counter-productive, but who knows? Maybe it really will help you?
+			
+		<<else>>\
+			After giving it some thought, you actually like this idea. It sounds so kinky. You can't wait to try it.
+			
+		<<endif>>\
+		@@.therapist;"Oh, one more thing,"@@ she adds, handing you a small box. 
+
+		@@.therapist;"This could help if you go along with my idea, but please, promise me you won't open it until you take the pill."@@
+
+		You're not sure what to think about this, but you reluctantly agree to the added condition.
+
+	<<else>>\
+		You consider it and ask her to continue. At the very least, you can listen.
+
+		@@.therapist;"You know how the saying goes, //like cures like//. Well, my idea follows a similar principle: to deal with your sleeping troubles, you should face your chastity."@@
+
+		You don't really like how this sounds, but you have to admit there is some logic to it.
+
+		@@.therapist;"Now, here is the plan: At night, before going to sleep, go browse some porn."@@ Your eyes widens at her suggestion.
+
+		@@.therapist;"Then, you should stimulate yourself, but not at the usual end."@@ She looks at you pointedly, until you realize what she means. @@.therapist;"When you get very close to the point of //release//, you should stop and apply an ice pack or rinse in cold water. Then, put on and lock your chastity device and take this pill."@@ 
+
+		You stare at her slack-jawed, stunned by such a crazy proposition, but you reflectively pocket the pill she gives you anyway.
+
+		$therapist looks a bit embarrassed. @@.therapist;"I know, I know - it sounds crazy. But if you are willing to try, I guarantee you will sleep like a baby for the night."@@
+
+		You look at her sceptically, but she seems to honestly want to help you.\
+		<<if $player.isMind_0()>>\
+			So, you just nod, telling her you'll consider it.
+		<<elseif $player.isMind_1()>>\
+			It seems counter-productive, but who knows? Maybe it really will help you?
+		<<else>>\
+			After giving it some thought you actually like this idea. It sounds so kinky. You can't wait to try it.
+		<<endif>>\
+		@@.therapist;"One more thing,"@@ she adds, handing you a small box.
+
+		@@.therapist;"This could help you if you go along with my idea, but please, promise me you won't open it until you lock on the chastity cage."@@ 
+
+		You're not sure what to think, but in the end you reluctantly agree. 
+
+		@@.therapist;"Oh, and if you would like to try my method while being already locked, just watch some porn and take the pill."@@
+
+	<<endif>>\
+	
+	<<if $player.isMind_0()>>\
+		@@.hero;Well, that was strange.@@
+	<<elseif $player.isMind_1()>>\
+		@@.hero;Huh. That was weird. But intriguing.@@
+	<<else>>\
+		@@.hero;I knew she had some plan.@@
+	<<endif>>\
+	
+<!--</talkChastitySleep>-->\
+<!--<talkVibrator>-->\
+<<elseif ($scene eq "talkVibrator")>>\
+	You confront $therapist about her idea to 'solve' your sleep problems. Blushing furiously, you ask her why she did that to you.
+	
+	@@.therapist;"To help you of course. Why? Did you really hate it?"@@
+	
+	<<if $player.isMind_0()>>\
+		@@.heroT;"Of course I hated it!"@@ $therapist looks crestfallen, but then she looks at your face and wonders.
+
+		@@.therapist;"But you actually enjoyed it? You did, you totally did."@@
+
+		@@.heroT;"N-no."@@ Even to you, it sounds like the most pathetic lie ever and you just lower your eyes in resignation.
+
+		@@.therapist;"Really? You //hated// it?"@@
+
+		It would be funny how $therapist sounds like she's stuck on the same track - if you weren't wishing for the ground to swallow you!
+
+		@@.heroT;"Y-yes."@@
+
+		@@.therapist;"That's... interesting. Tell me, are you afraid to get used to it?"@@
+
+		@@.heroT;"What?"@@ You suddenly have a bad feeling about this.
+
+		@@.therapist;"The toy model I gave you, //Sissy Trainer//? I know, the choice of that brand name was over the top - kind of a little joke on my part. But, let's think about it - you can actually get used to it, train yourself into loving anal sex. Just imagine: little by little, despite your resistance, inside of you would bud the ability to receive pleasure from being penetrated. And all happening because you let $teacher lock you in chastity."@@
+
+		@@.heroT;"But... I... no..."@@ You stare at her in horror, your traitorous mind wondering if she might be right?
+
+		$therapist laughs softly at your shocked expression, @@.therapist;"Just kidding! Sorry about that."@@ She doesn't look sorry at all. @@.therapist;"I just want you to open up a bit. It's no one else’s business what kind of fantasies you enjoy. There's nothing wrong in experimenting a bit, at your age."@@
+		
+		@@.heroT;"I..."@@ Despite your intentions to confront $therapist about her trickery, you just get more confused. To your shame, you can't stop thinking about her idea. After all, fucking yourself with a dildo kinda worked in a //backward// way, and you were able to sleep soundly. So you just meekly mumble, @@.heroT;"I'll think about it."@@
+		
+		You talk a bit more, $therapist fishing for kinky and embarrassing details of your little experiment.
+
+	<<elseif $player.isMind_1()>>\
+		@@.heroT;"Well, I won't say hate, but it was a pretty mean trick."@@
+
+		@@.therapist;"But you actually enjoyed it? You did, you totally did."@@
+
+		@@.heroT;"N-no?"@@ Even to you, that sounded like most pathetic lie ever. You have to lower your eyes to deflect your insincerity.
+
+		@@.therapist;"That's... interesting. You know, about the toy model I gave you - //Sissy Trainer//? I know - that brand name I picked was just a little joke - but let's just think about it. You can actually get used to it: train yourself into loving anal sex. Just imagine - little by little, despite your resistance, inside of you would bud the ability to receive pleasure from being penetrated. And all of that happening because you let $teacher lock you in chastity"@@
+
+		@@.heroT;"But... I..."@@ You stare at her in horror, your traitorous mind drawing you pictures of long nights filled by pounding your hole with a big pink dildo.
+
+		$therapist laughs softly at your shocked expression, @@.therapist;"Just kidding! Sorry about that."@@ She doesn't look sorry at all. @@.therapist;"I just want you to open up a bit. It's no one else’s business what kind of fantasies you enjoy. Nothing wrong in experimenting a bit, at your age."@@
+		
+		@@.heroT;"I..."@@ Despite your intention to confront $therapist about her trickery, you just end up more confused. To your shame, you can't stop thinking about her suggestion, getting aroused by the idea despite your reservations. After all, fucking yourself with a dildo actually worked, and you were able to sleep soundly. So you just meekly mumble, @@.heroT;"I... I'll try..."@@
+		
+		You talk a bit more, $therapist fishing for kinky and embarrassing details of your little experiment.
+
+	<<else>>\
+		@@.heroT;"N-no. It was just very surprising."@@
+
+		@@.therapist;"And you actually enjoyed it? You did, you totally did."@@
+
+		You blush furiously, lower your eyes and meekly nod.
+
+		@@.therapist;"That's great. About the toy model, //Sissy Trainer// - that brand name was just a little joke, by the way. But, think about it: you could actually train yourself into craving anal sex. Just imagine - little by little, despite your resistance, inside of you would bud the ability to receive pleasure from being penetrated. And all because you let $teacher lock you in chastity."@@
+
+		@@.heroT;"That... that is so kinky."@@ It's so wrong, but you can't stop thinking about it, smiling absentmindedly as you imagine fucking yourself with a //training tool//.
+
+		@@.therapist;"Oh... I was just kidding, but if you are really interested..."@@ $therapist blushes a bit, @@.therapist;"I can give you a few pointers."@@
+		 
+		You talk a bit more, $therapist giving you various advice about the //training//.
+		
+	<<endif>>\
+<!--</talkVibrator>-->\
+<!--<talkVibratorCaught>-->\
+<<elseif ($scene eq "talkVibratorCaught")>>\
+	$therapist notices you behaving nervously and asks what's wrong. Extremely embarrassed, you can't even find a starting point to discuss your feelings.
+
+	@@.therapist;"$player.name, you know you can talk about anything."@@
+
+	With a heavy sigh you tell her how $guardian caught you with a vibrator, and her reaction.
+
+	@@.therapist;"Huh. I guess it must have been a shock to her."@@ $therapist says, thoughtfully. @@.therapist;"I know it's not what you might expect me to say, but I recommend not hiding your //private// activities from her."@@
+
+	Seeing your confusion she clarifies. @@.therapist;"She just needs to be sure you are not in danger. Despite how angry she sounded she won't stop loving you. So just carry on, though it may be a bit awkward and embarrassing at first."@@
+
+	<<if $player.camera.bedroom or $player.camera.bathroom>>\
+		She searches your face intently for a moment, her eyes narrowing in suspicion.
+
+		@@.therapist;"$player.name, tell me honestly, you've spied on $guardian, haven't you?"@@
+
+		Caught by surprise, you stare at her with your jaw hanging, unable to comprehend how she figured that out. Under her gaze you meekly nod, confirming her suspicions.
+
+		@@.therapist;"Well, now, it's only fair for her to watch you, too, isn't it?"@@ she asks. @@.therapist;"So, what exactly were you doing while watching her?"@@
+
+		A furious blush spreads up as far as your ears and you have to lower your eyes, even though you know $therapist will see right through you, anyway.
+
+		@@.therapist;"I thought so... you don't have to say. Do you think $guardian would do the same?"@@
+
+		@@.heroT;"What?"@@
+
+		@@.therapist;"I bet it must look quite erotic, how you please yourself with a vibrator."@@
+
+		Suddenly, there's an image in your mind of $guardian caressing her breasts and reaching down to her pussy, watching you locked in chastity while you desperately seek release at the end a dildo.
+
+		@@.hero;Holy shit! Would she really do that?@@
+		
+		@@.therapist;"I see you've understood. Maybe you could be more artistic on the camera, just in case."@@ $therapist smiles at you and you see an impish sparkle in her eyes.
+		
+		<<if $player.isMind_0()>>\
+			@@.hero;Oh, god. Now it will be even more embarrassing to be under that camera.@@
+			
+		<<elseif $player.isMind_1()>>\
+			@@.hero;This is so weird. Still, it would be kinda hot if $myguardian would really do that.@@
+			
+		<<else>>\
+			@@.hero;Oh my... I'll show $myguardian the best sissy porn she'll ever see!@@
+			
+		<<endif>>\
+	<<endif>>\
+<!--</talkVibratorCaught>-->\
+<!--<talkCrossdressing>-->\
+<<elseif ($scene eq "talkCrossdressing")>>\
+	<<if _o and _o.female>>\
+		You notice $therapist eyeing your choice of clothes. She seems intrigued by your decision to visit her dressed like that.
+		
+		@@.therapist;"I suppose you like dressing that way, considering the obvious. Perhaps you want to add some details?"@@ $therapist lifts an eyebrow. With the fact of it in the open, you know you can't easily dodge her question.
+
+	<<else>>\
+		$therapist seems trustworthy, so you decide to talk with her about your recent stroll in a girly outfit. She seems intrigued, listening to you, but not actually shocked, despite your expectations.
+	
+		@@.therapist;"And? How do you feel about it?"@@
+		
+	<<endif>>\
+<!--</talkCrossdressing>-->\
+<!--<talkUpload>-->\
+<<elseif ($scene eq "talkUpload")>>\
+	You're at once embarrassed at but somewhat proud of your sudden success with uploading the video of your fun time with a vibrator. You hope $therapist will help you work out your conflicting feelings about it.
+	
+	You describe how you //accidentally// recorded your quality time and decided to check if there are similar videos on the net. Fidgeting in your seat, you admit that, at the request of one of your site's visitors, you uploaded your video after editing out your face.
+	
+	@@.therapist;"You should be really careful with sharing such personal videos, $player.name, but good thinking with removing the identifying details."@@ 
+
+	It feels nice to hear she cares about your well-being, but you aren't dumb enough to leave the video recognizable.
+
+	@@.therapist;"Well, what's done is done. Would I be right in guessing your video got positive feedback?"@@
+
+	@@.heroT;"Yes."@@ You hesitate about the next bit, but decide to tell her. @@.heroT;"I even got $<<print $taskMoney.upload.task>>, as gratitude."@@
+	
+	@@.therapist;"That's great! I know many of my colleagues would frown on it, but getting paid is a definite proof of gratitude for your performance. Just don't let it get into your head too much, and stay safe. Of course you also should keep it secret. You are extra careful about it, aren't you?"@@
+
+	She looks at you with a genuine worry, so you hurry to reassure her. @@.heroT;"Of course I'm careful. I'm not stupid."@@ You decide to boast a bit. @@.heroT;"I've actually been surfing the net and getting around censor blocks since I got my hands on a keyboard, so I figured out how to be careful."@@
+
+	Hearing your bravado, $therapist nods to herself and relaxes a bit.
+	
+	@@.therapist;"All right, if you're so sure. I'm glad to hear that. Now, to the more interesting subject. Besides money, which excites you the most - just knowing that the video would be seen by someone, or imagining someone watching it?"@@
+
+	@@.heroT;"What?"@@ You actually haven't given the question much thought before, having mostly focused on the money.
+
+	@@.therapist;"Well, sharing a video like that is almost the same as letting someone watch you pleasing yourself with a vibrator. So, does it makes your experience more exciting, knowing there are invisible spectators out there besides $guardian? Or maybe you imagine a kinky girl, or a random guy, or maybe even a grown up man watching the video of yours, fantasizing about you or pleasing themselves? You know, someone may be doing it right this moment..."@@
+	
+	<<if $player.isMind_0()>>\
+		@@.hero;What?@@ A sudden realization hits you @@.hero;Oh... Oh, shit!@@
+
+	<<elseif $player.isMind_1()>>\
+		@@.hero;What?@@ You suddenly realize you haven't thought about such intriguing details, @@.hero;Oh... Oh, my...@@
+
+	<<else>>\
+		@@.hero;Oh...@@ Just thinking about it makes you hard.
+
+	<<endif>>\
+	@@.therapist;"They may not know you, but they surely know //about// you. Without context, they see a sissy-boy who seemingly enjoys being locked and surrendering to penetration on the end of a sex toy. I'd imagine some of them might even fantasize about having sex with you themselves."@@
+
+	<<if $player.isMind_0()>>\
+		A sinking feeling engulfs you. You can almost feel the invisible hands of strangers running over your whole body, comments on your video coming up in low whispers in your ears...
+		
+		Feeling dirty, you shudder and shake your head, trying to snap of it, but can't get rid of it completely.
+		
+	<<elseif $player.isMind_1()>>\
+		@@.guardiandream;The vivid image of a room full of shadowed, anonymous observers suddenly encroaches upon your imagination. As they watch, another vague figure mercilessly fucks you, filling and emptying you again and again as they repeatedly thrust into your accommodating body...@@
+
+		Your breathing gets a little more shallow as the image dissipates. @@.hero; What was that?@@
+
+	<<else>>\
+		@@.guardiandream;The vivid image of a room full of shadowed, anonymous observers suddenly encroaches upon your imagination. As they watch, another vague figure mercilessly fucks you, filling and emptying you again and again as they repeatedly thrust against you.@@
+
+		You surge with arousal, to the point of total distraction. @@.hero; Oh, my god... where did that come from?@@
+
+	<<endif>>\
+	@@.therapist;"Perhaps, they even think of more actively participating in your anal play."@@ 
+	<<if $player.isMind_0()>>\
+		Once again, fleeting images form in your mind at her words. Thoughts of anonymous online followers thinking about using a toy on you or directing you to //do things//... you push the thoughts away, but you still feel like traces of them remain.
+
+	<<elseif $player.isMind_1()>>\
+		@@.guardiandream;You're suddenly on all fours, head down, as another figure, this time wearing a strap-on, mounts you. As the figure seizes your hips and pulls you towards them, you feel your dildo-trained ass open pliantly around the implacable shaft boring its way inside you.@@
+
+		As the image fades, you can't avoid how turned on you are. You really have to concentrate to stop thinking about it. The underlying feeling of it stays stubbornly with you.
+
+	<<else>>\
+		@@.guardiandream;You're suddenly on all fours, head down, as another figure, this time wearing a strap-on, mounts you. As the figure seizes your hips and pulls you towards them, you feel your dildo-trained ass open pliantly around the implacable shaft boring its way inside you.@@
+
+		Your body reacts sensually to your vivid daydream, almost as lucidly as reality. Even as the images fade, the ghost of the actual, physical sensation somehow stays with you. You feel wetness at your crotch and your toes have curled a little in your shoes. You feel desperate to masturbate.
+
+	<<endif>>\
+	You come to your senses, uncertain how much time passed but aware $therapist may have stopped talking while you were thinking.
+
+	@@.therapist;"So, want to share your thoughts?"@@
+	
+	Under $therapist's inquiring gaze you pathetically mumble, unable to say anything meaningful.
+
+	@@.therapist;"Oh, sorry. I completely understand if you want to keep such details to yourself."@@ She bites her lip, looking a bit embarrassed. @@.therapist;"I could give examples and offer general advice instead."@@
+
+	You're glad to switch topic and quickly nod. To your dismay, $therapist starts telling you anecdotes from the memoirs of famous porn actresses and actors: what they thought, how they felt, and various tricks that helped them with enticing an audience.
+	
+	As you listen to her, you involuntarily start to compare and draw parallels with yourself. After some time, you catch yourself imagining using these little tricks in your next video.\
+	<<if $player.isMind_0()>>\
+		It's really embarrassing, but maybe it would help you to get more money?
+		
+	<<elseif $player.isMind_1()>>\
+		You feel intrigued by the idea of trying it.
+		
+	<<else>>\
+		You wonder if it would help make your videos more popular?
+		
+	<<endif>>\
+<!--</talkUpload>-->\
+<!--<talkUploadCaught>-->\
+<<elseif ($scene eq "talkUploadCaught")>>\
+	<<if $therapistTalks.talkUpload.finished>>\
+		You remember your last talk about uploading your videos. It only makes it harder to start talking about being caught by $guardian.
+		
+	<<else>>\
+		It's hard to talk about $guardian catching you uploading your kinky video, so you decide to begin with how it all started.
+		
+		You describe how you //accidentally// recorded your quality time and decided to check if there were similar videos on the net. Fidgeting in your seat, you admit that after a request from one of your site’s visitors, you uploaded your video after editing out your face.
+	
+		@@.therapist;"You should be really careful with sharing such personal videos, $player.name, but good thinking about removing too personal details."@@
+		
+		@@.hero;Kinda too late for //that// advice.@@ You hang your head in shame, which causes $therapist to ask what's wrong.
+		
+	<<endif>>\
+	With a heavy sigh, you tell $therapist how $guardian recognized the pink roller skates she'd given you in the video you uploaded. Seeing you all slumped down in your seat, $therapist replies, @@.therapist;"I see how it may have been hard to explain. I hope she didn't react too harshly?"@@
+	
+	@@.hero;Finally, I can talk to someone about this huge mess!@@
+
+	You heatedly describe the fake story about some girl and a mean prank that $teacher fed to $guardian. You swear you are innocent, and explain how $teacher made it all up to frame you. $therapist tilts her head and touches her cheek at this, but doesn't say anything, letting you finish your rant.
+	
+	@@.therapist;"I just want to remind you I'm on your side. So, what exactly did $guardian do in reaction to $teacher's revelations?"@@
+	
+	<<if ($player.perversion.teacher gte 4)>>\
+		@@.heroT;"She... she took my clothes."@@
+
+		@@.therapist;"What?"@@ $therapist looks at you incredulously.
+
+		@@.heroT;"My male clothes - she got rid of all my male clothes."@@
+
+		@@.therapist;"Oh..."@@ You think there's a hint of a smile on $therapist's face as she asks, @@.therapist;"But you have //other// clothes, right?"@@
+
+		You just nod.
+
+		@@.heroT;"She also demanded a few changes in my home routine. Now I'm... I'm her..."@@
+
+	<<else>>\
+		@@.heroT;"She demanded a few changes in my home routine. Now I'm... I'm her..."@@
+
+	<<endif>>\
+	@@.therapist;"Her...?"@@
+
+	@@.heroT;"I'm her maid."@@ You lower your eyes, not ready to explain it further.
+	
+	$therapist looks at you as if wanting more details, but recovers after a second and asks, @@.therapist;"We can talk about it bit later, if you want to."@@
+	
+	After a brief pause she continues, @@.therapist;"But, back to this //fake// story. If... sorry, what I meant to say was, her story is obviously untrue..."@@ You glare at her, a bit hurt by her slip up. @@.therapist;"Have you thought it could be just a convenient explanation for you? I mean, from what you told me, it is possible $teacher and $guardian just agreed on that story to help you take a step further."@@
+	
+	You really hadn't thought about it like that before. Seeing your skeptical expression, $therapist adds, @@.therapist;"Would I be right if I say that <<if ($player.perversion.teacher gte 4)>>$teacher has more control over you, now you have no male clothes, and that <<endif>>$guardian is really excited about having a personal maid?"@@
+	
+	You can't really argue with that. @@.hero;Huh...@@
+	
+	With an apologetic smile $therapist continues, @@.therapist;"I don't mean there's some kind of sinister plan - their intentions most likely aren't malicious. Perhaps they mutually decided to take more control over your life, as the incident with the video clearly showed your carelessness. The story about a prank may simply be a means to keep you from protesting. 
+
+	"It may seem harsh now, but if it's a sign of how worried they are, it also could be good for you, in a way. At the very least, $guardian and $teacher may ease up on you if you comply with their wishes for a time."@@
+
+	You really want to argue, but seeing her disarming half-smile you hesitate and eventually decide to just let it go.
+	
+	The talk leaves you confused. $therapist's theory about $teacher's and $guardian's reasoning has got you thinking:\
+	<<if $player.isMind_0()>>\
+		@@.hero;Do I really need supervision? Is it truly their way of worrying about me?@@
+		
+	<<elseif $player.isMind_1()>>\
+		@@.hero;Could it be for my own good?@@
+
+	<<else>>\
+		@@.hero;Does it mean I need to be controlled? That I need a strong arm to guide and lead me?@@
+
+	<<endif>>\
+<!--</talkUploadCaught>-->\
+<!--<talkMaid>-->\
+<<elseif ($scene eq "talkMaid")>>\
+	<<if $therapistTalks.talkUploadCaught.finished>>\
+	Gathering your resolve, you tell $therapist you're ready to talk about becoming a personal maid for $guardian.\
+	<<else>>\
+	Gathering your resolve, you tell $therapist how you've become a personal maid for $guardian.\
+	<<endif>>\
+	Suddenly, $therapist starts looking more animated than usual. For a moment, you get an odd vision of her as a cat, about to pounce on a twitching, mousy toy. But this lasts only a few seconds, and soon you're unsure if the change in her manner wasn't just your imagination.
+	
+	@@.therapist;"This is most intriguing, but I need to hear more details to get the full picture. Could you describe your day as a maid, please?"@@
+	
+	@@.heroT;"Well, first, I get up early. Earlier than I used to.@@\
+	<<if $player.flags.dreamgameCaughtWin>>\
+		@@.heroT;$Myguardian gave me a special butt-plug alarm. It wakes me up by vibrating like crazy, and it keeps going, on and on. And I can't pull it out, or it screeches and wails, so I just have to lie there and accept being tortured by the damn thing. It's hell! So, when I'm locked up in chastity, I start my day being //very// horny and frustrated."@@
+
+	<<elseif $player.flags.vibratorCaught>>\
+		@@.heroT;$Myguardian gave me a special butt-plug alarm. It wakes me up by vibrating violently. When I'm locked in chastity, I have to start the day with it driving me crazy!"@@
+
+	<<else>>\
+		@@.heroT;$Myguardian gave me a special alarm clock. It wakes me up with these embarrassing little voice messages. I don't like being woken up by an alarm clock calling me a sissy."@@
+
+	<<endif>>\
+	$therapist quietly makes notes, catching your every word. You're a bit worried by what you imagine to be a slightly manic glint in her eyes. Noticing your stare, she smiles and urges you to continue.
+	
+	@@.heroT;"Then I put on my maid uniform, stockings, heels and a headband."@@
+
+	$therapist bites her lip. @@.therapist;"Sounds exciting. Now, I'm curious - do you have a photo of it by any chance?"@@
+
+	Instinctively, you bring out your phone, skimming through your selfies until you get to the one with the maid uniform. Seeing the image, you hesitate about showing it to $therapist, but she already has her hand out, so you reluctantly give her the phone. You totally forgot you'd made that shot while posing with your back to the mirror, lifting your skirt to expose both your chastity cage and butt-plug. You feel a weird mix of shame and gratification as you watch $therapist blush, gazing at the image intently.
+
+	@@.therapist;"It's... O-oh, wow..."@@ After some time, she glances back to you and quickly returns your phone looking embarrassed by her obvious appreciation of your photo. She take a moment to compose herself before continuing. @@.therapist;"It looks fantastic, a very good shot I must say. Great job."@@
+
+	<<if $player.isMind_0()>>\
+		You feel very awkward after showing the picture to her. Her praise did feel nice though, even if it was about your looking great as a sissy maid. You curse yourself for this embarrassing slip, but an inappropriate pride fills you for the effect your photo had on her.
+
+	<<elseif $player.isMind_1()>>\
+		The session feels awkward after showing this picture to her. It feels so good to be praised, though. A strange pride fills you for the effect your photo had on her.
+
+	<<else>>\
+		Your heart melts at hearing her praise. You linger on her words, wishing you had more photos like that to show her.
+
+	<<endif>>\
+	Following her gesture, you continue: @@.heroT;"Then I go to $myguardian's room and wake her up..."@@
+
+	Noticing your hesitation, $therapist wonders aloud, @@.therapist;"Are there particular details of this routine, that cause you concern?"@@
+
+	You had hoped she wouldn't catch on, but as usual, $therapist is keen on such details. @@.heroT;"She likes to be woken up by me gently caressing her."@@ Lowering your eyes you meekly add, @@.heroT;"Sometimes the intimate kind."@@
+
+	@@.therapist;"Oh... I suppose... Well, that's an interesting turn of events, considering how you used to sneak in to her bedroom to do the same in secret. Now, you get to wake up $guardian by some gentle erotic teasing every day. Though, I guess it feels different now?"@@
+	
+	You can't hold your frustration in any longer and let it out: @@.heroT;"It's torture! Her big breasts and round ass feel so soft under my hands... when I spread her toned thighs, seeing her pink pussy, //right there//... she even moans and talks dirty in her sleep! But I feel so helpless and pathetic, locked in this damned cage."@@
+
+	You crumble in your seat, on the verge of crying. $therapist looks at you in sympathy and rubs your shoulder.
+
+	@@.therapist;"It's alright, it's alright..."@@ As you calm down a bit, she softly pushes on. @@.therapist;"But you're getting used to it, right?"@@
+	
+	<<set _topics=false>>\
+	<<set _return=false>>\
+	<<set _home=false>>\
+	[[No, not really|Therapist talk][$scene="talkMaid_continue"; $therapistTalks.talkMaid.progress=0]]
+	[[Yes, slowly|Therapist talk][$scene="talkMaid_continue"; $therapistTalks.talkMaid.progress=1]]
+<<elseif ($scene eq "talkMaid_continue")>>\
+	<<if $therapistTalks.talkMaid.progress eq 0>>\
+		You shake your head. @@.heroT;"No. Not really. $Myguardian looks so sexy, relaxed and happy, but it's very frustrating to be around her like that. I don't know if I'll ever get used to that."@@
+
+		@@.therapist;"You say she is happy. She is the one of the people in your life you're closest to. Doesn't that make you feel better, knowing you bring pleasure and comfort to her?"@@
+
+		@@.heroT;"Well, yes, it feels good, but..."@@
+
+		@@.therapist;"And, don't you feel satisfaction when she wakes up under your touch and greets you, the first person she sees every day, the one who sets the tone for her whole day?"@@
+
+		@@.heroT;"I... sort of..."@@
+
+		@@.therapist;"It may seem harsh and a little hard to deal with, but if you relax and focus on the bright side, you will find it much easier and even enjoyable to go through your new routine."@@
+
+		@@.heroT;"But... are you sure?"@@
+
+		@@.therapist;"You won't know until you try, but I'm pretty sure about it. Don't worry, you'll work it out."@@
+
+		You just nod, confounded but somehow reassured by her words.
+	
+	<<else>>\
+		You weakly nod.
+
+		@@.heroT;"It - it's been getting easier lately, starting to feel almost natural. Like I'm supposed to... And $myguardian does look so happy."@@
+
+		@@.therapist;"It's admirable that pleasing her brings you satisfaction. I was concerned about your relationship with $guardian in the light of other events, so I'm really glad to hear about you finding understanding. I suppose it is a little unorthodox, but think about it – have you ever been this close with her?"@@
+		
+		@@.heroT;"Well... yeah, I-we never been this kind of close, though I'm not sure..."@@
+		
+		@@.therapist;"It doesn't really matter what brings you together. Believe me, if you can ignore some minor discomfort and a bit of awkwardness, you'll find yourself happier with how things go now. Don't worry, you will work it out."@@
+		
+	<<endif>>\
+	@@.therapist;"But we got distracted, could you continue describing your morning, please?"@@
+	
+	@@.heroT;"Oh, of course."@@ You think about where you stopped, @@.heroT;"After waking $myguardian up, I prepare towels and clothes for her at the bathroom."@@
+
+	@@.therapist;"You know, it may seem unnecessary work, but such attention and caring really helps."@@
+
+	@@.heroT;"Hm, now that you mention it... $Myguardian used to shamble like a zombie, at least until she took her shower and coffee. Now she's more alive and talkative after waking up.... Anyway, like I said, she takes her shower and I go to the kitchen. There I make breakfast for her and myself."@@
+
+	@@.therapist;"Anything special?"@@
+
+	@@.heroT;"Not really -  scrambled eggs or toast and coffee for her, cereal for me. When $myguardian returns we talk a bit, and she goes to work."@@
+
+	@@.therapist;"Hmm, have you thought about making something more fancy than 'the usual' for her?"@@
+
+	@@.heroT;"No, why?"@@
+
+	@@.therapist;"It would show her how much you care. Just try it. You might be surprised by how pleasant it will feel, to hear her gratitude. You may even come to enjoy cooking for her. At the very least, doing it in such a delightful maid uniform should be a unique experience."@@
+
+	@@.heroT;"Hmm... ok. I hadn't thought about that."@@
+
+	$therapist gives you some time as you sit silently lost in your thoughts. You wonder if you should follow her advice. Would it really help you, or it is just some general motivating advice, like //'think happy thoughts'// or //'stay positive'//?
+
+	Finally, you shrug off your stupor and notice her silently watching you with a faint smile. @@.therapist;"It was very interesting to hear about such an intriguing development in your life. I guess your maid duties are not limited to waking her up in the mornings? No need to rush though, we could talk about it another time if you want."@@
+	
+	<<if $player.isMind_0()>>\
+	<<elseif $player.isMind_1()>>\
+	<<else>>\
+	<<endif>>\
+<!--</talkMaid>-->\
+<!--<talkFuta>-->\
+<<elseif ($scene eq "talkFuta")>>\
+	You dance around the topic for a little bit, but finally manage to bring up your suspicion that you think a lot more women in this area than usual have the same parts 'down there' that you do. $therapist nods quietly as you ask, giving you the space to formulate your words, and then pauses for a moment before she responds.
+
+	@@.therapist;"Well,"@@ she begins, @@.therapist;"Your observations are probably right, though that kind of decision is generally a personal matter that's deserving of respect and privacy. But given the changes going on in your own situation, I think it's definitely a natural question for you to ask.@@
+
+	@@.therapist;"As I'm sure you know, this area is a big spot for health research and the medical field in general. I think you may have even mentioned that $guardian works at a clinic of some kind?"@@
+
+	You nod.
+
+	@@.therapist;"As it turns out, studies into sexual identity and gender are still a relatively new frontier in medicine, and there's lots of research into that area of study taking place here. Some areas, like reassignment and performance therapies, are evolving very quickly and it takes a certain kind of place to //socially// foster such rapid technology growth."@@
+
+	Seeing your dubious reaction, $therapist lifts a hand. 
+
+	@@.therapist; "I don't mean to say that people are being forced to become lab rats. That's not what I mean at all. Actually, it's really the opposite - the local community has really worked hard to make this a welcoming place to live for people of all kinds of walks of life. That is actually a big draw for the medical tech companies, because they rely on highly-educated, skilled workers that appreciate and respect diversity."@@
+
+	You may agree with her description in general, but you can't help think of the 'welcoming' you've gotten from your classmates, $bully and $teacher. You hope that's not what the community meant to happen. It makes you shudder.
+
+	@@.therapist; "There are sponsored studies going on here that move cutting-edge-but-expensive medical advances into the realm of possibility for people who need them but otherwise couldn't afford them. There are more than a few people who couldn't even become the person they want to be without the access that living here opens up for them."@@
+
+	She seems genuinely excited about it. Admittedly, you hadn't really thought much about it before.
+
+	@@.therapist;"While I can't get into anyone's specifics, what I can say is this: A number of my clients, and people they know here, are transgendered people who came here specifically because they could live openly and be accepted. And, because the medical support they need is more accessible, better and safer here than just about anywhere else."@@
+
+	You think about all those companies around here, that have names with things like 'Bio-,' 'Pharma-' or 'Gene-' in them. It's quite a few, now that you reflect on it.
+
+	@@.therapist;"Now, my intuition tells me there is a specific reason you asked about all this?"@@
+
+	Looking at you, she folds her hands neutrally into a little arch across her lap.
+
+	@@.heroT;"Um,"@@ you murmur, @@.heroT;"it's just that..."@@
+
+	@@.therapist;"Yes?"@@ she asks. Her probing look suggests she won't let you off unless you answer.
+
+	@@.heroT;"I may have met some of the... It was erm, unexpected."@@ You hesitate about telling her about bullies.
+	
+	@@.therapist;"Oh, from your words I suppose you learned about the fact after you actually saw the //'extra'// part? I don't want to imply anything, but would I be wrong if I say that it could have been privy to a situation like that, maybe even something intimate?"@@
+	
+	Embarrassed and a bit scared, you lower your eyes and just nod.
+	
+	@@.therapist;"I see how it may have been confusing. We could talk about how you felt then, if you want."@@
+	
+	Memory of $bully's cock on your lips comes to your mind. You shake your head, trying to get rid of the weird thoughts.
+	
+	@@.therapist;"I won't push, but I should mention that there is nothing wrong with being attracted to a shemale. There've been studies which shown that a pretty big percentage of heterosexual men experience arousal, equal or even more intense, when observing an attractive female with a cock. It's an interesting quirk of psychology."@@
+	
+	You fidget on your seat, still confused and embarrassed, but that tidbit feels a bit reassuring. @@.hero;Not that I'm actually attracted to them.@@
+	
+	@@.therapist;"Partially, it could be about feeling dominance over other //male//,"@@ you frown, thinking that none of your performance could be called dominating, @@.therapist;"but some enjoy the thought of submitting to a female. Adding a penis to the gorgeous body of a woman just amplifies differences and lets one slip into submission more quickly."@@
+	
+	You've been wrong. That's not reassuring at all.
+	
+	@@.therapist;"Many males feel incredible arousal at the fantasy of kneeling before a woman with a penis."@@
+	
+	You involuntarily remember your first time with the assistant //girl//.
+	
+	@@.therapist;"To touch it."@@ To your shame you are getting hard-on, recalling doing that. $therapist's voice is almost hypnotizing. It is like you can feel echo of the cock's feeling in your senses.
+	
+	@@.therapist;"To feel joy and pride from seeing satisfaction and gratitude on woman's face."@@ You hate to admit it, but you really felt that way then.
+	
+	@@.therapist;"Some even get aroused by the idea of being forcibly taken by a //woman//."@@
+	
+	You freeze in shock, refusing to consider such possibility, but some traitorous part of your mind reminds you how aroused you were, being held down by $bullies. Turning bright crimson, you avoid $therapist eyes, praying that she will stop.
+	
+	@@.therapist;"But that is purely theoretical. You should decide for yourself how you really feel."@@
+	
+	Too late for that, now you can't stop thinking about cocks. She talks about it with such passion.
+	
+	@@.hero;Wait a second. Is she...@@ Your gaze instinctively dart to her skirt, trying to notice any signs.
+	
+	Seeing your inspecting stare $therapist smiles.
+	
+	@@.therapist;"Are you wondering if I have //extra// parts?"@@ You instantly lower your eyes, shaking your head and cursing yourself for staring so openly.
+
+	@@.therapist;"Don't worry, it is natural to be curious. Would you prefer it if I did?"@@
+	
+	@@.heroT;"I..."@@ extremely confused, you don't know how to answer. You always thought of her as of woman, but if she have a cock under this skirt of hers...
+	
+	You gulp, but meeting her eyes you answer her honestly @@.heroT;"I don't know."@@
+
+	@@.therapist;"If it makes you feel more comfortable to think of me in that way, then I encourage you to do so. My objective has always been to make it as easy as possible for you to be at ease with yourself here.@@
+	<!--
+	
+	<<set _topics=false>>\
+	<<set _return=false>>\
+	<<set _home=false>>\
+	
+	You think carefully about your answer, knowing it could shape events going forward:
+	
+	[[Yes - sex between males is uncomfortable for me to think about, but I am ok with sexual thoughts about transgendered women][$scene="talkFutaYes"]]
+	[[No - sex between males is fine for me to think about][$scene="talkFutaNo"]]
+	@@.therapist;"Unless.... Maybe the real question is this one: Does the idea of males having sex together bother you? In other words, would it be more comfortable for you to experience sexual acts with someone who appears to be a woman, except in that one aspect?"@@
+
+	You think carefully about your answer, knowing it could shape events going forward:	
+	-->\
+<<elseif ($scene eq "talkFutaNo")>>\
+	@@.therapist;"I see,"@@ she replies. @@.therapist;"Well, I appreciate your honesty. Individual preferences about who we are and what turns us on are perfectly normal parts of life. As your therapist, I encourage you to explore ideas that excite you and learn to express them in healthy and appropriate ways."@@
+<<elseif ($scene eq "talkFutaYes")>>\
+	You feel a little comforted by her support. A lot has happened to you lately, and you're not sure you've caught up with it all yet.
+<!--</talkFuta>-->\
+<!--<talkPenisShrinking>-->\
+<<elseif ($scene eq "talkPenisShrinking")>>\
+	You hesitate a bit, but after $therapist asks if you feel uncomfortable, you tell her why you're fidgeting.
+
+	It's hard to explain what your main issue is with the chastity cage. The only thing that comes to your mind is the damn thing is too small for you. It would be somewhat flattering that you're //too big//, if not for the constant distraction and strain on your penis.
+	
+	@@.therapist;"Oh, I can see how that might be a problem. Could you talk with $teacher about getting a slightly bigger one?"@@
+	
+	You shake your head, clearly imagining $teacher laughing at your request and telling you to get used to the feeling.
+	
+	@@.therapist;"Well, that doesn't leave you a lot of options. I take it that it feels cramped even when you aren't aroused?"@@
+	
+	@@.heroT;"Yeah. It isn't as bad, but it's still kinda tight."@@
+	
+	$therapist goes quiet for few minutes, probably considering various options. She finally glances at you, looking uncertain.
+
+	@@.therapist;"You know, I may have a bit of an unorthodox solution for you. If you can't do anything about the cage, you might make your penis a bit smaller."@@
+	
+	Seeing your baffled expression she clarifies.
+	
+	@@.therapist;"I've heard there's a treatment like that at the local clinic. Don't worry, the effect is temporary, but it should be enough to give you some relief."@@
+	
+	<<switch $player.isMind()>>\
+		<<case 0>>The whole idea makes you feel uneasy, so you tell $therapist you'd never go for it. She doesn't insist. Still, a nagging voice in the back of your head tells you it might be your easiest way to cope with chastity until you can find a way to get out of it.
+		<<case 1>>You're really intrigued, but to keep appearances you argue with $therapist that this is a bad idea. She doesn't insist.
+		<<case 2>>You admit, it's an interesting idea, but still seems like it's taking things too far.
+	<</switch>>\
+	
+	@@.therapist;"I'm sorry if I sounded inconsiderate of your boundaries - I admit, the idea was a bit drastic. However, I'm confident you can solve this problem, one way or another. Maybe, in time, you'll even get used to the current chastity cage.
+
+	"I'm reminded of some material that might mitigate one aspect of your problem. Another client of mine had a loosely-related issue. Not quite the same situation, but it might still be helpful."@@
+	
+	After a brief bit of searching, she prints out few pages with some physical therapy-based exercises. They deal with restoring circulation and preventing cramps and chaffing in the crotch area through toning the area around the upper thighs and groin. You really doubt that something like that could help your situation, but her genuine concern and desire to help feels nice.
+	
+<<elseif ($scene eq "talkPenisShrinkingEnd")>>\
+	<<if $player.flags.penisShrinkPunishment>>\
+		You lower you eyes and sniff, failing to find words about what happened to you. $therapist doesn't push and gives you some time before slowly encouraging you to open up and start talking.
+		
+		Finally, you tell her how $teacher's punishment resulted in your penis shrinking permanently.
+	<<else>>\
+		You confront $therapist, angrily telling her how her idea backfired horribly and that as result you ended up with smaller penis permanently.
+		
+		@@.therapist;"Oh, I'm terribly sorry. Though there are some risks, as with any type of treatment, I couldn't even imagine an outcome like that. As I remember, you were strongly against this idea to begin with. I thought you weren't going to pursue it?"@@
+		
+		Embarrassed, you admit that you reconsidered at some point and visited the Salon. You know it's your own fault, but it is just easier to blame $therapist for everything.
+	<<endif>>\
+	
+	@@.therapist;"Hmm. Honestly, I didn't expect it to upset you so much."@@
+	
+	@@.heroT;"What?"@@ You weren't expecting a reaction like that from her.
+	
+	@@.heroT;"But it's my... I mean, of course it upsets me!"@@
+	
+	<<if $kink.sph>>\
+		@@.therapist;If I can be honest, I saw your medical file. There were certain //measurements// in it and, your penis was already pretty small, even before the change, so I thought that you wouldn't be quite as impacted by the results.
+		
+		"In actuality, your 'small' size isn't a bad thing at all. If you think about it, //half// of all males are smaller than the average, because it's just an average. People come in lots of shapes and sizes, so it's completely normal - even those that may, for instance, fill out the lower end of the bell curve.@@
+	<<else>>\
+		@@.therapist;Although I realize society puts a lot of undue pressure on men about penis size, as they do on a woman's appearance, your change is a relatively modest one, so I thought that you wouldn't be quite as impacted by the results.
+
+		"In actuality, people come in lots of shapes and sizes, and that diversity is completely normal. Whether we're born with our bodies a certain way, or our appearance changes through unforeseen events, it doesn't change who we are.@@
+	<<endif>>\
+		
+	@@.therapist;"This development could push you to focus on other things - being imaginative, attentive and creative in interactions with a partner. You would be surprised how many women prefer relationships with smaller-endowed men. After all, our bodies have just as much variation as men's do./
+
+	"Those facts may run against society's preconceptions, but this is one paradigm that's extremely outdated in our modern world.@@
+	
+	$therapist's words don't seem to be just a way to reassure you. They feel genuine. Although you still feel conflicted, as she talks about your shrunken penis opening opportunities and new experiences for you, her words sink in a little. You can't find fault in her logic.
+	
+	@@.therapist;"Let me put this another way: There are various archetypes, styles and themes in fashion, and they change constantly. What counts as popular and acceptable in society continuously evolves. 
+	
+	"Lately, a more androgynous style is becoming popular in certain circles - it's all about refined lines, lean bodies and features that walk an appealing line between masculinity and femininity.@@
+	
+	$therapist looks you over, appraisingly.
+	
+	@@.therapist;"Don't take it in a wrong way, but if you want my personal opinion, I think you could definitely rock a style like that."@@
+
+	<<switch $player.isMind()>>\
+		<<case 0>>You reflexively blush, embarrassed, but also a little relieved that .
+		<<case 1>>You reflexively blush, both embarrassed and pleased by her strange compliment.
+		<<case 2>>You reflexively blush, pleased by prospect of falling under a popular trend in fashion, according to $therapist words.
+	<</switch>>\
+	
+	@@.therapist;"I also wanted to ask, how is your problem with the chastity cage? Did your 'adjustment' help you feel better?"@@
+	
+	You blush even harder and admit that since your penis shrunk, the cage has become relatively comfortable. It's still snug, but the feeling has become familiar, pleasant even  - at least, when your penis isn't trying to get hard.
+	
+	@@.therapist;"You see, that's another benefit of having smaller penis."@@
+	
+	You talk bit more, with $therapist describing various famous actors, artists and successful historical figures of 'less-than-average size,' and how they drew inspiration from it.
+	
+	You learn how Greek society famously connected large girth with low intelligence, and idealized 'physically enlightened' men with smaller endowments in its statues and frescoes. Or, how certain other ancient cultures felt that smallness or even castration were indicative of virtue and fortitude, and based selection for their elite soldiery on it.
+	
+	One story in particular surprises you the most. A singer, infamously known as Casanova, historically seduced women, leaving a long trail of broken hearts in his path. His exploits rippled through contemporary society, creating scandal and inspiring public confrontation between even well-to-do women, and he did it all despite being less-than-adequately endowed.
+	
+	Some of it sounds like anecdotes or made-up stories, but apparently, it's all well-documented.
+	
+	In the end, your talk with $therapist doesn't reassure you completely, but you think she may have a point about the positive aspects of this unfortunate event.
+<!--</talkPenisShrinking>-->\
+<<endif>>\
+\
+<<set $scene="">>\
+<<if $player.therapistTime lte 0 and (_return or _home)>>\
+	You've talked a lot today. You can to continue discussing things on your next visit.
+
+	<<set _topics=false>>\
+<<endif>>\
+<<if ($player.perversion.therapist lte 2) and _return>>\
+	<<set _return=false>>\
+	<<set _home=true>>\
+<<endif>>\
+<<if _topics>>\
+	<<display "Therapist talk topics">>\
+<<endif>>\
+<<if _return>>\
+	[[Return|Visit therapist][$player.flags.therapistTalk=true]]
+<<endif>>\
+<<if _home>>\
+	[[Return home|Go to bedroom]]
+<<endif>>\
+\
+
+

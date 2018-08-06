@@ -1,0 +1,25 @@
+:: Finish watching [pos_1976_1732]
+\
+<<showImage "general" "therapist_office.jpg">>\
+The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
+
+@@.therapist;"Our hour is almost up,"@@ she says. @@.therapist;"How are you feeling?"@@
+
+An hour?  You swear it was just a few moments ago that you started watching, but you check the clock on the wall, and she's right. You must have really zoned out watching... that... what were you watching again? It's hard to remember.
+
+You stumble towards the door of her office, still feeling dazed. You assure $therapist you're ok, and she makes some notes.
+
+@@.therapist;"Oh, $player.name, don't forget your participation payment."@@
+
+She winks, handing you an envelope with crisp, new currency in it.
+
+@@.reward;You earned $<<print $taskMoney.therapist.hypnosis>>!@@
+
+<<set $player.money+=$taskMoney.therapist.hypnosis>>\
+<<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 1)>>\
+	[[Go home|Hypnosis aftereffect]]
+<<else>>\
+	[[Go home|Go to bedroom]]
+<<endif>>\
+
+

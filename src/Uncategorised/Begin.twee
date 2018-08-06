@@ -1,0 +1,60 @@
+:: Begin [pos_259_2]
+\
+<<if $dreamsSelector.modCount gt 0>>\
+	Imported $dreamsSelector.modCount custom dream<<if $dreamsSelector.modCount gt 1>>s<<endif>>.
+	
+<<endif>>\
+<<if !$dreamsSelector>>Error: Failed to initialise dreamsSelector
+<<endif>>\
+<<if !$dreamsGuardian>>Error: Failed to initialise dreamsGuardian
+<<endif>>\
+<<if !$dreamsTeacher>>Error: Failed to initialise dreamsTeacher
+<<endif>>\
+Before we get started, please provide some information to tailor the game for you.
+
+What's your name?
+<<textbox "$player.name" "" autofocus>>
+
+You can customize the names of the female characters in the game if you like.
+
+Your old babysitter's name?
+<<textbox "$babysitter" $babysitter>>
+
+Your teacher's name?
+<<textbox "$teacher" $teacher>>
+
+Your therapist's name?
+<<textbox "$therapist" $therapist>>
+
+[[Introduction]]
+
+<<checkbox "$showimages" false true checked>> Show images
+<<checkbox "$kink.futa" false true unchecked>> Shemales mode @@.halftransparent;Work in Progress@@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[[Debug Jump|Go to bedroom][$player.debugA=true; $player.clothes=[$items.schoolMale.name]; $inventory.push($items.gString.name); $items.gString.ownAlt[0]=true; $inventory.push($items.summerDress.name); $items.summerDress.ownAlt[0]=true; $inventory.push($items.flats.name); $player.name="April"; $babysitter="Emma"; $guardian="Emma"; $myguardian="Emma"; $Guardian="Emma"; $Myguardian="Emma"; $teacher="Buxom"; $therapist="Stacy"; $player.money=1000; $time.day=2; $time.hour=10; $player.daring=2; $player.perversion.guardian=0; $player.perversion.therapist=0; $player.perversion.teacher=0; $player.flags.wardrobeSelector = false]]
+
+

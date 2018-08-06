@@ -1,0 +1,27 @@
+:: Naming Bully [pos_445_3109]
+\
+<<if $random.stored eq 0>>\
+What's bully's name?
+<<textbox "$bully" "" autofocus>>
+
+[[Confirm name|Naming Bully][$random.stored=1]]
+<<else>>\
+	<<if ($bully.length lt 1) or ($bully.length gt 20)>>\
+		The name you entered for the bully must be between 2 and 20 characters.  Please try again.
+		
+		[[Try again|Naming Bully][$random.stored=0]]
+	<<else>>\
+		<<set $bully to $bully.toProperCase()>>\
+		<<if $time.day eq 1>>\
+			Yes, you remember now. $futa.His_Her name is $bully.
+		
+			[[Go to class]]
+		<<else>>\
+			$futa.His_Her new name is $bully.
+		
+			[[Finish school]]
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+
+

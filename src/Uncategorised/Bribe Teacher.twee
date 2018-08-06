@@ -1,0 +1,24 @@
+:: Bribe Teacher [pos_277_1587]
+\
+<<showImage "general" "bribe.jpg">>\
+You take out your wallet and show the contents to $teacher, suggesting there might be an alternate arrangement.
+
+She takes a quick glance at how much money you have, but just laughs coldly.
+
+<<if $player.money gte 200>>\
+	@@.teacher;"Having money does //not// mean you can buy me."@@ \
+	
+<<else>>\
+	@@.teacher;"$<<print $player.money>>? You must be joking to think I'd risk my career for so little."@@ \
+
+<<endif>>\
+
+You hurriedly put your wallet away.
+
+@@.teacher;"$player.name, I refuse to let that slide. Come to detention after your classes. We will discuss your behavior then."@@
+
+<<set $player.detention=true>>\
+<<Daring 3>>\
+[[Go back to class|Finish school day]]
+
+

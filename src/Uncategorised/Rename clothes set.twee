@@ -1,0 +1,22 @@
+:: Rename clothes set [pos_1273_215]
+\
+<<if (not $renameSetFlag)>>\
+What's new name of the set?
+<<textbox "$scene" "" autofocus>>
+
+[[Confirm|Rename clothes set][$renameSetFlag=true]]
+<<else>>\
+	<<if ($scene.length lt 1) or ($scene.length gt 40)>>\
+		The name you entered for the set must be between 2 and 40 characters.  Please try again.
+		
+		[[Try again|Rename clothes set][$renameSetFlag=false]]
+	<<else>>\
+		<<set $quickSlot[$random.stored].name to $scene>>\
+		The name of set is <<print $quickSlot[$random.stored].name>>
+
+		[[Return|Go to bedroom][$renameSetFlag=false]]
+	<<endif>>\
+<<endif>>\
+\
+
+

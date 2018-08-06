@@ -1,0 +1,47 @@
+:: SettingsExcludedKinks [pos_2705_10]
+\
+@@.centerAlign;\
+<<if true>>\
+@@.frame100;\
+<b>\
+<<click "List of core content">>
+<<script>>
+	Dialog.setup("List of core content");
+	Dialog.wiki(Story.get("SettingsCoreKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "Configure optional content">>
+<<script>>
+	Dialog.setup("List of optional content");
+	Dialog.wiki(Story.get("SettingsKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "List of excluded content">>
+<<script>>
+	Dialog.setup("List of excluded content");
+	Dialog.wiki(Story.get("SettingsExcludedKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>>\
+</b>\
+@@\
+
+@@.frame100;\
+The following themes aren't present and won't be ever included:
+&#9702; Snuff/Injury
+&#9702; Scat/Regurgitation
+&#9702; Furry
+&#9702; Magic/Fantasy
+&#9702; Minors
+&#9702; Zoo
+&#9702; Extreme/hyper body mods
+@@\
+
+<<set _mainSetings=false>>\
+<<display [[SettingsEnd]]>>\
+<<endif>>\
+@@\
+
+

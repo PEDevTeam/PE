@@ -1,0 +1,141 @@
+:: Clinic Hair removal [pos_2924_304]
+\
+<<set _passage="Clinic Hair removal">>\
+<<if $scene eq "">>\
+<<if $player.owns($items.LaserHairRemoval)>>\
+Nancy smiles and tells you that you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever, aren't you so glad?  Only men, and boys, have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
+
+<<elseif not $player.flags.salonHairRemoval>>\
+Nancy smiles and ask if you want depilatory, waxing or maybe a more permanent solution?
+
+<img id="item_preview" class="hidden">\
+<<if (not $player.isHairless())>>\
+<<set _item=$items.Waxing>>\
+	<<set _sceneName="Waxing">>\
+	<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+<<endif>>\
+\
+<<set _item=$items.Depilatory>>\
+	<<set _sceneName="Depilatory">>\
+	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+\
+<<set _item=$items.LaserHairRemoval>>\
+	<<set _sceneName="LaserHairRemoval">>\
+	<<set _override=($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+	<<display "Clinic buy menu">>\
+<<else>>\
+Nancy thanks you for using her services. She invites you to come back next weekend.
+<<endif>>\
+
+[[Return|Beauty Salon][$scene=""; $random.stored=0]]
+<<else>>\
+	<<set _first=true>>\
+	<<if $player.owns($items.Depilatory)>>\
+		<<removeFromInv $items.Depilatory.name>>\
+		<<set _first=false>>\
+	<<endif>>\
+	<<if $scene eq "Waxing">>\
+		<<if $player.owns($items.Waxing)>>\
+			<<removeFromInv $items.Waxing.name>>\
+			<<set _first=false>>\
+		<<endif>>\
+		<<showImage "general" "hr_waxing.jpg">>\
+		<<set _item=$items.Waxing>>\
+		<<buyItem _item.name>>\
+		<<set $player.flags.salonHairRemoval to true>>\
+		Nancy leads you to one of the salon's spa chairs, helping you settle into a reclined position. She asks you to take off your clothing and shoes to give her access to your legs. You do, leaving your legs completely exposed.
+
+		She rolls a small, castered table over to your chair. On it rests an assortment of jars, a container of large popsicle sticks, and what looks like a small slow-cooker with a metal pot in it. She slips on a pair of nitrile gloves and prepares her materials.
+
+		Nancy takes out one of the sticks, dips it in the pot and begins coating a wide strip of your skin with the warm, blue liquid. You instantly catch the familiar scent of melted wax, and your leg tingles as the gooey stuff starts to cool. It doesn't take much time before it hardens.
+
+		@@.nurse;"Sorry, honey. This will hurt a little."@@
+
+		Nancy yanks the strip away in a single, sharp motion, ripping your hair out by the roots!
+
+		@@.heroT;"//Ouch!//"@@
+		
+		Smiling at you reassuringly, Nancy gives you a moment to recover, but not a long one. Well before you're ready for it, she adds more wax, then speedily rips away some more hair in another section. On and on it goes like this, with Nancy pausing only occasionally to change applicators or tidy up any residue from the process.
+		
+		After about a half-hour of this torture, Nancy at last smiles proudly, satisfied with her work.
+
+		@@.nurse;"Nice and smooth."@@
+		
+		<<if _first>>\
+			Carefully, you run a finger up your legs, shocked at how alien they look and feel. Perhaps you should have expected as much. It’s really not that surprising when you think about it - you don’t remember your legs ever having been this hairless.
+
+			You're surprised by how attractive and feminine your legs are like this, and find yourself strangely admiring your own, previously-unnoticed curves. The feelings leave you a little confused.
+			
+		<<endif>>\
+		@@.reward;Your legs are now soft and hairless, like a woman's!@@
+	
+	<<elseif $scene eq "Depilatory">>\
+		<<showImage "general" "hr_depilatory.jpg">>\
+		<<set _item=$items.Depilatory>>\
+		<<buyItem _item.name>>\
+		<<set $player.flags.salonHairRemoval to true>>\
+		<<if $player.owns($items.Waxing)>>\
+			<<removeFromInv $items.Waxing.name>>\
+		<<endif>>\
+		Nancy takes you to a private spa room, makes you strip down. Once you've taken your clothes off, she has you lay down on the salon table.
+
+		Donning clear plastic gloves, she takes an applicator and begins to coat your body in the salon's special hair removal cream. When she's finished, she removes her gloves and checks the time.
+
+		@@.nurse;"This should only take about five minutes, hun,"@@ she says. @@.nurse;"I'll be right back."@@
+
+		Almost immediately after she leaves, your skin begins to tingle. As you wait impatiently for her return, the feeling morphs into an intense warming sensation. It's not //that// uncomfortable, but it's not exactly enjoyable, either.
+
+		After the time elapses, Nancy returns, helping you stand up and step into the shower. Once you get in, she uses a shower wand to spray your body with a soothingly warm jet of water, gently and attentively rinsing you off.
+
+		Of course, your hair washes away too, leaving your skin smooth and much more girly!
+
+		@@.nurse;"There you go - all finished."@@
+		
+		She drapes you in a big, cozy bath sheet, which dries you off nicely.
+		
+		<<if _first>>\
+			You look over your legs and body, seeing your natural curves and freshly-softened skin in an all new and unfamiliar light. As you slide your fingers experimentally across your newly hairless areas, you can't help but notice their unfamiliar, silky texture.
+			
+		<<endif>>\
+		@@.reward;Your body is now soft and hairless, like a woman's!@@
+
+	<<elseif $scene eq "LaserHairRemoval">>\
+		<<showImage "general" "hr_laser.jpg">>\
+		<<set _item=$items.LaserHairRemoval>>\
+		<<buyItem _item.name>>\
+		<<if $player.owns($items.Waxing)>>\
+			<<removeFromInv $items.Waxing.name>>\
+		<<endif>>\
+		Nancy takes you to a private spa room, and asks you to take off your clothes. You do, and she invites you to lay down on the procedure table.
+		
+		There is a large laser aperture above you, with a special shield to protect your eyes from the beam.
+
+		@@.nurse;"This will take some time,"@@ she states.
+
+		Nancy spends a few minutes powering up the equipment and setting the controls for your procedure. She puts on a pair of protective glasses, and presses a button that prompts the laser to servo itself into ready position. You see a red dot appear on your skin, and the device begins to emit an audible hum as it charges. 
+		
+		Suddenly, you begin to feel a sensation like a rubber band being flicked rapidly against your skin. You flinch out of reflex, but Nancy pats you and signals you to keep still with an extended palm.
+		
+		It takes some time to get used to it, but eventually you adjust to the modest pain as Nancy proceeds to zap your body, inch by inch. You are lulled into a state of passive tolerance, emerging from it only for a few minutes at a time when she has you reposition.
+
+		After several hours, Nancy finally sighs and sits back, removing her safety glasses in satisfaction.
+		
+		@@.nurse;"You're done! That pesky hair will never bother you again!"@@
+		
+		<<if _first>>\
+			You sit up on the table and look down to see that your whole body has been rendered smooth below the neck. Touching your skin, you're surprised by the satin texture under your fingertips, the friction of your former body hair now gone forever. You also notice how much more obvious your natural curves are now that your skin is bare, and how feminine they appear like this.
+			
+			Your skin feels much more sensitive, now that your hair has been removed.
+		<<else>>\
+			Touching your skin, you're surprised by the satin texture under your fingertips, the friction of your former body hair now gone forever. Your skin feels much more sensitive, but you aren't sure if that is an aftereffect from treatment or maybe your mind just playing tricks on you.
+		<<endif>>\
+		
+		@@.reward;You are now permanently smooth and hairless, and feeling much more girly!@@
+		
+	<<endif>>\
+	[[Return|Clinic Hair removal][$scene=""; $random.stored=0]]
+<<endif>>\
+
+

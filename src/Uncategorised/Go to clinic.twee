@@ -1,0 +1,21 @@
+:: Go to clinic [pos_2316_880]
+\
+You walk over to the clinic where $guardian works.
+
+<<if $misc.canWork()>>\
+	<<if $misc.dressedGuardianWork.check()>>\
+			<<print '[[Work at '+$guardian+'\'s department|Work at clinic][$random.store(4)]]'>>
+	<<else>>\
+		<<print '<<notDressed "Go to '+$guardian+'\'s clinic" $misc.dressedGuardianWork.reason>>'>>
+	<<endif>>\
+<<endif>>\
+
+<<if ($player.daring gt 0)>>\
+	<<print "[[Enter the Beauty salon|Beauty Salon]]">>
+<<else>>\
+	<<click "Enter Beauty salon">><<replace "#beautySalon_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="beautySalon_deny"></span>
+<<endif>>\
+
+[[Go home|Go to bedroom]]
+
+

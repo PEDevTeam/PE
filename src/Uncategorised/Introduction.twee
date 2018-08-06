@@ -1,0 +1,79 @@
+:: Introduction [pos_393_4]
+\
+<<if ($player.name.length lt 1) or ($player.name.length gt 20)>>\
+	The name you entered for yourself must be between 2 and 20 characters.  Please try again.
+	
+	[[Try again|Begin]]
+<<elseif ($babysitter.length lt 1) or ($babysitter.length gt 20)>>\
+	The name you entered for your old babysitter must be between 2 and 20 characters.  Please try again.
+	
+	[[Try again|Begin]]
+<<elseif ($teacher.length lt 1) or ($teacher.length gt 20)>>\
+	The name you entered for your teacher must be between 2 and 20 characters.  Please try again.
+	
+	[[Try again|Begin]]
+<<elseif ($therapist.length lt 1) or ($therapist.length gt 20)>>\
+	The name you entered for your therapist must be between 2 and 20 characters.  Please try again.
+	
+	[[Try again|Begin]]
+<<else>>\
+	<<showImage "general" "PE_Splash.jpg">>\
+	<<set $player.name to $player.name.toProperCase()>>\
+	<<set $babysitter to $babysitter.toProperCase()>>\
+	<<set $teacher to $teacher.toProperCase()>>\
+	<<set $therapist to $therapist.toProperCase()>>\
+	Hi, <<print $player.name>>. Welcome to your Perverted Education!
+
+	You're in school, male, and, for no lack of trying, still a virgin.  In fact, the closest you've come to touching a girl is leaving some fingerprints on your computer screen.
+
+	Your father died while you were young, and you don't have any memories of him.  Your mother has done her best to bring you up, but you've lacked a male role model to look up to. 
+
+	This is an adult game, entirely fictional, and no ages are mentioned. Feel free to imagine yourself and the characters within at an age that seems appropriate to you.
+
+[[Let's get started|Good morning][$time.newDay();$sidebarControl.refresh()]]
+	<<if $kink.futa>>\
+		<<set $bully="Berta">>\
+		<<set $futa.setPronouns()>>\
+	<<endif>>\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[[Let's get started debug|Good morning][$time.newDay();$player.debugA = true;$sidebarControl.refresh()]]
+<<endif>>\
+
+
