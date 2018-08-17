@@ -1,0 +1,95 @@
+:: Show drawer [pos_1273_215]
+\
+<<set $bedroomRender=true>>\
+<<if $roomSize eq 0>>\
+	<span id=room_images_0></span>\
+<<elseif $roomSize eq 1>>\
+	<span id=room_images_1></span>\
+<<elseif $roomSize eq 2>>\
+	<span id=room_images_2></span>\
+<<elseif $roomSize eq 3>>\
+	<span id=room_images_3></span>\
+<<elseif $roomSize eq 4>>\
+	<span id=room_images_4></span>\
+<<elseif $roomSize eq 5>>\
+	<span id=room_images_5></span>\
+<<elseif $roomSize eq 6>>\
+	<span id=room_images_6></span>\
+<<endif>>\
+\
+<<showRoomImage "private_drawer_base.jpg">>\
+\
+<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+	<<showRoomImage "00_playgirl_magazine.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.PenisShrinking)>>\
+	<<showRoomImage "01_sph_ruler.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.stunGun) or $player.daringFlag.stunBully>>\
+	<<showRoomImage "02_stun_gun.png">>\
+<<endif>>\
+<<if $player.flags.arcadeWin>>\
+	<<showRoomImage "03_arcade_ticket.png">>\
+<<endif>>\
+<<if $kink.bdsm>>\
+	<<showRoomImage "04_bdsm_paddle.png">>\
+<<endif>>\
+<<if $player.flags.catStuff>>\
+	<<showRoomImage "05_cat_items.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.vibrator)>>\
+	<<if $items.vibrator.stolen>>\
+		<<showRoomImage "06_guardians_vibrator.png">>\
+	<<else>>\
+		<<showRoomImage "11_vibrator.png">>\
+	<<endif>>\
+<<endif>>\
+<<if $therapistTalks.talkVibrator.start>>\
+	<<showRoomImage "07_sissy_trainer.png">>\
+<<endif>>\
+<<if $player.flags.hairRibbon>>\
+	<<showRoomImage "08_hair_ribbon.png">>\
+<<endif>>\
+<<if $player.flags.taskGuideHandGirl or $player.flags.taskGuideHandWomanMan or $player.flags.taskGuideHandCouple or $player.flags.taskGuideHandTrap>>\
+	<<showRoomImage "09_dessert_spoon.png">>\
+<<endif>>\
+<<if $player.camera.bathroom or $player.camera.bathroom>>\
+	<<showRoomImage "10_spycam_box.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.chastityDevice) and (not $player.flags.chastityKey)>>\
+	<<showRoomImage "12_chastity_key.png">>\
+<<endif>>\
+<<if $player.perversion.teacherPermChastity gte 7>>\
+	<<showRoomImage "13_broken_key.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.buttPlugDildo) and (not playerCode.isWearing(itemsC.buttPlugDildo))>>\
+	<<showRoomImage "14_butt_plug_dildo.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.nailPolish)>>\
+	<<showRoomImage "15_nail_polish.png">>\
+<<endif>>\
+<<if $player.flags.foxStuff>>\
+	<<showRoomImage "16_fox_tail.png">>\
+<<endif>>\
+<<if $player.flags.WebHorseCock>>\
+	<<showRoomImage "16_horse_dildo.png">>\
+<<endif>>\
+<<if $kink.cumEating and $player.flags.guardianCumDrink>>\
+	<<showRoomImage "17_specimen_jar.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.buttPlugHeart) and (not playerCode.isWearing(itemsC.buttPlugHeart))>>\
+	<<showRoomImage "18_jeweled_heart_plug.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.buttPlugVibro) and (not playerCode.isWearing(itemsC.buttPlugVibro))>>\
+	<<showRoomImage "19_remote_control.png">>\
+	<<showRoomImage "20_remote_plug.png">>\
+<<endif>>\
+<<if playerCode.owns(itemsC.massageOil)>>\
+	<<showRoomImage "21_massage_oil.png">>\
+<<endif>>\
+\
+<<showRoomImage "999_private_drawer_front.png">>\
+\
+\
+
+

@@ -1,0 +1,20 @@
+:: Stop kink therapy [pos_2067_1294]
+\
+<<set _k=window.therapyCode.getWatchedKink()>>\
+<<set _k.stop()>>\
+<<showImage "general" "therapist_office.jpg">>\
+There is something //off// about this session and you feel uncomfortable. You press the stop button, the television suddenly goes dark and $therapist turns the lights on.  You blink your eyes and realize your mouth is dry.
+
+@@.therapist;"I see that this course is not for you. Good to know. I will scratch it from the list,"@@ she says. @@.therapist;"How are you feeling?"@@
+
+You're unsure, but feel basically ok. You reassure $therapist as she makes some notes.
+
+@@.therapist;"The therapy course wasn't finished, but because you participated and I obtained some data, you deserve your participation payment."@@ She winks and hands you an envelope with crisp, new currency inside.
+
+@@.reward;You earned $<<print $taskMoney.therapist.special_hypnosis>>!@@
+
+<<set $player.money+=$taskMoney.therapist.special_hypnosis>>\
+
+[[Go home|Go to bedroom]]
+
+

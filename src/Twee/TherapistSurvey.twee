@@ -1,0 +1,745 @@
+:: TherapistSurvey [pos_128_224]
+\
+<<if $player.perversion.therapist eq 1>>\
+	<<for _i=0; _i lt therapySessions.length; _i++>>\
+		<<if therapySessions[_i].passage eq "TherapistSurvey">>\
+			<<break>>\
+		<<endif>>\
+	<</for>>\
+	<<print therapySessions[_i].text>>\
+	<<set therapySessions[_i].finishSession()>>\
+	
+
+	[[Read the survey|TherapistSurvey]]
+<<elseif $scene eq "Therapist survey completed">>\
+	Finally, you hand the filled-out survey to $therapist. To your relief, she doesn't read it and just puts it in her desk
+	
+	She thanks you for your help, gives you a hug and wishes you good luck as you walk out. You wonder what kind of research $therapist is conducting that could require such survey.
+
+	[[Go home|Go to bedroom][$scene=""]]
+<<elseif $player.perversion.therapist eq 2>>\
+<span id="quickTherapistSurveyDetailed">\
+1) Are you aroused by any of the following thoughts: being physically restrained, being treated as a subordinate, treating another person as a subordinate, and/or giving or receiving punishment (including physical punishments)?
+	<!--<BDSM kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.bdsm )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.bdsm = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I prefer erotic encounters to be on mostly free, equal terms and painless.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.bdsm )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.bdsm = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.bdsm>>\
+	<<set $kinkAllow.painPlay = false>>\
+	<<set $kinkAllow.xPain = false>>\
+	<<set $kinkAllow.petPlay = false>>\
+	<<set $kinkAllow.bondage = false>>\
+	<<set $kinkAllow.facesit = false>>\
+	<<set $kinkAllow.trampling = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Pain play">>\
+<<set _tooltip = window.kinkTooltip.painPlay>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.painPlay )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.painPlay" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Extreme pain play">>\
+<<set _tooltip = window.kinkTooltip.xPain>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.xPain )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.xPain" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Pet play">>\
+<<set _tooltip = window.kinkTooltip.petPlay>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.petPlay )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.petPlay" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Bondage">>\
+<<set _tooltip = window.kinkTooltip.bondage>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.bondage )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.bondage" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Facesitting">>\
+<<set _tooltip = window.kinkTooltip.facesit>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.facesit )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.facesit" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Trampling">>\
+<<set _tooltip = window.kinkTooltip.trampling>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.trampling )>>\
+<<if $kinkAllow.bdsm>>\
+<<checkbox "$kinkAllow.trampling" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</BDSM kink survey>-->\
+-------------------
+2) Do you consider the presence of semen in sexual play arousing, either when you encounter it yourself or when it is a part of activity with a sexual partner?
+	<!--<Semen kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.semenConsumption )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.semenConsumption = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I only think about ejaculation as a part of climax, not a distinct or separate aspect of sexual play.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.semenConsumption )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.semenConsumption = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.semenConsumption>>\
+	<<set $kinkAllow.creampie = false>>\
+	<<set $kinkAllow.bukkake = false>>\
+	<<set $kinkAllow.cumEating = false>>\
+	<<set $kinkAllow.ownCum = false>>\
+	<<set $kinkAllow.cumSwap = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Creampie">>\
+<<set _tooltip = window.kinkTooltip.creampie>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.creampie )>>\
+<<if $kinkAllow.semenConsumption>>\
+<<checkbox "$kinkAllow.creampie" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Bukkake">>\
+<<set _tooltip = window.kinkTooltip.bukkake>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.bukkake )>>\
+<<if $kinkAllow.semenConsumption>>\
+<<checkbox "$kinkAllow.bukkake" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Cum eating">>\
+<<set _tooltip = window.kinkTooltip.cumEating>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.cumEating )>>\
+<<if $kinkAllow.semenConsumption>>\
+<<checkbox "$kinkAllow.cumEating" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Own cum swallowing">>\
+<<set _tooltip = window.kinkTooltip.ownCum>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.ownCum )>>\
+<<if $kinkAllow.semenConsumption>>\
+<<checkbox "$kinkAllow.ownCum" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Cumswapping">>\
+<<set _tooltip = window.kinkTooltip.cumSwap>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.cumSwap )>>\
+<<if $kinkAllow.semenConsumption>>\
+<<checkbox "$kinkAllow.cumSwap" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Semen kink survey>-->\
+-------------------
+3) Does the thought of urination have a sexual appeal for you?
+	<!--<Watersports kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.watersports )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.watersports = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – Urination is not something I associate with sex.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.watersports )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.watersports = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.watersports>>\
+	<<set $kinkAllow.wetting = false>>\
+	<<set $kinkAllow.urineDrink = false>>\
+	<<set $kinkAllow.urinePlay = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Wetting">>\
+<<set _tooltip = window.kinkTooltip.wetting>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.wetting )>>\
+<<if $kinkAllow.watersports>>\
+<<checkbox "$kinkAllow.wetting" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Urine drinking">>\
+<<set _tooltip = window.kinkTooltip.urineDrink>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.urineDrink )>>\
+<<if $kinkAllow.watersports>>\
+<<checkbox "$kinkAllow.urineDrink" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Urine play">>\
+<<set _tooltip = window.kinkTooltip.urinePlay>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.urinePlay )>>\
+<<if $kinkAllow.watersports>>\
+<<checkbox "$kinkAllow.urinePlay" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Watersports kink survey>-->\
+-------------------
+	<!--<AgePlay kink survey DISABLED>-->\
+<!--
+4) Have you ever found sexual excitement in the idea of being treated like a child or baby?
+
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.agePlay )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.agePlay = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – Urination is not something I associate with sex.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.agePlay )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.agePlay = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.agePlay>>\
+	<<set $kinkAllow.diapering = false>>\
+	<<set $kinkAllow.adultBaby = false>>\
+	<<set $kinkAllow.ageBehavior = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Diapering">>\
+<<set _tooltip = window.kinkTooltip.diapering>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.diapering )>>\
+<<if $kinkAllow.agePlay>>\
+<<checkbox "$kinkAllow.diapering" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Adult Baby">>\
+<<set _tooltip = window.kinkTooltip.adultBaby>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.adultBaby )>>\
+<<if $kinkAllow.agePlay>>\
+<<checkbox "$kinkAllow.adultBaby" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Age Behavior Play">>\
+<<set _tooltip = window.kinkTooltip.ageBehavior>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.ageBehavior )>>\
+<<if $kinkAllow.agePlay>>\
+<<checkbox "$kinkAllow.ageBehavior" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+-------------------
+-->\
+<!--</AgePlay kink survey>-->\
+4) Do you find the idea of having someone acting vocally or physically abusive towards you a turn-on?
+	<!--<Degradation kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.degradation )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.degradation = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I don’t like overtly abusive behavior.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.degradation )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.degradation = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.degradation>>\
+	<<set $kinkAllow.curse = false>>\
+	<<set $kinkAllow.whoring = false>>\
+	<<set $kinkAllow.bimbo = false>>\
+	<<set $kinkAllow.spitting = false>>\
+	<<set $kinkAllow.abusive = false>>\
+	<<set $kinkAllow.mindControl = false>>\
+	<<set $kinkAllow.questionable = false>>\
+	<<set $kinkAllow.tattoo = false>>\
+	<<set $kinkAllow.piercing = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Cursing">>\
+<<set _tooltip = window.kinkTooltip.curse>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.curse )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.curse" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Whoring">>\
+<<set _tooltip = window.kinkTooltip.whoring>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.whoring )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.whoring" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Bimbo">>\
+<<set _tooltip = window.kinkTooltip.bimbo>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.bimbo )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.bimbo" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Spitting">>\
+<<set _tooltip = window.kinkTooltip.spitting>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.spitting )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.spitting" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Abusive physical contact">>\
+<<set _tooltip = window.kinkTooltip.abusive>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.abusive )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.abusive" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Tattoo">>\
+<<set _tooltip = window.kinkTooltip.tattoo>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.tattoo )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.tattoo" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Piercing">>\
+<<set _tooltip = window.kinkTooltip.piercing>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.piercing )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.piercing" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Mind control/Compulsive behaviour">>\
+<<set _tooltip = window.kinkTooltip.mindControl>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.mindControl )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.mindControl" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Questionably consensual sex">>\
+<<set _tooltip = window.kinkTooltip.questionable>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.questionable )>>\
+<<if $kinkAllow.degradation>>\
+<<checkbox "$kinkAllow.questionable" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Degradation kink survey>-->\
+-------------------
+	<!--<Xbody kink survey>-->\
+<!--
+6) Do bodies with unusual characteristics, especially size variations, make them especially appealing to you sexually?
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.xBody )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.xBody = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I do not pay much attention to it or it does not turn me on in particular.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.xBody )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.xBody = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.xBody>>\
+	<<set $kinkAllow.bbw = false>>\
+	<<set $kinkAllow.hyperBreasts = false>>\
+	<<set $kinkAllow.hyperPenis = false>>\
+	<<set $kinkAllow.dwarf = false>>\
+	<<set $kinkAllow.tall = false>>\
+	<<set $kinkAllow.muscle = false>>\
+	<<set $kinkAllow.expansionWeight = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "BBW">>\
+<<set _tooltip = window.kinkTooltip.bbw>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.bbw )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.bbw" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Hyper breasts">>\
+<<set _tooltip = window.kinkTooltip.hyperBreasts>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.hyperBreasts )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.hyperBreasts" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Hyper penis">>\
+<<set _tooltip = window.kinkTooltip.hyperPenis>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.hyperPenis )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.hyperPenis" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Dwarfism">>\
+<<set _tooltip = window.kinkTooltip.dwarf>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.dwarf )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.dwarf" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Tall">>\
+<<set _tooltip = window.kinkTooltip.tall>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.tall )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.tall" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Muscular">>\
+<<set _tooltip = window.kinkTooltip.muscle>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.muscle )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.muscle" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Weight gain">>\
+<<set _tooltip = window.kinkTooltip.expansionWeight>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.expansionWeight )>>\
+<<if $kinkAllow.xBody>>\
+<<checkbox "$kinkAllow.expansionWeight" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+-------------------
+-->\
+<!--</Xbody kink survey>-->\
+5) Have you ever felt turned-on by feet or by items worn on the feet such as shoes or hosiery?
+	<!--<Feet kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.footFetish )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.footFetish = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I do not find feet or items worn on them arousing.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.footFetish )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.footFetish = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.footFetish>>\
+	<<set $kinkAllow.footDisplay = false>>\
+	<<set $kinkAllow.footWorship = false>>\
+	<<set $kinkAllow.hosiery = false>>\
+	<<set $kinkAllow.shoeBoot = false>>\
+	<<set $kinkAllow.footjob = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Foot Display">>\
+<<set _tooltip = window.kinkTooltip.footDisplay>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.footDisplay )>>\
+<<if $kinkAllow.footFetish>>\
+<<checkbox "$kinkAllow.footDisplay" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Foot Worship">>\
+<<set _tooltip = window.kinkTooltip.footWorship>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.footWorship )>>\
+<<if $kinkAllow.footFetish>>\
+<<checkbox "$kinkAllow.footWorship" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Footjob">>\
+<<set _tooltip = window.kinkTooltip.footjob>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.footjob )>>\
+<<if $kinkAllow.footFetish>>\
+<<checkbox "$kinkAllow.footjob" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Hosiery Fetish">>\
+<<set _tooltip = window.kinkTooltip.hosiery>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.hosiery )>>\
+<<if $kinkAllow.footFetish>>\
+<<checkbox "$kinkAllow.hosiery" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Shoe/Boot Fetish">>\
+<<set _tooltip = window.kinkTooltip.shoeBoot>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.shoeBoot )>>\
+<<if $kinkAllow.footFetish>>\
+<<checkbox "$kinkAllow.shoeBoot" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Feet kink survey>-->\
+-------------------
+6) Have you ever derived sexual excitement from the smell or feeling of sweaty or unclean body parts or clothing?
+	<!--<Odor kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.odor )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.odor = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I am not aroused by sweat or body odors.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.odor )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.odor = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.odor>>\
+	<<set $kinkAllow.clothesOdor = false>>\
+	<<set $kinkAllow.shoeSockOdor = false>>\
+	<<set $kinkAllow.footOdor = false>>\
+	<<set $kinkAllow.armpitOdor = false>>\
+	<<set $kinkAllow.assOdor = false>>\
+	<<set $kinkAllow.genitalOdor = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Clothes">>\
+<<set _tooltip = window.kinkTooltip.clothesOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.clothesOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.clothesOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Shoes/hosiery">>\
+<<set _tooltip = window.kinkTooltip.shoeSockOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.shoeSockOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.shoeSockOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Feet">>\
+<<set _tooltip = window.kinkTooltip.footOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.footOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.footOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Armpits">>\
+<<set _tooltip = window.kinkTooltip.armpitOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.armpitOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.armpitOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Ass">>\
+<<set _tooltip = window.kinkTooltip.assOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.assOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.assOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Genitalia">>\
+<<set _tooltip = window.kinkTooltip.genitalOdor>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.genitalOdor )>>\
+<<if $kinkAllow.odor>>\
+<<checkbox "$kinkAllow.genitalOdor" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Odor kink survey>-->\
+-------------------
+7) Does wearing or feeling garments made of certain materials have an especially sensual or erotic appeal to you?
+	<!--<Clothes kink survey>-->\
+<!-- Note, clothes kinks activate right in survey, no need for separate therapy -->
+<<set $scene = window.misc.toggleKink( not $kink.clothing )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kink.clothing = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I am not aroused by any specific clothing material.\
+
+<<set $scene = window.misc.toggleKink( $kink.clothing )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kink.clothing = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kink.clothing>>\
+	<<set $kink.latex = false>>\
+	<<set $kink.leather = false>>\
+	<<set $kink.nylon = false>>\
+	<<set $kink.frilly = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Latex">>\
+<<set _tooltip = window.kinkTooltip.latex>>\
+<<set $scene = window.misc.toggleKink( $kink.latex )>>\
+<<if $kink.clothing>>\
+<<checkbox "$kink.latex" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Leather">>\
+<<set _tooltip = window.kinkTooltip.leather>>\
+<<set $scene = window.misc.toggleKink( $kink.leather )>>\
+<<if $kink.clothing>>\
+<<checkbox "$kink.leather" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Nylon">>\
+<<set _tooltip = window.kinkTooltip.nylon>>\
+<<set $scene = window.misc.toggleKink( $kink.nylon )>>\
+<<if $kink.clothing>>\
+<<checkbox "$kink.nylon" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "Frilly">>\
+<<set _tooltip = window.kinkTooltip.frilly>>\
+<<set $scene = window.misc.toggleKink( $kink.frilly )>>\
+<<if $kink.clothing>>\
+<<checkbox "$kink.frilly" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Clothes kink survey>-->\
+-------------------
+8) Does the idea of having a small penis and/or being humiliated for your penis size appeal to you sexually?
+	<!--<Shrunk Penis kink survey>-->\
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.smallPenis )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.smallPenis = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I do not find the ideas of my genitals becoming smaller or my being teased about them arousing.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.smallPenis )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.smallPenis = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – (check all that apply)\
+<<if not $kinkAllow.smallPenis>>\
+	<<set $kinkAllow.penisShrink = false>>\
+	<<set $kinkAllow.sph = false>>\
+<<endif>>\
+
+&#9702; \
+<<set _kinkDesc = "Penis Shrinking">>\
+<<set _tooltip = window.kinkTooltip.penisShrink>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.penisShrink )>>\
+<<if $kinkAllow.smallPenis>>\
+<<checkbox "$kinkAllow.penisShrink" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+&#9702; \
+<<set _kinkDesc = "SPH">>\
+<<set _tooltip = window.kinkTooltip.sph>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.sph )>>\
+<<if $kinkAllow.smallPenis>>\
+<<checkbox "$kinkAllow.sph" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<endif>>\
+<<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
+
+<!--</Shrunk Penis kink survey>-->\	
+-------------------
+	<!--<TG kink survey>-->\
+	<!--
+11) Do you gain arousal from thinking about physical alteration of your current gender to that of the opposite sex (ie, turn on stemming from your sexual organs being physically changed to that of the opposite gender, as opposed to crossdressing, cosmetic enhancements or other kinds of gender-related identity changes)?
+	
+<<set $scene = window.misc.toggleKink( not $kinkAllow.genderChange )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.genderChange = false>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+No – I do not feel particular interest in changing my physical gender.\
+
+<<set $scene = window.misc.toggleKink( $kinkAllow.genderChange )>>\
+<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.genderChange = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
+Yes – I am turned on by the idea of having my sex organs transformed to the opposite gender.\
+
+-------------------
+-->\
+<!--</TG kink survey>-->\
+[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
+</span>\
+<<else>>\
+It's a bug. Please call bugs exterminators.
+
+[[Return home|Go to bedroom]]
+<<endif>>\
+\
+
+

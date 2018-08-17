@@ -1,0 +1,82 @@
+:: Masturbate [pos_366_753]
+\
+<<if (not $player.flags.checkingGift) and $player.flags.choreRewSpinning>>\
+	<<set $player.flags.checkingGift = true>>\
+	<<set $player.flags.choreForcedFail = true>>\
+	<<set $scene = "looking up dom dress">>\
+	<<goto [[Guardian kinky reward]]>>\
+<<endif>>\
+<<if $scene eq "removeChastity">>\
+	<<set $scene="">>\
+	<<removeClothing $items.chastityDevice.id>>\
+	<<updatebar>>\
+<<endif>>\
+<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+Alright! How do you want to do this?
+
+<<if $player.flags.confiscatedInternet>>\
+	Sadly, $guardian enabled some sort of block to keep you from connecting to the Wi-Fi, so no porn for you.
+	
+<<endif>>\
+<<if playerCode.owns(itemsC.vibrator)>>\
+	<<if $items.vibrator.stolen>>\
+		<<set _stol=$guardian +"'s">>\
+	<<else>>\
+		<<set _stol="">>\
+	<<endif>>\
+	<<if $player.flags.confiscatedVibrator>>\
+		Unfortunately, $guardian still has your vibrator. You need to do your chores if you want to get it back.
+		
+	<<else>>\
+		<<if (not _c)>>\
+			<<print "[[Use "+_stol+" vibrator on your penis|Use vibrator penis]]">>
+			<<if playerCode.isButtslut()>>\
+			<<print "[[Use "+_stol+" vibrator in your ass|Use vibrator ass]]">>
+			<<endif>>\
+		<<else>>\
+			<<if playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+				<<click "Try to use vibrator on your penis">><<replace "#vibratCageDeny">>@@.done; You are already very horny, you don't want to tease yourself anymore@@<</replace>><</click>> <span id="vibratCageDeny"></span>
+			<<else>>\
+				<<print "[[Try to use vibrator on your penis|Use vibrator cage]]">>
+			<<endif>>\
+			<<if $therapistTalks.talkVibrator.start or (not playerCode.isMind_0()) or $player.perversion.teacher gte 4>>\
+				<<print "[[Use "+_stol+" vibrator in your ass|Use vibrator ass]]">>
+			<<else>>\
+				<<click "Use vibrator in your ass">><<replace "#vibratAssDeny">>@@.done; You don't want to do that@@<</replace>><</click>> <span id="vibratAssDeny"></span>
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+<<if not $player.flags.confiscatedInternet>>\
+	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<<click "Watch some porn on your computer">><<replace "#watchPornDeny">>@@.done;You are too horny to watch porn while being locked in chastity@@<</replace>><</click>> <span id="watchPornDeny"></span>
+	<<else>>\
+		[[Watch some porn on your computer|Watch porn on computer][$player.room.laptop=true;$scene="masturbate"]]
+	<<endif>>\
+<<endif>>\
+<<if $player.camera.bedroom>>\
+	[[Watch spy camera stream][$random.stored=1; $player.room.laptop=true]]
+<<endif>>\
+<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+	[[Read Playgirl magazine]]
+<<endif>>\
+<<if $kink.painPlay and $player.flags.chorePunKinky>>\
+	<<print '[[Ask '+$guardian+' to spank you|Special punishments][$scene=\"taskSpanking\"]]'>>
+<<endif>>\
+<<if $player.flags.guardianStrapon and $player.flags.choreReward and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and window.timeCode.isWeekend()>>\
+	<<print '[[Ask '+$guardian+' to fuck you|Guardian kinky reward][$scene=\"strapon common\"]]'>>
+<<endif>>\
+<<if $player.flags.chorePunishmentDildo and not $player.flags.trainingCockSuck>>\
+	[[Suck training cock][$scene="suck"]]
+<<endif>>\
+
+<<if _c and ((not $player.flags.chastityKey) or (not $player.flags.chastityLocked))>>\
+	<<if $player.flags.chastityLocked>>\
+		[[Unlock chastity cage|Masturbate][$player.flags.chastityLocked=false]]
+	<<else>>\
+		[[Remove chastity cage|Masturbate][$scene="removeChastity"]]
+	<<endif>>\
+<<endif>>\
+[[Do something else|Go to bedroom]]
+
+

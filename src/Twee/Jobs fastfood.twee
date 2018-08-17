@@ -1,0 +1,351 @@
+:: Jobs fastfood [pos_476_1717]
+\
+<<showImage "general" "job_fast_food.jpg">>\
+<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+\
+<<set _pay=20>>\
+<<set _tips=1+random(5)>>\
+\
+<<if ($player.jobs.fastfoodPerversion eq 0)>>\
+	<<set _tips=0>>\
+<<elseif ($player.jobs.salonPlan lte 50)>>\
+	<<set _tips+=0>>\
+<<elseif ($player.jobs.fastfoodPerversion lte 2)>>\
+	<<set _tips+=5>>\
+<<elseif $player.jobs.salonPlan lte 80>>\
+	<<set _tips+=10>>\
+<<elseif $player.jobs.salonPlan lte 100>>\
+	<<set _tips+=20>>\
+<<else>>\
+	<<set _tips+=30>>\
+<<endif>>\
+\
+<<if _slb lte 1>>\
+	<<set _tips+=0>>\
+<<elseif _slb lte 3>>\
+	<<set _tips+=5>>\
+<<elseif _slb lte 5>>\
+	<<set _tips+=10>>\
+<<elseif _slb lte 7>>\
+	<<set _tips+=15>>\
+<<elseif _slb lte 8>>\
+	<<set _tips+=20>>\
+<<else>>\
+	<<set _tips+=25>>\
+<<endif>>\
+<<set $player.money+=_pay>>\
+<<set $player.money+=_tips>>\
+\
+<<set _plan=$player.jobs.salonPlan>>\
+<<if playerCode.isMind_1()>>\
+	<<set _plan+=30>>\
+<<elseif playerCode.isMind_2()>>\
+	<<set _plan+=60>>\
+<<endif>>\
+\
+<<if ($player.jobs.fastfoodPerversion eq 0)>>\
+	After a short walk to the local fast food restaurant, you greet the manager and agree to work as waitress. You change into your uniform, go in and start taking orders.
+	
+	The job is easy enough with the exception of a few rude customers, but you manage. There are a few times where you nearly drop some of the plates, though luckily, you recover.
+	
+	By the end of your shift, you’ve earned $<<print _pay>>, but you got no tips for your clumsy work. Not as much as you had hoped, however. The manager says she can't pay you more, but promises to help you with the tips problem.
+
+	<<if playerCode.isMind_0()>>\
+		You are bit tired and your head is still hazy from the customers' orders, but most of all you are annoyed by the occasional ogling from the customers.
+	<<elseif playerCode.isMind_1()>>\
+		You are bit tired and your head is still hazy from the customers' orders, but it was kind of interesting to see what it's like to be a waitress. On the other hand, you're not sure what to think about the occasional ogling from the customers.
+	<<else>>\
+		You are bit tired and your head is still hazy from all the customers' orders, but it feels weirdly satisfying to follow orders and strut around in this uniform. Also, you enjoy the occasional ogling from the customers, who probably thought you were dumb ditz each time you messed up an order.
+	<<endif>>\
+<<elseif ($player.jobs.fastfoodPerversion eq 1)>>\
+	After a short walk to the local fast food restaurant, you greet the manager. She got you a new, skimpier uniform! You don't have time to argue without losing pay and you'd risk being sent home, so you just clock in and start taking orders.
+	
+	You notice that more people are checking you out as you make your rounds. You can hear some hushed giggles from some girls in the booth behind you. Trying not to get too discouraged, you keep taking orders, ignoring the trite jokes from some of your customers.
+	
+	After your shift, you count your earnings. You receive $<<print _pay>> for your work, plus you got $<<print _tips>> in tips. It seems that a few patrons must have pitied you or just liked how you look in this new uniform, because you earned more than last time.
+	
+	<<if playerCode.isMind_0()>>\
+		It is embarrassing to admit that this new uniform helped, but it seems it's the only way to earn more cash.
+	<<elseif playerCode.isMind_1()>>\
+		It is a bit embarrassing to admit how much this new uniform helped, but it seems it's the only way to earn more cash. Aside from the small amount of trouble it drew from certain customers, you find you actually kind of like it.
+	<<else>>\
+		It is exciting how much this new uniform helped. You are thankful that the manager came up with this idea. Despite earning you a little trouble from certain customers, you love the attention it gathers!
+	<<endif>>\
+<<elseif ($player.jobs.fastfoodPerversion eq 2)>>\
+	After a short walk to the local fast food restaurant, you greet the manager. She's somehow found you an even skimpier uniform - this time, the skirt is so short it will barely cover your private parts! \
+	<<if playerCode.isMind_0()>>\
+		You can't argue that you earned more with her last modification, but still... Anyway, you accept it, clock in and start taking orders.
+	<<elseif playerCode.isMind_1()>>\
+		You can't argue, since you earned more with her last modification and it looks kinda cool, but still... Anyway, you accept it, clock in and start taking orders.
+	<<else>>\
+		Although you have a brief moment of embarrassment, you admire how sexy and cute it is. Since you're sure to earn even more in tips, you thank the manager for her help. Giggling, you put on your new uniform, clock in and start taking orders.
+	<<endif>>\
+
+	This time, it’s a bit harder for you to concentrate on the task at hand. You constantly keep having to pull the hem of your short work skirt down to stop people from seeing \
+	<<if _c>>\
+		the tip of your chastity cage. \
+	<<elseif _u>>\
+		your underwear. \
+	<<else>>\
+		the tip of your penis. \
+	<<endif>>\
+	This can be especially difficult when you have to carry food out. Without a free hand, you can only blush and hope no one sees \
+	<<if _c>>\
+		the plastic prison peeking out from underneath.
+	<<elseif _u>>\
+		your penis tenting your underwear.
+	<<else>>\
+		your penis peeking out from underneath, uncovered.
+	<<endif>>\
+	<<if playerCode.isMind_0()>>\
+		Of course, on top of all this, you feel numerous eyes on your mostly-exposed body wherever you go. You don't dare to make an eye contact with customers, and your cheeks burn from embarrassment as you worry what people would think about your secret.
+	<<elseif playerCode.isMind_1()>>\
+		Of course, on top of all this, you feel numerous eyes following you around the room. While you try not to make eye contact, you feel oddly proud despite your cheeks burning from embarrassment.
+	<<else>>\
+		Despite all this, you spend your shift basking in the naughty attention your uniform draws. Your cheeks are red from giddy embarrassment and arousal as you imagine people finding out your secret and talking about it. It is almost tempting to //accidentally// flash someone, just to see their reaction.
+	<<endif>>\
+	
+	At the end of your shift, you count your tips. You receive $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
+	
+<<else>>\
+	After a short walk to the local fast food restaurant, you clock in and start taking orders.
+	
+	It's hard for you to concentrate on the task at hand. You constantly keep having to pull the hem of your short work skirt down to stop people from seeing \
+	<<if _c>>\
+		the tip of your chastity cage. \
+	<<elseif _u>>\
+		your underwear. \
+	<<else>>\
+		the tip of your penis. \
+	<<endif>>\
+	This can be especially difficult when you have to carry food out. Without a free hand, you can only blush and hope no one sees \
+	<<if _c>>\
+		the plastic prison peeking out from underneath.
+	<<elseif _u>>\
+		your penis tenting your underwear.
+	<<else>>\
+		your penis peeking out from underneath uncovered.
+	<<endif>>\
+\
+	<<set _cu to random(1)>>\
+	<<if (_cu gte 1) and ($player.perversion.teacher lte 6)>>\
+		<<set _cu to 0>>\
+	<<endif>>\
+\
+	<<if (_cu eq 0) or ($player.jobs.fastfoodPerversion lte 3)>>\
+		<<if ($player.jobs.fastfoodPerversion lte 5)>>\
+			As you're taking orders from a table of sleazy looking clients you feel a hand rubbing your butt. \
+		<<else>>\
+			Diligently, you start running between the tables taking the various orders. As usual, a certain few patrons try to grab your ass,\
+			<<if playerCode.isMind_0()>>\
+				which doesn't even surprise you anymore. To your shame, you've gotten used to that kind of attention.
+			<<elseif playerCode.isMind_1()>>\
+				which is embarrassing, but also arouses you for some reason. To your shame, you are enjoying that kind of attention.
+			<<else>>\
+				that you wiggle around invitingly. To your shame, you enjoy customers treating you like a clichéd slutty waitress.
+			<<endif>>\
+		<<endif>>\
+\
+		<<if _slb lte 3>>\
+			It is obvious that you are a boy, but it seems they don't care, or even prefer it this way. \
+		<<elseif _slb lte 4>>\
+			It's noticeable that you are a boy, but it seems they don't care, or even prefer it this way, considering your effeminate appearance. \
+		<<elseif _slb lte 6>>\
+			It is no wonder, as you look like a girl. \
+		<<elseif _slb lte 7>>\
+			It is no wonder, as you look like a fairly sexy girl. \
+		<<elseif _slb lte 8>>\
+			You can blame only yourself for your slutty look attracting perverts. \
+		<<else>>\
+			With your whorish look, it's more surprising that they didn't decide to just fuck you on the table. \
+		<<endif>>\
+\
+		<<if (_plan lte 50) and playerCode.isMind_0()>>\
+			You need money, but this is too much for you, so you slap the final hand that touches you and leave fuming. No tip's worth it. \
+		<<elseif (_plan lte 80)>>\
+			<<if playerCode.isMind_0()>>\
+				You hate it, but you really need the money, so you just let 'em have some fun, hoping for generous tips. \
+			<<elseif playerCode.isMind_1()>>\
+				It is humiliating, but you really need the money, so you just let 'em have some fun, hoping for generous tips. \
+			<<else>>\
+				It is a bit embarrassing to get treated like this in full view of everyone, but you really want the extra money. So you just allow 'em to have some fun, hoping for generous tips.\
+			<<endif>>\
+		<<elseif (_plan lte 100)>>\
+			<<if playerCode.isMind_0()>>\
+				You hate it, but you really need the money, so you swallow your objection, put on a forced smile, and say it's a pleasure to serve them. \
+			<<elseif playerCode.isMind_1()>>\
+				It is humiliating, but you really need the money, so you put on a smile and say it's a pleasure to serve them. \
+			<<else>>\
+				It is a bit embarrassing to get treated like this in full view of everyone, but you really want more money. You smile back and say it's a pleasure to serve them. \
+			<<endif>>\
+		<<elseif _c>>\
+			<<if playerCode.isMind_0()>>\
+				You hate it, but you really need the money and you know what they like. Burning with shame, you put on a forced smile, lift your skirt a bit to show your chastity, and meekly murmur that //'this sissy'// is happy to serve them. The customers burst out in laughter, making you wish that the earth would swallow you up on the spot, but they leave generous tips after making a few loud and humiliating comments about your exemplary service. \
+			<<elseif playerCode.isMind_1()>>\
+				It is extremely embarrassing, but you really need the money and you know what they like. Burning with shame, you put on a smile, lift your skirt a bit to show your chastity, and meekly murmur that //'this sissy'// is happy to serve them. The customers burst into laughter, leaving you red as a tomato and weirdly aroused. It is humiliating, but your penis strains against its cage as they loudly talk about your 'lovely accessory.' Fortunately, they also leave you generous tips. You walk away before they notice you're leaking precum. \
+			<<else>>\
+				It is embarrassing, but you really need the money and you know what they like. Burning with shame, you put on a welcoming smile, lift your skirt a bit to show your chastity, and meekly murmur that //'this sissy'// is happy to serve them. The customers burst out in laughter, making you blush - but also really arousing you. It's humiliating, but your penis strains against its cage and starts leaking precum, making them laugh even harder as they loudly discuss your 'lovely accessory.' Finally, they leave generous tips and you walk away embarrassed, but horny as fuck. \
+			<<endif>>\
+		<<else>>\
+			<<if playerCode.isMind_0()>>\
+				You hate it, but you really need the money and you know what they like. Burning with shame, you put on a forced smile and slowly turn, presenting your butt to their mercy. After drawing a couple of sound slaps to your rump, you leave the table with their orders, rubbing your sore rear cheek. You just hope that generous tips will be worth this humiliation. \
+			<<elseif playerCode.isMind_1()>>\
+				It is extremely embarrassing, but you really need the money and you know what they like. Burning with shame, you put on a smile and slowly turn, presenting your butt to their mercy. It is humiliating, but your penis gets hard as they grope and squeeze your butt cheeks. You almost yelp as a resounding slap strikes home on your butt. You quickly walk away before they notice your penis tenting your skirt. \
+			<<else>>\
+				It is embarrassing, but you really need the money and you know what they like. Burning with shame, you put on a welcoming smile and slowly turn, presenting your butt to their mercy. To your surprise, it feels good, having them grope and squeeze your butt cheeks. You gasp as they give your butt a sound slap, and feel your penis suddenly swell, tenting your skirt. The customers burst into laughter, making you blush and leaving you even more aroused. You walk away flustered, trying to cover your raging hard-on, but you're left with generous tips. \
+			<<endif>>\
+		<<endif>>\
+	<<elseif _cu eq 1>>\
+		Suddenly a guest puts a hand around your hips and forcefully makes you sit on his leg while dictating his order. \
+		<<if _slb lte 3>>\
+			It is obvious that you are a boy, but it seems he doesn't care, or even prefers it this way. \
+		<<elseif _slb lte 4>>\
+			It's noticeable that you are a boy, but it seems he doesn't care, or even prefers it this way, considering your effeminate appearance. \
+		<<elseif _slb lte 6>>\
+			It is no wonder, as you look like a girl. \
+		<<elseif _slb lte 7>>\
+			It is no wonder, as you look like a fairly sexy girl. \
+		<<elseif _slb lte 8>>\
+			You can only blame yourself that your slutty look attracts perverts. \
+		<<else>>\
+			With your whorish look it's more surprising they didn't decide to just fuck you on the table. \
+		<<endif>>\
+		You are confused, it's a move like you've seen in a B-grade movie... and some porn.
+
+		<<if (_plan lte 50) and playerCode.isMind_0()>>\
+			You need the money, but this is too much for you, so you slap him and leave fuming. No tip's worth it. \
+		<<elseif (_plan lte 80)>>\
+			<<if playerCode.isMind_0()>>\
+				You want to hit him, but you need the money, so you just try to endure his groping. Your eyes widen as you feel something hard throb against your legs.
+				<<if _c>>\
+					To your shame, it makes your own penis strain against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you tell him that you need to work. You twist a bit, increasing the pressure on his dick, and use the distraction to break free from his grip.
+				
+				The whole thing has not gone unnoticed by some guests, who start to watch your work with curiosity.
+			<<elseif playerCode.isMind_1()>>\
+				It makes you uncomfortable, but you need the money, so you just resign yourself to being groped. Your eyes widen as you feel something hard throb against your legs.
+				<<if _c>>\
+					To your shame, it makes your own penis strain against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you tell him that you need to work. You twist a bit, massaging his dick with your butt, and you use the distraction to break free from his grip.
+				
+				The whole thing has not gone unnoticed by some guests, who start to watch your work with curiosity.
+			<<else>>\
+				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ 
+
+				You feel something hard throb against your legs, and in this exact moment, you understand that you are literally making him hard and twitching with desire.
+				<<if _c>>\
+					The feeling of his dick pulsing under you makes your own penis strain hard against its cage. \
+				<<else>>\
+					The feeling of his dick pulsing under you makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you tell him you have to get back to work. You twist a bit, increasing the pressure on his dick, and use the distraction to break free from his grip.
+				
+				The whole thing has not gone unnoticed by the other guests, who now start to ogle and grope you more openly.
+			<<endif>>\
+		<<elseif (_plan lte 100)>>\
+			<<if playerCode.isMind_0()>>\
+				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
+
+				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs.
+				<<if _c>>\
+					To your shame, it makes your own penis strain hard against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you plead with him to let you go, and after some more squeezing you in fun places he does so, giving you a sound slap on your butt.
+				
+				Whole thing has not gone unnoticed by the other guests, who now start to ogle and grope you more openly.
+
+				@@.hero;Oh fuck, now they think I'm just their plaything.@@
+			<<elseif playerCode.isMind_1()>>\
+				You want to hit him, but you really need the money, so you just whisper: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
+
+				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs.
+				<<if _c>>\
+					To your shame, it makes your own penis strain hard against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you plead with him to let you go. After squeezing your intimate places, which only makes you hornier, he does so, sending you off with a sound slap to your butt.
+				
+				The whole thing has not gone unnoticed by the other guests, who now start to ogle and grope you more openly.
+
+				@@.hero;Oh, fuck. Now they think I'm just their toy.@@
+			<<else>>\
+				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ 
+
+				You feel something hard throb against your legs, and in this exact moment, you understand that you are literally making him hard and twitching with desire.
+				<<if _c>>\
+					The feeling of his dick pulsing under you makes your own penis strains hard against its cage. \
+				<<else>>\
+					The feeling of his dick pulsing under you makes your own penis tent skirt of your uniform. \
+				<<endif>>\
+				Blushing furiously, you plead with him to let you go as you need to get back to work. He squeezes your intimate parts once more, which only makes you giggle and moan a little, then lets you go. As you turn, he gives your butt a sound slap in parting.
+				
+				You quickly resume serving, but your little show did not go unnoticed by the other guests. They now begin to touch and grope you even more than before!
+			<<endif>>\
+		<<else>>\
+			<<if playerCode.isMind_0()>>\
+				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
+
+				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs. In this exact moment, you discover you're making him hard as he twitches with desire. In confusion, your brain stops and to your shock you find that you've placed your hand over his dick. Almost instinctively you give it gentle squeeze, feeling it pulsing.
+				<<if _c>>\
+					To your shame, it makes your own penis strain hard against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				There's no way back now. You start to rub his throbbing dick through his pants. He surely didn’t expect you to be so bold, and after a few strokes you feel his body shiver with slow convulsions and a rewarding smile comes across his face.
+				
+				You take the benefit of his moment of inattention to break free from his grip, and quickly resume your service. Your show has not gone unnoticed by the other guests, however, who now begin to touch and grope you even more than before!
+
+				@@.hero;Why the hell did I do that? Now everyone here thinks I'm a slut, or a whore, or both.@@
+			<<elseif playerCode.isMind_1()>>\
+				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
+
+				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs. In this exact moment, you're aware //you're// the one making him hard as he twitches with desire.
+				<<if _c>>\
+					To your shame, it makes your own penis strain hard against its cage. \
+				<<else>>\
+					To your shame, it makes your own penis tent the skirt of your uniform. \
+				<<endif>>\
+				Surprising even yourself, you start to rub his throbbing dick through his pants. He surely didn’t expect your move, and after a few strokes you feel his body shiver with slow convulsions and a rewarding smile comes across his face.
+				
+				You take the benefit of his moment of inattention to break free from his grip, and quickly resume your service. Your show has not gone unnoticed by the other guests, however, who now begin to touch and grope you even more than before!
+
+				@@.hero;Why the hell did I do that? Now everyone here thinks I'm a slut, or a whore, or both.@@
+			<<else>>\
+				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ You feel something hard throb against your legs, and in this exact moment, you're aware //you're// the one making him hard as he twitches with desire. Boldly, surprising even yourself, you wink at him, and with your right hand you start to rub his throbbing dick through his pants.
+				<<if _c>>\
+					The feeling of his dick pulsing under your palm makes your own penis strains hard against its cage. \
+				<<else>>\
+					The feeling of his dick pulsing under your palm makes your own penis tent skirt of your uniform. \
+				<<endif>>\
+				He surely didn’t expect your move. After only a few, deft strokes, you feel his body shiver with slow convulsions and a rewarding smile comes across his face.
+				
+				You take the benefit of his moment of inattention to break free from his grip, and quickly resume your service. Your show has not gone unnoticed by the other guests, however, who now begin to touch and grope you even more than before!
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+\
+
+	At the end of your shift you count your tips. You received $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
+<<endif>>\
+
+<<set _pay+=_tips>>\
+@@.reward;You earned $<<print _pay>>!@@
+
+<<set $player.jobs.workedToday=true>>\
+<<if ($player.jobs.fastfoodPerversion lt 10)>>\
+	<<set $player.jobs.fastfoodPerversion++>>\
+<<endif>>\
+[[Go home|Go to bedroom][$time.hour=16; $time.addMinutes(15)]]
+
+
