@@ -1,0 +1,79 @@
+:: Go to mall toilet [pos_1912_2476]
+\
+<<showImage "general" "toilet.jpg">>\
+It's empty in the men's toilets.
+
+You check yourself in the mirrors, \
+<<set _sl = playerCode.slutScore()>>\
+<<if _sl lt 10>>\
+	<<if _sl lte 3>>\
+		scan for pimples, fix your hair a little, and enjoy the quiet away from the noise of the mall.
+	<<elseif _sl eq 4>>\
+		you look like a plain looking girl dressed in boy's clothes.
+	<<elseif _sl eq 5>>\
+		you look like an ordinary girl dressed in boy's clothes.
+	<<elseif _sl eq 6>>\
+		you look like a sexy girl dressed in boy's clothes.
+	<<elseif _sl eq 7>>\
+		you look like a slutty girl dressed in boy's clothes.
+	<<elseif _sl eq 8>>\
+		you look like a whorish girl dressed in boy's clothes.
+	<<elseif _sl eq 9>>\
+		you look like a total whore dressed as a boy.
+	<<endif>>\
+<<elseif _sl lt 20>>\
+	<<if _sl eq 10>>\
+		you look like an ordinary boy dressed as a girl.
+	<<elseif _sl eq 11>>\
+		you look like an ordinary boy dressed as a girl and there is a kinky secret under your skirt.
+	<<elseif _sl eq 12>>\
+		you look like a feminine boy dressed as a girl.
+	<<elseif _sl eq 13>>\
+		you look like a very feminine boy dressed as a girl.
+	<<elseif _sl eq 14>>\
+		you look like a plain looking girl.
+	<<elseif _sl eq 15>>\
+		you look like a cute girl.
+	<<elseif _sl eq 16>>\
+		you look like a sexy girl.
+	<<elseif _sl eq 17>>\
+		you look like a slutty girl.
+	<<elseif _sl eq 18>>\
+		you look like a whorish girl.
+	<<elseif _sl eq 19>>\
+		you look like a total whore.
+	<<endif>>\
+<<else>>\
+	<<if _sl eq 20>>\
+		you look like an ordinary boy dressed in slutty girls clothes.
+	<<elseif _sl eq 21>>\
+		you look like an ordinary boy dressed in slutty girls clothes and there is a kinky secret under your skirt.
+	<<elseif _sl eq 22>>\
+		you look like a feminine boy dressed in slutty girl's clothes.
+	<<elseif _sl eq 23>>\
+		you look like a very feminine boy dressed in slutty girl's clothes.
+	<<elseif _sl eq 24>>\
+		you look like a plain girl dressed as a slut.
+	<<elseif _sl eq 25>>\
+		you look like a cute girl dressed as a slut.
+	<<elseif _sl eq 26>>\
+		you look like a sexy girl dressed as a slut.
+	<<elseif _sl eq 27>>\
+		you look like a slut.
+	<<elseif _sl eq 28>>\
+		you look like a whorish slut.
+	<<elseif _sl eq 29>>\
+		you look like a total whore.
+	<<endif>>\
+<<endif>>\
+
+	[[Check yourself][$player.checkPlace=1]]
+<<if ($tasksTeacher.selfieMallToilets.status eq 1) and (playerCode.isWearingOn(itemTypes.Outerwear).female)>>\
+	[[Make a kissy selfie|Make a kissy selfie at mall]]
+<<endif>>\
+<<if window.timeCode.isMallOpen()>>\
+	[[Wait for someone to come in|Wait in mall toilet]]
+<<endif>>\
+[[Return to the mall|Go to the mall]]
+
+

@@ -1,0 +1,76 @@
+window.kinkTooltip={
+	incest: "Toggles your main guardian to be your mother or a family friend, and includes sexual content",
+	futa: "Most essential males will be replaced by shemales",
+	
+	semenConsumption: "Sex play or sensory fetish directly involving cum",
+	creampie: "Ejaculating inside a sexual orifice after unprotected sex, often with visible result",
+	bukkake: "Covering a partner’s body with semen during ejaculation, especially the face",
+	cumEating: "Taking semen in one’s mouth to taste and/or swallow it",
+	ownCum: "Ejaculating directly/indirectly in one’s own mouth and/or swallowing it",
+	cumSwap: "Exchanging/passing semen with a partner orally as a form of sex play",
+	
+	watersports: "Sex play involving urination",
+	wetting: "Urination in one’s clothing or on one’s body",
+	urineDrink: "Consuming urine as an erotic act",
+	urinePlay: "Urination on or exchanging urine between two people",
+	
+	smallPenis: "Fetish involving penis shrinking/having a small penis and the humiliation thereof",
+	penisShrink: "Having your penis reduced from an average size to a diminished size",
+	sph: "Being laughed at or degraded due to your penis’s lack of size",
+
+	bdsm: "Erotic play involving dominant/submissive roles, bondage and/or pain",
+	painPlay: "Acts of temporary, non-injurious infliction of pain, such as spanking, paddling, pinching or clamping",
+	xPain: "Acts of potentially injurious infliction of pain, such as whipping, caning, or temperature play",
+	petPlay: "Roleplay in which a subordinate is treated as a house pet and acts accordingly",
+	bondage: "Being deprived of movement, speech, or senses by ropes, chains, bindings, hoods, or other implements",
+	facesit: "Female-led sex play in which her sex organs/buttocks are used on her partner’s face to attain sexual pleasure and/or dominate the subordinate@@.halftransparent; Not implemented yet@@",
+	trampling: "Acts in which the dominant partner walks on, stands on or steps on the submissive partner’s body@@.halftransparent; Not implemented yet@@",
+
+	footFetish: "Fetish involving the sexualization of feet or items typically worn on the feet",
+	footDisplay: "Being shown feet in a manner designed to cause sexual excitement",
+	footWorship: "Arousal based on actions such as licking feet, sucking on feet, or kissing feet",
+	hosiery: "Deriving sexual excitement from pantyhose, socks, stockings, or other kinds of legwear, either inherently or when worn by a partner",
+	shoeBoot: "Deriving sexual excitement from heels, boots, or other types of shoes, either inherently or worn by a partner",
+	footjob: "Having one’s genitalia directly stimulated by feet, either shod or naked",
+
+	odor: "Fetish involving the sexualization of specific body parts when sweaty, smelly, or unclean@@.halftransparent; Not implemented yet@@",
+	clothesOdor: "Smelling or tasting items such as tops, bottoms, or underwear@@.halftransparent; Not implemented yet@@",
+	shoeSockOdor: "Smelling or tasting items such as heels, sneakers, socks, or hose@@.halftransparent; Not implemented yet@@",
+	footOdor: "Smelling or tasting unwashed feet@@.halftransparent; Not implemented yet@@",
+	armpitOdor: "Smelling or tasting unclean armpits@@.halftransparent; Not implemented yet@@",
+	assOdor: "Smelling or tasting sweaty ass cheeks or ass crack@@.halftransparent; Not implemented yet@@",
+	genitalOdor: "Smelling or tasting sweaty crotch or vagina@@.halftransparent; Not implemented yet@@",
+
+	degradation: "Aggressive or demeaning language or physical acts",
+	curse: "Use of overtly profane language or insults",
+	whoring: "Treatment as worthless, sexual property to be exploited without regard@@.halftransparent; Not implemented yet@@",
+	bimbo: "Conversion to a brainless, sexual playmate, with IQ loss/extreme feminization@@.halftransparent; Not implemented yet@@",
+	spitting: "Physical spitting on a person, as a way to degrade them",
+	abusive: "Acts of force such as slapping, shoving, mouth stretching or choking@@.halftransparent; Not implemented yet@@",
+	mindControl: "Being compelled to say or do things unwillingly by deep hypnosis@@.halftransparent; Not implemented yet@@",
+	questionable: "Sex where consent is ambiguous or leveraged by another@@.halftransparent; Not implemented properly yet@@",
+	tattoo: "Being forced or leveraged to get a tattoo",
+	piercing: "Being forced or leveraged to get a piercing",
+
+	agePlay: "Fetish involving the role play of age differences, infantilism, and diaper play@@.halftransparent; Not implemented yet@@",
+	diapering: "Wearing diapers as a punishment, humiliation tactic, medical necessity, or personal desire@@.halftransparent; Not implemented yet@@",
+	adultBaby: "Being treated as a toddler baby by others, including wearing baby clothes, drinking from a bottle, using a pacifier, or sleeping in a crib@@.halftransparent; Not implemented yet@@",
+	ageBehavior: "Being treated as a child by others, including being dressed in clothes associated with children or being expected to participate in childish activities@@.halftransparent; Not implemented yet@@",
+
+	xBody: "Fetishizing large divergence in anatomy in comparison with average, especially size@@.halftransparent; Not implemented yet@@",
+	bbw: "Big, beautiful women – fetishizing women with extreme body fat and/or weight@@.halftransparent; Not implemented yet@@",
+	hyperBreasts: "Arousal stemming from breast size above what is considered common physically@@.halftransparent; Not implemented yet@@",
+	hyperPenis: "Arousal from extreme penis size and length@@.halftransparent; Not implemented yet@@",
+	dwarf: "Arousal by bodies being of unusually short stature or size@@.halftransparent; Not implemented yet@@",
+	tall: "Arousal by bodies being exceptionally tall – aka giantess fetish@@.halftransparent; Not implemented yet@@",
+	muscle: "Arousal by bodies being extremely muscled – aka amazon fetish@@.halftransparent; Not implemented yet@@",
+	expansionWeight: "Arousal from the act of body enlargement, size and/or weight gain@@.halftransparent; Not implemented yet@@",
+	
+	clothing: "Fetish directly involving the feel, scent and/or appearance of clothing made from certain materials",
+	latex: "Arousal from the wearing of latex/PVC rubber by yourself or a partner – aka rubberist fetish@@.halftransparent; Not implemented properly yet@@",
+	leather: "Sexual arousal derived from the wearing of leather by yourself or a partner@@.halftransparent; Not implemented properly yet@@",
+	nylon: "Sexual interest in the wearing of nylon by yourself or a partner@@.halftransparent; Not implemented yet@@",
+	frilly: "Arousal from silk, satin or other soft, feminine materials@@.halftransparent; Not implemented yet@@",
+
+	genderChange: "Arousal stemming from transgender sex transformation/sex organ gender change@@.halftransparent; Not implemented yet, sorry@@"
+}

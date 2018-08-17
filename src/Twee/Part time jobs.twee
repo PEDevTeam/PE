@@ -1,0 +1,23 @@
+:: Part time jobs [pos_625_1732]
+\
+You consider your options.
+
+[[Work at fastfood|Jobs fastfood]]
+<<if $player.jobs.maidActive and window.timeCode.isWeekend()>>\
+	<<if ($player.jobs.maidPerversion eq 0)>>\
+		[[Work as maid at the party|Jobs party maid][$random.stored=0]] @@.worn;- You will be too tired to go to the party after this work shift ends.@@
+	<<else>>\
+		[[Work as maid at the party|Jobs party maid][$random.stored=0]]
+	<<endif>>\
+<<endif>>\
+<<if $player.jobs.adultstoreActive>>\
+	<<if ($player.jobs.adultstorePerversion eq 0)>>\
+		[[Work at the shop downtown|Jobs adult store][$random.stored=0]]
+	<<else>>\
+		[[Work at the adult store|Jobs adult store][$random.stored=0]]
+	<<endif>>\
+<<endif>>\
+
+[[Return|Go to bedroom]]
+
+

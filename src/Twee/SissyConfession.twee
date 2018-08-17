@@ -1,0 +1,230 @@
+:: SissyConfession [pos_1800_2092]
+\
+<<if ($scene eq "ReturnToTeacher") or ($scene eq "FailToPay")>>\
+	<<set $player.flags.sissyConfessionStart = false>>\
+	<<if $scene eq "ReturnToTeacher">>\
+		You return to $teacher, hoping to get free from the damned chastity cage.
+		
+		@@.teacher;"So, I can unlock you for the weekend if you prove to me that you truly regret your behavior."@@
+	<<elseif $scene eq "FailToPay">>\
+		You return to $teacher, dreading the consequences of your little rebellion.
+
+		<<if $player.tasks.refusedToCrossdress>>\
+			@@.teacher;"So, I guess it is time for my talk with the principal."@@ 
+			
+			She walks toward the door and your heart sinks as you realize you're about to be expelled.
+		<<else>>\
+			@@.teacher;"So, you don't have enough money? It would seem the principal is owed a conversation then, instead."@@ 
+			
+			She walks toward the door and your heart sinks as you realize you're about to be expelled.\
+			<<if $player.tasks.refusedToPay>>\
+				Desperate, you run to her, telling her that you will pay, taking out the money, but $teacher just frowns at you.
+				
+				@@.teacher;"You had your chance! I won't accept it now, but there may be another way to earn my forgiveness this time."@@
+				
+				You really don't want to be expelled.
+			<<else>>\
+				$teacher stops near the door and turns around to look at you.
+				
+				@@.teacher;"Actually there might be one way for you to earn my forgiveness this time."@@
+				
+				You really don't want to be expelled.
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	
+	@@.teacher;"You need to learn a lesson about the consequences of breaking deals. I think I have something that will serve."@@
+	
+	She walks to her desktop, leaving you to sweat while she types on the computer. Eventually she prints out a short script and hands it to you.
+	
+	@@.teacher;"This psychological exercise will help you deal with your lack of motivation. Now read it, memorize it, and recite it to me with earnestness and passion. Make me believe it."@@
+	
+	//$teacher, I want to tell you something I've never told anyone. 
+	
+	I'm a sissy. I secretly wear <<if $kink.incest>>my mother's<<else>>my guardian's<<endif>> clothes when she isn't home. I know this is wrong, but this is who I am. 
+	
+	Every time, I'm terrified she'll find out, but I also feel disappointed afterwards when she doesn't. I almost wish she would catch me, because I desperately want to come out. The problem is... I'm a coward, and too weak to push myself to take that step. 
+	
+	You are my last hope, you are the strongest woman I know and I beg you to help me. It took all my resolve just to talk to you about this. I know I'll try to back out of it. I've tried this before, but I've always failed. So I beg you, do whatever you can - lock me in chastity, blackmail me, force me to wear a dress, anything - just help me to become my true self. 
+	
+	If you won't help me, nothing will and I... I don't want to live like this anymore...//
+	
+	You sit there in silence for a few moments while reading over the script before glancing up in disbelief at $teacher. She meets your eyes with a stern look and the faintest hint of malevolence.
+
+	@@.teacher;"Well, what are you waiting for, $player.name? Recite!"@@
+
+	[[Agree to confess|SissyConfession][$scene="AgreeToConfess"]]
+	<<if $scene eq "ReturnToTeacher">>\
+		[[Refuse to confess|SissyConfession][$scene="TryToRefuse"]]
+	<<elseif $scene eq "FailToPay">>\
+		[[Refuse to confess|Endgame teacher bribe]]
+	<<endif>>\
+<<elseif $scene eq "TryToRefuse">>\
+	You tell $teacher, that you are not a sissy and you won't ever agree to read that.
+	
+	@@.teacher;"Are you sure? Let's look at these."@@
+	
+	She retrieves a thick folder from her desc, places it on the desc and and opens it. There are numerous photos of you in feminine underwear during //inspections// and from other activities.
+	
+	You pale, realizing how much blackmail material she have on you, but $teacher doesn't clarify if it is a threat to expose you or she just wants to prove her point. It maybe a bit of both and you don't really want to test which one it is.
+	
+	Suddenly indulging her request for this silly //confession// doesn't seems as a bad idea.
+	
+	@@.hero;Maybe she just wants me to squirm a little before she unlocks my chastity cage. It is just like a drama club performance, but with just two of us, not a big deal, right?@@
+	
+	[[Agree to confess|SissyConfession][$scene="AgreeToConfess"]]
+<<elseif $scene eq "AgreeToConfess">>\
+	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+	<<set $player.flags.sissyConfession = true>>\
+	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $player.flags.chastityKey and $player.flags.chastityLocked>>\
+		<<set $player.tasks.penalty = 0>>\
+	<<endif>>\
+	Fidgeting in your chair, you begin to read the script out loud...
+
+	@@.heroT;"$teacher, I want to tell you something I've never told anyone."@@
+	
+	@@.heroT;"I'm a s-sissy..."@@
+	
+	Almost immediately, you stumble over that word as a feeling of deep humiliation wells up from the pit of your stomach and quickly encompasses your whole body.
+
+	<<if playerCode.isMind_0()>>\
+		@@.hero;What did I just call myself? What am I saying?!@@
+		
+		All you want to do at this moment is run away and hide somewhere, but you know what the consequences would be.
+	<<elseif playerCode.isMind_1()>>\
+		@@.hero;Why does it feel so weird? Why do I saying it?@@
+		
+		You really want to run away and hide somewhere, but you can't move a muscle under hard gaze of $teacher.
+	<<else>>\
+		@@.hero;It is so confusing. Why do I feel so weird while saying it?@@
+		
+		It is really embarrassing, but you're like a helpless prey before predator. $teacher's hard gaze leaves you completely powerless.
+	<<endif>>\
+
+	@@.teacher;"I told you to be convincing! Now, start again and //mean it// this time."@@
+
+	Starting once more from the beginning of the script, you try your best to ignore the shameful nature of the words coming out of your mouth.
+	
+	@@.heroT;"$teacher, I want to tell you something I've never told anyone."@@
+	
+	@@.heroT;"I'm a sissy. I secretly wear <<if $kink.incest>>my mother's<<else>>my guardian's<<endif>> clothes when she isn't home. I know this is wrong, but this is who I am."@@
+	
+	You pause before quickly steeling yourself to continue on despite an overwhelming sense of discomfort and embarrassment.
+	
+	@@.heroT;"Every t-time, I'm t-terrified she'll find out, but I also feel disappointed afterwards when she doesn't. I almost wish she would catch me, because I desperately want to come out. The problem is... I'm a coward, and too weak to push myself to take that step. You are my last hope, you are the strongest woman I know and I beg you to help me. It took all my resolve just to talk to you about this. I know I'll try to back out of it, I've tried this before, but I've always failed. So I beg you, do whatever you can, lock me in ch-chastity, blackmail me, force me to wear a d-dress, anything, just help me to become my true self. If you won't help me, nothing will and I..."@@
+	
+	@@.heroT;"I don't want to live like this anymore..."@@
+
+	With a sigh of relief, you place the paper on your lap and try to calm down as you can feel your arms trembling...
+
+	<<if _c>>\
+		only to realize that your penis is straining hard against its cage.
+	<<else>>\
+		only to realize that the paper is now tented by the rather obvious erection trying to\
+		<<if (_o and _o.female)>>\
+		lift your skirt.
+		<<else>>\
+		burst through your pants.
+		<<endif>>\
+	<<endif>>\
+	
+	<<if playerCode.isMind_0()>>\
+		@@.hero;Wha... Why?!@@
+	<<elseif playerCode.isMind_1()>>\
+		@@.hero;Oh my...@@
+	<<else>>\
+		@@.hero;I'm so turned on right now...@@
+	<<endif>>\
+	
+	Suddenly every powerful emotion stirring in you goes completely numb as you feel $teacher's fingers gently grip your chin and pull your head upward. She's very close, only inches away. She stares unflinchingly into your eyes, but you look away... look downward... She is bent over, giving you a perfect view of her impressive cleavage and the pretty lace bra under her blouse containing it. You clench your eyelids, not daring to keep looking but desperately wanting to.
+
+	@@.teacher;"$player.name, that was better, but still not acceptable. Do it again."@@
+	
+	<<if playerCode.isMind_0()>>\
+	You hate this, but it\
+	<<elseif playerCode.isMind_1()>>\
+	You don't like this, but it\
+	<<else>>\
+	It\
+	<<endif>>\
+	seems you need to try harder if you want to end this quickly. So, you take a deep breath and start reciting script again, with more conviction.
+	
+	@@.red;*THWACK*@@
+
+	Startled by the sudden, very loud noise interrupting you mid-sentence, your attention snaps to $teacher who is now looming over you with a rather intimidating ruler in her hands. Judging by her annoyed expression, she doesn't seem as pleased with your performance as you had hoped.
+
+	@@.teacher;"That was still not very convincing. My patience is wearing thin. Do it again!"@@
+
+	You start again.
+
+	@@.red;*THWACK*@@
+
+	$teacher slaps the ruler against the palm of her hand again, producing the same loud, startling sound.
+
+	@@.teacher;"Again! With more feeling."@@
+
+	At this moment, you're a whirlwind of conflicting emotions, still incredibly horny but also terrified of the menacing $teacher. Your voice cracks from the intense pressure, making you sound like a whiny bitch. Desperate to end this humiliating endeavor, you realize that there is no escape for you except complete surrender to $teacher's demands.
+	
+	With your head hung low, you recite the entire passage again from the crumbled paper resting on your lap. Dreading $teacher's anger, you finally break. This time, you own every word on the paper as if it were your own. As you speak, even you don't know whether or not you //actually// mean it this time. Before you realize it, you've come to the end of the passage again.
+	
+	@@.heroT;"...I don't want to live like this anymore..."@@
+	
+	Emotionally spent, you feel real tears streaming down your cheeks and your gaze falls into your lap. Your face is a blotchy mess and you are unable to go on without your voice catching. You look up pleadingly, sniffling and visibly distraught. You ad-lib one final, pitiful word that seems to seal the performance:
+
+	@@.heroT;"P-Please...?"@@
+
+	$teacher's stern expression softens in the silence that hangs over this moment, transforming into a sympathetic sad smile right before your eyes.
+
+	@@.teacher;"It's... I understand. I will help you, but we will talk about it later. You can go now."@@ 
+	
+	To your total confusion, her voice is suddenly kind and understanding. Her words don't make sense to you, either.
+	
+	@@.hero;//'She understands...' 'She'll help me?'// She wrote that whole thing! How can she even think I meant that?@@
+	
+	Still, you have to consciously resist being drawn in by the sliver of empathy she's shown you. You try hard to sweep aside all of it, in fact, because right now, you're finally free.
+	
+	<<if window.timeCode.isMonday() and (playerCode.nextBribeAmount() gt $bribeAmount)>>\
+		After a brief pause she adds:
+
+		@@.teacher;"As part of the punishment, I think I'll increase your basic weekly payment to $<<print $bribeAmount>>. I'm sure an enterprising boy like yourself won't find that too difficult."@@ 
+		
+		@@.heroT;Fuck.@@
+		
+	<<endif>>\
+	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $player.flags.chastityKey and $player.flags.chastityLocked>>\
+		$teacher unlocks your chastity cage.
+		<<set $player.flags.chastityLocked = false>>\
+	
+	<<endif>>\
+	You bury your frustration, hurriedly wiping your eyes and face to mask any trace of crying. You gather your things and quickly head for the door.
+	
+	As you exit the room, you can feel your heart fluttering unnaturally fast in your chest. Inescapably, one phrase echoes repeatedly through your mind in your own voice...
+
+	@@.hero;I'm a sissy.@@
+	
+	[[Go home|Go to bedroom][$time.addMinutes(15)]]
+<<elseif $scene eq "SecondVisit">>\
+	<<set $player.flags.sissyConfessionShown = true>>\
+	You return to $teacher, wondering what she'll come up with this time.
+	
+	@@.teacher;"I have something for you to watch. Do you remember your little speech?"@@ She turns the monitor of her computer towards you and starts a video file.
+	
+	On the screen, you see yourself begging $teacher to help you become a sissy. $teacher herself looks aghast and repulsed by the very idea, but as you speak the last words of your plea she reluctantly agrees. Following the video is a compilation of various photos and clips that document your perverted education.
+
+	$teacher puts on a sad face and recites in a regretful tone @@.teacher;"I knew that it was wrong and unethical, but I was afraid that he would do something drastic. I couldn't just walk away. After that, he used my moment of weakness to blackmail me into helping him more and more, as he explored his sick fantasies."@@
+	
+	Suddenly her expression shifts to a smug smile and you realize you are completely and utterly fucked.
+
+	@@.teacher;"Rest assured, I am not going to show this to anyone. It won't change our previous agreement, this is just a guarantee... to make sure you won't just walk out on me, and ensure you will accept your punishments when you misbehave."@@
+
+	You gulp, your mind filling with dread as you think about the consequences.
+	
+	@@.teacher;"Now, back to your punishment."@@
+	
+	[[Punishment|TeacherPunishment]]
+<<else>>\
+	It is bug, report to devs. Current scene is = "$scene"
+<<endif>>\
+
+

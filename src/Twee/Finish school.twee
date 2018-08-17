@@ -1,0 +1,83 @@
+:: Finish school [pos_607_1884]
+\
+<<showImage "general" "school_finished.jpg">>\
+<<if $player.flags.walletForgottenStart>>\
+	<<set $player.flags.walletForgottenEnd = true>>\
+<<endif>>\
+<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $player.flags.chastityKey>>\
+	<<if ($player.perversion.teacherPermChastity eq 6)>>\
+		<<set $player.perversion.teacherPermChastity = 7>>\
+		After more than a month's confinement in chastity, you finally return to $teacher to get your chastity device unlocked. However, as she turns the key, you twitch awkwardly and the key snaps. @@.hero;Oh, shit.@@
+		
+		@@.teacher;"Oh, $player.name! Why did you move? We cannot leave it this way. It is dangerous - you could cut yourself on that jagged edge of the key. Wait here, I will go get the tools and fix it."@@
+		
+		@@.hero;Thank god.@@ You feel so grateful that $teacher would help you despite this being your fault.
+		
+		Soon, $teacher returns with tools and tells you to lie down on the couch, hug a pillow and turn away.
+		
+		@@.teacher;We cannot have you overreacting or getting scared and then flinching while I work on the key, can we? Just relax, and for your sake, stay perfectly still.@@
+		
+		Obediently, you lie down and turn away, pressing your upper half against a pillow. There is some clicking and buzzing, and you feel an uncomfortable heat as $teacher works on the lock, but she shoos you and tells you not to move again when you try to peek.
+		
+		Finally, she finishes her work and tells you that you are free to go. As you look at the lock, you feel a cold chill running down your spine.
+		
+		@@.teacher;"That broken key was jammed in tight. I filed that sharp edge off, filled the lock with solder and polished it smooth for you. Now, it is perfectly safe."@@
+		
+		You just tug the cage in disbelief. With the locking mechanism sealed, it's going nowhere.
+		
+		@@.teacher;"Oh, stop pretending. We both you know you moved deliberately, hoping exactly this would happen! Get used to it, sissy - if you haven't already. Anyway, since you will be wearing this cage permanently, I'll just write off $<<print 100>> from your debt if you behaved properly during the week."@@
+		
+		Sobbing, you walk away feeling despair as it slowly sinks in that you may never feel a touch on your penis again.
+	
+	<<elseif ($player.perversion.teacherPermChastity gte 7)>>\
+		You remember how you were longing for the weekend to get rid of your chastity, but now your cage can't be removed! Your penis aches in its prison at the thought that you will never feel a touch on it again.
+	
+	<<elseif (not $player.flags.lockedWeekend) and (($player.tasks.penalty eq 0) or (not $player.flags.sissyConfessionShown))>>\
+		You return to $teacher and get your chastity device unlocked. You are finally free. @@.hero;At last, free!@@
+
+		<<set $player.flags.chastityLocked = false>>\
+		<<if (not $player.flags.chastityWarning)>>\
+			<<set $player.flags.chastityWarning = true>>\
+			A final warning from $teacher still echoes in your mind. 
+			
+			@@.teacher;"Listen very carefully, as I shall say this only once. 
+			
+			"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off, and I will go straight to the principal."@@
+		<<endif>>\
+	<<elseif $player.flags.lockedWeekend>>\
+		You realize that this weekend you will remain locked in chastity. @@.hero;Oh, joy...@@
+	<<endif>>\
+
+<<endif>>\
+<<if $player.flags.sissyConfessionStart or ((not $player.flags.sissyConfession) and $player.flags.bribeFail)>>\
+	You need to return to $teacher.
+
+	<<if $player.flags.bribeFail>>\
+		[[Return to teacher|SissyConfession][$scene="FailToPay"; $time.addMinutes(5)]]
+	<<else>>\
+		[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
+	<<endif>>\
+<<elseif $player.flags.sissyConfession and (not $player.flags.sissyConfessionShown) and (($player.tasks.penalty gt 3) or $player.flags.bribeFail)>>\
+	You need to return to $teacher.
+	
+	[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
+<<elseif $player.flags.sissyConfessionShown and ((($player.tasks.penalty gt 0) and window.timeCode.isFriday()) or $player.flags.bribeFail)>>\
+	You need to return to $teacher.
+	
+	[[Return to teacher|TeacherPunishment]]
+<<else>>\
+	<<set $player.tasks.penaltySkipped = false>>\
+	You're done with school for today. What would you like to do with the rest of the day?
+
+	<<if window.timeCode.needTherapy()>>\
+		<<if window.clothes.dressedTherapy.check()>>\
+			[[Visit therapist][$time.addMinutes(120);$player.therapistLastDay to $time.day]]
+		<<else>>\
+			<<notDressed "Visit therapist" $reason>>
+		<<endif>>\
+	<<endif>>\
+	<<if window.timeCode.isMallOpen>>[[Go to the mall][$time.addMinutes(15)]]<<endif>>
+	[[Go home|Go to bedroom][$time.addMinutes(15)]]
+<<endif>>\
+
+

@@ -1,0 +1,43 @@
+:: Initialise [pos_130_4]
+\
+<<set $allowance=20>>\
+<<set $workRate=10>>\
+<<set $teacher="Miss Buxton">>\
+<<set $therapist="Stacy">>\
+<<set $babysitter="Emma">>\
+<<set $bully="Butch">>\
+<<set $friend="your best friend">>\
+<<initInv>>\
+<<set $guardian = "your mother">>\
+<<set $Guardian = "Your mother">>\
+<<set $myguardian = "my mother">>\
+<<set $Myguardian = "My mother">>\
+<<set _item = itemsC.pyjamasMale.id>><<addToInv _item>>\
+<<set _item = itemsC.casualMale.id>><<addToInv _item>>\
+<<set _item = itemsC.schoolMale.id>><<addToInv _item>>\
+<<set _item = itemsC.jocksLucky.id>><<addToInv _item>>\
+<<set _item = itemsC.sneakers.id>><<addToInv _item>>\
+<<set _item = itemsC.schoolShoes.id>><<addToInv _item>>\
+\
+<<for _i to 0; _i lt $quickSlot.length; _i++>>\
+	<<if $quickSlot[_i].name eq "School">>\
+		<<set $quickSlot[_i].clothes=[$items.schoolMale.id, $items.jocksLucky.id, $items.schoolShoes.id]>>\
+		<<set $quickSlot[_i].types=[0, 0, 0]>>\
+	<<endif>>\
+	<<if $quickSlot[_i].name eq "Casual">>\
+		<<set $quickSlot[_i].clothes=[$items.casualMale.id, $items.jocksLucky.id, $items.sneakers.id]>>\
+		<<set $quickSlot[_i].types=[0, 0, 0]>>\
+	<<endif>>\
+	<<if $quickSlot[_i].name eq "Nightwear">>\
+		<<set $quickSlot[_i].clothes=[$items.pyjamasMale.id]>>\
+		<<set $quickSlot[_i].types=[0]>>\
+	<<endif>>\
+	<<if $quickSlot[_i].name eq "Maid">>\
+		<<set $quickSlot[_i].clothes=[$items.maidOutfit.id]>>\
+		<<set $quickSlot[_i].types=[0]>>\
+	<<endif>>\
+<</for>>\
+<<goto [[Begin]]>>\
+\
+
+

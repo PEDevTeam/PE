@@ -1,0 +1,155 @@
+:: Chore Widgets [pos_1896_150 widget]
+\
+<<widget "showChores">>\
+<<showImage "chores" "chores.jpg">>\
+<<if $player.flags.maidUniform>>\
+	<<set $player.flags.maidUniform = false>>\
+	<<wearClothing $items.maidOutfit.id>>\
+<<endif>>\
+<<if $player.flags.heelsOff>>\
+	<<set $player.flags.heelsOff = false>>\
+	You take off your heels and change into something more suitable for work.
+	<<if playerCode.owns(itemsC.girlsneakers)>><<wearClothing $items.girlsneakers.id>><<elseif playerCode.owns(itemsC.flats)>><<wearClothing $items.flats.id>><<elseif playerCode.owns(itemsC.sneakers)>><<wearClothing $items.sneakers.id>><<endif>>\
+<<endif>>\
+You can perform chores for $guardian to earn some extra cash.
+
+Your current approach is - \
+<<if $player.choreSpeed eq 0.5>> Lazy
+<<elseif $player.choreSpeed eq 1>> Normal
+<<elseif $player.choreSpeed eq 2>> Diligent
+<<endif>>\
+<<if $player.flags.choreSpanked>>\
+@@.halftransparent;Spanked@@\
+<<elseif $player.choreSpeed eq 0.5>>\
+@@.email_unread;[[ [Lazy] |Perform chores][$player.choreSpeed=0.5]]@@\
+<<else>>\
+[[Lazy|Perform chores][$player.choreSpeed=0.5]]\
+<<endif>>\
+@@.halftransparent; - @@\
+<<if $player.choreSpeed eq 1>>\
+@@.email_unread;[[ [Normal] |Perform chores][$player.choreSpeed=1]]@@\
+<<else>>\
+[[Normal|Perform chores][$player.choreSpeed=1]]\
+<<endif>>\
+@@.halftransparent; - @@\
+<<if $player.flags.exhausted>>\
+@@.halftransparent; Exhausted@@
+<<elseif $player.flags.tired>>\
+@@.halftransparent; Too tired@@
+<<elseif $player.choreSpeed eq 2>>\
+@@.email_unread;[[ [Diligent] |Perform chores][$player.choreSpeed=2]]@@\
+<<else>>\
+[[Diligent|Perform chores][$player.choreSpeed=2]]\
+<<endif>>\
+
+
+The chores available to you are:
+
+<<for _i=0; _i lt choresList.length; _i++>>\
+	<<if $chores[_i].active and (choresList[_i].daringRequired lte $player.daring) and (choresList[_i].perversionRequired lte $player.perversion.guardian) and (choresList[_i].perversionMax gte $player.perversion.guardian)>>\
+		<<if choresList[_i].required or $time.hour lt 20>>\
+			<<if ($chores[_i].dayPerformed + choresList[_i].daysWait lte $time.day) and (not $player.flags.exhausted)>>\
+				<<if choresList[_i].reward gt 0>>\
+					<<set _rw = choresList[_i].reward>>\
+					<<set _r to ", $" + _rw>>\
+				<<else>>\
+					<<set _r to "">>\
+				<<endif>>\
+				<<set _min to choresList[_i].minutes>>\
+				<<if $chores[_i].fail>>\
+					<<if $player.perversion.guardian lte 2>>\
+						<<set _min to choresList[_i].minutes*2>>\
+					<<else>>\
+						<<set _min to choresList[_i].minutes*3>>\
+					<<endif>>\
+				<<elseif $player.choreSpeed neq 0 and (not choresList[_i].nontimed)>>\
+					<<set _min to choresList[_i].minutes*$player.choreSpeed>>\
+				<<endif>>\
+				<<set _r to "(" + _min + " minutes" + _r + ")">>\
+				<<if choresList[_i].maid and not window.clothes.dressedMaid.check()>>\
+					<<print '<<notDressed "' + choresList[_i].name + '" $reason "' + _r + '">>'>>
+				<<elseif choresList[_i].outside and not window.clothes.dressedOutside.check(0)>>\
+					<<print '<<notDressed "' + choresList[_i].name + '" $reason "' + _r + '">>'>>
+				<<elseif not window.clothes.dressedGuardian.check()>>\
+					<<print '<<notDressed "' + choresList[_i].name + '" $reason "' + _r + '">>'>>
+				<<else>>\
+					<<if choresList[_i].hasPassage>>\
+						<<print '[[' + choresList[_i].name + ']]'>>\
+					<<else>>\
+						<<print '<<click "' + choresList[_i].name + '">><<replace "#chores">><<performChore ' + _i + '>><</replace>><</click>>'>>\
+					<<endif>>\
+					<<if $chores[_i].fail>>\
+						@@.worn; - redo it properly@@\
+					<<endif>>\
+					<<print _r>>
+				<<endif>>\
+			<<else>>\
+				<<set _dw to $chores[_i].dayPerformed + choresList[_i].daysWait - $time.day>>\
+				<<if (_dw lte 0) and $player.flags.exhausted>>\
+					<<set _dw to 1>>\
+					<<print choresList[_i].name + ' @@.done;(too exhausted, need to wait ' + _dw + ' day)@@'>>
+				<<else>>\
+					<<print choresList[_i].name + ' @@.done;(need to wait ' + _dw + ' day<<Plural ' + _dw + '>>)@@'>>
+				<<endif>>\
+			<<endif>>\
+		<<else>>\
+			<<print choresList[_i].name + ' @@.done;(too late in the day)@@'>> 
+		<<endif>>\
+	<<endif>>\
+<</for>>\
+
+<<if _f and _f.slutty and ($player.chorePunishmentHeels lte $time.day)>>\
+	<<if playerCode.isMind_0() and $player.daring lte 6 and $player.perversion.guardian lte 4>>\
+		You take off your heels and change into something more suitable for work.
+		
+		<<if playerCode.owns(itemsC.sneakers)>>\
+			<<wearClothing $items.sneakers.id>>\
+		<<endif>>\
+	<<else>>\
+		[[Take off heels|Perform chores][$player.flags.heelsOff=true]]
+	<<endif>>\
+<<endif>>\
+<<if $player.flags.chorePunOffer and (window.choresFunc.choresFails() gt 0)>>\
+	<<if $player.flags.chorePunKinky>>\
+		<<print '[[Take spanking|Special punishments][$scene=\"choreSpanking\"]]'>>
+	<<else>>\
+		<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
+	<<endif>>\
+<<endif>>\
+<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid.check())>>\
+	[[Put on maid uniform|Perform chores][$player.flags.maidUniform=true]]
+<<endif>>\
+<<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check(0)) or (not window.clothes.dressedGuardian.check()))>>\
+	<<print '<<click " Change to casual clothes ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<goto [[Perform chores]]>><</click>>'>>
+<<endif>>\
+[[Return|Go to bedroom]]
+<</widget>>\
+
+<<widget "performChore">>\
+<<set $player.currentChore=$args[0]>>\
+<<showImage "chores" choresList[$args[0]].image>>\
+<<set $scene=choresList[$args[0]].name>>\
+\
+<<display [[Chores]]>>\
+<<display [[Chore end]]>>\
+\
+<<if not $player.flags.chorePunMode>>\
+	<<if $player.flags.chorePunOffer and (window.choresFunc.choresFails() gt 0)>>\
+		<<if $player.flags.chorePunKinky>>\
+			<<print '[[Take spanking|Special punishments][$scene=\"choreSpanking\"]]'>>
+		<<else>>\
+			<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid.check())>>\
+		[[Put on maid uniform|Perform chores][$player.flags.maidUniform=true]]
+	<<endif>>\
+	<<if window.choresFunc.canPerformChores()>>\
+		[[Perform other chores|Perform chores]]
+	<<endif>>\
+	[[Go to your room|Go to bedroom]]
+<<endif>>\
+<</widget>>\
+\
+
+

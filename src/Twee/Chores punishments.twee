@@ -1,0 +1,198 @@
+:: Chores punishments [pos_1896_150]
+\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _cf=window.choresFunc.choresFails()>>\
+<<set _pun = true>>\
+	<!--<confiscating vibrator>-->\
+<<if _pun and $player.flags.chorePunKinky and playerCode.owns(itemsC.vibrator) and (not $player.flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
+	<<if $player.flags.confiscatedVibrator>>\
+		@@.guardian;"I won't return this vibrator until you fix your mess."@@
+	<<else>>\
+		@@.guardian;"I think I'll take that vibrator, so you would have fewer distractions."@@
+	<<endif>>\
+	
+	<<set $player.flags.confiscatedVibrator = true>>\
+	<<set $player.flags.chorePunishmentVibrator = true>>\
+<<endif>>\
+	<!--</confiscating vibrator>-->\
+	<!--<first offer to spank PC>-->\
+<<if _pun and (not $player.flags.chorePunKinky) and (not $player.flags.chorePunOffer) and (_cf gte 2 or $player.choreFails gte 3 or $player.flags.choreForcedFail)>>\
+	<<set _pun = false>>\
+	<<set $player.flags.chorePunOffer = true>>\
+	$Guardian taps her foot on the floor and looks at you in disappointment.
+	
+	<<if $player.perversion.guardian eq 3>>\
+		<<set $player.flags.chorePunMode = true>>\
+		@@.guardian;"$player.name, you messed up this again. Honestly, I can't tell if you even tried."@@
+		
+		<<if $player.choreFails gt 2>>\
+			You are really tired of redoing your chores over and over again,\
+		<<else>>\
+			You really don't want to redo your chores,\
+		<<endif>>\
+		so you decide to try to talk your way out of it.
+		
+		[[Complain about redoing chores|Special punishments][$scene="complain"; $player.flags.chorePunMode = false]]
+	<<else>>\
+		@@.guardian;"$player.name, I see you haven't learned. You messed up again, and I can't tell if you even tried to correct your mistakes at all."@@
+	
+		She sighs heavily. 
+	
+		@@.guardian;"If you think it's too hard, I'll give you a choice. Instead of working hard, you could let me //punish// you to prove how sorry you are. Maybe that's what you need to learn your lesson. 
+		
+		"Still, I would prefer you to man up and fix your mess."@@
+	<<endif>>\
+
+<<endif>>\
+	<!--</first offer to spank PC>-->\
+	<!--<anus check>-->\
+<<if _pun and (not $player.flags.anusCheck) and $player.flags.chorePunKinky and $player.perversion.guardian gte 4>>\
+	<<set $player.flags.anusCheck = true>>\
+	<<set $player.flags.anusBurn = true>>\
+	<<set _pun = false>>\
+	$Guardian looks at you with a subtle smirk.
+	@@.guardian;"I'm starting to think you need some //extra// encouragement. Come with me, $player.name."@@
+	
+	Afraid of another spanking session, you meekly follow her as she goes to the bathroom.
+	
+	$Guardian tells you to bend forward, putting hands on the wall. A bit confused, you do as she says, feeling a bit silly as $guardian makes you shift your feet slightly away from the wall, transfering part of your weight to your arms.
+	
+	<<if _o and (not _o.female)>>\
+		With one quick motion, $guardian unbuckles and lower your pants.\
+	<<elseif _o and _o.female>>\
+		With one quick motion, $guardian lower your skirt.\
+	<<endif>>\
+	You let out surprised yelp as she\
+	<<if _b>>\
+	pulls out your plug and\
+	<<endif>>\
+	touches your anus with her fingers, covered by a rubber glove. Instinctively trying to back away from the intrusion, you realize that you are trapped in this position and you can't move without putting your foot forward, and $guardian easily prevents you from doing that.
+	
+	@@.guardian;"I think you spend too much time playing with your //toys//, so this will keep you occupied and help you stay healthy."@@
+
+	You feel her fingers probe outside of your back entrance, slick with some kind of ointment. Your anus starts tingling and heating up from the substance.\
+	<<if _c>>\
+	To your dismay, your penis strains in it's cage from the growing stimulation it creates.
+	<<else>>\
+	To your dismay, your penis gets hard from the growing stimulation it creates.
+	<<endif>>\
+	Suddenly, you feel her finger easily sliding in your hole. You can't stifle a moan as intense sensations erupt from the ointment rubbed across the ring of the inside walls of your anus. You whimper and bite your lip. Your knees wobble from the ordeal, and you desperately try to keep yourself from falling.
+	
+	Finally, $guardian finishes and give you a sound slap on your butt. You weakly try to cover yourself and slump down the wall in exhaustion despite whole thing having taken just few minutes.
+	
+	@@.guardian;"You won't be able to play with your toys for a while. I hope that makes you learn your lesson."@@
+	
+	She turns around and leaves.
+	
+<<endif>>\
+	<!--</anus check>-->\
+	<!--<anus check or redecorate>-->\
+<<if _pun and (not $player.flags.roomOffer) and $player.room.style lte 4 and $player.flags.chorePunKinky and $player.perversion.guardian gte 4>>\
+	<<set $player.flags.roomOffer = true>>\
+	<<set $player.flags.chorePunMode = true>>\
+	<<set _pun = false>>\
+
+	[[Choose redecorating|Special punishments][$scene="redecorating"; $player.flags.chorePunMode = false]]
+	[[Choose anus check|Special punishments][$scene="anuscheck"; $player.flags.chorePunMode = false]]
+<<endif>>\
+	<!--</anus check or redecorate>-->\
+	<!--<guardian BF visit>-->\
+<<if _pun and $player.flags.guardianNewBFvisit and $player.flags.newBoyfriend>>\
+	
+	$player.flags.guardianNewBFvisit
+<<endif>>\
+<!--</guardian BF visit>-->\
+	<!--<heels punishment>-->\
+<<if _pun and [3,4].includes($player.perversion.guardian) and $player.choreFails gte 2 and $player.chorePunishmentHeels lt $time.day and (not $player.flags.chorePunishmentHeels or random(1) eq 0)>>\
+	<<set $player.chorePunishmentHeels = $time.day + 14>>\
+	<<set _pun = false>>\
+	<<if not $player.flags.chorePunishmentHeels>>\
+		<<set $player.flags.chorePunishmentHeels = true>>\
+		@@.guardian;"You know, $player.name, I think I know what to do about your clumsiness. Since you like to dress up so much, I think you should try wearing high heels while you do your chores."@@
+		
+		@@.hero;What?@@
+		
+		@@.guardian;"I'll leave an extra pair in your room. Working in heels is way harder than it looks, so you may have a hard time adjusting at first, but I think they'll serve as a nice motivator for you to improve your focus. Maybe two weeks will be enough time for you to work things out."@@
+		
+	<<else>>\
+		@@.guardian;"Looks like you've already lost your focus - I'd say you need another round of motivation. I think it's time you wore those high heels while you're doing chores again. Another two weeks of that should get you thinking about doing things right."@@
+		
+		<<if $player.heelsSkill gte 8>>\
+			@@.guardian;"Though... with how easy you make it look, it's hard to believe you started wearing heels such as short time ago. You already strut in those like a model on a runway - are you sure you're not flaunting your ass on purpose?"@@ 
+			
+			$Guardian winks at you, as you sputter.
+		
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+	<!--</heels punishment>-->\
+	<!--<dildo bj punishment>-->\
+<<if false and _pun and $player.perversion.guardian gte 6 and $player.perversion.guardianCooldown gte 5 and $player.choreFails gte 4 and $player.chorePunishmentDildo lt $time.day and (not $player.flags.chorePunishmentDildo or random(2) eq 0)>>\
+	<<set $player.chorePunishmentDildo = $time.day + 14>>\
+	<<set $player.flags.choreDildoAlarm = true>>\
+	<<set _pun = false>>\
+	<<if not $player.flags.chorePunishmentDildo>>\
+		<<set $player.flags.chorePunishmentDildo = true>>\
+		@@.guardian;"You know, $player.name, I talked with $teacher recently about all these issues you've been having.@@\
+		<<if $player.perversion.guardian eq 6>>\
+			@@.guardian;I still think she might be too enthusiastic in pushing you to open up, but she had some valid points that made me think.@@\
+		<<elseif $player.perversion.guardian gte 7>>\
+			@@.guardian;She gave me some good ideas.@@\
+		<<endif>>\
+		@@.guardian;I know how much you like to play with your //toys,// so I got you a new one. The twist is that you'll have to satisfy the //toy// this time."@@ You notice sparkles of mischief in $guardian's eyes.
+		
+		@@.hero;What?@@
+		
+		@@.guardian;"There's been this crazy research project at my work - sexual performance based on penis shapes."@@ She rolls her eyes, @@.guardian;"I know, I know, sounds silly. It's funny how engineers want to digitize everything, but one of the offshoots of the project is an artificial penis.
+		
+		"Apparently, it has all these sensors that evaluate everything you do to it. It can tell you exactly how it's responding, just like if it was the real thing. It's scary, all the things they've worked out for it to check for. If it pans out like they think it will, they're planning to market it for medical training, prosthetics... 'enhanced' sex toys..."
+		
+		"What I'm getting to is, they let employees sign up to beta test the first production run."@@
+		
+		You just stare at her, unsure what to say. $guardian definitely works at a strange place. Still, the tech sounds kind of cool, even if it's weird to picture a bunch of engineers in lab coats building some kind of cyber-cock.
+		
+		<<if $player.perversion.guardian eq 6>>\
+			@@.guardian;"So... I got one for you."@@ $Guardian averts her eyes, suddenly looking embarrassed.\
+		<<elseif $player.perversion.guardian gte 7>>\
+			@@.guardian;"So, I got one, just for you."@@ $Guardian smirks at your shocked face.\
+		<<endif>>\
+		@@.guardian;"I've already installed it in your room."@@
+
+		You open your mouth to protest, but $guardian places her finger over your lips.
+
+		<<if $player.perversion.guardian eq 6>>\
+			@@.guardian;"No, no. It's a present, and I'm sure it'll be a learning experience for you, too. $teacher suggested some more extreme ideas, but when the beta test came up, I realized //that// was how I could help you deal with your urges in safe environment.
+			
+			"To make sure, I've started you off with settings that will take a solid effort from you, so be prepared to spend some time on your knees, practicing. Starting today, you'll have to //satisfy// it at least once every three days for the next two weeks."@@
+			
+			<<if playerCode.isMind_0()>>\
+				You want to argue, but with all that's been happening, you're not sure she's completely wrong.
+			<<elseif playerCode.isMind_1()>>\
+				You want to argue, but with all that's been happening, you're not sure she's so wrong. There is also the fact that you're kind of intrigued about it, based on what she's told you.
+			<<else>>\
+				You bite your lip to stop it from spreading in a dreamy smile. You wouldn't want to look too pleased and eager when you are being //punished//.
+			<<endif>>\
+		<<elseif $player.perversion.guardian gte 7>>\
+			@@.guardian;"Think twice before arguing. I could always go with $teacher's ideas instead. I wonder if you'd enjoy //practicing// on real cocks, like she suggested?"@@
+			
+			You quickly shut your mouth, staring at her in disbelief.
+		<<endif>>\
+	<<else>>\
+		@@.guardian;"I see you still need more motivation for improvement. I'm putting your training dildo on hard mode for the next two weeks."@@
+	<<endif>>\
+<<endif>>\
+	<!--</dildo bj punishment>-->\
+	<!--<offer to spank>-->\
+<<if _pun and (not $player.flags.chorePunOffer) and $player.flags.chorePunKinky>>\
+	<<set _pun = false>>\
+	<<set $player.flags.chorePunOffer = true>>\
+	@@.guardian;"I think you need another //motivational// session. Let me know if you want to avoid redoing the chores."@@
+
+<<endif>>\
+	<!--</offer to spank>-->\
+<<set $player.flags.choreForcedFail = false>>\
+\
+
+

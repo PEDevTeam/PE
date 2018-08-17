@@ -1,0 +1,784 @@
+:: SettingsKinks [pos_2705_10]
+\
+<span id="settingsList">\
+@@.centerAlign;\
+<<if true>>\
+@@.frame100;\
+<b>\
+<<click "List of core content">>
+<<script>>
+	Dialog.setup("List of core content");
+	Dialog.wiki(Story.get("SettingsCoreKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "Configure optional content">>
+<<script>>
+	Dialog.setup("List of optional content");
+	Dialog.wiki(Story.get("SettingsKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>> - \
+<<click "List of excluded content">>
+<<script>>
+	Dialog.setup("List of excluded content");
+	Dialog.wiki(Story.get("SettingsExcludedKinks").processText());
+	Dialog.open();
+<</script>>
+<</click>>\
+</b>\
+@@\
+
+@@.frame100;\
+<<set _kinkDesc = "Incest">>\
+<<set _tooltip = window.kinkTooltip.incest>>\
+<<set $scene = window.misc.toggleKink(   $kink.incest )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.incest = not $kink.incest>>\
+<<set window.player.resetGuardian()>>\
+<<set $kinkList = true>>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+&#9702; \
+<<set _kinkDesc = "Shemale mode">>\
+<<set _tooltip = window.kinkTooltip.futa>>\
+<<set $scene = window.misc.toggleKink(   $kink.futa )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.futa = not $kink.futa>>\
+<<set $futa.setPronouns()>>\
+<<set $kinkList = true>>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+&#9702; \
+<<set _kinkDesc = "Gender change">>\
+<<set _tooltip = window.kinkTooltip.genderChange>>\
+<<set $scene = window.misc.toggleKink(   $kink.genderChange )>>\
+<div class="tooltip">\
+<<checkbox "$kink.genderChange" false true $scene>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+@@\
+
+<!--<Cum kink>-->\
+@@.frame100;\
+<<set _kinkDesc = "Semen consumption:">>\
+<<set _tooltip = window.kinkTooltip.semenConsumption>>\
+<<set $scene = window.misc.toggleKink( $kink.semenConsumption )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.semenConsumption = not $kink.semenConsumption>>\
+<<set $kinkList = true>>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+<<if not $kink.semenConsumption>>\
+	<<set $kink.creampie = false>>\
+	<<set $kink.bukkake = false>>\
+	<<set $kink.cumEating = false>>\
+	<<set $kink.ownCum = false>>\
+	<<set $kink.cumSwap = false>>\
+<<endif>>\
+
+<<set _kinkDesc = "Creampie">>\
+<<set _tooltip = window.kinkTooltip.creampie>>\
+<<set $scene = window.misc.toggleKink( $kink.creampie )>>\
+<div class="tooltip">\
+<<if $kink.semenConsumption>>\
+	<<checkbox "$kink.creampie" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Bukkake">>\
+<<set _tooltip = window.kinkTooltip.bukkake>>\
+<<set $scene = window.misc.toggleKink( $kink.bukkake )>>\
+<div class="tooltip">\
+<<if $kink.semenConsumption>>\
+	<<checkbox "$kink.bukkake" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Cum eating">>\
+<<set _tooltip = window.kinkTooltip.cumEating>>\
+<<set $scene = window.misc.toggleKink( $kink.cumEating )>>\
+<div class="tooltip">\
+<<if $kink.semenConsumption>>\
+	<<checkbox "$kink.cumEating" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Own cum swallowing">>\
+<<set _tooltip = window.kinkTooltip.ownCum>>\
+<<set $scene = window.misc.toggleKink( $kink.ownCum )>>\
+<div class="tooltip">\
+<<if $kink.semenConsumption>>\
+	<<checkbox "$kink.ownCum" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Cumswapping">>\
+<<set _tooltip = window.kinkTooltip.cumSwap>>\
+<<set $scene = window.misc.toggleKink( $kink.cumSwap )>>\
+<div class="tooltip">\
+<<if $kink.semenConsumption>>\
+	<<checkbox "$kink.cumSwap" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+@@\
+<!--</Cum kink>-->\
+
+<!--<Watersports kink>-->\
+@@.frame50;\
+<<set _kinkDesc = "Watersports:">>\
+<<set _tooltip = window.kinkTooltip.watersports>>\
+<<set $scene = window.misc.toggleKink( $kink.watersports )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.watersports = not $kink.watersports>>\
+<<set $kink.wetting = false>>\
+<<set $kink.urineDrink = false>>\
+<<set $kink.urinePlay = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Wetting">>\
+<<set _tooltip = window.kinkTooltip.wetting>>\
+<<set $scene = window.misc.toggleKink( $kink.wetting )>>\
+<div class="tooltip">\
+<<if $kink.watersports>>\
+	<<checkbox "$kink.wetting" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Urine drinking">>\
+<<set _tooltip = window.kinkTooltip.urineDrink>>\
+<<set $scene = window.misc.toggleKink( $kink.urineDrink )>>\
+<div class="tooltip">\
+<<if $kink.watersports>>\
+	<<checkbox "$kink.urineDrink" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Urine play">>\
+<<set _tooltip = window.kinkTooltip.urinePlay>>\
+<<set $scene = window.misc.toggleKink( $kink.urinePlay )>>\
+<div class="tooltip">\
+<<if $kink.watersports>>\
+	<<checkbox "$kink.urinePlay" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+@@ \
+<!--</Watersports kink>-->\
+<!--<Shrunk penis kink>-->\
+@@.frame50;\
+<<set _kinkDesc = "Small penis:">>\
+<<set _tooltip = window.kinkTooltip.smallPenis>>\
+<<set $scene = window.misc.toggleKink( $kink.smallPenis )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.smallPenis = not $kink.smallPenis>>\
+<<set $kink.penisShrink = false>>\
+<<set $kink.sph = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Penis shrinking">>\
+<<set _tooltip = window.kinkTooltip.penisShrink>>\
+<<set $scene = window.misc.toggleKink( $kink.penisShrink )>>\
+<div class="tooltip">\
+<<if $kink.smallPenis>>\
+	<<checkbox "$kink.penisShrink" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "SPH">>\
+<<set _tooltip = window.kinkTooltip.sph>>\
+<<set $scene = window.misc.toggleKink( $kink.sph )>>\
+<div class="tooltip">\
+<<if $kink.smallPenis>>\
+	<<checkbox "$kink.sph" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+@@\
+<!--</Shrunk penis kink>-->\
+<!--<BDSM kink>-->\
+@@.frame100;\
+<<set _kinkDesc = "BDSM:">>\
+<<set _tooltip = window.kinkTooltip.bdsm>>\
+<<set $scene = window.misc.toggleKink( $kink.bdsm )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.bdsm = not $kink.bdsm>>\
+<<set $kink.painPlay = false>>\
+<<set $kink.xPain = false>>\
+<<set $kink.petPlay = false>>\
+<<set $kink.bondage = false>>\
+<<set $kink.facesit = false>>\
+<<set $kink.trampling = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Pain play">>\
+<<set _tooltip = window.kinkTooltip.painPlay>>\
+<<set $scene = window.misc.toggleKink( $kink.painPlay )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.painPlay" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Extreme pain play">>\
+<<set _tooltip = window.kinkTooltip.xPain>>\
+<<set $scene = window.misc.toggleKink( $kink.xPain )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.xPain" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Pet play">>\
+<<set _tooltip = window.kinkTooltip.petPlay>>\
+<<set $scene = window.misc.toggleKink( $kink.petPlay )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.petPlay" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Bondage">>\
+<<set _tooltip = window.kinkTooltip.bondage>>\
+<<set $scene = window.misc.toggleKink( $kink.bondage )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.bondage" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Facesitting">>\
+<<set _tooltip = window.kinkTooltip.facesit>>\
+<<set $scene = window.misc.toggleKink( $kink.facesit )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.facesit" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Trampling">>\
+<<set _tooltip = window.kinkTooltip.trampling>>\
+<<set $scene = window.misc.toggleKink( $kink.trampling )>>\
+<div class="tooltip">\
+<<if $kink.bdsm>>\
+	<<checkbox "$kink.trampling" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+@@\
+<!--</BDSM kink>-->\
+<!--<Foot kink>-->\
+@@.frame100;\
+<<set _kinkDesc = "Foot fetish:">>\
+<<set _tooltip = window.kinkTooltip.footFetish>>\
+<<set $scene = window.misc.toggleKink( $kink.footFetish )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.footFetish = not $kink.footFetish>>\
+<<set $kink.footDisplay = false>>\
+<<set $kink.footWorship = false>>\
+<<set $kink.hosiery = false>>\
+<<set $kink.shoeBoot = false>>\
+<<set $kink.footjob = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Foot display">>\
+<<set _tooltip = window.kinkTooltip.footDisplay>>\
+<<set $scene = window.misc.toggleKink( $kink.footDisplay )>>\
+<div class="tooltip">\
+<<if $kink.footFetish>>\
+	<<checkbox "$kink.footDisplay" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Foot worship">>\
+<<set _tooltip = window.kinkTooltip.footWorship>>\
+<<set $scene = window.misc.toggleKink( $kink.footWorship )>>\
+<div class="tooltip">\
+<<if $kink.footFetish>>\
+	<<checkbox "$kink.footWorship" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Hosiery fetish">>\
+<<set _tooltip = window.kinkTooltip.hosiery>>\
+<<set $scene = window.misc.toggleKink( $kink.hosiery )>>\
+<div class="tooltip">\
+<<if $kink.footFetish>>\
+	<<checkbox "$kink.hosiery" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Shoe/boot fetish">>\
+<<set _tooltip = window.kinkTooltip.shoeBoot>>\
+<<set $scene = window.misc.toggleKink( $kink.shoeBoot )>>\
+<div class="tooltip">\
+<<if $kink.footFetish>>\
+	<<checkbox "$kink.shoeBoot" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Footjob">>\
+<<set _tooltip = window.kinkTooltip.footjob>>\
+<<set $scene = window.misc.toggleKink( $kink.footjob )>>\
+<div class="tooltip">\
+<<if $kink.footFetish>>\
+	<<checkbox "$kink.footjob" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+@@\
+<!--</Foot kink>-->\
+<!--<Odors kink>-->\
+<!--
+@@.frame100;\
+<<set _kinkDesc = "Sweat and intense body odors:">>\
+<<set _tooltip = window.kinkTooltip.odor>>\
+<<set $scene = window.misc.toggleKink( $kink.odor )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.odor = not $kink.odor>>\
+<<set $kink.clothesOdor = false>>\
+<<set $kink.shoeSockOdor = false>>\
+<<set $kink.footOdor = false>>\
+<<set $kink.armpitOdor = false>>\
+<<set $kink.assOdor = false>>\
+<<set $kink.genitalOdor = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Clothes">>\
+<<set _tooltip = window.kinkTooltip.clothesOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.clothesOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.clothesOdor" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Shoes/socks">>\
+<<set _tooltip = window.kinkTooltip.shoeSockOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.shoeSockOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.shoeSockOdor" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Feet">>\
+<<set _tooltip = window.kinkTooltip.footOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.footOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.footOdor" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Armpits">>\
+<<set _tooltip = window.kinkTooltip.armpitOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.armpitOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.armpitOdor" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Ass">>\
+<<set _tooltip = window.kinkTooltip.assOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.assOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.assOdor" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Genitalia">>\
+<<set _tooltip = window.kinkTooltip.genitalOdor>>\
+<<set $scene = window.misc.toggleKink( $kink.genitalOdor )>>\
+<div class="tooltip">\
+<<if $kink.odor>>\
+	<<checkbox "$kink.genitalOdor" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div>\
+@@\
+-->\
+<!--</Odors kink>-->\
+<!--<Degradation kink>-->\
+@@.frame100;\
+<<set _kinkDesc = "Degradation:">>\
+<<set _tooltip = window.kinkTooltip.degradation>>\
+<<set $scene = window.misc.toggleKink( $kink.degradation )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.degradation = not $kink.degradation>>\
+<<set $kink.curse = false>>\
+<<set $kink.whoring = false>>\
+<<set $kink.bimbo = false>>\
+<<set $kink.spitting = false>>\
+<<set $kink.abusive = false>>\
+<<set $kink.mindControl = false>>\
+<<set $kink.questionable = false>>\
+<<set $kink.tattoo = false>>\
+<<set $kink.piercing = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Cursing">>\
+<<set _tooltip = window.kinkTooltip.curse>>\
+<<set $scene = window.misc.toggleKink( $kink.curse )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.curse" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Whoring">>\
+<<set _tooltip = window.kinkTooltip.whoring>>\
+<<set $scene = window.misc.toggleKink( $kink.whoring )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.whoring" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Bimbo">>\
+<<set _tooltip = window.kinkTooltip.bimbo>>\
+<<set $scene = window.misc.toggleKink( $kink.bimbo )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.bimbo" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Spitting">>\
+<<set _tooltip = window.kinkTooltip.spitting>>\
+<<set $scene = window.misc.toggleKink( $kink.spitting )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.spitting" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Abusive physical contact">>\
+<<set _tooltip = window.kinkTooltip.abusive>>\
+<<set $scene = window.misc.toggleKink( $kink.abusive )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.abusive" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Tattoo">>\
+<<set _tooltip = window.kinkTooltip.tattoo>>\
+<<set $scene = window.misc.toggleKink( $kink.tattoo )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.tattoo" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Piercing">>\
+<<set _tooltip = window.kinkTooltip.piercing>>\
+<<set $scene = window.misc.toggleKink( $kink.piercing )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.piercing" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Mind control">>\
+<<set _tooltip = window.kinkTooltip.mindControl>>\
+<<set $scene = window.misc.toggleKink( $kink.mindControl )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.mindControl" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Questionably consensual sex">>\
+<<set _tooltip = window.kinkTooltip.questionable>>\
+<<set $scene = window.misc.toggleKink( $kink.questionable )>>\
+<div class="tooltip">\
+<<if $kink.degradation>>\
+	<<checkbox "$kink.questionable" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
+@@ \
+<!--</Degradation kink>-->\
+<!--<Age play kink>-->\
+<!--
+@@.frame50;\
+<<set _kinkDesc = "Age play:">>\
+<<set _tooltip = window.kinkTooltip.agePlay>>\
+<<set $scene = window.misc.toggleKink( $kink.agePlay )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.agePlay = not $kink.agePlay>>\
+<<set $kink.diapering = false>>\
+<<set $kink.adultBaby = false>>\
+<<set $kink.ageBehavior = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Diapering">>\
+<<set _tooltip = window.kinkTooltip.diapering>>\
+<<set $scene = window.misc.toggleKink( $kink.diapering )>>\
+<div class="tooltip">\
+<<if $kink.agePlay>>\
+	<<checkbox "$kink.diapering" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Adult baby">>\
+<<set _tooltip = window.kinkTooltip.adultBaby>>\
+<<set $scene = window.misc.toggleKink( $kink.adultBaby )>>\
+<div class="tooltip">\
+<<if $kink.agePlay>>\
+	<<checkbox "$kink.adultBaby" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Age behavior">>\
+<<set _tooltip = window.kinkTooltip.ageBehavior>>\
+<<set $scene = window.misc.toggleKink( $kink.ageBehavior )>>\
+<div class="tooltip">\
+<<if $kink.agePlay>>\
+	<<checkbox "$kink.ageBehavior" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div>\
+@@ \
+-->\
+<!--</Age play kink>-->\
+<!--<Clothing kink>-->\
+@@.frame50;\
+<<set _kinkDesc = "Clothing:">>\
+<<set _tooltip = window.kinkTooltip.clothing>>\
+<<set $scene = window.misc.toggleKink( $kink.clothing )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.clothing = not $kink.clothing>>\
+<<set $kink.latex = false>>\
+<<set $kink.leather = false>>\
+<<set $kink.nylon = false>>\
+<<set $kink.frilly = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "Latex">>\
+<<set _tooltip = window.kinkTooltip.latex>>\
+<<set $scene = window.misc.toggleKink( $kink.latex )>>\
+<div class="tooltip">\
+<<if $kink.clothing>>\
+	<<checkbox "$kink.latex" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Leather">>\
+<<set _tooltip = window.kinkTooltip.leather>>\
+<<set $scene = window.misc.toggleKink( $kink.leather )>>\
+<div class="tooltip">\
+<<if $kink.clothing>>\
+	<<checkbox "$kink.leather" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Nylon">>\
+<<set _tooltip = window.kinkTooltip.nylon>>\
+<<set $scene = window.misc.toggleKink( $kink.nylon )>>\
+<div class="tooltip">\
+<<if $kink.clothing>>\
+	<<checkbox "$kink.nylon" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Frilly">>\
+<<set _tooltip = window.kinkTooltip.frilly>>\
+<<set $scene = window.misc.toggleKink( $kink.frilly )>>\
+<div class="tooltip">\
+<<if $kink.clothing>>\
+	<<checkbox "$kink.frilly" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div>\
+@@\
+<!--</Clothing kink>-->\
+<!--<Xtreme proportions kink>-->\
+<!--
+@@.frame100;\
+<<set _kinkDesc = "Xtreme proportions:">>\
+<<set _tooltip = window.kinkTooltip.xBody>>\
+<<set $scene = window.misc.toggleKink( $kink.xBody )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsList">>\
+<<set $kink.xBody = not $kink.xBody>>\
+<<set $kink.bbw = false>>\
+<<set $kink.hyperBreasts = false>>\
+<<set $kink.hyperPenis = false>>\
+<<set $kink.dwarf = false>>\
+<<set $kink.tall = false>>\
+<<set $kink.muscle = false>>\
+<<set $kink.expansionWeight = false>>\
+<<set $scene = "kinkList">>\
+<<display "SettingsKinks">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+
+<<set _kinkDesc = "BBW">>\
+<<set _tooltip = window.kinkTooltip.bbw>>\
+<<set $scene = window.misc.toggleKink( $kink.bbw )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.bbw" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Hyper breasts">>\
+<<set _tooltip = window.kinkTooltip.hyperBreasts>>\
+<<set $scene = window.misc.toggleKink( $kink.hyperBreasts )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.hyperBreasts" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Hyper penis">>\
+<<set _tooltip = window.kinkTooltip.hyperPenis>>\
+<<set $scene = window.misc.toggleKink( $kink.hyperPenis )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.hyperPenis" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Dwarfism">>\
+<<set _tooltip = window.kinkTooltip.dwarf>>\
+<<set $scene = window.misc.toggleKink( $kink.dwarf )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.dwarf" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext3"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Tall">>\
+<<set _tooltip = window.kinkTooltip.tall>>\
+<<set $scene = window.misc.toggleKink( $kink.tall )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.tall" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Muscular">>\
+<<set _tooltip = window.kinkTooltip.muscle>>\
+<<set $scene = window.misc.toggleKink( $kink.muscle )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.muscle" false true $scene>> <<print _kinkDesc>> &#9702; \
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div> \
+\
+<<set _kinkDesc = "Weight gain">>\
+<<set _tooltip = window.kinkTooltip.expansionWeight>>\
+<<set $scene = window.misc.toggleKink( $kink.expansionWeight )>>\
+<div class="tooltip">\
+<<if $kink.xBody>>\
+	<<checkbox "$kink.expansionWeight" false true $scene>> <<print _kinkDesc>>\
+<<else>>\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
+<<endif>>\
+<span id="test_surv" class="tooltiptext4"><<print _tooltip>></span></div>\
+@@\
+-->\
+<!--</Xtreme proportions kink>-->\
+<<endif>>\
+
+<<set _mainSetings=false>>\
+<<display [[SettingsEnd]]>>\
+@@\
+\
+
+

@@ -1,0 +1,85 @@
+:: Setup logic [pos_134_224]
+\
+<<set $misc={
+	friend: {
+		he_she: 'he',
+		He_She: 'He',
+		him_her: 'him',
+		Him_Her: 'Him',
+		his_her: 'his',
+		His_Her: 'His',
+		his_hers: 'his',
+		His_Hers: 'His',
+		setPronouns: function() {
+			if (!$player.flags.friendIsMale) {
+				this.he_she='she';
+				this.He_She='She';
+				this.him_her='her';
+				this.Him_Her='Her';
+				this.his_her='her';
+				this.His_Her='Her';
+				this.his_hers='hers';
+				this.His_Hers='Hers';
+			}
+		}
+	},
+	setwords: function() {
+		$ass="ass";
+		if (playerCode.owns(itemsC.AssEnhancing)) { $ass="heartshaped ass"; }
+		if (playerCode.owns(itemsC.AssEnhancingXL)) { $ass="curvy ass"; }
+		$ass="butt";
+		if (playerCode.owns(itemsC.AssEnhancing)) { $ass="shapely butt"; }
+		if (playerCode.owns(itemsC.AssEnhancingXL)) { $ass="bubble butt"; }
+		$lips="lips";
+		if (playerCode.owns(itemsC.LipsEnhancing)) { $lips="plump lips"; }
+		if (playerCode.owns(itemsC.LipsEnhancingXL)) { $lips="puffy lips"; }
+		$penis="penis";
+		if (playerCode.owns(itemsC.PenisShrinking)) { $penis="small penis"; }
+		$chest="flat chest";
+		if (playerCode.owns(itemsC.breastImplantsA)) { $chest="tiny breasts"; }
+		if (playerCode.owns(itemsC.breastImplantsB)) { $chest="breasts"; }
+		if (playerCode.owns(itemsC.breastImplantsC)) { $chest="big breasts"; }
+		if (playerCode.owns(itemsC.breastImplantsDD)) { $chest="huge breasts"; }
+	}
+}>>\
+<<set $ass="ass">>\
+<<set $butt="butt">>\
+<<set $chest="flat chest">>\
+<<set $lips="lips">>\
+<<set $penis="penis">>\
+<<set $futa={
+	he_she: 'he',
+	He_She: 'He',
+	him_her: 'him',
+	Him_Her: 'Him',
+	his_her: 'his',
+	His_Her: 'His',
+	his_hers: 'his',
+	His_Hers: 'His',
+	Boy_Girl: 'Boy',
+	boy_girl: 'boy',
+	Boys_Girls: 'Boys',
+	boys_girls: 'boys',
+	Guy_Girl: 'Guy',
+	guy_girl: 'guy',
+	setPronouns: function() {
+		if ($kink.futa) {
+			this.he_she='she';
+			this.He_She='She';
+			this.him_her='her';
+			this.Him_Her='Her';
+			this.his_her='her';
+			this.His_Her='Her';
+			this.his_hers='hers';
+			this.His_Hers='Hers';
+			this.Boy_Girl='Girl'
+			this.boy_girl='girl'
+			this.Boys_Girls='Girls'
+			this.boys_girls='girls'
+			this.Guy_Girl='Girl'
+			this.guy_girl='girl'
+		}
+	}
+}>>\
+\
+<<goto [[Friend structures]]>>\

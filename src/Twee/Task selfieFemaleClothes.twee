@@ -1,0 +1,51 @@
+:: Task selfieFemaleClothes [pos_2486_2904]
+\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _slb = playerCode.slutScoreBasic()>>\
+<<if _o and (not _o.female)>>\
+	You aren't wearing any female clothes.
+<<else>>\
+	<<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
+	<<set $tasksTeacher.selfieFemaleClothes.progress++>>\
+	<<if ($player.perversion.crossdressing lte 1)>>\
+		<<set $player.perversion.crossdressing++>>\
+	<<endif>>\
+	It feels so strange to wear\
+	<<if playerCode.isWearing(itemsC.skirtTop)>>\
+		a skirt and top.\
+	<<else>>\
+		a dress.\
+	<<endif>>\
+	You look at the mirror and gulp, seeing how these feminine clothes have transformed you.
+	
+	<<if _slb lte 1>>\
+		It is still obvious that you're a boy, but you hate to admit how vulnerable and meek you look in female clothes.
+	<<elseif _slb lte 4>>\
+		You look very feminine for a boy, but you hate to admit that you look good.
+	<<else>>\
+		It is almost unnerving how convincingly female you look in these clothes.
+	<<endif>>\
+
+	You set up your phone and take a few shots from different angles.\
+	<<if playerCode.isMind_0()>>\
+		You shudder at each click, fighting the urge to cover yourself. You know you're doing it just to satisfy $teacher, but it's scary to realize you're creating evidence that you dress like a girl.
+		
+		Letting out a heavy sigh, you review your photos. It seems you have a talent for this stuff.
+		
+		Despite your attempts to deny it, you feel pride at being good at this. It's mixed with shame, of course. You really don't want to be glad about excelling at crossdressing, of all things, but part of you is, anyway.
+	<<elseif playerCode.isMind_1()>>\
+		You shudder at each click, fighting a weird urge to smile. You know that you're doing it just to satisfy $teacher, but it is actually exciting to play dress up. 
+		
+		Seeing a photo of yourself fitting perfectly in female clothes is oddly pleasing. You wonder if girls like to try on different dresses for the same reason. Maybe you should dress up again sometime, when you feel like it.
+	<<else>>\
+		You tremble at each click, feeling weirdly excited. You know that you're doing it just to satisfy $teacher, but you can't help but pose a bit, playing it up to look sexy. 
+		
+		It's both scary and incredibly arousing to have evidence of your dress-up session. You get horny from just thinking about having these pictures on your phone. 
+		
+		You're not sure if it's how those photos make you feel a little beautiful that turns you on more, or if it's the risk of being caught they create.
+	<<endif>>\
+<<endif>>\
+
+[[Return|Go to bedroom]]
+
+

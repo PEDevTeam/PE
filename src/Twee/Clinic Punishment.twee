@@ -1,0 +1,121 @@
+:: Clinic Punishment [pos_3412_2444]
+\
+<<set $player.flags.salonPenalty to true>>\
+\
+<<if playerCode.owns(itemsC.softeningFacial)>>\
+<<removeFromInv $items.softeningFacial.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.surgeryFacial)>>\
+<<removeFromInv $items.surgeryFacial.id>>\
+<<endif>>\
+<<set _item=$items.surgeryFacial>>\
+<<addToInv _item.id>>\
+\
+<<if not playerCode.owns(itemsC.GarishManicure)>>\
+	<<if playerCode.owns(itemsC.Manicure)>>\
+	<<removeFromInv $items.Manicure.id>>\
+	<<endif>>\
+	<<set _item=$items.GarishManicure>>\
+	<<addToInv _item.id>>\
+	<<set $player.salonTab += _item.cost>>\
+	<<set $player.flags.salonManicure to true>>\
+<<endif>>\
+\
+<<if playerCode.owns(itemsC.LipsEnhancing)>>\
+<<removeFromInv $items.LipsEnhancing.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.LipsEnhancingXL)>>\
+<<removeFromInv $items.LipsEnhancingXL.id>>\
+<<endif>>\
+<<if not playerCode.owns(itemsC.LipsPermanent)>>\
+	<<set _item=$items.LipsPermanent>>\
+	<<addToInv _item.id>>\
+	<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+<<set _item=$items.LipsEnhancingXL>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+\
+<<if playerCode.owns(itemsC.NormalMakeup)>>\
+<<removeFromInv $items.NormalMakeup.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.BimboMakeup)>>\
+<<removeFromInv $items.BimboMakeup.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.HeavyMakeup)>>\
+<<removeFromInv $items.HeavyMakeup.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.PermanentNormalMakeup)>>\
+<<removeFromInv $items.PermanentNormalMakeup.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.PermanentBimboMakeup)>>\
+<<removeFromInv $items.PermanentBimboMakeup.id>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.PermanentHeavyMakeup)>>\
+<<removeFromInv $items.PermanentHeavyMakeup.id>>\
+<<endif>>\
+<<set _item=$items.PermanentHeavyMakeup>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<set $player.flags.salonMakeup=true>>\
+\
+<<if (not playerCode.owns(itemsC.PiercingLips))>>\
+<<set _item=$items.PiercingLips>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.PiercingTongue))>>\
+<<set _item=$items.PiercingTongue>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooStupidWhore))>>\
+<<set _item=$items.tattooStupidWhore>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.beautyMark))>>\
+<<set _item=$items.beautyMark>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooHeart))>>\
+<<set _item=$items.tattooHeart>>\
+<<addToInv _item.id>>\
+<<set $player.salonTab += _item.cost>>\
+<<endif>>\
+\
+<<set $player.salonTab += $player.salonTab>>\
+
+All of the sudden, you come to, your head pounding and your vision blurry.
+
+@@.nurse;"You finally woke up! Here, check out the new you! I think it is some of my best work."@@
+
+You look in the mirror and wish you were still dreaming. Overdone, garish makeup... a small heart tattoo below the corner of your eye... big, slutty hoop earrings... a beauty mark... over-sized cocksucking lips... all of it gives you the face of an absolute whore. You touch your face and watch the slutty image in the mirror do the same. 
+
+No, it is not someone else. It's you.
+
+You rub your eyelids and wipe your lips with the back of your hand, but the makeup does not smudge a bit. The whole thing is tattooed on!
+
+@@.nurse;"As you can see, this treatment is a bit more permanent, and you'll look this way until you've paid your tab, along with a small penalty fee. Personally, I think you might prefer to just get used to the new look."@@
+
+@@.hero;Is she serious?@@
+
+@@.nurse;"You might hate it at first, but give it time and you'll get used to the attention. You know, to the way people react to you. It will take some adjustments of course, so try to relax and let go a little."@@
+
+She really thinks that you will submit to looking like some kind of fetish fucktoy!
+
+You awkwardly get up and notice your lower back is sore - you have a big "Stupid Whore" tramp stamp in flowery letters just above your butt!
+@@.nurse;"Oh, you noticed. That one's free. Just a little 'bonus' for my favorite client. Kinda appropriate, don't you think?"@@
+
+Well, you were really stupid to let yourself get into this, and with a face like this, 'whore' is exactly what everyone will think when they look at you! This tramp stamp feels small compared to what was done to your face, but it's still humiliating that it spells out your situation so crudely.
+
+@@.reward;You got an incredibly slutty makeover!@@
+
+[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+
+
