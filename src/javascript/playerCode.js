@@ -229,11 +229,12 @@ window.playerCode={
 			}
 		},
 		checkStatus: function() {
-			var status=State.active.variables.status;
+			var string=State.active.variables.status;
+			var status=State.active.variables.player.status;
 			var time=State.active.variables.time;
-			if (State.active.variables.status != "") {
+			if (string != "") {
 				if (((time.day * 1440 + time.hour * 60 + time.minute) > (status.endDay * 1440 + status.endHour * 60 + status.endMinute)) || status.scenesCounter <= 0) {
-					State.active.variables.status="";
+					string="";
 					return false;
 				}
 				status.scenesCounter--;
