@@ -1,0 +1,90 @@
+:: Chore end [pos_1896_150]
+\
+<<if $scene eq "reward">>\
+	<<set _cf=window.choresFunc.choresFails()>>\
+	<<set _cn = $player.currentChore>>\
+	<<set _rw = choresList[_cn].reward>>\
+	@@.reward;You earned $<<print _rw>>!@@\
+	<<set $player.money+=_rw>>\
+	<<set _ts=choresList[_cn].minutes>>\
+	<<if $chores[_cn].fail>>\
+		<<if $player.perversion.guardian lte 2>>\
+			<<set _ts*=2>>\
+			<<set $player.flags.tired = true>>\
+		<<else>>\
+			<<set _ts*=3>>\
+			<<set $player.flags.exhausted = true>>\
+		<<endif>>\
+		@@.penalty;You are exhausted.@@\
+	<<elseif (not choresList[_cn].nontimed)>>\
+		<<if $player.choreSpeed neq 0>>\
+			<<set _ts*=$player.choreSpeed>>\
+		<<endif>>\
+		<<if $player.choreSpeed eq 2>>\
+			<<set $player.flags.tired = true>>\
+			<<set $player.choreSpeed = 1>>\
+			@@.penalty;You are tired.@@\
+		<<endif>>\
+	<<endif>>\
+	<<if (_ts/60 + $time.hour) lte 22>>\
+		<<set $time.addMinutes(_ts)>>\
+	<<else>>\
+		<<set $time.hour = 22>>\
+		<<set $time.minutes = random(20)>>\
+	<<endif>>\
+	<<set $chores[_cn].dayPerformed = $time.day>>\
+	<<set $chores[_cn].fail = false>>\
+	<<for _j=_cn+1; _j lt choresList.length; _j++>>\
+		<<if choresList[_j].extra>>\
+			<<set $chores[_j].dayPerformed = $time.day>>\
+			<<set $chores[_j].fail = false>>\
+		<<else>>\
+			<<set _j = choresList.length+1>>\
+		<<endif>>\
+	<</for>>\
+	<<if choresList[_cn].clearJunk>>\
+		<<set $player.room.junk=[]>>\
+	<<endif>>\
+	<<if $player.flags.choreLazy and (window.choresFunc.choresPercentCalc() gte 70)>>\
+		<<set $player.flags.choreLazy = false>>\
+	<<endif>>\
+	<<set $player.flags.choreCheck = false>>\
+	
+	
+<<endif>>\
+\
+<<if $scene eq "choreFail">>\
+	@@.penalty;You did not get paid.@@
+	<<set _cn = $player.currentChore>>\
+	<<set $player.choreFails++>>\
+	<<set $player.flags.choreCheck = false>>\
+	<<set _ts=choresList[_cn].minutes>>\
+	<<if $player.choreSpeed neq 0 and (not choresList[_cn].nontimed)>>\
+		<<set _ts*=$player.choreSpeed>>\
+	<<endif>>\
+	<<if $player.choreSpeed eq 2>>\
+		<<set $player.flags.tired = true>>\
+		<<set $player.choreSpeed = 1>>\
+	<<endif>>\
+	<<if (_ts/60 + $time.hour) lte 22>>\
+		<<set $time.addMinutes(_ts)>>\
+	<<else>>\
+		<<set $time.hour = 22>>\
+		<<set $time.minutes = random(20)>>\
+	<<endif>>\
+	<<set $chores[_cn].fail = true>>\
+	<<for _j=_cn+1; _j lt choresList.length; _j++>>\
+		<<if choresList[_j].extra>>\
+			<<set $chores[_j].fail = true>>\
+		<<else>>\
+			<<set _j = choresList.length+1>>\
+		<<endif>>\
+	<</for>>\
+	
+	<<if ($player.perversion.guardian gte 3)>>\
+		<<display [[Chores punishments]]>>\
+	<<endif>>\
+<<endif>>\
+<<set $player.choreFailsCurrent = window.choresFunc.choresFails()>>\
+
+

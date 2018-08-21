@@ -1,0 +1,49 @@
+:: Task Nightwear selfie [pos_649_554]
+\
+<<if not playerCode.isWearingOn(itemTypes.Chastity)>>\
+	You aren't wearing chastity.
+	
+	[[Return|Go to bedroom]]
+<<elseif not playerCode.isWearing(itemsC.silkyTeddy)>>\
+	You aren't wearing feminine nightwear.
+	
+	[[Return|Go to bedroom]]
+<<else>>\
+	You take a selfie of yourself in the silky teddy, making sure to lift the hem up slightly and flash your chastity cage.
+
+	<<set $tasksTeacher.selfieNightwear.status = 2>>\
+	<<if window.timeCode.canSleep()>>\
+		<<if playerCode.isMind_0()>>\
+			@@.hero;This day has been just... so humiliating and exhausting. I feel so tired I could fall asleep right here...@@
+		<<elseif playerCode.isMind_1()>>\
+			@@.hero;Wow, I did not expect this thing to be so comfortable. It's a little embarrassing... but I wonder what it would feel like to sleep in it?@@
+		<<else>>\
+			@@.hero;I feel so sexy in this nightie! Maybe I should reward myself by going to bed early?@@
+		<<endif>>\
+
+			Do you want to just go to sleep now?
+			
+			<<if window.clothes.dressedSleep.check()>>\
+				<<if window.choresFunc.choresRequired()>>\
+					<<click "Go to sleep">><<replace "#nosleep">>@@.done;You have chores to do@@<</replace>><</click>> <span id="nosleep"></span>
+				<<else>>\
+					[[Go to sleep|Good morning][window.timeCode.newDay()]]
+				<<endif>>\
+			<<else>>\
+				<<notDressed "Go to sleep" $reason>>
+			<<endif>>\
+		<<delayedLink 1 "Return|Go to bedroom">>
+	<<else>>\
+		<<if playerCode.isMind_0()>>\
+			@@.hero;It feels more comforable than I expected. No wonder girls like these so much.@@
+		<<elseif playerCode.isMind_1()>>\
+			@@.hero;Wow, I never expected this thing to be so comfortable.@@
+		<<else>>\
+			@@.hero;I feel so sexy in this nightie!@@
+		<<endif>>\
+	
+		[[Return|Go to bedroom]]
+	<<endif>>\
+<<endif>>\
+
+

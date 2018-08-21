@@ -1,0 +1,32 @@
+:: Email request [pos_300_1753]
+\
+<<set _activeEmail = window.tasksFunction.activeTasks(tasksEmail)>>\
+<<for _i to 0; _i lt _activeEmail.length; _i++>>\
+	<<if window.tasksFunction.isTaskOverDue(_activeEmail[_i])>>\
+		<<set _activeEmail[_i].status = 0>>\
+	<<endif>>\
+<</for>>\
+<<if $time.day gt $player.perversion.uploadCooldown>>\
+	<<set _task = window.tasksFunction.newTask(window.tasksEmail)>>\
+	<<if _task>>\
+		<<set _task.events.start()>>\
+		<<set $player.perversion.uploadCooldown = $time.day + _task.cooldown>>\
+		<<set _sender=_task.sender>>\
+		<<if _sender eq "">>\
+			<<set _sender="Anonymous">>\
+		<<endif>>\
+		<<set _body=window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>\
+		<<set _m=$email.addMessage(_sender, _body)>>\
+		<<set _m.body=window.tasksFunction.getTaskText(_task.name, _task.text, 'perform')>>\
+		<<set _m.allowInbox=_task.AllowInbox>>\
+		<<if _task.hasPassage>>\
+			<<set _m.passage.name=_task.PassageName>>\
+			<<set _m.passage.repeat=_task.PassageRepeat>>\
+		<<endif>>\
+		<<if _task.image neq "">>\
+			<<set _m.image=_task.image>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+
+

@@ -1,0 +1,219 @@
+:: Daily resets [pos_639_373]
+\
+	<!--<Monday reset>-->\
+<<if window.timeCode.isMonday() or $debugMondayReset>>\
+	<<set $debugMondayReset=false>>\
+	<<set $restock=[]>>\
+\
+	<<set $player.jobs.salonPlan = 0>>\
+\
+	<<if not $player.flags.salonHairRemoval>>\
+		<<if ($body.bodyhair eq 1)>>\
+		<<removeFromInv $items.Depilatory.id>>\
+		<<endif>>\
+		<<if ($body.bodyhair eq 2)>>\
+		<<removeFromInv $items.Waxing.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if (not $player.flags.salonManicure) and ($body.semiManicure lte 0) and ($body.permManicure lte 0)>>\
+		<<if (($body.manicure eq 1))>>\
+			<<removeFromInv $items.Manicure.id>>\
+		<<endif>>\
+		<<if (($body.manicure eq 2))>>\
+			<<removeFromInv $items.GarishManicure.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if not $player.flags.salonMakeup>>\
+		<<if ($body.makeup eq 1) and ($body.semiMakeup lte 0) and ($body.permMakeup lte 0)>>\
+			<<removeFromInv $items.SubtleMakeup.id>>\
+		<<endif>>\
+		<<if ($body.makeup eq 2) and ($body.semiMakeup lte 1) and ($body.permMakeup lte 1)>>\
+			<<removeFromInv $items.NormalMakeup.id>>\
+		<<endif>>\
+		<<if ($body.makeup eq 3) and ($body.semiMakeup lte 2) and ($body.permMakeup lte 2)>>\
+			<<removeFromInv $items.BimboMakeup.id>>\
+		<<endif>>\
+		<<if ($body.makeup eq 4) and ($body.semiMakeup lte 3) and ($body.permMakeup lte 3)>>\
+			<<removeFromInv $items.HeavyMakeup.id>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.makeup eq 0) and (($body.semiMakeup gt 0) or ($body.permMakeup gt 0))>>\
+		<<if ($body.semiMakeup eq 1) or ($body.permMakeup eq 1)>>\
+			<<addToInv $items.SubtleMakeup.id>>\
+		<<elseif ($body.semiMakeup eq 2) or ($body.permMakeup eq 2)>>\
+			<<addToInv $items.NormalMakeup.id>>\
+		<<elseif ($body.semiMakeup eq 3) or ($body.permMakeup eq 3)>>\
+			<<addToInv $items.BimboMakeup.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if (not $player.flags.salonLips)>>\
+		<<if ($body.lips eq 2) and ($body.semiLips lte 1) and ($body.permLips lte 1)>>\
+			<<removeFromInv $items.LipsEnhancingXL.id>>\
+			<<addToInv $items.LipsEnhancing.id>>\
+		<<elseif ($body.lips eq 1) and ($body.semiLips eq 0) and ($body.permLips eq 0)>>\
+			<<removeFromInv $items.LipsEnhancing.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if (not $player.flags.salonAss)>>\
+		<<if ($body.ass eq 2) and ($body.semiAss lte 1) and ($body.permAss lte 1)>>\
+			<<removeFromInv $items.AssEnhancingXL.id>>\
+			<<addToInv $items.AssEnhancing.id>>\
+		<<elseif ($body.ass eq 1) and ($body.semiAss lte 0) and ($body.permAss lte 0)>>\
+			<<removeFromInv $items.AssEnhancing.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if (not $player.flags.salonBreast)>>\
+		<<if ($body.boobs eq 4) and ($body.semiBoobs lte 3) and ($body.permBoobs lte 3)>>\
+			<<removeFromInv $items.breastImplantsDD.id>>\
+			<<addToInv $items.breastImplantsC.id>>\
+		<<elseif ($body.boobs eq 3) and ($body.semiBoobs lte 2) and ($body.permBoobs lte 2)>>\
+			<<removeFromInv $items.breastImplantsC.id>>\
+			<<addToInv $items.breastImplantsB.id>>\
+		<<elseif ($body.boobs eq 2) and ($body.semiBoobs lte 1) and ($body.permBoobs lte 1)>>\
+			<<removeFromInv $items.breastImplantsB.id>>\
+			<<addToInv $items.breastImplantsA.id>>\
+		<<elseif ($body.boobs eq 1) and ($body.semiBoobs lte 0) and ($body.permBoobs lte 0)>>\
+			<<removeFromInv $items.breastImplantsA.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<if (not $player.flags.salonAnal)>>\
+		<<if ($body.anal eq 3) and ($body.semiAnal lte 2) and ($body.permAnal lte 2)>>\
+			<<removeFromInv $items.analSmoothing3.id>>\
+			<<addToInv $items.analSmoothing2.id>>\
+		<<elseif ($body.anal eq 2) and ($body.semiAnal lte 1) and ($body.permAnal lte 1)>>\
+			<<removeFromInv $items.analSmoothing2.id>>\
+			<<addToInv $items.analSmoothing1.id>>\
+		<<elseif ($body.anal eq 1) and ($body.semiAnal lte 0) and ($body.permAnal lte 0)>>\
+			<<removeFromInv $items.analSmoothing1.id>>\
+		<<endif>>\
+	<<endif>>\
+\
+	<<set $player.flags.salonSemiPerm to false>>\
+	<<set $player.flags.salonHairRemoval to false>>\
+	<<set $player.flags.salonManicure to false>>\
+	<<set $player.flags.salonMakeup to false>>\
+	<<set $player.flags.salonLips to false>>\
+	<<set $player.flags.salonAss to false>>\
+	<<set $player.flags.salonBreast to false>>\
+	<<set $player.flags.salonAnal to false>>\
+	<<set $player.flags.salonNose to false>>\
+\
+	<<set $player.flags.choreReward = false>>\
+<<endif>>\
+<!--</Monday reset>-->\
+	<!--<Daily reset>-->\
+<<set playerCode.changeArousal(10)>>\
+<<if $player.tasks.aphrodisiacDuration gt 0>>\
+	<<set $player.tasks.aphrodisiacDuration-->>\
+	<<set playerCode.upArousalTo(70,70)>>\
+<<endif>>\
+<<if $player.perversion.guardianCooldown lt 100>>\
+<<set $player.perversion.guardianCooldown++>>\
+<<endif>>\
+<<if ($time.weekDay() eq 2)>>\
+	<<set $player.tasks.penalty = $player.tasks.penaltyMonday>>\
+	<<set $player.tasks.penaltyMonday = 0>>\
+<<endif>>\
+<<if $player.flags.laundryAccident>>\
+	<<set $player.flags.laundryAccident to false>>\
+	<<if playerCode.owns(itemsC.gString)>>\
+		<<set $items.gString.disabled=false>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.pantiesLatex)>>
+		<<set $items.pantiesLatex.disabled=false>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.pantiesCotton)>>
+		<<set $items.pantiesCotton.disabled=false>>\
+	<<endif>>\
+<<endif>>\
+<<if (not $player.flags.laundryAccident) and (random(2) eq 0) and $player.flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
+<<set $player.flags.laundryAccident to true>>\
+<<endif>>\
+\
+<<set $player.jobs.workedToday = false>>\
+<<set $player.flags.heelsFall = false>>\
+<<set $player.flags.schoolWalk = false>>\
+\
+<<if $player.perversion.upload gt 0>>\
+<<display "Email request">>\
+<<endif>>\
+<<set $player.flags.salonVisited to false>>\
+\
+<<if window.timeCode.isWeekend()>>\
+	<<set $player.schoolLastDay++>>\
+<<else>>\
+	<<if $time.day - $player.schoolLastDay gt 1>>\
+		<<set $player.schoolTruantDays++>>\
+		<<set $player.schoolTruantDays = 0>>\
+	<<endif>>\
+<<endif>>\
+<<set $player.choresPercent = Math.floor((window.choresFunc.choresPercentCalc() + $player.choresPercent) / 2)>>\
+<<if $player.room.style lte 4>>\
+	<<set $player.room.junk[random($player.room.junkMax)]=true>>\
+<<else>>\
+	<<set $player.room.junk[random($player.room.junkMaxGirl)]=true>>\
+<<endif>>\
+<<if ($player.batteryExpireDay gt 0) and ($time.day gte $player.batteryExpireDay)>>\
+	<<set $player.alarmClockGuardian=false>>\
+	<<set $player.batteryExpireDay=0>>\
+	<<set $player.flags.batteriesExpire=true>>\
+	<<if (not $player.flags.guardianSnoopingCaught)>>\
+		<<set $items.batteriesQuality.disabled=false>>\
+	<<endif>>\
+<<endif>>\
+<<if $player.perversion.guardian gte 3 and $player.batteryExpireDay eq 0>>\
+	<<set $player.alarmClockGuardian=false>>\
+	<<set $player.batteryExpireDay=-1>>\
+	<<set $items.batteriesQuality.disabled=true>>\
+	<<set $items.batteries.disabled=true>>\
+	<<if playerCode.owns(itemsC.batteriesQuality)>>\
+		<<removeFromInv $items.batteriesQuality.id>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.batteries)>>\
+		<<removeFromInv $items.batteries.id>>\
+	<<endif>>\
+<<endif>>\
+<<if $player.flags.chorePunishmentDildo>>\
+	<<set $player.chorePunishmentDildoCooldown++>>\
+	<<if $player.chorePunishmentDildo gte $time.day>>\
+		<<set $player.flags.choreDildoAlarm = true>>\
+	<<else>>\
+		<<set $player.flags.choreDildoAlarm = false>>\
+	<<endif>>\
+<<endif>>\
+<<set $player.flags.guardianNewBFvisit = false>>\
+<<if ($time.day % 7 eq 5) or (random(4) eq 0)>>\
+	<<set $player.flags.guardianNewBFvisit = true>>\
+<<endif>>\
+<<if ($time.day % 7 eq 5) and ($player.tasks.penalty gt 0)>>\
+	<<set $player.tasks.penaltySkipped = true>>\
+<<endif>>\
+<<set $player.flags.trainingCockSuck = false>>\
+<<set $player.flags.PSBoxAnnoyed = false>>\
+<<set $player.flags.spyCamLooked = false>>\
+<<set $player.choreFailsCurrent = window.choresFunc.choresFails()>>\
+<<set $player.flags.tired = false>>\
+<<set $player.flags.exhausted = false>>\
+<<set $player.flags.choreSpanked = false>>\
+<<set $player.room.laptop = false>>\
+<<set $player.room.jacket=0>>\
+<<set $player.room.tie=0>>\
+<<set $player.room.girljacket=0>>\
+<<set $player.room.skirt=0>>\
+<<set $player.room.girlstie=0>>\
+<<if $player.flags.walletForgottenStart>>\
+	<<set $player.flags.walletForgottenEnd = true>>\
+<<endif>>\
+<<if $player.debugN eq 50>>\
+	<<set $player.debugN = 0>>\
+	<<display [[Go to your room|Go to bedroom]]>>\
+<<endif>>\
+<!--</Daily reset>-->\
+
+

@@ -1,0 +1,124 @@
+:: Restless sleep [pos_1410_216]
+\
+<<set _dsk = playerCode.masturbate.isCalm() and (($player.vibratorUsedTo gt 30 and random(2) eq 0) or ($player.vibratorUsedTo gt 20 and random(2) eq 0) or ($player.vibratorUsedTo gt 10 and random(2) eq 0))>>\
+<<if $player.flags.straponSurprise and window.timeCode.isFriday()>>\
+	<<set $scene="strapon surprise">>\
+	<<set $player.flags.straponSurprise=false>>\
+	<<goto [[Guardian kinky reward]]>>\
+<<elseif $player.flags.straponForced and ($time.weekDay() eq 6) and ($player.flags.choreLazy or ($player.choreFailsCurrent gte 4)) and [15,17].includes($player.perversion.guardianCorruption) and $player.flags.guardianPunishVibrator and $player.perversion.guardian eq 4>>\
+	<<set $scene="strapon forced">>\
+	<<goto [[Guardian kinky reward]]>>\
+<<elseif (not $player.flags.guardianPunishDressUp) and ($player.flags.choreLazy or $player.choreFails gte 5) and ($time.weekDay() gte 3) and [3,4].includes($player.perversion.guardian) and $player.perversion.guardianCooldown gte 5>>\
+	<<set $scene="forced dressup">>\
+	<<set $player.flags.guardianPunishDressUp=true>>\
+	<<set $time.hour=23>>\
+	<<goto [[Special punishments]]>>\
+<<elseif ($player.chorePunishmentDildoCooldown gt $player.chorePunishmentDildoLimit) and $player.flags.choreDildoAlarm and not $player.flags.trainingCockSuck and (not $scene eq "calmSleep")>>\
+	<<set $scene="alarm">>\
+	<<goto [[Suck training cock]]>>\
+<<elseif (not playerCode.isHorny() or _dsk or $scene eq "calmSleep") and (not playerCode.isWearingOn(itemTypes.Chastity) or ($player.chastityUsedTo gte 3)) and ((not $kink.penisShrink) or (not $player.flags.penisShrinkSleep) or (not window.timeCode.isThursday()))>>\
+	<<set window.timeCode.newDay()>>\
+	<<goto [[Good morning]]>>\
+<<endif>>\
+<<showImage "general" "cant_sleep.gif">>\
+<<if $player.debugA>>\
+	[[Skip sleep|Good morning][window.timeCode.newDay(); $player.sleepCheck = 10]]
+<<endif>>\
+<<if playerCode.isHorny()>>\
+Too aroused, you have trouble going to sleep. You need to wait some time to relax.
+
+<<endif>>\
+<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set $therapistTalks.talkChastitySleep.start=true>>\
+	<<if ($player.chastityUsedTo lt 100)>>\
+		<<if $player.chastityUsedTo eq 0>>\
+			The chastity cage feels uncomfortable and you find it hard to relax with it on.
+			
+		<<elseif $player.chastityUsedTo eq 1>>\
+			You just can't get completely used to the chastity cage, although it does seem a little less troublesome easier tonight.
+			
+		<<elseif $player.chastityUsedTo eq 2>>\
+			You getting used to your chastity cage, somehow its tugging on your penis doesn't feel wrong anymore.
+			
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+<<if $player.sleepCheck lt 5>>\
+	<<set $player.sleepCheck++>>\
+	@@.fading_text_long;You just need to wait a bit@@
+<<elseif $player.sleepCheck eq 5>>\
+	@@.fading_text_long;You really just need to wait for a while@@
+	
+<<endif>>\
+@@.fading_text_long;Wait@@\
+@@.fading_text_med;, wait@@\
+@@.fading_text_fast;, wait...@@
+<<set _ti=$time.day>>\
+<<set _te=playerCode.masturbate.lastDay>>\
+<<set _tt=_ti - _te - 5>>\
+<<if _tt lt 1>>\
+	<<set _tt=1>>\
+<<elseif _tt gt 10>>\
+	<<if ($player.chastityUsedTo lt 20)>>\
+		<<set _tt=10>>\
+	<<elseif ($player.chastityUsedTo lt 40)>>\
+		<<set _tt=9>>\
+	<<elseif ($player.chastityUsedTo lt 60)>>\
+		<<set _tt=7>>\
+	<<elseif ($player.chastityUsedTo lt 80)>>\
+		<<set _tt=5>>\
+	<<elseif ($player.chastityUsedTo lt 100)>>\
+		<<set _tt=3>>\
+	<<else>>\
+		<<set _tt=1>>\
+	<<endif>>\
+<<endif>>\
+<<if playerCode.masturbate.isCalm()>>\
+	<<set $player.vibratorUsedTo++>>\
+	<<set _tt=1>>\
+	Luckily your frustration is slightly dulled for a while, so it is easier to relax.
+<!--
+	<<if (_tt lt 5)>>\
+	<<set _tt=1>>\
+	Your recent fun time with the vibrator helps a bit, so it is easier to relax now.
+	
+	<<elseif (_tt lt 10)>>\
+	<<set _tt-=4>>\
+	The vibrator doesn't help as much now.
+	
+	<<else>>\
+	Whenever you fuck yourself with the vibrator it only makes things worse.
+	
+	<<endif>>\
+-->\
+<<endif>>\
+<<if $kink.penisShrink and $player.flags.penisShrinkSleep and ($kink.penisShrinkProgress gte 1) and ($body.penisShrink eq 1) and $time.weekDay() eq 4>>\
+	<<set $player.flags.penisShrinkSleep = false>>\
+	<<set $therapistTalks.talkPenisShrinkingEnd.start = true>>\
+	<<set _tt=10>>\
+	You hoped that maybe the penis shrinking treatment would only last till Friday and could be reversed once you got free of the damned cage. However, as you start feeling increasing pressure on your penis, your heart sinks. One less day and you could have been back to normal! - but you're out of luck.
+	
+	Helplessly sobbing into the pillow, you weakly tug on your chastity cage, knowing that right now, your penis is shrinking forever. The lock on your cage leaves you helpless to do anything about it.
+	
+	@@.reward;Your penis now permanently small.@@
+	
+<<endif>>\
+<<if $player.sleepCheck eq 5>>\
+	<<set $player.sleepCheck = 10>>\
+	<<if playerCode.isHorny()>>\
+	<<delayedLink _tt"Masturbate">>
+	<<endif>>\
+	<<delayedLink _tt"Do something else|Go to bedroom">>
+<<else>>\
+	<<if playerCode.isHorny()>>\
+	@@.fading_text_long;[[Masturbate]]@@
+	<<endif>>\
+	@@.fading_text_long;[[Do something else|Go to bedroom]]@@
+<<endif>>\
+<<set _lim=random(10)>>\
+<<for _i to 0; _i lt _lim; _i++>>
+ 
+<</for>>
+<<delayedLink _tt"Sleep|Restless dream">>
+
+

@@ -41,4 +41,4 @@ window.sidebar={
 		State.active.variables.sidebarTab=id;
 		this.refresh();
 	}
-}
+},

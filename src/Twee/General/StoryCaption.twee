@@ -1,0 +1,88 @@
+:: StoryCaption [pos_2975_12]
+\
+<span id="sidebar_time"></span><<updateTime>>
+<<if $time.day gt 0>>\
+@@.halftransparent;State:@@ \
+<<if playerCode.checkStatus()>>\
+	@@.statusHorny0;$status.text@@\
+<<else>>\
+	<<if playerCode.masturbate.isCalm()>>\
+		@@.statusRelaxed;Pacified@@\
+	<<elseif playerCode.isNotHorny()>>\
+		@@.statusSatisfied;Calm@@\
+	<<elseif playerCode.isHalfHorny()>>\
+		@@.statusCalm;Tense@@\
+	<<elseif playerCode.isHorny()>>\
+		<<if $player.arousal lte 60>>\
+			@@.statusHorny0;Horny@@\
+		<<elseif $player.arousal lte 70>>\
+			@@.statusHorny1;Horny@@\
+		<<elseif $player.arousal lte 80>>\
+			@@.statusHorny2;Horny@@\
+		<<elseif $player.arousal lte 90>>\
+			@@.statusHorny3;Horny@@\
+		<<else>>\
+			@@.statusHorny4;Horny@@\
+		<<endif>>\
+	<<else>>\
+		@@.statusHorny0;Horny@@\
+	<<endif>>\
+<<endif>>\
+<<if $player.debugA>>\
+@@.halftransparent; - $player.arousal@@\
+<<endif>>\
+
+Money: $<span id="sidebar_money">$player.money</span>
+<<if $bribeAmount gt 0>>\
+	<<if $bribeAmount-$player.bribeDiscount gt 0>>\
+		Debt owed\
+		<<if $time.day % 7 eq 0>>\
+			tomorrow:\
+		<<elseif ($time.day % 7 eq 1) and !$player.flags.bribePaid>>\
+			today:\
+		<<else>>\
+			on Monday:\
+		<<endif>>\
+		$<<print $bribeAmount-$player.bribeDiscount>>\
+	<<else>>\
+		You don't owe $teacher anything\
+	<<endif>>\
+<<endif>>\
+
+<<if $player.debugA>>\
+<<print '<table id="sidebar_control"><tr><th></th><td class="'+window.sidebar.tabClassName(0)+'"><a onclick="window.sidebar.activate(0);">Clothes</a></td><td class="'+window.sidebar.tabClassName(1)+'"><a onclick="window.sidebar.activate(1);">Items</a></td><td class="'+window.sidebar.tabClassName(2)+'"><a onclick="window.sidebar.activate(2);">Stats</a></td><td class="'+window.sidebar.tabClassName(3)+'"><a onclick="window.sidebar.activate(3);">Debug</a></td></tr></table>'>>\
+<<else>>\
+<<print '<table id="sidebar_control"><tr><th></th><td class="'+window.sidebar.tabClassName(0)+'"><a onclick="window.sidebar.activate(0);">Clothes</a></td><td class="'+window.sidebar.tabClassName(1)+'"><a onclick="window.sidebar.activate(1);">Items</a></td><td class="'+window.sidebar.tabClassName(2)+'"><a onclick="window.sidebar.activate(2);">Stats</a></td></tr></table>'>>\
+<<endif>>\
+<<if (not $player.secondInvLine)>>\
+<<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\
+<<set $player.secondInvLine=true>>\
+<<endif>>\
+<<endif>>\
+<div id="sidebarWindow" class="">\
+	<<print '<div id="clothes" class="'+window.sidebar.className(0)+'"><span id="sidebar_clothes"></span></div>'>>\
+	<<print '<div id="inventory" class="'+window.sidebar.className(1)+'"><<getInventoryList>></div>'>>\
+	<<print '<div id="stats" class="'+window.sidebar.className(2)+'"><span id="sidebar_stats"></span></div>'>>\
+	<<if $player.debugA>>\
+		<<print '<div id="debug" class="'+window.sidebar.className(3)+'"><span id="sidebar_debug"></span></div>'>>\
+	<<endif>>\
+</div>\
+<<if $avatar.active>>\
+	<<script>>document.getElementById("sidebarWindow").className="sidebar_windowAvatar"<</script>>\
+<<elseif $player.secondInvLine>>\
+	<<script>>document.getElementById("sidebarWindow").className="sidebar_window"<</script>>\
+<<else>>\
+	<<script>>document.getElementById("sidebarWindow").className="sidebar_window_short"<</script>>\
+<<endif>>\
+\
+\
+	<<updateClothes>>\
+	<<updateStats>>\
+	<<if $player.debugA>>\
+		<<updateDebug>>\
+	<<endif>>\
+<<endif>>\
+\
+\
+
+

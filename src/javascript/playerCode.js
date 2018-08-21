@@ -194,7 +194,7 @@ window.playerCode={
 			var player=State.active.variables.player;
 			var masturbate=player.masturbate;
 			window.playerCode.changeArousal(-100);
-			window.playerCode.status.setStatus("Satisfied",3,0);
+			window.playerCode.setStatus("Satisfied",3,0);
 			player.flags.forcedHorny=false;
 			masturbate.lastDay=time.day;
 			masturbate.lastHour=time.hour;
@@ -214,33 +214,31 @@ window.playerCode={
 		player.arousal=Math.max(player.arousal, 0);
 		player.arousal=Math.min(player.arousal, 100);
 	},
-	status: {
-		setStatus: function(string, scenes, hours) {
-			State.active.variables.status=string;
-			var status=State.active.variables.player.status;
-			var time=State.active.variables.time;
-			status.scenesCounter=scenes;
-			status.endDay=time.day;
-			status.endHour=time.hour+hours;
-			status.endMinute=time.minute;
-			while (status.endHour >= 24) {
-				status.endDay++;
-				status.endHour-=24;
-			}
-		},
-		checkStatus: function() {
-			var status=State.active.variables.status;
-			var time=State.active.variables.time;
-			if (State.active.variables.status != "") {
-				if (((time.day * 1440 + time.hour * 60 + time.minute) > (status.endDay * 1440 + status.endHour * 60 + status.endMinute)) || status.scenesCounter <= 0) {
-					State.active.variables.status="";
-					return false;
-				}
-				status.scenesCounter--;
-				return true;
-			}
-			return false;
+	setStatus: function(string, scenes, hours) {
+		var status=State.active.variables.status;
+		var time=State.active.variables.time;
+		status.text=string;
+		status.scenesCounter=scenes;
+		status.endDay=time.day;
+		status.endHour=time.hour+hours;
+		status.endMinute=time.minute;
+		while (status.endHour >= 24) {
+			status.endDay++;
+			status.endHour-=24;
 		}
+	},
+	checkStatus: function() {
+		var status=State.active.variables.status;
+		var time=State.active.variables.time;
+		if (State.active.variables.status.text != "") {
+			if (((time.day * 1440 + time.hour * 60 + time.minute) > (status.endDay * 1440 + status.endHour * 60 + status.endMinute)) || status.scenesCounter <= 0) {
+				State.active.variables.status.text="";
+				return false;
+			}
+			status.scenesCounter--;
+			return true;
+		}
+		return false;
 	},
 	isHalfHorny: function() {
 		return (!this.isNotHorny() && !this.isHorny());
@@ -279,78 +277,52 @@ window.playerCode={
 		return (State.active.variables.player.perversion.teacher >= 8);
 	},
 	isWaxed: function() {
-		var items=window.itemsC;
-		return (this.owns(items.Waxing));
+		var body=State.active.variables.body;
+		return (body.bodyhair == 1);
 	},
 	isHairless: function() {
-		var items=window.itemsC;
-		return (this.owns(items.Depilatory) || this.owns(items.LaserHairRemoval));
+		var body=State.active.variables.body;
+		return (body.bodyhair >= 2);
 	},
 	haveHaircut: function() {
-		var items=window.itemsC;
-		return (this.owns(items.HairShort) || this.owns(items.HairMedium) || this.owns(items.HairLong) || this.owns(items.HairPigtails) || this.owns(items.HairCurly));
+		var body=State.active.variables.body;
+		return (body.hairstyle > 0);
 	},
-	hairStyle: function() {
-		var style = 0;
-		var items=window.itemsC;
-		if (this.owns(items.HairShort)) { style = 1; }
-		if (this.owns(items.HairMedium)) { style = 2; }
-		if (this.owns(items.HairLong)) { style = 3; }
-		if (this.owns(items.HairPigtails)) { style = 4; }
-		if (this.owns(items.HairCurly)) { style = 5; }
-		return style;
+	hairstyle: function() {
+		var body=State.active.variables.body;
+		return body.hairstyle;
 	},
 	scoreMakeup: function() {
-		var makeupStyle = 0;
-		var items=window.itemsC;
-		if (this.owns(items.SubtleMakeup)) { makeupStyle = 1; }
-		if (this.owns(items.NormalMakeup)) { makeupStyle = 2; }
-		if (this.owns(items.BimboMakeup)) { makeupStyle = 3; }
-		if (this.owns(items.HeavyMakeup)) { makeupStyle = 4; }
-		return makeupStyle;
+		var body=State.active.variables.body;
+		return body.makeup;
 	},
 	scoreBoobs: function() {
-		var boobsSize = 0;
-		var items=window.itemsC;
-		if (this.owns(items.breastImplantsA)) { boobsSize = 1; }
-		if (this.owns(items.breastImplantsB)) { boobsSize = 2; }
-		if (this.owns(items.breastImplantsC)) { boobsSize = 3; }
-		if (this.owns(items.breastImplantsDD)) { boobsSize = 4; }
-		return boobsSize;
+		var body=State.active.variables.body;
+		return body.boobs;
 	},
 	scoreAss: function() {
-		var assSize = 0;
-		var items=window.itemsC;
-		if (this.owns(items.AssEnhancing)) { assSize = 1; }
-		if (this.owns(items.AssEnhancingXL)) { assSize = 2; }
-		return assSize;
+		var body=State.active.variables.body;
+		return body.ass;
 	},
 	scoreLips: function() {
-		var lipsSize = 0;
-		var items=window.itemsC;
-		if (this.owns(items.LipsEnhancing)) { lipsSize = 1; }
-		if (this.owns(items.LipsEnhancingXL)) { lipsSize = 2; }
-		return lipsSize;
+		var body=State.active.variables.body;
+		return body.lips;
 	},
 	scoreAnalSmooth: function() {
-		var analSmooth = 0;
-		var items=window.itemsC;
-		if (this.owns(items.analSmoothing1)) { analSmooth = 1; }
-		if (this.owns(items.analSmoothing2)) { analSmooth = 2; }
-		if (this.owns(items.analSmoothing3)) { analSmooth = 3; }
-		return analSmooth;
+		var body=State.active.variables.body;
+		return body.anal;
 	},
 	haveMakeup: function() {
-		var items=window.itemsC;
-		return (this.owns(items.SubtleMakeup) || this.owns(items.NormalMakeup) || this.owns(items.BimboMakeup) || this.owns(items.HeavyMakeup));
+		var body=State.active.variables.body;
+		return (body.makeup > 0);
 	},
 	haveBimboMakeup: function() {
-		var items=window.itemsC;
-		return (this.owns(items.BimboMakeup) || this.owns(items.HeavyMakeup));
+		var body=State.active.variables.body;
+		return (body.makeup >= 3);
 	},
 	haveHeavyMakeup: function() {
-		var items=window.itemsC;
-		return (this.owns(items.HeavyMakeup));
+		var body=State.active.variables.body;
+		return (body.makeup == 4);
 	},
 	havePermanentMakeup: function() {
 		var player=State.active.variables.player;
@@ -361,24 +333,24 @@ window.playerCode={
 		return ((this.scoreMakeup() > 1) || this.owns(items.softeningFacial) || this.owns(items.surgeryFacial));
 	},
 	haveBoobs: function() {
-		var items=window.itemsC;
-		return (this.owns(items.breastImplantsA) || this.owns(items.breastImplantsB) || this.owns(items.breastImplantsC) || this.owns(items.breastImplantsDD));
+		var body=State.active.variables.body;
+		return (body.boobs > 0);
 	},
 	haveBplus: function() {
-		var items=window.itemsC;
-		return (this.owns(items.breastImplantsB) || this.owns(items.breastImplantsC) || this.owns(items.breastImplantsDD));
+		var body=State.active.variables.body;
+		return (body.boobs > 1);
 	},
 	haveCplus: function() {
-		var items=window.itemsC;
-		return (this.owns(items.breastImplantsC) || this.owns(items.breastImplantsDD));
+		var body=State.active.variables.body;
+		return (body.boobs > 2);
 	},
 	haveLips: function() {
-		var items=window.itemsC;
-		return (this.owns(items.LipsEnhancing) || this.owns(items.LipsEnhancingXL));
+		var body=State.active.variables.body;
+		return (body.lips > 0);
 	},
 	haveAss: function() {
-		var items=window.itemsC;
-		return (this.owns(items.AssEnhancing) || this.owns(items.AssEnhancingXL));
+		var body=State.active.variables.body;
+		return (body.ass > 0);
 	},
 	slutScoreBasic: function() {
 		var score=0;
@@ -417,7 +389,7 @@ window.playerCode={
 			return score;
 			//ordinary girl
 		}
-		if (this.haveGirlyFace() || ((this.hairStyle() > 1) && this.haveMakeup()) || this.haveBplus()) {
+		if (this.haveGirlyFace() || ((this.hairstyle() > 1) && this.haveMakeup()) || this.haveBplus()) {
 			score=4;
 			return score;
 			//plain looking girl
@@ -626,7 +598,7 @@ window.playerCode={
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
 			var o=itemsC[Object.keys(itemsC)[i]];
 			if (o.clothingType != itemTypes.NotClothing && playerCode.owns(o) && !o.female) {
-				State.active.variables.items.inventory.splice(State.active.variables.items.inventory.indexOf(o.id), 1);
+				State.active.variables.inventory.splice(State.active.variables.inventory.indexOf(o.id), 1);
 			}
 		}
 	},
