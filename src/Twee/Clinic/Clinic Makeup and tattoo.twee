@@ -1,0 +1,623 @@
+:: Clinic Makeup and tattoo [pos_2916_720]
+\
+<<set _passage="Clinic Makeup and tattoo">>\
+<<if $scene eq "">>\
+<<if (not $player.flags.salonMakeup)>>\
+	Nancy offers to apply makeup and shows you a list of various designs she can tattoo on you.
+
+	<<if playerCode.owns(itemsC.beautyMark) and playerCode.owns(itemsC.tattooButterfly) and playerCode.owns(itemsC.tattooBunny) and playerCode.owns(itemsC.tattooHeart) and playerCode.owns(itemsC.tattooSlut) and playerCode.owns(itemsC.tattooSissy) and playerCode.owns(itemsC.tattooStupidWhore) and playerCode.owns(itemsC.tattooStockings)>>\
+		You already got all the tattoos on the list.
+		
+	<<endif>>\
+<<else>>\
+	Nancy smiles, looking at your\
+	<<if ($body.permMakeup gte 1) or ($body.semiMakeup gte 1)>>\
+		permanently\
+	<<endif>>\
+	made-up face, and shows you a list of various designs she can tattoo on you.
+	
+<<endif>>\
+<img id="item_preview" class="hidden">\
+	<!--<List of makeup and tattoos>-->\
+<<if (not $player.flags.salonMakeup)>>\
+\
+	<<if ($body.makeup lte 1) and ($body.permMakeup lte 0) and ($body.semiMakeup lte 0)>>\
+	<<set _item=itemsC.SubtleMakeup>>\
+		<<set _sceneName="SubtleMakeup">>\
+		<<set _override=($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.makeup lte 2) and ($body.permMakeup lte 1) and ($body.semiMakeup lte 1)>>\
+	<<set _item=itemsC.NormalMakeup>>\
+		<<set _sceneName="NormalMakeup">>\
+		<<set _override=(($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)) and ($player.perversion.teacher gte 4)>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.makeup lte 3) and ($body.permMakeup lte 2) and ($body.semiMakeup lte 2)>>\
+	<<set _item=itemsC.BimboMakeup>>\
+		<<set _sceneName="BimboMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.permMakeup lte 3) and ($body.semiMakeup lte 3)>>\
+	<<set _item=itemsC.HeavyMakeup>>\
+		<<set _sceneName="HeavyMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.makeup lte 1) and ($body.permMakeup lte 0) and ($body.semiMakeup lte 1)>>\
+	<<set _item=itemsC.PermanentSubtleMakeup>>\
+		<<set _sceneName="PermanentSubtleMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.makeup lte 2) and ($body.permMakeup lte 1) and ($body.semiMakeup lte 2)>>\
+	<<set _item=itemsC.PermanentNormalMakeup>>\
+		<<set _sceneName="PermanentNormalMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.makeup lte 3) and ($body.permMakeup lte 2) and ($body.semiMakeup lte 3)>>\
+	<<set _item=itemsC.PermanentBimboMakeup>>\
+		<<set _sceneName="PermanentBimboMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+\
+	<<if ($body.permMakeup lte 3)>>\
+	<<set _item=itemsC.PermanentHeavyMakeup>>\
+		<<set _sceneName="PermanentHeavyMakeup">>\
+		<<set _override=false>>\
+		<<display "Clinic buy menu">>
+	<<endif>>\
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooSissy))>>\
+<<set _item=itemsC.tattooSissy>>\
+	<<set _sceneName="tattooSissy">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooStockings))>>\
+<<set _item=itemsC.tattooStockings>>\
+	<<set _sceneName="tattooStockings">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooStupidWhore))>>\
+<<set _item=itemsC.tattooStupidWhore>>\
+	<<set _sceneName="tattooStupidWhore">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooSlut))>>\
+<<set _item=itemsC.tattooSlut>>\
+	<<set _sceneName="tattooSlut">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooHeart))>>\
+<<set _item=itemsC.tattooHeart>>\
+	<<set _sceneName="tattooHeart">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooBunny))>>\
+<<set _item=itemsC.tattooBunny>>\
+	<<set _sceneName="tattooBunny">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.tattooButterfly))>>\
+<<set _item=itemsC.tattooButterfly>>\
+	<<set _sceneName="tattooButterfly">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not playerCode.owns(itemsC.beautyMark))>>\
+<<set _item=itemsC.beautyMark>>\
+	<<set _sceneName="beautyMark">>\
+	<<set _override=false>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+
+[[Return|Beauty Salon]]
+	<!--</List of makeup and tattoos>-->\
+	<!--<Clinic makeup>-->\
+<<elseif $scene eq "SubtleMakeup" or $scene eq "NormalMakeup" or $scene eq "BimboMakeup" or $scene eq "HeavyMakeup" or $scene eq "PermanentSubtleMakeup" or $scene eq "PermanentNormalMakeup" or $scene eq "PermanentBimboMakeup" or $scene eq "PermanentHeavyMakeup">>\
+	<<set $player.flags.salonMakeup=true>>\
+\
+	<<set _previousMakeup = $body.makeup>>\
+\
+	<<if $scene eq "SubtleMakeup">>\
+		<<showImage "general" "makeup_application.jpg">>\
+		<<set _item=itemsC.SubtleMakeup>>\
+		<<buyItem _item.id>>\
+		<<set $body.makeup = 1>>\
+		Nancy leads you over to a spa chair, and asks you to have a seat.
+		
+		@@.nurse;"This shouldn't take too long,"@@ she says.
+		
+		Pulling over a tray full of grooming accessories and a small case of makeup, Nancy starts working on your face.\
+		<<if _previousMakeup lte 0>>\
+			She begins by grooming your eyebrows a bit, tweaking their shape into more graceful arches. She then applies a tiny amount of lipstick and liner in shades similar to your natural lip color, adding evenness and a little shine but nothing drastic.
+
+			She follows up with an assortment of puffs, palettes and brushes. While as far as you can tell, it feels like she's adding nothing with them, she concentrates closely as she does it.
+
+			After some time, she steps back, her eyes darting back and forth over your facial features before she is satisfied.
+
+			@@.nurse;"Finished!"@@, she announces. She spins you around in the chair to view the mirror.
+			
+			The changes are remarkably subtle, and at first glance, you can't really tell that you're even wearing makeup. As you look further, however, you see the the little details have definitely changed your face. Your features have been softened and lightly colored to make them more feminine, accentuating them in a natural-looking, understatedly beautiful way.
+		<<else>>\
+			She refreshes your makeup, cleaning your face where needed and then applying her familiar techniques again. She works carefully in some places and applies only quick touch-up passes in others. 
+
+			Finally she stops, nodding approvingly and turning your chair to show you the mirror. Your makeup looks mostly the same as before, except maybe just a tiny bit brighter.
+		<<endif>>\
+		
+		@@.nurse;"All the makeup I use is smudge- and water-resistant, so it lasts really well, but it's still only temporary. It'll be good for about a week, I'd say, so I'm sure I'll see you back here soon,"@@ Nancy advises.
+		
+		<<if _previousMakeup lte 0>>\
+			@@.reward;Your face now subtly made up in a feminine way!@@
+		<<else>>\
+			@@.reward;Your subtle, feminine makeup has been renewed.@@
+		<<endif>>\
+	<<elseif $scene eq "NormalMakeup">>\
+		<<showImage "general" "makeup_application.jpg">>\
+		<<set _item=itemsC.NormalMakeup>>\
+		<<buyItem _item.id>>\
+		<<set $body.makeup = 2>>\
+		Nancy invites you to sit in one of her cushy spa chairs, and then pulls over a rolling tray full of makeup and styling tools. She adds a small table on her opposite side with a few extra items, including some flesh-colored palettes, brushes, tubes of liners and lip colors, a half-dozen powder sifters, and other items you can't immediately identify except that they're obviously beauty products.
+		
+		@@.nurse;"This shouldn't take too long,"@@ she states.
+		
+		<<if _previousMakeup lte 1>>\
+			She begins plucking your eyebrows, shaping them into fine, feminine arches. She then adds eyelash extensions, applies lipstick and liner, and a touch of blush over the foundation. 
+
+			After some time, she steps back to look over her work. @@.nurse;"Finished!"@@, she announces with satisfaction. She spins you around in the chair to view the mirror.
+			
+			You are shocked! You look so feminine, you hardly recognize yourself. While you know the actual shape of your face is still the same, its contours have been remarkably accentuated to bring out its beauty.
+			
+			You are especially surprised how the color applied to your eyes has softened them, and the shape of your cheekbones looks higher and more feminine. Even your lips look soft and kissable.
+		<<else>>\
+			She renews your makeup, cleaning and applying it again in some places and giving small touch up in others. Finally she stops, nodding approvingly and show you the mirror. Your makeup looks the same as before, but all the little flaws that appeared over the week's worth of wear are gone, making your look fresh and new again.
+		<<endif>>\
+		
+		@@.nurse;"I only use the top makeup, and this stuff is pretty great. It's smudge- and water- resistant, but it's still only temporary. For most people, it lasts about a week or so, so I'm sure I'll see you back here soon,"@@ Nancy explains.
+		
+		<<if _previousMakeup lte 0>>\
+			@@.reward;Your face is professionally made up, adding to your feminine look and appeal!@@
+		<<else>>\
+			@@.reward;Your makeup has been renewed.@@
+		<<endif>>\
+	<<elseif $scene eq "BimboMakeup">>\
+		<<showImage "general" "makeup_application.jpg">>\
+		<<set _item=itemsC.BimboMakeup>>\
+		<<buyItem _item.id>>\
+		<<set $body.makeup = 3>>\
+		Nancy has you sit in a spa chair, seeing that you're comfortable before pushing a medium-sized table covered with makeup and styling tools over by your side. A carousel of beauty products occupies the table's center, surrounded by a suite of grooming instruments and a large variety of colors, containers, sifters, brushes, puffs, sponges and other tools of the trade.
+		
+		@@.nurse;"This should be really fun,"@@ she beams. "You're gonna look great!"
+		
+		<<if _previousMakeup lte 2>>\
+			Nancy looks at you with twinkling eyes as she begins to work. Her enthusiasm is clear as she studies your face carefully, deep in thought as she ponders her approach.
+
+			She begins by eagerly threading your eyebrows, using the strands to pluck and trim them back into narrow, finely-cropped arches that have no remaining resemblance to their natural state. She then adds long, dark extensions to your eyelashes. She follows this by coating each eyelid with a colorful layer of mascara and eyeliner.
+
+			Next, Nancy applies a thick, brightly contrasting lipstick. She uses a pencil and brush to distinguish their cupid-bowed border, and finishes the surface with a bright secondary coat that adds a level of shine.
+
+			Finally, she pulls a tray over containing a small arsenal of makeup sponges, highlighting compacts, blush pallettes, powder puffs and more. For several minutes, she layers up the coloring over the entire rest of your face and even a little of your neck. She tirelessly conceals every last pore and patch of "problem skin," and your cheeks and bone structure are reworked by overt tricks of blush and color.
+
+			With a last flourish of her powder brush, she finishes your look with prideful exhale. @@.nurse;"Finished!"@@, she beams. With visible anticipation, she spins your chair towards the mirror so you can witness your new look for yourself.
+		
+			You barely recognize the face in the mirror, a sight which freezes you in a speechless, awestruck state. In place of your familiar appearance, you see instead an overly-feminine one, highlighted with every sex-inspired fashion trick it can possibly bear.
+
+			The look hovers near caricature, though due to Nancy's skill it narrowly avoids crossing that line. Your new face might not be out of place on a runway or fashion magazine cover, but it could just as easily fit in alongside photos of glamor-genre porn stars.
+		<<else>>\
+			Nancy carts out her armory of fashion accessories once more, and sets about renewing your makeup. The complexity of the look takes a careful hand in cleaning and prepping the faded areas, and she goes over your threaded eyebrows with no less effort than before, nipping out any tiny regrowth at the root. 
+			
+			Few areas escape extended attention, although a very few small places get only a touch-up. Nancy takes a proprietary interest in restoring her work on your face, though she is no less enthusiastic than when she first applied the look. She alters a few of her original choices for the sake of artistic variety, but her new selections are just as flamboyant as her old ones.
+			
+			Finally she finishes, nodding approvingly as she shows you the mirror. Your makeup has been restored to an all-new yet still-extreme level of glamorous fashion and sexual provocation.
+		<<endif>>\
+		
+		@@.nurse;"I love your makeup, and I hope you do, too! I know you're wishing it could last forever, right? It's smudge- and water-resistant, but sadly, it's still only temporary - it'll only last about a week."
+		
+		You hear a sad note in her voice about that last point, but she quickly perks back up.
+		
+		"You look so fabulous, though! I'm sure I'll see you back here soon,"@@ Nancy comments with a coy smile.
+		
+		<<if _previousMakeup lte 2>>\
+			@@.reward;Your face is made up in the sexy look of a brainless bimbo!@@
+		<<else>>\
+			@@.reward;Your bimbo makeup has been renewed.@@
+		<<endif>>\
+	<<elseif $scene eq "HeavyMakeup">>\
+		<<showImage "general" "makeup_application.jpg">>\
+		<<set _item=itemsC.HeavyMakeup>>\
+		<<buyItem _item.id>>\
+		<<set $body.makeup = 4>>\
+		Nancy leads you over to a spa chair, and is doubly attentive in seeing to your complete comfort. She even gives you a special, heart-shaped pillow from her personal locker, tucking it under your head with a pat on your cheek.
+		
+		She disappears into the back room for a moment, returning with an imposing rolling makeup cabinet that's as tall as she is. She opens the doors, revealing myriad crammed drawers and mirror-backed panels, each overflowing with makeup containers and accessories beyond number and description.
+		
+		@@.nurse;"This is going to take me a little while, but it's going to be soooo worth it."@@ she says, her voice dripping with nearly sensual anticipation.
+		
+		<<if _previousMakeup lte 3>>\
+			She begins by aggressively threading your eyebrows, cropping them away until all that is left are faint arches that are more lines than hair. Working with a fine-tipped brush, she restores the remnants to actual facial features using a dark, liquid-based color.
+			
+			Turning to your eyes themselves, she adds lengthy eyelash extensions, an entire color gradient of smoky eyeshadow, and a deep layer of mascara. It's only her first stage - she uses thin eyeliner applicators and pencils to bury any trace of natural shape and redefines the contours of your eyes into a cat-like point.
+
+			Next, she applies lip color and liner. The multi-layered process is surprisingly complex, and you begin to lose track of how many different accessories she uses after the base layer of lipstick.
+			
+			Finally, she begins to work on your cheek and face. Nancy methodically covers ever corner of your skin from your hairline to the base of your neck with makeup. By the time she finishes, she's used so many makeup sponges, puffs, brushes and other tools that you think she might have confused your face with an oil painter's canvas.
+			
+			You lose track of how much time your makeover takes. Eventually, Nancy pushes back from your spa chair and looks you over. Her expression is one of an artist who has just completed her masterwork. 
+			
+			@@.nurse;"Finished!"@@, she gleefully announces. She spins you around in the chair to view the mirror, practically radiating her excitement.
+		
+			Your surprise at your reflection is real, all right, but not the kind you'd expected. After all that effort from Nancy, your face looks like it's been severely plastered in makeup - a cheap, trashy look that makes you look positively whorish. You're stunned, unable to form the words for a reaction.
+		<<else>>\
+			Nancy begins her painstaking efforts once again, though you still don't know why it takes so long for her to achieve the effect you came in with. Still, the long procession of tools and products continues for a long while, as Nancy gradually builds up a layer of makeup so complete, you can feel it sitting on your face.
+			
+			This weekend's restoration process is even more complicated than the last version, with certain areas having to be taken down to bare skin before Nancy is satisfied enough to start redoing them. You briefly wonder how she takes it all so seriously, but it's obvious this is her life's passion as she directs the utmost of her abilities at your face.
+
+			Finally she stops, nodding approvingly and show you the mirror. Your whorish makeup looks as slutty as ever.
+		<<endif>>\
+		
+		@@.nurse;"Despite how it looks, this makeup is smudge- and water-resistant, so it'll last better than just about any other kind you can get. I'm sad to say, it still is only temporary, so I'm sure I'll see you back here in a week or so,"@@ Nancy comments with a wicked smile.
+		
+		@@.nurse;"If you want to go for //ruined makeup//, I suggest you go over it with some extra lipstick and mascara. I love that look, too!"@@
+		
+		<<if _previousMakeup lte 3>>\
+			@@.reward;Your face is made up in a trashy, whorish look, ensuring that everyone will react to you accordingly!@@
+		<<else>>\
+			@@.reward;Your bimbo makeup has been renewed.@@
+		<<endif>>\
+	<<elseif $scene eq "PermanentSubtleMakeup">>\
+		<<showImage "general" "makeup_tattoing.jpg">>\
+		<<set _item=itemsC.PermanentSubtleMakeup>>\
+		<<set $player.money -= _item.cost>>\
+		<<set $body.permMakeup = 1>>\
+		<<set $body.makeup = 1>>\
+		Nancy sits you in the spa chair. She begins laying out and preparing the applicators, makeup colors, and other items she needs for the procedure, though disturbingly, some of them look more appropriate for a tattoo parlor than a beauty salon. She slides a tall rolling stool over to your side, and takes a seat on it.
+		
+		@@.nurse;"Now, this may hurt a little bit,"@@ she warns. @@.nurse;"Better take this pill to relax you, honey. You won't feel any pain once it kicks in."@@
+		
+		She hands you the pill and you gratefully swallow it. Meanwhile, Nancy begins mixing makeup pigments into a liquid base, and then filling the reservoir of her tattoo gun. The pill takes effect surprisingly quickly, and your focus blurs a little. As she poises the gun overhead and is placing her gloved fingers to the sides of your sensitive eyeballs, you space out completely, losing track of an unknown quantity of time.
+		
+		When you finally recover from most of the effects, Nancy has already finished.
+		
+		Once you return to full awareness, she spins the chair towards the mirror so you can see your new self. @@.nurse;"Ta-da!"@@ Nancy exclaims proudly.
+		
+		The changes are remarkably subtle. In fact, on first look, you can't even tell you've even been made up. As you begin to look further, however, you see the the little details have definitely changed your face. Your features have been softened and lightly colored to make them more feminine, accentuated them in a natural-looking, yet understated and beautiful way.
+
+		@@.hero;Oh my gosh,@@ you think to yourself, @@.hero;This is permanent!@@
+		
+		@@.nurse;"Now you'll always look good with minimum effort,"@@ she says. @@.nurse;"Though, for the money and effort, personally, I would've gone bigger with it."@@
+		
+		@@.reward;You now have permanent, subtle makeup tattooed on your face!@@
+	<<elseif $scene eq "PermanentNormalMakeup">>\
+		<<showImage "general" "makeup_tattoing.jpg">>\
+		<<set _item=itemsC.PermanentNormalMakeup>>\
+			<<set $player.money -= _item.cost>>\
+		<<set $body.permMakeup = 2>>\
+		<<set $body.makeup = 2>>\
+		Nancy guides you into a spa chair and begins preparing for the procedure. Shifting a work tray into place at your side, she begins taking out an assortment of applicators, makeup pigments and a variety of tools, some which are clearly taken from the tattoo trade and not the beauty profession. After briefly sorting and preparing everything, she scoots a tall, rolling stool over to you and has a seat.
+		
+		@@.nurse;"There's a little bit of pain involved, and I wouldn't want you to be uncomfortable."@@ she advises. @@.nurse;"This pill will help you relax, and you won't feel anything bad."@@
+		
+		You gratefully take the little capsule she gives you and swallow it. Nancy waits patiently, going over her instruments and colors while she waits for you to be ready. Not much time elapses before you feel the pill's effects, and you catch a brief glimpse of her lifting her tattoo gun before your attention goes blank.
+		
+		You blink your eyes, returning from the daze, and wonder how much time has gone by. Nancy has already put her tray of tools away, and is waiting quietly to show you your new look. As you fully recover, she spins your chair so you can see.
+		
+		"What do you think?" she asks.
+
+		You're amazed to see the face of a beautifully made up woman. It takes you a second to realize that is //your// face.
+		
+		While you know the actual shape of your face is still the same, its contours have been skillfully highlighted to accentuate its beauty. You are especially surprised how the shading around your eyes has softened them, and the shape of your cheekbones looks higher and more feminine. Even your lips look soft and kissable.
+		
+		@@.hero;Oh my gosh,@@ you think to yourself, @@.hero;I may have taken this 'looking like a woman' thing a bit too far.@@
+		
+		@@.nurse;"What do you think?"@@ Nancy asks, some satisfaction in her tenor.
+		
+		@@.heroT;"It's great,"@@ you tell her, not wanting to seem unappreciative of the fantastic job she's done.
+		
+		@@.nurse;"I've permanently shaped your eyebrows, and given you a light blush, defining eye liner, and a light, natural look for your eyelids. Your lips have some added color for even toning and body, and your cheeks have some matching blush that will bring out your fantastic bone structure.
+		
+		"It'll go with most looks. I hope you enjoy the ease, beauty and convenience of the treatment,"@@ she says proudly.
+		
+		You can't believe how sexy your face looks every time you see yourself in a mirror.
+		
+		@@.reward;You now have a permanently made-up, sexy, feminine look!@@
+	<<elseif $scene eq "PermanentBimboMakeup">>\
+		<<showImage "general" "makeup_tattoing.jpg">>\
+		<<set _item=itemsC.PermanentBimboMakeup>>\
+			<<set $player.money -= _item.cost>>\
+		<<set $body.permMakeup = 3>>\
+		<<set $body.makeup = 3>>\
+		Nancy invites you to a spa chair, and you recline in it as she starts to prep for the procedure. She gathers her tools, colors and other accessories together on a rolling tray, and moves it alongside you before grabbing a tall stool and taking a seat. She spends a few moments lining everything up neatly, prepping pigment mixtures and other sundry preparation tasks, before turning to you. 
+		
+		@@.nurse;"Sometimes, this type of procedure can be a little painful, so you should take one of these,"@@ she says, handing you a small tablet. @@.nurse;"I bet you won't feel a thing."@@
+		
+		You gratefully swallow the pill as she turns back to continue her prep. You last remember seeing her filling the reservoir of a tattoo gun just before you begin to space out. The pill's effect is surprisingly quick and complete.
+		
+		You come to after an uncertain amount of time, finding Nancy waiting patiently by your side with a reassuring smile.
+		
+		"Now, let's see what we have here," she grins, spinning your chair to face the large mirrors on the wall.
+		
+		You're amazed to see the face of a heavily made-up woman. It takes you a second to realize that is //your// face.
+		
+		In place of your familiar appearance, you see an overly-feminine one, graced with every sex-inspired beauty trick it can possibly bear. The look hugs the line between high fashion and caricature, though due to Nancy's skill it just manages to avoid crossing it. Your new face might not be out of place on a runway or glamor magazine, but it would be a better fit among racier erotic photo sets.
+		
+		'Oh my gosh,' you think to yourself, 'I may have taken this looking like a woman idea a bit too far'
+		
+		@@.nurse;"Ta-da!"@@ Nancy cheers.
+		
+		@@.heroT;"Thanks,"@@ you tell her, not wanting to seem ungrateful for the fantastic job she's done.
+
+		@@.nurse;"What I've done here is permanently shaped your eyebrows, given you sexy eye liner and deep shading for your eyelids. I've done some blush for your cheekbones, some primer for your skin that can multi-task for whatever look you want, and your lips are tattooed a glossy, bubblegum pink. It will go with most club-girl styles.
+
+		"My go-to look back in beauty college was really similar, and it looks just great on you! Of course, it's permanent, so all you have to do is just rock it and look fantastic, honey!"@@ she says proudly.
+
+		You can't believe how slutty your face looks, each and every time you see yourself in a mirror. Especially the way your eyes widen into big, round surprised 'O' shapes each time you look, the girl's exaggerated eyelashes fluttering as you blink, making you look like some startled bimbo.
+
+		@@.reward;You now have permanently made-up face with a sexy, bimbo look!@@
+	<<elseif $scene eq "PermanentHeavyMakeup">>\
+		<<showImage "general" "makeup_tattoing.jpg">>\
+		<<set _item=itemsC.PermanentHeavyMakeup>>\
+			<<set $player.money -= _item.cost>>\
+		<<set $body.permMakeup = 4>>\
+		<<set $body.makeup = 4>>\
+		Nancy takes you over to a spa chair and makes a huge fuss over you. She even gets a heart-shaped pillow from her personal locker, and tucks it under your head before giving you a peck on the cheek. She then slides a tray over to your bedside with visible anticipation, and goes about her prep work with a cheerful vigor. After placing her instruments, colors and other items neatly on her workspace, she pulls a rolling stool near you and takes a seat.
+		
+		@@.nurse;"You should definitely take this,"@@ she says, @@.nurse;"because I am about to do my best. job. ever. I don't want to mess anything up for you with even the teeniest amount of pain."@@
+		
+		She hands you a pill, which you quickly down. You catch some of the details as she finishes her final preparations, readying little vials of inks and pigments before loading them into the reservoir of her tattoo gun. After that, you space out completely, and you have no idea how much time has gone by before you return to awareness.
+
+		When you recover, Nancy is practically squirming in her seat with anticipation, grinning one of the most self-satisfied grins you've ever seen. 
+		
+		As she spins you towards the mirror, you're amazed to see the face of a cheap whore or a total slut with no self respect on the person sitting next to Nancy. It takes you a second to realize that it's //your// face.
+		
+		@@.hero;'Oh, my god,'@@ you think to yourself, @@.hero;'why did I do that to myself?'@@
+		
+		@@.nurse;"Ta-da!"@@ Nancy exclaims proudly @@.nurse;"You know what? You're the first person to ever ask for this option, and I have to say it's some of my best work!"
+
+		She quickly snaps a picture of you with her phone.
+		
+		"I'm gonna frame this and put it up in a place of honor, right here on the wall of my salon. I'm so excited!"@@
+		
+		@@.heroT;"Thanks,"@@ you tell her meekly, not wanting to spoil her little moment.
+		
+		@@.nurse;"So, I've permanently shaped your eyebrows, given you pink blush, dramatic eye liner, and a heavy mascara color to your eye lids. Your lips are tattooed a deep, glossy, bubblegum pink. It'll go with all the hottest, sexiest, sluttiest styles you can handle!
+		
+		"I hope you enjoy the new you!"@@ she says, flashing a wicked smile. "O-M-G! I still can't believe it!"
+		
+		You can't believe how vulgar and slutty your face looks, each and every time you see yourself in a mirror. Especially the way all the little details like smudges, cracks, slightly uneven lines give you cheap and easy look. As you study your new face longer, you realize that its all deliberate and serves purpose to give you very erotic, but at the same time dehumanizing appearance.
+		
+		It would be very hard to be taken seriously with a face of a sex doll, focused on inducing the lowest desires in men and maybe even women.
+		
+		@@.reward;You now have a permanently made-up, trashy, whorish look!@@
+	<<endif>>\
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	<!--</Clinic makeup>-->\
+	<!--<Clinic tattoos>-->\
+<<elseif $scene eq "tattooSissy">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooSissy>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to have a 'sissy' tattoo,"@@ you whisper to Nancy.
+	
+	@@.nurse;"Nice choice!"@@ she exclaims.
+
+	Nancy takes you to the back room of the salon.
+	
+	@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
+	
+	She has you remove your clothes.
+	
+	Nancy sits you in the spa chair and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she states. @@.nurse;"Normally, enduring the procedure is part of the experience of getting a tattoo, but I know in your case you'd rather not. You'd better take this pill. It will help you relax and not notice the pain so much."@@
+	
+	She hands you a pill, which you gratefully swallow as she begins using pink ink to tattoo the word, @@.guardian;"Sissy,"@@\
+	<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	just above your chastity cage.\
+	<<else>>\
+	at the base of your penis.\
+	<<endif>>\
+	It is extremely humiliating, but at least it should be covered by your clothes.
+	
+	@@.nurse;"You know, I would also recommend the anal smoothing treatment for you."@@ Nancy's train of thought is frightening.
+	
+	@@.reward;You now have a 'Sissy' tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooStockings">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooStockings>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to have the stockings tattoos,"@@ you whisper to Nancy.
+	
+	@@.nurse;"Nice choice!"@@ she exclaims.
+
+	Nancy takes you to the back room of the salon.
+	
+	@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
+	
+	She has you remove your clothes, sits you in the spa chair, and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she states. @@.nurse;"Here, take this pill. It will help you relax so you don't notice the pain so much."@@
+	
+	She hands you a pill, which you gratefully swallow as she begins tattooing the hem line of frilly stockings with a bow on your thighs.
+
+	@@.nurse;"Here, these would work great with miniskirts or short dresses."@@ Nancy gazes proudly at her work.
+	
+	@@.reward;You now have stockings tattoos!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooStupidWhore">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooStupidWhore>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to get a lower back tattoo,"@@ you whisper to Nancy.
+	
+	@@.nurse;"Ooh, the tramp stamp! The old party girl's standby. Most girls seriously underestimate how much tattoos turn men on!"@@ She exclaims.
+
+	@@.nurse;"We'll need a bit of privacy for this one,"@@ she says, beckoning you to follow.
+
+	Nancy leads you to the back room of the salon, and has you remove your clothes. She helps you lean forward onto the purposely-reclined spa chair with your back to her, and sees to it you're as comfortable as possible.
+	
+	@@.nurse;"Now, this one hurts a bit more than usual, because that placement is a pretty sensitive spot,"@@ she cautions. @@.nurse;"Better take this pill. It'll take a lot of the sting off, and you won't care about the pain that much, anyway."@@
+	
+	She hands you the little pill. You gratefully swallow it down while she puts on some clear plastic gloves and gets her tattoo gun ready.
+	
+	You start to feel fuzzy fairly quickly, and your last clear memory is the arrival of contented bliss. While you vaguely notice her working, you soon lose track and fall into a //very// copacetic state of mind.
+	
+	You don't think you fell asleep, but it's not for several minutes after she finishes that you even realize she's done. She holds out her hand to help you up.
+
+	Bringing you to the salon vanity, Nancy passes you a hand mirror so you can more easily see your new addition. Using it in combination with the giant mirror on the wall, you see your flowery tramp stamp in all its glory. In beautiful, black letter calligraphy, a design prominently featuring the words, 'Stupid Whore' has been emblazoned onto the small of your back.
+	
+	@@.nurse;"Hey, the classics never get old! Am I right?"@@ Nancy gazes proudly at her work.
+	
+	You just hope you can hide the tattoo under your clothes.
+
+	@@.reward;You now have a tramp stamp tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooSlut">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooSlut>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to have a 'slut' tattoo,"@@ you whisper to Nancy.
+	
+	@@.nurse;"Nice choice!"@@ she exclaims.
+
+	Nancy takes you to the back room of the salon.
+	
+	@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
+	
+	She has you remove your clothes.
+	
+	Nancy sits you in the spa chair, your back to her, and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she cautions. @@.nurse;"Here, take this pill. It'll help you relax and not notice the pain so much."@@
+	
+	She hands you a pill, which you gratefully swallow. She begins tattooing a small picture of a cartoonish, shemale whore, locked in chastity. She finishes the job by inking the word 'Slut' in big, red letters over your groin.
+
+	@@.nurse;"Here, I think I got it right."@@ Nancy gazes proudly at her work.
+	
+	@@.reward;You now have a 'Slut' tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooHeart">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooHeart>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to have a heart tattoo,"@@ you tell Nancy.
+	
+	@@.nurse;"Great choice!"@@ she exclaims.
+
+	Nancy sits you in the spa chair and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she cautions. @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
+	
+	She hands you the pill, which you gratefully swallow, and begins tattooing a small pink heart with a dark violet outline under the corner of your eye.
+
+	It's small, but looks ultra-feminine and gives you a very slutty vibe.
+
+	@@.reward;You now have a heart tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooBunny">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooBunny>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to get a bunny symbol tattoo,"@@ you tell Nancy.
+	
+	@@.nurse;"Splendid!"@@ she exclaims.
+
+	Nancy takes you to the back room of the salon.
+	
+	@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
+	
+	She has you remove your clothes.
+	
+	Nancy sits you in the spa chair, your back turned to her as she goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she cautions. @@.nurse;"Here, take this pill. It'll help you relax and not notice the pain so much."@@
+	
+	She hands you a pill which you gratefully swallow as she begins tattooing a small, black bunny symbol on your right butt cheek.
+	
+	@@.hero;Well, it's not as embarrassing as the other choices,@@ you think, trying to reassure yourself.
+	
+	@@.nurse;"It looks nice"@@, Nancy whispers in your ear. @@.nurse;"Of course, in street slang, it means you like it rough and deep."@@
+
+	Your cheeks turn red hot from embarrassment as you realize what you've just done to yourself.
+
+	@@.reward;You now have a bunny symbol tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "tattooButterfly">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.tattooButterfly>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to get a butterfly tattoo,"@@ you tell Nancy.
+	
+	@@.nurse;"Splendid!"@@ she exclaims.
+
+	Nancy takes you to the back room of the salon.
+	
+	@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
+	
+	She has you remove your clothes. Nancy sits you in the spa chair, your back to her and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she states.  @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
+	
+	She hands you a pill, which you gratefully swallow as she begins tattooing a large, vivid butterfly with colorful wings on your shoulder.
+
+	It gives a slightly exotic and carefree flavor to your appearance.
+
+	@@.reward;You now have a butterfly tattoo!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<elseif $scene eq "beautyMark">>\
+	<<showImage "general" "tattoing.jpg">>\
+	<<set _item=itemsC.beautyMark>>\
+	<<buyItem _item.id>>\
+	@@.heroT;"I'd like to have a beauty mark,"@@ you tell Nancy.
+	@@.nurse;"Nice choice!"@@ she exclaims.
+
+	Nancy sits you in the spa chair and goes to work.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she states. @@.nurse;"Here, take this pill. It will help you relax and not notice the pain so much."@@
+	
+	She hands you a pill, which you gratefully swallow as she begins tattooing a small beauty mark over the left corner of your mouth.
+
+	It makes your face more sensual and amplifies your slutty look.
+
+	@@.reward;You now have a beauty mark!@@
+	
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	<!--</Clinic tattoos>-->\
+<<else>>\
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+<<endif>>\
+\
+
+

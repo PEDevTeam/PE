@@ -1,6 +1,6 @@
 window.dreamMinigame = {
 	getActionById: function(id) {
-		for (_i=0; _i < window.dreamgameList.length; _i++) {
+		for (var _i=0; _i < window.dreamgameList.length; _i++) {
 			if (window.dreamgameList[_i].id==id) {
 				return window.dreamgameList[_i];
 			}
@@ -39,11 +39,11 @@ window.dreamMinigame = {
 	getRandomDream: function() {
 		var dreamgame=State.active.variables.minigames.dreamgame;
 		var _tc=0;
-		for (_i=0; _i < window.dreamgameList.length; _i++) {
+		for (var _i=0; _i < window.dreamgameList.length; _i++) {
 			_tc+=window.dreamgameList[_i].chance;
 		}
 		var _rc=window.randomCode.getIntInclusive(1, _tc);
-		for (_i=0; _i < window.dreamgameList.length; _i++) {
+		for (var _i=0; _i < window.dreamgameList.length; _i++) {
 			_rc-=window.dreamgameList[_i].chance;
 			if (_rc <= 0) {
 				if ((dreamgame.turn <= 4) && (window.dreamgameList[_i].alert > 2)) {
@@ -58,7 +58,8 @@ window.dreamMinigame = {
 	},
 	canWin: function() {
 		var dreamgame=State.active.variables.minigames.dreamgame;
-		for (_i=0; _i < window.dreamgameList.length; _i++) {
+		var _wa;
+		for (var _i=0; _i < window.dreamgameList.length; _i++) {
 			if (window.dreamgameList[_i].win) {
 				_wa=window.dreamgameList[_i];
 				break;
@@ -196,8 +197,8 @@ window.dreamgameList=[
 ];
 
 window.coachMinigame = {
-	getActionById: function(id) {
-		for (_i=0; _i < window.coachgameList.length; _i++) {
+	getCActionById: function(id) {
+		for (var _i=0; _i < window.coachgameList.length; _i++) {
 			if (window.coachgameList[_i].id==id) {
 				return window.coachgameList[_i];
 			}
@@ -206,9 +207,9 @@ window.coachMinigame = {
 	},
 	processAction: function(coachId, actionId) {
 		var coachgame=State.active.variables.minigames.coachgame;
-		var _d=this.getActionById(coachId);
-		var _a=this.getActionById(actionId);
-		if (!this.isAwake()) {
+		var _d=this.getCActionById(coachId);
+		var _a=this.getCActionById(actionId);
+		if (!this.isCame()) {
 			coachgame.win=_a.win;
 		}
 		if (coachId==actionId) {
@@ -230,16 +231,16 @@ window.coachMinigame = {
 	getRandomCoach: function() {
 		var coachgame=State.active.variables.minigames.coachgame;
 		var _tc=0;
-		for (_i=0; _i < window.coachgameList.length; _i++) {
+		for (var _i=0; _i < window.coachgameList.length; _i++) {
 			_tc+=window.coachgameList[_i].chance;
 		}
 		var _rc=window.randomCode.getIntInclusive(1, _tc);
-		for (_i=0; _i < window.coachgameList.length; _i++) {
+		for (var _i=0; _i < window.coachgameList.length; _i++) {
 			if (window.coachgameList[_i].win && (this.canWin()) && (window.randomCode.getIntInclusive(1, 2) == 1)) {
 				return window.coachgameList[_i];
 			}
 		}
-		for (_i=0; _i < window.coachgameList.length; _i++) {
+		for (var _i=0; _i < window.coachgameList.length; _i++) {
 			_rc-=window.coachgameList[_i].chance;
 			if (_rc <= 0) {
 				if ((coachgame.turn <= 3) && (window.coachgameList[_i].alert > 2)) {
@@ -256,7 +257,8 @@ window.coachMinigame = {
 	},
 	canWin: function() {
 		var coachgame=State.active.variables.minigames.coachgame;
-		for (_i=0; _i < window.coachgameList.length; _i++) {
+		var _wa;
+		for (var _i=0; _i < window.coachgameList.length; _i++) {
 			if (window.coachgameList[_i].win) {
 				_wa=window.coachgameList[_i];
 				break;
@@ -290,7 +292,7 @@ window.coachMinigame = {
 
 window.coachgameList=[
 	{
-		id: 1,
+		id: 0,
 		win: false,
 		success: false,
 		chance: 1,
@@ -308,7 +310,7 @@ window.coachgameList=[
 		actionF: "You gently kiss the tip of her penis."
 	},
 	{
-		id: 2,
+		id: 1,
 		win: false,
 		success: false,
 		chance: 4,
@@ -326,7 +328,7 @@ window.coachgameList=[
 		actionF: "You lick around head of her dick, leaving no spots untouched."
 	},
 	{
-		id: 3,
+		id: 2,
 		win: false,
 		success: false,
 		chance: 3,
@@ -344,7 +346,7 @@ window.coachgameList=[
 		actionF: "You place your lips over the head of her dick, slowly sucking it into your mouth and teasing it with your tongue."
 	},
 	{
-		id: 4,
+		id: 3,
 		win: false,
 		success: false,
 		chance: 5,
@@ -362,7 +364,7 @@ window.coachgameList=[
 		actionF: "You take a breath before stretching your lips around the enormous dick, squeezing the half-hard penis down your throat until your lips meet her pubic hair."
 	},
 	{
-		id: 5,
+		id: 4,
 		win: false,
 		success: false,
 		chance: 5,
@@ -380,7 +382,7 @@ window.coachgameList=[
 		actionF: "You lick the entire length of her shaft, from the head to balls."
 	},
 	{
-		id: 6,
+		id: 5,
 		win: false,
 		success: false,
 		chance: 2,
@@ -398,7 +400,7 @@ window.coachgameList=[
 		actionF: "You reach for Coach's swollen balls and gently massage them with your hands, giving occasional kisses."
 	},
 	{
-		id: 7,
+		id: 6,
 		win: false,
 		success: false,
 		chance: 1,
@@ -416,7 +418,7 @@ window.coachgameList=[
 		actionF: "You run your hands over Coach's half-hard cock, squeezing gently."
 	},
 	{
-		id: 8,
+		id: 7,
 		win: false,
 		success: false,
 		chance: 4,
@@ -434,7 +436,7 @@ window.coachgameList=[
 		actionF: "You turn around and rub her dick with your butt, sliding it between your butt cheeks."
 	},
 	{
-		id: 9,
+		id: 8,
 		win: true,
 		success: false,
 		chance: 1,

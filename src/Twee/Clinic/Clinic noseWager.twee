@@ -1,0 +1,362 @@
+:: Clinic noseWager [pos_3408_2588]
+\
+<<if $scene eq "AcceptTrick">><!--<NoseAcceptOrRefuse>-->\
+	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+
+	[[Pick heads|Clinic noseWager][$scene="headsTrick"; $random.stored=0]]
+	[[Pick tails|Clinic noseWager][$scene="tailsTrick"; $random.stored=0]]
+<<elseif $scene eq "AcceptTrickBack">>\
+	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+
+	[[Pick heads|Clinic noseWager][$scene="headsTrickBack"; $random.stored=0]]
+	[[Pick tails|Clinic noseWager][$scene="tailsTrickBack"; $random.stored=0]]
+<<elseif $scene eq "AcceptPiggy">>\
+	@@.nurse;"Pick side,"@@ Nancy rifles through her pockets, searching for a coin.
+
+	[[Pick heads|Clinic noseWager][$scene="headsPiggy"; $random.stored=0]]
+	[[Pick tails|Clinic noseWager][$scene="tailsPiggy"; $random.stored=0]]
+<<elseif $scene eq "Accept">>\
+	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+
+	[[Pick heads|Clinic noseWager][$scene="heads"; $random.stored=0]]
+	[[Pick tails|Clinic noseWager][$scene="tails"; $random.stored=0]]
+<<elseif $scene eq "Refuse">>\
+	You refuse to wager.
+
+	@@.nurse;"Well, if that's how you feel..."@@ she says, pointing to a big sign that reads: 
+	
+	@@.bully;We reserve the right to refuse service to anyone.@@
+	
+	She gives you a beautiful, toothy smile, full of flowery cheerfulness.
+	
+	@@.nurse;"Come back when you man up."@@
+
+	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+<!--</NoseAcceptOrRefuse>-->\
+<<elseif $scene eq "headsTrick" or $scene eq "tailsTrick" or $scene eq "headsPiggy" or $scene eq "tailsPiggy">><!--<NoseFail>-->\
+	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
+		You call 'heads.'
+		
+		Nancy retrieves a coin from her //left// pocket.\
+	<<else>>\
+		You call 'tails.'
+		
+		Nancy retrieves a coin from her //right// pocket.\
+	<<endif>>\
+	She flips a coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, before revealing the result.
+
+	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
+		Tails! Damn, you lose.
+	<<else>>\
+		Heads! Damn, you lose.
+	<<endif>>\
+	
+	You feel that there is something fishy about the coin Nancy used, but arguing now would be pointless.
+
+	<<if $scene eq "headsTrick" or $scene eq "tailsTrick">>\
+		[[Accept loss|Clinic semi-perm][$scene="Makeover"; $random.stored=0]]
+	<<else>>\
+		[[Accept loss|Clinic noseWager][$scene="noseToPiggy"; $random.stored=0]]
+	<<endif>>\
+<!--</NoseFail>-->\
+<<elseif $scene eq "headsTrickBack" or $scene eq "tailsTrickBack">><!--<NoseAutoWin>-->\
+	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
+		You call 'heads.'
+		
+		Nancy retrieves a coin from her //left// pocket.\
+	<<else>>\
+		You call 'tails.'
+		
+		Nancy retrieves a coin from her //right// pocket.\
+	<<endif>>\
+	She flips a coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, but before she reveals the result you quickly say that you reconsidered.
+
+	Nancy looks like she sucked on a lemon, but she can't find a reason to deny you to change your pick.
+
+	<<if $scene eq "headsTrickBack">>\
+		Heads!\
+	<<else>>\
+		Tails!\
+	<<endif>>\
+	You win! It feels damn good to catch Nancy on her own trick.
+	
+	[[You won|Clinic noseWager][$scene="prettyNose"; $random.stored=0]]
+<!--</NoseAutoWin>-->\
+<<elseif $scene eq "heads" or $scene eq "tails">><!--<NoseRandomResult>-->\
+	<<if $scene eq "heads">>\
+		You chose 'heads'.
+	<<else>>\
+		You call 'tails'.
+	<<endif>>\
+	
+	You retrieve a coin and toss it.
+
+	<<if (random(1) eq 0)>>\
+		<<if $scene eq "heads">>\
+			It's tails. You lose.
+		<<else>>\
+			It's heads. You lose.
+		<<endif>>\
+
+		[[Accept loss|Clinic semi-perm][$scene="Makeover"; $random.stored=0]]
+	<<else>>\
+		<<if $scene eq "tails">>\
+			It's heads. You lose.
+		<<else>>\
+			It's tails. You win.
+		<<endif>>\
+
+		[[You won|Clinic noseWager][$scene="prettyNose"; $random.stored=0]]
+	<<endif>>\
+<!--</NoseRandomResult>-->\
+<<elseif $scene eq "noseToPiggy">><!--<noseToPiggy>-->\
+	<<if ($body.nose eq 1)>>\
+	<<removeFromInv $items.noseClassic.id>>\
+	<<endif>>\
+	<<if ($body.nose eq 2)>>\
+	<<removeFromInv $items.noseButton.id>>\
+	<<endif>>\
+	<<set _item=itemsC.nosePiggy>>\
+	<<addToInv _item.id>>\
+	<<set $player.flags.salonNose=true>>\
+
+	@@.nurse;"You won't regret it!"@@  She exclaims and her eyes beam with such excitement, that it feels almost scary to be the focus of her attention.
+	
+	Nancy quickly takes you to the back room of the salon.
+	
+	@@.nurse;"Now, this may hurt a little bit,"@@ she blurts, her arms flashing through gear with immense speed, @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
+	
+	You gratefully swallow the tablet while she sets you up beneath a large, clinical-looking machine. As Nancy fastens a number of restraints around you, you look up to see a cylindrical aperture a bit larger than your head slowly descending.
+
+	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
+	
+	@@.reward;You now have a big upturned nose, that gives your face a piggy look!@@
+	
+	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+<!--</noseToPiggy>-->\
+<<elseif $scene eq "prettyNose">><!--<prettyNose>-->\
+	<<if ($body.nose eq 3)>>\
+		<<removeFromInv $items.nosePiggy.id>>\
+	<<endif>>\
+	<<if $player.flags.salonPickNose>>\
+		<<set _item=itemsC.noseClassic>>\
+	<<else>>\
+		<<set _item=itemsC.noseButton>>\
+	<<endif>>\
+	<<addToInv _item.id>>\
+	<<set $player.flags.salonNose=true>>\
+	Nancy takes you to the back room of the salon.
+
+	@@.nurse;"Now, this may hurt a little bit,"@@ she states.  @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
+
+	You gratefully swallow the tablet while she sets you up beneath a large, clinical-looking machine. As Nancy fastens a number of restraints around you, you look up to see a cylindrical aperture a bit larger than your head slowly descending.
+
+	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
+
+	<<if $player.flags.salonPickNose>>\
+		@@.reward;You now have a beautiful classic straight nose!@@
+	<<else>>\
+		@@.reward;You now have a cute button nose!@@
+	<<endif>>\
+
+	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+<!--</prettyNose>-->\
+<<elseif $scene eq "Makeover">><!--<NoseMakeover>-->\
+	<!-- this version of Makeover is outdated, now one is in semi-permanent mods part -->\
+	
+	Nancy takes you to the back room of the salon.
+	<<set $player.flags.salonNose=true>>\
+
+	<<if ($player.salonTab lt $player.salonLimit) or true>>\
+		<<if $player.salonTab gt $player.salonSoftLimit>>\
+			@@.nurse;"Your tab have reached $player.salonSoftLimit////$////."@@
+		<<endif>>\
+		
+		<<if ($body.lips eq 1)>>\
+			@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
+		<<else>>\
+			@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
+		<<endif>>\
+		
+		@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a needle from a case and starts to work on your lips.
+		
+		<<if ($body.lips eq 1)>>\
+			It doesn't take long and after few minutes Nancy confirms that your full lips will last one more week.
+			
+			@@.nurse;"Now, don't be a stranger and come back soon for your next treatment,"@@\
+		<<else>>\
+			After only a few minutes, your lips are much fuller and look much sexier!
+			
+			The new lips take a bit of getting used to, but you quickly adapt.
+			
+			@@.nurse;"Now, this will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@\
+		<<endif>>\
+		Nancy gives you a wink and sends you on your way.
+		
+		<<if ($body.lips eq 1)>>\
+			@@.reward; Your lips will stay full and sexy for one more week.@@
+		<<else>>\
+			@@.reward; You now have temporarily enhanced lips!@@
+		<<endif>>\
+		
+		<<if (not playerCode.haveMakeup())>>\
+			<<set _item=itemsC.NormalMakeup>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<set $player.flags.salonMakeup=true>>\
+
+			Nancy has you sit in a spa chair.
+
+			@@.nurse;"This shouldn't take too long,"@@ she states.
+
+			Nancy begins plucking your eyebrows, shaping them into fine, feminine arches.  She then adds eyelash extensions, applies lipstick and liner, and a touch of blush over the foundation. After some time she announces, @@.nurse;"Finished!"@@ and spins you around in the chair to see yourself in the mirror.
+
+			You are shocked! You look so feminine, you hardly recognize yourself!
+
+			@@.nurse;"This is only temporary, so I'm sure I'll see you back here soon,"@@ Nancy comments.
+
+			Your face has been beautifully made up, adding to your feminine look and appeal.
+			
+			@@.reward;You got a professional makeover!@@
+
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<elseif (not $body.earsPierced)>>\
+			<<set _item=itemsC.PiercingEars>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<set _item=itemsC.hoopsEarrings>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<wearClothing _item.id>>\
+			<<set $items.hoopsEarrings.disabled to false>>\
+			<<set $items.rubyEarrings.disabled to false>>\
+			<<set $items.diamondStuds.disabled to false>>\
+			Before you know it, she has pierced both of your ears and snapped two golden hoop earrings into the lobes. @@.hero;Ouch!@@ you shout as she finishes up.
+
+			@@.nurse;"There,"@@ Nancy states, @@.nurse;"they look sexy on you!"@@
+
+			Somehow, the slutty hoops augment your piggy look, making you look sexier in a dirty way.
+
+			@@.reward;You got a set of hoop earrings!@@
+			<<if ($body.makeup eq 2)>>\
+				<<set $player.salonTab += window.itemF.cost(_item)>>\
+				<<set $player.flags.salonMakeup=true>>\
+				@@.reward;Nancy freshens up your makeup.@@
+
+				<<endif>>\
+			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week. Give it a chance and I'm sure you'll come to love it."@@
+
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<elseif (not playerCode.owns(itemsC.hoopsEarrings))>>\
+			<<set _item=itemsC.hoopsEarrings>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<wearClothing _item.id>>\
+			Nancy removes your earrings and replaces them with big, golden hoops.
+
+			@@.nurse;"There,"@@ Nancy states, @@.nurse;"they look sexy on you!"@@
+
+			Somehow, slutty hoops augment your piggy look, making it look sexier in a dirty way.
+			
+			@@.reward;You got a set of hoop earrings!@@
+			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
+				<<set _item=itemsC.NormalMakeup>>\
+				<<set $player.salonTab += window.itemF.cost(_item)>>\
+				<<set $player.flags.salonMakeup=true>>\
+				@@.reward;Nancy freshens up your makeup.@@
+			<<endif>>\
+
+			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week: give it a chance and I know you're going to love it."@@
+
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<elseif (not ($body.lips eq 1)) and (not ($body.lips eq 2))>>\
+			<<set _item=itemsC.LipsEnhancing>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<set $player.flags.salonLips=true>>\
+			@@.nurse;"This may sting a bit, but it should pass quickly,"@@ She says as she retrieves a needle from a case and starts to work on your lips.
+			
+			After only a few minutes, your lips are much fuller and look much sexier!
+			
+			Your new lips take a bit of getting used to, but you quickly adapt.
+
+			@@.nurse;"Now, this will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
+
+			@@.reward;You now have fuller lips!@@
+			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
+			<<set _item=itemsC.NormalMakeup>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<set $player.flags.salonMakeup=true>>\
+			@@.reward;Nancy freshens up your makeup.@@
+
+			<<endif>>\
+			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you will enjoy your new look this week, give it a chance and you will definitely start to love it."@@
+			
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<elseif (not ($body.manicure eq 1)) and (not ($body.manicure eq 2))>>\
+			<<set _item=itemsC.Manicure>>\
+			<<addToInv _item.id>>\
+			<<set $player.salonTab += window.itemF.cost(_item)>>\
+			<<set $player.flags.salonManicure to true>>\
+			Nancy has you sit in the spa chair, soaking your feet in some water while she works on your nails.
+			
+			@@.nurse;"These nails should last about a week,"@@ she states as she gets to work.
+			
+			@@.nurse;"I'll be giving you a nice, subtle French manicure and pedicure."@@
+			
+			You leave yourself in her more than capable hands as she puts acrylic nails on your fingers, shining them up.  
+			
+			@@.nurse;"These may take a bit of getting used to,"@@ she says, @@.nurse;"especially if you've never had long nails before."@@ She giggles, @@.nurse;"But I'm sure you'll pick it up fast."@@
+			
+			Before you know it, the procedure is completed and you have a set of lovely nails on your fingers and toes.
+			
+			@@.reward;You now have a beautiful French manicure and pedicure!@@
+			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
+				<<set $player.salonTab += itemsC.NormalMakeup.cost>>\
+				<<set $player.flags.salonMakeup=true>>\
+				@@.reward;Nancy freshens up your makeup.@@
+			<<endif>>\
+			<<if ($body.permLips lt $body.lips)>>\
+				<<set $player.salonTab += itemsC.LipsEnhancing.cost>>\
+				<<set $player.flags.salonLips=true>>\
+				@@.reward;Nancy renews your lips boost.@@
+			<<endif>>\
+
+			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week. Give it a chance and you'll learn to love it."@@
+
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<else>>\
+			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
+				<<set $player.salonTab += itemsC.NormalMakeup.cost>>\
+				<<set $player.flags.salonMakeup=true>>\
+				@@.reward;Nancy freshens up your makeup.@@
+			<<endif>>\
+			<<if ($body.permLips lt $body.lips)>>\
+				<<set $player.salonTab += itemsC.LipsEnhancing.cost>>\
+				<<set $player.flags.salonLips=true>>\
+				@@.reward;Nancy renews your lips boost.@@
+			<<endif>>\
+			<<if (not ($body.manicure eq 2))>>\
+				<<set $player.salonTab += itemsC.Manicure.cost>>\
+				<<set $player.flags.salonManicure=true>>\
+				@@.reward;Nancy renews your manicure.@@
+			<<endif>>\
+
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<endif>>\
+	<<else>>\
+
+		Nancy has you lay on some kind of special bed-chair you've never seen before.
+		
+		She hands you a pill, which you readily swallow, but instead of starting usual makeover, she just watches you with a weird smirk on her face.
+
+		@@.nurse;"Sorry, honey. You've got quite a lot of money on your tab. Since you've gone over the limit, the terms of the agreement mean you're automatically enrolled in testing some of our latest treatments. But don't worry, we can put everything back to rights... once you've paid your tab, with interest of course. Personally, I think you're going to love the new you."@@
+
+		You try to argue, but it's already a struggle even to sit up in the chair, the pill takes effect so quickly. Everything goes black...
+
+		[[Fade to sleep|Clinic Punishment]]
+	<<endif>>\
+<!--</NoseMakeover>-->\
+<<endif>>\
+
+

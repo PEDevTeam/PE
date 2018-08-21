@@ -27,19 +27,13 @@ window.itemF={
 			return false;
 		}
 		var name=item.name;
-		var items=State.active.variables.items;
-		oV=items[Object.keys(item)];
-		if ((oV != null) && (oV.name != null)) {
-			name = oV.name;
-		}
 		return name;
 	},
 	nameById: function(id) {
-		var o;
 		var oV;
 		var items=State.active.variables.items;
-		o=window.itemsC[id];
-		if (o) {
+		var o=window.itemsC[id];
+		if (o != null) {
 			oV=items[id];
 			
 			var name=o.name;
@@ -51,6 +45,10 @@ window.itemF={
 		
 		return false;
 	},
+	deleteItem: function(id) {
+		var items=State.active.variables.items;
+		delete items[id];
+	},
 	image: function(item) {
 		var oV;
 		if (item == null) {
@@ -58,7 +56,7 @@ window.itemF={
 		}
 		var image=item.image;
 		var items=State.active.variables.items;
-		oV=items[Object.keys(item)];
+		oV=items[item.id];
 		if ((oV != null) && (oV.image != null)) {
 			image = oV.image;
 		}
@@ -74,7 +72,7 @@ window.itemF={
 		}
 		var cost=item.cost;
 		var items=State.active.variables.items;
-		oV=items[Object.keys(item)];
+		oV=items[item.id];
 		if ((oV != null) && (oV.cost != null)) {
 			cost = oV.cost;
 		}
@@ -90,11 +88,27 @@ window.itemF={
 		}
 		var disabled=item.disabled;
 		var items=State.active.variables.items;
-		oV=items[Object.keys(item)];
+		oV=items[item.id];
 		if ((oV != null) && (oV.disabled != null)) {
 			disabled = oV.disabled;
 		}
 		return disabled;
+	},
+	daringRec: function(item) {
+		var oV;
+		if (item == null) {
+			return false;
+		}
+		if (item.daringRec == null) {
+			return 0;
+		}
+		var daringRec=item.daringRec;
+		var items=State.active.variables.items;
+		oV=items[item.id];
+		if ((oV != null) && (oV.daringRec != null)) {
+			daringRec = oV.daringRec;
+		}
+		return daringRec;
 	},
 },
 
@@ -1615,7 +1629,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 8,
 		disabled: false,
 		cost: 10,
@@ -1627,7 +1641,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 8,
 		disabled: false,
 		cost: 60,
@@ -1639,7 +1653,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 8,
 		disabled: false,
 		cost: 40,
@@ -1651,7 +1665,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 80,
@@ -1663,7 +1677,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 8,
 		disabled: false,
 		cost: 15,
@@ -1675,7 +1689,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 20,
@@ -1687,7 +1701,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 100,
@@ -1699,7 +1713,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 10,
@@ -1795,7 +1809,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 6,
 		disabled: false,
 		cost: 30,
@@ -1807,7 +1821,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 20,
@@ -1819,7 +1833,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 40,
@@ -1831,7 +1845,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 50,
@@ -1843,7 +1857,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 30,
@@ -1855,7 +1869,7 @@ window.itemsC={
 		clothingType: window.itemTypes.NotClothing,
 		store: 2,
 		stolen: false,
-		surgery: true,
+		surgery: false,
 		daringRec: 7,
 		disabled: false,
 		cost: 80,

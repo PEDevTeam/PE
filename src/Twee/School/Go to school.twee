@@ -1,0 +1,922 @@
+:: Go to school [pos_736_1453]
+\
+<<showImage "general" "school.jpg">>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\
+<<set _slb = playerCode.slutScoreBasic()>>\
+<!-- Looks male -->\
+<<set _m=(not playerCode.haveHaircut()) and (not playerCode.haveGirlyFace())>>\
+<<CheckUnderwear>>\
+<<if _c>>\
+	<<set $therapistTalks.talkChastity.start=true>>\
+<<endif>>\
+<<if _b>>\
+	<<set $therapistTalks.talkButtplug.start=true>>\
+<<endif>>\
+<<if _u and _u.female>>\
+	<<set $therapistTalks.talkUnderwear.start=true>>\
+<<endif>>\
+<!--<Misc events>-->\
+<<if $player.flags.chastityKey>>\
+	<<if (not _c)>>\
+		Remembering $teacher's warning, you return home, put on your chastity device and lock it.
+
+		<<wearClothing $items.chastityDevice.id>>\
+		<<set $player.flags.chastityLocked = true>>\
+		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<elseif not $player.flags.chastityLocked>>\
+		Remembering $teacher's warning, you quickly lock your chastity device.
+		
+		<<set $player.flags.chastityLocked = true>>\
+	<<endif>>\
+<<endif>>\
+\
+<<if window.timeCode.isMonday() and $player.flags.walletForgottenStart and (not $player.flags.walletForgottenEnd)>>\
+	Still a bit hazy from your weird dream, you feel like you have forgotten something important.
+<<endif>>\
+\
+Luckily, your school, Pepperton Academy, is just a few streets over. It's an easy walk.
+
+<<if $time.day == 2791>>\
+	You stagger towards the school, wondering where your life is headed. Everything you do just seems to repeat itself.
+	
+	@@.hero;If I could only once more find a break from the unrelenting ouroboros that is my time these days.@@
+	
+<<endif>>\
+<<if $player.flags.laundryAccident and _u.female and _u.disabled>>\
+	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
+
+<<endif>>\
+<<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)>>\
+	<<set $player.perversion.therapistCooldown = 1>>\
+	You are relieved that you don't have those weird fantasies anymore.
+	
+	@@.hero;Thank god that's over.@@
+	
+	Could it be you ate something that went off? Or was it somehow linked to the experimental therapy?
+	
+<<endif>>\
+<!--</Misc events>-->\
+\
+<!--<Shoes stumble and clothes check>-->\
+<<if (not $player.flags.heelsFall)>>\
+	<<if playerCode.heelsCheck()>>\
+		<<if playerCode.isWearing(itemsC.stilettoHeels)>>\
+			Still not used to walking in stiletto heels, you stumble and fall, arms flailing, before you face-plant on the road.\
+		<<elseif playerCode.isWearing(itemsC.highHeel3)>>\
+			Still not used to walking in high heels, you stumble and fall, arms flailing, before you face-plant on the road.\
+		<<endif>>\
+		<<if _o.female>>\
+			Your skirt drags up, exposing your \
+			<<if _u>>\
+				<<if (not _u.female)>>\
+					boxers\
+					<<if _c>>\
+					 hiding your chastity cage\
+						<<if _b>>\
+						 and butt-plug\
+						<<endif>>\
+					<<elseif _b>>\
+					 hiding your arousal from your butt-plug\
+					<<endif>>\
+					.\
+				<<elseif (not _u.slutty)>>\
+					panties\
+					<<if _c>>\
+					 hiding a chastity cage\
+						<<if _b>>\
+						 and a butt-plug\
+						<<endif>>\
+					<<elseif _b>>\
+					 tented by arousal from your butt-plug\
+					<<else>>\
+					 barely covering your penis\
+					<<endif>>\
+					.\
+				<<else>>\
+					lacy panties\
+					<<if _c>>\
+					 barely covering a chastity cage\
+						<<if _b>>\
+						 and a butt-plug\
+						<<endif>>\
+					<<elseif _b>>\
+					 tented by arousal from a butt-plug\
+					<<else>>\
+					 with your penis peaking from it\
+					<<endif>>\
+					.\
+				<<endif>>\
+			<<else>>\
+				your bare butt\
+				<<if _c>>\
+				, a chastity cage\
+					<<if _b>>\
+					 and a butt-plug\
+					<<endif>>\
+				.\
+				<<elseif _b>>\
+				and a butt-plug, that's keeping your penis erect.\
+				<<else>>\
+				 and uncovered penis.\
+				<<endif>>\
+			<<endif>>\
+			People around are laughing and pointing at you.\
+			<<if playerCode.isMind_0()>>\
+				@@.hero;Someone kill me now please.@@\
+			<<elseif playerCode.isMind_1()>>\
+				@@.hero;Fuck, they are taking photos.@@\
+			<<else>>\
+				@@.hero;Crap, they are all checking me out.@@\
+			<<endif>>\
+		<<endif>>\
+	After getting up, you fix your clothes as best you can before continuing on your way to school, eyes lowered and cheeks burning, listening to the whistles and humiliating remarks.
+
+	<<endif>>\
+<<endif>>\
+\
+<<if _b>>\
+	The butt-plug reminds you of its presence with every step, keeping you constantly aroused.\
+<<endif>>\
+<<if _o.female>>\
+	<<if _c>>\
+		Your penis strains against your chastity device, fortunately hidden beneath your dress.\
+		<<if not _u>>\
+			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
+			<<if not $player.daringFlag.noUnderwear>>\
+				<<set $player.daringFlag.noUnderwear=true>>\
+			<<endif>>\
+		<<endif>>\
+	<<elseif playerCode.isHorny()>>\
+		Your erect penis tents your dress, making it obvious to everyone how desperately horny you are.\
+	<<endif>>\
+<<endif>>\
+<<if _b || (_o.female and playerCode.isHorny()) || (_o.female and _c)>>\
+
+
+<<endif>>\
+<!--</Shoes stumble and clothes check>-->\
+\
+<<if window.timeCode.haveSchool()>>\
+<!--<Reaction to appearance>-->\
+	<<set _ev = random(5)>>\
+	<<if (not $player.flags.schoolWalk)>>\
+		<<set $player.flags.schoolWalk = true>>\
+		<<if (_ev lte 1) or ($time.day eq 1)>>\
+			<!--				School crowd reaction to player body mods				-->\
+			<<if (not _o.female)>>\
+				<<if _m>>\
+					<<if ($body.lips eq 1)>>\
+						Your full lips draw confused glances.\
+						<<if playerCode.isMind_0()>>\
+							It is embarrassing.\
+						<<elseif playerCode.isMind_1()>>\
+							It is embarrassing, but you don't mind it.\
+						<<else>>\
+							Damn prudes.\
+						<<endif>>\
+					<<elseif ($body.lips eq 2)>>\
+						Your over-sized cocksucking lips draw shocked stares and revolted glances.\
+						<<if playerCode.isMind_0()>>\
+							It is humiliating.\
+						<<elseif playerCode.isMind_1()>>\
+							It is humiliating, but also exciting as you notice they can't keep their eyes off you.\
+						<<else>>\
+							It is humiliating, but you find yourself becoming excited by all the attention.\
+						<<endif>>\
+					<<endif>>\
+					<<if ($body.boobs eq 1)>>\
+						Your uniform hides your small breasts.\
+					<<elseif ($body.boobs eq 2)>>\
+						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
+					<<elseif ($body.boobs eq 3)>>\
+						You look like a cross-dressing girl with your breasts bulging against your uniform. But with your plain face and short, boyish haircut you just look ridiculous.\
+					<<elseif ($body.boobs eq 4)>>\
+						Your uniform strains against your huge breasts, and with your plain face and short, boyish haircut you just look ridiculous.\
+					<<endif>>\
+				<<else>>\
+					<<if ($body.lips eq 1)>>\
+						Your full lips draw confused, but lustful glances.\
+						<<if playerCode.isMind_0()>>\
+							It is embarrassing.\
+						<<elseif playerCode.isMind_1()>>\
+							It is embarrassing, but you don't mind it.\
+						<<else>>\
+							Damn prudes.\
+						<<endif>>\
+					<<elseif ($body.lips eq 2)>>\
+					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
+						<<if playerCode.isMind_0()>>\
+							It is humiliating.\
+						<<elseif playerCode.isMind_1()>>\
+							It's humiliating, but it also excites you when you notice they can't keep their eyes off you.\
+						<<else>>\
+							It's humiliating, but you find all the attention both thrilling and arousing.\
+						<<endif>>\
+					<<endif>>\
+					<<if ($body.boobs eq 1)>>\
+						Your uniform hides your small breasts.\
+					<<elseif ($body.boobs eq 2)>>\
+						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
+					<<elseif ($body.boobs eq 3)>>\
+						You look like a cross-dressing girl with your breasts bulging against your uniform.\
+					<<elseif ($body.boobs eq 4)>>\
+						Your uniform strains against your huge breasts.\
+					<<endif>>\
+				<<endif>>\
+			<<else>>\
+				<<if ($body.lips eq 1)>>\
+					Your full lips draw glances and lustful stares.\
+					<<if playerCode.isMind_0()>>\
+						It makes you uncomfortable.\
+					<<elseif playerCode.isMind_1()>>\
+						It's hard to admit, but you are pleased by the attention.\
+					<<else>>\
+						It's intoxicating to draw such attention.\
+					<<endif>>\
+				<<elseif ($body.lips eq 2)>>\
+					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
+					<<if playerCode.isMind_0()>>\
+						It is humiliating.\
+					<<elseif playerCode.isMind_1()>>\
+						It is humiliating, but it also excites you knowing they can't keep their eyes off you.\
+					<<else>>\
+						It's humiliating, but you find all the attention both thrilling and arousing.\
+					<<endif>>\
+				<<endif>>\
+				<<if ($body.boobs eq 1)>>\
+					Your uniform fits nicely thanks to your small breasts.\
+				<<elseif ($body.boobs eq 2)>>\
+					Your uniform fits nicely, emphasizing the shape of your ample boobs and complementing your figure.\
+				<<elseif ($body.boobs eq 3)>>\
+					Your uniform complements your sexy figure, pushing your breasts together enticingly. The hint of cleavage draws eyes.\
+				<<elseif ($body.boobs eq 4)>>\
+					Your uniform barely holds in your huge breasts, and people stare slack-jawed at the straining buttons of your shirt.\
+					<<if playerCode.isMind_0()>>\
+						You feel violated by their shameless stares.\
+					<<elseif playerCode.isMind_1()>>\
+						You feel violated, yet also excited by such shameless attention.\
+					<<else>>\
+						You love it.\
+					<<endif>>\
+				<<endif>>\
+				<<if ($body.ass eq 1)>>\
+					Your round butt \
+					<<if playerCode.haveCplus()>>\
+						nicely complements your big boobs and you can't help but notice appraising looks.\
+					<<elseif playerCode.haveBoobs()>>\
+						gives you some nice curves that, along with your boobs, draw in stares.\
+					<<else>>\
+						gives you some nice curves that draw in stares. With your flat chest, that is the only place anyone looks.\
+					<<endif>>\
+				<<elseif ($body.ass eq 2)>>\
+					Your bubble butt \
+					<<if playerCode.haveCplus()>>\
+						nicely complements your big boobs, making you look like a porn actress dressed up as a schoolgirl.\
+					<<else>>\
+						and your lack of comparable boobs give you a very peculiar look. It seems young boys prefer to look at girls with more cleavage, but you've noticed quite a few appreciative glances from older men.\
+					<<endif>>\
+				<<endif>>\
+			<<endif>>\
+			<<if ($body.makeup eq 2)>>\
+				It is not unusual to see schoolgirls wearing makeup like yours, but still, you look like one of the prettier ones.\
+			<<elseif ($body.makeup eq 3)>>\
+				Made up like a brainless bimbo, you attract condescending and lustful looks from other students - sometimes both at once.\
+			<<elseif ($body.makeup eq 4)>>\
+				Painted like a whore, you stand out like a dildo among the lilies. Girls frown and whisper insults when you walk by, while boys have fun at your expense by making suggestive gestures and remarks. Overall, the other students treat you like dirt, trying to one-up each other as they find ways to humiliate you.\
+			<<endif>>\
+			<<if _o.slutty>>\
+			Everyone is shocked by your outfit, and there are quite a few whistles as you pass by.
+			
+			<<endif>>\
+			<<if ($player.perversion.teacher lte 6)>>\
+				<<if $kink.futa>>\
+					There are some girls from the year above hanging around, shamelessly making fun of younger boys.
+				<<else>>\
+					There are some boys from the year above hanging around, shamelessly making lewd remarks as they ogle the girls walking by at school.
+				<<endif>>\
+			
+			<<else>>\
+				<<if $kink.futa>>\
+					There are some girls from the year above hanging around.
+				<<else>>\
+					There are some boys from the year above hanging around, ogling the girls quietly.
+				<<endif>>\
+			
+			<<endif>>\
+		<<elseif _ev lte 3>>\
+			<<if _o and (not _o.female) and (_slb lte 2)>>\
+				You're walking to school when you see the cheerleading team\
+					<<if random(1) eq 0>>\
+					getting ready to train on the field.\
+					<<else>>\
+					chatting.\
+					<<endif>>\
+				They act like you're invisible as you pass by. You stare at them for a moment.
+				
+					<<if random(1) eq 0>>\
+					@@.hero;They look gorgeous in their uniforms.@@
+					
+					<<else>>\
+					The cheerleaders' pleated skirts hang down demurely.
+					
+					@@.hero;Too bad they aren’t doing some exercises.@@
+					
+					<<endif>>\
+				<<if playerCode.isHorny()>>\
+					<<if _c>>\
+					You'd normally enjoy being turned on by this sight, but it just makes things more difficult for you with your penis locked and constrained. You quickly disappear before someone notices your awkward posture.
+					
+					<<else>>\
+					Your penis starts to tent inside your underwear, so you quickly disappear before someone notices your boner.
+					
+					<<endif>>\
+				<<endif>>\
+			<<elseif _o and (not _o.female) and (_slb lte 3)>>\
+				You're walking to school when you see the girls from the cheerleading team\
+					<<if random(1) eq 0>>\
+					getting ready to train on the field.\
+					<<else>>\
+					chatting.\
+					<<endif>>\
+				They act like you're invisible as you pass by.\
+					<<if random(1) eq 0>>\
+					Suddenly, one of them notices your feminine features and loudly points you out to the other girls. As you quickly walk away, you hear a burst of laughter behind your back.
+					
+					<<else>>\
+					Suddenly, one of them notices your feminine features and mockingly compliments you on your look. The other girls smirk. Behind you, someone whistles, and you speed up in embarrassment.
+					
+					<<endif>>\
+					<<if playerCode.isMind_0()>>\
+						@@.hero;I wish the ground would swallow me.@@
+					<<elseif playerCode.isMind_1()>>\
+						@@.hero;So humiliating.@@
+					<<else>>\
+						@@.hero;Oh...@@
+					<<endif>>\
+					
+				<<if playerCode.isHorny() and _c>>\
+					You're just glad they don't know about your chastity cage. You would probably die of humiliation.
+					
+				<<endif>>\
+			<<elseif _o and _o.female and (_slb lte 3)>>\
+				You are walking to school in your female uniform. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to identify you as a girl or a boy.\
+					<<if random(1) eq 0>>\
+					As soon as you reach the training field, you feel dozens of eyes following you. The entire cheerleading squad is on the field, their chatter interrupted, to stare at you.\
+					<<else>>\
+					Several cheerleaders stand idly around the entrance, chatting. As you come closer they start to stare at you and whisper to each other.\
+					<<endif>>\
+					<<if random(1) eq 0>>\
+					You walk by as fast as you can, feeling their judgmental eyes staring at you until you enter the school building and hear laughter erupt behind your back.
+					
+					<<else>>\
+					Suddenly one of them slaps you on your butt, to the delight of the other girls.\
+						<<if _b>>\
+						The unexpected contact makes you clench your anus around your butt-plug.\
+							<<if _c and playerCode.isHorny()>>\
+							You tug the front of your skirt downwards, desperately trying to hide the precum oozing from your chastity cage.\
+							<<endif>>\
+						<<endif>>\
+					With burning cheeks you rush ahead, trying to ignore all the whistles and dirty remarks.
+					
+					<<endif>>\
+					<<if playerCode.isMind_0()>>\
+						@@.hero;They're all talking about me. Why can't they just ignore me like they used to?@@
+						
+					<<elseif playerCode.isMind_1()>>\
+						@@.hero;Why they are noticing me now?!@@
+					<<else>>\
+						@@.hero;I used to dream about getting their attention. Now I have it...@@
+						
+					<<endif>>\
+			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+				You walk to school, noticing how most of the people you pass stare at you with furrowed faces, probably puzzled by your feminine appearance.\
+					<<if random(1) eq 0>>\
+					As soon as you reach the training field, you feel dozens of eyes on you. The entire cheerleading squad is gathering here, and they stop to glance your way and whisper to each other.\
+					<<else>>\
+					There are a bunch of cheerleaders clustered around the entrance, idly chatting. As you come closer, they start to stare at you and whisper to each other.\
+					<<endif>>\
+				You fidget and quickly adjust your school uniform, feeling judgmental eyes on you.\
+					<<if random(1) eq 0>>\
+					You can barely make out what they're saying, but you pick up a few scattered words. Your cheeks light up as you hear the words //gay, queer,// and //sissy// among their chatter. You quickly walk away, pelted by laughter behind your back.
+					<<else>>\
+					You wonder what they are talking about and perk up as one of them clearly says you're //pretty//. 
+					
+					@@.hero;She finds me pretty!@@ 
+					
+					Unfortunately her next words crush any hopes you may have:
+					
+					//"...for a sissy."//
+					
+					With burning cheeks you quickly walk away, hearing laughter ring out behind you.
+					
+					<<endif>>\
+				<<if playerCode.isHorny() and _c>>\
+					You're just glad they don't know about your chastity cage. You would probably die of humiliation.
+					
+				<<endif>>\
+			<<elseif _o and _o.female and (_slb lte 5)>>\
+				You feel uneasy walking to school, knowing they're going to make fun of you. Your feminine features are noticeable to everyone. Near the school, you adjust your uniform once more and go ahead.\
+					<<if random(1) eq 0>>\
+					On the nearby field, the cheerleading team interrupts their usual gossiping time to get a better look at you when you pass.\
+					<<else>>\
+					Cheerleaders loaf around the entrance, idly chatting. As you come closer they interrupt their usual gossiping time to get a better look at you.\
+					<<endif>>\
+					<<if random(1) eq 0>>\
+					You walk by as fast as you can, feeling their curious eyes staring at you until you enter the school building. Just before you go inside, you hear avid discussion beginning... probably about you.
+					
+					<<else>>\
+					Suddenly, one of them gives you a playful slap you on your butt, to the delight of her teammates. One of them tells you make a very convincing girl.\
+						<<if _b>>\
+						The unexpected contact makes you clench your anus around your butt-plug.\
+							<<if _c and playerCode.isHorny()>>\
+							You tug the front of your skirt downwards desperately, trying to hide the precum oozing from your chastity cage.\
+							<<endif>>\
+						<<endif>>\
+					With burning cheeks, you murmur your thanks and rush ahead, trying to ignore their whistles and cutting remarks.
+					
+					<<endif>>\
+					<<if playerCode.isMind_0()>>\
+						@@.hero;They're all making fun of me. Why can't they just ignore me like they used to?@@
+						
+					<<elseif playerCode.isMind_1()>>\
+						@@.hero;Well, at least they notice me now.@@
+						
+					<<else>>\
+						@@.hero;I used to dream about getting their attention. Now I have it...@@
+						
+					<<endif>>\
+			<<elseif (_slb lte 7)>>\
+				Your <<if (_slb eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. Near your school, you adjust your uniform once more and go on campus.\
+					<<if random(1) eq 0>>\
+					On the nearby field, the gathered cheerleaders notice you right away.\
+						<<if random(1) eq 0>>\
+						A few girls cheerfully greet you, waving to you and calling you by one of girly nicknames they came up with. It's embarrassing, but somehow their attention feels nice.
+						
+							<<if playerCode.isMind_0()>>\
+								@@.hero;Are they making fun of me, or actually treating me like one of the girls?@@
+								
+							<<elseif playerCode.isMind_1()>>\
+								@@.hero;I kind of like it, even if it is a bit weird.@@
+								
+							<<else>>\
+								@@.hero;Oh, they're so sweet.@@
+								
+							<<endif>>\
+						<<else>>\
+						A few girls greet you, but most of them just stare at you judgmentally. You hear them cussing, saying things like //queer, sissy// or //fag//. You pick up your pace and try to avoid looking at them.
+						
+							<<if playerCode.isMind_0()>>\
+								@@.hero;Damn it.@@ Your cheeks burn in shame. You can't really argue with them, given how you look now.
+								
+							<<elseif playerCode.isMind_1()>>\
+								@@.hero;What's got into them? Are... are they jealous of how I look? Oh my...@@
+								
+							<<else>>\
+								@@.hero;Bitches. They're just jealous.@@
+								
+							<<endif>>\
+						<<endif>>\
+					<<elseif random(1) eq 0>>\
+					Several cheerleaders are standing around the entrance, idly talking. As you get nearer, they stop their chatter and surround you, curious. They examine your body and poke at your clothes, commenting on how girly you look. It's embarrassing, but you just stand there with your eyes lowered as the girls totally swarm you.
+					
+						<<if random(4) eq 0 and _o and _o.female>>\
+						Suddenly one of them takes hold of your skirt and lifts it a bit, trying to peek underneath. You yelp and push your skirt down as they howl in laughter.\
+							<<if _u>>\
+								<<if _u.female>>\
+								Your cheeks burn as you see a smirk on a voyeur girl's face. She totally saw your <<if _f.slutty>>slutty <<endif>>panties.\
+								<<else>>\
+								Your cheeks light up a bit as you see disappointment on a voyeur girl's face. Your dignity was saved by your lucky boxers. Well... kind of saved.\
+								<<endif>>\
+							<<elseif _b and (random(1) eq 0)>>\
+								Your cheeks burn as you see the delighted face of a voyeur girl. She totally got a glimpse of your butt-plug!\
+							<<elseif _c>>\
+								Your cheeks burn up as you see the delighted face of a voyeur girl. She totally got a glimpse of your chastity cage.\
+							<<else>>\
+								Your cheeks flame as you see the delighted face of a voyeur girl. She totally saw your\
+								<<if ($body.penisShrink eq 1)>>\
+									small penis.\
+								<<elseif playerCode.isHorny()>>\
+									raging hard on.\
+								<<else>>\
+									penis.\
+								<<endif>>\
+							<<endif>>\
+						<<elseif random(3) eq 0>>\
+						Suddenly, one of them gives you a playful slap on your butt, drawing laughter from her teammates, and says you make a fine-looking girl.\
+							<<if _b>>\
+							The unexpected contact makes you clench your anus around your butt-plug.\
+								<<if _c and playerCode.isHorny()>>\
+								You tug the front of your skirt downwards desperately, trying to hide the precum you can feel oozing from your chastity cage.\
+								<<endif>>\
+							<<endif>>\
+						<<else>>\
+						Seeing your submissive posture, the girls relax a bit and eventually let you go after a few mean jokes at your expense.
+						
+						<<endif>>\
+						With burning cheeks you murmur farewells and rush off, trying to ignore their whistles and cutting remarks.
+						
+					<<else>>\
+					A bunch of cheerleaders are gathered around the entrance idly chatting. As you come closer they stop their gossiping to take a better look at you.\
+						<<if random(1) eq 0>>\
+						A few of them cheerfully greet you, calling you the prettiest boy in the school, causing a bit of consternation among some random passersby.
+						
+						<<else>>\
+						A few girls greet you, but most of them just stare at you with disdain. You hear them calling you //queer, sissy// or //fag//.
+						
+						<<endif>>\
+					<<endif>>\
+			<<elseif (_slb gte 8)>>\
+				<<if (_slb eq 8)>>\
+				Your slutty looks draw numerous glances and undressing stares. Near school, you adjust your uniform once more. You take a deep breath, and enter the campus.\
+				<<elseif (_slb eq 9)>>\
+				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a schoolgirl. No wonder you're greeted by whistles and undressing stares. Near school, you adjust your uniform once more, and enter the campus.\
+				<<endif>>\
+					<<if random(1) eq 0>>\
+					On the nearby sports field, the cheerleading girls notice you immediately.\
+						<<if random(1) eq 0>>\
+						Most of the girls just glare, but some of them yell insults, too. //Whore, attention seeker, bitch// and dirtier names follow you as you pass by.\
+							<<if playerCode.isMind_0()>>\
+								You wish you could say something back, but you can't really argue, given how you look now. @@.hero;So humiliating.@@
+								
+							<<elseif playerCode.isMind_1()>>\
+								@@.hero;They are such bitches.@@ 
+								
+								Their insults sting, but then you notice a few girls openly ogling you, and you're flush with excitement.
+								
+							<<else>>\
+								Smirking, you think, @@.hero;'Oh, shut up, bitches. You're just jealous.'@@ Not that you'd ever dare to say it out loud to them, though.
+								
+							<<endif>>\
+						<<else>>\
+						Most of the girls just stare at you judgmentally. You hear some of them cursing: //slut, whore, attention seeker.// You pick up speed and try to avoid looking at them.
+						
+							<<if playerCode.isMind_0()>>\
+								@@.hero;Damn it.@@ Your cheeks burn in shame, but you can't really argue with them, considering how you look now.
+								
+							<<elseif playerCode.isMind_1()>>\
+								@@.hero;Are... are they jealous of how I look? Or maybe afraid for their boyfriends? Oh, my...@@
+								
+							<<else>>\
+								@@.hero;Bitches are just jealous.@@
+								
+							<<endif>>\
+						<<endif>>\
+					<<elseif random(1) eq 0>>\
+					Some cheerleaders stand around the entrance, idly gossiping. As you come closer, they stop their chatter and surround you. They examine and poke at your clothes, commenting on how slutty you look<<if (_slb eq 9)>> and what a cock-hungry sissy you must be<<endif>>. It's humiliating, but you are totally swarmed, so you just stand there with lowered eyes.\
+						<<if random(4) eq 0 and _o and _o.female>>\
+						Suddenly one of them grabs hold of your skirt and lifts it a bit, trying to peek underneath. You yelp and push it down as the girls howl in laughter.\
+							<<if _u>>\
+								<<if _u.female>>\
+								Your cheeks burn as you see a smirk on the voyeur girl's face. She totally saw your <<if _f.slutty>>slutty <<endif>>panties.\
+								<<else>>\
+								Your cheeks flare a bit as you see a disappointed expression on her face. Your dignity's been saved by your lucky boxers. Well... kind of saved.\
+								<<endif>>\
+							<<elseif _b and (random(1) eq 0)>>\
+								Your cheeks flush pink as you see the delighted face of the voyeur girl. She totally got a glimpse of your butt-plug.\
+							<<elseif _c>>\
+								Your cheeks flame as you see the delighted face of the voyeur girl. She totally got a glimpse of your chastity cage.\
+							<<else>>\
+								Your cheeks burn as you see the delighted face of the voyeur girl. She totally saw your\
+								<<if ($body.penisShrink eq 1)>>\
+									small penis.\
+								<<elseif playerCode.isHorny()>>\
+									raging hard on.\
+								<<else>>\
+									penis.\
+								<<endif>>\
+							<<endif>>\
+						With burning cheeks, you murmur a hasty goodbye and rush ahead, trying to ignore their whistles and witty remarks.
+						
+						<<elseif random(4) eq 0>>\
+						Suddenly, one of the girls puts her hand on your breast and squeezes a little, to the delight of the other girls. Some whistle or giggle, and some just gasp at the girl's boldness.\
+							<<if playerCode.isHorny()>>\
+							Horny as fuck, you let out a brief moan at the unexpected attention.\
+								<<if _c>>\
+								You hope no one will notice the precum oozing from your chastity cage.\
+									<<if _b>>\
+									Your anus clenches around your butt-plug.\
+									<<endif>>\
+								<<endif>>\
+							<<endif>>\
+						There are quite a few fake coughs hardly masking //dyke// and //perv// comments from many of the cheerleaders around you. Red as tomato, the girl yells that she just wanted to see if your breasts were real. Realizing how overly loud her denial was, she blushes even harder and stomps off.
+						
+						Finally the girls let you go and you continue your way.
+						<<elseif random(1) eq 0>>\
+						Suddenly, one of them gives you a sound slap you on your butt, to the delight of the other girls.\
+							<<if _b>>\
+							The unexpected contact makes you clench your anus around your butt-plug.\
+								<<if _c and playerCode.isHorny()>>\
+								You tug the front of your skirt downwards, desperately trying to hide the precum oozing from your chastity cage.\
+								<<endif>>\
+							<<endif>>\
+						Finally, after every girl has told you what she thinks of you, they let you go.
+						
+						<<else>>\
+						Seeing your submissive posture, the girls relax a bit and let you go, saying they intend to keep an eye on you.
+						
+						With burning cheeks, you mutter a quick goodbye and rush ahead, trying to ignore several last whistles and witty remarks.
+						
+						<<endif>>\
+					<<else>>\
+					A bunch of cheerleaders are standing around the entrance waiting for friends or just gossiping. As you come closer they interrupt their chat-fest to take a better look at you.\
+						<<if random(1) eq 0>>\
+						A few of the girls cheerfully greet you, calling you the prettiest boy in the school, which causes a bit of amusement among random passersby.
+						
+						<<else>>\
+						A few of the girls greet you, but most of them just stare, judging you. You hear them calling you //slut, whore// and //attention seeker//.
+						
+						<<endif>>\
+					<<endif>>\
+			<<endif>>\
+		<<elseif _ev lte 4>>\
+			<<if _o and (not _o.female) and (_slb lte 3)>>\
+				You are walking to school when you see\
+			<<elseif _o and _o.female and (_slb lte 3)>>\
+				You are walking to school in your female uniform. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
+			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+				You are walking to school noticing how most of the people you cross stare a bit at you, probably puzzled by your feminine appearance.  You see\
+			<<elseif (_slb lte 7)>>\
+				Your <<if (_slb eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. Near school, you adjust your uniform once more and go ahead. You see\
+			<<elseif (_slb gte 8)>>\
+				<<if (_slb eq 8)>>\
+				Your slutty looks draw glances and undressing stares. Near school, you adjust your uniform once more and, after a deep breath, continue on. You see\
+				<<elseif (_slb eq 9)>>\
+				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a schoolgirl. No wonder you're constantly followed by whistles and undressing stares. Near school, you adjust your uniform once more, then enter campus. You see\
+				<<endif>>\
+			<<endif>>\
+			<<if random(1) eq 0>>\
+			boys from the sports team.\
+				<<if random(2) eq 0>>\
+				They're loudly arguing about their last game.\
+				<<elseif random(2) eq 0>>\
+				They're excitedly discussing something about their training.\
+				<<else>>\
+				They're talking animatedly about a new movie.\
+				<<endif>>\
+				
+			<<else>>\
+			a few punk looking guys.\
+				<<if random(3) eq 0>>\
+				the school troublemakers, just idly chatting.\
+				<<elseif random(3) eq 0>>\
+				They laugh loudly, showing each other some kind of photo on their phones.\
+				<<else>>\
+				They skulk around, looking a bit bored.\
+				<<endif>>\
+				
+			<<endif>>\
+			<<if _o and (not _o.female) and (_slb lte 1)>>\
+				<<if playerCode.isHorny() and _c>>\
+					Somehow it feels like they're eyeing you suspiciously as your penis strains in the cage. Instinctively you lower your eyes and try to be as invisible as possible.\
+					
+				<<endif>>\
+			<<elseif _o and (not _o.female) and (_slb lte 3)>>\
+				Some of them look at you a bit confused.\
+				<<if random(3) eq 0>>\
+					One guy makes a joke at your expense, but it's so bad he gets booed by the others.\
+				<<elseif random(3) eq 0>>\
+					You hear someone faking //cough//-fag-//cough//, making the others snort and smirk.\
+				<<else>>\
+					There are a few brief laughs and they continue to ignore you.\
+				<<endif>>\
+				
+				<<if playerCode.isHorny() and _c>>\
+					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
+					
+				<<endif>>\
+			<<elseif _o and _o.female and (_slb lte 3)>>\
+				They look at you in confusion.\
+				<<if random(1) eq 0>>\
+					You walk by as fast as you can, hearing them laugh and whistle at you.\
+				<<else>>\
+					There are quite a few mocking whistles that direct more attention towards you.\
+				<<endif>>\
+				<<if playerCode.isMind_0()>>\
+					@@.hero;Crap. It's so humiliating.@@\
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;Why they are so mean?!@@\
+				<<else>>\
+					@@.hero;I think I saw a few of them checking me out.@@\
+				<<endif>>\
+				
+			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+				You notice a few of them eyeing you.\
+				<<if random(2) eq 0>>\
+					You walk by as fast as you can, but at least one guy still recognizes you and points you out to the others. Soon there's a burst of laughter behind your back, followed by mocking whistles.\
+				<<elseif random(1) eq 0>>\
+					You fidget and quickly adjust your school uniform, feeling their appraising eyes upon you.\
+				<<else>>\
+					To your surprise, one of the guys winks at you. What is more embarrassing is that you blush heavily in return.\
+				<<endif>>\
+				<<if playerCode.isHorny() and _c>>\
+					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
+				<<endif>>\
+				
+			<<elseif (_slb lte 7)>>\
+				You notice that quite a few of them are staring at you.\
+					<<if random(2) eq 0>>\
+					One guy starts flirting with you, but suddenly stops, realizing you aren't real a girl. You both turn beet red as the other guys laugh themselves silly at you and the unlucky boy.\
+					<<elseif random(1) eq 0>>\
+					You fidget and adjust the school uniform, feeling your chest and butt somehow heating from the focused attention. You lower your eyes and blush as boys wink and wave to you.\
+					<<else>>\
+					There are some bulging eyes and slack jaws as news that you are a boy spreads through the group. Somehow it only intensifies the undressing stares.\
+						<<if random(1) eq 0>>\
+							<<if playerCode.isMind_0()>>\
+								@@.hero;Damn, they're still checking me out. Don't they care I'm a boy?@@\
+							<<elseif playerCode.isMind_1()>>\
+								@@.hero;They don't care that I'm a boy? That's kind of flattering...@@\
+							<<else>>\
+								@@.hero;I'm so hot, the boys don't even care if I have extra parts.@@\
+							<<endif>>\
+						<<else>>\
+						Red reaches your ears when you hear some of them commenting they would still hit it.\
+						<<endif>>\
+					<<endif>>\
+				<<if playerCode.isHorny() and _c>>\
+					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
+				<<endif>>\
+				
+			<<elseif (_slb gte 8)>>\
+				Most of them openly ogle you.\
+				<<if (_slb eq 8)>>\
+					Mocking whistles and barely camouflaged offers to show you a good time accompany you all the way to the school.
+				<<elseif (_slb eq 9)>>\
+					Your whorish getup is a real dick magnet, but there is almost no flirting, just leering offers to 'go somewhere private.' They seem to think you'd jump any dick you're offered.\
+				<<endif>>\
+				
+			<<endif>>\
+			
+		<<elseif _ev lte 5>>\
+			<<if (not $player.flags.jogger)>>\
+				<<set $player.flags.jogger = true>>\
+				As you walk to school, you pass a man jogging in the opposite direction. It's not the first time he's crossed your path - you see him now and then. 
+				
+				Mentally, you've nicknamed him //'The Jogger.'//
+				
+				He is in his mid-forties, and he has short black hair flecked with some gray. He's a little bit dirty and sweaty, in contrast to his otherwise well-groomed appearance. 
+				
+				Without paying you any attention, he passes by, his dangling earbud wires swinging in time with his quick footsteps.
+				
+				@@.hero;Maybe I should start to jog, too.@@
+				
+			<<elseif _o and (not _o.female) and (_slb lte 1)>>\
+				You are walking to school and see //The Jogger// again, running in the opposite direction. His movements are swift and in a steady rhythm. Without paying you any attention, he passes by. His dangling earbud wires swing in time with his quick footsteps.
+				
+			<<elseif _o and (not _o.female) and (_slb lte 3)>>\
+				You're walking to school and see //The Jogger// coming from the opposite direction. His movements are swift, his rhythm steady. Your eyes meet and you see him begin to slow his steps. His dark eyes analyze you from head to toe. You feel slightly uncomfortable under his piercing gaze.
+
+				Fortunately the encounter lasts just a moment, and he soon passes you by, his steps speeding up again.
+				
+				@@.hero;What a creep.@@
+				
+			<<elseif _o and _o.female and (_slb lte 3)>>\
+				You're on your way to school and cross //The Jogger// in the opposite direction. You try to hide your embarrassment at wearing a female uniform, and you see his steps slow more and more. As you pass by you feel his stare upon you, but you don't dare look back. Even worse, although you pass him, you can't hear his footsteps anymore. He's stopped running, and must now be watching you, but you are too shy to look back. The only thing you can think to do is to speed your walk until you reach the school building.
+				
+				<<if playerCode.isMind_0()>>\
+					@@.hero;Damn pervert. He was ogling me, wasn't he?@@
+					
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;Why didn’t he keep on running? Was he ogling me?@@ 
+					
+				<<else>>\
+					@@.hero;He was totally checking me out!@@
+					
+				<<endif>>\
+			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+				You hear the sound of familiar footsteps, and a few moments later //The Jogger// reveals himself in his morning run. As soon as he notices you, he slows down and looks you up and down. You quickly adjust your uniform, but your feminine appearance is hard to hide. You look back at him and your eyes meet. He smiles confidently down at you. You notice he's a good-looking man; his face and skin are well-groomed. He stops and opens his mouth, probably to say something, but without letting him make contact you accelerate your walk, leaving him quickly behind.
+				
+				<<if playerCode.isMind_0()>>\
+					@@.hero;Why did he smile at me? And why the hell did he try to speak to me?@@
+					
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;Why did he smile at me? Was he trying to hit on me?@@ 
+					
+				<<else>>\
+					@@.hero;Why did he smile at me? Maybe he thought I was cute? Did he think I was a girl? Should have I talked to him?@@
+					
+				<<endif>>\
+			<<elseif _o and _o.female and (_slb lte 5)>>\
+				<<if playerCode.isMind_0()>>\
+					You feel unease while walking to school, this school uniform being too tight for your taste.\
+				<<elseif playerCode.isMind_1()>>\
+					It is still a novel experience to wear a school dress to school. It's not bad, just a bit weird.\
+				<<else>>\
+					You love to wear your school dress, skirts are so much better than pants. You enjoy your walk.\
+				<<endif>>\
+				Soon, you notice the familiar sight of //The Jogger// approaching in the opposite direction. As soon as you notice him, you decide to avoid contact and cross the road to continue your walk on the opposite sidewalk. 
+				
+				He notices you and stops, continuing his run on the spot. His eyes follow your every step. You dare to look at him and as soon as your eyes meet he smiles and waves slowly at you. 
+				
+				You walk onward, glancing back and trying to understand what he might want from you. Luckily, he does not follow you and you soon after you arrive at school.
+				
+				<<if playerCode.isMind_0()>>\
+					@@.hero;Why did he wave to me?@@
+					
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;Why did he wave to me? Was he trying to hit on me?@@ 
+					
+				<<else>>\
+					@@.hero;Why did he wave to me? Maybe he thought I was cute? Should have I talked to him?@@
+					
+				<<endif>>\
+			<<elseif (_slb lte 7)>>\
+				Your <<if (_slb eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. As usual, you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly at you. You start to continue your walk, but //The Jogger// surprises you with a colorful and flattering compliment before returning to his jog. The whole thing leaves you a bit confused.
+				
+				<<if playerCode.isMind_0()>>\
+					@@.hero;What is his problem?@@
+					
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;I don't enjoy compliments from men... But it was nice.@@
+					
+				<<else>>\
+					@@.hero;That was nice... I wonder how strong those bear arms of his would be?@@
+					
+				<<endif>>\
+			<<elseif (_slb lte 9)>>\
+				<<if (_slb eq 8)>>\
+				Your slutty looks draws glances and undressing stares.\
+				<<elseif (_slb eq 9)>>\
+				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a schoolgirl.\
+				<<endif>>\
+				As usual you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly to you. You're bit overwhelmed by his hungry stare. Before you can react he reaches to you and takes hold of your waist. The smell of sweat fills your nose as he starts compliment your figure and tries to grope you.
+				
+				<<if playerCode.isMind_0()>>\
+					@@.hero;Gross!@@ You slip from his arms and quickly walk away on the edge of running, as //The Jogger// laughs at your panicked reaction.
+					
+				<<elseif playerCode.isMind_1()>>\
+					@@.hero;Gross!@@ You squirm in his arms, but don't resist too hard as it is kind of enjoyable. Finally, you remember that you need to get to school. A blush flares at your face as you realize what kind of a show you two made and you quickly wriggle out of his arms, all flustered and a bit dishevelled.
+					
+				<<else>>\
+					@@.hero;Gross!@@ You struggle, just for show, but your body is almost welcoming his arms and you instinctively turn to give him better reach and make it easier to grope and touch you. Finally, you remember that you need to go to the school you reluctantly squirm away from him, all flustered and horny.
+					
+				<<endif>>\
+			<<endif>>\
+		<<endif>>\
+	<<else>>\
+	
+	<<endif>>\
+	<!--</Reaction to appearance>-->\
+	<<if ($player.perversion.teacher eq 0) and ($player.money lt 800)>>\
+		<<if $time.day eq 1>>\
+			<<if $kink.futa>>\
+				<<set $bully="Berta">>\
+				The school troublemakers spot you and come over, pushing you around a little - just like they do most days.  You've learned the hard way that doing what they want keeps you from getting beaten up by the girls.
+			
+				The biggest girl, whose name you vaguely recall is $bully, demands your wallet. You hand it over.
+			<<else>>\
+				The school troublemakers spot you and come over, pushing you around a little - just like they do most days.  You've learned the hard way that doing what they want keeps you from getting beaten up.
+				
+				The biggest boy, whose name you vaguely recall is $bully, demands your wallet. You hand it over.
+			<<endif>>\
+			
+		<<else>>\
+			The school troublemakers spot you and come over, and $bully demands your wallet. You hand it over.
+			
+		<<endif>>\
+		<<if $player.money gt $allowance>>\
+			$futa.He_She grabs cash out of it and tosses your wallet to the ground at your feet. 
+			
+			@@.bully;"Thanks, twerp!"@@ 
+			
+			$futa.He_She laughs at you as they walk off into school. You pick up your wallet and check inside. $futa.He_She took $<<print $player.money-$allowance>>.  Doh.
+			
+			<<set $player.money=$allowance>>\
+			<<set $player.flags.bullySteal=true>>\
+		<<else>>\
+			$futa.He_She's about to open it, but one of the teachers notices what's going on and shouts. The bully drops your wallet in $futa.his_her wake as $futa.he_she and $futa.his_her cronies escape into the school building.
+			
+		<<endif>>\
+	<<endif>>\
+	<<if ($tasksTeacher.schoolPublicToilet.status eq 1) or ($tasksTeacher.schoolPublicToilet.progress gte 1)>>\
+	[[Give bj at toilets|School public toilets][$random.stored=0]] \
+		<<if ($tasksTeacher.schoolPublicToilet.progress gte 2)>>\
+		or [[Serve as a public toilet|School public toilets][$random.stored=1]]\
+		<<endif>>\
+	<<endif>>\
+		<<if $time.day eq 1>>\
+		[[You think the name of the bully is actually ...|Naming Bully][$random.stored=0]]
+		<<endif>>\
+		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
+			[[Ask a girl for advice|Task Ask advice]]
+		<<endif>>\
+	[[Go to class]]
+	<<if ($player.perversion.teacher eq 6) and $player.flags.bullyTaskGiven>>\
+		<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
+	<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
+		[[Meet Miss Willow's assistant|School assistant][$random.stored=0]]
+	<<elseif ($player.perversion.teacher gt 0) and ($player.perversion.teacher lt 6)>>\
+		<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>
+	<<endif>>\
+<<else>>\
+	<<print $misc.schoolMessage()>>
+<<endif>>\
+<<if (not timeCode.isMonday())>>\
+	[[Go home|Go to bedroom][$time.addMinutes(15)]]
+<<endif>>\
+
+

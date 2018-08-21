@@ -6,7 +6,7 @@ window.dreamsSelector={
 		var cp=0;   // priority
 		for (var i=0; i < Object.keys(dreams).length; i++) {
 			var dream=dreams[Object.keys(dreams)[i]];
-			var dreamV=State.active.variables.dreams[Object.keys(dreams)[i]];
+			var dreamV=State.active.variables.dreams[dream.id];
 
 			if (!dreamV) { return; }
 

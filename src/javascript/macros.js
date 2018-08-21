@@ -43,6 +43,9 @@ macros.addToInv = {
 	var w=window.itemsC[params[0]];
 	var wV=getItemObject(params[0]);
 	var type=params[1];
+	if (w.surgery) {
+		return;
+	}
 	if (!w) {
 		throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 		return;
@@ -127,12 +130,12 @@ macros.getInventoryList = {
 		var td='';
 		for (var i=0; i<inv.length; i++) {
 			var o=window.itemsC[inv[i]];
-			if (o && o.clothingType == 0 && o.surgery == false && o.store != 1) {
+			if (o && o.clothingType == 0 && o.surgery == false && o.store != 1 && o.store != 2) {
 				if (!f) {
 					f=true;
 //					new Wikifier(place, 'you currently have these items:<br><br><img id="inv_item" class="hidden">');
 				}
-				td+=itemName(inv[i]);
+				td+=getItemName(inv[i]);
 				td+='<br>';
 			}
 		}
@@ -224,23 +227,52 @@ macros.buyItem = {
 		if (wV.cost != null) {
 			cost = wV.cost;
 		}
-		
-		if (state.active.variables.inventory.indexOf(w.id) == -1) {
-			state.active.variables.inventory.push(w.id);
-			state.active.variables.inventory=state.active.variables.inventory.sort();
-		}
-		if (w.maxAlt) {
-			if (state.active.variables.showimages) {
-				if ((wV.curAlt==0) && (wV.ownAlt.length==0)) {
-					wV.curAlt=wV.storeCur;
+
+		if (!w.surgery) {
+			if (state.active.variables.inventory.indexOf(w.id) == -1) {
+				state.active.variables.inventory.push(w.id);
+				state.active.variables.inventory=state.active.variables.inventory.sort();
+			}
+			if (w.maxAlt) {
+				if (state.active.variables.showimages) {
+					if ((wV.curAlt==0) && (wV.ownAlt.length==0)) {
+						wV.curAlt=wV.storeCur;
+					}
+					wV.ownAlt[wV.storeCur]=true;
+					state.active.variables.player.money-=Math.floor((wV.storeCur%10)*cost*0.02);
 				}
-				wV.ownAlt[wV.storeCur]=true;
-				state.active.variables.player.money-=Math.floor((w.storeCur%10)*cost*0.02);
-			}
-			if (!state.active.variables.showimages) {
-				wV.ownAlt[0]=true;
+				if (!state.active.variables.showimages) {
+					wV.ownAlt[0]=true;
+				}
 			}
 		}
+		
+		state.active.variables.player.money-=cost;
+
+		if (state.active.variables.player.money < 0) {
+			state.active.variables.player.money = 0;
+		}
+	}
+};
+
+macros.payForItem = {
+  handler: function(place, macroName, params, parser) {
+		var w=window.itemsC[params[0]];
+		var wV=getItemObject(params[0]);
+		if (!w) {
+			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
+			return;
+		}
+		if (!wV) {
+			throwError(place, "<<" + macroName + ">>: invalid $item '" + params[0] + "'");
+			return;
+		}
+
+		var cost = w.cost;
+		if (wV.cost != null) {
+			cost = wV.cost;
+		}
+		
 		state.active.variables.player.money-=cost;
 
 		if (state.active.variables.player.money < 0) {
@@ -273,10 +305,10 @@ function getItemObject(id) {
 	return false;
 }
 
-function itemName(id) {
+function getItemName(id) {
 	var ca=state.active.variables.items;
 	var w=window.itemsC[id];
-	var wV=ca[id];
+	var wV=getItemObject(id);
 
 	if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + id + "'");
@@ -288,9 +320,9 @@ function itemName(id) {
 		}
 		
 	if ((wV != null) && (wV.name != null)) {
-		name = wV.name;
+		return wV.name;
 	}
-	return name;
+	return w.name;
 }
 
 macros.notDressed = {
