@@ -6,25 +6,25 @@
 <<set _cf=window.choresFunc.choresFails()>>\
 <<set _pun = true>>\
 	<!--<confiscating vibrator>-->\
-<<if _pun and $player.flags.chorePunKinky and playerCode.owns(itemsC.vibrator) and (not $player.flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
-	<<if $player.flags.confiscatedVibrator>>\
+<<if _pun and $flags.chorePunKinky and playerCode.owns(itemsC.vibrator) and (not $flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
+	<<if $flags.confiscatedVibrator>>\
 		@@.guardian;"I won't return this vibrator until you fix your mess."@@
 	<<else>>\
 		@@.guardian;"I think I'll take that vibrator, so you would have fewer distractions."@@
 	<<endif>>\
 	
-	<<set $player.flags.confiscatedVibrator = true>>\
-	<<set $player.flags.chorePunishmentVibrator = true>>\
+	<<set $flags.confiscatedVibrator = true>>\
+	<<set $flags.chorePunishmentVibrator = true>>\
 <<endif>>\
 	<!--</confiscating vibrator>-->\
 	<!--<first offer to spank PC>-->\
-<<if _pun and (not $player.flags.chorePunKinky) and (not $player.flags.chorePunOffer) and (_cf gte 2 or $player.choreFails gte 3 or $player.flags.choreForcedFail)>>\
+<<if _pun and (not $flags.chorePunKinky) and (not $flags.chorePunOffer) and (_cf gte 2 or $player.choreFails gte 3 or $flags.choreForcedFail)>>\
 	<<set _pun = false>>\
-	<<set $player.flags.chorePunOffer = true>>\
+	<<set $flags.chorePunOffer = true>>\
 	$Guardian taps her foot on the floor and looks at you in disappointment.
 	
 	<<if $player.perversion.guardian eq 3>>\
-		<<set $player.flags.chorePunMode = true>>\
+		<<set $flags.chorePunMode = true>>\
 		@@.guardian;"$player.name, you messed up this again. Honestly, I can't tell if you even tried."@@
 		
 		<<if $player.choreFails gt 2>>\
@@ -34,7 +34,7 @@
 		<<endif>>\
 		so you decide to try to talk your way out of it.
 		
-		[[Complain about redoing chores|Special punishments][$scene="complain"; $player.flags.chorePunMode = false]]
+		[[Complain about redoing chores|Special punishments][$scene="complain"; $flags.chorePunMode = false]]
 	<<else>>\
 		@@.guardian;"$player.name, I see you haven't learned. You messed up again, and I can't tell if you even tried to correct your mistakes at all."@@
 	
@@ -48,9 +48,9 @@
 <<endif>>\
 	<!--</first offer to spank PC>-->\
 	<!--<anus check>-->\
-<<if _pun and (not $player.flags.anusCheck) and $player.flags.chorePunKinky and $player.perversion.guardian gte 4>>\
-	<<set $player.flags.anusCheck = true>>\
-	<<set $player.flags.anusBurn = true>>\
+<<if _pun and (not $flags.anusCheck) and $flags.chorePunKinky and $player.perversion.guardian gte 4>>\
+	<<set $flags.anusCheck = true>>\
+	<<set $flags.anusBurn = true>>\
 	<<set _pun = false>>\
 	$Guardian looks at you with a subtle smirk.
 	@@.guardian;"I'm starting to think you need some //extra// encouragement. Come with me, $player.name."@@
@@ -89,27 +89,27 @@
 <<endif>>\
 	<!--</anus check>-->\
 	<!--<anus check or redecorate>-->\
-<<if _pun and (not $player.flags.roomOffer) and $player.room.style lte 4 and $player.flags.chorePunKinky and $player.perversion.guardian gte 4>>\
-	<<set $player.flags.roomOffer = true>>\
-	<<set $player.flags.chorePunMode = true>>\
+<<if _pun and (not $flags.roomOffer) and $player.room.style lte 4 and $flags.chorePunKinky and $player.perversion.guardian gte 4>>\
+	<<set $flags.roomOffer = true>>\
+	<<set $flags.chorePunMode = true>>\
 	<<set _pun = false>>\
 
-	[[Choose redecorating|Special punishments][$scene="redecorating"; $player.flags.chorePunMode = false]]
-	[[Choose anus check|Special punishments][$scene="anuscheck"; $player.flags.chorePunMode = false]]
+	[[Choose redecorating|Special punishments][$scene="redecorating"; $flags.chorePunMode = false]]
+	[[Choose anus check|Special punishments][$scene="anuscheck"; $flags.chorePunMode = false]]
 <<endif>>\
 	<!--</anus check or redecorate>-->\
 	<!--<guardian BF visit>-->\
-<<if _pun and $player.flags.guardianNewBFvisit and $player.flags.newBoyfriend>>\
+<<if _pun and $flags.guardianNewBFvisit and $flags.newBoyfriend>>\
 	
-	$player.flags.guardianNewBFvisit
+	$flags.guardianNewBFvisit
 <<endif>>\
 <!--</guardian BF visit>-->\
 	<!--<heels punishment>-->\
-<<if _pun and [3,4].includes($player.perversion.guardian) and $player.choreFails gte 2 and $player.chorePunishmentHeels lt $time.day and (not $player.flags.chorePunishmentHeels or random(1) eq 0)>>\
+<<if _pun and [3,4].includes($player.perversion.guardian) and $player.choreFails gte 2 and $player.chorePunishmentHeels lt $time.day and (not $flags.chorePunishmentHeels or random(1) eq 0)>>\
 	<<set $player.chorePunishmentHeels = $time.day + 14>>\
 	<<set _pun = false>>\
-	<<if not $player.flags.chorePunishmentHeels>>\
-		<<set $player.flags.chorePunishmentHeels = true>>\
+	<<if not $flags.chorePunishmentHeels>>\
+		<<set $flags.chorePunishmentHeels = true>>\
 		@@.guardian;"You know, $player.name, I think I know what to do about your clumsiness. Since you like to dress up so much, I think you should try wearing high heels while you do your chores."@@
 		
 		@@.hero;What?@@
@@ -129,12 +129,12 @@
 <<endif>>\
 	<!--</heels punishment>-->\
 	<!--<dildo bj punishment>-->\
-<<if false and _pun and $player.perversion.guardian gte 6 and $player.perversion.guardianCooldown gte 5 and $player.choreFails gte 4 and $player.chorePunishmentDildo lt $time.day and (not $player.flags.chorePunishmentDildo or random(2) eq 0)>>\
+<<if false and _pun and $player.perversion.guardian gte 6 and $player.perversion.guardianCooldown gte 5 and $player.choreFails gte 4 and $player.chorePunishmentDildo lt $time.day and (not $flags.chorePunishmentDildo or random(2) eq 0)>>\
 	<<set $player.chorePunishmentDildo = $time.day + 14>>\
-	<<set $player.flags.choreDildoAlarm = true>>\
+	<<set $flags.choreDildoAlarm = true>>\
 	<<set _pun = false>>\
-	<<if not $player.flags.chorePunishmentDildo>>\
-		<<set $player.flags.chorePunishmentDildo = true>>\
+	<<if not $flags.chorePunishmentDildo>>\
+		<<set $flags.chorePunishmentDildo = true>>\
 		@@.guardian;"You know, $player.name, I talked with $teacher recently about all these issues you've been having.@@\
 		<<if $player.perversion.guardian eq 6>>\
 			@@.guardian;I still think she might be too enthusiastic in pushing you to open up, but she had some valid points that made me think.@@\
@@ -185,14 +185,14 @@
 <<endif>>\
 	<!--</dildo bj punishment>-->\
 	<!--<offer to spank>-->\
-<<if _pun and (not $player.flags.chorePunOffer) and $player.flags.chorePunKinky>>\
+<<if _pun and (not $flags.chorePunOffer) and $flags.chorePunKinky>>\
 	<<set _pun = false>>\
-	<<set $player.flags.chorePunOffer = true>>\
+	<<set $flags.chorePunOffer = true>>\
 	@@.guardian;"I think you need another //motivational// session. Let me know if you want to avoid redoing the chores."@@
 
 <<endif>>\
 	<!--</offer to spank>-->\
-<<set $player.flags.choreForcedFail = false>>\
+<<set $flags.choreForcedFail = false>>\
 \
 
 

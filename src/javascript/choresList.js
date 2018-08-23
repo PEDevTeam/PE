@@ -1,7 +1,7 @@
-window.choresList=[
-	{
+window.choresList={
+	vacuum1: {
 		//easiest chore, just vacuum the house, no punishments on fail
-		id: "general_1",
+		id: "vacuum1",
 		name: "Vacuum the house",
 		image: "vacuum.jpg",
 		active: true,
@@ -22,8 +22,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "general_2",
+	vacuum2: {
+		id: "vacuum2",
 		name: "Clean the house",
 		image: "vacuum.jpg",
 		active: true,
@@ -44,8 +44,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "general_3",
+	vacuum3: {
+		id: "vacuum3",
 		name: "Clean the house through and through",
 		image: "vacuum.jpg",
 		active: true,
@@ -66,8 +66,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "general_4",
+	maidCleaning: {
+		id: "maidCleaning",
 		name: "Maid cleaning",
 		image: "maid_work.gif",
 		active: true,
@@ -88,8 +88,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "kitchen_1",
+	kitchen1: {
+		id: "kitchen1",
 		name: "Wash the dishes",
 		image: "wash_dishes.jpg",
 		active: true,
@@ -109,8 +109,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "kitchen_2",
+	kitchen2: {
+		id: "kitchen2",
 		name: "Wash the dishes and clean sink",
 		image: "wash_dishes.jpg",
 		active: true,
@@ -130,8 +130,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "kitchen_3",
+	maidKitchen: {
+		id: "kitchen3",
 		name: "Clean the kitchen",
 		image: "maid_kitchen.gif",
 		active: true,
@@ -151,8 +151,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "batroom_1",
+	bathroom1: {
+		id: "bathroom1",
 		name: "Clean bathroom and toilet",
 		image: "maid_washing_floors.gif",
 		active: true,
@@ -172,8 +172,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "batroom_2",
+	bathroom2: {
+		id: "bathroom2",
 		name: "Wash your clothes",
 		image: "wash_clothes.jpg",
 		active: true,
@@ -193,8 +193,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "batroom_3",
+	bathroom3: {
+		id: "bathroom3",
 		name: "Wash clothes",
 		image: "wash_clothes.jpg",
 		active: true,
@@ -214,8 +214,8 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
-		id: "batroom_4",
+	maidBathroom: {
+		id: "bathroom4",
 		name: "Wash clothes carefully",
 		image: "maid_wash_clothes.gif",
 		active: true,
@@ -235,7 +235,7 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
+	mowLawn: {
 		id: "mowLawn",
 		name: "Mow the lawn",
 		image: "mow_lawn.jpg",
@@ -256,7 +256,7 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
+	cleanSexToys: {
 		id: "cleanSexToys",
 		name: "Clean sex toys",
 		image: "sex_toys_collection.jpg",
@@ -277,7 +277,7 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
+	goShopping: {
 		id: "goShopping",
 		name: "Go shopping",
 		active: true,
@@ -297,7 +297,7 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
+	suckGuardianBoyfriend: {
 		id: "suckGuardianBoyfriend",
 		name: "Suck off her boyfriend",
 		active: false,
@@ -317,7 +317,7 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	},
-	{
+	cleanGuardianPussy: {
 		id: "cleanGuardianPussy",
 		name: "Clean out her pussy",
 		active: false,
@@ -337,4 +337,4 @@ window.choresList=[
 		required: false,
 		dayPerformed: -100
 	}
-];
+};

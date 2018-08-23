@@ -62,15 +62,15 @@ window.timeCode={
 		}
 		if (player.blowjobsToday > player.maxBlowjobs) {
 			player.maxBlowjobs++;
-			player.flags.moreBlowjobs=true;
+			State.active.variables.flags.moreBlowjobs=true;
 		} else {
-			player.flags.moreBlowjobs=false;		
+			State.active.variables.flags.moreBlowjobs=false;		
 		}
 		player.blowjobsToday=0;
-		player.flags.bribePaid=false;
-		player.flags.bribeFail=false;
+		State.active.variables.flags.bribePaid=false;
+		State.active.variables.flags.bribeFail=false;
 		window.dreamMinigame.reset();
-		//window.coachgameCode.state.reset();
+		window.coachMinigame.reset();
 	},
 	isWeekend: function() {
 		return (State.active.variables.time.day % 7 == 0) || (State.active.variables.time.day % 7 == 6);
@@ -136,6 +136,10 @@ window.timeCode={
 	isArcadeOpen: function() {
 		var time=State.active.variables.time;
 		return (time.hour >= 10) && (time.hour < 17);
+	},
+	isClubOpen: function() {
+		var time=State.active.variables.time;
+		return (time.hour >= 17) && (time.hour <= 23) && ([5,6,0].includes(time.day % 7));
 	},
 	haveSchool: function() {
 		var time=State.active.variables.time;

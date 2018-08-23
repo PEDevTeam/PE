@@ -1,0 +1,238 @@
+:: Club bar [pos_216_1085]
+<<if $time.hours >= 23>>\
+	<<if $player.drunk gte 40>><<display "Drunk message">>
+	<<else>>\
+		It is getting late, so with heavy sigh you get ready to go home.
+		
+		[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
+	<<endif>>\
+<<elseif $scene eq "mainBar">><!--<mainBar>-->\
+	A short, half-wall divider separates the club’s bar and ultra-lounge from the main club, giving it at least a slightly more intimate feeling, even if it’s no less noisy. After all, both areas share the same overhead space.
+
+	The lounge’s sleek furniture is styled in a lux, modern look. Blue-lighted tabletops and luminescent strips form islands of light amid the mostly dark area. It’s crowded, but the jumble of clientele is cast only in a pale cyan glow, filling the room with a sea of silhouettes as people come and go.
+
+	Standing out among the crowd are several black-suited bouncers around the bar’s entrance and in a few highly visible and tactically advantageous places around the room. It feels very secure.
+
+	You take a seat at the bar. Its long, under-lit counter provides slightly more brightness to your immediate surroundings. A number of patrons are constantly arriving and leaving the bar, and it’s easy to get jostled. Fortunately, the bar is well staffed by skilled, attentive bartenders. It’s not long at all before one of them comes to take your order.
+
+	<<if $player.drunk gte 5>><<display "Drunk message">>
+	<<endif>>\
+	<<if $player.drunk lte 40>>\
+		<<if $player.money gte 10>>[[Have a well drink ($10)|Club bar][$scene="wellDrink"]]
+		<<else>>Have a well drink ($10) - not enough money
+		<<endif>>\
+		<<if $player.money gte 15>>[[Have a regular cocktail ($15)|Club bar][$scene="regularCocktail"]]
+		<<else>>Have a regular cocktail ($15) - not enough money
+		<<endif>>\
+		<<if $player.money gte 22>>[[Have a double cocktail ($22)|Club bar][$scene="doubleCocktail"]]
+		<<else>>Have a double cocktail ($22) - not enough money
+		<<endif>>\
+
+		[[Head back to the main club|The Club][$scene="MainClub"]]
+	<<endif>>\
+	<!--</mainBar>-->\
+<<elseif $scene eq "wellDrink">><!--<wellDrink>-->\
+	The bartender nods and gets right to work on serving your drink. Squirting the necessary ingredients into a chilled metal shaker, he quickly mixes the contents with an over-the-shoulder, two-handed shake and then flips the whole thing into the air.
+
+	It spins in a dizzying arc a few feet over his head, and he pirouettes, scooping up a fresh drink glass from the countertop as he whirls through a complete circle. Just in time, he catches the shaker upside down with one hand, and meets it with the glass using the other. The entire shaker dumps straight into the glass, and not a single drop is spilled. He slides the glass to you, wishing you enjoyment.
+
+	You sip the drink. It’s well mixed, but it’s still made from the cheap stuff. Still, there’s just enough mixer and ice in it to cover most of the harsher liquor. You feel a pleasant warming feeling as it goes down.
+
+	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=5]]
+	<!--</wellDrink>-->\	
+<<elseif $scene eq "regularCocktail">><!--<regularCocktail>-->\
+	The bartender nods and promptly goes to the lighted back shelf to get supplies for your cocktail.\
+	<<selectScene TheClubBar_1 RND2RND>>\
+	<<scene>>\
+		The bartender returns to the counter with a colorful bottle of mixer, a bottle of clear liquor, and a metal shaker, pausing only to set a cocktail glass down in front of you. 
+
+		Without a moment’s hesitation, he tosses the two bottles into the air, one after the other, then passes the shaker from hand to hand before catching the bottle of mixer in his opposite hand and the other with his elbow. He steadily balances the mixer bottle on his elbow for a few seconds as he juggles both the shaker and the alcohol over his shoulder, catching each of them one-handed before tossing them again and again with the same hand.
+
+		He flips the mixer off his elbow and catches it with the top of his head, switching the other containers to a two-handed juggle. He quickly tilts his head to drop the mixer, but the shaker replaces it the very next second. He repeats the process, catching and juggling the mixer, liquor and shaker using his head and hands all in rapid succession, before abruptly launching all three into aerial spins at once.
+
+		He turns around, plucks the shaker from the air, and catches the liquor and mixer, also straight out of the air, plunging them upside down by their necks in the shaker. He sets the metal container down on the counter with a flourish. 
+
+		Pulling first the liquor bottle and then the mixer out, he flips both through the air one final time, catching them both behind his back. He slides them aside, then sends the shaker up for one more pass as well. As it spins above him, he grabs your cocktail glass in his right hand, then snatches the shaker with an overhead catch with his left, allowing the mixed ingredients to fall several feet in front of him.
+
+		The falling liquid lands in your glass without his missing a drop. 
+
+		He slides the resulting cocktail gently to you as he wishes you enjoyment, receiving a round of applause from the nearest patrons. He walks off with the shaker, spinning it like a top on his finger.
+
+		As you sip the drink, you find it perfectly mixed and delicious. It hides its alcohol extremely well, aside from a little warming as you drink it.
+	<<scene>>\
+		A second bartender joins the first, standing several feet away, and the two begin juggling a series of liquor and mixer bottles back and forth between themselves. They add one at a time until there are four glass bottles flying through the air, with both bartender’s sets of hands whirling to keep them going.
+
+		Upping the ante, both bartenders grab metal shakers from behind the bar and, without slowing down the pace of their juggling, roll the containers down their arms from their shoulder to the backs of their hands in a mirror image show of dexterity. Somehow, they keep the juggled bottles flying the entire time.
+
+		Balancing the shakers briefly, each bartender does three quick toss-and-catch rotations of his shaker, flipping it ninety degrees with each toss. Then, lobbing their shakers to one another in an airborne trade, they make the exchange right through the middle of the constellation of spinning bottles. Both bartenders catch the shakers upright, without missing a beat.
+
+		Skillfully, both bartenders begin mixing cocktails, each making a different drink, by snatching the correct yet still-flying bottles one at a time from the air and instantly turning each one upside down in the shaker to keep their catching hands free. After enough of each mix component is poured, the bartenders fling its bottle back into their uninterrupted juggling rotation.
+
+		After all the bottles have been used, the pair catches them at last, with one bottle caught in their juggling hand and one more in the hand that was already holding a shaker. They line the bottles up in a row on the countertop in quick succession. 
+
+		In finale, the bartenders each take a cocktail glass and, allowing some distance down the long bar, slide the empty glasses straight toward the row of bottles. They dash ahead of the quick-moving glasses, lifting and then replacing each bottle using only one hand each, as both cocktail glasses glide past. They finish the act by pouring the contents of the shakers into the glasses from shoulder height before the glasses arrive. Incredibly, the final pour is timed so the drinks fall precisely into each glass at the exact moment they slide to a stop.
+
+		Your bartender gently passes your drink to you and his partner passes his drink to another customer. Both of the bartenders then wish you enjoyment, responding to applause from the crowd with a charming bow.
+
+		As you sip the drink, you find it perfectly mixed and delicious. It hides its alcohol extremely well, aside from a little warming as you drink it.	
+	<<scene>>\
+		The bartender quickly gathers up three metal shakers and two bottles. Stacking one shaker and a bottle in one hand, and two shakers and a bottle in the other, he begins to whirl the stacks around his body like a sword dancer. He spins on his toes as the containers circle him like a windmill, flipping each stack over his head as if it were a single glass before catching it again.
+
+		But that’s just the warmup. The bartender soon breaks the stacks apart using a push from the bottom-most shaker in each hand, sending the remaining three objects flying into the air with seemingly uncontrolled spins. 
+
+		Just before each one tumbles to the ground, he saves it from impact in the nick of time and tosses it back up, until suddenly he is juggling all five beverage containers. He turns their path into a figure eight loop that crosses behind his back and over his head, all while he begins to slowly turn in circles.
+
+		He catches one of the shakers and places it on the bar, then immediately catches one of the two bottles in the same hand. With the other hand, he continues to juggle the remaining three objects as he pours a draft from the bottle into the shaker. A quick flip sends the bottle back into the air, from which he plucks the second bottle and pours it next. 
+
+		He catches the second and third shakers in each hand, then catches the two bottles, one in each shaker. He spins each pair onto his elbow with a short flip, balances them there briefly, and then throws them up once more with a shrugging motion. He jumps, doing a midair spin to face away from you, and holds out his hands to give both flying objects to a safe landing behind him.
+
+		He puts everything down, unstacking the shakers from the bottles, then takes the shaker containing your drink from the bar. To your amazement, he throws the liquid into the air with a hard upward flick. He switches the three metal containers rapidly between his hands as it flies, sending one of them spinning just below the flying drink. He catches the drink and then the flying shaker in one upturned shaker each, then stacks all three shakers together with the full one on top, before casually pouring your drink into a cocktail glass.
+
+		He wishes you enjoyment as he gently slides it to you, receiving a round of applause for his effort.
+
+		As you sip the drink, you find it perfectly mixed and delicious. It hides its alcohol extremely well, aside from a little warming as you drink it.
+	<<scene>>\
+		The bartender grabs a series of bottles and lines up seven cocktail glasses on the bar. He then takes a blender and fills it with ice and a little water, before whipping the mixture into slush. Carefully, he takes each bottle one by one, and pours each into the container with a spoon in turn, alternating various mixers and liquors until the frosty outside of the blender’s glass container is a wild array of colors.
+
+		He then takes seven metal shakers, filling one after the other from the blender. You can see the stream changing colors as he slowly pours, until the shakers are each full of an even amount of mystery beverage. He stacks the shakers, one on top of the other at an angle, carefully lowering each one so the shaker below doesn’t get its contents smooshed out.
+
+		Once all seven containers are stacked, he takes hold of the top and bottom of it, and tilts it so the stack forms an inverted arch high over the cocktail glasses. The frozen slush begins to pour from all the spaces between the shakers at once, with each cascade of liquid landing in the center of its own glass. Each glass is soon full of a different drink, forming a rainbow-ordered batch of slushy cocktails all in a row.
+
+		The bartender passes the glasses to you and six other patrons, wishing you all enjoyment to a round of applause.
+
+		As you sip your drink, you find it perfectly mixed and delicious. It hides its alcohol extremely well, aside from a little warming as you drink it.
+	<<scene>>\
+		Donning a pair of nitrile gloves, the bartender lines up a series of ten tall highball glasses, pouring an even amount of mixer into each one. He pours a different combination of mixer into each glass, turning the line of glasses into a long spectrum with its assortment of colorful liquids.
+
+		Next, the bartender carefully stacks a row of shot glasses on top, with each shot straddling two highball glasses. After balancing each of the nine shots, he places a tenth on the bar.
+
+		The bartender grabs different bottles of liquor, setting them at regular intervals alongside the row of glasses. He then picks up three of them at a time, juggling two bottles with one hand as he pours a shot with the other, before placing the poured bottle back in the line, switching the juggled bottle to his hand, and grabbing another one from the row. At the end, he juggles all three bottles, throwing them far above his head, before catching them one by one and returning them to the bar.
+
+		Once all ten shot glasses are full, he picks up the one sitting on the bar by itself, and raises a toast to the gathered crowd. He then tips the shot into the end glass. One after another, the shots tip over and fall into the next glass, each knocking down the next one like a domino.
+
+		He quickly snatches the now-empty shot glasses from the taller glasses one by one, juggling them as he goes, until he has five shot glasses in the air. He then starts catching them one at a time, slamming each one upside down on the bar, only to immediately grab the next empty shot and add it to the trick. As he reaches the end of the row, he slams the last five down in rapid fire until all ten shot glasses are upside down on the table.
+
+		Just when you think he’s done, he grabs each tall glass and tosses it into the air with an ultra-fast spin that keeps the liquor in the glass but mixes it up, without even looking up. He flings each glass using his right hand and catches it with his left. He somehow manages to spin all ten drinks in the air, one after the other, and both catch and replace them on the bar without spilling anything.
+
+		The bartender slides a drink to you and each of nine other patrons, wishing you all enjoyment to a round of applause.
+
+		As you sip the drink, you find it perfectly mixed and delicious. It hides its alcohol extremely well, aside from a little warming as you drink it.
+	<</selectScene>>\
+	
+	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=10]]
+	<!--</regularCocktail>-->\	
+<<elseif $scene eq "doubleCocktail">><!--<doubleCocktail>-->\
+	You order a double cocktail, requesting a little extra be added to the drink. He nods, and gets right to work. However, as your bartender mixes up the drink, he sets up a little trick on the counter.
+
+	<<selectScene TheClubBar_2 RND2RND>>\
+	<<scene>>\
+	The bartender drops a small coin into a shot glass. Then he drops in a larger coin, covering the first. He challenges anybody at the bar to get the small coin out. But first, he outlines the rules:
+
+	@@.malevoice5;“One, you can’t touch the glass with any object.
+
+	“Two, you can’t knock the glass over.
+
+	“Three, you can’t touch the big coin with any object.
+
+	“Four, only the little coin can come out of the glass.”@@
+
+	Several patrons try to solve the puzzle, with most either getting disqualified for breaking one of the four simple rules, and others give up altogether before making an attempt. Eventually, one of the louder customers declares that the trick is impossible, and challenges the bartender to show it can be done.
+
+	The bartender leans over and blows a puff of air down into the shot glass, concentrating it along the side. To everyone’s amazement, the larger coin just flips over in the glass, while the smaller one flies out and lands right on the bar.
+
+	The bartender accepts a round of applause as he slides your drink to you and wishes your enjoyment.
+
+	Your drink is delicious and the alcohol is well concealed under the flavor. However, you can definitely feel a little heat as it settles in your stomach.
+	<<scene>>\
+	The bartender places a mostly empty beer bottle on the table. He then cuts a plastic drinking straw in half, and makes it into a cross by skewering it horizontally with a toothpick. He drops the long end of the cross into the mouth of the bottle, allowing the cross to sit on the toothpick across the opening.
+
+	The bartender then challenges the patrons watching to get the cross out of the bottle. There are, of course, some rules:
+
+	@@.malevoice5;“First, you can’t touch the bottle with your hands.
+
+	“Second, you can’t move the bottle.
+
+	“Third, you can’t touch the cross with any object.”@@
+
+	Several customers make an attempt to get the cross out of the bottle. A few obvious potential solutions, like blowing on the cross or trying to fish it out somehow, are not only unsuccessful but also result in disqualification. Nearly always, either the bottle is moved or the cross gets touched.
+
+	A few patrons debate the problem, ruling out a number of similar suggestions until everyone runs out of ideas. Eventually, someone concludes it can’t be done and demands the bartender show how it can.
+
+	The bartender simply takes a lit bar match, and carefully drops it into the bottom of the bottle through the narrow space between the cross and the glass. The alcoholic fumes from the small amount of rum he put in the bottle burst into flame, and the cross is launched out, landing on the bar.
+
+	The bartender accepts a round of applause as he slides your drink to you and wishes your enjoyment.
+
+	Your drink is delicious and the alcohol is well concealed under the flavor. However, you can definitely feel a little heat as it settles in your stomach.
+	<<scene>>\
+	The bartender places two pieces of paper on the bar. He puts a small coin on the center of one paper, and an upside-down glass on the center of the other.
+
+	@@.malevoice5;“Now, watch closely, folks,”@@ he says.
+
+	With one swift motion, the bartender grabs the glass and slams it over the little coin. The coin instantly vanishes from view, and he quickly balls his hands into upside down fists and holds them above the bar.
+
+	@@.malevoice5;“Ok, where’s the coin?”@@ he asks.
+
+	One of the bar patrons points to one of his hands, certain the coin is in there. However, when the bartender opens that hand, it’s empty. He turns it over and spreads his fingers to prove the coin is gone.
+
+	@@.malevoice5;“Alright, I’ll put it back.”@@
+
+	The bartender reaches for the glass. Simultaneously, he slams the glass back into its original place on the center of the other sheet of paper, and slaps the palm of the empty hand down on the spot where the coin was. When he lifts his hand back up, the coin is revealed to have returned, to the amazement of the customers.
+
+	@@.malevoice5;“Ok, one more time.”@@
+
+	The bartender repeats the trick, slamming the glass over the coin once more. Once again, the coin disappears from sight and the bartender balls his fists again. 
+
+	@@.malevoice5;“Where’s the coin this time?”@@
+
+	Someone points to the other hand this time. The bartender shows the coin is not in that hand, either. In fact, this time he opens both hands and turns them over slowly, showing the coin is nowhere to be seen.
+
+	@@.malevoice5;“You guys give up?”@@ he laughs.
+
+	No one can figure out where the coin has gone, and he has a light-hearted chuckle. Finally, he turns the glass over, revealing not only the coin, but the piece of paper attached to the mouth of the glass that covered it up completely.
+
+	The bartender accepts a round of applause as he slides your drink to you and wishes your enjoyment.
+
+	Your drink is delicious and the alcohol is well concealed under the flavor. However, you can definitely feel a little heat as it settles in your stomach.
+	<<scene>>\
+	The bartender fills a beer glass and then puts a shot in each of two shot glasses. He then bets any one of the guys sitting at the bar that he can drink the whole beer, plus his shot, before the contender can drink his. There are a couple of rules to it, however, and he explains them:
+
+	@@.malevoice5;“First, you can’t touch either one of my glasses.
+
+	“Second, I can’t touch your glass.
+
+	“Third, you can’t touch your shot until I set my beer glass down.
+
+	“Last, I can’t touch my shot until I put my beer glass down, either.”@@
+
+	One of the cockiest guys readily agrees, and readies himself to grab his shot the second the bartender’s beer glass hits the bar. The bartender steadies his hand next to his own shot glass, fingers poised around it as well.
+
+	@@.malevoice5;“Ok, you ready?”@@ asks the bartender.
+
+	When the guy agrees, the bartender lifts his glass, drinking the beer rather casually, with a big smile on his face. At several points, the bartender lowers his glass near the bar top, almost getting the guy to grab his shot early, but each time he retracts it and continues drinking. Before long, the guy is chomping at the bit to win the bet.
+
+	As the bartender finishes the beer, he takes the guy by surprise. Flipping the beer glass over, he slowly lowers it over the guy’s shot glass. The rule about not touching it forces the guy to move his hand out of the way, and the bartender leaves it on the table, covering the guy’s shot. As casually as can be, the bartender takes his own shot glass, downs it, and wins the bet.
+
+	The bartender finishes mixing up your drink to a round of applause, sliding it towards you and wishing you enjoyment.
+
+	Your drink is delicious and the alcohol is well concealed under the flavor. However, you can definitely feel a little heat as it settles in your stomach.
+	<<scene>>\
+	The bartender places a dollar bill on the bar, then puts an empty beer bottle upside down on the middle of it. He challenges the customers at the bar to remove the bill. He adds that there are a couple of rules, however:
+
+	@@.malevoice5;“First, you can’t touch the bottle.
+
+	“Second, you can’t knock over the bottle.”@@
+
+	Several patrons accept the challenge, trying a series of methods to get the bill out. Most of them center on trying to pull the bill out quickly or slowly, or at certain angles. One guy tries to blow on the bottle. Invariably, the result is that the bottle just falls down, again and again.
+
+	The people at the bar talk amongst themselves, trying to figure out the solution, but finally give up. One of the patrons finally gives in and asks the bartender to show them.
+
+	The bartender simply begins to roll the bill up. As the dollar gets rolled into a cylinder, it slowly pushes the bottle out of the way without knocking it over, and without the bartender touching the bottle at all. The bartender lifts the bill off the bar, leaving the inverted bottle upright.
+
+	The bartender finishes mixing up your drink after receiving a small round of applause, sliding it towards you and wishing you enjoyment.
+
+	Your drink is delicious and the alcohol is well concealed under the flavor. However, you can definitely feel a little heat as it settles in your stomach.
+	<</selectScene>>\
+	
+	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=15]]
+	<!--</doubleCocktail>-->\
+<<endif>>\

@@ -24,13 +24,9 @@
 			Do you want to just go to sleep now?
 			
 			<<if window.clothes.dressedSleep.check()>>\
-				<<if window.choresFunc.choresRequired()>>\
-					<<click "Go to sleep">><<replace "#nosleep">>@@.done;You have chores to do@@<</replace>><</click>> <span id="nosleep"></span>
-				<<else>>\
-					[[Go to sleep|Good morning][window.timeCode.newDay()]]
-				<<endif>>\
+				[[Go to sleep|Good morning][window.timeCode.newDay()]]
 			<<else>>\
-				<<notDressed "Go to sleep" $reason>>
+				<<notDressed "Go to sleep" $reason.dressedSleep>>
 			<<endif>>\
 		<<delayedLink 1 "Return|Go to bedroom">>
 	<<else>>\

@@ -21,21 +21,21 @@
 	<<set $therapistTalks.talkUnderwear.start=true>>\
 <<endif>>\
 <!--<Misc events>-->\
-<<if $player.flags.chastityKey>>\
+<<if $flags.chastityKey>>\
 	<<if (not _c)>>\
 		Remembering $teacher's warning, you return home, put on your chastity device and lock it.
 
 		<<wearClothing $items.chastityDevice.id>>\
-		<<set $player.flags.chastityLocked = true>>\
+		<<set $flags.chastityLocked = true>>\
 		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<elseif not $player.flags.chastityLocked>>\
+	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher's warning, you quickly lock your chastity device.
 		
-		<<set $player.flags.chastityLocked = true>>\
+		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
 <<endif>>\
 \
-<<if window.timeCode.isMonday() and $player.flags.walletForgottenStart and (not $player.flags.walletForgottenEnd)>>\
+<<if window.timeCode.isMonday() and $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
 	Still a bit hazy from your weird dream, you feel like you have forgotten something important.
 <<endif>>\
 \
@@ -47,7 +47,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 	@@.hero;If I could only once more find a break from the unrelenting ouroboros that is my time these days.@@
 	
 <<endif>>\
-<<if $player.flags.laundryAccident and _u.female and _u.disabled>>\
+<<if $flags.laundryAccident and _u.female and _u.disabled>>\
 	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
 
 <<endif>>\
@@ -63,7 +63,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 <!--</Misc events>-->\
 \
 <!--<Shoes stumble and clothes check>-->\
-<<if (not $player.flags.heelsFall)>>\
+<<if (not $flags.heelsFall)>>\
 	<<if playerCode.heelsCheck()>>\
 		<<if playerCode.isWearing(itemsC.stilettoHeels)>>\
 			Still not used to walking in stiletto heels, you stumble and fall, arms flailing, before you face-plant on the road.\
@@ -164,8 +164,8 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 <<if window.timeCode.haveSchool()>>\
 <!--<Reaction to appearance>-->\
 	<<set _ev = random(5)>>\
-	<<if (not $player.flags.schoolWalk)>>\
-		<<set $player.flags.schoolWalk = true>>\
+	<<if (not $flags.schoolWalk)>>\
+		<<set $flags.schoolWalk = true>>\
 		<<if (_ev lte 1) or ($time.day eq 1)>>\
 			<!--				School crowd reaction to player body mods				-->\
 			<<if (not _o.female)>>\
@@ -752,8 +752,8 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 			<<endif>>\
 			
 		<<elseif _ev lte 5>>\
-			<<if (not $player.flags.jogger)>>\
-				<<set $player.flags.jogger = true>>\
+			<<if (not $flags.jogger)>>\
+				<<set $flags.jogger = true>>\
 				As you walk to school, you pass a man jogging in the opposite direction. It's not the first time he's crossed your path - you see him now and then. 
 				
 				Mentally, you've nicknamed him //'The Jogger.'//
@@ -886,7 +886,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 			$futa.He_She laughs at you as they walk off into school. You pick up your wallet and check inside. $futa.He_She took $<<print $player.money-$allowance>>.  Doh.
 			
 			<<set $player.money=$allowance>>\
-			<<set $player.flags.bullySteal=true>>\
+			<<set $flags.bullySteal=true>>\
 		<<else>>\
 			$futa.He_She's about to open it, but one of the teachers notices what's going on and shouts. The bully drops your wallet in $futa.his_her wake as $futa.he_she and $futa.his_her cronies escape into the school building.
 			
@@ -905,7 +905,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 			[[Ask a girl for advice|Task Ask advice]]
 		<<endif>>\
 	[[Go to class]]
-	<<if ($player.perversion.teacher eq 6) and $player.flags.bullyTaskGiven>>\
+	<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
 		<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
 	<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
 		[[Meet Miss Willow's assistant|School assistant][$random.stored=0]]

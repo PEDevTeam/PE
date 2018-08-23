@@ -16,7 +16,7 @@ You go to the detention room. $teacher is waiting for you.
 		Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>.@@
 		
 	<<endif>>\
-	<<if $player.flags.bullySteal>>\
+	<<if $flags.bullySteal>>\
 		"I will also stop those $futa.boy_girl////s from stealing your money in the morning.@@
 		
 	<<endif>>@@\
@@ -28,12 +28,12 @@ You go to the detention room. $teacher is waiting for you.
 
 	@@.teacher;"I suspect you may have some trouble coming up with that much money every week, so I'll reduce it if you show some humility."@@  Sounds worrying...
 
-	@@.teacher;"For every day you wear female underwear to school, I will take $<<print $taskMoney.teacher.femaleUnderwear>> off your week's payment."@@
+	@@.teacher;"For every day you wear female underwear to school, I will take $<<print rewardMoney.teacherFemaleUnderwear>> off your week's payment."@@
 
 	At least it's just one little thing to keep you out of trouble.
 
 	<<set $player.detention=false>>\
-	<<set $player.flags.bribePaid=true>>\
+	<<set $flags.bribePaid=true>>\
 	[[Agree|Finish school]]
 <<else>>\
 	@@.teacher;"Ok, $player.name. <<display "Detention Punishment">>"@@

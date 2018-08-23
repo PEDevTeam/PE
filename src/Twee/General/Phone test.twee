@@ -1,0 +1,53 @@
+:: Phone [pos_1273_215]
+\
+Your phone is pretty ordinary.
+
+<<if ($tasksTeacher neq null) and ($tasksTeacherBody neq null)>>\
+	<<set _teach_tasks = tasksFunction.activeTasks(window.tasksTeacher)>>\
+	<<set _teach_tasksBody = tasksFunction.activeTasks(window.tasksTeacherBody)>>\
+	<<if (_teach_tasks and _teach_tasks.length gt 0) or (_teach_tasksBody and _teach_tasksBody.length gt 0)>>\
+		$teacher told you to:
+		<<if _teach_tasks and _teach_tasks.length gt 0>>\
+			<<for _i=0; _i lt _teach_tasks.length; _i++>>\
+				<<set _teach_tasksV = tasksFunction.getVariableObject(_teach_tasks[_i].id)>>\
+				<<if (_teach_tasksV.status eq 1)>>\
+					&#x2610; \
+				<<elseif (_teach_tasksV.status eq 2)>>\
+					&#x2611; \
+				<<elseif (_teach_tasksV.status eq 3)>>\
+					&#x2612; \
+				<<endif>>\
+				<<print _teach_tasks[_i].text.checkMe.given>> \
+				<<if (_teach_tasksV.status eq 1)>>\
+					<<print _teach_tasks[_i].text.checkMe.reminder>> \
+				<<elseif (_teach_tasksV.status eq 2)>>\
+					<<print _teach_tasks[_i].text.checkMe.finish>> \
+				<<elseif (_teach_tasksV.status eq 3)>>\
+					<<print _teach_tasks[_i].text.checkMe.fail>> \
+				<<endif>>\
+				
+			<</for>>\
+		<<endif>>\
+		<<if _teach_tasksBody and _teach_tasksBody.length gt 0>>\
+			<<for _i=0; _i lt _teach_tasksBody.length; _i++>>\
+				<<set _teach_tasksBodyV = tasksFunction.getVariableObject(_teach_tasksBody[_i].id)>>\
+				<<if (_teach_tasksBodyV.status eq 1)>>\
+					&#x2610; \
+				<<elseif (_teach_tasksBodyV.status eq 2)>>\
+					&#x2611; \
+				<<elseif (_teach_tasksBodyV.status eq 3)>>\
+					&#x2612; \
+				<<endif>>\
+				<<print _teach_tasksBody[_i].text.checkMe.given>> \
+				<<if (_teach_tasksBodyV.status eq 1)>>\
+					<<print _teach_tasksBody[_i].text.checkMe.reminder;>> \
+				<<elseif (_teach_tasksBodyV.status eq 2)>>\
+					<<print _teach_tasksBody[_i].text.checkMe.finish>> \
+				<<elseif (_teach_tasksBodyV.status eq 3)>>\
+					<<print _teach_tasksBody[_i].text.checkMe.fail>> \
+				<<endif>>\
+				
+			<</for>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\

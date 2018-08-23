@@ -6,8 +6,8 @@
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<if ($random.stored eq 0)>>\
-	<<if $player.flags.maidUniform>>\
-		<<set $player.flags.maidUniform = false>>\
+	<<if $flags.maidUniform>>\
+		<<set $flags.maidUniform = false>>\
 		<<set _item=$items.chastityDevice>>\
 		<<wearClothing _item.id>>\
 		<<set _c to true>>\
@@ -38,7 +38,7 @@
 	<<endif>>\
 	
 	<<if (not _c)>>\
-	[[Put on chastity cage|Jobs party maid][$random.stored=0;$player.flags.maidUniform = true]]
+	[[Put on chastity cage|Jobs party maid][$random.stored=0;$flags.maidUniform = true]]
 	<<endif>>\
 	[[Go to Miss Juliette’s house|Jobs party maid][$random.stored=1]]
 <<elseif ($random.stored eq 1)>>\

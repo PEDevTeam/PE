@@ -5,14 +5,14 @@
 <<set _showManicureOptions = false>>\
 <<if $body.permManicure gte 2>>\
 	Nancy smiles upon seeing your permanent whorish manicure and asks if you want to change your hairstyle.
-<<elseif $player.flags.salonManicure>>\
+<<elseif $flags.salonManicure>>\
 	Nancy smiles upon looking at your fresh manicure and asks if you want to change your hair style?
 <<else>>\
 	Nancy offers to work on your nails and asks if you want to change your hairstyle.
 <<endif>>\
 
 <img id="item_preview" class="hidden">\
-<<if not $player.flags.salonManicure>>\
+<<if not $flags.salonManicure>>\
 	<<if ($body.permManicure lte 0) and ($body.semiManicure lte 0)>>\
 		<<set _item=itemsC.Manicure>>\
 		<<set _sceneName="Manicure">>\
@@ -152,7 +152,7 @@
 	<<set $body.manicure = 1>>\
 	<<set _item=itemsC.Manicure>>\
 	<<buyItem _item.id>>\
-	<<set $player.flags.salonManicure to true>>\
+	<<set $flags.salonManicure to true>>\
 
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
 
@@ -193,7 +193,7 @@
 	<<set $body.manicure = 2>>\
 	<<set _item=itemsC.GarishManicure>>\
 	<<buyItem _item.id>>\
-	<<set $player.flags.salonManicure to true>>\
+	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
 
 	<<if _previousManicure eq 2>>\
@@ -236,7 +236,7 @@
 	<<set _item=itemsC.Manicure>>\
 	<<buyItem _item.id>>\
 	<<set $body.permManicure = 1>>\
-	<<set $player.flags.salonManicure to true>>\
+	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially-sealed bag.
 
 	She gives your hands and feet a relaxing rubdown, then applies a soothing pomice scrub to them, removing any traces of hair and leaving your skin soft and smooth. However, she doesn't stop there.
@@ -260,7 +260,7 @@
 	<<set $body.manicure = 2>>\
 	<<set _item=itemsC.GarishManicure>>\
 	<<buyItem _item.id>>\
-	<<set $player.flags.salonManicure to true>>\
+	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially sealed bag.
 
 	<<if $body.permManicure eq 1>>\

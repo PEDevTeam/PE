@@ -40,8 +40,8 @@
 	<<set $player.perversion.teacher = 3>>\
 	<<set $player.perversion.teacherCooldown = 0>>\
 	<<set $tasksTeacher.trialChastity.status = 0>>\
-	<<set $player.flags.chastityKey to true>>\
-	<<set $player.flags.chastityLocked to true>>\
+	<<set $flags.chastityKey to true>>\
+	<<set $flags.chastityLocked to true>>\
 <!--</Punishment takingKeyFromChastity>-->\
 <<elseif ($scene eq "wearDressToSchool")>><!--<Punishment wearDressToSchool>-->\
 	<<set $tasksTeacher.wearDressToSchool.canStart = true>>\
@@ -85,8 +85,8 @@
 	
 	@@.teacher;"You've been a very naughty boy this week, $player.name. You’ll have to suffer the consequences of your disobedience."@@ 
 	
-	<<if not $player.flags.dogCollarPunishment>>\
-		<<set $player.flags.dogCollarPunishment to true>>\
+	<<if not $flags.dogCollarPunishment>>\
+		<<set $flags.dogCollarPunishment to true>>\
 		She pulls out a collar from her desk drawer and walks up to you. You look at it and see it's a pink collar\
 		<<if $kink.petPlay>>\
 			- like something you'd put on a puppy, except it's large enough to fit around your neck.\
@@ -434,8 +434,8 @@
 
 	@@.teacher;"You've been a very naughty boy this week, $player.name. You’ll have to suffer the consequences of your disobedience."@@ 
 	
-	<<if not $player.flags.dogCollarPunishment>>\
-		<<set $player.flags.dogCollarPunishment to true>>\
+	<<if not $flags.dogCollarPunishment>>\
+		<<set $flags.dogCollarPunishment to true>>\
 		She pulls out a collar from her desk drawer and walks up to you. You look at it and see it's a pink collar\
 		<<if $kink.petPlay>>\
 			- like something you'd put on a puppy, except it's large enough to fit around your neck.\
@@ -641,7 +641,7 @@
 
 		You’re afraid she’s going to pinch or slap you, but she just stands up and walks to a cabinet in the corner. She retrieves something, keeping it hidden from your view, and then quickly returns to you.
 
-		<<if $player.flags.teacherPanties>>\
+		<<if $flags.teacherPanties>>\
 			Standing near you, so close that you could probably sniff her legs, she suddenly lifts her skirt a bit and reaches under. Your eyes widen when you realize she is pulling down her panties. 
 
 			As the garment falls around her ankles and she steps out of it, you can see it’s a red, lacy thong. It’s very sexy and totally the kind of thing you expected she would be wearing in your fantasies. In contrast, it’s a complete surprise to you that she would drop them, just like that.
@@ -651,7 +651,7 @@
 			You open your mouth, going to answer, but $teacher quickly stuffs her panties into your mouth. Not letting you to spit them out, \
 		<<endif>>\
 		$teacher grabs a ball-gag, which she apparently got from the cabinet, and puts it on you, locking it behind your head.\
-		<<if $player.flags.teacherPanties>>\
+		<<if $flags.teacherPanties>>\
 			Her panties were moist even before going into your mouth, and your tongue is soon filled with the taste of her sex.\
 		<<endif>>\
 		
@@ -679,7 +679,7 @@
 		Finally $teacher stands up and you almost collapse, as overbearing pressure disappears.\
 
 		She unlocks and takes off the blindfold and the gag,\
-		<<if $player.flags.teacherPanties>>\
+		<<if $flags.teacherPanties>>\
 			She unlocks and takes off the blindfold and the gag, but leaves you her panties as a reminder.\
 		<<else>>\
 			She unlocks and takes off the blindfold and the gag.\
@@ -692,7 +692,7 @@
 		
 		Extremely horny and teased to exhaustion you meekly thank $teacher for the lesson and walk out. You know that it's going to be very long weekend.
 		<<addToInv $items.gString.id 41>>\
-		<<set $player.flags.teacherPanties = true>>\
+		<<set $flags.teacherPanties = true>>\
 	<!--</Be a stool first time>-->\
 	<<else>><!--<Be a stool repeat>-->\
 		You enter $teacher's room, and she tells you to close and lock the door. You do. 
@@ -802,7 +802,7 @@
 <!--</Punishment spanking>-->\
 <<else>><!--<Punishments Body mods>-->\
 	<!--<Intro Beauty salon>-->\
-	<<if $player.flags.walletForgottenStart and (not $player.flags.walletForgottenEnd)>>\
+	<<if $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
 		You desperately try to explain that you forgot your wallet, but $teacher doesn't want to listen.
 	<<endif>>\	
 	<<if (not $player.tasks.penaltyClinic)>>\
@@ -815,7 +815,7 @@
 		
 		You hurry and catch up to her.
 		
-		<<if not $player.flags.salonVisitedFirst>>\
+		<<if not $flags.salonVisitedFirst>>\
 			You both enter the beauty salon and are greeted by an enthusiastic young woman uniformed in a barely-decent version of "sexy nurse." Her name tag reads, "Nancy."
 			
 			She gives a warm welcome to $teacher, who is apparently a regular client.
@@ -828,11 +828,11 @@
 			You both enter the beauty salon and are greeted by Nancy, the familiar, overzealous //sexy nurse//.\
 						
 		<<endif>>\
-		<<if $player.flags.salonVisitedFirst>>\
+		<<if $flags.salonVisitedFirst>>\
 			@@.nurse;"I think I've already seen him around here,"@@ Nancy replies cheerfully. @@.nurse;"So, how may I help you today?"@@
 			
 		<<else>>\
-			<<set $player.flags.salonVisitedFirst = true>>\
+			<<set $flags.salonVisitedFirst = true>>\
 			@@.nurse;"Hello sweetie,"@@ Nancy greets you cheerfully. @@.nurse;"How may I help you today?"@@
 			
 		<<endif>>\
@@ -887,9 +887,9 @@
 		<<set _item=$items.PenisShrinking>>\
 		<<set $body.penisShrink = 1>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
-		<<set $player.flags.penisShrinkSleep = true>>\
-		<<set $player.flags.penisShrinkPunishment = true>>\
-		<<set $kink.penisShrinkProgress = 1>>\
+		<<set $flags.penisShrinkSleep = true>>\
+		<<set $flags.penisShrinkPunishment = true>>\
+		<<set $flags.penisShrinkProgress = 1>>\
 		<<set window.clothes.setCage()>>\
 		@@.teacher;"Well, Nancy,"@@ $teacher says, @@.teacher;"it strikes me that $player.name's attitude is far too cocky. Perhaps you and I could help him find a more //modest// outlook."@@ 
 		
@@ -1016,7 +1016,7 @@
 		
 		<<set $tasksTeacherBody.hairRemoval.status = 0>>\
 		<<set $tasksTeacherBody.hairRemoval_renewal.status = 0>>\
-		<<set $player.flags.teacherNoticeHairRemovalPerm = true>>\
+		<<set $flags.teacherNoticeHairRemovalPerm = true>>\
 		<<set $body.bodyhair = 3>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</LaserHairRemoval Teacher punishment>-->\
@@ -1161,7 +1161,7 @@
 		<<set $tasksTeacherBody.assIncrease.status = 0>>\
 		<<set $tasksTeacherBody.assMaintain.status = 0>>\
 		<<set $tasksTeacherBody.assMaintainXL.status = 0>>\
-		<<set $player.flags.teacherNoticeAssEnhancing = true>>\
+		<<set $flags.teacherNoticeAssEnhancing = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</AssEnhancing Teacher punishment>-->\
 	<<elseif ($scene eq "LipsEnhancing")>><!--<LipsEnhancing Teacher punishment>-->\
@@ -1188,7 +1188,7 @@
 		<<set $body.lips = 1>>\
 		<<set $tasksTeacherBody.lipsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.lipsMaintain.status = 0>>\
-		<<set $player.flags.teacherNoticeLipsEnhancing = true>>\
+		<<set $flags.teacherNoticeLipsEnhancing = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</LipsEnhancing Teacher punishment>-->\
 	<<elseif ($scene eq "AssEnhancingXL")>><!--<AssEnhancingXL Teacher punishment>-->\
@@ -1217,7 +1217,7 @@
 		<<set $tasksTeacherBody.assIncrease.status = 0>>\
 		<<set $tasksTeacherBody.assMaintain.status = 0>>\
 		<<set $tasksTeacherBody.assMaintainXL.status = 0>>\
-		<<set $player.flags.teacherNoticeAssEnhancingXL = true>>\
+		<<set $flags.teacherNoticeAssEnhancingXL = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</AssEnhancingXL Teacher punishment>-->\
 	<<elseif ($scene eq "LipsEnhancingXL")>><!--<LipsEnhancingXL Teacher punishment>-->\
@@ -1251,7 +1251,7 @@
 		<<set $tasksTeacherBody.lipsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.lipsMaintain.status = 0>>\
 		<<set $tasksTeacherBody.lipsMaintainXL.status = 0>>\
-		<<set $player.flags.teacherNoticeLipsEnhancingXL = true>>\
+		<<set $flags.teacherNoticeLipsEnhancingXL = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</LipsEnhancingXL Teacher punishment>-->\
 	
@@ -1278,7 +1278,7 @@
 	<<endif>>\
 	<<set $tasksTeacherBody.makeup.status = 0>>\
 	<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
-	<<set $player.flags.teacherNoticeSubtleMakeup = true>>\
+	<<set $flags.teacherNoticeSubtleMakeup = true>>\
 	<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</SubtleMakeup Teacher punishment>-->\
 	<<elseif ($scene eq "NormalMakeup")>><!--<NormalMakeup Teacher punishment>-->\
@@ -1304,7 +1304,7 @@
 		<<endif>>\
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
-		<<set $player.flags.teacherNoticeNormalMakeup = true>>\
+		<<set $flags.teacherNoticeNormalMakeup = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</NormalMakeup Teacher punishment>-->\
 	<<elseif ($scene eq "HeavyMakeup")>><!--<HeavyMakeup Teacher punishment 6+>-->\
@@ -1342,7 +1342,7 @@
 		<<endif>>\
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
-		<<set $player.flags.teacherNoticeHeavyMakeup = true>>\
+		<<set $flags.teacherNoticeHeavyMakeup = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</HeavyMakeup Teacher punishment>-->\
 	<<elseif ($scene eq "PermanentHeavyMakeup")>><!--<PermanentHeavyMakeup Teacher punishment>-->\
@@ -1402,7 +1402,7 @@
 		<<set $body.manicure = 1>>\
 		<<set $tasksTeacherBody.manicure.status = 0>>\
 		<<set $tasksTeacherBody.manicure_renewal.status = 0>>\
-		<<set $player.flags.teacherNoticeManicure = true>>\
+		<<set $flags.teacherNoticeManicure = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</Manicure Teacher punishment>-->\
 	<<elseif ($scene eq "GarishManicure")>><!--<GarishManicure Teacher punishment>-->\
@@ -1413,7 +1413,7 @@
 		<<set $body.manicure = 2>>\
 		<<set $tasksTeacherBody.manicure.status = 0>>\
 		<<set $tasksTeacherBody.manicure_renewal.status = 0>>\
-		<<set $player.flags.teacherNoticeManicurePerm = true>>\
+		<<set $flags.teacherNoticeManicurePerm = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</GarishManicure Teacher punishment 7+>-->\
 
@@ -1437,7 +1437,7 @@
 		<<set $body.boobs = 1>>\
 		<<set $tasksTeacherBody.breastsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
-		<<set $player.flags.teacherNoticeBreastsA = true>>\
+		<<set $flags.teacherNoticeBreastsA = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</breastImplantsA Teacher punishment>-->\
 	<<elseif ($scene eq "breastImplantsB")>><!--<breastImplantsB Teacher punishment>-->\
@@ -1460,8 +1460,8 @@
 		<<set $body.boobs = 2>>\
 		<<set $tasksTeacherBody.breastsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
-		<<set $player.flags.teacherNoticeBreastsB = true>>\
-		<<set $player.flags.teacherNoticeBreastsA = true>>\
+		<<set $flags.teacherNoticeBreastsB = true>>\
+		<<set $flags.teacherNoticeBreastsA = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</breastImplantsB Teacher punishment>-->\
 	<<elseif ($scene eq "breastImplantsC")>><!--<breastImplantsC Teacher punishment>-->\
@@ -1484,9 +1484,9 @@
 		<<set $body.boobs = 3>>\
 		<<set $tasksTeacherBody.breastsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
-		<<set $player.flags.teacherNoticeBreastsC = true>>\
-		<<set $player.flags.teacherNoticeBreastsB = true>>\
-		<<set $player.flags.teacherNoticeBreastsA = true>>\
+		<<set $flags.teacherNoticeBreastsC = true>>\
+		<<set $flags.teacherNoticeBreastsB = true>>\
+		<<set $flags.teacherNoticeBreastsA = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</breastImplantsC Teacher punishment>-->\
 	<<elseif ($scene eq "breastImplantsDD")>><!--<breastImplantsDD Teacher punishment>-->\
@@ -1511,10 +1511,10 @@
 		<<set $body.boobs = 4>>\
 		<<set $tasksTeacherBody.breastsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
-		<<set $player.flags.teacherNoticeBreastsDD = true>>\
-		<<set $player.flags.teacherNoticeBreastsC = true>>\
-		<<set $player.flags.teacherNoticeBreastsB = true>>\
-		<<set $player.flags.teacherNoticeBreastsA = true>>\
+		<<set $flags.teacherNoticeBreastsDD = true>>\
+		<<set $flags.teacherNoticeBreastsC = true>>\
+		<<set $flags.teacherNoticeBreastsB = true>>\
+		<<set $flags.teacherNoticeBreastsA = true>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</breastImplantsDD Teacher punishment>-->\
 	
@@ -1554,7 +1554,7 @@
 		
 		@@.reward;You now have a wide upturned nose, that gives your face a piggy look!@@
 		
-		<<set $player.flags.teacherNoticeNosePiggy = true>>\
+		<<set $flags.teacherNoticeNosePiggy = true>>\
 		<<set $body.nose = 3>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</nosePiggy Teacher punishment>-->\
@@ -1653,7 +1653,7 @@
 		<<set _item=$items.PiercingTongue>>\
 		@@.teacher;"Let’s get your tongue pierced! I usually don't approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you. It may also have other benefits."@@
 		
-		<<set $player.flags.teacherNoticePiercingTongue = true>>\
+		<<set $flags.teacherNoticePiercingTongue = true>>\
 		<<addToInv _item.id>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</PiercingTongue Teacher punishment>-->\
@@ -1661,7 +1661,7 @@
 		<<set _item=$items.PiercingNipples>>\
 		@@.teacher;"Oh, nipple piercings will look so sexy on you. I’m sure you’ll just love it when they're tugged."@@
 		
-		<<set $player.flags.teacherNoticePiercingNipples = true>>\
+		<<set $flags.teacherNoticePiercingNipples = true>>\
 		<<addToInv _item.id>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</PiercingNipples Teacher punishment>-->\
@@ -1669,7 +1669,7 @@
 		<<set _item=$items.PiercingLips>>\
 		@@.teacher;"Let’s get your lips pierced! I usually do not approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you."@@
 		
-		<<set $player.flags.teacherNoticePiercingLips = true>>\
+		<<set $flags.teacherNoticePiercingLips = true>>\
 		<<addToInv _item.id>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</PiercingLips Teacher punishment>-->\
@@ -1677,7 +1677,7 @@
 		<<set _item=$items.PiercingBelly>>\
 		@@.teacher;"Oh - a belly piercing would look so sexy on you. Make sure you wear some revealing clothes to show it off."@@
 		
-		<<set $player.flags.teacherNoticePiercingBelly = true>>\
+		<<set $flags.teacherNoticePiercingBelly = true>>\
 		<<addToInv _item.id>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</PiercingBelly Teacher punishment>-->\
@@ -1685,7 +1685,7 @@
 		<<set _item=$items.PiercingNose>>\
 		@@.teacher;"Let’s get your nose pierced! I usually do not approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you."@@
 		
-		<<set $player.flags.teacherNoticePiercingNose = true>>\
+		<<set $flags.teacherNoticePiercingNose = true>>\
 		<<addToInv _item.id>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
 	<!--</PiercingNose Teacher punishment>-->\
@@ -2043,14 +2043,14 @@
 	<!--<Punishments default end>-->\
 <<if _defaultPunishmentEnd>>\
 	<<if window.timeCode.isMonday()>>\
-		<<if $player.flags.walletForgottenStart>>\
-			<<set $player.flags.walletForgottenEnd = true>>\
+		<<if $flags.walletForgottenStart>>\
+			<<set $flags.walletForgottenEnd = true>>\
 		<<endif>>\
 	<<else>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity) and (not $player.flags.lockedWeekend) and (not $player.flags.chastityAgree) and $player.flags.chastityKey>>\
+		<<if playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
 			Finally, $teacher unlocks your chastity cage.
 			
-			<<set $player.flags.chastityLocked = false>>\
+			<<set $flags.chastityLocked = false>>\
 		<<endif>>\
 	<<endif>>\
 	<<set $player.tasks.refusedToPay = false>>\
@@ -2058,7 +2058,7 @@
 		<<if window.clothes.dressedTherapy.check()>>\
 			[[Visit therapist][$time.addMinutes(120);$player.therapistLastDay=$time.day]]
 		<<else>>\
-			<<notDressed "Visit therapist" $reason>>
+			<<notDressed "Visit therapist" $reason.dressedTherapy>>
 		<<endif>>\
 	<<endif>>\
 	<<if window.timeCode.isMallOpen>>\

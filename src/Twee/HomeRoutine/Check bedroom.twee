@@ -1,0 +1,186 @@
+:: Check bedroom [pos_1273_215]
+\
+<span id="room_window">\
+<<if $showimages>>\
+	<<if $player.room.morning neq 0>>\
+		<<set $roomSize = $player.room.morning - 2>>\
+		<<set $player.room.morning = 0>>\
+	<<endif>>\
+	<<if $player.room.drawer>>\
+		<<display "Show drawer">>\
+	<<else>>\
+		<<display "Show bedroom">>\
+	<<endif>>\
+\
+	<<if $roomSize gt 0>>\
+		@@.avatar_text_size_d;<<print '<<click " ↓ ">><<set $roomSize-->><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>@@\
+	<<endif>>\
+	<<if $roomSize lt 6>>\
+		@@.avatar_text_size_u;<<print '<<click " ↑ ">><<set $roomSize++>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>@@\
+	<<endif>>\
+<<endif>>\
+\
+<<if $player.room.drawer>>\
+	<<print '<<click "Close drawer">><<set $player.room.drawer=false>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+<<else>>\
+<<if $player.room.style eq 0>>\
+	Your room looks very plain and boring.
+	
+	@@.hero;All there is on my wall is a photo from summer camp, a picture I drew long time ago of mom and me, and mom's old picture of dad. I really need to do something with my room.@@
+<<elseif $player.room.style eq 1>>\
+	Your room looks like a true gamer's lair. There are various posters from your favorite games and a cheap replica of a plasma assault rifle from Helo 44.
+<<elseif $player.room.style eq 2>>\
+	Your room looks very //punk//. 
+<<elseif $player.room.style eq 3>>\
+	With all these fantasy posters, your room looks a bit nerdy, but you like it that way.
+<<elseif $player.room.style eq 4>>\
+	Your room has an inspiring look with all these sport posters and that game timer clock. You admire the centerpiece of your collection - a signed jersey from your favorite player.
+<<elseif $player.room.style eq 5>>\
+	Your room looks very plain and boring. Pink bed covers and overall color scheme makes it an unmistakably girly room.
+<<elseif $player.room.style eq 6>>\
+	Your room looks like the dream bedroom of an underage, game-addicted girl. There are various posters from girly and cutesy games, and a stylized pink lampshade.
+<<elseif $player.room.style eq 7>>\
+	Your room looks very //punky// - bold posters, lots of red and a vintage Rockabilly flair. It looks like the room of a rebellious, attention-seeking girl.
+<<elseif $player.room.style eq 8>>\
+	With all these fantasy posters and magic-themed girls' toys, your room looks a like here lives a princess wannabe who hasn't grown out of it yet.
+<<elseif $player.room.style eq 9>>\
+	You room looks a stereotypical cheerleader's. Silly motivational posters, pompoms and a framed cheering magazine could've all made you smirk... if it wasn't your room.
+<<elseif $player.room.style eq 10>>\
+	With all that pink, cute posters and a plushy unicorn, this can only be the room of the girliest of girly girls. It's all yours.
+<<elseif $player.room.style eq 11>>\
+	Slut room.
+<<elseif $player.room.style eq 12>>\
+	Slut room.
+<<elseif $player.room.style eq 13>>\
+	Slut room.
+<<endif>>\
+
+\
+<<if $flags.redecorate and $time.hour lte 20 and ((not timeCode.isMonday()) or ($time.hour gte 15))>>\
+	<<if playerCode.owns(itemsC.roomGamer)>>\
+		<<if $player.room.style lte 4>>\
+			[[Decorate in gamer style|Check bedroom][$player.room.style=1;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<else>>\
+			[[Decorate in girl gamer style|Check bedroom][$player.room.style=6;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomPunk)>>\
+		<<if $player.room.style lte 4>>\
+			[[Decorate in punk style|Check bedroom][$player.room.style=2;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<else>>\
+			[[Decorate in punky style|Check bedroom][$player.room.style=7;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomGeek)>>\
+		<<if $player.room.style lte 4>>\
+			[[Decorate in geeky style|Check bedroom][$player.room.style=3;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<else>>\
+			[[Decorate in geeky style|Check bedroom][$player.room.style=8;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomSport)>>\
+		<<if $player.room.style lte 4>>\
+			[[Decorate in sport style|Check bedroom][$player.room.style=4;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<else>>\
+			[[Decorate in cheerleaders style|Check bedroom][$player.room.style=9;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomGirly)>>\
+		[[Decorate in girly girl style|Check bedroom][$player.room.style=10;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+	<<endif>>\
+	<<if $flags.roomFuschia>>\
+		[[Decorate in bright colorful style|Check bedroom][$player.room.style=11;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+	<<endif>>\
+	<<if $flags.roomOrchid>>\
+		[[Decorate in flowery style|Check bedroom][$player.room.style=12;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+	<<endif>>\
+	<<if $flags.roomBdsm>>\
+		[[Decorate in bdsm style|Check bedroom][$player.room.style=13;$time.addHours(2);$player.room.junk=[]]] (2 hours)
+	<<endif>>\
+	<<print '<<click "Basic lamp: black">><<set $player.room.lamp=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "red">><<set $player.room.lamp=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "blue">><<set $player.room.lamp=2>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<if playerCode.owns(itemsC.lampClassic) and $player.room.lamp neq 3>>\
+	<<print '<<click "Classic lamp">><<set $player.room.lamp=3>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<endif>>\
+	<<if playerCode.owns(itemsC.lampPurple) and $player.room.lamp neq 4>>\
+	<<print '<<click "Lamp purple">><<set $player.room.lamp=4>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<endif>>\
+	<<if playerCode.owns(itemsC.lampTube)>>\
+	<<print '<<click "Tube lamp: fuschia">><<set $player.room.lamp=5>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "pink">><<set $player.room.lamp=6>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "aqua">><<set $player.room.lamp=7>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "white">><<set $player.room.lamp=8>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "blue">><<set $player.room.lamp=9>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "green">><<set $player.room.lamp=10>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "red">><<set $player.room.lamp=11>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> @@.worn;-@@ \
+	<<print '<<click "black">><<set $player.room.lamp=12>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<endif>>\
+	[[Finish redecorating|Check bedroom][$flags.redecorate=false]]
+<<elseif timeCode.isMonday() and ($time.hour lt 15)>>\
+	<<click "Redecorate">><<replace "#tooearly">>@@.done; You need to go to school now@@<</replace>><</click>> <span id="tooearly"></span>
+<<elseif $time.hour gt 20>>\
+	<<click "Redecorate">><<replace "#toolate">>@@.done; It is too late to redecorate today@@<</replace>><</click>> <span id="toolate"></span>
+<<else>>\
+	<<print '<<click "Redecorate">><<set $flags.redecorate=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+<<endif>>\
+	<<print '<<click "Open drawer">><<set $player.room.drawer=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+
+<<if $player.debugA and (not $player.debug_room)>>\
+	<<print '<<click " debug on ">><<set $player.debug_room=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+<<elseif $player.debugA>>\
+	<<print '<<click " debug off ">><<set $player.debug_room=false>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<print '<<click "Boys basic">><<set $player.room.style=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "gamer">><<set $player.room.style=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "punk">><<set $player.room.style=2>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "geek">><<set $player.room.style=3>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "sport">><<set $player.room.style=4>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<print '<<click "Girls basic">><<set $player.room.style=5>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "gamer">><<set $player.room.style=6>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "punk">><<set $player.room.style=7>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "geek">><<set $player.room.style=8>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "sport">><<set $player.room.style=9>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "girly">><<set $player.room.style=10>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<print '<<click "room_slut a">><<set $player.room.style=11>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> - \
+	<<print '<<click "b">><<set $player.room.style=12>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> - \
+	<<print '<<click "c">><<set $player.room.style=13>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+
+	<<if $player.room.style lte 4>>\
+	<<print '<<click " more junk ">><<set $player.room.junk[random($player.room.junkMax)]=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<else>>\
+	<<print '<<click " more junk ">><<set $player.room.junk[random($player.room.junkMaxGirl)]=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<endif>>\
+	<<print '<<click " clean junk ">><<set $player.room.junk=[]>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<if $player.room.laptop>>\
+	<<print '<<click " laptop ">><<set $player.room.laptop=false>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<else>>\
+	<<print '<<click " laptop ">><<set $player.room.laptop=true>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>>
+	<<endif>>\
+\
+	<<print '<<click " jacket 0">><<set $player.room.jacket=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click " 1">><<set $player.room.jacket=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	
+	<<print '<<click "tie 0">><<set $player.room.tie=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "1">><<set $player.room.tie=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "2">><<set $player.room.tie=2>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "3">><<set $player.room.tie=3>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+
+	<<print '<<click " girljacket 0">><<set $player.room.girljacket=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click " 1">><<set $player.room.girljacket=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	
+	<<print '<<click "skirt 0">><<set $player.room.skirt=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "1">><<set $player.room.skirt=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "2">><<set $player.room.skirt=2>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	
+	<<print '<<click "girls tie 0">><<set $player.room.girlstie=0>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "1">><<set $player.room.girlstie=1>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+	<<print '<<click "2">><<set $player.room.girlstie=2>><<replace "#room_window">><<display "Check bedroom">><</replace>><</click>>'>> \
+
+<<endif>>\
+<<endif>>\
+
+[[Return|Go to bedroom][$player.room.drawer=false]]
+</span>\
+\
+
+

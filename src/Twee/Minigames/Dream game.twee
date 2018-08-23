@@ -9,9 +9,9 @@
 	
 	[[Have breakfast][$time.hour=$time.guardian.wakeHour;$time.minute=$time.guardian.wakeMinute]]
 <<elseif $minigames.dreamgame.win>>\
-	<<if (not $player.flags.dreamgameCaughtWin)>>\
-		<<set $player.flags.dreamgameCaughtWin=true>>\
-		<<set $player.flags.dreamgameCaught=true>>\
+	<<if (not $flags.dreamgameCaughtWin)>>\
+		<<set $flags.dreamgameCaughtWin=true>>\
+		<<set $flags.dreamgameCaught=true>>\
 	<<endif>>\
 	<<print window.dreamMinigame.getActionById($minigames.dreamgame.lastActionId).action>>
 	

@@ -1,0 +1,48 @@
+:: Peep on guardian [pos_1923_314]
+\
+	<!--<clothes check for guardian>-->\
+<<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\
+	<<if $player.perversion.guardian lte 2>>\
+		<<wearClothing $items.pyjamasMale.id>>\
+		You don't want $guardian to find out what you are wearing, so you quickly change to your regular pajamas.
+		
+	<<else>>\
+		<<if playerCode.isMind_0()>>\
+			You don't want to give $guardian anything else to tease you with, so you quickly change to your regular pajamas.
+			
+			<<wearClothing $items.pyjamasMale.id>>\
+		<<else>>\
+			This silky nightie is so soft and comfy that you can't bring yourself to change into your ordinary nightwear. $Guardian might tease you for it, but in your sleepy haze, you decide to roll with it.
+			
+			<<set $flags.nightieSleep = true>>\
+		<<endif>>\
+	<<endif>>\
+<<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+		<<wearClothing $items.silkyTeddy.id>>\
+		You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
+		
+	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+		<<wearClothing $items.pyjamasMale.id>>\
+		You don't feel comfortable being naked around $guardian, so you put on your pajamas.
+		
+	<<endif>>\
+<<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
+	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+		<<wearClothing $items.silkyTeddy.id>>\
+		You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
+		
+	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+		<<wearClothing $items.pyjamasMale.id>>\
+		You don't feel comfortable having only your underwear on around $guardian, so you put on your pajamas.
+		
+	<<endif>>\
+<<endif>>\
+	<!--</clothes check for guardian>-->\
+You walk as quietly as you can to $guardian's room and open the door. Her gentle, deep breathing assures you she's asleep. It's difficult to see in here.
+<<set window.dreamMinigame.reset()>>\
+<<set $minigames.dreamgame.playedToday to true>>\
+<<display [[Dream game]]>>\
+\
+
+

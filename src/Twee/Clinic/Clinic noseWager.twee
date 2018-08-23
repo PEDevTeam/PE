@@ -118,7 +118,7 @@
 	<<endif>>\
 	<<set _item=itemsC.nosePiggy>>\
 	<<addToInv _item.id>>\
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 
 	@@.nurse;"You won't regret it!"@@  She exclaims and her eyes beam with such excitement, that it feels almost scary to be the focus of her attention.
 	
@@ -138,13 +138,13 @@
 	<<if ($body.nose eq 3)>>\
 		<<removeFromInv $items.nosePiggy.id>>\
 	<<endif>>\
-	<<if $player.flags.salonPickNose>>\
+	<<if $flags.salonPickNose>>\
 		<<set _item=itemsC.noseClassic>>\
 	<<else>>\
 		<<set _item=itemsC.noseButton>>\
 	<<endif>>\
 	<<addToInv _item.id>>\
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 	Nancy takes you to the back room of the salon.
 
 	@@.nurse;"Now, this may hurt a little bit,"@@ she states.  @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
@@ -153,7 +153,7 @@
 
 	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
 
-	<<if $player.flags.salonPickNose>>\
+	<<if $flags.salonPickNose>>\
 		@@.reward;You now have a beautiful classic straight nose!@@
 	<<else>>\
 		@@.reward;You now have a cute button nose!@@
@@ -165,7 +165,7 @@
 	<!-- this version of Makeover is outdated, now one is in semi-permanent mods part -->\
 	
 	Nancy takes you to the back room of the salon.
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 
 	<<if ($player.salonTab lt $player.salonLimit) or true>>\
 		<<if $player.salonTab gt $player.salonSoftLimit>>\
@@ -203,7 +203,7 @@
 			<<set _item=itemsC.NormalMakeup>>\
 			<<addToInv _item.id>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
-			<<set $player.flags.salonMakeup=true>>\
+			<<set $flags.salonMakeup=true>>\
 
 			Nancy has you sit in a spa chair.
 
@@ -240,7 +240,7 @@
 			@@.reward;You got a set of hoop earrings!@@
 			<<if ($body.makeup eq 2)>>\
 				<<set $player.salonTab += window.itemF.cost(_item)>>\
-				<<set $player.flags.salonMakeup=true>>\
+				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 
 				<<endif>>\
@@ -262,7 +262,7 @@
 			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
 				<<set _item=itemsC.NormalMakeup>>\
 				<<set $player.salonTab += window.itemF.cost(_item)>>\
-				<<set $player.flags.salonMakeup=true>>\
+				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
 
@@ -273,7 +273,7 @@
 			<<set _item=itemsC.LipsEnhancing>>\
 			<<addToInv _item.id>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
-			<<set $player.flags.salonLips=true>>\
+			<<set $flags.salonLips=true>>\
 			@@.nurse;"This may sting a bit, but it should pass quickly,"@@ She says as she retrieves a needle from a case and starts to work on your lips.
 			
 			After only a few minutes, your lips are much fuller and look much sexier!
@@ -286,7 +286,7 @@
 			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
 			<<set _item=itemsC.NormalMakeup>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
-			<<set $player.flags.salonMakeup=true>>\
+			<<set $flags.salonMakeup=true>>\
 			@@.reward;Nancy freshens up your makeup.@@
 
 			<<endif>>\
@@ -297,7 +297,7 @@
 			<<set _item=itemsC.Manicure>>\
 			<<addToInv _item.id>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
-			<<set $player.flags.salonManicure to true>>\
+			<<set $flags.salonManicure to true>>\
 			Nancy has you sit in the spa chair, soaking your feet in some water while she works on your nails.
 			
 			@@.nurse;"These nails should last about a week,"@@ she states as she gets to work.
@@ -313,12 +313,12 @@
 			@@.reward;You now have a beautiful French manicure and pedicure!@@
 			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
 				<<set $player.salonTab += itemsC.NormalMakeup.cost>>\
-				<<set $player.flags.salonMakeup=true>>\
+				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
 			<<if ($body.permLips lt $body.lips)>>\
 				<<set $player.salonTab += itemsC.LipsEnhancing.cost>>\
-				<<set $player.flags.salonLips=true>>\
+				<<set $flags.salonLips=true>>\
 				@@.reward;Nancy renews your lips boost.@@
 			<<endif>>\
 
@@ -328,17 +328,17 @@
 		<<else>>\
 			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
 				<<set $player.salonTab += itemsC.NormalMakeup.cost>>\
-				<<set $player.flags.salonMakeup=true>>\
+				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
 			<<if ($body.permLips lt $body.lips)>>\
 				<<set $player.salonTab += itemsC.LipsEnhancing.cost>>\
-				<<set $player.flags.salonLips=true>>\
+				<<set $flags.salonLips=true>>\
 				@@.reward;Nancy renews your lips boost.@@
 			<<endif>>\
 			<<if (not ($body.manicure eq 2))>>\
 				<<set $player.salonTab += itemsC.Manicure.cost>>\
-				<<set $player.flags.salonManicure=true>>\
+				<<set $flags.salonManicure=true>>\
 				@@.reward;Nancy renews your manicure.@@
 			<<endif>>\
 

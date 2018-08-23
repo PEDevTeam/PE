@@ -1,6 +1,6 @@
 :: School assistant [pos_248_1433]
 \
-<<set $player.flags.assistantSatisfied = true>>\
+<<set $flags.assistantSatisfied = true>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
@@ -40,14 +40,14 @@
 		<<endif>>\
 		
 		<<print '[[Let '+$futa.him_her+' grope you|School assistant][$random.stored=1]]'>>
-		[[Walk away|Finish school][$player.flags.assistantSatisfied=false]]
+		[[Walk away|Finish school][$flags.assistantSatisfied=false]]
 	<<elseif ($random.stored eq 0)>>\
 		As usual you walk to the Miss Willow's class. As you work you nervously glance at her assistant, who winks at you and wiggles $futa.his_her eyebrows exaggeratedly.
 		
 		But when Miss Willow sends you to the storage room the $futa.boy_girl makes $futa.his_her advances again.
 		
 		<<print '[[Let '+$futa.him_her+' grope you|School assistant][$random.stored=1]]'>>
-		[[Walk away|Finish school][$player.flags.assistantSatisfied=false]]
+		[[Walk away|Finish school][$flags.assistantSatisfied=false]]
 	<<elseif ($random.stored eq 1)>>\
 		<<showImage "general" "bended_over.gif">>\
 		<<set $player.perversion.assistant = 2>>\

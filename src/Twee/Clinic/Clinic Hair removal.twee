@@ -5,7 +5,7 @@
 <<if ($body.bodyhair eq 3)>>\
 	Nancy smiles and tells you that you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever, aren't you so glad?  Only men, and boys, have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
 
-<<elseif not $player.flags.salonHairRemoval>>\
+<<elseif not $flags.salonHairRemoval>>\
 	Nancy smiles and ask if you want depilatory, waxing or maybe a more permanent solution?
 
 	<img id="item_preview" class="hidden">\
@@ -43,7 +43,7 @@
 		<<set _item=itemsC.Waxing>>\
 		<<buyItem _item.id>>\
 		<<set $body.bodyhair = 1>>\
-		<<set $player.flags.salonHairRemoval to true>>\
+		<<set $flags.salonHairRemoval to true>>\
 		Nancy leads you to one of the salon's spa chairs, helping you settle into a reclined position. She asks you to take off your clothing and shoes to give her access to your legs. You do, leaving your legs completely exposed.
 
 		She rolls a small, castered table over to your chair. On it rests an assortment of jars, a container of large popsicle sticks, and what looks like a small slow-cooker with a metal pot in it. She slips on a pair of nitrile gloves and prepares her materials.
@@ -75,7 +75,7 @@
 		<<set _item=itemsC.Depilatory>>\
 		<<buyItem _item.id>>\
 		<<set $body.bodyhair = 2>>\
-		<<set $player.flags.salonHairRemoval to true>>\
+		<<set $flags.salonHairRemoval to true>>\
 		Nancy takes you to a private spa room, makes you strip down. Once you've taken your clothes off, she has you lay down on the salon table.
 
 		Donning clear plastic gloves, she takes an applicator and begins to coat your body in the salon's special hair removal cream. When she's finished, she removes her gloves and checks the time.

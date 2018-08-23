@@ -1,0 +1,288 @@
+:: The Club Intro [pos_216_1085]
+\
+<<if $player.perversion.club gte 1>>/*  DefaultEntrance  */\
+	As evening settles, you arrive at the block where the club is. The entire street seems to resonate with energy and sound before you even lay eyes on the venue itself: an old, multistory factory hull, now resurrected, radically contemporary, and bursting with vivid motion. Graphics pulse, stream and flow across enormous displays across the front, traced in rays of neon. The rumble of dance music and the buzz of the crowds gathered at the entrance add even more to the sensational ambiance. 
+
+	Outside the club’s doors, a lengthy queue of mostly guys waits to pay the cover charge. At the same time, ladies, alone and in groups, periodically pass the queue and head directly to the front. Once again, you take the ladies’ route, bypassing the huge wait in the line for guys.
+
+	<<if (playerCode.slutScoreBasic() lte 3)>>\
+		You recognize the big, black-suited bouncer, still keeping watch at the entrance. Sadly he refuses to let you in.
+		
+		You probably should do something with your appearance to look a bit more feminine if you want to get inside.
+		
+	<<elseif $flags.clubVIP>>\
+		<<if (not $flags.clubVIPfirst)>>\
+			<<set $flags.clubVIPfirst = true>>\
+			The head bouncer sees you approach, and he immediately closes the velvet cordon, suddenly cutting off the entrance line. He makes a radio call using a mic concealed in his suitcoat’s sleeve and starts walking rapidly towards you. You’re more than a little worried, given the difficulty you had with him in the past. 
+
+			As several more bouncers appear out of the crowd, striding purposely in your exact direction, you glance around nervously, wondering if you should run for it. They are definitely coming for you.
+
+			The head bouncer catches up to you before you can do anything. Oh, crap.
+
+			@@.clubBouncer1;“Good evening, ma’am,”@@ he says, taking up station at your side. @@.clubBouncer1;“If you would, please allow me to escort you in.”@@
+
+			Wait, what?
+
+			Two additional bouncers flank you, a few steps ahead of you on your right and left, and to your surprise, several more begin clearing the crowd out of your path. Suddenly, you connect the dots – it’s your VIP Special Membership. Apparently, it doesn’t just get you into the VIP Lounge.
+
+			The bouncer nearest you looks around, touching a finger to his ear, then speaks into his sleeve. @@.clubBouncer1;“Copy, control. VIP secure. We’re coming on property now.”@@
+
+			@@.clubBouncer1;“Right this way, ma’am,”@@ he says, graciously bending an arm to indicate the direction of the entrance. You start walking, and he follows you to the threshold, protectively moving two paces behind you with his hand kept at the ready on something concealed in his jacket. The bouncers ahead of you prevent anyone from approaching, and two more at the entrance open both double doors for you as you arrive.
+
+			@@.clubBouncer1;“Ma’am, please, enjoy your visit,”@@ the lead bouncer says, giving you a slight bow.
+
+			As you cross the foyer, you notice the inside security staff are discreetly keeping close at hand as well, and while they don’t blatantly put everyone in check like they did outside, you notice you have a little more freedom of movement than you had before.
+
+			[[Go inside|The Club][$scene="MainClub"]]
+		<<else>>\
+			The head bouncer spots you before you even set foot on the premises. You see him making a radio call in his sleeve, and a phalanx of suited security personnel quickly takes up position around you, clearing the crowd from your path. The head bouncer greets you, joining your escort as you pass the velvet cordon that holds back the huge line of those waiting to get in.
+
+			@@.clubBouncer1;“Good evening, ma’am. Welcome back,”@@ he says.
+
+			The team of bouncers leads you to the entrance once again, bypassing the entire crowd and delivering you directly to the threshold. There, two more bouncers open both the double doors for you.
+
+			@@.clubBouncer1;“Have an enjoyable evening, ma’am.”@@
+
+			[[Go inside|The Club][$scene="MainClub"]]
+		<<endif>>\
+	<<elseif $time.weekDay() eq 6>>\
+		You recognize the big, black-suited bouncer, still keeping watch at the entrance. You flash your pink admission bracelet to him. With a nod of recognition, he directs you towards the entrance. Since today is ladies night, your bracelet gets you in for free.
+		
+		[[Go inside|The Club][$scene="MainClub"]]
+	<<else>>\
+		You recognize the big, black-suited bouncer, still keeping watch at the entrance. You flash your pink admission bracelet to him. With a nod of recognition, he asks you for the $10 cover charge you need to get in the club tonight,\
+		<<if $player.money gte 10>>\
+			<<set $player.money -= 10>>\
+			so you quickly pay the fee. He directs you toward the entrance.
+			
+			[[Go inside|The Club][$scene="MainClub"]]
+		<<else>>\
+			but you realize you don’t have the money. He won’t let you in.
+
+			@@.clubBouncer1;“It’s only free for ladies on Saturday nights. Tonight, if you don’t pay, you don’t play.”@@
+			
+		<<endif>>\
+	<<endif>>\
+	[[Go home|Go to bedroom][$time.addMinutes(30)]]
+	<!--</DefaultEntrance>-->\
+<<elseif $scene eq "Entrance">><!--<Entrance>-->\
+	<<set window.wordsCode.setwords()>>\
+	You've heard a lot about this Club, but it's not a place you would usually go, or go at all. The club is ordinarily open on Friday, Saturday and Sunday night starting at 19-00 onward. It is free on Saturday for girls and about $////10 charge other nights. That's if guards would even let you in. The place is famous for being ellitist, with strict control of who gets inside, so it'll be a challenge to complete your task.
+	
+	As evening settles, you arrive at the block where the club is. The entire street seems to resonate with energy and sound before you even lay eyes on the venue itself. Then, you see it: an old, multistory factory hull, now resurrected, radically contemporary, and bursting with vivid motion. Graphics pulse, stream and flow across enormous displays across the front, traced in rays of neon. The rumble of dance music and the buzz of the crowds gathered at the entrance add even more to the sensational ambiance.
+	
+	Outside the club’s doors, a lengthy queue of mostly guys waits to pay the cover charge. At the same time, ladies, alone and in groups, periodically pass the queue and head directly to the front.
+
+	<<if playerCode.isMind_0()>>\
+		You can’t believe you’re actually going through with this, in such a public place. You’re not a lady! If $teacher wasn’t making you do this, you’d be over there, with those guys. Assuming you went to places like this, which you… don’t. Realizing you either try to get in for free as a girl, or wait until eternity with a bunch of guys… while you’re dressed like this… You resolve to put one foot in front of the other and just get it all over with.
+	<<elseif playerCode.isMind_1()>>\
+		It’s ladies’ night, but you’re nervous as hell. In the chill of the descending dusk, you are keenly aware of the bracing fit and feel of your feminine clothes against your body, but also of how they draw looks and glances from the many strangers around you. All your senses are full, and as you look around the crowded plaza, you are at once anxious and energized.
+	<<else>>\
+		You can’t quite contain the thrill of being in your feminine clothing in such a public place. The texture and weight of the cloth against your skin in the cooling evening air is something you are still not quite used to, though you are beginning to relish it. Looking around, you wonder at the looks and glances you receive. Do they see you as a girl?
+
+		You find yourself hoping that they do… not least because, right now, it will get you inside this club. Watching the preening guys, overly dressed in expensive, too-trendy attire and too much hair product, in wall-to-wall competition with one another, you are seriously relieved that you are not in that queue right now. Tonight is ladies’ night. You feel ready for it to be your night, too.
+	<<endif>>\
+
+	Manning the entrance door itself is an imposing bouncer clad in a dark bespoke suit and black sunglasses. He efficiently ushers only those he deems good to enter past the scarlet velvet cordon, handing each entrant a rubber bracelet as a token of passage. Turning aside those who are too intoxicated, too unkempt, or too uncool to get in – and there are many of each – he’s like a boulder on a shoreline, parting inbound waves with his immovable form.
+
+	[[Approach the bouncer|The Club Intro][$scene="ApproachBouncer"]]
+	<!--</Entrance>-->\
+<<elseif $scene eq "ApproachBouncer">><!--<ApproachBouncer>-->\
+	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
+
+	He stands motionless and unyielding, his expression totally devoid of empathy. You can’t really tell if he’s even looking at you or not, thanks to his sunglasses, yet you feel sure he’s staring right at you the whole way. You spot a small bundle of rubber entry bracelets dangling in his fingertips, however, and your eyes flit to it with hope.
+
+	As you get within his invisible circle of judgment, a minute tilt of his head is your only hint he’s even taken notice of you. After a very pregnant pause, he folds his hands together over his waist in a gesture signaling his disapproval. The coveted bracelets are tucked away in a motion, disappearing into the palm of one huge hand.
+
+	@@.clubBouncer1;“I don’t know who you’re supposed to be with that outfit on,”@@ he says, @@.clubBouncer1;“but you are missing what my boss calls, //’that little something special.’// So, no.”@@
+
+	The eyes of the nearby crowd begin to fall on you, paying attention to your predicament. If you’re going to do something to change his mind, it had better be quick.
+
+	[[Try talking your way in|The Club Intro][$scene="TalkWayIn"]]
+	[[Give up and leave|The Club Intro][$scene="GiveUp"]]
+	<!--</ApproachBouncer>-->\
+<<elseif $scene eq "TalkWayIn">><!--<TalkWayIn>-->\
+	@@.heroT;“Please,”@@ you say, @@.heroT;“I have to get in. Isn’t there anything I can do?”@@
+
+	The bouncer looks unimpressed with your plea. More accurately, his expression remains totally blank.
+
+	@@.heroT;“It’s important… but it’s not for me. It’s because I have to do something. For someone else.”@@
+
+	The bouncer’s chin shifts up and down slightly, and you get the sense he is looking you over, even though his blacked out glasses keep his eyes concealed. He pauses for a moment, then looks around before he turns back to you and responds.
+
+	@@.clubBouncer1;“Listen, I don’t do favors. I don’t care about your problems. I got no time for sob stories.”@@
+
+	You start to feel crestfallen at the bouncer’s hardline response.
+
+	@@.clubBouncer1;“What I do, is manage the door at this club. That job is about keeping things entertaining for our clientele. You make things more entertaining, maybe you can go in. If not, get lost.”@@
+
+	You look at him, unsure what he means.
+
+	@@.clubBouncer1;“Freestyle it. You do you. Make it interesting. Or get out of here. Your choice.”@@
+
+	You’d better do something quickly, or you aren’t getting in.
+
+	[[Try to show off some of your sweet dance moves|The Club Intro][$scene="TryDance"]]
+	[[Try to kiss a guy at the front of the queue|The Club Intro][$scene="KissGuy"]]
+	[[Go for a kiss with one of the girls waiting for the bouncer|The Club Intro][$scene="KissGirl"]]
+	<<if (not playerCode.isMind_0())>>\
+		[[Flash the bouncer ‘something special’|The Club Intro][$scene="FlashPanties"]]
+	<<endif>>\
+	[[Give up and leave|The Club Intro][$scene="GiveUp"]]
+	<!--</TalkWayIn>-->\
+<<elseif $scene eq "TryDance">><!--<TryDance>-->\
+	Not sure what else to do, your mind suddenly offers you an imaginary vignette in which you break into dance, shaking it like you mean it to earn your way into the club. 
+
+	In your head, you envision the perfect set of moves, flirty but confident, grooving out and showing off but not taking yourself too seriously. You dance like nobody’s watching, and you move with a sexy, flowing kind of motion that makes you feel good while you’re doing it. You picture it perfectly.
+
+	For one, shining and brilliant moment, you think to yourself... This just might work.
+
+	As goosebumps swarm over your body, you launch into your routine, much to the bouncer’s surprise. You start to wiggle and move, trying to get in time with the significant amount of beat escaping the club. But your inhibitions overwhelm you.
+
+	The larger problem is, you’ve belatedly remembered that you don’t know how to dance. You really don’t. Your arms do awkward, uncoordinated things. Your legs don’t cooperate, and your hip shaking game is not ready for prime time. Your fists ball up at the end of your bent arms like a rubber hose style cartoon character.
+
+	Sensing your disaster in progress, you make a last ditch move, putting on an exaggerated facial expression like a vaudeville comedian trying to charm his way out of a round of rotten tomatoes.
+
+	The bouncer lifts his sunglasses, an uncharacteristically puzzled look on his face.
+
+	@@.clubBouncer1;“What the hell just happened?”@@ he asks.
+
+	You freeze in your final pose, rooted to the spot, with your cheesy expression slowly fading. You look around and notice everyone nearby is staring at you, too. Some of them are still confused and debating whether it was meant to be a joke or not, while others point and laugh at you amongst themselves.
+
+	Yup. That could have gone better.
+
+	@@.clubBouncer1;“Get out of my face!”@@
+
+	You head home as fast as you can, face burning from embarrassment. Maybe you'll have better luck next time.
+	
+	[[Go home|Go to bedroom][$time.addMinutes(30); $tasksTeacher.TheClubIntro.status=2]]
+	<!--</TryDance>-->\
+<<elseif $scene eq "KissGuy">><!--<KissGuy>-->\
+	You’re dressed up like a girl, so you decide to use it to your advantage. Though you’re incredibly nervous, the small amount of time you have to decide what to do gives you a quick adrenaline boost that makes it less difficult to just go for it. You close your eyes, breathe in, then turn around and open them, stepping quickly towards the front-most guy waiting in line at the rope.
+
+	You take a quick look at your unsuspecting kissing partner –\
+	<<switch random(2)>>\
+	<<case 0>>\
+		He’s a young, trim-looking guy dressed up in a sporty suit. He wears a tweed vest under his unbuttoned coat, and a stylish, half-loosed tie with a coordinating pocket square. He’s chatting with his friends when you catch him mostly unaware.
+	<<case 1>>\
+		He’s a fit man firmly into his adulthood, bald-shaven up top but purposely scruffy around his face. He wears a button-up shirt with the cuffs rolled at the wrists, and has a rugged, top-heavy appearance that hints at a physical lifestyle. He seems mildly surprised by your approach, but an intrigued smile crosses his mouth.
+	<<default>>\
+		He’s a leanly-built young man with a tightly-groomed appearance, wearing a form-fitting shirt embroidered with a monotone paisley pattern. His look is completed by a razor-straight goatee, tight slacks and highly-shined, long-toed dress shoes. He spots you just before you reach him, cocking his head to get a look at you with piqued curiosity.
+	<</switch>>\
+	You can’t believe you’re doing this, but you reach for his face, lean in and plant a kiss on him, straight on. You suffer from lack of experience in the kissing department, not quite knowing what to do next. Your partner is even more unprepared than you, surprise filling his eyes at suddenly being lip-locked.
+
+	<<switch random(2)>>\
+	<<case 0>>\
+		Fortunately, your initially startled recipient is willing to go along with your plan. He returns the kiss with unexpected enthusiasm, grabbing your waist with one hand and slipping a hand gently behind your head with the other. His lips come together with yours far more eagerly than you anticipated. Before you know it, your tongue is entwined with his inside your own mouth and you’re the one getting kissed.
+
+		He dips you backwards, adding a strange, giddy-yet-dizzy feeling to the moment, and then stands you back on your feet. He laughs, gives you a second, much simpler kiss on the cheek, and lets you go.
+	<<case 1>>\
+		An astonished moan comes from your partner’s throat, and he goes completely stiff for the first few seconds. To your relief, it doesn’t last long. He relaxes a little, and then returns your kiss. To your good fortune, he seems to know what he’s doing, and the awkward kiss you started melts into something much softer and more pleasant. It goes on for a short while, and then you both pull away.
+
+		He breaks into a silly grin that helps defray some of the tension, and he squeezes your hand before waving goodbye to you in confused amusement.
+	<<default>>\
+		You quickly discover that neither one of you has any idea what to do next. Your partner’s wide eyes stare into yours for the several seconds your lips stay firmly in contact. For all his worldly appearance, he seems just as uncomfortable and nervous as you are. 
+
+		Experimentally, you open your lips slightly and gently touch his with your own. He relaxes into it in turn, and the feeling of the kiss becomes far more pleasant for you both. It isn’t exactly one for the ages, but as the sensation softens, it doesn’t feel half bad. As you pull away, his eyes go a little dreamy for the briefest moment, and then you both share a laugh as your nerves get the better of you again.
+	<</switch>>\
+	
+	@@.hero;\
+	<<switch playerCode.isMind()>>\
+	<<case 0>>I hope that got me into the club. Even if it didn’t feel too bad, I just had to kiss a //guy.//
+	<<case 1>>I hope the bouncer is satisfied. After all, it wasn’t that bad, even if it was with a guy.
+	<<case 2>>I still feel a little tingly after that kiss. I hope the bouncer enjoyed it, too.
+	<<default>>\
+	<</switch>>\
+	@@\
+
+	You mouth a quick thank you to your still-confused partner, mirroring his befuddled smile as you turn and step back towards the bouncer. Maintaining stoic passivity, the bouncer just nods a little bit, then hands you a bracelet and motions you towards the club entrance.
+
+	@@.clubBouncer1;“Well, that was cute. You can go in.”@@
+
+	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	<!--</KissGuy>-->\
+<<elseif $scene eq "KissGirl">><!--<KissGirl>-->\
+	Even though you’re dressed up like one, you’d still much rather kiss a girl. Though you’re incredibly nervous, the small amount of time you have to decide what to do gives you a quick adrenaline boost, and you just go for it. You close your eyes, breathe in, open them and then turn around, quickly stepping forward to the front-most girl waiting behind you for the bouncer.
+
+	You take a quick look at your unsuspecting kissing partner –\
+	<<switch random(2)>>\
+	<<case 0>>\
+		She’s a younger woman wearing a shimmery, halter bodycon dress, strappy heels and a small leather purse suspended from her mostly-naked shoulder by a gold chain. Her make-up, eyebrow threading and shoulder-length hair have all been carefully styled, matching the care she clearly applies to her trim figure. Her eyes meet yours with a questioning look as you approach her.
+	<<case 1>>\
+		She’s an athletically-built girl wearing a clingy sweater dress that hugs her figure from her ponytail-covered hairline to the middle of her smooth thighs. Classic glamour make-up draws attention to her best features, including her deep brown eyes and gorgeously full lips. She glances up at you as you head her way, measuring you with a bit of interest.
+	<<default>>\
+		She’s a curvy, mature woman dressed in a flattering maxi dress, in which strategically placed cutouts reveal alluring amounts of her body without compromising her elegance. She carries a tiny handbag around her bent elbow, complemented by a cluster of precious metal bangles that encircle her opposite wrist. She turns her head toward you as you walk towards her, framing her cheekbones with the waves of her long hair. Her eyes, cast in relief below her smoky eyeshadow, study you closely.
+	<</switch>>\
+
+	You can’t believe you’re doing this, but you reach for her face, lean in and plant a kiss on her, straight on. You suffer from lack of experience in the kissing department, not quite knowing what to do next. Your partner is even more unprepared than you, surprise filling her eyes at suddenly being lip-locked.
+
+	<<switch random(1)>>\
+	<<case 0>>\
+		Fortunately, your initially startled recipient is willing to go along with your plan. She returns the kiss with unexpected enthusiasm, grabbing your waist with one hand and slipping a hand gently behind your head with the other. Her lips come together with yours far more eagerly than you anticipated. Before you know it, your tongue is entwined with hers inside your own mouth and you’re the one getting kissed.
+
+		She dips you backwards, adding a strange, giddy-yet-dizzy feeling to the moment, and then stands you back on your feet. She laughs, gives you a second, much simpler kiss on the cheek, and lets you go.
+	<<case 1>>\
+		An astonished moan comes from your partner’s throat, and she goes completely stiff for the first few seconds. To your relief, it doesn’t last long. She relaxes a little, and then returns your kiss. To your good fortune, she seems to know what she’s doing, and the awkward kiss you started melts into something much softer and more pleasant. It goes on for a short while, and then you both pull away.
+
+		She breaks into a silly grin that helps defray some of the tension, and she squeezes your hand before waving goodbye to you in confused amusement.
+	<<default>>\
+		You quickly discover that neither one of you has any idea what to do next. Your partner’s wide eyes stare into yours for the several seconds your lips stay firmly in contact. For all her worldly appearance, she seems just as uncomfortable and nervous as you are.
+
+		Experimentally, you open your lips slightly and gently touch hers with your own. She relaxes into it in turn, and the feeling of the kiss becomes far more pleasant for you both. It isn’t exactly one for the ages, but as the sensation softens, it doesn’t feel half bad. As you pull away, her eyes go a little dreamy for the briefest moment, and then you both share a laugh as your nerves get the better of you again.
+	<</switch>>\
+
+	You mouth a quick thank you to your still-confused partner, mirroring her befuddled smile as you turn and step back towards the bouncer. Maintaining stoic passivity, he just nods a little bit, then hands you a bracelet and motions you towards the club entrance.
+
+	@@.clubBouncer1;“Well, that was cute. You can go in.”@@
+
+	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	<!--</KissGirl>-->\
+<<elseif $scene eq "FlashPanties">><!--<FlashPanties>-->\
+	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+	@@.hero;“Here goes nothing,”@@ you say to yourself.
+
+	You lift the front hem of your outer clothes and gingerly pull the fabric to your waist.\
+	<<if _u>>\
+		You also find the waistband of your underwear and tug it down a few inches so your $penis is exposed. The brisk air now feels perceptibly cooler with your intimate parts bared.
+	<<else>>\
+		Your $penis falls into view as its veil is lifted, the brisk air becoming noticeably cooler with your intimate parts exposed.
+	<<endif>>\
+
+	Luckily the view is obscured for most of the crowd, so only few people could notice your //extra// parts, but it still feels like suddenly everyone in the line saw it. You stand as demurely in front of the bouncer as you can, looking up at him with soft, pleading eyes. You hope to heaven that doing this gets you in – you know you’ll never be able to show your face here again if it doesn’t.
+	
+	<<switch playerCode.isMind()>>\
+	<<case 0>>@@.hero;What the hell I was thinking?!@@
+	<<case 1>>@@.hero;Oh crap, is he going to make fun of me? What will everyone say?@@
+	<<default>>@@.hero;It is so thrilling... I mean humiliating. Yes, humiliating.@@
+	
+	Your $penis twitches at the thought of people around calling you a slut.
+	<</switch>>\
+
+	To your surprise, the bouncer lifts his sunglasses up, taking a measured moment to look you over. At first, his eyes reveal some surprise of his own. Then, something else – wait, did he just check you out? One of his eyebrows rises slightly, paired by a very subtle change in his expression.
+
+	@@.clubBouncer1;“Well, damn, //girl//,”@@ he says, deadpan. @@.clubBouncer1;“I guess I was wrong. I see you do have a little something special... for real. Go on in.”@@
+
+	Gingerly handing you a pink rubber bracelet, he lifts the cordon and extends a palm in the direction of the club entrance. At this, you catch scattered catcalls and applause from a couple of guys in the line, along with some cruder comments from others.
+
+	Still, you got in!
+
+	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	<!--</FlashPanties>-->\
+<<elseif $scene eq "GoInside">><!--<GoInside>-->\
+	You traverse a small foyer and enter a second set of double doors, crossing the threshold into the massive main club.
+
+	On encountering the cavernous main floor for the first time, you’re bedazzled by the sheer volume of stimulation flooding your senses at once. You feel the music reverberating in your very body, while your eyes struggle to keep up with the single most spectacular place you’ve yet witnessed.
+
+	Thundering bass-driven beats and synths are accompanied by hundreds of strobes, spot beams and color fills, all in perpetual motion. They are given dimension and space by piped-in fog hanging above a throng of half-lit bodies dancing and moving to the rhythm. Above the crowd also rise a series of pedestals and platforms bathed in brilliant lights and encircled by serpentines of motion graphics displays, each afire with rapid-fire images and abstract patterns. Atop each of the high daises is one of the club’s staff dancers, with each girl clad in a form-fitting silver catsuit accented by glowing electro-luminescent strips.
+
+	At the rear-center of the venue, a cockpit-like DJ booth on its own platform is lit by vibrantly colored floods and motion-patterned LEDs. The club’s female DJ is in perpetual motion, ably hyping up the crowd while keeping the stream of music flowing in a flawlessly smooth and entertaining mix session.
+
+	[[Look around|The Club][$scene="main club"; $tasksTeacher.TheClubIntro.status=3]]
+	<!--</GoInside>-->\
+<<elseif $scene eq "GiveUp">>\
+	You decide it would be best not to risk pissing off this bouncer when, odds are, he could literally crumple you into a ball and destroy you. You beat a hasty retreat and head for home, but soon begin to ponder what $teacher is going to do to you instead.
+
+	[[Go home|Go to bedroom][$time.addMinutes(30); $tasksTeacher.TheClubIntro.status=2]]
+<<endif>>\

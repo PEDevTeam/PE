@@ -1,6 +1,6 @@
 :: Clinic Punishment [pos_3412_2444]
 \
-<<set $player.flags.salonPenalty to true>>\
+<<set $flags.salonPenalty to true>>\
 \
 <<if ($body.face eq 1)>>\
 <<removeFromInv $items.softeningFacial.id>>\
@@ -18,7 +18,7 @@
 	<<set _item=$items.GarishManicure>>\
 	<<addToInv _item.id>>\
 	<<set $player.salonTab += _item.cost>>\
-	<<set $player.flags.salonManicure to true>>\
+	<<set $flags.salonManicure to true>>\
 <<endif>>\
 \
 <<if ($body.lips eq 1)>>\
@@ -57,7 +57,7 @@
 <<set _item=$items.PermanentHeavyMakeup>>\
 <<addToInv _item.id>>\
 <<set $player.salonTab += _item.cost>>\
-<<set $player.flags.salonMakeup=true>>\
+<<set $flags.salonMakeup=true>>\
 \
 <<if (not playerCode.owns(itemsC.PiercingLips))>>\
 <<set _item=$items.PiercingLips>>\

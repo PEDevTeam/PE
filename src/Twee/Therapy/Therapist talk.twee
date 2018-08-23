@@ -735,7 +735,7 @@
 
 	Seeing your confusion she clarifies. @@.therapist;"She just needs to be sure you are not in danger. Despite how angry she sounded she won't stop loving you. So just carry on, though it may be a bit awkward and embarrassing at first."@@
 
-	<<if $player.camera.bedroom or $player.camera.bathroom>>\
+	<<if $flags.cameraBedroom or $flags.cameraBathroom>>\
 		She searches your face intently for a moment, her eyes narrowing in suspicion.
 
 		@@.therapist;"$player.name, tell me honestly, you've spied on $guardian, haven't you?"@@
@@ -796,7 +796,7 @@
 
 	@@.therapist;"Well, what's done is done. Would I be right in guessing your video got positive feedback?"@@
 
-	@@.heroT;"Yes."@@ You hesitate about the next bit, but decide to tell her. @@.heroT;"I even got $<<print $taskMoney.upload.task>>, as gratitude."@@
+	@@.heroT;"Yes."@@ You hesitate about the next bit, but decide to tell her. @@.heroT;"I even got $<<print rewardMoney.uploadDefault>>, as gratitude."@@
 	
 	@@.therapist;"That's great! I know many of my colleagues would frown on it, but getting paid is a definite proof of gratitude for your performance. Just don't let it get into your head too much, and stay safe. Of course you also should keep it secret. You are extra careful about it, aren't you?"@@
 
@@ -957,10 +957,10 @@
 	@@.therapist;"This is most intriguing, but I need to hear more details to get the full picture. Could you describe your day as a maid, please?"@@
 	
 	@@.heroT;"Well, first, I get up early. Earlier than I used to.@@\
-	<<if $player.flags.dreamgameCaughtWin>>\
+	<<if $flags.dreamgameCaughtWin>>\
 		@@.heroT;$Myguardian gave me a special butt-plug alarm. It wakes me up by vibrating like crazy, and it keeps going, on and on. And I can't pull it out, or it screeches and wails, so I just have to lie there and accept being tortured by the damn thing. It's hell! So, when I'm locked up in chastity, I start my day being //very// horny and frustrated."@@
 
-	<<elseif $player.flags.vibratorCaught>>\
+	<<elseif $flags.vibratorCaught>>\
 		@@.heroT;$Myguardian gave me a special butt-plug alarm. It wakes me up by vibrating violently. When I'm locked in chastity, I have to start the day with it driving me crazy!"@@
 
 	<<else>>\
@@ -1202,7 +1202,7 @@
 	After a brief bit of searching, she prints out few pages with some physical therapy-based exercises. They deal with restoring circulation and preventing cramps and chaffing in the crotch area through toning the area around the upper thighs and groin. You really doubt that something like that could help your situation, but her genuine concern and desire to help feels nice.
 	
 <<elseif ($scene eq "talkPenisShrinkingEnd")>>\
-	<<if $player.flags.penisShrinkPunishment>>\
+	<<if $flags.penisShrinkPunishment>>\
 		You lower you eyes and sniff, failing to find words about what happened to you. $therapist doesn't push and gives you some time before slowly encouraging you to open up and start talking.
 		
 		Finally, you tell her how $teacher's punishment resulted in your penis shrinking permanently.
@@ -1283,7 +1283,7 @@
 	<<display "Therapist talk topics">>\
 <<endif>>\
 <<if _return>>\
-	[[Return|Visit therapist][$player.flags.therapistTalk=true]]
+	[[Return|Visit therapist][$flags.therapistTalk=true]]
 <<endif>>\
 <<if _home>>\
 	[[Return home|Go to bedroom]]

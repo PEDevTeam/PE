@@ -1,0 +1,34 @@
+:: The Club [pos_216_1085]
+<<if $player.perversion.club eq 0>><!--<firstTime>-->\
+	<<set $player.perversion.club = 1>>\
+	Once you begin to adjust to the bombardment of stimulation amid the semi-darkness of your immediate surroundings, you begin orientating to the club’s layout:
+
+	Ahead is the dance floor, occupying most of the venue. To your right, a long and well-stocked bar, also bordered in lighted accents, wraps across most of an entire wall. On your left, a private escalator climbs to the VIP lounge on an overhanging mezzanine above, its entrance guarded by dark-suited security men. Behind you, a crowd of wallflowers and resting party-goers has clustered in the area next to the club’s entry doors, flanked in turn by the bathroom and a sound-proofed corridor that delivers guests to the club’s upscale restaurant.
+	
+	Trying not to attract attention you quickly make few selfies as a proof that you've been inside the club.
+	<!--</firstTime>-->\
+<<else>><!--<textRepeat>-->\
+	Thundering bass-driven beats and synths are accompanied by hundreds of strobes, spot beams and color fills, all in perpetual motion. They are given dimension and space by piped-in fog hanging above a throng of half-lit bodies dancing and moving to the rhythm. Above the crowd also rise a series of pedestals and platforms bathed in brilliant lights and encircled by serpentines of motion graphics displays, each afire with rapid-fire images and abstract patterns. Atop each of the high daises is one of the club’s staff dancers, with each girl clad in a form-fitting silver cat suit accented by glowing electro-luminescent strips.
+
+	At the rear-center of the venue, a cockpit-like DJ booth on its own platform is lit by vibrantly colored floods and motion-patterned LEDs. The club’s female DJ is in perpetual motion, ably hyping up the crowd while keeping the stream of music flowing in a flawlessly smooth and entertaining mix session.
+
+	Ahead is the dance floor, occupying most of the venue. To your right, a long and well-stocked bar, also bordered in lighted accents, wraps across most of an entire wall. On your left, a private escalator climbs to the VIP lounge on an overhanging mezzanine above, its entrance guarded by dark-suited security men. Behind you, a crowd of wallflowers and resting party-goers has clustered in the area next to the club’s entry doors, flanked in turn by the bathroom and a sound-proofed corridor that delivers guests to the club’s upscale restaurant.
+	<!--</textRepeat>-->\
+<<endif>>\
+
+<<if $player.drunk gte 5>><<display "Drunk message">>
+<<endif>>\
+<<if $player.drunk lte 40>>\
+	[[Go out on the dance floor|Dance Floor][$scene="danceFloor"]]
+	[[Head over to the bar|Club bar][$scene="mainBar"]]
+	[[Use the ladies’ room]]
+	[[Go up to the VIP lounge]]
+	[[Go to the club restaurant]]
+
+	<!--<ClubTasks>-->\
+		[Club tasks go here when active, otherwise ‘Leave the club’ has only one line space above it]
+		// ‘Give panties’ task only appears after ‘Try to dance’ has been used once. //	
+	<!--</ClubTasks>-->\
+
+	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
+<<endif>>\

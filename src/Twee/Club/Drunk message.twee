@@ -1,0 +1,32 @@
+:: Drunk message [pos_216_1085]
+<<if $player.drunk gte 40>><!--<DrunkInterrupt>-->\
+	You start feeling drunk as the alcohol catches up with you, growing increasingly unsteady as you make your way through the club. As time goes on, you begin to lose track of what you’re doing as the room begins to sway and spin on you a little.
+	
+	<<selectScene TheClubDrunk_1 RND>>\
+	<<scene 60>>\
+		Fortunately, the club staff is looking out for people in your exact situation. A bartender helpfully calls you a cab, and the bouncers ensure you get in and are sent to the right address. You vaguely remember arriving home, but beyond that it’s all fuzzy.
+	<<scene 20>>\
+		A girl passes by you as you stagger past her, and you see a look of concern on her face when she realizes how drunk you’ve gotten yourself.
+
+		@@.femvoice7;“Hi, honey, are you ok? You’ve had enough for one night. Let’s get you home.”@@
+
+		You smile happily at her invitation, and follow her outside to her car. 
+
+		You don’t remember much about the ride home after that, but you do remember vague details about sneaking back in after she dropped you off. You’re not sure what happened then, but somehow you made it back to your bedroom.
+	<<scene 20>>\
+		A random guy tries to hit on you as you stagger past, perhaps expecting you to be easy pickings. You frown at him, moving away quickly, and you distantly realize you have had too much to drink.
+
+		You know you left the club and decided to go home after that, although you’re pretty vague about what happened beyond the few details of getting yourself home alone and having to sneak back into your room. You know drinking that much was a bad idea, because there are some serious gaps about what happened after you got back to your house.
+	<</selectScene>>\
+
+	[[Sleep|Restless sleep][$scene="calmSleep"]]
+	<!--</DrunkInterrupt>-->\
+<<else>>\
+	<<if $player.drunk gte 30>>You are so wasted right now.
+	<<elseif $player.drunk gte 25>>You feel drunk, and definitely need to slow down.
+	<<elseif $player.drunk gte 20>>You feel tipsy.
+	<<elseif $player.drunk gte 15>>You feel pleasantly buzzed.
+	<<elseif $player.drunk gte 10>>You feel relaxed, feeling a few mild effects from having a little bit to drink.
+	<<elseif $player.drunk gte 5>>You feel fine, barely able to tell you’ve had a drink.
+	<<endif>>\
+<<endif>>\

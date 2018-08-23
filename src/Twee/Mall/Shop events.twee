@@ -28,29 +28,29 @@
 			<<endif>>\
 		<<endif>>\
 		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
-			<<if (not $player.flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
-				<<set $player.flags.firstBuyDress = true>>\
+			<<if (not $flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
+				<<set $flags.firstBuyDress = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
-			<<elseif (not $player.flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
-				<<set $player.flags.firstBuyShoes = true>>\
+			<<elseif (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
+				<<set $flags.firstBuyShoes = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
-			<<elseif (not $player.flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
-				<<set $player.flags.firstBuyPanties = true>>\
+			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
+				<<set $flags.firstBuyPanties = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
-			<<elseif (not $player.flags.firstBuyBras) and (_item.clothingType eq itemTypes.Bras)>>\
-				<<set $player.flags.firstBuyBras = true>>\
+			<<elseif (not $flags.firstBuyBras) and (_item.clothingType eq itemTypes.Bras)>>\
+				<<set $flags.firstBuyBras = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
-			<<elseif (not $player.flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings)>>\
+			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings)>>\
 				<<set $player.perversion.mall++>>\
-				<<set $player.flags.firstBuyStockings = true>>\
+				<<set $flags.firstBuyStockings = true>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
 			<<endif>>\
@@ -66,7 +66,7 @@
 	<<endif>>\
 <<elseif $scene eq "first buy female">><!--<First buy events>-->\
 	<<if _item and ($player.perversion.mall lte 1)>>\
-		<<set $player.flags.firstBuyFemale = true>>\
+		<<set $flags.firstBuyFemale = true>>\
 		It's extremely embarrassing to buy the <<print _item.name.toLowerCase()>>. Clutching\ 
 		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
 			it\
@@ -121,7 +121,7 @@
 		
 		[[Go home|Go to bedroom][$time.addMinutes(30)]]
 	<<elseif _item>>\
-		<<set $player.flags.secondBuyFemale = true>>\
+		<<set $flags.secondBuyFemale = true>>\
 		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. The cashier courteously invites you to enjoy it and come back again soon.
 		
 		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.

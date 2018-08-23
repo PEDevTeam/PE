@@ -4,9 +4,9 @@
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 You enter the Beauty salon and are greeted by an enthusiastic young woman uniformed in a barely decent version of //"sexy nurse."// Her name tag reads, "Nancy."
 
-<<if (not $player.flags.salonVisited)>>\
-<<set $player.flags.salonVisited to true>>\
-<<set $player.flags.salonVisitedFirst to true>>\
+<<if (not $flags.salonVisited)>>\
+<<set $flags.salonVisited to true>>\
+<<set $flags.salonVisitedFirst to true>>\
 She looks over your\
 	<<if (_o and _o.female)>>\
 	dress and flashes a knowing smile, making you realize that she is not fooled for a minute, before listing a number of options available from the salon.
@@ -71,7 +71,7 @@ Do you want to check anything else?\
 	<<print '[[Semi permanent treatments reversal|Clinic semi-perm][$scene=""; $random.stored=0]]'>>
 <<endif>>\
 \
-<<if (($tasksTeacherBody.semiPermCheckUp.status eq 1) or ($player.salonTab gt 0)) and (not $player.flags.salonSemiPerm)>>\
+<<if (($tasksTeacherBody.semiPermCheckUp.status eq 1) or ($player.salonTab gt 0)) and (not $flags.salonSemiPerm)>>\
 	<<print '[[Semi permanent treatments check up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0]]'>>   
 <<endif>>\
 

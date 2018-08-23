@@ -5,10 +5,10 @@
 <<if $showimages>>\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<if _dream.once>>\
-		<<set $player.flags.showDreamImage = true>>\
+		<<set $flags.showDreamImage = true>>\
 	<<endif>>\
-	<<if (not $player.flags.showDreamImage)>>\
-		<<if $player.flags.roomHelp and random(2) gt 0>>\
+	<<if (not $flags.showDreamImage)>>\
+		<<if $flags.roomHelp and random(2) gt 0>>\
 			<<if $player.room.morning eq 0>>\
 				<<set $player.room.morning = $roomSize + 2>>\
 				<<set $roomSize = 4>>\
@@ -36,6 +36,6 @@
 	<<print _dream.description>>\
 <<endif>>\
 @@\
-<<set $player.flags.showDreamImage = false>>\
+<<set $flags.showDreamImage = false>>\
 
 

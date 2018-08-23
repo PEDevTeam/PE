@@ -7,7 +7,7 @@
 \
 	<<set $player.jobs.salonPlan = 0>>\
 \
-	<<if not $player.flags.salonHairRemoval>>\
+	<<if not $flags.salonHairRemoval>>\
 		<<if ($body.bodyhair eq 1)>>\
 		<<removeFromInv $items.Depilatory.id>>\
 		<<endif>>\
@@ -16,7 +16,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if (not $player.flags.salonManicure) and ($body.semiManicure lte 0) and ($body.permManicure lte 0)>>\
+	<<if (not $flags.salonManicure) and ($body.semiManicure lte 0) and ($body.permManicure lte 0)>>\
 		<<if (($body.manicure eq 1))>>\
 			<<removeFromInv $items.Manicure.id>>\
 		<<endif>>\
@@ -25,7 +25,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if not $player.flags.salonMakeup>>\
+	<<if not $flags.salonMakeup>>\
 		<<if ($body.makeup eq 1) and ($body.semiMakeup lte 0) and ($body.permMakeup lte 0)>>\
 			<<removeFromInv $items.SubtleMakeup.id>>\
 		<<endif>>\
@@ -49,7 +49,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if (not $player.flags.salonLips)>>\
+	<<if (not $flags.salonLips)>>\
 		<<if ($body.lips eq 2) and ($body.semiLips lte 1) and ($body.permLips lte 1)>>\
 			<<removeFromInv $items.LipsEnhancingXL.id>>\
 			<<addToInv $items.LipsEnhancing.id>>\
@@ -58,7 +58,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if (not $player.flags.salonAss)>>\
+	<<if (not $flags.salonAss)>>\
 		<<if ($body.ass eq 2) and ($body.semiAss lte 1) and ($body.permAss lte 1)>>\
 			<<removeFromInv $items.AssEnhancingXL.id>>\
 			<<addToInv $items.AssEnhancing.id>>\
@@ -67,7 +67,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if (not $player.flags.salonBreast)>>\
+	<<if (not $flags.salonBreast)>>\
 		<<if ($body.boobs eq 4) and ($body.semiBoobs lte 3) and ($body.permBoobs lte 3)>>\
 			<<removeFromInv $items.breastImplantsDD.id>>\
 			<<addToInv $items.breastImplantsC.id>>\
@@ -82,7 +82,7 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if (not $player.flags.salonAnal)>>\
+	<<if (not $flags.salonAnal)>>\
 		<<if ($body.anal eq 3) and ($body.semiAnal lte 2) and ($body.permAnal lte 2)>>\
 			<<removeFromInv $items.analSmoothing3.id>>\
 			<<addToInv $items.analSmoothing2.id>>\
@@ -94,17 +94,17 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<set $player.flags.salonSemiPerm to false>>\
-	<<set $player.flags.salonHairRemoval to false>>\
-	<<set $player.flags.salonManicure to false>>\
-	<<set $player.flags.salonMakeup to false>>\
-	<<set $player.flags.salonLips to false>>\
-	<<set $player.flags.salonAss to false>>\
-	<<set $player.flags.salonBreast to false>>\
-	<<set $player.flags.salonAnal to false>>\
-	<<set $player.flags.salonNose to false>>\
+	<<set $flags.salonSemiPerm to false>>\
+	<<set $flags.salonHairRemoval to false>>\
+	<<set $flags.salonManicure to false>>\
+	<<set $flags.salonMakeup to false>>\
+	<<set $flags.salonLips to false>>\
+	<<set $flags.salonAss to false>>\
+	<<set $flags.salonBreast to false>>\
+	<<set $flags.salonAnal to false>>\
+	<<set $flags.salonNose to false>>\
 \
-	<<set $player.flags.choreReward = false>>\
+	<<set $flags.choreReward = false>>\
 <<endif>>\
 <!--</Monday reset>-->\
 	<!--<Daily reset>-->\
@@ -120,8 +120,8 @@
 	<<set $player.tasks.penalty = $player.tasks.penaltyMonday>>\
 	<<set $player.tasks.penaltyMonday = 0>>\
 <<endif>>\
-<<if $player.flags.laundryAccident>>\
-	<<set $player.flags.laundryAccident to false>>\
+<<if $flags.laundryAccident>>\
+	<<set $flags.laundryAccident to false>>\
 	<<if playerCode.owns(itemsC.gString)>>\
 		<<set $items.gString.disabled=false>>\
 	<<endif>>\
@@ -132,18 +132,18 @@
 		<<set $items.pantiesCotton.disabled=false>>\
 	<<endif>>\
 <<endif>>\
-<<if (not $player.flags.laundryAccident) and (random(2) eq 0) and $player.flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
-<<set $player.flags.laundryAccident to true>>\
+<<if (not $flags.laundryAccident) and (random(2) eq 0) and $flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
+<<set $flags.laundryAccident to true>>\
 <<endif>>\
 \
 <<set $player.jobs.workedToday = false>>\
-<<set $player.flags.heelsFall = false>>\
-<<set $player.flags.schoolWalk = false>>\
+<<set $flags.heelsFall = false>>\
+<<set $flags.schoolWalk = false>>\
 \
 <<if $player.perversion.upload gt 0>>\
 <<display "Email request">>\
 <<endif>>\
-<<set $player.flags.salonVisited to false>>\
+<<set $flags.salonVisited to false>>\
 \
 <<if window.timeCode.isWeekend()>>\
 	<<set $player.schoolLastDay++>>\
@@ -162,8 +162,8 @@
 <<if ($player.batteryExpireDay gt 0) and ($time.day gte $player.batteryExpireDay)>>\
 	<<set $player.alarmClockGuardian=false>>\
 	<<set $player.batteryExpireDay=0>>\
-	<<set $player.flags.batteriesExpire=true>>\
-	<<if (not $player.flags.guardianSnoopingCaught)>>\
+	<<set $flags.batteriesExpire=true>>\
+	<<if (not $flags.guardianSnoopingCaught)>>\
 		<<set $items.batteriesQuality.disabled=false>>\
 	<<endif>>\
 <<endif>>\
@@ -179,36 +179,36 @@
 		<<removeFromInv $items.batteries.id>>\
 	<<endif>>\
 <<endif>>\
-<<if $player.flags.chorePunishmentDildo>>\
+<<if $flags.chorePunishmentDildo>>\
 	<<set $player.chorePunishmentDildoCooldown++>>\
 	<<if $player.chorePunishmentDildo gte $time.day>>\
-		<<set $player.flags.choreDildoAlarm = true>>\
+		<<set $flags.choreDildoAlarm = true>>\
 	<<else>>\
-		<<set $player.flags.choreDildoAlarm = false>>\
+		<<set $flags.choreDildoAlarm = false>>\
 	<<endif>>\
 <<endif>>\
-<<set $player.flags.guardianNewBFvisit = false>>\
+<<set $flags.guardianNewBFvisit = false>>\
 <<if ($time.day % 7 eq 5) or (random(4) eq 0)>>\
-	<<set $player.flags.guardianNewBFvisit = true>>\
+	<<set $flags.guardianNewBFvisit = true>>\
 <<endif>>\
 <<if ($time.day % 7 eq 5) and ($player.tasks.penalty gt 0)>>\
 	<<set $player.tasks.penaltySkipped = true>>\
 <<endif>>\
-<<set $player.flags.trainingCockSuck = false>>\
-<<set $player.flags.PSBoxAnnoyed = false>>\
-<<set $player.flags.spyCamLooked = false>>\
+<<set $flags.trainingCockSuck = false>>\
+<<set $flags.PSBoxAnnoyed = false>>\
+<<set $flags.spyCamLooked = false>>\
 <<set $player.choreFailsCurrent = window.choresFunc.choresFails()>>\
-<<set $player.flags.tired = false>>\
-<<set $player.flags.exhausted = false>>\
-<<set $player.flags.choreSpanked = false>>\
+<<set $flags.tired = false>>\
+<<set $flags.exhausted = false>>\
+<<set $flags.choreSpanked = false>>\
 <<set $player.room.laptop = false>>\
 <<set $player.room.jacket=0>>\
 <<set $player.room.tie=0>>\
 <<set $player.room.girljacket=0>>\
 <<set $player.room.skirt=0>>\
 <<set $player.room.girlstie=0>>\
-<<if $player.flags.walletForgottenStart>>\
-	<<set $player.flags.walletForgottenEnd = true>>\
+<<if $flags.walletForgottenStart>>\
+	<<set $flags.walletForgottenEnd = true>>\
 <<endif>>\
 <<if $player.debugN eq 50>>\
 	<<set $player.debugN = 0>>\

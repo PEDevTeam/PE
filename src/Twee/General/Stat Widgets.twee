@@ -51,14 +51,14 @@
 	
 	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
 	
-		<<if $player.flags.gTrialLatexMaid>>\
+		<<if $flags.gTrialLatexMaid>>\
 			<<set _curClothes[0] = { image: "maid_dress_latex.jpg" }>>
 		<<else>>
 			<<set _curClothes[0] = { image: "maid_dress.jpg" }>>
 		<<endif>>
 		
 		<<if (not _curClothes[2])>>
-			<<if $player.flags.gTrialLatexMaid>>\
+			<<if $flags.gTrialLatexMaid>>\
 				<<set _curClothes[2] = { image: "choker_05.jpg" }>>
 			<<else>>
 				<<set _curClothes[2] = { image: "choker_00.jpg" }>>
@@ -71,11 +71,11 @@
 			<<set _curClothes[4] = { image: "maid_duster.jpg" }>>
 		<<endif>>
 		
-		<<if $player.flags.gTrialBalletHeels>>
+		<<if $flags.gTrialBalletHeels>>
 			<<wearClothing $items.balletHeels.id>>
 			<<set _curClothes[9] = $items.balletHeels>>
 		<<else>>\
-			<<if $player.flags.gTrialLatexMaid>>
+			<<if $flags.gTrialLatexMaid>>
 				<<wearClothing $items.stilettoHeels.id>>
 				<<set $items.stilettoHeels.curAlt=39>>
 				<<set _curClothes[9] = _itemsC.stilettoHeels>>
@@ -86,7 +86,7 @@
 			<<endif>>
 		<<endif>>
 		
-		<<if $player.flags.gTrialLatexMaid>>\
+		<<if $flags.gTrialLatexMaid>>\
 			<<if _curClothes[10].id neq $items.stockingsLatex.id>>
 				<<wearClothing $items.stockingsLatex.id>>
 				<<set $items.stockingsLatex.curAlt=39>>
@@ -541,7 +541,7 @@
 	<<print $guardian.toProperCase()>>:	$player.perversion.guardian<br>
 	$teacher: $player.perversion.teacher<br>
 	$therapist: $player.perversion.therapist<br>
-	<<if $player.flags.friendNamed>>
+	<<if $flags.friendNamed>>
 		$friend: $player.perversion.friend<br>
 	<<endif>>
 	<<if $player.debugA>>
@@ -585,13 +585,13 @@
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher eq 0>>\
-	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $bribeAmount=50; $player.detention=false; $player.flags.bribePaid=true; $player.daringFlag.bribe=true]] \
+	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $bribeAmount=50; $player.detention=false; $flags.bribePaid=true; $player.daringFlag.bribe=true]] \
 	<<elseif $player.perversion.teacher eq 1>>\
 	[[Teach perv 1 to 2|Go to bedroom][$player.perversion.teacher++;$player.daring=4; $player.debugN=2; $player.daringFlag.femaleUnderwear=true]] \
 	<<elseif $player.perversion.teacher eq 2>>\
-	[[Teach perv 2 to 3|Go to bedroom][$player.perversion.teacher++;$player.daring=5; $player.debugN=3; $player.flags.chastityKey=true; $player.daringFlag.toiletsMasturbating=true; $player.flags.chastityLocked=true]] \
+	[[Teach perv 2 to 3|Go to bedroom][$player.perversion.teacher++;$player.daring=5; $player.debugN=3; $flags.chastityKey=true; $player.daringFlag.toiletsMasturbating=true; $flags.chastityLocked=true]] \
 	<<elseif $player.perversion.teacher eq 3>>\
-	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true; $player.flags.femaleClass=true; $items.schoolFemale.disabled=false]] \
+	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true; $flags.femaleClass=true; $items.schoolFemale.disabled=false]] \
 	<<elseif $player.perversion.teacher eq 4>>\
 	[[Teach perv 4 to 5|Go to bedroom][$player.perversion.teacher++;$player.daring=7; $player.daringFlag.posingtoCoach=true]] \
 	<<elseif $player.perversion.teacher eq 5>>\
@@ -605,13 +605,13 @@
 	<<if $player.perversion.guardian eq 0>>\
 	[[Guard perv 0 to 1|Good morning][$time.addHours(24);$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
 	<<elseif $player.perversion.guardian eq 1>>\
-	[[Guard perv 1 to 2|Good morning][$player.flags.dreamgameCaught=true]] \
+	[[Guard perv 1 to 2|Good morning][$flags.dreamgameCaught=true]] \
 	<<elseif $player.perversion.guardian eq 2>>\
 	[[Guard perv 2 to 3|Good morning][$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
 	<<elseif $player.perversion.guardian eq 3>>\
-	[[Guard perv 3 to 4|Good morning][$player.flags.vibratorCaught=true]] \
+	[[Guard perv 3 to 4|Good morning][$flags.vibratorCaught=true]] \
 	<<elseif $player.perversion.guardian eq 4>>\
-	[[Guard perv 4 to 5|Good morning][$player.flags.uploadCaught=true; $player.perversion.upload=4]] \
+	[[Guard perv 4 to 5|Good morning][$flags.uploadCaught=true; $player.perversion.upload=4]] \
 	<<elseif $player.perversion.guardian eq 5>>\
 	[[Guard perv 5 to 6-7|Maid cleaning][$player.perversion.guardianCooldown=10]] \
 	<<endif>>\

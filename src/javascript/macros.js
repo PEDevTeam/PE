@@ -140,7 +140,7 @@ macros.getInventoryList = {
 			}
 		}
 		if (!f) {
-			td+="You don't have any items.";
+//			td+="You don't have any items.";
 		}
 		new Wikifier(place, td);
 	}

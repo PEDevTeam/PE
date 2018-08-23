@@ -1,17 +1,17 @@
 :: Visit friend [pos_4248_60]
 \
-<<if not $player.flags.friendNamed>>\
-	<<set $player.flags.friendNamed=true>>\
-	You've known $friend since you can remember. $friend.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn't hurt your friendship at all. \
-	<<if not $player.flags.friendIsMale>>\
+<<if not $flags.friendNamed>>\
+	<<set $flags.friendNamed=true>>\
+	You've known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn't hurt your friendship at all. \
+	<<if not $flags.friendIsMale>>\
 		$friend has known from an early age that she prefers girls over guys, so there's never been any sexual tension between the two of you.\
 	<<endif>>
 	
 <<endif>>\
-<<set _t to $player.flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))>>\
+<<set _t to $flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))>>\
 <<set $player.friendLastVisit to $time.day>>\
 <<if ($player.perversion.friend lt 3) or ($player.perversion.friend gte 4)>>\
-	You arrive at $friend's house, and $friend.he_she's happy to see you.
+	You arrive at $friend's house, and $friendG.he_she's happy to see you.
 
 	<<display [[Friend reaction to transformations]]>>\
 	<<display [[Random stuff with friend]]>>\

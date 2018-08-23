@@ -1,0 +1,31 @@
+:: Replace batteries [pos_774_1208]
+\
+<<showImage "general" "guardian_bedroom.jpg">>\
+<<set $time.addMinutes(5)>>\
+<<set $player.alarmClockGuardian to true>>\
+You find $guardian in the living room watching TV, and you offer to fix her alarm clock by replacing the batteries.  She gives you a smile and permission to go into her bedroom. 
+
+@@.guardian;"Thanks, sweetie. That's very thoughtful of you."@@
+
+You walk into $guardian's room, open the back of her alarm clock and replace the dead batteries with the fresh ones you bought.
+
+This should stop her from sleeping in.
+
+<<if playerCode.owns(itemsC.batteries)>>\
+	<<removeFromInv $items.batteries.id>>\
+	<<set $player.batteryExpireDay=$time.day+2>>\
+	<<set $items.batteries.disabled=true>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.batteriesQuality)>>\
+	<<removeFromInv $items.batteriesQuality.id>>\
+	<<set $player.batteryExpireDay=$time.day+3>>\
+	<<set $items.batteriesQuality.disabled=true>>\
+<<endif>>\
+\
+[[Return to your bedroom|Go to bedroom]]
+<<print "[[Snoop around in " + $guardian + "'s bedroom|Snoop in guardian bedroom]]">>
+<<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\
+	[[Install camera in bedroom]]
+<<endif>>\
+
+

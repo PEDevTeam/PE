@@ -10,10 +10,10 @@
 	<<if $chores[_cn].fail>>\
 		<<if $player.perversion.guardian lte 2>>\
 			<<set _ts*=2>>\
-			<<set $player.flags.tired = true>>\
+			<<set $flags.tired = true>>\
 		<<else>>\
 			<<set _ts*=3>>\
-			<<set $player.flags.exhausted = true>>\
+			<<set $flags.exhausted = true>>\
 		<<endif>>\
 		@@.penalty;You are exhausted.@@\
 	<<elseif (not choresList[_cn].nontimed)>>\
@@ -21,7 +21,7 @@
 			<<set _ts*=$player.choreSpeed>>\
 		<<endif>>\
 		<<if $player.choreSpeed eq 2>>\
-			<<set $player.flags.tired = true>>\
+			<<set $flags.tired = true>>\
 			<<set $player.choreSpeed = 1>>\
 			@@.penalty;You are tired.@@\
 		<<endif>>\
@@ -45,10 +45,10 @@
 	<<if choresList[_cn].clearJunk>>\
 		<<set $player.room.junk=[]>>\
 	<<endif>>\
-	<<if $player.flags.choreLazy and (window.choresFunc.choresPercentCalc() gte 70)>>\
-		<<set $player.flags.choreLazy = false>>\
+	<<if $flags.choreLazy and (window.choresFunc.choresPercentCalc() gte 70)>>\
+		<<set $flags.choreLazy = false>>\
 	<<endif>>\
-	<<set $player.flags.choreCheck = false>>\
+	<<set $flags.choreCheck = false>>\
 	
 	
 <<endif>>\
@@ -57,13 +57,13 @@
 	@@.penalty;You did not get paid.@@
 	<<set _cn = $player.currentChore>>\
 	<<set $player.choreFails++>>\
-	<<set $player.flags.choreCheck = false>>\
+	<<set $flags.choreCheck = false>>\
 	<<set _ts=choresList[_cn].minutes>>\
 	<<if $player.choreSpeed neq 0 and (not choresList[_cn].nontimed)>>\
 		<<set _ts*=$player.choreSpeed>>\
 	<<endif>>\
 	<<if $player.choreSpeed eq 2>>\
-		<<set $player.flags.tired = true>>\
+		<<set $flags.tired = true>>\
 		<<set $player.choreSpeed = 1>>\
 	<<endif>>\
 	<<if (_ts/60 + $time.hour) lte 22>>\

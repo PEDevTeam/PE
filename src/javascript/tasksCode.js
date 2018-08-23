@@ -1037,6 +1037,53 @@ window.tasksTeacher={
 		}
 	},
 
+	
+	TheClubIntro: { // perv 3+ cross 8+
+		name: "Task The Club Intro",
+		hasPassage: true,
+		text: {
+			given: "I want you to go to the local nightclub for their free ladies\’ night event Saturday, to see if you can pass as a girl in public. Dress up nicely and get the bouncer to let you in. Obviously, if you have to pay the cover charge, you fail.",
+			perform: "",
+			finish: "$teacher examines your pink wristband from the club.\n\n@@.teacher;\"Well, it seems you can pass as a girl after all. Honestly, that’s great news for you, because you are not very good at passing for a boy.@@",
+			fail: "You could not even get in the doors? I’m disappointed in you – are you too scared to even try?",
+			reminder: "Be sure not to miss ladies night at the club this Saturday. Remember, you need get the bouncer to let you in.",
+			checkMe: {
+				given: "to go to the club on Saturday evening and get in for ladies\’ night by dressing as a girl.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven&#39;t done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.crossdressing >= 8) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 5,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	
+	
 	selfieToiletsChastity: {	// perv 5-6
 		id: "selfieToiletsChastity",
 		name:"Task Flash chastity",
@@ -1332,7 +1379,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (!State.active.variables.player.flags.taskGuideHandGirl) || (!State.active.variables.player.flags.taskGuideHandWomanMan) || (!State.active.variables.player.flags.taskGuideHandCouple) || (!State.active.variables.player.flags.taskGuideHandTrap);
+			return (!State.active.variables.flags.taskGuideHandGirl) || (!State.active.variables.flags.taskGuideHandWomanMan) || (!State.active.variables.flags.taskGuideHandCouple) || (!State.active.variables.flags.taskGuideHandTrap);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1377,7 +1424,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.tasks.penalty >= 1 && State.active.variables.player.flags.chorePunKinky);
+			return (State.active.variables.player.tasks.penalty >= 1 && State.active.variables.flags.chorePunKinky);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1424,7 +1471,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return State.active.variables.player.flags.gTrialStrapOn && (State.active.variables.player.tasks.penalty == 0) && State.active.variables.player.flags.guardianStrapon;
+			return State.active.variables.flags.gTrialStrapOn && (State.active.variables.player.tasks.penalty == 0) && State.active.variables.flags.guardianStrapon;
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1987,7 +2034,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.bodyhair == 2) && State.active.variables.player.flags.salonHairRemoval) || (State.active.variables.body.bodyhair == 3));
+				return (((State.active.variables.body.bodyhair == 2) && State.active.variables.flags.salonHairRemoval) || (State.active.variables.body.bodyhair == 3));
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2034,10 +2081,10 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if ((State.active.variables.body.bodyhair > 0) && State.active.variables.player.flags.salonHairRemoval) {
+				if ((State.active.variables.body.bodyhair > 0) && State.active.variables.flags.salonHairRemoval) {
 					State.active.variables.tasksTeacherBody.legHairRemoval.progress++;
 				}
-				return ((State.active.variables.body.bodyhair > 0) && State.active.variables.player.flags.salonHairRemoval);
+				return ((State.active.variables.body.bodyhair > 0) && State.active.variables.flags.salonHairRemoval);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2179,7 +2226,7 @@ window.tasksTeacherBody={
 				if (($body.makeup == 4) && ($body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
-				return ((playerCode.haveMakeup() && State.active.variables.player.flags.salonMakeup) || playerCode.havePermanentMakeup());
+				return ((playerCode.haveMakeup() && State.active.variables.flags.salonMakeup) || playerCode.havePermanentMakeup());
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2273,7 +2320,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.player.flags.salonManicure);
+				return (State.active.variables.flags.salonManicure);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2519,7 +2566,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.lips == 1) || (State.active.variables.body.lips == 2)) && State.active.variables.player.flags.salonLips);
+				return (((State.active.variables.body.lips == 1) || (State.active.variables.body.lips == 2)) && State.active.variables.flags.salonLips);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2566,7 +2613,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.lips == 2) && State.active.variables.player.flags.salonLips);
+				return ((State.active.variables.body.lips == 2) && State.active.variables.flags.salonLips);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2660,7 +2707,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.ass == 1) || (State.active.variables.body.ass == 2)) && State.active.variables.player.flags.salonAss);
+				return (((State.active.variables.body.ass == 1) || (State.active.variables.body.ass == 2)) && State.active.variables.flags.salonAss);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2707,7 +2754,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.ass == 2) && State.active.variables.player.flags.salonAss);
+				return ((State.active.variables.body.ass == 2) && State.active.variables.flags.salonAss);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2870,7 +2917,7 @@ window.tasksEmail={
 			perform: "Hello. I have a special request. If you would send me a video of yourself playing with a dildo wearing pink rollerskates, I'll give you $50.\n\nThanks",
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.upload > 3) && (!State.active.variables.player.flags.uploadCaught);
+			return (State.active.variables.player.perversion.upload > 3) && (!State.active.variables.flags.uploadCaught);
 		},
 		image: "",
 		startPriority: 10,  // see priority system above

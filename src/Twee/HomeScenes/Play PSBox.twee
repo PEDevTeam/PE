@@ -1,0 +1,72 @@
+:: Play PSBox [pos_358_615]
+\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if $flags.choreRewCallOfHonor and (not $flags.newCallOfHonorPlayed)>>\
+	<<set $flags.newCallOfHonorPlayed = true>>\
+	<<print '<<showImage "games" "call_of_duty_'+random(0)+'.gif">>'>>\
+	You urgently fire up your PSBox. With shaking hands, you tear the shrink wrap from the brand new version of //Call of Honor// that $guardian got you. It's not just any Call of Honor title, either - you have the Ultra-Black Day One Obsessive Completist Edition! You can hardly believe it.
+	
+	As you open the needlessly large, expensively-printed, satin black outer box, the lenticular, hologram-like cover animates. Your eyes sparkle with glee as you watch the grim-looking soldier on the cover sneer, his tricked out assault rifle firing round after round with each tilt of the packaging, the empty brass bullet casings seeming to fly right off the box.
+	
+	Inside, not only do you find a smaller, standard size vinyl PSBox disc case matching the outer packaging (just not in 3D), but also a series of level maps that can be put together to form a wall-sized poster of the exact same picture to advertise the game to all your friends. There's also a military compass printed on die-cut cardstock that you can punch out and assemble with a little metal brad, a flexible plastic keychain made to resemble a hand-grenade pin, and an eight-page, glossy booklet superficially covering the making of //Call of Honor// that devotes most of its space to self-promoting the game studio. How awesome is that stuff?!?
+	
+	But the best feature of all is the code card that comes with it, allowing you to unlock over two new player skins and a purple-painted machinegun-shotgun-grenade-launcher-chainsaw combo weapon in online multiplayer mode, completely exclusive to this edition. Plus, you get all the downloadable content the studio expects to release within 2-3 years after launch! Since the last //Call of Honor// came out last year, you haven't got the DLC for that yet, but who cares? This is the new hotness!
+	
+	As the home screen comes up, you put the disc into the console. Within moments, the screen darkens and a gritty cinematic begins. There are choppers, explosions, tropes and one-liners galore! @@.hero;Oh, man, this is going to be awesome!@@
+	
+	After the intro ends, a slideshow of screenshots plays for the next two hours as the game downloads the handful of updates needed to get your Day One Edition up to speed for day one. You can tell from the screens that this is //so// going to be worth the wait. 
+	
+	At last, you drop into the main menu. Controller in hand, you punch start and get ready to kick some serious ass.
+	
+	Three minutes in, you suddenly get the feeling of déjà vu. This version feels exactly the same as the previous one. In fact, you could swear that you killed this particular guy a few versions back in the series. As the story line progresses, it's clear that while the game setting has changed, the formulaic gray, war-torn levels are filled with the same types of bad guys. The inevitable enemy surprise attack has, once again, been made doubly worse by the inevitable betrayal of an old friend who turns out to be a double agent for said bad guys. You're soon left behind enemy lines with no way back but to fight through hundreds of enemies. Thankfully, there are handfuls of loot boxes you can collect on each multiplayer level - and it only takes around 11,000 of them for each upgrade to your character.
+	
+	Still, could be worse. It might be the same, but you don't mind - especially since you got it for free.
+	
+<<elseif $flags.PSBoxAnnoyed>>\
+	You don't feel like playing now.
+	
+<<elseif playerCode.isHorny() and (not playerCode.masturbate.isCalm()) and _c and $flags.chastityKey>>\
+	<<set $flags.PSBoxAnnoyed = true>>\
+	You have a look at your PSBox games and pick random one to distract yourself from the relentless tide of lewd fantasies on your mind.
+	
+	<<selectScene PSBox_Annoyed RND2RND>>\
+	<<scene>>\
+		You play one of your favorite epic RPGs with monsters and dragons in glorious open-world, third-person action. A little hacking and slashing should keep your mind off dirtier subjects, right? There are still plenty of side quests you haven't played yet.
+		
+		Just as you visit town to sell your loot, a whore in a very revealing outfit asks you if you want to have a good time, in a deep, seductive voice. Her red hair and pale complexion are complimented by her emerald green eyes. The low-cut top of her revealing dress is matched by a bodice that squeezes her copious cleavage into a full and tempting display. Her long legs are shown off by long slits on either side of her dress, revealing a series of runic tattoos down her thighs that add to her mystic charm. The flickering torchlight of the deep alleyway is reflected in her sultry gaze, promising a fire of a different sort if you accept her offer...
+		
+		@@.hero;Oh, for fuck's sake.@@
+		
+		And thus your controller goes flying onto the bed. Maybe you shouldn't have all these mods installed.
+	<<scene>>\
+		Your choice stops on The Simmies 6. You haven't played it for a long time, and honestly you forgot what you were doing last time. As your old save loads, you try to remember the controls and what the point of the game was.
+		
+		Finally, the game loads, and you stare in disbelief at a huge orgy you had saved, where your simmies and all their neighbors are having "YeeHah" with each other in a most wild fashion. Some of them are jealous and a few refuse to participate because they suddenly need to pee, are set on fire, or have grown despondent because they can't navigate to an object right in front of them. Yet, by and large, they all seem to be content running around, scantily clad and ready to jump into bed (or the shower, or the changing booth, or a park bench) with whoever comes knocking. So long as you don't make them tell the same knock-knock joke more than twice in a row while they're seducing someone.
+		
+		It's basically a "YeeHah" fest from there.
+		
+		@@.hero;Oh, for fuck's sake.@@
+		
+		And thus your controller goes flying onto the bed. With a frustrated sigh, you think that you remember point of the game now.
+	<<scene>>\
+		You start up a street racing game. You select a car, choose duel mode and pick 'heavy traffic challenge.' There's nothing like an insanely difficult street race on expert mode to get your head right.
+		
+		As a countdown timer appears, the camera zooms in on a barely-dressed, curvy girl who whirls and bends with a crimson silk scarf in hand, preparing to throw it to announce the start. You haven't noticed before how seductively and provocatively she moves. She loudly slaps her bottom and sends kisses to the drivers, just before the timer hits zero. 
+
+		You miss the start of the race, being so distracted by her. Your competition leaves you in the dust with no chance for you to catch up, and your AI crew chief even mocks you with some witty smart-ass comment. It seems that even your console is going out of its way to make fun of you today.
+		
+		@@.hero;Oh, for fuck's sake.@@
+		
+		With a frustrated groan, you throw your PSBox controller on the bed.
+	<</selectScene>>\
+	
+<<else>>\
+	<<print '<<showImage "games" "call_of_duty_'+random(0)+'.gif">>'>>\
+	<<set $time.addMinutes(60 - $time.minute)>>\
+	<<set $time.addHours(Math.min(3, 23 - $time.hour))>>\
+	You play some //Call of Honor// on your PSBox for a while. You're getting pretty good. Maybe you can play this professionally one day?
+	
+<<endif>>\
+[[Do something else|Go to bedroom]]
+
+

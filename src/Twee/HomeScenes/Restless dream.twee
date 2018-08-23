@@ -1,0 +1,13 @@
+:: Restless dream [pos_575_47]
+\
+<<set $player.sleepCheck = 10>>\
+<<set $flags.showDreamImage = true>>\
+<<set $flags.restlessDream = true>>\
+<<display "Guardian fantasy">>
+
+[[Dream|Good morning][window.timeCode.newDay()]]
+<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.chastityUsedTo lt 100)>>\
+	<<set $player.chastityUsedTo++>>\
+<<endif>>\
+
+

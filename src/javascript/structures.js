@@ -1,0 +1,1288 @@
+window.rewardMoney={
+	teacherFemaleUnderwear: 10,
+	teacherFemaleClothing: 15,
+	teacherButtplug: 5,
+	teacherChastity: 10,
+	teacherAssistant: 15,
+	teacherBullySex: 20,
+	teacherPiss: 60,
+	teacherWhore: 80,
+	teacherSchoolslut: 30,
+	teacherCoachPosing: 15,
+	teacherCoachSucking: 25,
+	teacherCoachWhoring: 15,
+	uploadDefault: 30,
+	uploadSpecial: 50,
+	hypnosis: 20,
+	specialHypnosis: 50
+},
+
+window.structures={
+	updateStructures: function() {
+		// Custom versonControl script
+		// BUG - for some reason setupFriend conflicts with setupQuickSlot
+		this.setupPlayer();
+		this.setupStandaloneVars();
+		this.setupStatus();
+		this.setupAvatar();
+		this.setupFlags();
+		this.setupKinks();
+		this.setupBody();
+		this.setupFriend();
+		this.setupFuta();
+		this.setupQuickSlot();
+		this.setupItems();
+		//this.setupChores();
+		State.active.variables.gameVersion = window.gameCode.version;
+	},
+	setupPlayer: function() {
+		var vars=State.active.variables;
+		var playerList=window.playerList;
+		if (vars.player == null) {
+			vars.player = {};
+		}
+		for (var i=0; i < Object.keys(playerList).length; i++) {
+			if (vars.player[Object.keys(playerList)[i]] == null) {
+				vars.player[Object.keys(playerList)[i]] = playerList[Object.keys(playerList)[i]];
+			}
+		}
+		
+		var playerAddonsList=window.playerAddonsList;
+		for (var i=0; i < Object.keys(playerAddonsList).length; i++) {
+			if (vars.player[Object.keys(playerAddonsList)[i]] == null) {
+				vars.player[Object.keys(playerAddonsList)[i]] = {};
+				var object = vars.player[Object.keys(playerAddonsList)[i]];
+				var listObject = playerAddonsList[Object.keys(playerAddonsList)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
+	setupStandaloneVars: function() {
+		var vars=State.active.variables;
+		if (vars.avatarSize == null) { vars.avatarSize = 0; }
+		if (vars.itemsSize == null) { vars.itemsSize = 2; }
+		if (vars.roomSize == null) { vars.roomSize = 2; }
+		if (vars.sidebarTab == null) { vars.sidebarTab = 0; }
+		if (vars.bribeAmount == null) { vars.bribeAmount = 0; }
+		if (vars.showimages == null) { vars.showimages = true; }
+		if (vars.scene == null) { vars.scene = ""; }
+		if (vars.showStats == null) { vars.showStats = false; }
+		if (vars.restock == null) { vars.restock = []; }
+		if (vars.selectScene == null) { vars.selectScene = {}; }
+		if (vars.ass == null) { vars.ass = "ass"; }
+		if (vars.butt == null) { vars.butt = "butt"; }
+		if (vars.chest == null) { vars.chest = "flat chest"; }
+		if (vars.lips == null) { vars.lips = "lips"; }
+		if (vars.penis == null) { vars.penis = "penis"; }
+		
+		if (vars.allowance == null) { vars.allowance = 20; }
+		if (vars.workRate == null) { vars.workRate = 10; }
+		if (vars.teacher == null) { vars.teacher = "Miss Buxton"; }
+		if (vars.therapist == null) { vars.therapist = "Stacy"; }
+		if (vars.babysitter == null) { vars.babysitter = "Emma"; }
+		if (vars.bully == null) { vars.bully = "Butch"; }
+		if (vars.friend == null) { vars.friend = "your best friend"; }
+		
+		if (vars.guardian == null) { vars.guardian = "your mother"; }
+		if (vars.Guardian == null) { vars.Guardian = "Your mother"; }
+		if (vars.myguardian == null) { vars.myguardian = "my mother"; }
+		if (vars.Myguardian == null) { vars.Myguardian = "My mother"; }
+		
+		if (vars.activeChore == null) { vars.activeChore = 0; }
+		
+		if (vars.inventory == null) { vars.inventory = []; }
+		
+		if (vars.reason == null) { vars.reason = {}; }
+		if (vars.reason.dressedGuardian == null) { vars.reason = {}; }
+		if (vars.reason.dressedGuardianWork == null) { vars.reason = {}; }
+		if (vars.reason == null) { vars.reason = {}; }
+		if (vars.reason == null) { vars.reason = {}; }
+		
+	},
+	setupClothesCheck: function() {
+		var clothes=window.clothes;
+		if (vars.reason == null) {
+			vars.reason = {};
+		}
+		for (var i=0; i < Object.keys(clothes).length; i++) {
+			if (vars.reason[Object.keys(clothes)[i]] == null) {
+				vars.reason[Object.keys(clothes)[i]] = "";
+			}
+		}
+	},
+	setupMinigameVars: function() {
+		var vars=State.active.variables;
+		if (vars.minigames == null) { vars.minigames = {}; }
+		
+		if (vars.minigames.dreamgame == null) { vars.minigames.dreamgame = {}; }
+		if (vars.minigames.coachgame == null) { vars.minigames.coachgame = {}; }
+		
+		if (vars.minigames.dreamgame.alertness == null) { vars.minigames.dreamgame.alertness = 0; }
+		if (vars.minigames.dreamgame.dreaminess == null) { vars.minigames.dreamgame.dreaminess = 0; }
+		if (vars.minigames.dreamgame.lastActionId == null) { vars.minigames.dreamgame.lastActionId = 0; }
+		if (vars.minigames.dreamgame.lastActionSuccess == null) { vars.minigames.dreamgame.lastActionSuccess = 0; }
+		if (vars.minigames.dreamgame.actionSuccess == null) { vars.minigames.dreamgame.actionSuccess = []; }
+		if (vars.minigames.dreamgame.lastActionSuccess == null) { vars.minigames.dreamgame.lastActionSuccess = 0; }
+		if (vars.minigames.dreamgame.win == null) { vars.minigames.dreamgame.win = false; }
+		if (vars.minigames.dreamgame.playedToday == null) { vars.minigames.dreamgame.playedToday = false; }
+		
+		if (vars.minigames.coachgame.alertness == null) { vars.minigames.coachgame.alertness = 0; }
+		if (vars.minigames.coachgame.coachiness == null) { vars.minigames.coachgame.coachiness = 0; }
+		if (vars.minigames.coachgame.lastActionId == null) { vars.minigames.coachgame.lastActionId = 0; }
+		if (vars.minigames.coachgame.lastActionSuccess == null) { vars.minigames.coachgame.lastActionSuccess = 0; }
+		if (vars.minigames.coachgame.actionSuccess == null) { vars.minigames.coachgame.actionSuccess = []; }
+		if (vars.minigames.coachgame.lastActionSuccess == null) { vars.minigames.coachgame.lastActionSuccess = 0; }
+		if (vars.minigames.coachgame.win == null) { vars.minigames.coachgame.win = false; }
+		if (vars.minigames.coachgame.playedToday == null) { vars.minigames.coachgame.playedToday = false; }
+		
+	},
+	setupStatus: function() {
+		var vars=State.active.variables;
+		if (vars.status == null) { vars.status = {}; }
+		if (vars.status.text == null) { vars.status.text = ""; }
+		if (vars.status.scenesCounter == null) { vars.status.scenesCounter = 0; }
+		if (vars.status.endDay == null) { vars.status.endDay = 0; }
+		if (vars.status.endHour == null) { vars.status.endHour = 0; }
+		if (vars.status.endMinute == null) { vars.status.endMinute = 0; }
+	},
+	setupAvatar: function() {
+		var vars=State.active.variables;
+		if (vars.avatar == null) { vars.avatar = {}; }
+		if (vars.avatar.divider == null) { vars.avatar.divider = 0; }
+		if (vars.avatar.mode == null) { vars.avatar.mode = 0; }
+		if (vars.avatar.start == null) { vars.avatar.start = 0; }
+		if (vars.avatar.help == null) { vars.avatar.help = 0; }
+		if (vars.avatar.active == null) { vars.avatar.active = 0; }
+	},
+	setupFlags: function() {
+		var vars=State.active.variables;
+		var flagsList=window.flagsList;
+		if (vars.flags == null) {
+			vars.flags = {};
+		}
+		for (var i=0; i < Object.keys(flagsList).length; i++) {
+			if (vars.flags[Object.keys(flagsList)[i]] == null) {
+				vars.flags[Object.keys(flagsList)[i]] = flagsList[Object.keys(flagsList)[i]];
+			}
+		}
+	},
+	setupKinks: function() {
+		var vars=State.active.variables;
+		var kinkList=window.kinkList;
+		if (vars.kink == null) {
+			vars.kink = {};
+		}
+		if (vars.kinkAllow == null) {
+			vars.kinkAllow = {};
+		}
+		for (var i=0; i < Object.keys(kinkList).length; i++) {
+			if (vars.kink[Object.keys(kinkList)[i]] == null) {
+				vars.kink[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
+			}
+			if (vars.kinkAllow[Object.keys(kinkList)[i]] == null) {
+				vars.kinkAllow[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
+			}
+		}
+	},
+	setupBody: function() {
+		var vars=State.active.variables;
+		var bodyList=window.bodyList;
+		if (vars.body == null) {
+			vars.body = {};
+		}
+		for (var i=0; i < Object.keys(bodyList).length; i++) {
+			if (vars.body[Object.keys(bodyList)[i]] == null) {
+				vars.body[Object.keys(bodyList)[i]] = bodyList[Object.keys(bodyList)[i]];
+			}
+		}
+	},
+	setupFriend: function() {
+		var vars=State.active.variables;
+		var friendList=window.friendList;
+		if (vars.friendG == null) {
+			vars.friendG = {};
+		}
+		for (var i=0; i < Object.keys(friendList).length; i++) {
+			if (vars.friendG[Object.keys(friendList)[i]] == null) {
+				vars.friendG[Object.keys(friendList)[i]] = friendList[Object.keys(friendList)[i]];
+			}
+		}
+	},
+	setupFuta: function() {
+		var vars=State.active.variables;
+		var futaList=window.futaList;
+		if (vars.futa == null) {
+			vars.futa = {};
+		}
+		for (var i=0; i < Object.keys(futaList).length; i++) {
+			if (vars.futa[Object.keys(futaList)[i]] == null) {
+				vars.futa[Object.keys(futaList)[i]] = futaList[Object.keys(futaList)[i]];
+			}
+		}
+	},
+	setupQuickSlot: function() {
+		var vars=State.active.variables;
+		var slotList=window.quickSlotList;
+		if (vars.quickSlot == null) {
+			vars.quickSlot = {};
+		}
+		for (var i=0; i < Object.keys(slotList).length; i++) {
+			if (vars.quickSlot[Object.keys(slotList)[i]] == null) {
+				vars.quickSlot[Object.keys(slotList)[i]] = {};
+			}
+			if (vars.quickSlot[Object.keys(slotList)[i]].name == null) {
+				vars.quickSlot[Object.keys(slotList)[i]].name = slotList[Object.keys(slotList)[i]].name;
+			}
+			if (vars.quickSlot[Object.keys(slotList)[i]].extra == null) {
+				vars.quickSlot[Object.keys(slotList)[i]].extra = slotList[Object.keys(slotList)[i]].extra;
+			}
+			if (vars.quickSlot[Object.keys(slotList)[i]].clothes == null) {
+				vars.quickSlot[Object.keys(slotList)[i]].clothes = [];
+			}
+			if (vars.quickSlot[Object.keys(slotList)[i]].types == null) {
+				vars.quickSlot[Object.keys(slotList)[i]].types = [];
+			}
+		}
+	},
+
+	setupItems: function() {
+		var vars=State.active.variables;
+		var itemsC=window.itemsC;
+		if (vars.items == null) {
+			vars.items = {};
+		}
+		
+		for (var i=0; i < Object.keys(itemsC).length; i++) {
+			if (vars.items[Object.keys(itemsC)[i]] == null) {
+				vars.items[Object.keys(itemsC)[i]] = {};
+				
+				var object = vars.items[Object.keys(itemsC)[i]];
+				var listItemsC = itemsC[Object.keys(itemsC)[i]];
+				
+				object.id = listItemsC.id;
+				
+				if (listItemsC.clothingType > 0) {
+					if (object.ward == null) { object.ward = false; }
+				}
+				
+				if (listItemsC.maxAlt != null) {
+					if (object.curAlt == null) { object.curAlt = 0; }
+					if (object.ownAlt == null) { object.ownAlt = []; }
+					if (object.storeCur == null) { object.storeCur = 0; }
+					if (object.storeAlt == null) { object.storeAlt = []; }
+				}
+				
+			}
+		}
+		
+		// deleting items with no corresponding ID in JavaScript list
+		var itemsList = State.active.variables.items;
+		for (var i=0; i < Object.keys(itemsList).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(itemsC).length; j++) {
+				if (itemsList[Object.keys(itemsList)[i]].id == itemsC[Object.keys(itemsC)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete itemsList[Object.keys(itemsList)[i]];
+			}
+		}
+	},
+	setupChores: function() {
+		var vars=State.active.variables;
+		var choresList=window.choresList;
+		if (vars.chores == null) {
+			vars.chores = {};
+		}
+		
+		for (var i=0; i < Object.keys(choresList).length; i++) {
+			if (vars.chores[Object.keys(choresList)[i]] == null) {
+				vars.chores[Object.keys(choresList)[i]] = {};
+				
+				var object = vars.chores[Object.keys(choresList)[i]];
+				var choreJS = choresList[Object.keys(choresList)[i]];
+				
+				object.id = choreJS.id;
+				if (object.active == null) { object.active = choreJS.active; }
+				if (object.fail == null) { object.fail = choreJS.fail; }
+				if (object.dayPerformed == null) { object.dayPerformed = choreJS.dayPerformed; }
+				
+			}
+		}
+		
+		// deleting chores with no corresponding ID in JavaScript list
+		var choresSaved = State.active.variables.chores;
+		for (var i=0; i < Object.keys(choresSaved).length; i++) {
+			var found = false;
+			for (var j=0; j < Object.keys(choresList).length; j++) {
+				if (choresSaved[Object.keys(choresSaved)[i]].id == choresList[Object.keys(choresList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete choresSaved[Object.keys(choresSaved)[i]];
+			}
+		}
+	},
+	
+	setupDreams: function() {
+		var vars=State.active.variables;
+		var dreamsGuardian=window.dreamsGuardian;
+		var dreamsTeacher=window.dreamsTeacher;
+		
+		if (vars.dreams == null) {
+			vars.dreams = {};
+		}
+		
+		for (var i=0; i < Object.keys(dreamsGuardian).length; i++) {
+			if (vars.dreams[Object.keys(dreamsGuardian)[i]] == null) {
+				vars.dreams[Object.keys(dreamsGuardian)[i]] = {};
+				
+				var object = vars.dreams[Object.keys(dreamsGuardian)[i]];
+				var dreamsG = dreamsGuardian[Object.keys(dreamsGuardian)[i]];
+
+				if (object.id == null) { object.id = dreamsG.id; }
+				if (object.active == null) { object.active = dreamsG.active; }
+				if (object.startPriority == null) { object.startPriority = dreamsG.startPriority; }
+				if (object.progress == null) { object.progress = 0; }
+			}
+		}
+		
+		for (var i=0; i < Object.keys(dreamsTeacher).length; i++) {
+			if (vars.dreams[Object.keys(dreamsTeacher)[i]] == null) {
+				vars.dreams[Object.keys(dreamsTeacher)[i]] = {};
+				
+				var object = vars.dreams[Object.keys(dreamsTeacher)[i]];
+				var dreamsT = dreamsTeacher[Object.keys(dreamsTeacher)[i]];
+
+				if (object.id == null) { object.id = dreamsT.id; }
+				if (object.active == null) { object.active = dreamsT.active; }
+				if (object.startPriority == null) { object.startPriority = dreamsT.startPriority; }
+				if (object.progress == null) { object.progress = 0; }
+			}
+		}
+		
+		// deleting dreams with no corresponding ID in JavaScript list
+		var dreamsList = State.active.variables.dreams;
+		for (var i=0; i < Object.keys(dreamsList).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(dreamsGuardian).length; j++) {
+				if (dreamsList[Object.keys(dreamsGuardian)[i]].id == dreamsGuardian[Object.keys(dreamsGuardian)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			for (var j=0; j < Object.keys(dreamsTeacher).length; j++) {
+				if (dreamsList[Object.keys(dreamsList)[i]].id == dreamsTeacher[Object.keys(dreamsTeacher)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete dreamsList[Object.keys(dreamsList)[i]];
+			}
+		}
+	},
+	
+	setupFriendRiddles: function() {
+		var vars=State.active.variables;
+		var riddlesList=window.friendRiddles;
+		if (vars.friendRiddles == null) {
+			vars.friendRiddles = {};
+		}
+		for (var i=0; i < Object.keys(riddlesList).length; i++) {
+			if (vars.flags[Object.keys(riddlesList)[i]] == null) {
+				vars.flags[Object.keys(riddlesList)[i]] = false;
+			}
+		}
+	},
+	
+	setupTalks: function() {
+		var vars=State.active.variables;
+		var talksList=window.therapistTalks;
+		
+		if (vars.therapistTalks == null) {
+			vars.therapistTalks = {};
+		}
+		
+		for (var i=0; i < Object.keys(talksList).length; i++) {
+			if (vars.therapistTalks[Object.keys(talksList)[i]] == null) {
+				vars.therapistTalks[Object.keys(talksList)[i]] = {};
+				
+				var object = vars.therapistTalks[Object.keys(talksList)[i]];
+				var talksObj = talksList[Object.keys(talksList)[i]];
+
+				if (object.id == null) { object.id = talksObj.id; }
+				if (object.start == null) { object.start = talksObj.start; }
+				if (object.finished == null) { object.finished = false; }
+				if (object.progress == null) { object.progress = 0; }
+			}
+		}
+		
+		// deleting talks with no corresponding ID in JavaScript list
+		var talksNewList = State.active.variables.dreams;
+		for (var i=0; i < Object.keys(talksNewList).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(talksList).length; j++) {
+				if (talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete talksNewList[Object.keys(talksNewList)[i]];
+			}
+		}
+	},
+	
+	setupPunishments: function() {
+		var vars=State.active.variables;
+
+		// Static variables
+		var punVarList=window.punishmentsVars;
+		if (vars.teacherPunishmentsVars == null) {
+			vars.teacherPunishmentsVars = {};
+		}
+		for (var i=0; i < Object.keys(punVarList).length; i++) {
+			if (vars.teacherPunishmentsVars[Object.keys(punVarList)[i]] == null) {
+				vars.teacherPunishmentsVars[Object.keys(punVarList)[i]] = punVarList[Object.keys(punVarList)[i]];
+			}
+		}
+		
+		// punishments array
+		
+		var punList=window.teacherPunishments;
+		
+		if (vars.teacherPunishments == null) {
+			vars.teacherPunishments = {};
+		}
+		
+		for (var i=0; i < Object.keys(punList).length; i++) {
+			if (vars.teacherPunishments[Object.keys(punList)[i]] == null) {
+				vars.teacherPunishments[Object.keys(punList)[i]] = {};
+				
+				var object = vars.teacherPunishments[Object.keys(punList)[i]];
+				var talksObj = punList[Object.keys(punList)[i]];
+
+				if (object.id == null) { object.id = talksObj.id; }
+				if (object.active == null) { object.active = talksObj.active; }
+				if (object.progress == null) { object.progress = 0; }
+				if (object.timeStart == null) { object.timeStart = 0; }
+			}
+		}
+		
+		// deleting punishments with no corresponding ID in JavaScript list
+		var punNewList = State.active.variables.dreams;
+		for (var i=0; i < Object.keys(punNewList).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(punList).length; j++) {
+				if (punNewList[Object.keys(punList)[i]].id == punList[Object.keys(punList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete punNewList[Object.keys(punNewList)[i]];
+			}
+		}
+	},
+	
+	setupTasks: function() {
+		var vars=State.active.variables;
+
+		// Daring tasks
+		var tasksList=window.tasksTeacher;
+		if (vars.tasksTeacher == null) {
+			vars.tasksTeacher = {};
+		}
+		
+		for (var i=0; i < Object.keys(tasksList).length; i++) {
+			if (vars.tasksTeacher[Object.keys(tasksList)[i]] == null) {
+				vars.tasksTeacher[Object.keys(tasksList)[i]] = {};
+				
+				var object = vars.tasksTeacher[Object.keys(tasksList)[i]];
+				var taskListed = tasksList[Object.keys(tasksList)[i]];
+				
+				object.id = taskListed.id;
+				
+				if (object.canStart == null) { object.canStart = taskListed.canStart; }
+				if (object.status == null) { object.status = 0; }
+				if (object.progress == null) { object.progress = 0; }
+				if (object.startDay == null) { object.startDay = 0; }
+			}
+		}
+		
+		// Bodymods tasks
+		var tasksBodyList=window.tasksTeacherBody;
+		if (vars.tasksTeacherBody == null) {
+			vars.tasksTeacherBody = {};
+		}
+		
+		for (var i=0; i < Object.keys(tasksBodyList).length; i++) {
+			if (vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] == null) {
+				vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] = {};
+				
+				var object = vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]];
+				var taskBodyListed = tasksBodyList[Object.keys(tasksBodyList)[i]];
+				
+				object.id = taskBodyListed.id;
+				
+				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
+				if (object.status == null) { object.status = 0; }
+				if (object.progress == null) { object.progress = 0; }
+				if (object.startDay == null) { object.startDay = 0; }
+			}
+		}
+		
+		// Bodymods tasks
+		var emailList=window.tasksEmail;
+		if (vars.tasksEmail == null) {
+			vars.tasksEmail = {};
+		}
+		
+		for (var i=0; i < Object.keys(emailList).length; i++) {
+			if (vars.tasksEmail[Object.keys(emailList)[i]] == null) {
+				vars.tasksEmail[Object.keys(emailList)[i]] = {};
+				
+				var object = vars.tasksEmail[Object.keys(emailList)[i]];
+				var emailListed = emailList[Object.keys(emailList)[i]];
+				
+				object.id = taskBodyListed.id;
+				
+				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
+				if (object.status == null) { object.status = 0; }
+				if (object.progress == null) { object.progress = 0; }
+				if (object.startDay == null) { object.startDay = 0; }
+				
+			}
+		}
+		
+		// deleting tasks with no corresponding ID in JavaScript list
+		var tasksNewTeacher = State.active.variables.tasksTeacher;
+		for (var i=0; i < Object.keys(tasksNewTeacher).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(tasksList).length; j++) {
+				if (tasksNewTeacher[Object.keys(tasksList)[i]].id == tasksList[Object.keys(tasksList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete tasksNewTeacher[Object.keys(tasksNewTeacher)[i]];
+			}
+		}
+		
+		var tasksBodyNewTeacher = State.active.variables.tasksTeacher;
+		for (var i=0; i < Object.keys(tasksBodyNewTeacher).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(tasksBodyList).length; j++) {
+				if (tasksBodyNewTeacher[Object.keys(tasksBodyList)[i]].id == tasksBodyList[Object.keys(tasksBodyList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete tasksBodyNewTeacher[Object.keys(tasksBodyNewTeacher)[i]];
+			}
+		}
+	},
+},
+
+window.punishmentsVars={
+	penalty: 0,
+	penaltyMonday: 0,
+	punSeverity: 0,
+	lastPunName: 0,
+	aphrodisiacDuration: 0,
+	penaltySkipped: false,
+	penaltyCollar: false,
+	penaltyWaxed: false,
+	penaltyClinic: false,
+	penaltyTrials: false,
+	penaltySissyShow: false,
+	nailPolishPenalty: false,
+	nailPolishPenaltyOver: false,
+	refusedToPay: false,
+	refusedToCrossdress: false
+}
+
+window.playerList={
+	name: "",
+	debugA: false,
+	debugM: false,
+	debugQ: false,
+	debugN: 0,
+	money: 0,
+	bought: "",
+	daring: 0,
+	drunk: 0,
+	arousal: 0,
+	eager: 0,
+	reluctant: 0,
+	workLastDay: 0,
+	blowjobsToday: 0,
+	maxBlowjobs: 1,
+	heelsSkill: 0,
+	daysInPanties: 0,
+	hairColor: 1,
+	quickSet: 0,
+	shoppingType: 0,
+	sleepCheck: 0,
+	chastityUsedTo: 0,
+	vibratorUsedTo: 0,
+	uploadType: 0,
+	checkPlace: 0,
+	masturbationType: 0,
+	buttplugInflate: 0,
+	alarmProgress: 0,
+	bjDildoProgress: 0,
+	choresPercent: 100,
+	choreSpeed: 1,
+	currentChore: 0,
+	choreFails: 0,
+	choreFailsCurrent: 0,
+	choreFailPercent: 0,
+	chorePunishmentHeels: 0,
+	chorePunishmentDildo: 0,
+	chorePunishmentDildoCooldown: 0,
+	chorePunishmentDildoLimit: 3,
+	salonTab: 0,
+	salonSoftLimit: 400,
+	salonLimit: 1000,
+	schoolLastDay: 0,
+	schoolTruantDays: 0,
+	therapistMode: false,
+	therapistLastDay: 0,
+	therapistDays: [],
+	therapistTime: 0,
+	wager: 0,
+	detention: false,
+	alarmClockGuardian: false,
+	batteryExpireDay: 0,
+	batterySneakDay: 0,
+	bribeDiscount: 0,
+	bribeIncrease: 10,
+	friendLastVisit: 0,
+	clothes: []
+},
+
+window.playerAddonsList={
+	room: {
+		style: 0,
+		lamp: 0,
+		morning: 0,
+		junkMax: 11,
+		junkMaxGirl: 5,
+		junk: [],
+		jacket: 0,
+		tie: 0,
+		girljacket: 0,
+		skirt: 0,
+		girlstie: 0,
+		drawer: false
+	},
+	daringFlag: {
+		bathroomDoor: false,
+		bribe: false,
+		snooping: false,
+		sleepingGrope: false,
+		femaleClothes: false,
+		femaleUnderwear: false,
+		toiletsMasturbating: false,
+		noUnderwear: false,
+		posingtoCoach: false,
+		handjob: false,
+		bjBully: false,
+		coachGame: false,
+		coachGameWin: false,
+		stunBully: false,
+		quickFemaleSchool: false,
+		quickFemaleCasual: false
+	},
+	tasks: {
+		penalty: 0,
+		penaltyMonday: 0,
+		punSeverity: 0,
+		lastPunName: 0,
+		aphrodisiacDuration: 0,
+		penaltySkipped: false,
+		penaltyCollar: false,
+		penaltyWaxed: false,
+		penaltyClinic: false,
+		penaltyTrials: false,
+		penaltySissyShow: false,
+		nailPolishPenalty: false,
+		nailPolishPenaltyOver: false,
+		refusedToPay: false,
+		refusedToCrossdress: false
+	},
+	jobs: {
+		active: false,
+		salonPlan: 0,
+		fastfoodPerversion: 0,
+		adultstoreActive: false,
+		adultstorePerversion: 0,
+		maidActive: false,
+		maidPerversion: 0,
+		workedToday: false
+	},
+	perversion: {
+		guardian: 0,
+		guardianCooldown: 0,
+		guardianWatch: 0,
+		guardianCorruption: 0,
+		teacher: 0,
+		teacherCooldown: 0,
+		teacherPermChastity: 0,
+		therapist: 0,
+		therapistCooldown: 0,
+		therapistTalk: 0,
+		therapistTalkLevel: 0,
+		assistant: 0,
+		bullies: 0,
+		boyfriend: 0,
+		coach: 0,
+		photogirl: 0,
+		friend: 0,
+		upload: 0,
+		uploadCooldown: 0,
+		crossdressing: 0,
+		mall: 0,
+		club: 0,
+		noseWagerCount: 0,
+		bjFirst: 0,	/* "bully", "coach" */
+		bjSkill: 0,
+		vibratorFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
+		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
+		analSkill: 0
+	},
+	masturbate: {
+		lastDay: 0,
+		lastHour: 0,
+		lastMinute: 0,
+		DayTemp: 0,
+		HourTemp: 0,
+		MinuteTemp: 0,
+		DayTease: 0,
+		HourTease: 0,
+		MinuteTease: 0
+	},
+},
+
+window.friendList={
+	he_she: 'he',
+	He_She: 'He',
+	him_her: 'him',
+	Him_Her: 'Him',
+	his_her: 'his',
+	His_Her: 'His',
+	his_hers: 'his',
+	His_Hers: 'His'
+},
+
+window.futaList={
+	he_she: 'he',
+	He_She: 'He',
+	him_her: 'him',
+	Him_Her: 'Him',
+	his_her: 'his',
+	His_Her: 'His',
+	his_hers: 'his',
+	His_Hers: 'His',
+	Boy_Girl: 'Boy',
+	boy_girl: 'boy',
+	Boys_Girls: 'Boys',
+	boys_girls: 'boys',
+	Guy_Girl: 'Guy',
+	guy_girl: 'guy'
+},
+
+window.bodyList={
+	bodyhair: 0,
+	penisShrink: 0,
+	hairstyle: 0,
+	hairColor: 1,
+	nose: 0,
+	earsPierced: false,
+	
+	boobs: 0,
+	lips: 0,
+	ass: 0,
+	face: 0,
+	manicure: 0,
+	makeup: 0,
+	anal: 0,
+	
+	semiBoobs: 0,
+	semiLips: 0,
+	semiAss: 0,
+	semiFace: 0,
+	semiManicure: 0,
+	semiMakeup: 0,
+	semiAnal: 0,
+	
+	permBoobs: 0,
+	permLips: 0,
+	permAss: 0,
+	permFace: 0,
+	permManicure: 0,
+	permMakeup: 0,
+	permAnal: 0,
+},
+
+window.flagsList={
+	arrowsHelp: false,
+	roomHelp: false,
+	avatarHelp: false,
+	checkSelfHelp: false,
+	bribePaid: false,
+	bribeTransfered: false,
+	bribeFail: false,
+	cameraBathroom: false,
+	cameraBedroom: false,
+	forcedHorny: false,
+	showDreamImage: false,
+	restlessDream: false,
+	catStuff: false,
+	foxStuff: false,
+	arcadeWin: false,
+	PSBoxAnnoyed: false,
+	exhausted: false,
+	tired: false,
+	redecorate: false,
+	roomFuschia: false,
+	roomOrchid: false,
+	roomBdsm: false,
+	spyCamLooked: false,
+	sleepGuardianRoom: false,
+	schoolWalk: false,
+	aprilsFools: false,
+	aprilsFoolsChast: false,
+	trainingCockSuck: false,
+	penisShrinkProgress: false,
+	penisShrinkSleep: false,
+	penisShrinkPunishment: false,
+	walletForgottenStart: false,
+	walletForgottenEnd: false,
+	firstBuyDress: false,
+	firstBuyShoes: false,
+	firstBuyPanties: false,
+	firstBuyBras: false,
+	firstBuyStockings: false,
+	firstBuyFemale: false,
+	secondBuyFemale: false,
+	friendNamed: false,
+	friendIsMale: true,
+	friendButtplugGame: false,
+	friendNakedMassage: false,
+	friendNoticeSalonPenalty: false,
+	friendNoticeMakeup: false,
+	friendNoticeBreastsDD: false,
+	friendNoticeBreastsC: false,
+	friendNoticeBreastsB: false,
+	friendNoticeTattooHeart: false,
+	friendNoticeLipsEnhancing: false,
+	friendNoticeLipsEnhancingXL: false,
+	friendNoticeManicure: false,
+	friendNoticeNoseClassic: false,
+	friendNoticeNoseButton: false,
+	friendNoticeNosePiggy: false,
+	friendNoticeBeautyMark: false,
+	friendNoticePiercingEars: false,
+	friendNoticePiercingLips: false,
+	friendNoticePiercingNose: false,
+	friendNoticePiercingTongue: false,
+	friendNoticeHairMedium: false,
+	friendNoticeHairLong: false,
+	friendNoticeHairPigtails: false,
+	friendNoticeHairCurly: false,
+	maidWriter: false,
+	maidUniform: false,
+	teacherPanties: false,
+	hairRibbon: false,
+	heelsOff: false,
+	batteriesExpire: false,
+	bathroomPeep: false,
+	nightieSleep: false,
+	sleepWarning: false,
+	sissyConfession: false,
+	sissyConfessionStart: false,
+	sissyConfessionShown: false,
+	mallBlowjob: false,
+	jogger: false,
+	clinicDonorsHelp: false,
+	femaleSchool: false,
+	femaleClass: false,
+	femaleHall: false,
+	heelsFall: false,
+	schoolButtplug: false,
+	schoolChastity: false,
+	nailGloss: false,
+	cameraRecording: false,
+	pissRecorded: false,
+	pissDrunk: false,
+	pissCaught: false,
+	assistantTaskGiven: false,
+	bullyTaskGiven: false,
+	bullyRecorded: false,
+	bullySucked: false,
+	bullySteal: false,
+	bullyDoubleteam: false,
+	touristsMeet: false,
+	whoreRecorded: false,
+	whoreFucked: false,
+	newBoyfriendIntro: false,
+	newBoyfriend: false,
+	guardianEvil: false,
+	guardianBoyfriendIntro: false,
+	guardianCumDrink: false,
+	guardianCondoms: false,
+	guardianCondomsAsk: false,
+	guardianCondomsDone: false,
+	guardianSnooping: false,
+	guardianSnoopingCaught: false,
+	guardianWork: false,
+	talkClinicWork: false,
+	guardianBfAgree: false,
+	guardianBfBlame: false,
+	guardianFuckedByStrapon: false,
+	guardianTeacherTalk: false,
+	guardianPunishDressUp: false,
+	guardianPunishVibrator: false,
+	guardianRuinedDress: false,
+	straponForced: false,
+	teacherNoticeHairRemovalPerm: false,
+	teacherNoticeManicure: false,
+	teacherNoticeManicurePerm: false,
+	teacherNoticeNoseClassic: false,
+	teacherNoticeNoseButton: false,
+	teacherNoticeNosePiggy: false,
+	teacherNoticeBreastsDD: false,
+	teacherNoticeBreastsC: false,
+	teacherNoticeBreastsB: false,
+	teacherNoticeBreastsA: false,
+	teacherNoticeAssEnhancingXL: false,
+	teacherNoticeLipsEnhancingXL: false,
+	teacherNoticePiercingLips: false,
+	teacherNoticePiercingNose: false,
+	teacherNoticePiercingBelly: false,
+	teacherNoticePiercingTongue: false,
+	teacherNoticePiercingNipples: false,
+	teacherNoticeSubtleMakeup: false,
+	teacherNoticeNormalMakeup: false,
+	teacherNoticeBimboMakeup: false,
+	teacherNoticeHeavyMakeup: false,
+	teacherNoticeAnalSmooth2: false,
+	teacherNoticeAnalSmooth3: false,
+	guardianNoticesalonPenalty: false,
+	guardianNoticeNormalMakeup: false,
+	guardianNoticeBimboMakeup: false,
+	guardianNoticeHeavyMakeup: false,
+	guardianNoticeBreastsDD: false,
+	guardianNoticeBreastsC: false,
+	guardianNoticeBreastsB: false,
+	guardianNoticeBreastsA: false,
+	guardianNoticetattooHeart: false,
+	guardianNoticeLipsEnhancing: false,
+	guardianNoticeLipsEnhancingXL: false,
+	guardianNoticeManicure: false,
+	guardianNoticeGarishManicure: false,
+	guardianNoticenoseClassic: false,
+	guardianNoticenoseButton: false,
+	guardianNoticenosePiggy: false,
+	guardianNoticebeautyMark: false,
+	guardianNoticePiercingEars: false,
+	guardianNoticePiercingLips: false,
+	guardianNoticePiercingNose: false,
+	guardianNoticePiercingTongue: false,
+	guardianNoticeHairShort: false,
+	guardianNoticeHairMedium: false,
+	guardianNoticeHairLong: false,
+	guardianNoticeHairPigtails: false,
+	guardianNoticeHairCurly: false,
+	guardianNoticeChastity: false,
+	guardianShopping: false,
+	guardianShopCloth: false,
+	guardianShopPhoto: false,
+	guardianShopAdult: false,
+	guardianShopTrig: false,
+	gTrialLatexMaid: false,
+	gTrialPenisGag: false,
+	gTrialGiantVibroPlug: false,
+	gTrialStrapOn: false,
+	guardianStrapon: false,
+	gTrialBalletHeels: false,
+	gTrialCorset: false,
+	gTrialChains: false,
+	gTrialCollar: false,
+	gTrialWhip: false,
+	gTrialToilet: false,
+	WebHorseCock: false,
+	shoesCheck: false,
+	laundryAccident: false,
+	laundryAccident2: false,
+	vibratorCaught: false,
+	uploadDone: false,
+	uploadCaught: false,
+	boyfriendCaught: false,
+	dreamgameCaught: false,
+	dreamgameCaughtWin: false,
+	dreamgameCaughtTalk: false,
+	chastityKey: false,
+	chastityLocked: false,
+	collarLocked: false,
+	wardrobeSelector: true,
+	wardrobeSelectorFull: true,
+	chastityWarning: false,
+	lockedWeekend: false,
+	chastityAgree: false,
+	coachPosing: false,
+	coachPosingHappy: false,
+	coachPosingAngry: false,
+	buttplugLost: false,
+	taskGuideHandGirl: false,
+	taskGuideHandWomanMan: false,
+	taskGuideHandCouple: false,
+	taskGuideHandTrap: false,
+	roomOffer: false,
+	choreCheck: false,
+	choreLazy: false,
+	confiscatedPSBox: false,
+	confiscatedInternet: false,
+	confiscatedVibrator: false,
+	chorePunishment: false,
+	chorePunMode: false,
+	choreReward: false,
+	choreRewAllowance: false,
+	chorePunAllowance: false,
+	choreRewCallOfHonor: false,
+	choreRewSpinning: false,
+	chorePunishmentHeels: false,
+	chorePunishmentDildo: false,
+	checkingGift: false,
+	choreForcedFail: false,
+	dominatrixDress: false,
+	newCallOfHonorPlayed: false,
+	chorePunOffer: false,
+	chorePunKinky: false,
+	choreRewClothes: false,
+	salonVisited: false,
+	salonVisitedFirst: false,
+	salonHairRemoval: false,
+	salonManicure: false,
+	salonMakeup: false,
+	salonBreast: false,
+	salonLips: false,
+	salonNose: false,
+	salonAss: false,
+	salonPenis: false,
+	salonCorset: false,
+	salonAnal: false,
+	salonSemiPerm: false,
+	salonPickNose: false,
+	salonPenalty: false,
+	salonPenaltyPayed: false,
+	salonPiggyCoin: false
+},
+
+window.kinkList={
+	incest: false,
+	incestOff: false,
+	piss: false,
+	pissOff: false,
+	sphOff: false,
+	bondageOff: false,
+	maso: false,
+	masoOff: false,
+	cum: false,
+	cumOff: false,
+	creampie: false,
+	futa: false,
+
+	semenConsumptionStart: false,	
+	semenConsumption: false,
+	creampie: false,
+	bukkake: false,
+	cumEating: false,
+	ownCum: false,
+	cumSwap: false,
+
+	watersportsStarted: false,	
+	watersports: false,
+	wetting: false,
+	urineDrink: false,
+	urinePlay: false,
+	
+	smallPenisStarted: false,
+	smallPenis: false,
+	penisShrink: false,
+	sph: false,
+
+	bdsmStarted: false,
+	bdsm: false,
+	painPlay: false,
+	xPain: false,
+	petPlay: false,
+	bondage: false,
+	facesit: false,
+	trampling: false,
+
+	footFetishStarted: false,
+	footFetish: false,
+	footDisplay: false,
+	footWorship: false,
+	hosiery: false,
+	shoeBoot: false,
+	footjob: false,
+
+	odorStarted: false,
+	odor: false,
+	clothesOdor: false,
+	shoeSockOdor: false,
+	footOdor: false,
+	armpitOdor: false,
+	assOdor: false,
+	genitalOdor: false,
+
+	degradationStarted: false,
+	degradation: false,
+	curse: false,
+	whoring: false,
+	bimbo: false,
+	spitting: false,
+	abusive: false,
+	mindControl: false,
+	questionable: false,
+	tattoo: false,
+	piercing: false,
+
+	agePlayStarted: false,
+	agePlay: false,
+	diapering: false,
+	adultBaby: false,
+	ageBehavior: false,
+
+	xBodyStarted: false,
+	xBody: false,
+	bbw: false,
+	hyperBreasts: false,
+	hyperPenis: false,
+	dwarf: false,
+	tall: false,
+	muscle: false,
+	expansionWeight: false,
+	
+	clothingStarted: false,
+	clothing: false,
+	latex: false,
+	leather: false,
+	nylon: false,
+	frilly: false,
+
+	genderChangeStarted: false,
+	genderChange: false
+},
+
+window.quickSlotList={
+	School: {
+	name: "School",
+	extra: false
+	},
+	School_b: {
+	name: "School b",
+	extra: true
+	},
+	School_c: {
+	name: "School c",
+	extra: true
+	},
+	Casual: {
+	name: "Casual",
+	extra: false
+	},
+	Casual_b: {
+	name: "Casual b",
+	extra: true
+	},
+	Casual_c: {
+	name: "Casual c",
+	extra: true
+	},
+	Slutty: {
+	name: "Slutty",
+	extra: false
+	},
+	Slutty_b: {
+	name: "Slutty b",
+	extra: true
+	},
+	Slutty_c: {
+	name: "Slutty c",
+	extra: true
+	},
+	Nightwear: {
+	name: "Nightwear",
+	extra: false
+	},
+	Maid: {
+	name: "Maid",
+	extra: false
+	},
+	Custom: {
+	name: "Custom",
+	extra: false
+	},
+	Custom_a: {
+	name: "Custom a",
+	extra: true
+	},
+	Custom_b: {
+	name: "Custom b",
+	extra: true
+	},
+	Custom_c: {
+	name: "Custom c",
+	extra: true
+	},
+	Custom_d: {
+	name: "Custom d",
+	extra: true
+	},
+	Custom_e: {
+	name: "Custom e",
+	extra: true
+	},
+	Custom_f: {
+	name: "Custom f",
+	extra: true
+	},
+	Custom_g: {
+	name: "Custom g",
+	extra: true
+	},
+	Custom_h: {
+	name: "Custom h",
+	extra: true
+	}
+},
