@@ -8,11 +8,10 @@
 <<set _m=playerCode.isWearing(itemsC.maidOutfit)>>\
 <<set _rew=true>>\
 <<set _fail=false>>\
-<<for _i=0; _i lt choresList.length; _i++>>\
-	<<if choresList[_i].name eq $scene>>\
-		<<break>>\
-	<<endif>>\
-<</for>>\
+\
+<<set _choreJS = choresList[$player.currentChore]>>\
+<<set _choreV = $chores[$player.currentChore]>>\
+\
 <<if ($player.chorePunishmentHeels gte $time.day) and ((not _f) or (not _f.slutty) or _m)>>\
 	<<if playerCode.owns(itemsC.highHeel3)>>\
 		You put on a pair of high heels, as part of your punishment.
@@ -34,8 +33,8 @@
 	<<set _heels=true>>\
 <<endif>>\
 	<!--<Fail calculations>-->\
-<<if not $player.flags.choreCheck>>\
-	<<set $player.flags.choreCheck = true>>\
+<<if not $flags.choreCheck>>\
+	<<set $flags.choreCheck = true>>\
 	<<set $player.choreFailPercent=0>>\
 	<<if playerCode.isHorny()>>\
 		<<if _c>>\
@@ -190,13 +189,13 @@
 		<<set $player.choreFailPercent=20>>\
 	<<endif>>\
 <<endif>>\
-<<if $player.flags.choreSpanked>>\
+<<if $flags.choreSpanked>>\
 	Your butt still hurts from spanking, motivating you to work harder.\
 	<<set $player.choreFailPercent=-1>>\
 <<endif>>\
-<<if $player.flags.choreForcedFail and $player.flags.choreReward and $player.flags.checkingGift and (not $player.flags.dominatrixDress) and $player.perversion.guardian gte 4>>\
-	<<if $player.flags.confiscatedVibrator or $player.perversion.guardian gte 5>>\
-		<<set $player.flags.choreForcedFail = false>>\
+<<if $flags.choreForcedFail and $flags.choreReward and $flags.checkingGift and (not $flags.dominatrixDress) and $player.perversion.guardian gte 4>>\
+	<<if $flags.confiscatedVibrator or $player.perversion.guardian gte 5>>\
+		<<set $flags.choreForcedFail = false>>\
 	<<else>>\
 		<<set $player.choreFailPercent=100>>\
 	<<endif>>\
@@ -245,7 +244,7 @@
 <!--</Vacuum the house>-->\
 	<!--<Clean the house>-->\
 <<elseif $scene eq "Clean the house">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -299,7 +298,7 @@
 <!--</Clean the house>-->\
 	<!--<Clean the house through and through>-->\
 <<elseif $scene eq "Clean the house through and through">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -384,7 +383,7 @@
 <!--</Wash the dishes>-->\
 	<!--<Wash the dishes and clean sink>-->\
 <<elseif $scene eq "Wash the dishes and clean sink">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -471,7 +470,7 @@
 <!--</Wash the dishes and clean sink>-->\
 	<!--<Clean the kitchen>-->\
 <<elseif $scene eq "Clean the kitchen">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -574,7 +573,7 @@
 <!--</Clean the kitchen>-->\
 	<!--<Clean bathroom and toilet>-->\
 <<elseif $scene eq "Clean bathroom and toilet">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -698,7 +697,7 @@
 <!--</Wash your clothes>-->\
 	<!--<Wash clothes>-->\
 <<elseif $scene eq "Wash clothes">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		Between you and $guardian, you figure about 95% of the dirty clothes are hers.
 		
 		<<if ($player.choreFailPercent gt random(100))>>\
@@ -761,7 +760,7 @@
 <!--</Wash clothes>-->\
 	<!--<Wash clothes carefully>-->\
 <<elseif $scene eq "Wash clothes carefully">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		Between you and $guardian, about 95% of the dirty clothes are hers.
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
@@ -811,7 +810,7 @@
 <!--</Wash clothes carefully>-->\
 	<!--<Mow the lawn>-->\
 <<elseif $scene eq "Mow the lawn">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -862,7 +861,7 @@
 <!--</Mow the lawn>-->\
 	<!--<Clean sex toys>-->\
 <<elseif $scene eq "Clean sex toys">>\
-	<<if not $chores[_i].fail>>\
+	<<if not _choreV.fail>>\
 		<<if ($player.choreFailPercent gt random(100))>>\
 			<<set _rew=false>>\
 			<<set _fail=true>>\
@@ -924,6 +923,3 @@ This is bug.
 <<if _rew>>\
 	<<set $scene="reward">>\
 <<endif>>\
-\
-
-

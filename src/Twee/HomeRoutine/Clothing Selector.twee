@@ -1,0 +1,227 @@
+:: Clothing Selector [pos_1276_820]
+\
+<<display [[Clothing wardrobe]]>>\
+	[[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
+	<!--<go to school>-->\
+<<if window.timeCode.haveSchool()>>\
+	<<if window.clothes.dressedSchool.check()>>\
+		<<if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)>>\
+		You need to return chastity cage to the store before going to school. \
+		<<else>>\
+		[[Go to school][window.timeCode.addMinutes(15)]] \
+		<<endif>>\
+	<<else>>\
+		<<notDressed "Go to school" $reason.dressedSchool>>\
+		@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>> \
+	<<endif>>\
+	<<if (not $flags.walletForgottenEnd) and window.timeCode.isMonday() and ($flags.walletForgottenStart or ($player.perversion.teacher gte 3 and (not $flags.sissyConfession) and random(20) eq 0))>>\
+		<<set $flags.walletForgottenStart = true>>\
+		<<delayedLink 5 "Pick up your wallet">> \
+	<<endif>>\
+	
+<<endif>>\
+	<!--</go to school>-->\
+	<!--<go to mall>-->\
+<<if (not window.timeCode.schoolRequired())>>\
+	<<if window.timeCode.isMallOpen()>>\
+		<<if window.clothes.dressedOutside.check(1)>>\
+			[[Go to the mall][window.timeCode.addMinutes(30)]]
+		<<else>>\
+			<<notDressed "Go to the mall" $reason.dressedOutside>>
+		<<endif>>\
+	<<endif>>\
+<<else>>\
+	<<click "Go to the mall">><<replace "#mall_deny">>@@.deny; I need to go to school@@<</replace>><</click>><span id="mall_deny"></span>
+<<endif>>\
+	<!--</go to mall>-- Mall -->\
+	<!--<go to Club>-->\
+<<if (not window.timeCode.schoolRequired()) and window.timeCode.isClubOpen() and (($player.perversion.club gt 0) or (($tasksTeacher.TheClubIntro.status eq 1) and window.timeCode.isSaturday()))>>\
+	<<if window.clothes.dressedOutside.check(1)>>\
+		<<if window.clothes.dressedClub.check()>>\
+			[[Go to the club|The Club Intro][$scene="Entrance"; $time.addMinutes(30)]]
+		<<else>>\
+			<<notDressed "Go to the club" $reason.dressedClub>>
+		<<endif>>\
+	<<else>>\
+		<<notDressed "Go to the club" $reason.dressedOutside>>
+	<<endif>>\
+<<endif>>\
+	<!--</go to Club>-->\
+<<if window.timeCode.needTherapy()>>\
+	<<if (not window.timeCode.schoolRequired())>>\
+		<<if window.clothes.dressedTherapy.check()>>\
+			[[Visit therapist][window.timeCode.addMinutes(120);$player.therapistLastDay to $time.day]]
+		<<else>>\
+			<<notDressed "Visit therapist" $reason.dressedTherapy>>
+		<<endif>>\
+	<<else>>\
+		<<click "Visit therapist">><<replace "#therapist_deny">>@@.deny; I need to go to school@@<</replace>><</click>><span id="therapist_deny"></span>
+	<<endif>>\
+<<endif>>\
+<<if window.timeCode.canNap()>>\
+	<<if window.timeCode.schoolRequired()>>\
+		<<click "Have a nap">><<replace "#nap_deny">>@@.deny; I need to go to school@@<</replace>><</click>><span id="nap_deny"></span>
+	<<else>>\
+		[[Have a nap][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]\
+		<<if ($time.hour lt 15)>> @@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] <<endif>>
+	<<endif>>\
+<<endif>>\
+<<if $flags.guardianCondomsAsk and (not $flags.guardianCondoms) and (not $flags.guardianCondomsDone)>>\
+	[[Go hunting for used condoms]]
+<<endif>>\
+	<!--<go to sleep>-->\
+<<if window.timeCode.canSleep()>>\
+	<<if $kink.penisShrink and window.timeCode.isSunday()>>\
+		<<set $dreams.PenisShrinking.active=true>>\
+	<<endif>>\
+	<<if $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>\
+		[[Accept the punishment|Special punishments][$scene="spanking"]]\
+		
+	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
+		<<if window.clothes.dressedOutside.check(0) or playerCode.isWearing(itemsC.maidOutfit)>>\
+			[[Go hunting for used condoms]]\
+		<<else>>\
+			<<notDressed "Go hunting for used condoms" $reason.dressedOutside>>\
+		<<endif>>\
+		
+	<<elseif window.clothes.dressedSleep.check()>>\
+		[[Go to sleep|Restless sleep]]\
+		<<if $flags.choreDildoAlarm and not $flags.trainingCockSuck>>\
+			- [[Suck training cock][$scene="suckSleep"]]\
+		<<endif>>\
+		
+	<<else>>\
+		<<notDressed "Go to sleep" $reason.dressedSleep>>\
+		- <<print '<<click " Dress for Sleep ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Sleep)>><<set $player.quickSet=quickSlotSets.Sleep>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		
+	<<endif>>\
+	<<if $therapistTalks.talkChastitySleep.finished and (not $therapistTalks.talkVibrator.start)>>\
+		<<if window.clothes.dressedSleep.check()>>\
+			[[Try experimental way to deal with sleep problems|Therapist sleep][$scene="Therapist sleep"]]
+		<<else>>\
+			<<notDressed "Try experimental way to deal with sleep problems" $reason.dressedSleep>>
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+	<!--</go to sleep>-->\
+<<if (window.timeCode.isWeekend() and window.timeCode.canNap() and (not window.timeCode.schoolRequired()))>>\
+	<<if window.clothes.dressedOutside.check(0)>>\
+		<<print "[[Go to "+$guardian+"'s clinic|Go to clinic][$random.store(4)]]">>
+	<<else>>\
+		<<print '<<notDressed "Go to '+$guardian+'\'s clinic" $reason.dressedOutside>>'>>
+	<<endif>>\
+<<endif>>\
+\
+<<if window.timeCode.isWeekend() and ($time.hour gt 5) and ($time.hour lt 16) and $player.jobs.active and (not $player.jobs.workedToday)>>\
+	<<if window.clothes.dressedOutside.check(1)>>\
+		<<print "[[Part time jobs|Part time jobs]]">>
+	<<else>>\
+		<<print '<<notDressed "Part time jobs" $reason.dressedOutside>>'>>
+	<<endif>>\
+<<endif>>\
+\
+<<if (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and ($time.day gt $player.friendLastVisit)>>\
+	<<if window.clothes.dressedOutside.check(0)>>\
+		<<if window.clothes.dressedFriend.check()>>\
+			<<if $flags.friendNamed>>\
+				<<print "[[Visit "+$friend+"|Visit friend][window.timeCode.addMinutes(10)]]">>
+			<<else>>\
+				<<print "[[Visit "+$friend+"|Name friend][$flags.friendVisitedToday=true]]">>
+			<<endif>>\
+		<<else>>\
+			<<print '<<notDressed "Visit '+$friend+'" $reason.dressedFriend>>'>>
+		<<endif>>\
+	<<else>>\
+		<<print '<<notDressed "Visit '+$friend+'" $reason.dressedOutside>>'>>
+	<<endif>>\
+<<endif>>\
+\
+	<!--<misc tasks>-- Misc -->\
+<<if window.timeCode.canWhore() and ($tasksTeacher.whoring.status eq 1)>>\
+	<<if window.clothes.dressedWhore.check()>>\
+		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
+	<<else>>\
+		<<notDressed "Sell yourself on the street" $reason.dressedWhore>>
+	<<endif>>\
+<<endif>>\
+\
+<<if (playerCode.owns(itemsC.batteries) or playerCode.owns(itemsC.batteriesQuality)) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\
+	<<if window.clothes.dressedGuardian.check()>>\
+		[[Replace alarm clock batteries|Replace batteries]]
+	<<else>>\
+		<<print '<<notDressed "Replace alarm clock batteries" $reason.dressedGuardian>>'>>
+	<<endif>>\
+<<endif>>\
+\
+<<if ($tasksTeacher.selfieNightwear.status eq 1)>>\
+	[[Take a selfie in your nightie|Task Nightwear selfie]]
+<<endif>>\
+<<if ($tasksTeacher.playButtplug.status eq 1)>>\
+	[[Film yourself playing with a butt-plug|Film playing with butt-plug]]
+<<endif>>\
+<<if (($tasksTeacher.trainDildoBJ.status eq 1) or ($tasksEmail.WebcamDeepthroat.status gte 2))>>\
+	[[Film yourself practicing with a dildo|Film practicing with a dildo]]
+<<endif>>\
+<<if ($tasksEmail.WebcamSelfieChastity.status gte 2)>>\
+	[[Take a photo in your chastity cage|Task Chastity selfie]]
+<<endif>>\
+<<if ($tasksEmail.WebcamHorseCock.status gte 2)>>\
+	[[Film yourself using a horsecock toy|Email HorseCock][$tasksEmail.WebcamHorseCock.progress=1]]
+<<endif>>\
+<<if ($tasksEmail.WebcamTail.status gte 2)>>\
+	[[Film yourself wiggling your butt with a fox tail butt-plug|Email FoxGirl]]
+<<endif>>\
+<<if ($tasksTeacher.fakeGirlfriend.status eq 1)>>\
+	[[Pretend to be $teacher's gay friend's girlfriend|Task Fake girlfriend]]
+<<endif>>\
+<<if ($tasksTeacher.guardianSpank.status eq 1)>>\
+	<<print '[[Ask '+$guardian+' to spank you|Special punishments][$scene=\"taskSpanking\"]]'>>
+<<endif>>\
+<<if ($tasksTeacher.guardianFuck.status eq 1) and window.timeCode.canNap()>>\
+	<<print '[[Ask '+$guardian+' to fuck you|Guardian kinky reward][$scene=\"strapon common\"]]'>>
+<<endif>>\
+<<if ($tasksTeacher.gloryHole.status eq 1)>>\
+	<<if window.clothes.dressedOutside.check(1)>>\
+		<<print "[[Go to the local glory hole|Task Glory hole]]">>
+	<<else>>\
+		<<print '<<notDressed "Go to the local glory hole" $reason.dressedGuardian>>'>>
+	<<endif>>\
+<<endif>>\
+<<if ($tasksTeacher.penaltySissyShow.status eq 1)>>\
+	<<if window.clothes.dressedSchool.check()>>\
+		<<print "[[Go assist Ms.Goodwill at the Ivy College campus|Task Sissy Show][$tasksTeacher.penaltySissyShow.progress=0]]">>
+	<<else>>\
+		<<print '<<notDressed "Go to assist Ms.Goodwill at the Ive College" $reason.dressedSchool>>'>>
+	<<endif>>\
+<<endif>>\
+\
+<!--Crossdressing tasks-->\
+<<if ($tasksTeacher.selfieHomeMakeup.status eq 1)>>\
+	[[Film yourself putting on makeup|Task selfieHomeMakeup]]
+<<endif>>\
+<<if playerCode.owns(itemsC.summerDress) or playerCode.owns(itemsC.skirtTop)>>\
+	<<if ($tasksTeacher.selfieFemaleClothes.status eq 1)>>\
+		[[Take a photo of yourself in female clothes|Task selfieFemaleClothes]]
+	<<endif>>\
+	<<if ($tasksTeacher.posingSeductively.status eq 1)>>\
+		[[Take a few photos of yourself posing seductively|Task posingSeductively]]
+	<<endif>>\
+	<<if ($tasksTeacher.danceAtHome.status eq 1)>>\
+		[[Film yourself dancing|Task danceAtHome]]
+	<<endif>>\
+	<<if $player.perversion.teacher lte 3>>\
+		<<if ($tasksTeacher.crossdressAroundBlock.status eq 1) or ($tasksTeacher.crossdressAroundBlock.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+			[[Walk around the block dressed as a girl|Task crossdressAroundBlock][$scene="walk around block"]]
+		<<endif>>\
+		<<if ($tasksTeacher.crossdressAtPark.status eq 1) or ($tasksTeacher.crossdressAtPark.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+			[[Crossdress at a quiet place in the park|Task crossdressAtPark][$scene="walk at the park"]]
+		<<endif>>\
+		<<if ($tasksTeacher.crossdressOnline.status eq 1) or ($tasksTeacher.crossdressOnline.progress eq 0 and [4,5].includes($player.perversion.crossdressing) and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+			[[Upload your crossdressing photos to a clothes discussion thread|Task crossdressOnline]]
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+	<!--</misc tasks>-- Misc -->\
+\
+
+

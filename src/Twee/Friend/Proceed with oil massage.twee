@@ -12,20 +12,20 @@
 		@@.hero;Hrm... I'll take that bet.@@
 		
 	<<elseif _b>>\
-		@@.hero;That's true I guess, $friend.he_she's already seen my old butt-plug.@@
+		@@.hero;That's true I guess, $friendG.he_she's already seen my old butt-plug.@@
 		
 	<<endif>>
 <<endif>>\
 You strip off your clothes\
-<<if (not _u) and _c and (not $player.flags.friendNoticeChastity)>>\
+<<if (not _u) and _c and (not $flags.friendNoticeChastity)>>\
 	, exposing your chastity cage.  
 	
 	@@.friend;"Woah, what the fuck is that?"@@
 	
-	You lie and tell $friend that it helps you get super horny because you feel like you're not allowed to touch yourself. $friend.He_She is thoughtful for a moment.
+	You lie and tell $friend that it helps you get super horny because you feel like you're not allowed to touch yourself. $friendG.He_She is thoughtful for a moment.
 	
-	<<set $player.flags.friendNoticeChastity = true>>\
-	<<if $player.flags.friendIsMale>>\
+	<<set $flags.friendNoticeChastity = true>>\
+	<<if $flags.friendIsMale>>\
 		@@.friend;"Alright, you've got me curious. I might get one myself. Y'know, for research purposes,"@@  he grins.
 		
 	<<else>>\
@@ -35,7 +35,7 @@ You strip off your clothes\
 	
 	You \
 <<elseif not _u>>\
-	<<if not $player.flags.friendIsMale>>\
+	<<if not $flags.friendIsMale>>\
  		while $friend does a bad job of trying not to look. \
 	<<endif>>\
 	You \
@@ -47,7 +47,7 @@ lie face down on the bed as usual with $friend sitting next to you.
 <<if _b and $player.perversion.friend lte 8>>\
  	@@.friend;"I see you got yourself a new butt-plug."@@ 
 	
-	Even with your back to $friend.him_her, you can tell $friend.he_she's smiling.
+	Even with your back to $friendG.him_her, you can tell $friendG.he_she's smiling.
 	
 	<<set $player.perversion.friend = 8>>\
 <<endif>>

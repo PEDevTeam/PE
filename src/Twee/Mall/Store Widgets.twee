@@ -179,7 +179,7 @@ You can also:
 <!--[[Debug restock stores|Go to the mall][$restock=[]]]-->\
 <<endif>>\
 <<if window.timeCode.isArcadeOpen()>>[[Play in the arcade][$time.addMinutes(5)]]<<else>>The arcade is closed<<endif>>
-[[Go to mall toilet][$time.addMinutes(10);$player.flags.cameraRecording to false]]
+[[Go to mall toilet][$time.addMinutes(10);$flags.cameraRecording to false]]
 
 <<if (($tasksTeacher.trialChastity.status eq 1) and (not _c) and (not _b)) or ($tasksTeacher.trialChastity.status eq 5)>>\
 [[Ask about the market research opportunity|Task Trial chastity]]
@@ -225,7 +225,7 @@ You could try to steal the stun gun if you are desperate.
 	<<if window.clothes.dressedSchool.check()>>\
 		[[Go to school][$time.addMinutes(15)]]
 	<<else>>\
-		<<notDressed "Go to school" $reason>>
+		<<notDressed "Go to school" $reason.dressedSchool>>
 	<<endif>>\
 <<endif>>\
 [[Go home|Go to bedroom][$time.addMinutes(30)]]<</widget>>\

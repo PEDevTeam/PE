@@ -1,16 +1,16 @@
 :: Email links [pos_300_1753]
 \
 <<if ($tasksEmail.PinkRollers.status eq 1)>>\
-	<<if (not $player.flags.uploadCaught)>>\
+	<<if (not $flags.uploadCaught)>>\
 	You wonder if it's a coincidence, but you actually have pink roller skates like those. A long time ago, you wanted to learn to skate and $guardian gave you her old set. You shudder as you remember people staring at your awkward attempts to skate in those girly, pink skates.
 	
 	<<endif>>\
 	<<set $tasksEmail.PinkRollers.status = 2>>\
-	<<if playerCode.owns(itemsC.vibrator) and (not $player.flags.confiscatedVibrator)>>\
+	<<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
 		[[Masturbate]]
 	<<endif>>\
 <<endif>>\
-<<if ($tasksEmail.WebcamDildoAss.status eq 1) and playerCode.owns(itemsC.vibrator) and (not $player.flags.confiscatedVibrator)>>\
+<<if ($tasksEmail.WebcamDildoAss.status eq 1) and playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
 	<<set $tasksEmail.WebcamDildoAss.status = 2>>\
 	[[Masturbate]]
 <<endif>>\
@@ -22,7 +22,7 @@
 <<endif>>\
 <<if ($tasksEmail.WebcamDeepthroat.status eq 1)>>\
 	<<set $tasksEmail.WebcamDeepthroat.status = 2>>\
-	<<if playerCode.owns(itemsC.vibrator) and (not $player.flags.confiscatedVibrator)>>\
+	<<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
 		[[Film yourself practicing with a dildo|Film practicing with a dildo]]
 	<<endif>>\
 <<endif>>\

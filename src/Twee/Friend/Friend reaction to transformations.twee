@@ -1,77 +1,77 @@
 :: Friend reaction to transformations [pos_4440_57]
 \
-<<if $player.flags.salonPenalty and (not $player.flags.friendNoticeSalonPenalty)>>\
-	<<set $player.flags.friendNoticeSalonPenalty = true>>\
-	<<set $player.flags.friendNoticeTattooHeart = true>>\
-	<<set $player.flags.friendNoticeLipsEnhancingXL = true>>\
-	<<set $player.flags.friendNoticeManicure = true>>\
-	<<set $player.flags.friendNoticeMakeup = true>>\
-	<<set $player.flags.friendNoticeBeautyMark = true>>\
-	<<set $player.flags.friendNoticeNosePiggy = true>>\
-	$friend's smile falters as $friend.he_she notices your transformation. @@.friend;"Holy crap, you look... different..."@@ You blush, but $friend.he_she is quick to reassure you.  @@.friend;"It's a big change.  What made you do all this?"@@ 
+<<if $flags.salonPenalty and (not $flags.friendNoticeSalonPenalty)>>\
+	<<set $flags.friendNoticeSalonPenalty = true>>\
+	<<set $flags.friendNoticeTattooHeart = true>>\
+	<<set $flags.friendNoticeLipsEnhancingXL = true>>\
+	<<set $flags.friendNoticeManicure = true>>\
+	<<set $flags.friendNoticeMakeup = true>>\
+	<<set $flags.friendNoticeBeautyMark = true>>\
+	<<set $flags.friendNoticeNosePiggy = true>>\
+	$friend's smile falters as $friendG.he_she notices your transformation. @@.friend;"Holy crap, you look... different..."@@ You blush, but $friendG.he_she is quick to reassure you.  @@.friend;"It's a big change.  What made you do all this?"@@ 
 	
 	<<if playerCode.isMind_0()>>\
-		You tell $friend that Nancy tricked you, and that you guess you will just have to adjust to it all.  $friend.He_She looks at you, and then looks you up and down.  @@.friend;"Well, all I can say is, you look good dude.  Like... really good."@@ @@.hero;Well, thank you, I guess.@@
+		You tell $friend that Nancy tricked you, and that you guess you will just have to adjust to it all.  $friendG.He_She looks at you, and then looks you up and down.  @@.friend;"Well, all I can say is, you look good dude.  Like... really good."@@ @@.hero;Well, thank you, I guess.@@
 	<<elseif playerCode.isMind_1()>>\
-		You tell $friend that Nancy tricked you, and that while you feel a bit weird about it, something in you doesn't mind it. $friend.He_She nods @@.friend;"You look really good $player.name, she's done a great job on you."@@ You feel a little surge of happiness.
+		You tell $friend that Nancy tricked you, and that while you feel a bit weird about it, something in you doesn't mind it. $friendG.He_She nods @@.friend;"You look really good $player.name, she's done a great job on you."@@ You feel a little surge of happiness.
 	<<elseif playerCode.isMind_2()>>\
-		You tell $friend that Nancy at the clinic organized it all for you as a kind of surprise, and that you feel better than you ever have before. $friend.He_She smiles @@.friend;"You look awesome. It makes me happy to see you so happy."@@ You feel pride welling up in you.
+		You tell $friend that Nancy at the clinic organized it all for you as a kind of surprise, and that you feel better than you ever have before. $friendG.He_She smiles @@.friend;"You look awesome. It makes me happy to see you so happy."@@ You feel pride welling up in you.
 	<<else>>\
 		You shrug, because the developer screwed up and has no idea what you're thinking.
 	<<endif>>\
 <<else>>\
-	<<if $body.earsPierced and (not $player.flags.friendNoticePiercingEars)>>\
-		<<set $player.flags.friendNoticePiercingEars = true>>\
-		$friend reaches forward to your chin, and gently turns your head to the side. @@.friend;"You got your ears pierced!  The young folk of today, eh?  What is the world coming to?"@@ $friend.He_She grins at you.  @@.friend;"They look good on you $player.name."@@
+	<<if $body.earsPierced and (not $flags.friendNoticePiercingEars)>>\
+		<<set $flags.friendNoticePiercingEars = true>>\
+		$friend reaches forward to your chin, and gently turns your head to the side. @@.friend;"You got your ears pierced!  The young folk of today, eh?  What is the world coming to?"@@ $friendG.He_She grins at you.  @@.friend;"They look good on you $player.name."@@
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingNose) and (not $player.flags.friendNoticePiercingNose)>>\
-		<<set $player.flags.friendNoticePiercingNose = true>>\
+	<<if playerCode.owns(itemsC.PiercingNose) and (not $flags.friendNoticePiercingNose)>>\
+		<<set $flags.friendNoticePiercingNose = true>>\
 		$friend leans in and looks at your nose. @@.friend;"Piercings are cool.  I like it.  I've often thought about getting a piercing."@@
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingLips) and (not $player.flags.friendNoticePiercingLips)>>\
-		<<set $player.flags.friendNoticePiercingLips = true>>\
+	<<if playerCode.owns(itemsC.PiercingLips) and (not $flags.friendNoticePiercingLips)>>\
+		<<set $flags.friendNoticePiercingLips = true>>\
 		$friend sees your lip piercing immediately. @@.friend;"That piercing looks awesome on you $player.name."@@
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingTongue) and (not $player.flags.friendNoticePiercingTongue) and ($random.getIntInclusive(1, 3) eq 1)>>\
-		<<set $player.flags.friendNoticePiercingTongue = true>>\
+	<<if playerCode.owns(itemsC.PiercingTongue) and (not $flags.friendNoticePiercingTongue) and ($random.getIntInclusive(1, 3) eq 1)>>\
+		<<set $flags.friendNoticePiercingTongue = true>>\
 		$friend's face suddenly lights up. @@.friend;"You've had your tongue pierced!  How long have you had that for?  That's very cool."@@
 	<<endif>>\
-	<<if ($body.hairstyle eq 2) and (not $player.flags.friendNoticeHairMedium)>>\
-		<<set $player.flags.friendNoticeHairMedium = true>>\
+	<<if ($body.hairstyle eq 2) and (not $flags.friendNoticeHairMedium)>>\
+		<<set $flags.friendNoticeHairMedium = true>>\
 		$friend notices your new hair style. @@.friend;"That's a new look for you. I think it suits you $player.name."@@
 	<<endif>>\
-	<<if ($body.hairstyle eq 3) and (not $player.flags.friendNoticeHairLong)>>\
-		<<set $player.flags.friendNoticeHairLong = true>>\
+	<<if ($body.hairstyle eq 3) and (not $flags.friendNoticeHairLong)>>\
+		<<set $flags.friendNoticeHairLong = true>>\
 		$friend notices your new hair style. @@.friend;"That's a new look for you. I think it suits you $player.name."@@
 	<<endif>>\
-	<<if ($body.hairstyle eq 5) and (not $player.flags.friendNoticeHairCurly)>>\
-		<<set $player.flags.friendNoticeHairCurly = true>>\
+	<<if ($body.hairstyle eq 5) and (not $flags.friendNoticeHairCurly)>>\
+		<<set $flags.friendNoticeHairCurly = true>>\
 		$friend notices your new hair style. @@.friend;"That's a new look for you. Is that a perm or just the way you've styled it?  It looks good on you either way."@@
 	<<endif>>\
-	<<if playerCode.haveMakeup() and (not $player.flags.friendNoticeMakeup)>>\
-		<<set $player.flags.friendNoticeMakeup = true>>\
+	<<if playerCode.haveMakeup() and (not $flags.friendNoticeMakeup)>>\
+		<<set $flags.friendNoticeMakeup = true>>\
 		$friend takes a step back and studies your face.  @@.friend;"I would never have thought a guy would look so good in makeup. You have the face for it $player.name.  You look amazing."@@  You feel yourself blush.
 	<<endif>>\
-	<<if ($body.boobs eq 4) and (not $player.flags.friendNoticeBreastsDD)>>\
-		<<set $player.flags.friendNoticeBreastsDD = true>>\
-		<<set $player.flags.friendNoticeBreastsC = true>>\
-		<<set $player.flags.friendNoticeBreastsB = true>>\
-		$friend stares at your chest, lost for words for a moment, then grins and reaches forward and pretends to grab your giant tits. @@.friend;"BOOOOBS!"@@  $friend.He_She laughs.  @@.friend;"Seriously though, can I have a feel?"@@ You don't mind at all, and $friend.he_she spends a few studious moments squeezing and poking them. @@.friend;"They are really, really, I mean REALLY nice.  I'm super jealous."@@  
-	<<elseif ($body.boobs eq 3) and (not $player.flags.friendNoticeBreastsC)>>\
-		<<set $player.flags.friendNoticeBreastsC = true>>\
-		<<set $player.flags.friendNoticeBreastsB = true>>\
-		$friend looks at your chest, at your eyes, and then back at your chest again. @@.friend;"Sweet pair of titties, dude!"@@  $friend.He_She smiles.  @@.friend;"I reckon you're having a lot of fun with those."@@
-	<<elseif ($body.boobs eq 2) and (not $player.flags.friendNoticeBreastsB)>>\
-		<<set $player.flags.friendNoticeBreastsB = true>>\
-		$friend takes a second look at your chest. @@.friend;"You're filling out your top quite nicely."@@  $friend.He_She coughs awkwardly, but then grins at you.
+	<<if ($body.boobs eq 4) and (not $flags.friendNoticeBreastsDD)>>\
+		<<set $flags.friendNoticeBreastsDD = true>>\
+		<<set $flags.friendNoticeBreastsC = true>>\
+		<<set $flags.friendNoticeBreastsB = true>>\
+		$friend stares at your chest, lost for words for a moment, then grins and reaches forward and pretends to grab your giant tits. @@.friend;"BOOOOBS!"@@  $friendG.He_She laughs.  @@.friend;"Seriously though, can I have a feel?"@@ You don't mind at all, and $friendG.he_she spends a few studious moments squeezing and poking them. @@.friend;"They are really, really, I mean REALLY nice.  I'm super jealous."@@  
+	<<elseif ($body.boobs eq 3) and (not $flags.friendNoticeBreastsC)>>\
+		<<set $flags.friendNoticeBreastsC = true>>\
+		<<set $flags.friendNoticeBreastsB = true>>\
+		$friend looks at your chest, at your eyes, and then back at your chest again. @@.friend;"Sweet pair of titties, dude!"@@  $friendG.He_She smiles.  @@.friend;"I reckon you're having a lot of fun with those."@@
+	<<elseif ($body.boobs eq 2) and (not $flags.friendNoticeBreastsB)>>\
+		<<set $flags.friendNoticeBreastsB = true>>\
+		$friend takes a second look at your chest. @@.friend;"You're filling out your top quite nicely."@@  $friendG.He_She coughs awkwardly, but then grins at you.
 	<<endif>>\
-	<<if playerCode.owns(itemsC.tattooHeart) and (not $player.flags.friendNoticeTattooHeart)>>\
-		<<set $player.flags.friendNoticeTattooHeart = true>>\
+	<<if playerCode.owns(itemsC.tattooHeart) and (not $flags.friendNoticeTattooHeart)>>\
+		<<set $flags.friendNoticeTattooHeart = true>>\
 		$friend sees your heart tattoo. @@.friend;"Wow, sweet tattoo $player.name.  I've been thinking about getting a tattoo for a while."@@
 	<<endif>>\
-	<<if playerCode.owns(itemsC.beautyMark) and (not $player.flags.friendNoticeBeautyMark)>>\
-		<<set $player.flags.friendNoticeBeautyMark = true>>\
-		You wait to see if $friend will notice your new beauty mark, but $friend.he_she doesn't.  You feel \
+	<<if playerCode.owns(itemsC.beautyMark) and (not $flags.friendNoticeBeautyMark)>>\
+		<<set $flags.friendNoticeBeautyMark = true>>\
+		You wait to see if $friend will notice your new beauty mark, but $friendG.he_she doesn't.  You feel \
 		<<if playerCode.isMind_0()>>\
 			relieved.
 		<<elseif playerCode.isMind_1()>>\
@@ -82,33 +82,33 @@
 			annoyed at the lazy game developer.
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.nose eq 1) and (not $player.flags.friendNoticeNoseClassic)>>\
-		<<set $player.flags.friendNoticeNoseClassic = true>>\
+	<<if ($body.nose eq 1) and (not $flags.friendNoticeNoseClassic)>>\
+		<<set $flags.friendNoticeNoseClassic = true>>\
 		$friend studies your face for a moment.  @@.friend;"You look different... I can't quite put my finger on it. You look great thought."@@ 
 	<<endif>>\
-	<<if ($body.nose eq 2) and (not $player.flags.friendNoticeNoseButton)>>\
-		<<set $player.flags.friendNoticeNoseButton = true>>\
-		$friend studies your face for a moment.  @@.friend;"You look different... I can't quite put my finger on it. You look great thought, kinda cute."@@ <<if $player.flags.friendIsMale>>He smiles and blushes. @@.friend;"I hope that doesn't seem weird."@@<<endif>> 
+	<<if ($body.nose eq 2) and (not $flags.friendNoticeNoseButton)>>\
+		<<set $flags.friendNoticeNoseButton = true>>\
+		$friend studies your face for a moment.  @@.friend;"You look different... I can't quite put my finger on it. You look great thought, kinda cute."@@ <<if $flags.friendIsMale>>He smiles and blushes. @@.friend;"I hope that doesn't seem weird."@@<<endif>> 
 	<<endif>>\
-	<<if ($body.nose eq 3) and (not $player.flags.friendNoticeNosePiggy)>>\
-		<<set $player.flags.friendNoticeNosePiggy = true>>\
-		$friend sees your new nose. @@.friend;"What happened?  Did you break your nose?"@@ You lie and tell $friend.him_her that you walked into a wall. @@.friend;"Don't worry, I'm sure it'll go back to normal."@@ 
+	<<if ($body.nose eq 3) and (not $flags.friendNoticeNosePiggy)>>\
+		<<set $flags.friendNoticeNosePiggy = true>>\
+		$friend sees your new nose. @@.friend;"What happened?  Did you break your nose?"@@ You lie and tell $friendG.him_her that you walked into a wall. @@.friend;"Don't worry, I'm sure it'll go back to normal."@@ 
 	<<endif>>\
-	<<if ($body.lips eq 2) and (not $player.flags.friendNoticeLipsEnhancingXL)>>\
-		<<set $player.flags.friendNoticeLipsEnhancingXL = true>>\
-		<<set $player.flags.friendNoticeLipsEnhancing = true>>\
+	<<if ($body.lips eq 2) and (not $flags.friendNoticeLipsEnhancingXL)>>\
+		<<set $flags.friendNoticeLipsEnhancingXL = true>>\
+		<<set $flags.friendNoticeLipsEnhancing = true>>\
 		$friend notices your enhanced lips. \
-		<<if $player.flags.friendIsMale>>\
+		<<if $flags.friendIsMale>>\
 			@@.friend;"Wow, your lips are... impressive.  What are they like to kiss with?"@@ You say you don't know yet, and he looks like he wants to say something, but doesn't.
 		<<else>>\
 			@@.friend;"Wow, your lips look amazing. What do they feel like?"@@ She impulsively leans in and gives you a quick smooch. @@.friend;"Soft!  I want."@@
 		<<endif>>\
-	<<elseif ($body.lips eq 1) and (not $player.flags.friendNoticeLipsEnhancing)>>\
-		<<set $player.flags.friendNoticeLipsEnhancing = true>>\
-		$friend notices your new lips.  @@.friend;"Did a bee sting you on your mouth?"@@ $friend.He_She laughs.
+	<<elseif ($body.lips eq 1) and (not $flags.friendNoticeLipsEnhancing)>>\
+		<<set $flags.friendNoticeLipsEnhancing = true>>\
+		$friend notices your new lips.  @@.friend;"Did a bee sting you on your mouth?"@@ $friendG.He_She laughs.
 	<<endif>>\
-	<<if (($body.manicure eq 1) or ($body.manicure eq 2)) and (not $player.flags.friendNoticeManicure)>>\
-		<<set $player.flags.friendNoticeManicure = true>>\
+	<<if (($body.manicure eq 1) or ($body.manicure eq 2)) and (not $flags.friendNoticeManicure)>>\
+		<<set $flags.friendNoticeManicure = true>>\
 		$friend sees your nails, blinks for a few moments, then looks back at you and smiles, but doesn't say anything.
 	<<endif>>\
 <<endif>>\

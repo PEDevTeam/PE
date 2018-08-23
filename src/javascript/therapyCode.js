@@ -84,7 +84,7 @@ window.therapySessions=[
 		finishHypno: function() {}
 	},
 	{	//Introduction , second scene
-		text: "$therapist calls you in, and she can tell straight away that something new is troubling you.  With a little prodding, you tell her how your teacher $teacher is blackmailing you.  $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her that you foolishly tried to bribe her, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers.  You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print $taskMoney.therapist.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
+		text: "$therapist calls you in, and she can tell straight away that something new is troubling you.  With a little prodding, you tell her how your teacher $teacher is blackmailing you.  $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her that you foolishly tried to bribe her, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers.  You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print rewardMoney.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
 		hasPassage: true,
 		passage: "TherapistSurvey",
 		chance: 10,
@@ -137,7 +137,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Introduction , start of routine, choice to continue or stop hypno
-		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - you can also stop those at any time during the course if you feel uncomfortable, and it will not affect the basic participation pay in any way. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print $taskMoney.therapist.special_hypnosis>> each.\"@@\n\nWell, that last session definitely felt weird. You are honestly scared by how it affected you, but you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?",
+		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - you can also stop those at any time during the course if you feel uncomfortable, and it will not affect the basic participation pay in any way. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print rewardMoney.specialHypnosis>> each.\"@@\n\nWell, that last session definitely felt weird. You are honestly scared by how it affected you, but you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?",
 		hasPassage: false,
 		chance: 10,
 		priority: 10,
@@ -169,7 +169,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Talking about Friend
-		text: "You mention that the stress of performing for $teacher is starting to get to you, and you're finding it hard to relax at nights. $therapist is thoughtful for a moment. @@.therapist;\"Something that has worked wonderfully for another client of mine are regular massages. Not only does he find the massages pleasurable, but he experiences total relaxation for the next couple of days.\"@@ Sounds nice.\n\n@@.therapist;\"I think he pays around $300 an hour to have one of the girls at the brothel take care of him... That might explain why he enjoys them so much.\"@@ She laughs. @@.therapist;\"That's no good for you though. We're trying to //save// you money.\"@@\n\n$therapist taps her fingers on her knee while she thinks. @@.therapist;\"Perhaps you know someone who could give you a massage for free? $Guardian, or a friend?\"@@ You think about whether $guardian would do that for you, but decide that based on the way things are going between the two of you, she wouldn't. $friend though... $friend.he_she might be up for it.\n\nYou tell $therapist about $friend. She smiles brightly.\n\n @@.therapist;\"Oh, that sounds perfect! If $friend is generous enough to do that for you, I think it might really help you cope with your stress.\"@@\n\n You smile at each other.  You feel better already.",
+		text: "You mention that the stress of performing for $teacher is starting to get to you, and you're finding it hard to relax at nights. $therapist is thoughtful for a moment. @@.therapist;\"Something that has worked wonderfully for another client of mine are regular massages. Not only does he find the massages pleasurable, but he experiences total relaxation for the next couple of days.\"@@ Sounds nice.\n\n@@.therapist;\"I think he pays around $300 an hour to have one of the girls at the brothel take care of him... That might explain why he enjoys them so much.\"@@ She laughs. @@.therapist;\"That's no good for you though. We're trying to //save// you money.\"@@\n\n$therapist taps her fingers on her knee while she thinks. @@.therapist;\"Perhaps you know someone who could give you a massage for free? $Guardian, or a friend?\"@@ You think about whether $guardian would do that for you, but decide that based on the way things are going between the two of you, she wouldn't. $friend though... $friendG.he_she might be up for it.\n\nYou tell $therapist about $friend. She smiles brightly.\n\n @@.therapist;\"Oh, that sounds perfect! If $friend is generous enough to do that for you, I think it might really help you cope with your stress.\"@@\n\n You smile at each other.  You feel better already.",
 		hasPassage: false,
 		chance: 10,
 		priority: 5,
@@ -194,7 +194,7 @@ window.therapySessions=[
 		finishHypno: function() {}
 	},
 	{	//Talking about Friend - massage oils
-		text: "You tell $therapist how much the massages with $friend are relaxing you and helping you sleep at night. She beams at you and says, @@.therapist;\"Oh that's wonderful $player.name! It's so nice to know I've been able to help you. And I think it's so nice that you've been able to return $friend.his_her generosity.\"@@\n\nShe's thoughtful for a moment.\n\n@@.therapist;\"Massaging someone is quite an intimate act. How are you coping with that aspect?\"@@ You confess that your relationship has become somewhat intimate, what with rubbing the oils in, seeing $friend naked from behind, and even seeing $friend.him_her wearing your old butt-plug! @@.hero;Oops...@@\n\n$therapist simply nods.\n\n@@.therapist;\"Intimacy is very important to someone at your age, and I think exploring ways to increase that intimacy will lead you to greater happiness,\"@@ she says, smiling at you. @@.therapist;\"You and $friend enjoy playing games together, and I recommend making those games a bit more intimate as well. For example, you both wear butt-plugs from time to time it seems, so maybe think of a game you could play involving them?\"@@",
+		text: "You tell $therapist how much the massages with $friend are relaxing you and helping you sleep at night. She beams at you and says, @@.therapist;\"Oh that's wonderful $player.name! It's so nice to know I've been able to help you. And I think it's so nice that you've been able to return $friendG.his_her generosity.\"@@\n\nShe's thoughtful for a moment.\n\n@@.therapist;\"Massaging someone is quite an intimate act. How are you coping with that aspect?\"@@ You confess that your relationship has become somewhat intimate, what with rubbing the oils in, seeing $friend naked from behind, and even seeing $friendG.him_her wearing your old butt-plug! @@.hero;Oops...@@\n\n$therapist simply nods.\n\n@@.therapist;\"Intimacy is very important to someone at your age, and I think exploring ways to increase that intimacy will lead you to greater happiness,\"@@ she says, smiling at you. @@.therapist;\"You and $friend enjoy playing games together, and I recommend making those games a bit more intimate as well. For example, you both wear butt-plugs from time to time it seems, so maybe think of a game you could play involving them?\"@@",
 		hasPassage: false,
 		chance: 10,
 		priority: 5,
@@ -365,7 +365,7 @@ window.therapistTalks={
 		time: 10,
 		start: true,
 		check: function() {
-			return [0,1,2,3].includes(State.active.variables.player.perversion.guardian) && (State.active.variables.player.flags.guardianSnoopingCaught);
+			return [0,1,2,3].includes(State.active.variables.player.perversion.guardian) && (State.active.variables.flags.guardianSnoopingCaught);
 		}
 	},
 	talkUnderwear: {
@@ -395,7 +395,7 @@ window.therapistTalks={
 		time: 20,
 		start: true,
 		check: function() {
-			return [3].includes(State.active.variables.player.perversion.guardian) && State.active.variables.player.flags.talkClinicWork;
+			return [3].includes(State.active.variables.player.perversion.guardian) && State.active.variables.flags.talkClinicWork;
 		}
 	},
 	talkChastity: {
@@ -405,7 +405,7 @@ window.therapistTalks={
 		time: 20,
 		start: false,
 		check: function() {
-			return !State.active.variables.player.flags.chastityKey;
+			return !State.active.variables.flags.chastityKey;
 		}
 	},
 	talkButtplug: {
@@ -425,7 +425,7 @@ window.therapistTalks={
 		time: 30,
 		start: true,
 		check: function() {
-			return State.active.variables.player.flags.chastityKey;
+			return State.active.variables.flags.chastityKey;
 		}
 	},
 	talkChastitySleep: {
@@ -465,7 +465,7 @@ window.therapistTalks={
 		time: 30,
 		start: true,
 		check: function() {
-			return [4,5].includes(State.active.variables.player.perversion.guardian) && State.active.variables.player.flags.vibratorCaught;
+			return [4,5].includes(State.active.variables.player.perversion.guardian) && State.active.variables.flags.vibratorCaught;
 		}
 	},
 	talkUpload: {
@@ -485,7 +485,7 @@ window.therapistTalks={
 		time: 30,
 		start: true,
 		check: function() {
-			return [5,6].includes(State.active.variables.player.perversion.guardian) && State.active.variables.player.flags.uploadCaught && (!State.active.variables.therapistTalks.talkMaid.finished);
+			return [5,6].includes(State.active.variables.player.perversion.guardian) && State.active.variables.flags.uploadCaught && (!State.active.variables.therapistTalks.talkMaid.finished);
 		}
 	},
 	talkMaid: {

@@ -2,7 +2,7 @@
 \
 <<showImage "general" "classroom.jpg">>\
 <<set $player.schoolLastDay to $time.day>>\
-<<set $player.flags.schoolWalk = false>>\
+<<set $flags.schoolWalk = false>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<if $time.day eq 1>>\
 	You got lucky this year - $teacher is strict, but sexy as fuck.
@@ -28,7 +28,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	<<endif>>\
 <<endif>>\
 \
-<<if ($player.perversion.teacher eq 2) and playerCode.isWearingOn(itemTypes.Chastity) and (not $player.flags.chastityKey) and ($tasksTeacher.trialChastity.status eq 0) and (not $player.flags.eagerStart)>>\
+<<if ($player.perversion.teacher eq 2) and playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.chastityKey) and ($tasksTeacher.trialChastity.status eq 0) and (not $flags.eagerStart)>>\
 	You go from daydream to fantasy as the rest of the class melts away until it's just you and her. She looks at you with a smile.
 
 	<<display "Teacher fantasy">>
@@ -82,14 +82,14 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.tasks.refusedToPay=true]]">>
 		<<endif>>\
 	<<endif>>\
-<<elseif not $player.flags.femaleClass>>
+<<elseif not $flags.femaleClass>>
 	<<if (not $player.daringFlag.femaleClothes)>>\
 		<<set $player.daringFlag.femaleClothes to true>>\
 		Your heart is pumping madly as you get ready to enter the classroom in your new uniform. Somehow, it's way scarier than all your previous cross-dressing endeavors.
 
 		<<Daring 6>>\
 	<<endif>>\
-	<<set $player.flags.femaleClass to true>>\
+	<<set $flags.femaleClass to true>>\
 	There's some stifled laughter as you walk into the classroom in the girl's school dress.
 
 	@@.teacher;"$player.name,"@@ $teacher asks, @@.teacher;"Why are you wearing a girl's uniform? Is this a dare?"@@
@@ -176,7 +176,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 		
 		The class freezes in shock, but moments later explodes in laughter as you run out of the class feeling extremely humiliated.
 		
-		<<set $player.flags.buttplugLost to true>>\
+		<<set $flags.buttplugLost to true>>\
 		<<endif>>\
 	<<else>>\
 		You try to ignore the stares and snide comments from your classmates and sit at your desk. $teacher begins the class and before long your mind starts to wander. 

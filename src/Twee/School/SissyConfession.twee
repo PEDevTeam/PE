@@ -1,7 +1,7 @@
 :: SissyConfession [pos_1800_2092]
 \
 <<if ($scene eq "ReturnToTeacher") or ($scene eq "FailToPay")>>\
-	<<set $player.flags.sissyConfessionStart = false>>\
+	<<set $flags.sissyConfessionStart = false>>\
 	<<if $scene eq "ReturnToTeacher">>\
 		You return to $teacher, hoping to get free from the damned chastity cage.
 		
@@ -76,8 +76,8 @@
 <<elseif $scene eq "AgreeToConfess">>\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-	<<set $player.flags.sissyConfession = true>>\
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $player.flags.chastityKey and $player.flags.chastityLocked>>\
+	<<set $flags.sissyConfession = true>>\
+	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
 		<<set $player.tasks.penalty = 0>>\
 	<<endif>>\
 	Fidgeting in your chair, you begin to read the script out loud...
@@ -192,9 +192,9 @@
 		@@.heroT;Fuck.@@
 		
 	<<endif>>\
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $player.flags.chastityKey and $player.flags.chastityLocked>>\
+	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
 		$teacher unlocks your chastity cage.
-		<<set $player.flags.chastityLocked = false>>\
+		<<set $flags.chastityLocked = false>>\
 	
 	<<endif>>\
 	You bury your frustration, hurriedly wiping your eyes and face to mask any trace of crying. You gather your things and quickly head for the door.
@@ -205,7 +205,7 @@
 	
 	[[Go home|Go to bedroom][$time.addMinutes(15)]]
 <<elseif $scene eq "SecondVisit">>\
-	<<set $player.flags.sissyConfessionShown = true>>\
+	<<set $flags.sissyConfessionShown = true>>\
 	You return to $teacher, wondering what she'll come up with this time.
 	
 	@@.teacher;"I have something for you to watch. Do you remember your little speech?"@@ She turns the monitor of her computer towards you and starts a video file.

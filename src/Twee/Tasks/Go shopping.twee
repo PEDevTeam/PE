@@ -1,10 +1,7 @@
 :: Go shopping [pos_2148_365]
 \
-<<for _i=0; _i lt choresList.length; _i++>>\
-	<<if choresList[_i].name eq passage()>>\
-		<<break>>\
-	<<endif>>\
-<</for>>\
+<<set _choreJS = choresList.goShopping>>\
+<<set _choreV = $chores.goShopping>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 \
 <<if $player.shoppingType eq 0>>\
@@ -23,8 +20,8 @@
 
 	[[Go shopping][$player.shoppingType=_ty]]
 <<else>>\
-	<<if (not $player.flags.guardianShopping)>>\
-		<<set $player.flags.guardianShopping = true>>\
+	<<if (not $flags.guardianShopping)>>\
+		<<set $flags.guardianShopping = true>>\
 		There is something oddly familiar about it, but you just can't tell what exactly.
 		As you return dressed in a light summer dress and with the pink butt-plug occupying your anus, $guardian retrieves a small remote and presses a button. The butt-plug suddenly starts vibrating, making you squirm as\
 			<<if _c>>\
@@ -44,15 +41,15 @@
 	<<endif>>\
 
 	<<if $player.shoppingType eq 1>><!--<Clothes shop>-->\
-		<<if (not $player.flags.guardianShopTrig)>>\
+		<<if (not $flags.guardianShopTrig)>>\
 		<<set $player.shoppingType = 11>>\
-		<<set $player.flags.guardianShopTrig = true>>\
+		<<set $flags.guardianShopTrig = true>>\
 		<<else>>\
 		<<set $player.shoppingType = 0>>\
-		<<set $player.flags.guardianShopTrig = false>>\
+		<<set $flags.guardianShopTrig = false>>\
 		<<endif>>\
-		<<if (not $player.flags.guardianShopCloth)>>\
-		<<set $player.flags.guardianShopCloth = true>>\
+		<<if (not $flags.guardianShopCloth)>>\
+		<<set $flags.guardianShopCloth = true>>\
 			$Guardian drives you to the clothing store where her friend works. As you enter the store, her friend is nowhere to be seen, but $guardian wastes no time selecting several items anyway, before taking you into the dressing room to try them on. It's clear she knows her way around.
 			
 			As you put on the first item, $guardian activates your plug on its lowest setting - one that, while still manageable, keeps you flustered and makes the sensations from the various materials on your skin more intense.
@@ -147,7 +144,7 @@
 			
 			You catch quite a few surprised stares and lewd smirks as you walk to the car with $guardian: They noticed! They totally noticed! 
 			
-			The return home is uneventful, though you lose count of how many times you're set briefly squirming in your seat at random jolts from the plug during the trip. At last, $guardian releases you and hands you $<<print choresList[_i].reward>> to spend next time, if you want.
+			The return home is uneventful, though you lose count of how many times you're set briefly squirming in your seat at random jolts from the plug during the trip. At last, $guardian releases you and hands you $<<print _choreJS.reward>> to spend next time, if you want.
 			
 			She also hands you your underwear and winks. @@.guardian;"Oh, you are such a sissy slut, strolling around without your underwear. Do you lose it often?"@@
 			
@@ -161,7 +158,7 @@
 			
 			Eventually, the women have had their fun and you go home. All the way home, you're set briefly squirming in your seat by random jolts from the plug. At last, $guardian releases you. She hands you some spending money, with the suggestion you might save it for your next girly shopping outing.
 			
-			@@.reward;You earned $<<print choresList[_i].reward>>!@@
+			@@.reward;You earned $<<print _choreJS.reward>>!@@
 		<<else>>\
 			$Guardian drives you to the clothing store where her friend works. After greeting Susan, $guardian immediately begins choosing some girly outfits for you to try on.
 			
@@ -179,22 +176,22 @@
 
 			Eventually, the women get tired of having fun at your expense, and after goodbye kisses you go home. On your way, $guardian just can't stop fishing for details about your relationship with $bully. She seems happy that you get along so well with your schoolmate. On arriving home, $guardian releases you, handing you some spending money you might use on your next girly shopping outing.
 			
-			@@.reward;You earned $<<print choresList[_i].reward>>!@@
+			@@.reward;You earned $<<print _choreJS.reward>>!@@
 		<<endif>>\
 			
-		<<set $player.money+=choresList[_i].reward>>\
-		<<set $time.addMinutes(choresList[_i].minutes)>>\
-		<<set $chores[_i].dayPerformed to $time.day>>\
+		<<set $player.money+=_choreJS.reward>>\
+		<<set $time.addMinutes(_choreJS.minutes)>>\
+		<<set _choreV.dayPerformed to $time.day>>\
 	[[Recover|Go to bedroom]]
 	[[Perform other chores|Perform chores]]
 <!--</Clothes shop>-->\
 	<<elseif $player.shoppingType eq 2>><!--<Electronic shop>-->\
-		<<if (not $player.flags.guardianShopTrig)>>\
+		<<if (not $flags.guardianShopTrig)>>\
 		<<set $player.shoppingType = 12>>\
-		<<set $player.flags.guardianShopTrig = true>>\
+		<<set $flags.guardianShopTrig = true>>\
 		<<else>>\
 		<<set $player.shoppingType = 0>>\
-		<<set $player.flags.guardianShopTrig = false>>\
+		<<set $flags.guardianShopTrig = false>>\
 		<<endif>>\
 		<<if ($player.perversion.photogirl eq 0)>>\
 			<<set $player.perversion.photogirl = 1>>\
@@ -237,7 +234,7 @@
 
 				As you walk to the car $guardian asks how it went. Blushing you tell her what happened, and after squirming in your seat from the butt-plug's random spasms, $guardian releases you and hands you some money.
 				
-				@@.reward;You earned $<<print choresList[_i].reward>>!@@
+				@@.reward;You earned $<<print _choreJS.reward>>!@@
 				<<else>>\
 				You can't believe your luck, a sexy girl in your arms... er, or you in hers. 
 				
@@ -259,7 +256,7 @@
 
 				As you walk to the car $guardian asks how it went. Blushing you tell her what happened, and after squirming in your seat from the butt-plug's random spasms, $guardian releases you and hands you some money.
 				
-				@@.reward;You earned $<<print choresList[_i].reward>>!@@
+				@@.reward;You earned $<<print _choreJS.reward>>!@@
 				<<endif>>\
 		<<else>>\
 			<<if ($player.perversion.photogirl lte 3)>>\
@@ -317,7 +314,7 @@
 				
 				@@.hero;Gee, I hope I didn't over-share, there!@@  $guardian has a funny sort of smile on her face as she finally releases you and hands you some money.
 				
-				@@.reward;You earned $<<print choresList[_i].reward>>!@@
+				@@.reward;You earned $<<print _choreJS.reward>>!@@
 			<<elseif (($player.perversion.photogirl gte 4) and (random(3) eq 0)) or ($body.penisShrink eq 1)>>\
 				<<if $player.perversion.analFirst eq 0>>\
 					<!-- Roxy is the first one to pop PC cherry -->\
@@ -363,7 +360,7 @@
 				
 				As you walk to the car $guardian asks how it went. Blushing, you tell her what happened, squirming in your seat from the butt-plug's random spasms. $Guardian says nothing, but you see her thinking deeply as you tell your little tale. You find the irregular stimulation of the butt-plug working you up, and your mind keeps drifting back, replaying what just happened as you let the words flow.  @@.hero;Gee, I hope I didn't over-share, there!@@  $guardian has a funny sort of smile on her face as she finally releases you and hands you some money.
 				
-				@@.reward;You earned $<<print choresList[_i].reward>>!@@
+				@@.reward;You earned $<<print _choreJS.reward>>!@@
 			<<else>>\
 				While you're still gathering the nerve to make the first move this time, Roxy kisses you long and hard, your mouths locking together as your tongues dance wildly, hers plunging deep inside your mouth, probing and teasing you at will. Her soft, sexy body rubs against you, driving you crazy.
 				
@@ -399,28 +396,28 @@
 				
 				@@.hero;Gee, I hope I didn't over-share, there!@@  $guardian has a funny sort of smile on her face as she finally releases you and hands you some money.
 				
-				@@.reward;You earned $<<print choresList[_i].reward>>!@@
+				@@.reward;You earned $<<print _choreJS.reward>>!@@
 			<<endif>>\
 		<<set playerCode.masturbate.cum()>>\
 		<<endif>>\
 			
-		<<set $player.money+=choresList[_i].reward>>\
-		<<set $time.addMinutes(choresList[_i].minutes)>>\
-		<<set $chores[_i].dayPerformed to $time.day>>\
+		<<set $player.money+=_choreJS.reward>>\
+		<<set $time.addMinutes(_choreJS.minutes)>>\
+		<<set _choreV.dayPerformed to $time.day>>\
 	[[Recover|Go to bedroom]]
 	[[Perform other chores|Perform chores]]
 <!--</Electronic shop>-->\
 	<<elseif $player.shoppingType eq 3>><!--<Adult shop>-->\
-		<<if (not $player.flags.guardianShopTrig)>>\
+		<<if (not $flags.guardianShopTrig)>>\
 		<<set $player.shoppingType = 13>>\
-		<<set $player.flags.guardianShopTrig = true>>\
+		<<set $flags.guardianShopTrig = true>>\
 		<<else>>\
 		<<set $player.shoppingType = 0>>\
-		<<set $player.flags.guardianShopTrig = false>>\
+		<<set $flags.guardianShopTrig = false>>\
 		<<endif>>\
 		$Guardian drives you to the adult store.
-		<<if (not $player.flags.guardianShopAdult)>>\
-			<<set $player.flags.guardianShopAdult = true>>\
+		<<if (not $flags.guardianShopAdult)>>\
+			<<set $flags.guardianShopAdult = true>>\
 			It is much larger than that small section at the Mall.\
 		<<endif>>\
 		Inside you see an enormous collection of various sex toys, costumes, and devices.
@@ -431,51 +428,51 @@
 		@@.guardian;"Would you like to add anything to your maid outfit or to your home routine?"@@
 
 		[[Nope|Trial shop][$random.stored=0]]
-			<<if (not $player.flags.gTrialLatexMaid)>>\
+			<<if (not $flags.gTrialLatexMaid)>>\
 			[[Try on latex maid outfit|Trial shop][$random.stored=1]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialPenisGag)>>\
+			<<if (not $flags.gTrialPenisGag)>>\
 			[[Check penis gag|Trial shop][$random.stored=2]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialGiantVibroPlug)>>\
+			<<if (not $flags.gTrialGiantVibroPlug)>>\
 			[[Look at big vibro butt-plug|Trial shop][$random.stored=3]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialStrapOn)>>\
+			<<if (not $flags.gTrialStrapOn)>>\
 			[[Check strap-on|Trial shop][$random.stored=4]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialBalletHeels)>>\
+			<<if (not $flags.gTrialBalletHeels)>>\
 			[[Try on ballet heels|Trial shop][$random.stored=5]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialCorset)>>\
+			<<if (not $flags.gTrialCorset)>>\
 			[[Try corset|Trial shop][$random.stored=6]]
 			<<endif>>\
 <!--
-			<<if (not $player.flags.gTrialCollar)>>\
+			<<if (not $flags.gTrialCollar)>>\
 			[[Check collar|Trial shop][$random.stored=7]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialChains)>>\
+			<<if (not $flags.gTrialChains)>>\
 			[[Look at set of restraints|Trial shop][$random.stored=8]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialWhip)>>\
+			<<if (not $flags.gTrialWhip)>>\
 			[[Examine whips|Trial shop][$random.stored=9]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialToilet)>>\
+			<<if (not $flags.gTrialToilet)>>\
 			[[Ask to show toilet rig|Trial shop][$random.stored=10]]
 			<<endif>>\
-			<<if (not $player.flags.gTrialFuckMachine)>>\
+			<<if (not $flags.gTrialFuckMachine)>>\
 			[[Look at fuck machine|Trial shop][$random.stored=11]]
 			<<endif>>\
 -->\
-		<<set $time.addMinutes(choresList[_i].minutes)>>\
-		<<set choresList[_i].dayPerformed to $time.day>>\
+		<<set $time.addMinutes(_choreJS.minutes)>>\
+		<<set _choreV.dayPerformed to $time.day>>\
 <!--</Adult shop>-->\
 	<<elseif $player.shoppingType eq 4>><!--<General shop>-->\
-		<<if (not $player.flags.guardianShopTrig)>>\
+		<<if (not $flags.guardianShopTrig)>>\
 		<<set $player.shoppingType = 14>>\
-		<<set $player.flags.guardianShopTrig = true>>\
+		<<set $flags.guardianShopTrig = true>>\
 		<<else>>\
 		<<set $player.shoppingType = 0>>\
-		<<set $player.flags.guardianShopTrig = false>>\
+		<<set $flags.guardianShopTrig = false>>\
 		<<endif>>\
 		$Guardian drives you to the general store and gives you a list of groceries and various things you need to buy.
 		It's harder to do than you expected, as while you go through the store picking up listed items, the damned butt-plug going crazy is making you squirm every few steps.
@@ -496,7 +493,7 @@
 			
 			Blushing, you tell her of what happened, squirming in your seat at random jolts from the plug as you recount your tale. When you arrive home, $guardian releases you and hands you some cash.
 			
-			@@.reward;You earned $<<print choresList[_i].reward>>!@@
+			@@.reward;You earned $<<print _choreJS.reward>>!@@
 		<<else>>\
 			On exit from the store your phone rings and you learn that $guardian had to leave on some urgent business, so you'll have to catch a bus to get to home.
 			
@@ -530,11 +527,11 @@
 			
 			When you come home you find a note from $guardian on the table, with some money as reward for your help today.
 			
-			@@.reward;You earned $<<print choresList[_i].reward>>!@@
+			@@.reward;You earned $<<print _choreJS.reward>>!@@
 		<<endif>>\
-		<<set $player.money+=choresList[_i].reward>>\
-		<<set $time.addMinutes(choresList[_i].minutes)>>\
-		<<set $chores[_i].dayPerformed to $time.day>>\
+		<<set $player.money+=_choreJS.reward>>\
+		<<set $time.addMinutes(_choreJS.minutes)>>\
+		<<set _choreV.dayPerformed to $time.day>>\
 		
 	[[Recover|Go to bedroom]]
 	[[Perform other chores|Perform chores]]

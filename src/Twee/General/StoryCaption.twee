@@ -1,5 +1,28 @@
 :: StoryCaption [pos_2975_12]
 \
+<<if ($gameVersion lt gameCode.version)>>\
+/*<<set window.structures.updateStructures()>>*/\
+<<set window.structures.setupPlayer()>>\
+<<set window.structures.setupStandaloneVars()>>\
+<<set window.structures.setupClothesCheck()>>\
+<<set window.structures.setupMinigameVars()>>\
+<<set window.structures.setupStatus()>>\
+<<set window.structures.setupAvatar()>>\
+<<set window.structures.setupFlags()>>\
+<<set window.structures.setupKinks()>>\
+<<set window.structures.setupBody()>>\
+<<set window.structures.setupFriend()>>\
+<<set window.structures.setupFuta()>>\
+<<set window.structures.setupQuickSlot()>>\
+<<set window.structures.setupItems()>>\
+<<set window.structures.setupChores()>>\
+<<set window.structures.setupDreams()>>\
+<<set window.structures.setupFriendRiddles()>>\
+<<set window.structures.setupTalks()>>\
+<<set window.structures.setupPunishments()>>\
+<<set window.structures.setupTasks()>>\
+<<set $gameVersion = gameCode.version>>\
+<<endif>>\
 <span id="sidebar_time"></span><<updateTime>>
 <<if $time.day gt 0>>\
 @@.halftransparent;State:@@ \
@@ -38,7 +61,7 @@ Money: $<span id="sidebar_money">$player.money</span>
 		Debt owed\
 		<<if $time.day % 7 eq 0>>\
 			tomorrow:\
-		<<elseif ($time.day % 7 eq 1) and !$player.flags.bribePaid>>\
+		<<elseif ($time.day % 7 eq 1) and !$flags.bribePaid>>\
 			today:\
 		<<else>>\
 			on Monday:\
@@ -61,7 +84,7 @@ Money: $<span id="sidebar_money">$player.money</span>
 <<endif>>\
 <div id="sidebarWindow" class="">\
 	<<print '<div id="clothes" class="'+window.sidebar.className(0)+'"><span id="sidebar_clothes"></span></div>'>>\
-	<<print '<div id="inventory" class="'+window.sidebar.className(1)+'"><<getInventoryList>></div>'>>\
+	<<print '<div id="inventory" class="'+window.sidebar.className(1)+'"><<click "Phone">><<script>>Dialog.setup("Phone");	Dialog.wiki(Story.get("Phone").processText());	Dialog.open();<</script>><</click>><<getInventoryList>></div>'>>\
 	<<print '<div id="stats" class="'+window.sidebar.className(2)+'"><span id="sidebar_stats"></span></div>'>>\
 	<<if $player.debugA>>\
 		<<print '<div id="debug" class="'+window.sidebar.className(3)+'"><span id="sidebar_debug"></span></div>'>>\

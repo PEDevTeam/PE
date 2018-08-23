@@ -1,11 +1,8 @@
 :: Maid cleaning [pos_2138_215]
 \
-<<for _i=0; _i lt choresList.length; _i++>>\
-	<<if choresList[_i].name eq passage()>>\
-		<<break>>\
-	<<endif>>\
-<</for>>\
-<<set $player.currentChore = _i>>\
+<<set _choreV = $chores.maidCleaning>>\
+<<set _choreJS = choresList.maidCleaning>>\
+<<set $player.currentChore = choresList.maidCleaning.id>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _fail to false>>\
@@ -14,7 +11,7 @@
 <<else>>\
 <<showImage "chores" "maid_work.gif">>\
 <<endif>>\
-<<if $chores[_i].fail>>\
+<<if _choreV.fail>>\
 	You vacuum the house from top to bottom, including every cushion, crack and corner of the upholstered furniture. Using a rag, you polish every wood surface to a mirror-like shine. You wash the windows, doors, lamps and everywhere else where even the faintest sign of dirt could be. You tidy up all the clutter through the entire house, putting everything away in its correct place. In the end, the whole house almost sparkles, but you are completely exhausted. \
 <<elseif $player.choreSpeed eq 0.5>>\
 	You vacuum the house, mostly focusing on the obviously dirty spots and open areas where the vacuum fits easily. You quickly wash the windows and lamps. \
@@ -24,22 +21,22 @@
 	You pull out the old upright and do a through job of vacuuming the house from top to bottom, moving furniture and reaching hard spots where the vacuum barely fits. After you're finished vacuuming, you grab a dust rag and wipe down all the furniture. It is tiring, but at least everything looks clean. \
 <<endif>>\
 <!--<Items descriptions>-->\
-<<if $player.flags.gTrialBalletHeels>>\
+<<if $flags.gTrialBalletHeels>>\
 It is incredibly hard and tiresome to do while wearing ballet heels, but you have no other choice, as these will stay locked until you finish your work.
 <<else>>\
 It's so tiresome doing it while wearing high heels, but you have no other choice.
 <<endif>>\
 
 Sometimes, you glance in a mirror and see \
-<<if (not $player.flags.gTrialLatexMaid)>>\
+<<if (not $flags.gTrialLatexMaid)>>\
 an incredibly sexy maid, all flustered and a bit sweaty. \
 <<else>>\
 a breathtakingly erotic maid in a latex uniform, all sweaty and flustered. \
 <<endif>>\
-<<if $player.flags.gTrialPenisGag>>\
+<<if $flags.gTrialPenisGag>>\
 Your mouth is occupied by the penis gag, which fills your mouth with the taste of cum as you work. \
 <<endif>>\
-<<if $player.flags.gTrialCorset>>\
+<<if $flags.gTrialCorset>>\
 A tight corset prevents you from taking full breaths, and forces you to adopt an exemplary posture. \
 <<endif>>\
 
@@ -47,7 +44,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 <<if playerCode.isHorny()>>\
 	<<if _c>>\
 	Your penis strains hard against the chastity cage, constantly distracting you from work.\
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of an orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. You almost sob, mincing with really short steps to keep your balance as your knees wobble from the endless stimulation. \
 		<<elseif _b>>\
@@ -55,7 +52,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		<<endif>>\
 	<<else>>\
 	You are so horny that it drives you crazy. You constantly feel urges to stop work and masturbate, but you know that $guardian may be watching.
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. You almost sob, mincing with really short steps to keep your balance as your knees wobble from the constant stimulation. \
 		<<elseif _b>>\
@@ -65,7 +62,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 <<elseif playerCode.isHalfHorny()>>\
 	<<if _c>>\
 	Your penis slightly presses against the chastity cage, constantly reminding you of your position. For some weird reason it feels pleasant.\
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. \
 		<<elseif _b>>\
@@ -73,7 +70,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		<<endif>>\
 	<<else>>\
 	Your half-hard penis hangs freely under the short skirt of your maid outfit.
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. \
 		<<elseif _b>>\
@@ -83,7 +80,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 <<else>>\
 	<<if _c>>\
 	Your penis calmly rests in its chastity cage. It feels surprisingly comforting and weirdly appropriate.\
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. \
 		<<elseif _b>>\
@@ -91,7 +88,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		<<endif>>\
 	<<else>>\
 	Your flaccid penis hangs freely under the short skirt of your maid outfit.\
-		<<if $player.flags.gTrialGiantVibroPlug>>\
+		<<if $flags.gTrialGiantVibroPlug>>\
 			<<wearClothing $items.buttPlugVibro.id>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It keeps slowly massaging your prostate, making your penis constantly drip with precum. \
 		<<elseif _b>>\
@@ -104,7 +101,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 <<if ($player.perversion.guardian eq 5) and ($player.perversion.guardianCooldown gt 4)>>\
 	<!--<Boyfriend>-->\
 <<set $player.perversion.boyfriend ++>>\
-	<<set $player.flags.guardianBoyfriendMet = true>>\
+	<<set $flags.guardianBoyfriendMet = true>>\
 	<<if $player.perversion.boyfriend eq 1>>\
 		As you are finishing your work, dusting furniture, $guardian's $futa.boy_girl////friend's close-by voice startles you.
 
@@ -245,15 +242,15 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		
 		@@.hero;This is going to be awkward.@@
 		
-		<<set $time.addMinutes(choresList[_i].minutes)>>\
-		<<set $chores[_i].dayPerformed to $time.day>>\
+		<<set $time.addMinutes(choresList.maidCleaning.minutes)>>\
+		<<set _choreV.dayPerformed to $time.day>>\
 		[[Pick up the phone|Guardian boyfriend scene][$scene="phone"]]
 	<<endif>>\
 <!--</Boyfriend>-->\
-<<elseif (not $player.flags.maidWriter) and ($player.perversion.guardian gte 6) and ($player.perversion.guardianCooldown gt 2)>>\
+<<elseif (not $flags.maidWriter) and ($player.perversion.guardian gte 6) and ($player.perversion.guardianCooldown gt 2)>>\
 	<!--<Writer friend>-->\
 	<<showImage "chores" "adult_novel_writer.jpg">>\
-	<<set $player.flags.maidWriter = true>>\
+	<<set $flags.maidWriter = true>>\
 	Suddenly you hear the doorbell ring. That’s weird, because you hardly get any visitors, not with $guardian working all the time.  You have no idea who that might be and are \
 	<<if playerCode.isMind_0()>>\
 	terrified \
@@ -283,7 +280,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	You go to the door and open it.
 	 
 	You see a pretty woman standing in front of you. She has blonde hair and looks like a classic pin-up model, with her bright red lipstick, matching tight skirt and heels. She smiles and winks at you invitingly. \
-	<<if $player.flags.gTrialPenisGag>>\
+	<<if $flags.gTrialPenisGag>>\
 		You try to say something but you are lost for words. The only thing that comes out of your mouth is a meek stutter. @@.heroT;"Um... Hel... umm..."@@
 		
 		Her smile widens as she patiently waits for you to make a coherent sound. You finally gather yourself and say, @@.heroT;"Hello... Um... Can I help you?"@@
@@ -382,7 +379,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	
 	She looks at you, and you know what she wants you to do before she says anything.
 	
-	<<if $player.flags.gTrialPenisGag>>\
+	<<if $flags.gTrialPenisGag>>\
 		You lower you head onto her knees, letting her pet you. Somehow you feel\
 	<<else>>\
 		@@.heroT;"Thank you miss Tricia"@@ you mumble, catching yourself as you realize you're being honestly\
@@ -421,7 +418,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 <!--</Writer friend>-->\
 <<elseif ($player.perversion.guardian eq 5)>>\
 	<!--<Generic and strapon 5>--  perv (5-7)  -->\
-	<<if $player.choreFailPercent gt random(100) and (not $chores[_i].fail)>>\
+	<<if $player.choreFailPercent gt random(100) and (not _choreV.fail)>>\
 		<<set _fail = true>>\
 		At the end, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
 		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
@@ -438,7 +435,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	<!--</Generic and strapon 5>--  perv (6)  -->\
 <<elseif ($player.perversion.guardian eq 6)>>\
 	<!--<Generic and strapon 6>--  perv (6)  -->\
-	<<if $player.choreFailPercent gt random(100) and (not $chores[_i].fail)>>\
+	<<if $player.choreFailPercent gt random(100) and (not _choreV.fail)>>\
 		<<set _fail = true>>\
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 	
@@ -449,7 +446,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		Unfortunately, $guardian doesn't find your work satisfactory. @@.guardian;"$player.name, you need to try harder than that. I am going to have to //punish// you if you don't make whole house //spotless//. I mean it - it had better //shine// in here."@@
 
 		You go to your room and collapse on your bed, worn out.
-	<<elseif $player.flags.gTrialStrapOn>>\
+	<<elseif $flags.gTrialStrapOn>>\
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve, she scolds and corrects you.
 		
 		You just continue doing your chores while she toys with you, though it is incredibly hard to concentrate on what you are doing\
@@ -468,15 +465,15 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 			<<endif>>\
 		 and presses the tip of her glistering-with-lube strapon against your anus.
 		
-		<<if $player.flags.guardianFuckedByStrapon>>\
+		<<if $flags.guardianFuckedByStrapon>>\
 			She slides the thick shaft into you and moans in pleasure as the plugs inside her strap-on dig deeper and starts to vibrate stronger and stronger. \
-			<<if $player.flags.gTrialPenisGag>>\
+			<<if $flags.gTrialPenisGag>>\
 			A small squeak of pain slips through your gag. \
 			<<endif>>\
 			She rides you over the couch, tenderly caressing your body as she fucks you. After a short time, she starts thrusting faster, moaning passionately, finally giving you a sound slap on your butt before releasing you. Afterwards, she thanks you and lets you finish your work, which is harder to do with your anus still tender from fucking.
 		<<else>>\
 			She prods your funhole and grinds the thick shaft between your butt cheeks, torturing you with the anticipation of penetration that never comes. She moans in pleasure as the plugs inside her strap-on starts to vibrate stronger and stronger. Biting her lip, she gives you a sound slap on your butt.\
-			<<if $player.flags.gTrialPenisGag>>\
+			<<if $flags.gTrialPenisGag>>\
 			A faint whimper slips through your gag. \
 			<<endif>>\
 			She rides you over the couch, tenderly caressing your body as she teases you. After a short time, she leans on you harder, vibrations of massive dildo, trapped between your anus and her body driving you crazy. Finally she lets out loud gasp and backs away. Afterwards she thanks you and lets you finish your work, which is harder to do with you being extremely aroused.
@@ -491,7 +488,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	<!--</Generic and strapon 6>--  perv (6)  -->\
 <<elseif ($player.perversion.guardian eq 7)>>\
 	<!--<Generic and strapon 7>--  perv (7)  -->\
-	<<if $player.choreFailPercent gt random(100) and (not $chores[_i].fail)>>\
+	<<if $player.choreFailPercent gt random(100) and (not _choreV.fail)>>\
 		<<set _fail = true>>\
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 	
@@ -502,7 +499,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		Unfortunately, $guardian doesn't find your work satisfactory. @@.guardian;"$player.name, I'm sick and tired of your laziness. I want to see whole house //spotless// if you plan to get paid ever again. I mean it - it had better //shine// in here. I hope that will teach you to do things properly."@@
 
 		You go to your room and collapse on your bed, almost crying.
-	<<elseif $player.flags.gTrialStrapOn>>\
+	<<elseif $flags.gTrialStrapOn>>\
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 		
 		You just continue doing your chores while she plays with you, though it is incredibly hard to concentrate on what you are doing\
@@ -519,15 +516,15 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 			<<endif>>\
 		 and presses  the tip of her glistering-with-lube strapon against your anus.
 
-		<<if $player.flags.guardianFuckedByStrapon>>\
+		<<if $flags.guardianFuckedByStrapon>>\
 			She slides the thick shaft into you, moaning in pleasure as plugs inside her strap-on dig deeper inside her, starting to vibrate stronger and stronger. \
-			<<if $player.flags.gTrialPenisGag>>\
+			<<if $flags.gTrialPenisGag>>\
 			A small squeak of pain slips through your gag. \
 			<<endif>>\
 			She rides you over the couch and mercilessly teases your nipples as she fucks you. After a short time, she starts thrusting faster and moans passionately, giving you a sound slap on your butt before releasing you. Afterwards she tells you what a wonderful sissy-slave you are and lets you finish your work, which is harder to do with your anus still burning from its rough fucking.
 		<<else>>\
 			She prods your funhole and grinds the thick shaft between your butt cheeks, torturing you with the anticipation of penetration, that never comes. She moans in pleasure as the plugs inside her strap-on starts to vibrate stronger and stronger. Biting her lip, she gives you a sound slap on your butt.\
-			<<if $player.flags.gTrialPenisGag>>\
+			<<if $flags.gTrialPenisGag>>\
 			A faint whimper slips through your gag. \
 			<<endif>>\
 			She rides you over the couch, tenderly caressing your body as she teases you. After a short time, she leans on you harder, vibrations of massive dildo, trapped between your anus and her body driving you crazy. Finally, she lets out loud gasp and backs away. Afterwards she tells you what a wonderful sissy-slave you are and lets you finish your work, which is harder to do with you being extremely aroused.
@@ -560,10 +557,10 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.spyCamera) and (not $player.camera.bedroom)>>\
+	<<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\
 		<<print '[[Install camera in '+$guardian+'\'s bedroom|Install camera in bedroom]]'>>
 	<<endif>>\
-	<<if $player.flags.chorePunOffer>>\
+	<<if $flags.chorePunOffer>>\
 		<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
 	<<endif>>\
 	<<if window.choresFunc.canPerformChores()>>\

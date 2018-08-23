@@ -3,21 +3,21 @@
 <<if $scene eq "Caffee">>\
 	You go to the small cafeteria, hoping to find someone for the task that $teacher gave you.
 
-	<<if $player.flags.taskGuideHandGirl and $random.stored eq 0>>\
+	<<if $flags.taskGuideHandGirl and $random.stored eq 0>>\
 		<<set $random.stored = 1>>\
 	<<endif>>\
-	<<if $player.flags.taskGuideHandWomanMan and $random.stored eq 1>>\
+	<<if $flags.taskGuideHandWomanMan and $random.stored eq 1>>\
 		<<set $random.stored = 2>>\
 	<<endif>>\
-	<<if $player.flags.taskGuideHandCouple and $random.stored eq 2>>\
+	<<if $flags.taskGuideHandCouple and $random.stored eq 2>>\
 		<<set $random.stored = 3>>\
 	<<endif>>\
-	<<if $player.flags.taskGuideHandTrap and $random.stored eq 3>>\
-		<<if (not $player.flags.taskGuideHandGirl)>>\
+	<<if $flags.taskGuideHandTrap and $random.stored eq 3>>\
+		<<if (not $flags.taskGuideHandGirl)>>\
 			<<set $random.stored = 0>>\
-		<<elseif (not $player.flags.taskGuideHandWomanMan)>>\
+		<<elseif (not $flags.taskGuideHandWomanMan)>>\
 			<<set $random.stored = 1>>\
-		<<elseif (not $player.flags.taskGuideHandCouple)>>\
+		<<elseif (not $flags.taskGuideHandCouple)>>\
 			<<set $random.stored = 2>>\
 		<<endif>>\
 	<<endif>>\
@@ -43,7 +43,7 @@
 <!--<Girl>*********************-->\
 <<elseif $scene eq "Girl">>\
 	<<showImage "general" "task_under_table.gif">>\
-	<<set $player.flags.taskGuideHandGirl = true>>\
+	<<set $flags.taskGuideHandGirl = true>>\
 	<<if $tasksTeacher.guideHand.progress eq 0>>\
 		You approach the girl’s table and ask if the seat next to her is taken. She keeps reading, ignoring your request. @@.hero;I guess it’s better than a no...@@ You sit near her and ask the girl what she’s reading, but she continues to ignore you. Her hands obscuring the cover and spine of the book.
 
@@ -118,7 +118,7 @@
 <!--</Girl>*********************-->\
 <!--<Woman>*********************-->\
 <<elseif $scene eq "Woman">>\
-	<<set $player.flags.taskGuideHandWomanMan = true>>\
+	<<set $flags.taskGuideHandWomanMan = true>>\
 	You approach the stern-looking woman and ask if she’d mind if you joined her. With a brief glance, she just nods before returning to her coffee. With her attention primarily on the newspaper in front of her, you just sit there, nervous with anticipation, trying to find a moment to expose your cage to her. She takes a sip from her coffee cup, setting her hand beside her. Reaching for it, you draw her hand to your cage and are immediately greeted with a firm squeeze around the hard plastic.
 
 	With her free hand, the woman lifts the coffee cup to her lips and takes another sip, as if nothing happened. You only notice hint of a smirk before her face returned to its previous impassioned form.
@@ -154,7 +154,7 @@
 <!--<Man>*********************-->\
 <<elseif $scene eq "Man">>\
 	<<if $tasksTeacher.guideHand.progress eq 0>>\
-		<<set $player.flags.taskGuideHandWomanMan = true>>\
+		<<set $flags.taskGuideHandWomanMan = true>>\
 		You approach the older but muscular man and take a seat next to him without asking. He looks at you and smiles, asking how your day is going. Blushing, you tell him, @@.heroT;"good,"@@ while grasping his hand and guiding it to your caged cock.
 
 		You can sense his eagerness falter as his fingers touch the hard plastic of your cage. You look away blushing. This isn’t what he was expecting, but to your surprise you feel a finger moving along the tip, pressing against the slit at the head of the cage.
@@ -276,7 +276,7 @@
 <!--<Couple>*********************-->\
 <<elseif $scene eq "Couple">>\
 	<<showImage "general" "task_under_table.gif">>\
-	<<set $player.flags.taskGuideHandCouple = true>>\
+	<<set $flags.taskGuideHandCouple = true>>\
 	You walk up to the table with the couple and ask if you can join them. They look a bit confused, but instead of shooing you away, they're very welcoming. To your surprise, they invite you to sit between them. 
 	
 	They relate to you that they are newlyweds and have recently moved to town. All the people they've met here have been very welcoming. They want to pay that kindness forward, so they order an expensive ice cream dessert just for you.
@@ -302,7 +302,7 @@
 <!--</Couple>*********************-->\
 <!--<Trap>*********************-->\
 <<elseif $scene eq "Trap">>\
-	<<set $player.flags.taskGuideHandTrap = true>>\
+	<<set $flags.taskGuideHandTrap = true>>\
 	You approach the gorgeous woman and ask if you can join her. To your surprise, when you put her hand on your chastity, she does the same to - surprise - her own. You are shocked that such a stunningly beautiful woman is //just like you!//
 
 	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]

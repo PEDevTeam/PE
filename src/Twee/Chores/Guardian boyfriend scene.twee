@@ -2,7 +2,7 @@
 \
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set $player.flags.boyfriendCaught = true>>\
+<<set $flags.boyfriendCaught = true>>\
 	<!--<phone>--  phone  -->\
 <<if $scene eq "phone">>\
 	@@.heroT;"Hello?"@@ Your voice goes a pitch higher as $guardian's $futa.boy_girl////friend hand slides between your legs and starts caressing inner side of your tight. Your eyes widen in shock, and you try to wiggle out, but $futa.he_she holds you tightly.
@@ -132,7 +132,7 @@
 	<!--<boy fuck>--  fucking  -->\
 <<elseif $scene eq "boy fuck">>\
 	<<set $player.perversion.boyfriend = 5>>\
-	<<set $player.flags.blackmailVideo = true>>\
+	<<set $flags.blackmailVideo = true>>\
 	<<if $player.perversion.analFirst eq 0>>\
 		<!-- Guardians cheating boyfriend is the first one to pop PC cherry -->\
 		<<set $player.perversion.analFirst = 4>>\
@@ -184,7 +184,7 @@
 	<!--</boy no fuck>--  to clinic  -->\
 	<!--<steal phone>--  steal phone  -->\
 <<elseif $scene eq "boy steal">>\
-	<<set $player.flags.blackmailVideo = true>>\
+	<<set $flags.blackmailVideo = true>>\
 	You tell $guardian's $futa.boy_girl////friend that you could stay a bit longer, but $futa.he_she is bit too big for you, so you need to get $guardian's lube from her bedroom.
 	
 	You slowly squirm out of $futa.his_her embrace, bending provocatively as you put on your heels to capture $futa.his_her attention. Thankfully, it works, and while $futa.he_she is distracted by your ass, you manage to grab $futa.his_her phone. Hoping $futa.he_she won't notice $futa.his_her missing phone too soon, you quickly slip into $guardian's bedroom. Once inside, you quietly lock the door.
@@ -219,7 +219,7 @@
 		You blush, recalling what happened when you talked to her on the phone.\
 	<<endif>>\
 	It's hard to start talking, considering the bomb you are going to drop. So you awkwardly sit there, trying to pick the right words.
-	<<if $player.flags.blackmailVideo>>\
+	<<if $flags.blackmailVideo>>\
 		You have the blackmail video.\
 		<<if $player.perversion.boyfriend eq 4>>\
 			Now you just need to decide how to use it.\
@@ -239,7 +239,7 @@
 	[[Give her briefcase and tell her about blackmail, but stay quiet about other stuff|Guardian boyfriend scene][$scene="boy confess half"]]
 	[[Give her briefcase and tell her about everything|Guardian boyfriend scene][$scene="boy confess"]]
 	<<if $player.perversion.boyfriend gte 4>>\
-		[[Tell her that she is your bitch now and gloat about your new blackmail leverage|Guardian boyfriend scene][$scene="boy gloat";$player.flags.guardianEvil=true]]
+		[[Tell her that she is your bitch now and gloat about your new blackmail leverage|Guardian boyfriend scene][$scene="boy gloat";$flags.guardianEvil=true]]
 	<<endif>>\
 	<!--</choice>--  choice  -->\
 <<elseif $scene eq "boy confess" or $scene eq "boy confess half">>\
@@ -258,12 +258,12 @@
 	<<endif>>\
 	<<if $player.perversion.boyfriend eq 5>>\
 		You admit you let $futa.him_her to fuck you, in concern that $futa.he_she would blackmail $guardian.\
-		<<if $player.flags.blackmailVideo>>\
+		<<if $flags.blackmailVideo>>\
 			You show her the copied video.\
 		<<endif>>\
 	<<elseif $player.perversion.boyfriend eq 4>>\
 		You admit you let $futa.him_her fuck you with a vibrator\
-		<<if $player.flags.blackmailVideo>>\
+		<<if $flags.blackmailVideo>>\
 			to steal $futa.his_her phone with a video, though you don't know if $futa.he_she has any copies. You give her the stolen phone.\
 		<<else>>\
 			You express your worry that you thought $futa.he_she would use blackmail.\
@@ -304,7 +304,7 @@
 	[[Drift to sleep|Restless dream]]
 <<elseif $scene eq "boy gloat">>\
 	You decide to use this situation to turn the tables on $guardian. Grinning widely, you tell her that she is your bitch now and\
-	<<if $player.flags.blackmailVideo>>\
+	<<if $flags.blackmailVideo>>\
 		show her the video of her misfortune at the clinic. Her reaction is kinda disappointing - while she is clearly shocked, you expected more.
 	<<else>>\
 		that the video of her misfortune at the clinic will guarantee her good behavior from now on.

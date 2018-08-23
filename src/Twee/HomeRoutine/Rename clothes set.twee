@@ -1,0 +1,40 @@
+:: Rename clothes set [pos_1273_215]
+\
+<<if (not $renameSetFlag)>>\
+	What's new name of the set?
+	<<textbox "$scene" "" autofocus>>
+
+	<<click "Confirm">>
+	<<set $renameSetFlag=true>>
+	<<if ($scene.length lt 1) or ($scene.length gt 40)>>\
+		<<script>>
+			Dialog.close();
+			Dialog.setup("Rename clothes set");
+			Dialog.wiki(Story.get("Rename clothes set").processText());
+			Dialog.open();
+		<</script>>
+	<<else>>\
+		<<set $quickSlot[Object.keys($quickSlot)[$random.stored]].name to $scene>>\
+		<<set $renameSetFlag to false>>\
+		<<script>>
+			Dialog.close();
+			Engine.play("Go to bedroom");
+		<</script>>
+	<<endif>>\
+	<</click>>\
+<<else>>\
+	The name you entered for the set must be between 2 and 40 characters.  Please try again.
+	
+	<<click "Try again">>
+	<<set $renameSetFlag=false>>
+	<<script>>
+		Dialog.close();
+		Dialog.setup("Rename clothes set");
+		Dialog.wiki(Story.get("Rename clothes set").processText());
+		Dialog.open();
+	<</script>>
+	<</click>>\
+<<endif>>\
+\
+
+

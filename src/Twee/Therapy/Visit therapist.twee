@@ -5,7 +5,7 @@
 <<set $watchingKink=false>>\
 <<set _a=window.therapyCode.getArrival()>>\
 <<set _t=window.therapyCode.getSession()>>\
-<<if (not $player.flags.therapistTalk)>>\
+<<if (not $flags.therapistTalk)>>\
 <<set $player.therapistTime = 40>>\
 _a.text
 
@@ -15,7 +15,7 @@ _a.text
 		<<print '<<display '+_t.passage+'>>'>>
 		
 	<<else>>\
-		<<if (not $player.flags.therapistTalk)>>\
+		<<if (not $flags.therapistTalk)>>\
 			_t.text
 			
 			<<set _t.finishSession()>>\
@@ -50,7 +50,7 @@ _a.text
 	
 	[[Return home|Go to bedroom]]
 <<endif>>\
-<<set $player.flags.therapistTalk=false>>\
+<<set $flags.therapistTalk=false>>\
 \
 
 

@@ -7,8 +7,8 @@
 <<set _p to playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<if $scene eq "alarm">>\
 	<!--<training dick alarm>-->\
-	<<if (not $player.flags.alarmDildoIgnore)>>\
-		<<set $player.flags.alarmDildoIgnore = true>>\
+	<<if (not $flags.alarmDildoIgnore)>>\
+		<<set $flags.alarmDildoIgnore = true>>\
 		You try to ignore the //training dildo//, but a nagging voice in the back of your mind keeps telling you that $guardian would be very disappointed by your disobedience.
 		
 		<<if $player.perversion.guardian gte 7>>\
@@ -28,7 +28,7 @@
 	<!--</training dick alarm>-->\
 <<elseif $scene eq "beg">>\
 	<!--<training dick beg>-->\
-	<<set $player.flags.alarmDildoBeg = true>>\
+	<<set $flags.alarmDildoBeg = true>>\
 	You go to $guardian and meekly tell her that the whole thing with the //training cock// is just too much.
 	
 	<<if $player.perversion.guardian eq 6>>\
@@ -50,7 +50,7 @@
 <<elseif $scene eq "suck" or $scene eq "suckSleep">>\
 	<<set $player.chorePunishmentDildoCooldown = 0>>\
 	<<set $player.bjDildoProgress++>>\
-	<<set $player.flags.trainingCockSuck = true>>\
+	<<set $flags.trainingCockSuck = true>>\
 	<<if $player.bjDildoProgress eq 1>>\
 		<!--<training dick first>-->\
 		You stare at the fake penis, hesitant to touch it. It looks so frighteningly lifelike and weird looking, just hanging from the wall, that your mind takes a surreal detour. You briefly wonder if a killer robot from the future, disguised as a human and sent to kill the source of resistance, would have something like it. Or, maybe sleeper cell androids from your favorite Sci-Fi series would be equipped with one - you know, when they have to 'blend in?'
@@ -360,7 +360,7 @@
 	-->\
 	<<endif>>\
 
-	<<if (not playerCode.masturbate.isCalm()) and $kink.cumEating and $player.flags.guardianCumDrink>>\
+	<<if (not playerCode.masturbate.isCalm()) and $kink.cumEating and $flags.guardianCumDrink>>\
 		<<if $player.arousal lt 50>>\
 			The whole experience made you very horny.
 			<<set playerCode.upArousalTo(50,50)>>\

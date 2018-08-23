@@ -2,7 +2,7 @@
 \
 <<set _passage="Clinic Makeup and tattoo">>\
 <<if $scene eq "">>\
-<<if (not $player.flags.salonMakeup)>>\
+<<if (not $flags.salonMakeup)>>\
 	Nancy offers to apply makeup and shows you a list of various designs she can tattoo on you.
 
 	<<if playerCode.owns(itemsC.beautyMark) and playerCode.owns(itemsC.tattooButterfly) and playerCode.owns(itemsC.tattooBunny) and playerCode.owns(itemsC.tattooHeart) and playerCode.owns(itemsC.tattooSlut) and playerCode.owns(itemsC.tattooSissy) and playerCode.owns(itemsC.tattooStupidWhore) and playerCode.owns(itemsC.tattooStockings)>>\
@@ -19,7 +19,7 @@
 <<endif>>\
 <img id="item_preview" class="hidden">\
 	<!--<List of makeup and tattoos>-->\
-<<if (not $player.flags.salonMakeup)>>\
+<<if (not $flags.salonMakeup)>>\
 \
 	<<if ($body.makeup lte 1) and ($body.permMakeup lte 0) and ($body.semiMakeup lte 0)>>\
 	<<set _item=itemsC.SubtleMakeup>>\
@@ -139,7 +139,7 @@
 	<!--</List of makeup and tattoos>-->\
 	<!--<Clinic makeup>-->\
 <<elseif $scene eq "SubtleMakeup" or $scene eq "NormalMakeup" or $scene eq "BimboMakeup" or $scene eq "HeavyMakeup" or $scene eq "PermanentSubtleMakeup" or $scene eq "PermanentNormalMakeup" or $scene eq "PermanentBimboMakeup" or $scene eq "PermanentHeavyMakeup">>\
-	<<set $player.flags.salonMakeup=true>>\
+	<<set $flags.salonMakeup=true>>\
 \
 	<<set _previousMakeup = $body.makeup>>\
 \

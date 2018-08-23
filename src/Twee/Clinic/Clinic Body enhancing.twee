@@ -14,7 +14,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<endif>>\
 <!--<list of bodymods>-->\
 <img id="item_preview" class="hidden">\
-<<if (not $player.flags.salonBreast)>>\
+<<if (not $flags.salonBreast)>>\
 	<<if (($body.boobs eq 4) and ($body.permBoobs lte 3) and ($body.semiBoobs lte 3)) or ($body.boobs eq 3)>>\
 	<<set _item=itemsC.breastImplantsDD>>\
 		<<set _sceneName="breastImplantsDD">>\
@@ -57,7 +57,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<endif>>\
 \
-<<if (not $player.flags.salonLips)>>\
+<<if (not $flags.salonLips)>>\
 	<<if ($body.permLips lte 1) and ($body.semiLips lte 1) and ($body.lips gte 1)>>\
 	<<set _item=itemsC.LipsEnhancingXL>>\
 		<<set _sceneName="LipsEnhancingXL">>\
@@ -80,7 +80,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<endif>>\
 \
-<<if (not $player.flags.salonAss)>>\
+<<if (not $flags.salonAss)>>\
 	<<if ($body.permAss lte 1) and ($body.semiAss lte 1) and ($body.ass gte 1)>>\
 	<<set _item=itemsC.AssEnhancingXL>>\
 		<<set _sceneName="AssEnhancingXL">>\
@@ -103,7 +103,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<endif>>\
 \
-<<if (not $player.flags.salonAnal)>>\
+<<if (not $flags.salonAnal)>>\
 	<<if ($body.anal gte 2) and ($body.permAnal lte 2) and ($body.semiAnal lte 2)>>\
 		<<set _item=itemsC.analSmoothing3>>\
 		<<set _sceneName="analSmoothing3">>\
@@ -155,7 +155,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<endif>>\
 \
-<<if $player.flags.salonNose>>\
+<<if $flags.salonNose>>\
 
 	After recent facial treatments you need to wait a week to recover.
 <<else>>\
@@ -242,7 +242,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.breastImplantsA>>\
 		<<buyItem _item.id>>\
 		<<set $body.boobs = 1>>\
-		<<set $player.flags.salonBreast=true>>\
+		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsB">>\
 		Nancy takes you to the back room of the salon.
 		
@@ -272,7 +272,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.breastImplantsB>>\
 		<<buyItem _item.id>>\
 		<<set $body.boobs = 2>>\
-		<<set $player.flags.salonBreast=true>>\
+		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsC">>\
 		Nancy takes you to the back room of the salon.
 		@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
@@ -303,7 +303,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.breastImplantsC>>\
 		<<buyItem _item.id>>\
 		<<set $body.boobs = 3>>\
-		<<set $player.flags.salonBreast=true>>\
+		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsDD">>\
 		Nancy takes you to the back room of the salon.
 		
@@ -353,7 +353,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.breastImplantsDD>>\
 		<<buyItem _item.id>>\
 		<<set $body.boobs=4>>\
-		<<set $player.flags.salonBreast=true>>\
+		<<set $flags.salonBreast=true>>\
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
@@ -371,7 +371,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set $body.permBoobs = 4>>\
 		<<set $player.money -= 1000>>\
 	<<endif>>\
-	<<set $player.flags.salonBreast=true>>\
+	<<set $flags.salonBreast=true>>\
 	Nancy examines your cleavage enhancement.  @@.nurse;"Yes, this will work nicely to stabilize your current breast size.  Now, here's the special ingredient,"@@ she states as she quickly gives you an injection just under each nipple.
 	
 	@@.nurse;"That little baby will stabilize your new breasts. Congratulations, you now have a beautiful set of breasts. You will have some nice cleavage to show off from now on."@@
@@ -426,7 +426,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.LipsEnhancingXL>>\
 	<<buyItem _item.id>>\
 	<<set $body.lips = 2>>\
-	<<set $player.flags.salonLips=true>>\
+	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
 	<<showImage "general" "lips_pumping.jpg">>\
 	Nancy takes you to the back room of the salon.
@@ -462,7 +462,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.LipsEnhancing>>\
 	<<buyItem _item.id>>\
 	<<set $body.lips = 1>>\
-	<<set $player.flags.salonLips=true>>\
+	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
 	<<showImage "general" "lips_pumping.jpg">>\
 	<<if $body.lips eq 2>>\
@@ -471,7 +471,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set $body.permLips = 1>>\
 	<<endif>>\
 	<<set $player.money -= window.itemF.cost(itemsC.LipsPermanent)>>\
-	<<set $player.flags.salonLips=true>>\
+	<<set $flags.salonLips=true>>\
 	Nancy examines your enhanced lips.  @@.nurse;"Yes, this will work nicely to stabilize your current lip size.  Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in your lips.
 	
 	@@.nurse;"That little baby will stabilize your new lips.  Congratulations, you now have a nice set of plump lips."@@
@@ -526,7 +526,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.AssEnhancingXL>>\
 	<<buyItem _item.id>>\
 	<<set $body.ass = 2>>\
-	<<set $player.flags.salonAss=true>>\
+	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
 	<<showImage "general" "ass_pumping.jpg">>\
 	Nancy takes you to the back room of the salon.
@@ -558,7 +558,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.AssEnhancing>>\
 	<<buyItem _item.id>>\
 	<<set $body.ass = 1>>\
-	<<set $player.flags.salonAss=true>>\
+	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\
 	<<showImage "general" "ass_pumping.jpg">>\
 	<<if ($body.ass eq 2)>>\
@@ -567,7 +567,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set $body.permAss = 1>>\
 	<<endif>>\
 	<<set $player.money -= window.itemF.cost(itemsC.AssPermanent)>>\
-	<<set $player.flags.salonAss=true>>\
+	<<set $flags.salonAss=true>>\
 	Nancy examines your ass.  @@.nurse;"Yes, this will work nicely to stabilize your current butt size.  Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in each butt cheek.
 	
 	<<if ($body.ass eq 1)>>\
@@ -589,7 +589,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--<anal smoothening>-->\
 <<elseif $scene eq "PermanentAnalSmoothing">><!--<anal smoothening permanent>-->\
 	<<showImage "general" "anal_smoothening.jpg">>\
-	<<set $player.flags.salonAnal=true>>\
+	<<set $flags.salonAnal=true>>\
 	<<set $body.permAnal=$body.anal>>\
 	
 	@@.heroT;"I'd like to make the anal smoothening treatment permanent,"@@ you tell Nancy, wondering if you're making huge mistake.
@@ -668,7 +668,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--</anal smoothening permanent>-->\
 <<elseif $scene eq "analSmoothing3">><!--<anal smoothening3>-->\
 	<<showImage "general" "anal_smoothening.jpg">>\
-	<<set $player.flags.salonAnal=true>>\
+	<<set $flags.salonAnal=true>>\
 	<<if ($body.anal neq 3)>>\
 		<<set _item=itemsC.analSmoothing3>>\
 		<<if ($body.nose neq 3)>>\
@@ -890,7 +890,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<buyItem _item.id>>\
 	<<endif>>\
 	<<set $body.anal = 2>>\
-	<<set $player.flags.salonAnal=true>>\
+	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothening2>-->\
 <<elseif $scene eq "analSmoothing1">><!--<anal smoothening1>-->\
 	<<showImage "general" "anal_smoothening.jpg">>\
@@ -1013,13 +1013,13 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<buyItem _item.id>>\
 	<<endif>>\
 	<<set $body.anal = 1>>\
-	<<set $player.flags.salonAnal=true>>\
+	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothening1>-->\
 	<!--</anal smoothening>-->\
 	<!--<nose>-->\
 <<elseif $scene eq "noseClassic">>\
 	<<if ($body.nose eq 3)>>\
-		<<set $player.flags.salonPickNose=true>>\
+		<<set $flags.salonPickNose=true>>\
 		@@.hero;I'd like to have a classic straight nose,"@@ you tell Nancy.
 
 		@@.nurse;"But... that piggy nose looks so good on you!"@@ She sounds offended @@.nurse;"Don't you like my //best work// at all?"@@.
@@ -1028,7 +1028,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		@@.nurse;"Tell you what, we'll have a coin toss. If you win, I'll change it, free of charge, but if you lose, I'll give you an extra treatment to prove you wrong."@@
 		
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing form of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1038,7 +1038,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrickBack"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1049,7 +1049,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.noseClassic>>\
 		<<buyItem _item.id>>\
 		<<set $body.nose = 1>>\
-		<<set $player.flags.salonNose=true>>\
+		<<set $flags.salonNose=true>>\
 		@@.heroT;"I'd like to have a classic straight nose,"@@ you tell Nancy.
 		
 		@@.nurse;"Good choice!"@@ She exclaims.
@@ -1068,7 +1068,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<elseif $scene eq "noseButton">>\
 	<<if ($body.nose eq 3)>>\
-		<<set $player.flags.salonPickNose=false>>\
+		<<set $flags.salonPickNose=false>>\
 		@@.heroT;"I'd like to have a small button nose,"@@ you tell Nancy.
 
 		@@.nurse;"But that piggy nose looks so good on you!"@@ she says, sounding a little offended. @@.nurse;"Don't you like my best work?"@@
@@ -1081,7 +1081,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 		She looks at you with a friendly, but slightly unsettling smile.
 		
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing form of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1091,7 +1091,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrickBack"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1102,7 +1102,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.noseButton>>\
 		<<buyItem _item.id>>\
 		<<set $body.nose = 2>>\
-		<<set $player.flags.salonNose=true>>\
+		<<set $flags.salonNose=true>>\
 
 		@@.heroT;"I'd like to have a small button nose,"@@ you tell Nancy.
 		
@@ -1124,7 +1124,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.nosePiggy>>\
 	<<buyItem _item.id>>\
 	<<set $body.nose = 3>>\
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 	It seems like a weird option, but you got curious and the price is surprisingly low.
 	
 	@@.heroT;"I'd like to try a piggy nose,"@@ you tell Nancy hesitantly.
@@ -1152,7 +1152,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		@@.nurse;"You know what, let's have a coin toss. If you win, I'll change it back free of charge, but if you lose, I'll give you a few treatments to prove you wrong."@@
 
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing form of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1162,7 +1162,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrick"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $player.flags.salonSemiPerm)>>\
+			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1185,7 +1185,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.surgeryFacial>>\
 	<<buyItem _item.id>>\
 	<<set $body.face = 2>>\
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 	@@.heroT;"I'd like to have my facial features softened further,"@@ you tell Nancy.
 	
 	@@.nurse;"That's great!"@@ she exclaims.
@@ -1204,7 +1204,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<elseif $scene eq "softeningFacial">>\
 	<<set _item=itemsC.softeningFacial>>\
 	<<buyItem _item.id>>\
-	<<set $player.flags.salonNose=true>>\
+	<<set $flags.salonNose=true>>\
 
 	@@.heroT;"I'd like to have softer facial features,"@@ you tell Nancy.
 	

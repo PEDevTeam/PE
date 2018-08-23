@@ -126,7 +126,7 @@
 <!--</list of semiPermRemovals>-->\
 \
 <<elseif $scene eq "semiPerm_checkUp" or $scene eq "Makeover">><!--<semiPerm_checkUp>-->\
-	<<set $player.flags.salonSemiPerm = true>>\
+	<<set $flags.salonSemiPerm = true>>\
 	<<if ($tasksTeacherBody.semiPermCheckUp.status eq 1)>>\
 		<<set $tasksTeacherBody.semiPermCheckUp.status = 2>>\
 	<<endif>>\
@@ -213,8 +213,8 @@
 	
 	
 	<<endif>>\
-	<<if (not $player.flags.salonPenalty) and ($player.salonTab gt $player.salonSoftLimit)>><!--<softLimit_penalty_treatments>-->\
-		<<set $player.flags.salonPenalty to true>>\
+	<<if (not $flags.salonPenalty) and ($player.salonTab gt $player.salonSoftLimit)>><!--<softLimit_penalty_treatments>-->\
+		<<set $flags.salonPenalty to true>>\
 		@@.nurse;"Your tab have reached $player.salonSoftLimit////$////. No need to worry, I just need to give you few extra treatments."@@
 	
 		<<if not ($body.bodyhair eq 3)>>\

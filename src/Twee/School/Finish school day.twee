@@ -2,18 +2,18 @@
 \
 <<showImage "general" "school_day_finished.jpg">>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set $player.flags.pissRecorded to false>>\
-<<set $player.flags.whoreRecorded to false>>\
-<<set $player.flags.bullyRecorded to false>>\
-<<set $player.flags.assistantSatisfied = false>>\
+<<set $flags.pissRecorded to false>>\
+<<set $flags.whoreRecorded to false>>\
+<<set $flags.bullyRecorded to false>>\
+<<set $flags.assistantSatisfied = false>>\
 <<if $player.perversion.teacherCooldown lt 20>>\
 <<set $player.perversion.teacherCooldown++>>\
 <<endif>>\
 \
 You manage to make it to the final bell without getting into more trouble. Classes finally finish for the day. Hooray!
 
-<<if ($player.perversion.teacher eq 6) and (not $player.flags.assistantTaskGiven)>>\
-	<<set $player.flags.assistantTaskGiven to true>>\
+<<if ($player.perversion.teacher eq 6) and (not $flags.assistantTaskGiven)>>\
+	<<set $flags.assistantTaskGiven to true>>\
 	As everyone starts to empty out of the classroom, $teacher calls to you.
 
 	@@.teacher;"$player.name, stay behind for a moment please."@@
@@ -30,14 +30,14 @@ You manage to make it to the final bell without getting into more trouble. Class
 
 	@@.teacher;"Since you apparently like to flaunt your ass, as your sessions with Coach showed, I want you to flirt with the $futa.boy_girl to switch $futa.his_her attention."@@
 
-	@@.teacher;"I also want you to wear high heels to school. It may be hard at first, but you will get used to it in no time and it will help you lure the $futa.boy_girl in question. To thank you, I'll take $<<print $taskMoney.teacher.assistant>> off your weekly payment each morning."@@
+	@@.teacher;"I also want you to wear high heels to school. It may be hard at first, but you will get used to it in no time and it will help you lure the $futa.boy_girl in question. To thank you, I'll take $<<print rewardMoney.teacherAssistant>> off your weekly payment each morning."@@
 
 	You try to argue, but she immediately shuts you down. @@.teacher;"You've proved that you are no stranger to <<if not $kink.futa>>cock <<endif>>teasing. I will not hear your laughable excuses."@@
 
 	You drop your head and mutter a "Yes, ma'am" to her, then leave the classroom.
 
-<<elseif ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 6) and (not $player.flags.bullyTaskGiven)>>\
-	<<set $player.flags.bullyTaskGiven to true>>\
+<<elseif ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 6) and (not $flags.bullyTaskGiven)>>\
+	<<set $flags.bullyTaskGiven to true>>\
 	As everyone starts to empty out of the classroom, $teacher calls to you.
 
 	@@.teacher;"$player.name, stay behind for a moment please."@@
@@ -54,7 +54,7 @@ You manage to make it to the final bell without getting into more trouble. Class
 
 	@@.teacher;"Here is the bad news: The whole thing has damaged Miss Willow's reputation and authority, so a group of $futa.boys_girls from the year above yours are now causing trouble for her. They are making inappropriate sexual comments about her during class, <<if $kink.futa>>flashing their cocks to the girls<<else>>bullying boys, showing indecent images to each other on their phones<<endif>>, and carrying out all manner of mischief. Since it is partially your fault, I'm telling you to solve this problem."@@
 
-	@@.teacher;"I believe this happened because you $futa.boys_girls are so horny all the time. If they had some release before school starts, they would be better behaved during class. That is where you come in. Each morning, they hang around outside the school waiting for the bell, and I want you to provide them some sexual satisfaction. Not that it would be anything new to you, right?"@@ She smiles wickedly. @@.teacher;"To thank you, I'll take $<<print $taskMoney.teacher.bullySex>> off your weekly payment each morning."@@
+	@@.teacher;"I believe this happened because you $futa.boys_girls are so horny all the time. If they had some release before school starts, they would be better behaved during class. That is where you come in. Each morning, they hang around outside the school waiting for the bell, and I want you to provide them some sexual satisfaction. Not that it would be anything new to you, right?"@@ She smiles wickedly. @@.teacher;"To thank you, I'll take $<<print rewardMoney.teacherBullySex>> off your weekly payment each morning."@@
 
 	You open your mouth to protest, but she quickly cuts you off before you can speak. @@.teacher;"This is not a request, $player.name."@@ $teacher warns. @@.teacher;"Now go home and get some rest for tomorrow."@@
 

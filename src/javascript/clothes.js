@@ -10,7 +10,7 @@ window.daringValues={
 
 window.clothes={
 	setCage: function() {
-		if (State.active.variables.kink.penisShrinkProgress >= 1) {
+		if (State.active.variables.flags.penisShrinkProgress) {
 			State.active.variables.items.chastityDevice.name="CB-6000S chastity device";
 			State.active.variables.items.chastityDevice.image="chastity_cb6000s.jpg";
 		}
@@ -27,7 +27,6 @@ window.clothes={
 		}
 	},
 	dressedGuardian: {
-		reason: '',
 		check: function() {
 			var player=State.active.variables.player;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
@@ -40,95 +39,106 @@ window.clothes={
 			var ea=playerCode.isWearingOn(itemTypes.Earrings);
 			var ex=playerCode.isWearingOn(itemTypes.Extra);
 			if (!o && u && u.female && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that wearing female underwear";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female underwear";
 				return false;
 			}
 			if (!o && br && br.female && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that wearing a bra";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing a bra";
 				return false;
 			}
 			if (!o && st && st.female && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that wearing feminine socks";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing feminine socks";
 				if (st.slutty) {
-					State.active.variables.reason="You don't feel comforable enough to do that wearing stockings";
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing stockings";
 				}
 				return false;
 			}
 			if (co && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that while wearing choker";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing choker";
 				if (co.slutty) {
-					State.active.variables.reason="You don't feel comforable enough to do that while wearing collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing collar";
 				}
 				if (co.daringRec >=  8) {
-					State.active.variables.reason="You don't feel comforable enough to do that while wearing such collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such collar";
 				}
 				return false;
 			}
 			if (hb && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that while wearing feminine hair acessorry";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing feminine hair acessorry";
 				return false;
 			}
 			if (ex && player.perversion.guardian <= 3) {
-				State.active.variables.reason="You don't feel comforable enough to do that while wearing extra acessorry";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing extra acessorry";
 				return false;
 			}
 			if (!o && player.perversion.guardian <= 4) {
-				State.active.variables.reason="You don't feel comforable enough to do that without clothes";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that without clothes";
 				return false;
 			}
 			if (!o && !u && player.perversion.guardian <= 4) {
-				State.active.variables.reason="You don't feel comforable enough to do that naked";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that naked";
 				return false;
 			}
 			if (((o && o.female) || (s && s.female)) && (player.perversion.guardian <= 2)) {
-				State.active.variables.reason="You don't feel comforable enough to do that wearing female clothing";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female clothing";
 				return false;
 			}
 			return true;
 		}
 	},
 	dressedGuardianWork: {
-		reason: '',
 		check: function() {
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			if (o && o.school) {
-				State.active.variables.reason="Clinic policy forbids wearing a school uniform on a part time job";
+				State.active.variables.reason.dressedGuardianWork="Clinic policy forbids wearing a school uniform on a part time job";
 				return false;
 			}
 			return true;
 		}
 	},
 	dressedWhore: {
-		reason: '',
 		check: function() {
 			var u=playerCode.isWearingOn(itemTypes.Underwear);
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			if (u) {
-				State.active.variables.reason="You don't need underwear for that";
+				State.active.variables.reason.dressedGuardianWork="You don't need underwear for that";
 				return false;
 			}
 			if (!o) {
-				State.active.variables.reason="You need to wear something";
+				State.active.variables.reason.dressedGuardianWork="You need to wear something";
 				return false;
 			}
 			if (!s) {
-				State.active.variables.reason="You need to wear shoes";
+				State.active.variables.reason.dressedGuardianWork="You need to wear shoes";
 				return false;
 			}
 			if (!o.slutty || !s.slutty) {
-				State.active.variables.reason="You're not dressed slutty enough";
+				State.active.variables.reason.dressedGuardianWork="You're not dressed slutty enough";
 				return false;
 			}
 			if (o.sleepWear) {
-				State.active.variables.reason="You can't wear sleepwear for that";
+				State.active.variables.reason.dressedGuardianWork="You can't wear sleepwear for that";
+				return false;
+			}
+			return true;
+		}
+	},
+	dressedClub: {
+		check: function() {
+			var o=playerCode.isWearingOn(itemTypes.Outerwear);
+			if (o && o.school) {
+				State.active.variables.reason.dressedClub="It's against the rules to wear any school clothes to the club";
+				return false;
+			}
+			if (o && !o.female) {
+				State.active.variables.reason.dressedClub="You don't think you could make it in wearing male clothing";
 				return false;
 			}
 			return true;
 		}
 	},
 	dressedOutside: {
-		reason: '',
 		check: function(mode) {
 			var player=State.active.variables.player;
 			var u=playerCode.isWearingOn(itemTypes.Underwear);
@@ -140,99 +150,98 @@ window.clothes={
 			var hb=playerCode.isWearingOn(itemTypes.Hairband);
 			var ea=playerCode.isWearingOn(itemTypes.Earrings);
 			var ex=playerCode.isWearingOn(itemTypes.Extra);
-			if (mode == 1 && player.flags.exhausted) {
-				State.active.variables.reason="You are too exhausted to do that";
+			if (mode == 1 && State.active.variables.flags.exhausted) {
+				State.active.variables.reason.dressedOutside="You are too exhausted to do that";
 				return false;
 			}
 			if (o.sleepWear) {
-				State.active.variables.reason="You can't wear sleepwear outside";
+				State.active.variables.reason.dressedOutside="You can't wear sleepwear outside";
 				return false;
 			}
 			if (!o) {
-				State.active.variables.reason="You have to wear clothing outside";
+				State.active.variables.reason.dressedOutside="You have to wear clothing outside";
 				return false;
 			}
 			if (!s) {
-				State.active.variables.reason="You have to wear shoes outside";
+				State.active.variables.reason.dressedOutside="You have to wear shoes outside";
 				return false;
 			}
 			if (o && o.daringRec == 13) {
-				State.active.variables.reason="You can't go out wearing a maid uniform";
+				State.active.variables.reason.dressedOutside="You can't go out wearing a maid uniform";
 				return false;
 			}
 			if (s && s.daringRec == 13) {
-				State.active.variables.reason="You can't go out wearing ballet heels";
+				State.active.variables.reason.dressedOutside="You can't go out wearing ballet heels";
 				return false;
 			}
 			if (!window.clothes.checkUnderwear()) {
-				State.active.variables.reason="You don't feel daring enough to do this " + (u ? "in that underwear" : "without underwear on");
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to do this " + (u ? "in that underwear" : "without underwear on");
 				return false;
 			}
 			if (br && (player.daring < window.daringValues.daringUnderwearFemale)) {
-				State.active.variables.reason="You don't feel daring enough to go out wearing a bra";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out wearing a bra";
 				return false;
 			}
 			if (st && (player.daring < window.daringValues.daringUnderwearFemale)) {
-				State.active.variables.reason="You don't feel daring enough to go out wearing feminine socks";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out wearing feminine socks";
 				if (st.slutty) {
-					State.active.variables.reason="You don't feel daring enough to go out wearing stockings";
+					State.active.variables.reason.dressedOutside="You don't feel daring enough to go out wearing stockings";
 				}
 				return false;
 			}
 			if (co && !co.slutty && (player.daring < window.daringValues.daringCollar)) {
-				State.active.variables.reason="You don't feel daring enough to go out while wearing choker";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing choker";
 				return false;
 			}
-			if (co && co.slutty && (player.daring < co.daringRec) && !player.flags.collarLocked) {
-				State.active.variables.reason="You don't feel daring enough to go out while wearing such collar";
+			if (co && co.slutty && (player.daring < co.daringRec) && !State.active.variables.flags.collarLocked) {
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing such collar";
 				return false;
 			}
 			if (hb && (player.daring < window.daringValues.daringHairband)) {
-				State.active.variables.reason="You don't feel daring enough to go out while wearing feminine hair acessorry";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing feminine hair acessorry";
 				return false;
 			}
 			if (ex && (player.daring < window.daringValues.daringExtra)) {
-				State.active.variables.reason="You don't feel daring enough to go out while wearing extra acessorry";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing extra acessorry";
 				return false;
 			}
 			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
 				if (o.female || s.female) {
-					State.active.variables.reason="You don't feel daring enough to do this in female clothing";
+					State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
 					return false;
 				}
 			}
-			if (player.flags.laundryAccident && u && u.female && playerCode.owns(itemsC.jocksLucky)) {
-				State.active.variables.reason="You don't want to go outside in wet underwear";
+			if (State.active.variables.flags.laundryAccident && u && u.female && playerCode.owns(itemsC.jocksLucky)) {
+				State.active.variables.reason.dressedOutside="You don't want to go outside in wet underwear";
 				return false;
 			}
 			return true;
 		}
 	},
 	dressedFriend: {
-		reason: '',
 		check: function() {
 			var u=playerCode.isWearingOn(itemTypes.Underwear);
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			if (!window.clothes.checkUnderwear()) {
-				State.active.variables.reason="You don't feel daring enough for " + (u ? "that" : "no") + " underwear";
+				State.active.variables.reason.dressedFriend="You don't feel daring enough for " + (u ? "that" : "no") + " underwear";
 				return false;
 			}
 			if (o.sleepWear) {
-				State.active.variables.reason="You can't wear sleepwear outside";
+				State.active.variables.reason.dressedFriend="You can't wear sleepwear outside";
 				return false;
 			}
 			if (!s) {
-				State.active.variables.reason="You have to wear shoes outside";
+				State.active.variables.reason.dressedFriend="You have to wear shoes outside";
 				return false;
 			}
 			if (!o) {
-				State.active.variables.reason="You have to wear clothing outside";
+				State.active.variables.reason.dressedFriend="You have to wear clothing outside";
 				return false;
 			}
 			if (State.active.variables.player.daring < window.daringValues.daringClothesFemale) {
 				if (o.female || s.female) {
-					State.active.variables.reason="You don't feel daring enough to face your friend while wearing female clothing";
+					State.active.variables.reason.dressedFriend="You don't feel daring enough to face your friend while wearing female clothing";
 					return false;
 				}
 			}
@@ -240,7 +249,6 @@ window.clothes={
 		}
 	},
 	dressedTherapy: {
-		reason: '',
 		check: function() {
 			var player=State.active.variables.player;
 			if (!window.clothes.dressedOutside.check(1)) {
@@ -249,14 +257,13 @@ window.clothes={
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			if ((o.female || s.female) && (player.perversion.therapist < 3) && (player.perversion.guardian < 5)) {
-				State.active.variables.reason="You don't feel ready to visit $therapist dressed like that";
+				State.active.variables.reason.dressedTherapy="You don't feel ready to visit $therapist dressed like that";
 				return false;
 			}
 			return true;
 		}
 	},
 	dressedSchool: {
-		reason: '',
 		check: function() {
 			var player=State.active.variables.player;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
@@ -270,35 +277,35 @@ window.clothes={
 				return false;
 			}
 			if (!o.school) {
-				State.active.variables.reason="You need to wear the school uniform";
+				State.active.variables.reason.dressedSchool="You need to wear the school uniform";
 				return false;
 			}
 			if (!s.school) {
-				State.active.variables.reason="You need to wear proper footwear";
+				State.active.variables.reason.dressedSchool="You need to wear proper footwear";
 				return false;
 			}
 			if (o.school && !o.female && s.female && s.slutty) {
-				State.active.variables.reason="It is against rules to wear heels with pants";
+				State.active.variables.reason.dressedSchool="It is against rules to wear heels with pants";
 				return false;
 			}
 			if (player.perversion.teacher < 8) {
 				if (st && st.schoolAlt && (st.schoolAlt < st.curAlt)) {
-					State.active.variables.reason="Such stockings are against school uniform regulations, I need plain black stockings";
+					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {
-						State.active.variables.reason="Such socks are against school uniform regulations, I need plain black socks";
+						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
 					}
 					return false;
 				}
 				if (hb && hb.schoolAlt && (hb.schoolAlt < hb.curAlt)) {
-					State.active.variables.reason="Such hairband is against school uniform regulations";
+					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
 				if (s && s.schoolAlt && (s.schoolAlt < s.curAlt) && (s.curAlt != 40)) {
-					State.active.variables.reason="Such style of shoes is against school uniform regulations, I need more conservative looking model";
+					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
 					return false;
 				}
 				if (s && (s.daringRec >= 7)) {
-					State.active.variables.reason="Such heeled shoes are against school uniform regulations";
+					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
 					return false;
 				}
 			}
@@ -306,22 +313,21 @@ window.clothes={
 		}
 	},
 	dressedSleep: {
-		reason: '',
 		check: function() {
 			var player=State.active.variables.player;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			if (s) {
-				State.active.variables.reason="You can't wear shoes to bed";
+				State.active.variables.reason.dressedSleep="You can't wear shoes to bed";
 				return false;
 			}
 			if (o) {
 				if (!o.sleepWear) {
-					State.active.variables.reason="You have to wear sleepwear to sleep";
+					State.active.variables.reason.dressedSleep="You have to wear sleepwear to sleep";
 					return false;
 				}
 				if ((player.daring < window.daringValues.daringUnderwearFemale) && o.female) {
-					State.active.variables.reason="You don't feel daring enough";
+					State.active.variables.reason.dressedSleep="You don't feel daring enough";
 					return false;
 				}
 			}
@@ -329,11 +335,10 @@ window.clothes={
 		}
 	},
 	dressedMaid: {
-		reason: '',
 		check: function() {
 			var o=playerCode.isWearing(itemsC.maidOutfit);
 			if (!o) {
-				State.active.variables.reason="You have to wear the maid outfit for this";
+				State.active.variables.reason.dressedMaid="You have to wear the maid outfit for this";
 				return false;
 			}
 			return true;

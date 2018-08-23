@@ -96,7 +96,7 @@ window.playerCode={
 		var c=this.isWearingOn(window.itemTypes.Chastity);
 		var player=State.active.variables.player;
 		player.clothes=[];
-		if (c && (player.flags.chastityKey || player.flags.chastityLocked)) {
+		if (c && (State.active.variables.flags.chastityKey || State.active.variables.flags.chastityLocked)) {
 			player.clothes.push(c.id);
 		}
 	},
@@ -179,7 +179,7 @@ window.playerCode={
 				return;
 			}
 			window.playerCode.changeArousal(5);
-			player.flags.forcedHorny=false;
+			State.active.variables.flags.forcedHorny=false;
 			masturbate.DayTemp=time.day;
 			masturbate.HourTemp=time.hour;
 			masturbate.MinuteTemp=time.minute;
@@ -195,7 +195,7 @@ window.playerCode={
 			var masturbate=player.masturbate;
 			window.playerCode.changeArousal(-100);
 			window.playerCode.setStatus("Satisfied",3,0);
-			player.flags.forcedHorny=false;
+			State.active.variables.flags.forcedHorny=false;
 			masturbate.lastDay=time.day;
 			masturbate.lastHour=time.hour;
 			masturbate.lastMinute=time.minute;
@@ -431,7 +431,7 @@ window.playerCode={
 			if (s.daringRec > 6) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
-					player.flags.heelsFall=true;
+					State.active.variables.flags.heelsFall=true;
 					return true;
 				}
 				if (window.randomCode.getIntInclusive(0, 9) >= player.heelsSkill) {
@@ -442,7 +442,7 @@ window.playerCode={
 			if (s.daringRec > 3) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
-					player.flags.heelsFall=true;
+					State.active.variables.flags.heelsFall=true;
 					return true;
 				}
 				if (window.randomCode.getIntInclusive(0, 4) >= player.heelsSkill) {
@@ -458,22 +458,22 @@ window.playerCode={
 		player.money=player.money-Math.max(0, State.active.variables.bribeAmount-player.bribeDiscount);
 		player.bribeDiscount=0;
 		State.active.variables.bribeAmount=this.nextBribeAmount();
-		player.flags.bribePaid=true;
+		State.active.variables.flags.bribePaid=true;
 	},
 	payBribePartial: function() {
 		var player=State.active.variables.player;
 		player.bribeDiscount=player.bribeDiscount+player.money;
 		player.bribeDiscount=this.bribeDiscount-State.active.variables.bribeAmount;
 		player.money=0;
-		player.flags.bribePaid=true;
-		player.flags.bribeFail=true;
+		State.active.variables.flags.bribePaid=true;
+		State.active.variables.flags.bribeFail=true;
 		State.active.variables.bribeAmount=this.nextBribeAmount();
 	},
 	payBribeRefusal: function() {
 		var player=State.active.variables.player;
 		player.bribeDiscount=player.bribeDiscount-State.active.variables.bribeAmount;
-		player.flags.bribePaid=true;
-		player.flags.bribeFail=true;
+		State.active.variables.flags.bribePaid=true;
+		State.active.variables.flags.bribeFail=true;
 		State.active.variables.bribeAmount=this.nextBribeAmount();
 	},
 	nextBribeAmount: function() {
@@ -515,42 +515,49 @@ window.playerCode={
 			this.deleteQuickSlot(slot);
 			return;
 			}
-		State.active.variables.quickSlot[slot].types=[];
-		State.active.variables.quickSlot[slot].clothes=[];
+			
+		var quickS=State.active.variables.quickSlot;
+		var quick=quickS[Object.keys(quickS)[slot]];
+		
+		quick.types=[];
+		quick.clothes=[];
+		
 		for (var i=0; i < player.clothes.length; i++) {
 			var c=player.clothes[i];
 			for (var j=0; j < Object.keys(itemsC).length; j++) {
 				var o=itemsC[Object.keys(itemsC)[j]];
 				var oV=items[Object.keys(itemsC)[j]];
 				if (this.owns(o) && (o.id == c) && (o.clothingType != window.itemTypes.Chastity)) {
-					State.active.variables.quickSlot[slot].clothes.push(o.id);
+					quick.clothes.push(o.id);
 					var t=0;
 					if (o.maxAlt) {
 						t=oV.curAlt;
 					}
-					State.active.variables.quickSlot[slot].types.push(t);
+					quick.types.push(t);
 				}
 			}
 		}
 	},
 	deleteQuickSlot: function(slot) {
-		var max=State.active.variables.quickSlot.length - slot;
+		var quickS=State.active.variables.quickSlot;
+		var max=Object.keys(quickS).length - slot;
+
 		for (var i=0; i < max; i++) {
 			var n=slot+i;
 			var n2=slot+i+1;
 			if (n2 >= State.active.variables.quickSlot.length) {
-				State.active.variables.quickSlot[n].types=[];
-				State.active.variables.quickSlot[n].clothes=[];
+				quickS[Object.keys(quickS)[n]].types=[];
+				quickS[Object.keys(quickS)[n]].clothes=[];
 				return;
 			}
-			if ((State.active.variables.quickSlot[n2].clothes.length == 0) || (!State.active.variables.quickSlot[n2].extra)) {
-				State.active.variables.quickSlot[n].types=[];
-				State.active.variables.quickSlot[n].clothes=[];
+			if ((quickS[Object.keys(quickS)[n2]].clothes.length == 0) || (!quickS[Object.keys(quickS)[n2]].extra)) {
+				quickS[Object.keys(quickS)[n]].types=[];
+				quickS[Object.keys(quickS)[n]].clothes=[];
 				return;
 			}
-			State.active.variables.quickSlot[n].name=State.active.variables.quickSlot[n2].name;
-			State.active.variables.quickSlot[n].types=State.active.variables.quickSlot[n2].types;
-			State.active.variables.quickSlot[n].clothes=State.active.variables.quickSlot[n2].clothes;
+			quickS[Object.keys(quickS)[n]].name=quickS[Object.keys(quickS)[n2]].name;
+			quickS[Object.keys(quickS)[n]].types=quickS[Object.keys(quickS)[n2]].types;
+			quickS[Object.keys(quickS)[n]].clothes=quickS[Object.keys(quickS)[n2]].clothes;
 		}
 	},
 	loadQuickSlot: function(slot) {
@@ -562,15 +569,19 @@ window.playerCode={
 		if (ch) {
 			player.clothes.push(ch.id);
 		}
-		for (var i=0; i < State.active.variables.quickSlot[slot].clothes.length; i++) {
-			var c=State.active.variables.quickSlot[slot].clothes[i];
+		
+		var quickS=State.active.variables.quickSlot;
+		var quick=quickS[Object.keys(quickS)[slot]];
+		
+		for (var i=0; i < quick.clothes.length; i++) {
+			var c=quick.clothes[i];
 			for (var j=0; j < Object.keys(itemsC).length; j++) {
 				var o=itemsC[Object.keys(itemsC)[j]];
 				var oV=items[Object.keys(itemsC)[j]];
 				if (this.owns(o) && (o.id == c) && (o.clothingType != window.itemTypes.Chastity)) {
 					player.clothes.push(c);
 					if (o.maxAlt) {
-						oV.curAlt=State.active.variables.quickSlot[slot].types[i];
+						oV.curAlt=quick.types[i];
 					}
 				}
 			}
