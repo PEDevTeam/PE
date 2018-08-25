@@ -455,42 +455,40 @@ window.playerCode={
 	},
 	payBribe: function() {
 		var player=State.active.variables.player;
-		player.money=player.money-Math.max(0, State.active.variables.bribeAmount-player.bribeDiscount);
+		player.money-=Math.max(0, State.active.variables.bribeAmount-player.bribeDiscount);
 		player.bribeDiscount=0;
-		State.active.variables.bribeAmount=this.nextBribeAmount();
+		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
 		State.active.variables.flags.bribePaid=true;
 	},
 	payBribePartial: function() {
 		var player=State.active.variables.player;
-		player.bribeDiscount=player.bribeDiscount+player.money;
-		player.bribeDiscount=this.bribeDiscount-State.active.variables.bribeAmount;
+		player.bribeDiscount+=player.money;
+		player.bribeDiscount-=State.active.variables.bribeAmount;
 		player.money=0;
 		State.active.variables.flags.bribePaid=true;
 		State.active.variables.flags.bribeFail=true;
-		State.active.variables.bribeAmount=this.nextBribeAmount();
+		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
 	},
 	payBribeRefusal: function() {
 		var player=State.active.variables.player;
-		player.bribeDiscount=player.bribeDiscount-State.active.variables.bribeAmount;
+		player.bribeDiscount-=State.active.variables.bribeAmount;
 		State.active.variables.flags.bribePaid=true;
 		State.active.variables.flags.bribeFail=true;
-		State.active.variables.bribeAmount=this.nextBribeAmount();
+		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
 	},
 	nextBribeAmount: function() {
 		var player=State.active.variables.player;
-		var bribeCap=200;
-		
-		return Math.min(State.active.variables.bribeAmount + player.bribeIncrease, bribeCap);
+		return Math.min(State.active.variables.bribeAmount + player.bribeIncrease, 200);
 	},
 	calculateBribeIncrease: function() {
 		var player=State.active.variables.player;
 		
-		if (player.perversion.teacher < 3) { return 10; }
-		if (player.perversion.teacher < 5) { return 15; }
-		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { return 0; }
-		if (player.perversion.teacher < 7) { return 20; }
+		if (player.perversion.teacher < 3) { player.bribeIncrease = 10; return; }
+		if (player.perversion.teacher < 5) { player.bribeIncrease = 15; return; }
+		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.bribeIncrease = 0; return; }
+		if (player.perversion.teacher < 7) { player.bribeIncrease = 20; return; }
 		
-		return 30;
+		player.bribeIncrease = 30;
 	},
 	owns: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;

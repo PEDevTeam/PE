@@ -358,7 +358,7 @@
 \
 		<<if $kink.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
 			<<set $flags.penisShrinkSleep = true>>\
-			<<set $flags.penisShrinkProgress = 1>>\
+			<<set $flags.penisShrinkProgress = true>>\
 			<<set window.clothes.setCage()>>\
 			$teacher suddenly leans closer and starts inspecting your chastity cage.
 			
@@ -652,16 +652,19 @@
 		<<endif>>\
 	<<endif>>\
 	<<if ($player.jobs.salonPlan gte 30) and window.timeCode.isFriday()>>\
-		@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I found some part-time jobs for you to consider this weekend. My friends would be glad to have such an obedient and diligent sissy as yourself working for them."@@ 
-			
-		$teacher smiles and gives you a list.\
-		<<set $player.jobs.active = true>>\
-		<<if (not $player.jobs.adultstoreActive)>>\
-			@@.teacher;<<openQuote>>A friend of mine owns a fast food restaurant and asked for my help in finding a server. I think you would do well. There is also a vacancy for an assistant at the shop downtown. Perhaps you would like that more?"@@\
-			<<set $player.jobs.adultstoreActive = true>>\
+		<<if not $player.jobs.active>>\
+			@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I found some part-time jobs for you to consider this weekend. My friends would be glad to have such an obedient and diligent sissy as yourself working for them."@@ 
+				
+			$teacher smiles and gives you a list.\
+			<<set $player.jobs.active = true>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I suggest you to consider part-time jobs this weekend."@@\
 		<<endif>>\
-	<<else>>\
-		<<set $player.jobs.active = false>>\
+		<<if (not $locations.jobSexshop.active) or (not $locations.fastfood.active)>>\
+			@@.teacher;<<openQuote>>A friend of mine owns a fast food restaurant and asked for my help in finding a server. I think you would do well. There is also a vacancy for an assistant at the shop downtown. Perhaps you would like that more?"@@\
+			<<set $locations.jobSexshop.active = true>>\
+			<<set $locations.jobFastfood.active = true>>\
+		<<endif>>\
 	<<endif>>\
 <!--</tasks giving>-->\
 	<<set $player.bribeDiscount+=_deduction>>\
@@ -757,7 +760,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-		<<set $player.bribeIncrease = playerCode.calculateBribeIncrease()>>\
+		<<set window.playerCode.calculateBribeIncrease()>>\
 		<<if ($player.money gte $bribeAmount-$player.bribeDiscount) and ((not $player.tasks.refusedToPay) or ($player.bribeDiscount gte $bribeAmount)) and (not $player.tasks.refusedToCrossdress)>>\
 			<<set $player.tasks.refusedToPay = false>>\
 			<<if (playerCode.nextBribeAmount() gt $bribeAmount)>>\

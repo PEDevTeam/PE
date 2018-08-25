@@ -1,11 +1,12 @@
 :: Phone [pos_1273_215]
 \
-Your phone is pretty ordinary.
-
+<div class="phone">\
+<<set _showtasks = false>>\
 <<if ($tasksTeacher neq null) and ($tasksTeacherBody neq null)>>\
 	<<set _teach_tasks = tasksFunction.activeTasks(window.tasksTeacher)>>\
 	<<set _teach_tasksBody = tasksFunction.activeTasks(window.tasksTeacherBody)>>\
 	<<if (_teach_tasks and _teach_tasks.length gt 0) or (_teach_tasksBody and _teach_tasksBody.length gt 0)>>\
+		<<set _showtasks = true>>\
 		$teacher told you to:
 		<<if _teach_tasks and _teach_tasks.length gt 0>>\
 			<<for _i=0; _i lt _teach_tasks.length; _i++>>\
@@ -51,3 +52,9 @@ Your phone is pretty ordinary.
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
+<<if not _showtasks>>\
+	Your phone is pretty ordinary.
+
+	Currently you don't have any notes or reminders.
+<<endif>>\
+</div>\

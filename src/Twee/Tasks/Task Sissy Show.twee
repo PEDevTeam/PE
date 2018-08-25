@@ -6,7 +6,7 @@
 <<set _s=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _slb = playerCode.slutScoreBasic()>>\
-<<if $tasksTeacher.penaltySissyShow.progress eq 0>>\
+<<if (not $tasksTeacher.penaltySissyShow.step) or ($tasksTeacher.penaltySissyShow.step eq 0)>>\
 	<<showImage "general" "sex_shop.jpg">>\
 	<<if (not $player.tasks.penaltySissyShow)>>\
 	You arrive at the address given by $teacher and after a brief search, you find Ms Goodwill. She welcomes you and tells you how wonderful is that you decided to participate. When you ask her what exactly your role in her classes will be, she laughs lightly. 
@@ -42,10 +42,10 @@
 	<<if playerCode.isMind_0()>>\
 	Now is your chance to escape. @@.hero;Screw it all, I should go home right now.@@
 
-	[[Escape|Go to bedroom][$tasksTeacher.penaltySissyShow.status=3]]
+	[[Escape|Go to bedroom][$tasksTeacher.penaltySissyShow.status=3; $tasksTeacher.penaltySissyShow.step=0]]
 	<<endif>>\
-	[[Wait there as you were instructed|Task Sissy Show][$tasksTeacher.penaltySissyShow.progress=1]]
-<<elseif $tasksTeacher.penaltySissyShow.progress eq 1>>\
+	[[Wait there as you were instructed|Task Sissy Show][$tasksTeacher.penaltySissyShow.step=1]]
+<<elseif $tasksTeacher.penaltySissyShow.step eq 1>>\
 	<<showImage "general" "bended_over.gif">>\
 	<<set $tasksTeacher.penaltySissyShow.status = 2>>\
 	You wait for about five minutes, hearing muffled voices coming from inside, then you hear a big round of laughter and the door opens. 
@@ -166,7 +166,7 @@
 		<<set playerCode.masturbate.cum()>>\
 	<<endif>>\
 	
-	[[Go home|Go to bedroom][$player.tasks.penaltySissyShow=true]]
+	[[Go home|Go to bedroom][$player.tasks.penaltySissyShow=true;  $tasksTeacher.penaltySissyShow.progress++; $tasksTeacher.penaltySissyShow.step=0]]
 <<endif>>\
 \
 

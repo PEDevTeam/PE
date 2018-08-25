@@ -2061,10 +2061,8 @@
 			<<notDressed "Visit therapist" $reason.dressedTherapy>>
 		<<endif>>\
 	<<endif>>\
-	<<if window.timeCode.isMallOpen>>\
-	[[Go to the mall][$time.addMinutes(60)]]
-	<<endif>>\
-	[[Go home|Go to bedroom][$time.addMinutes(60)]]
+	<<set $time.addMinutes(30)>>\
+	<<display [[Travel]]>>\
 <<endif>>\
 <!--</Punishments default end>-->\
 

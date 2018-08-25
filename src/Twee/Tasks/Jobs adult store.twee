@@ -514,8 +514,10 @@
 	
 <<set _pay+=_tips>>\
 	@@.reward;You earned $<<print _pay>>!@@
-	
-	[[Go home|Go to bedroom][$time.hour=16; $time.addMinutes(15)]]
+
+	<<set $time.hour=16>>\
+	<<set $time.addMinutes(15)>>\
+	<<display [[Travel]]>>
 <<endif>>\
 
 

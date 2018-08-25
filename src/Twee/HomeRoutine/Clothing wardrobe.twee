@@ -233,6 +233,8 @@
 					<<endif>>\
 					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
+			<<elseif $flags.laundryAccident and ((_o.clothingType & itemTypes.Underwear) gt 0) and _o.female>>\
+				<<set _in to _in + " //@@.halftransparent;Wet@@//">>\
 			<<else>>\
 				<<set _in to _in + '<<click " ' + _verb + '">><<wearClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<endif>>\

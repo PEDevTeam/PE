@@ -5,7 +5,7 @@
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<if ($random.stored eq 0)>>\
+<<if (not $player.jobs.partyMaidStep) or ($player.jobs.partyMaidStep eq 0)>>\
 	<<if $flags.maidUniform>>\
 		<<set $flags.maidUniform = false>>\
 		<<set _item=$items.chastityDevice>>\
@@ -32,16 +32,16 @@
 		<<else>>\
 		Your flat chest would be mostly revealed, except for two strips covering your nipples - mostly.  Until the strips slipped.
 		<<endif>>\
-		You sigh, put your new skimpy uniform back in the bag, and make your way to Miss Juliette’s house.
+		You sigh, put your new skimpy uniform back in the bag.
 	<<else>>\
-		You put your special maid outfit in your bag and make your way to Miss Juliette’s house.
+		You put your special maid outfit in your bag.
 	<<endif>>\
 	
 	<<if (not _c)>>\
-	[[Put on chastity cage|Jobs party maid][$random.stored=0;$flags.maidUniform = true]]
+	[[Put on chastity cage|Jobs party maid][$player.jobs.partyMaidStep=0; $flags.maidUniform = true]]
 	<<endif>>\
-	[[Go to Miss Juliette’s house|Jobs party maid][$random.stored=1]]
-<<elseif ($random.stored eq 1)>>\
+	[[Go to Miss Juliette’s house|Jobs party maid][$time.addMinutes(160); $player.jobs.partyMaidStep=1]]
+<<elseif ($player.jobs.partyMaidStep eq 1)>>\
 	<<showImage "general" "job_maid_party.gif">>\
 	You arrive there and knock on the door.
 	
@@ -209,8 +209,9 @@
 		<<set $player.jobs.maidPerversion++>>\
 	<<endif>>\
 	<<set playerCode.masturbate.cum()>>\
-	[[Go home|Go to bedroom][$time.addMinutes(160); $player.jobs.maidActive=false]]
-<<elseif ($random.stored eq 2)>>\
+	<<set $flags.exhausted=true>>\
+	[[Go home|Go to bedroom][$time.addMinutes(30); $player.jobs.partyMaidStep=0; $locations.jobPartyMaid.active=false]]
+<<elseif ($player.jobs.partyMaidStep eq 2)>>\
 	<<showImage "general" "job_maid_facesit.gif">>\
 	<<if (not _c)>>\
 		@@.guardian;"First you will wear a chastity for the rest of weekend."@@ $Guardian makes you put it, then locks it.
@@ -277,9 +278,6 @@
 
 	Ecstatic that she's finally gone, you slowly crawl to your room, awkwardly caressing your sore anus.
 
-	<<set $player.jobs.workedToday=true>>\
 	<<set playerCode.masturbate.cum()>>\
-	[[Go to your bedroom|Go to bedroom][$time.addMinutes(260); $player.jobs.maidActive=false]]
+	[[Go to your bedroom|Go to bedroom][$locations.jobPartyMaid.active=false; $player.jobs.partyMaidStep=0]]
 <<endif>>\
-
-

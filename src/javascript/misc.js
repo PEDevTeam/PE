@@ -51,40 +51,64 @@ window.misc={
 			}
 		}
 	},
+	calculateDistance: function(source, destination) {
+		var distance = 0;
+		
+		if (source.id == window.locationsJS.tokenPlace.id) {
+			var player=State.active.variables.player;
+			if (player.locationX != null) {	source.x = player.locationX; }
+			if (player.locationY != null) {	source.y = player.locationY; }
+		}
+		
+		if (source.remote != 0 || destination.remote != 0) {
+			distance = Math.max(source.remote, destination.remote);
+			distance += source.busRange + destination.busRange;
+			return distance;
+		}
+		
+		distance = (source.x-destination.x)*(source.x-destination.x) + (source.y-destination.y)*(source.y-destination.y)
+		
+		distance = Math.ceil(0.2*Math.sqrt(distance))
+		
+		distance = 5*Math.round(distance)
+		
+		return distance;
+	},
 	calcSemiPermCost: function() {
-		var player=State.active.variables.player;
+		var body=State.active.variables.body;
 		var items=window.itemsC;
 		var cost=0;
-		if (player.semiPermAss > player.permAss) {
-			if (player.semiPermAss == 1) { cost+=items.AssEnhancingXL.cost; }
-			if (player.semiPermAss == 1) { cost+=items.AssEnhancing.cost; }
+		if (body.semiPermAss > body.permAss) {
+			if (body.semiPermAss == 1) { cost+=items.AssEnhancingXL.cost; }
+			if (body.semiPermAss == 1) { cost+=items.AssEnhancing.cost; }
 		}
-		if (player.semiPermLips > player.permLips) {
-			if (player.semiPermLips == 1) { cost+=items.LipsEnhancingXL.cost; }
-			if (player.semiPermLips == 1) { cost+=items.LipsEnhancing.cost; }
+		if (body.semiPermLips > body.permLips) {
+			if (body.semiPermLips == 1) { cost+=items.LipsEnhancingXL.cost; }
+			if (body.semiPermLips == 1) { cost+=items.LipsEnhancing.cost; }
 		}
-		if (player.semiPermManicure > player.permManicure) {
-			if (player.semiPermManicure == 1) { cost+=items.GarishManicure.cost; }
-			if (player.semiPermManicure == 1) { cost+=items.Manicure.cost; }
+		if (body.semiPermManicure > body.permManicure) {
+			if (body.semiPermManicure == 1) { cost+=items.GarishManicure.cost; }
+			if (body.semiPermManicure == 1) { cost+=items.Manicure.cost; }
 		}
-		if (player.semiPermBoobs > player.permBoobs) {
-			if (player.semiPermBoobs == 4) { cost+=items.breastImplantsDD.cost; }
-			if (player.semiPermBoobs == 3) { cost+=items.breastImplantsC.cost; }
-			if (player.semiPermBoobs == 2) { cost+=items.breastImplantsB.cost; }
-			if (player.semiPermBoobs == 1) { cost+=items.breastImplantsA.cost; }
+		if (body.semiPermBoobs > body.permBoobs) {
+			if (body.semiPermBoobs == 4) { cost+=items.breastImplantsDD.cost; }
+			if (body.semiPermBoobs == 3) { cost+=items.breastImplantsC.cost; }
+			if (body.semiPermBoobs == 2) { cost+=items.breastImplantsB.cost; }
+			if (body.semiPermBoobs == 1) { cost+=items.breastImplantsA.cost; }
 		}
-		if (player.semiPermMakeup > player.permMakeup) {
-			if (player.semiPermMakeup == 4) { cost+=items.HeavyMakeup.cost; }
-			if (player.semiPermMakeup == 3) { cost+=items.BimboMakeup.cost; }
-			if (player.semiPermMakeup == 2) { cost+=items.NormalMakeup.cost; }
-			if (player.semiPermMakeup == 1) { cost+=items.SubtleMakeup.cost; }
+		if (body.semiPermMakeup > body.permMakeup) {
+			if (body.semiPermMakeup == 4) { cost+=items.HeavyMakeup.cost; }
+			if (body.semiPermMakeup == 3) { cost+=items.BimboMakeup.cost; }
+			if (body.semiPermMakeup == 2) { cost+=items.NormalMakeup.cost; }
+			if (body.semiPermMakeup == 1) { cost+=items.SubtleMakeup.cost; }
 		}
-		if (player.semiPermAnal > player.permAnal) {
-			if (player.semiPermAnal == 3) { cost+=items.analSmoothing3.cost; }
-			if (player.semiPermAnal == 2) { cost+=items.analSmoothing2.cost; }
-			if (player.semiPermAnal == 1) { cost+=items.analSmoothing1.cost; }
+		if (body.semiPermAnal > body.permAnal) {
+			if (body.semiPermAnal == 3) { cost+=items.analSmoothing3.cost; }
+			if (body.semiPermAnal == 2) { cost+=items.analSmoothing2.cost; }
+			if (body.semiPermAnal == 1) { cost+=items.analSmoothing1.cost; }
 		}
 		cost = 10*Math.round(cost/20);
+		// half cost rounded by 10
 		return cost;
 	},
 	getRandomRiddle: function() {

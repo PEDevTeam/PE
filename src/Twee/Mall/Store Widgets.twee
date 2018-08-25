@@ -153,7 +153,7 @@ Which shop would you like to visit?
 <<else>>\
 The mall is closed now.
 
-[[Go home|Go to bedroom][$time.addMinutes(30)]]
+<<display [[Travel]]>>\
 <<endif>>\
 <</widget>>\
 
@@ -221,6 +221,8 @@ You could try to steal the stun gun if you are desperate.
 	[[Make a risky chastity selfie|Task selfiePublicChastity]]
 <<endif>>\
 \
+<<display [[Travel]]>>\
+/*
 <<if window.timeCode.haveSchool()>>\
 	<<if window.clothes.dressedSchool.check()>>\
 		[[Go to school][$time.addMinutes(15)]]
@@ -228,6 +230,8 @@ You could try to steal the stun gun if you are desperate.
 		<<notDressed "Go to school" $reason.dressedSchool>>
 	<<endif>>\
 <<endif>>\
-[[Go home|Go to bedroom][$time.addMinutes(30)]]<</widget>>\
+[[Go home|Go to bedroom][$time.addMinutes(30)]]\
+*/\
+<</widget>>\
 
 

@@ -139,7 +139,7 @@ window.clothes={
 		}
 	},
 	dressedOutside: {
-		check: function(mode) {
+		check: function() {
 			var player=State.active.variables.player;
 			var u=playerCode.isWearingOn(itemTypes.Underwear);
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
@@ -150,10 +150,6 @@ window.clothes={
 			var hb=playerCode.isWearingOn(itemTypes.Hairband);
 			var ea=playerCode.isWearingOn(itemTypes.Earrings);
 			var ex=playerCode.isWearingOn(itemTypes.Extra);
-			if (mode == 1 && State.active.variables.flags.exhausted) {
-				State.active.variables.reason.dressedOutside="You are too exhausted to do that";
-				return false;
-			}
 			if (o.sleepWear) {
 				State.active.variables.reason.dressedOutside="You can't wear sleepwear outside";
 				return false;
@@ -266,6 +262,7 @@ window.clothes={
 	dressedSchool: {
 		check: function() {
 			var player=State.active.variables.player;
+			var items=State.active.variables.items;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			var st=playerCode.isWearingOn(itemTypes.Stockings);
@@ -289,18 +286,18 @@ window.clothes={
 				return false;
 			}
 			if (player.perversion.teacher < 8) {
-				if (st && st.schoolAlt && (st.schoolAlt < st.curAlt)) {
+				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {
 						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
 					}
 					return false;
 				}
-				if (hb && hb.schoolAlt && (hb.schoolAlt < hb.curAlt)) {
+				if (hb && hb.schoolAlt && (hb.schoolAlt < items[hb.id].curAlt)) {
 					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
-				if (s && s.schoolAlt && (s.schoolAlt < s.curAlt) && (s.curAlt != 40)) {
+				if (s && s.schoolAlt && (s.schoolAlt < items[s.id].curAlt) && (items[s.id].curAlt != 40)) {
 					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
 					return false;
 				}

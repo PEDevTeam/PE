@@ -3,6 +3,8 @@
 <span id="bedroom">\
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
+	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+	<<removeClothing _u.id>>\
 	@@.info;$Guardian started a load of wash this morning and accidentally put your female underwear in with her own. They won't be dry until after you need to be at school.@@
 	<<if playerCode.owns(itemsC.pantiesLatex)>>\
 		The latex panties are sticky, and you really don't even want to touch them.
@@ -93,6 +95,8 @@
 <!--</Chores and misc>-->\
 \
 <!--
+<<print passage()>>
+<<print $player.location>>
 <<for _j to 0; _j lt Object.keys($player).length; _j++>>\
 	<<print Object.keys($player)[_j]>> - <<print $player[Object.keys($player)[_j]]>>
 	

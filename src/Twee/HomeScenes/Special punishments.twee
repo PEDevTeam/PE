@@ -523,8 +523,8 @@
 		<<set $player.choreSpeed = 1>>\
 	<<endif>>\
 	<<for _j=0; _j lt Object.keys(choresList).length; _j++>>\
-		<<set _choreJS = choresList[Object.keys(choresList)[_i]]>>\
-		<<set _choreV = $chores[Object.keys(choresList)[_i]]>>\
+		<<set _choreJS = choresList[Object.keys(choresList)[_j]]>>\
+		<<set _choreV = $chores[Object.keys(choresList)[_j]]>>\
 		<<if _choreV.active and _choreV.fail>>\
 			<<if (not _choreJS.extra)>>\
 				<<set _pay = true>>\

@@ -3,6 +3,7 @@
 <<showImage "general" "therapist_office.jpg">>\
 <<CheckUnderwear>>\
 <<set $watchingKink=false>>\
+<<set $player.therapistLastDay = $time.day>>\
 <<set _a=window.therapyCode.getArrival()>>\
 <<set _t=window.therapyCode.getSession()>>\
 <<if (not $flags.therapistTalk)>>\
@@ -28,7 +29,6 @@ _a.text
 		<<endif>>\
 		<<if _t.allowHypno()>>
 			[[Watch hypnotherapy][_t.finishHypno()]]
-		
 			<<if _t.kinkHypno>>\
 				<<set _ka=window.therapyCode.getKinkArray()>>\
 				<<for _i=0; _i lt _ka.length; _i++>>\
@@ -37,13 +37,12 @@ _a.text
 			<<endif>>\
 			<<if not _t.forceHypno>>\
 		
-				[[Decline, and return home|Go to bedroom]]
+				<<display [[Travel]]>>\
 			<<endif>>\
 		<<else>>\
 	
-			[[Return home|Go to bedroom]]
+			<<display [[Travel]]>>\
 		<<endif>>\
-	
 	<<endif>>\
 <<else>>\
 	$therapist looks at you with you concern.  @@.therapist;"I'm sorry $player.name, the developers have screwed up and didn't have a therapy session ready for you today.  Please let them know on the forum."@@
