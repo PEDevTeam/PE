@@ -1,7 +1,10 @@
 :: Visit friend [pos_4248_60]
 \
 <<if not $flags.friendNamed>>\
-	<<set $flags.friendNamed=true>>\
+	<<goto [[Name friend]]>>\
+<<endif>>\
+<<if $flags.friendNamed and (not $flags.intro)>>\
+	<<set $flags.intro=true>>\
 	You've known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn't hurt your friendship at all. \
 	<<if not $flags.friendIsMale>>\
 		$friend has known from an early age that she prefers girls over guys, so there's never been any sexual tension between the two of you.\

@@ -42,12 +42,18 @@
 							playerCode.isWearingOn(itemTypes.Shoes),
 							playerCode.isWearingOn(itemTypes.Stockings)]>>
 
+	<<for _i to 0; _i lt _curClothes.length; _i++>>
+		<<if _curClothes[_i]>>
+			<<set _curClothes[_i].image to window.itemF.image(_curClothes[_i])>>
+		<<endif>>
+	<</for>>
+							
 	<<if _curClothes[8].id eq $items.buttPlugInflate.id>>
 		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5);>>
 		<<set _curClothes[8].image to "buttplug_inflate_">>
 		<<set _curClothes[8].image to _curClothes[8].image + $player.buttplugInflate>>
 		<<set _curClothes[8].image to _curClothes[8].image + ".jpg">>
-	<<endif>>	
+	<<endif>>
 	
 	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
 	

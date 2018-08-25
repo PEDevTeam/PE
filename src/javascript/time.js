@@ -23,17 +23,25 @@ window.timeCode={
 		return (time.day * 1440 + time.hour * 60 + time.minute);
 	},
 	addMinutes: function(minutes) {
-		State.active.variables.time.minute+=minutes;
-		while (State.active.variables.time.minute >= 60) {
+		var time=State.active.variables.time;
+		time.minute+=minutes;
+		while (time.minute >= 60) {
 			this.addHours(1);
-			State.active.variables.time.minute-=60;
+			time.minute-=60;
 		}
 	},
 	addHours: function(hours) {
-		State.active.variables.time.hour+=hours;
-		while (State.active.variables.time.hour >= 24) {
-			State.active.variables.time.day++;
-			State.active.variables.time.hour-=24;
+		var time=State.active.variables.time;
+		time.hour+=hours;
+		while (time.hour >= 24) {
+			time.day++;
+			time.hour-=24;
+		}
+	},
+	addHoursUpTo: function(hours, max) {
+		var time=State.active.variables.time;
+		if (time.hour > max) {
+			time.hour=Math.min(time.hour+hours, max);
 		}
 	},
 	newDay: function() {
@@ -131,7 +139,7 @@ window.timeCode={
 	},
 	isMallOpen: function() {
 		var time=State.active.variables.time;
-		return (time.hour >= 8) && (time.hour <= 18) && ((time.day % 7 != 1) || (time.hour >= 15));
+		return (time.hour >= 8) && (time.hour <= 18);
 	},
 	isArcadeOpen: function() {
 		var time=State.active.variables.time;
@@ -140,6 +148,13 @@ window.timeCode={
 	isClubOpen: function() {
 		var time=State.active.variables.time;
 		return (time.hour >= 17) && (time.hour <= 23) && ([5,6,0].includes(time.day % 7));
+	},
+	isClubAvailable: function() {
+		return (State.active.variables.player.perversion.club > 0) || ((State.active.variables.tasksTeacher.TheClubIntro.status == 1) && window.timeCode.isSaturday());
+	},
+	canVisitFriend: function() {
+		var time=State.active.variables.time;
+		return ((time.hour >= 15) || ([6,0].includes(time.day % 7))) && (time.hour < 20) && (time.day > State.active.variables.player.friendLastVisit);
 	},
 	haveSchool: function() {
 		var time=State.active.variables.time;

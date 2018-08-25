@@ -70,7 +70,7 @@ The chores available to you are:
 				<<set _r to "(" + _min + " minutes" + _r + ")">>\
 				<<if _choreJS.maid and not window.clothes.dressedMaid.check()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedMaid "' + _r + '">>'>>
-				<<elseif _choreJS.outside and not window.clothes.dressedOutside.check(0)>>\
+				<<elseif _choreJS.outside and not window.clothes.dressedOutside.check()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedOutside "' + _r + '">>'>>
 				<<elseif not window.clothes.dressedGuardian.check()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedGuardian "' + _r + '">>'>>
@@ -121,7 +121,7 @@ The chores available to you are:
 <<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid.check())>>\
 	[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 <<endif>>\
-<<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check(0)) or (not window.clothes.dressedGuardian.check()))>>\
+<<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check()) or (not window.clothes.dressedGuardian.check()))>>\
 	<<print '<<click " Change to casual clothes ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<goto [[Perform chores]]>><</click>>'>>
 <<endif>>\
 [[Return|Go to bedroom]]

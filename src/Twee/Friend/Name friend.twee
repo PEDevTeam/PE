@@ -9,8 +9,6 @@ and is
 <<radiobutton "$flags.friendIsMale" true checked>> Male
 <<radiobutton "$flags.friendIsMale" false>> Female
 
-
-
-[[Go to your friend's house|Visit friend][$time.addMinutes(10);window.wordsCode.setFriendPronouns()]]
+[[Go to your friend's house|Visit friend][$flags.friendVisitedToday=true; $flags.friendNamed=true; window.wordsCode.setFriendPronouns()]]
 
 

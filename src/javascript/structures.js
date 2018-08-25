@@ -32,7 +32,7 @@ window.structures={
 		this.setupFuta();
 		this.setupQuickSlot();
 		this.setupItems();
-		//this.setupChores();
+		this.setupChores();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
@@ -307,13 +307,13 @@ window.structures={
 			if (vars.chores[Object.keys(choresList)[i]] == null) {
 				vars.chores[Object.keys(choresList)[i]] = {};
 				
-				var object = vars.chores[Object.keys(choresList)[i]];
+				var choreV = vars.chores[Object.keys(choresList)[i]];
 				var choreJS = choresList[Object.keys(choresList)[i]];
 				
-				object.id = choreJS.id;
-				if (object.active == null) { object.active = choreJS.active; }
-				if (object.fail == null) { object.fail = choreJS.fail; }
-				if (object.dayPerformed == null) { object.dayPerformed = choreJS.dayPerformed; }
+				choreV.id = choreJS.id;
+				if (choreV.active == null) { choreV.active = choreJS.active; }
+				if (choreV.fail == null) { choreV.fail = false; }
+				if (choreV.dayPerformed == null) { choreV.dayPerformed = -100; }
 				
 			}
 		}
@@ -378,7 +378,7 @@ window.structures={
 			var found = false;
 			
 			for (var j=0; j < Object.keys(dreamsGuardian).length; j++) {
-				if (dreamsList[Object.keys(dreamsGuardian)[i]].id == dreamsGuardian[Object.keys(dreamsGuardian)[j]].id) {
+				if (dreamsList[Object.keys(dreamsList)[i]].id == dreamsGuardian[Object.keys(dreamsGuardian)[j]].id) {
 					var found = true;
 					break;
 				}
@@ -393,6 +393,44 @@ window.structures={
 			
 			if (!found) {
 				delete dreamsList[Object.keys(dreamsList)[i]];
+			}
+		}
+	},
+	
+	setupLocations: function() {
+		var vars=State.active.variables;
+		var locationsJS=window.locationsJS;
+		
+		if (vars.locations == null) {
+			vars.locations = {};
+		}
+		
+		for (var i=0; i < Object.keys(locationsJS).length; i++) {
+			if (vars.locations[Object.keys(locationsJS)[i]] == null) {
+				vars.locations[Object.keys(locationsJS)[i]] = {};
+				
+				var locV = vars.locations[Object.keys(locationsJS)[i]];
+				var locJS = locationsJS[Object.keys(locationsJS)[i]];
+
+				if (locV.id == null) { locV.id = locJS.id; }
+				if (locV.active == null) { locV.active = locJS.active; }
+			}
+		}
+		
+		// deleting dreams with no corresponding ID in JavaScript list
+		var locNewList = State.active.variables.locations;
+		for (var i=0; i < Object.keys(locNewList).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(locationsJS).length; j++) {
+				if (locNewList[Object.keys(locNewList)[i]].id == locationsJS[Object.keys(locationsJS)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete locNewList[Object.keys(locNewList)[i]];
 			}
 		}
 	},
@@ -551,7 +589,7 @@ window.structures={
 			}
 		}
 		
-		// Bodymods tasks
+		// Email tasks
 		var emailList=window.tasksEmail;
 		if (vars.tasksEmail == null) {
 			vars.tasksEmail = {};
@@ -634,6 +672,7 @@ window.playerList={
 	debugQ: false,
 	debugN: 0,
 	money: 0,
+	location: "",
 	bought: "",
 	daring: 0,
 	drunk: 0,
@@ -741,7 +780,6 @@ window.playerAddonsList={
 		active: false,
 		salonPlan: 0,
 		fastfoodPerversion: 0,
-		adultstoreActive: false,
 		adultstorePerversion: 0,
 		maidActive: false,
 		maidPerversion: 0,

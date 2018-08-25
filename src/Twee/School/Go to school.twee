@@ -916,7 +916,12 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 	<<print $misc.schoolMessage()>>
 <<endif>>\
 <<if (not timeCode.isMonday())>>\
-	[[Go home|Go to bedroom][$time.addMinutes(15)]]
+	<<if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)>>\
+
+		You need to return chastity cage to the store before going to school.
+
+	<<endif>>\
+	<<display [[Travel]]>>\
 <<endif>>\
 
 

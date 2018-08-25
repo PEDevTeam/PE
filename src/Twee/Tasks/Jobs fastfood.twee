@@ -343,9 +343,12 @@
 @@.reward;You earned $<<print _pay>>!@@
 
 <<set $player.jobs.workedToday=true>>\
+<<set $flags.exhausted=true>>\
 <<if ($player.jobs.fastfoodPerversion lt 10)>>\
 	<<set $player.jobs.fastfoodPerversion++>>\
 <<endif>>\
-[[Go home|Go to bedroom][$time.hour=16; $time.addMinutes(15)]]
+<<set $time.hour=16>>\
+<<set $time.addMinutes(15)>>\
+<<display [[Travel]]>>\
 
 
