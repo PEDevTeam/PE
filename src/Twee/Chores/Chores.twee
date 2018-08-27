@@ -12,25 +12,17 @@
 <<set _choreJS = choresList[$player.currentChore]>>\
 <<set _choreV = $chores[$player.currentChore]>>\
 \
-<<if ($player.chorePunishmentHeels gte $time.day) and ((not _f) or (not _f.slutty) or _m)>>\
+<<if ($player.chorePunishmentHeels gte $time.day) and ((not _f) or (not _f.slutty))>>\
 	<<if playerCode.owns(itemsC.highHeel3)>>\
 		You put on a pair of high heels, as part of your punishment.
 	
 		<<set _f=$items.highHeel3>>\
-	<<elseif playerCode.owns(itemsC.stilettoHeels)>>\
-		You put on a pair of stiletto heels, as part of your punishment.
-	
-		<<set _f=$items.stilettoHeels>>\
-	<<elseif $player.perversion.guardian lte 3>>\
+	<<else>>\
 		You switch to the pair of high heels that $guardian left for you.
 		
+		<<addToInv $items.highHeel3.id 40>>\
 		<<set _f=$items.highHeel3>>\
-	<<else>>\
-		You switch to the pair of stiletto heels that $guardian left for you.
-		
-		<<set _f=$items.stilettoHeels>>\
 	<<endif>>\
-	<<set _heels=true>>\
 <<endif>>\
 	<!--<Fail calculations>-->\
 <<if not $flags.choreCheck>>\
@@ -113,8 +105,22 @@
 			<<set $player.choreFailPercent+=5>>\
 		<<endif>>\
 	<<endif>>\
-	<<if (_f and _f.slutty) or _m>>\
-		<<if _f.daringRec gte 6>>\
+	<<if (_f and _f.slutty)>>\
+		<<if _f.daringRec eq 13>>\
+			<<if $player.heelsSkill lte 4>>\
+				You struggle with keeping your balance in such ridiculously high heels, stumbling constantly.\
+				<<set $player.choreFailPercent+=25>>\
+				<<set $player.heelsSkill++>>\
+			<<elseif $player.heelsSkill lte 6>>\
+				You struggle with keeping your balance in such ridiculously high heels.\
+				<<set $player.choreFailPercent+=20>>\
+			<<elseif $player.heelsSkill lte 8>>\
+				You somehow manage to keep your balance despite your ballet heels.\
+				<<set $player.choreFailPercent+=10>>\
+			<<else>>\
+				You expertly strut in your ballet heels.\
+			<<endif>>\
+		<<elseif _f.daringRec gte 6>>\
 			<<if $player.heelsSkill lte 4>>\
 				You struggle with keeping your balance in such ridiculously high heels, stumbling constantly.\
 				<<set $player.choreFailPercent+=15>>\
@@ -133,7 +139,7 @@
 				You struggle with keeping your balance in high heels and you stumble constantly.\
 				<<set $player.choreFailPercent+=15>>\
 				<<set $player.heelsSkill++>>\
-			<<elseif $player.heelsSkill lte 8>>\
+			<<elseif $player.heelsSkill lte 6>>\
 				You struggle with keeping your balance in such high heels.\
 				<<set $player.choreFailPercent+=10>>\
 			<<elseif $player.heelsSkill lte 8>>\

@@ -7,7 +7,7 @@ window.teacherCode={
 		var sumChance = 0;
 		var possiblePun = [];
 		var minVal = 0; var maxVal = 1;
-		var severity = Math.min((player.tasks.punSeverity + penalties) / 2, player.tasks.punSeverity);
+		var severity = Math.min((player.punishments.punSeverity + penalties) / 2, player.punishments.punSeverity);
 		for (var i = 0; i < Object.keys(window.teacherPunishments).length; i++) {
 			var p = window.teacherPunishments[Object.keys(window.teacherPunishments)[i]];
 			var pV = State.active.variables.teacherPunishments[Object.keys(window.teacherPunishments)[i]];
@@ -15,7 +15,7 @@ window.teacherCode={
 			if (!p.extraReq()) {
 				continue;
 			}
-			if (!pV.active || (pV.timeStart + p.cooldown > time.day) || (!(p.punType & type)) || prio > p.priority || (!bodyMod && (p.punType & window.punTypes.FailToPayBodyMod)) || (bR.teacher[minVal] > pp.teacher) || (bR.teacher[maxVal] < pp.teacher) || (bR.guardian[minVal] > pp.guardian) || (bR.guardian[maxVal] < pp.guardian) || (bR.therapist[minVal] > pp.therapist) || (bR.therapist[maxVal] < pp.therapist) || (bR.penalties[minVal] > severity) || (bR.penalties[maxVal] < severity)) {
+			if (!pV.active || (pV.timeStart + p.cooldown > time.day) || (!(p.punType & type)) || (prio > p.priority) || ((!bodyMod) && (p.punType & window.punTypes.FailToPayBodyMod)) || (bR.teacher[minVal] > pp.teacher) || (bR.teacher[maxVal] < pp.teacher) || (bR.guardian[minVal] > pp.guardian) || (bR.guardian[maxVal] < pp.guardian) || (bR.therapist[minVal] > pp.therapist) || (bR.therapist[maxVal] < pp.therapist) || (bR.penalties[minVal] > severity) || (bR.penalties[maxVal] < severity)) {
 				continue;
 			}
 			if (p.priority > prio) { sumChance = 0; possiblePun = []; prio = p.priority; }
@@ -23,24 +23,66 @@ window.teacherCode={
 			sumChance += p.chance;
 		}
 		//player.testArray=possiblePun;
+		/*
 		if (possiblePun.length == 0) { return false; }
 		if (possiblePun.length > 2) {
-			possiblePun = possiblePun.filter(function (pun) { pun != State.active.variables.teacherPunishmentsVars.lastPunName });
+			possiblePun = possiblePun.filter(function (pun) { pun != player.punishments.lastPunName });
 		}
+		*/
 		var rnd = window.randomCode.getIntInclusive(1, sumChance);
-		for (var i = 0; i < possiblePun.length; i++) {
-			var p = window.teacherPunishments[Object.keys(window.teacherPunishments)[possiblePun[i]]];
+		for (var j = 0; j < possiblePun.length; j++) {
+			var p = window.teacherPunishments[Object.keys(window.teacherPunishments)[possiblePun[j]]];
 			sumChance -= p.chance;
 			if (sumChance <= rnd) {
-				if (p.onlyOnce) { p.active = false; }
+				var pV = State.active.variables.teacherPunishments[Object.keys(window.teacherPunishments)[possiblePun[j]]];
+				if (p.onlyOnce) { pV.active = false; }
 				p.start();
-				p.progress += 1;
-				State.active.variables.teacherPunishmentsVars.lastPunName = possiblePun[i];
-				p.timeStart = time.day;
+				pV.progress += 1;
+				pV.timeStart = time.day;
+				player.punishments.lastPunName = possiblePun[j];
 				return p;
 			}
 		}
-	}
+	},
+	addPenalty:	function (penalties) {
+		var player=State.active.variables.player;
+		if (penalties < player.punishments.penalty) {
+			player.punishments.penalty += penalties/player.punishments.penalty;
+		}
+		if (penalties == player.punishments.penalty) {
+			player.punishments.penalty += 1;
+		}
+		if (penalties > player.punishments.penalty) {
+			player.punishments.penalty = penalties;
+		}
+		if (State.active.variables.time.day % 7 == 1) {
+			if (penalties < player.punishments.penaltyMonday) {
+				player.punishments.penaltyMonday += penalties/player.punishments.penaltyMonday;
+			}
+			if (penalties == player.punishments.penaltyMonday) {
+				player.punishments.penaltyMonday += 1;
+			}
+			if (penalties > player.punishments.penaltyMonday) {
+				player.punishments.penaltyMonday = penalties;
+			}
+			player.punishments.penaltyMonday = 0.01*Math.floor(100*player.punishments.penaltyMonday);
+		}
+		player.punishments.penalty = 0.01*Math.floor(100*player.punishments.penalty);
+		
+		if (player.punishments.penalty > 10) { player.punishments.penalty = 10; }
+	},
+	updateSeverity:	function (penalties) {
+		var player=State.active.variables.player;
+		if (penalties == 0 && player.punishments.punSeverity > 3) {
+			player.punishments.punSeverity -= 1;
+		}
+		if (penalties >= player.punishments.punSeverity) {
+			player.punishments.punSeverity += 1;
+			if (penalties > (player.punishments.punSeverity*2)) {
+				player.punishments.punSeverity += 1;
+			}
+		}
+	},
 },
 
 window.punTypes = {
@@ -85,7 +127,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -103,7 +145,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -121,7 +163,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.tasksTeacher.wearDressToSchool.status == 0);
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -140,7 +182,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -158,7 +200,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -176,7 +218,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return State.active.variables.kink.footFetish;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -194,7 +236,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return State.active.variables.kink.shoeBoot;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -212,7 +254,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -231,7 +273,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,
+		cooldown:	1,
 		start:		function () {},
 		end:		function () {},
 	},
@@ -250,7 +292,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return State.active.variables.kink.penisShrink && (!(State.active.variables.body.penisShrink == 1));
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -268,7 +310,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.isHairless()) && (!playerCode.isWaxed());
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -286,7 +328,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return !(State.active.variables.body.bodyhair == 3);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -304,7 +346,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return !playerCode.haveHaircut();
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -322,7 +364,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!State.active.variables.body.earsPierced);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -341,7 +383,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.ass <= 0) && (!State.active.variables.flags.teacherNoticeAssEnhancing);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -359,7 +401,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.lips <= 0) && (!State.active.variables.flags.teacherNoticeLipsEnhancing);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -378,7 +420,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.ass <= 1) && (!State.active.variables.flags.teacherNoticeAssEnhancingXL);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -396,7 +438,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.lips <= 1) && (!State.active.variables.flags.teacherNoticeLipsEnhancingXL);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -415,7 +457,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.haveMakeup());
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -433,7 +475,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.makeup <= 1) && (!State.active.variables.flags.teacherNoticeNormalMakeup);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -451,7 +493,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.makeup <= 3) && (!State.active.variables.flags.teacherNoticeHeavyMakeup) && (State.active.variables.body.semiMakeup <= 3);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -469,7 +511,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return State.active.variables.kink.tattoo && (State.active.variables.body.permMakeup <= 3);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -488,7 +530,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.manicure == 0) && (!State.active.variables.flags.teacherNoticeManicure);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -506,7 +548,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!(State.active.variables.body.manicure == 2)) && (!State.active.variables.flags.teacherNoticeManicurePerm);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -525,7 +567,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!State.active.variables.flags.teacherNoticeBreastsA) && (!playerCode.haveBoobs());
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -543,7 +585,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!State.active.variables.flags.teacherNoticeBreastsB) && (!playerCode.haveBplus());
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -561,7 +603,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!State.active.variables.flags.teacherNoticeBreastsC) && (!playerCode.haveCplus());
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -579,7 +621,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!(State.active.variables.body.boobs == 4)) && (!State.active.variables.flags.teacherNoticeBreastsDD);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -598,7 +640,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.face == 0);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -616,7 +658,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.face < 2);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -626,7 +668,7 @@ window.teacherPunishments = {
 		description:'Teachers description of what you are to do',
 		text:		'Teacher forces PC to undergo nosePiggy procedure',
 		passage:	'nosePiggy',
-		active:		true,
+		active:		false, //disabled
 		onlyOnce:	true,
 		chance:		10,
 		priority:	1,
@@ -634,7 +676,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.nose == 0) && (!State.active.variables.flags.teacherNoticeNosePiggy);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -653,7 +695,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return State.active.variables.kink.tattoo && (!playerCode.owns(itemsC.tattooBunny));
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -671,7 +713,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooButterfly)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -689,7 +731,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooStockings)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -707,7 +749,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooStupidWhore)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -725,7 +767,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooSlut)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -743,7 +785,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooSissy)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -761,7 +803,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.tattooHeart)) && State.active.variables.kink.tattoo;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -780,7 +822,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.PiercingTongue)) && State.active.variables.kink.piercing;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -798,7 +840,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.PiercingNipples)) && State.active.variables.kink.piercing;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -816,7 +858,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.PiercingLips)) && State.active.variables.kink.piercing;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -834,7 +876,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.PiercingBelly)) && State.active.variables.kink.piercing;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -852,7 +894,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (!playerCode.owns(itemsC.PiercingNose)) && State.active.variables.kink.piercing;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -867,11 +909,11 @@ window.teacherPunishments = {
 		onlyOnce:	true,
 		chance:		10,
 		priority:	1,
-		baseReq:	{ teacher: [0, 5], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
+		baseReq:	{ teacher: [4, 5], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
 					return (State.active.variables.body.semiAnal <= 0) && (State.active.variables.body.anal <= 0);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -889,7 +931,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.semiAnal <= 1) && (State.active.variables.body.anal <= 1);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -907,7 +949,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
 	},
@@ -925,8 +967,8 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return (State.active.variables.body.permAnal <= 2) && (State.active.variables.body.anal >= 3);
 				},
-		cooldown:	0,	// Cooldown in days since last given
+		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
 		end:		function () {},
-	}
+	},
 }

@@ -160,6 +160,10 @@
 	<<endif>>\
 <<endif>>\
 \
+<<if $flags.partyMaidTask and window.timeCode.isWeekend()>>\
+	[[Work as maid at the party|Task party maid][$flags.partyMaidStarted=false]]
+<<endif>>\
+\
 <<if ($tasksTeacher.selfieNightwear.status eq 1)>>\
 	[[Take a selfie in your nightie|Task Nightwear selfie]]
 <<endif>>\

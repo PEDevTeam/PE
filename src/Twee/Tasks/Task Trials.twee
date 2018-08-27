@@ -3,7 +3,7 @@
 <<set _slb = playerCode.slutScoreBasic()>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 \
-<<if (not $player.tasks.penaltyTrials)>>\
+<<if (not $player.punishments.penaltyTrials)>>\
 	<<if $tasksTeacher.penaltyTrials.progress eq 0>>\
 		You enter the adult store and, after some hesitation, ask the shopkeeper about a job. She looks a bit confused, but you clarify that you are applying to help test new products. She flashes you a knowing smile and hands you a contract.
 		
@@ -242,7 +242,7 @@
 		
 		After she leaves, you continue resting on the chair, unable to get up.  Eventually you manage to stand and start going home, hoping your unsteady legs won't give out.
 
-		[[Go home|Go to bedroom][$tasksTeacher.penaltyTrials.progress=0; $tasksTeacher.penaltyTrials.status=2; $player.tasks.penaltyTrials=true]]
+		[[Go home|Go to bedroom][$tasksTeacher.penaltyTrials.progress=0; $tasksTeacher.penaltyTrials.status=2; $player.punishments.penaltyTrials=true]]
 	<<endif>>\
 <<else>>\
 	<<showImage "general" "treadmill_ballet.gif">>\

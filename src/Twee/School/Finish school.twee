@@ -32,7 +32,7 @@
 	<<elseif ($player.perversion.teacherPermChastity gte 7)>>\
 		You remember how you were longing for the weekend to get rid of your chastity, but now your cage can't be removed! Your penis aches in its prison at the thought that you will never feel a touch on it again.
 	
-	<<elseif (not $flags.lockedWeekend) and (($player.tasks.penalty eq 0) or (not $flags.sissyConfessionShown))>>\
+	<<elseif (not $flags.lockedWeekend) and (($player.punishments.penalty eq 0) or (not $flags.sissyConfessionShown))>>\
 		You return to $teacher and get your chastity device unlocked. You are finally free. @@.hero;At last, free!@@
 
 		<<set $flags.chastityLocked = false>>\
@@ -45,7 +45,11 @@
 			"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off, and I will go straight to the principal."@@
 		<<endif>>\
 	<<elseif $flags.lockedWeekend>>\
-		You realize that this weekend you will remain locked in chastity. @@.hero;Oh, joy...@@
+		<<if ($player.tasks.penalty eq 0)>>\
+			You agreed to stay locked in chastity so this weekend you will have to find other ways to deal with the frustration or just endure it.
+		<<else>>\
+			You realize that this weekend you will remain locked in chastity. @@.hero;Oh, joy...@@
+		<<endif>>\
 	<<endif>>\
 
 <<endif>>\
@@ -57,25 +61,18 @@
 	<<else>>\
 		[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
 	<<endif>>\
-<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.tasks.penalty gt 3) or $flags.bribeFail)>>\
+<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.bribeFail)>>\
 	You need to return to $teacher.
 	
 	[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
-<<elseif $flags.sissyConfessionShown and ((($player.tasks.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
 	You need to return to $teacher.
 	
 	[[Return to teacher|TeacherPunishment]]
 <<else>>\
-	<<set $player.tasks.penaltySkipped = false>>\
+	<<set $player.punishments.penaltySkipped = false>>\
 	You're done with school for today. What would you like to do with the rest of the day?
 
-	<<if window.timeCode.needTherapy()>>\
-		<<if window.clothes.dressedTherapy.check()>>\
-			[[Visit therapist][$time.addMinutes(120);$player.therapistLastDay to $time.day]]
-		<<else>>\
-			<<notDressed "Visit therapist" $reason.dressedTherapy>>
-		<<endif>>\
-	<<endif>>\
 	<<display [[Travel]]>>
 <<endif>>\
 

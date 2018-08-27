@@ -8,8 +8,9 @@
 	<</for>>\
 	<<print therapySessions[_i].text>>\
 	<<set therapySessions[_i].finishSession()>>\
-	
+	<<set $player.therapistSurvey = 0>>\
 
+	
 	[[Read the survey|TherapistSurvey]]
 <<elseif $scene eq "Therapist survey completed">>\
 	Finally, you hand the filled-out survey to $therapist. To your relief, she doesn't read it and just puts it in her desk
@@ -17,8 +18,345 @@
 	She thanks you for your help, gives you a hug and wishes you good luck as you walk out. You wonder what kind of research $therapist is conducting that could require such survey.
 
 	[[Go home|Go to bedroom][$scene=""]]
-<<elseif $player.perversion.therapist eq 2>>\
+<<elseif ($player.perversion.therapist eq 2) and ($scene eq "SurveyDreams")>>\
+<div class="dream">\
+	<<if $player.therapistSurvey eq 0>><!--<BDSM kink survey dream>-->\
+	You find yourself almost naked in a dimly-lit room with Moresque ornamentation and the faint scent of incense. The walls around you are interspersed with candlelit sconces, and racks containing instruments of pain and torture occupy several niches. At the room’s center is a cluster of restraint devices built from hardwood and iron.
+
+	From the shadows steps a leather-clad dominatrix, her knee-high, heeled boots striding the slow and confident pace of one who knows she is fully in charge. You quail instinctively, as if her assertive aura has already forced your obedience.
+	<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	
+		Though she takes a small key from around her neck and frees you from your chastity cage, she seems intent on control of another kind.
+	<<endif>>\
+
+	<<if $kinkAllow.bondage>>\
+		Taking you firmly by the arm, the domina pushes you against a set of manacled posts. She buckles its blackened metal cuffs around your wrists and ankles, locking them immovably in place to the thick, wooden beams.
+	<<else>>\
+		Leading you by the arm to a hard-angled bench with smoothly-upholstered, thin leather pads, the domina guides you by the wrist into a submissive and vulnerable position, face-down in the harsh cradle.
+	<<endif>>\
+	
+	<<if $kinkAllow.painPlay>>\
+		The domina steps over to one of the racks of torture instruments and selects a pliable leather crop. She flexes it experimentally in her hands, gripping its rubber handle and then swishing it through the air. The popper on its opposite end arcs into a crisp crack against her open palm.
+
+		She caresses you with the crop’s flexible tip, dragging it along your back, raising tingles in your skin at her initial, gentle strokes. Then, a sharp snap of the crop lands on your bare skin, raising a sudden but lingering sting. Again she strokes the area tenderly, the heat of her gloved hand soothing you, before another, harder slap of the crop painfully lands. The contrast of pain and tenderness sends shivers of pleasure through your entire body.
+
+		Her carefully timed sequence of punishment and reward continues, the severity and number of each stroke creating an upward spiral of agony and sensual response.
+		<<if $kinkAllow.xPain>>\
+			Next, the dominatrix steps to one of the candelabras, and takes one of the still-burning, dark red candles in her gloved hand. She brings the candle and holds it where you can see, as tendrils of molten wax slide down the side of it. With a second motion, she tilts the candle on its side, and you watch as the little stream turns with gravity and begins to form a long, clinging droplet directly above you.
+
+			Your eyes widen in horror as the droplet falls, splashing down your body and inflicting instant, burning pain. It quickly cools and to your surprise, you are only mildly scalded, but your relief is short-lived as the domina turns the candle again. Another splash lands, the sting on your skin rising anew.
+
+			A third splatter follows, then another and another. You writhe in sweet agony, your cock drooling a long strand of precum to the floor despite your torture.
+		<<endif>>\
+		
+	<<endif>>\
+	<<if ($kinkAllow.facesit or $kinkAllow.trampling)>>\
+		<<if $kinkAllow.bondage>>\
+			The domina releases you from your manacles.\
+		<<endif>>\
+		<<if $kinkAllow.painPlay>>\
+			She once again takes you by the wrist, this time forcing you down onto the floor.\
+		<<endif>>\
+	<<endif>>\
+	<<if $kinkAllow.trampling>>\
+		She guides you down onto your back,\
+		<<if $kinkAllow.shoeBoot>>\
+			lifts her heeled, leather boot\
+		<<elseif $kinkAllow.footDisplay>>\
+			slips off her boots, setting them aside, revealing her smooth, manicured, bare feet,\
+		<<else>>\
+			takes off her boots\
+		<<endif>>\
+		and then steps lightly onto the center of your chest<<if $player.haveBoobs()>>, between your breasts
+		<<endif>>. She slowly eases part of her weight onto you. Her body is light, but the pressure is concentrated and uncomfortable. She steps again, and the compression intensifies as she takes her place above you, using you as a human floor mat.
+
+		She moves relatively slowly, but the discomfort is immediate whenever she shifts. Few things could leave you so completely at her mercy and subordinated to her as this, being not-so-gently squashed underfoot by her. You take the weight of her whole form intimately inside you, as if you’re being invisibly penetrated by her pressure itself.
+
+		Finally, her attention shifts to your helpless, flaccid cock, which lies limply across your groin after the crushing you’ve endured. You helplessly observe as\
+		<<if $kinkAllow.shoeBoot>>\
+			the hard sole of her leather boot descends over the upper length of your member.\
+		<<elseif $kinkAllow.footDisplay>>\
+			her glossy-nailed toes and the ball of her foot begin to slowly pronate over the upper length of your member.\
+		<<else>>\
+			her foot descends and begins to slowly compact the upper length of your member.\
+		<<endif>>\
+		As she lowers it, your penis flattens absurdly like a smashed rubber toy, and the pain of her crushing your most sensitive body part sends your nervous system into overdrive. Simultaneously, a near-orgasmic surge of pleasure fills your body, radiating from the source of your agony, and you nearly cum before she abruptly denies you by lifting her foot.
+
+	<<endif>>\
+	<<if $kinkAllow.facesit>>\
+		The dominatrix reaches for a zipper in the groin of her leather suit and unfastens it. The long path of the zipper goes between her legs and up half of her suit’s seat, and by the time she’s finished, the exposed flesh of her pussy dangles nakedly between her legs. She quickly straddles your head, and you look upwards as her lush womanhood is lowered to your face. 
+
+		She plants her sex firmly over your nose and mouth, plunging you into darkness and bathing you in her feminine musk as she begins to rock her hips. Her already-wet pussy slides over your features, coating you with girl cum, and she bids you to lick. You’re locked in place by her thighs and a good portion of her bodyweight, and you have no choice but to comply as she reduces your face to an instrument of her own pleasure...
+		
+	<<endif>>\
+	<!--</BDSM kink survey dream>-->\
+<<elseif $player.therapistSurvey eq 1>><!--<Semen kink dream>-->\
+	Placeholder.
+<!--</Semen kink dream>-->\
+<<elseif $player.therapistSurvey eq 2>><!--<Watersports kink dream>-->\
+	You’re in a classical bathhouse, filled with various pools, hot springs, baths and fountains. Intricate mosaic tile covers the floors and walls. A beautiful female attendant is here, wrapped in a breast-exposing, white toga, ready to guide you to the service of your choice. You are clad only in a pair of briefs, but you’re comfortable.
+
+	<<if $kinkAllow.wetting>>\
+		With one exception – your bladder is quite full, and the urge to pee is growing stronger with each passing second. It’s so strong, in fact, that you feel overwhelming desperation, like you might wet yourself without being able to stop it. Despite all the water features, not one restroom is in sight.
+
+		Seeing your visible discomfort, the attendant smiles kindly and welcomes you to relieve yourself. Perhaps it’s the sound of her soothing voice, or the myriad flowing water features nearby, but your bladder relaxes immediately, without even an instant to remove your briefs. A bloom of wetness, warmth and relief overcomes you, filling you with a body-wide euphoric sensation distinct from, and the feeling of release is as deeply-reaching as any orgasm you’ve had before.
+
+	<<endif>>\
+	<<if $kinkAllow.urinePlay or $kinkAllow.urineDrink>>\
+		The attendant looses the fastener of her toga, and her curvaceous, naked body is exposed.\
+		<<if $kinkAllow.wetting and $kinkAllow.urinePlay>>\
+			Before you have even finished relieving your bladder, she pulls down your soaked briefs, freeing your cock and letting the surprisingly long remaining stream spray openly. Without hesitation, she takes your penis in hand and directs the stream over her body with obvious pleasure, letting the heated translucent liquid splash over her naked skin.
+			
+			<<if $kinkAllow.urineDrink>>\
+				She leans in, parting her beautiful lips, allowing the flowing stream to pour into her mouth. You drain yourself into her, and she swallows eagerly as your fluids pool on her tongue. As your bladder finally approaches empty, she sucks your cock into her mouth to take the last small quantity straight from the source, pleasuring you immensely with her skillful lips as she does.
+				
+			<<endif>>\
+		<<elseif $kinkAllow.urinePlay>>\
+			Standing before you, she suggests that she can give you a unique shower not available elsewhere in the bathhouse. Nodding your assent, she helps you out of your briefs. You watch her gorgeous body as she spreads her feet and then her pussy lips, and rocks her hips back. She closes her eyes briefly before a burst of piss streams out of her and onto your skin, warming you immediately as the heated translucent liquid splashes over your lower half.
+			
+		<<endif>>\
+		<<if (not $kinkAllow.wetting) and $kinkAllow.urineDrink>>\
+			You kneel down, opening your mouth and maneuvering to catch her fluid as it pours out from between her labia. She turns her hips to help you, and soon her urine flow is splashing onto your tongue. You feel it warm your lips and drip down your face as mouthful after mouthful slowly rises under her stream, and you swallow her piss steadily as she gives it to you.
+			
+		<<endif>>\
+	<<endif>>\
+	When all is said and done, she retrieves a large pitcher full of cool, refreshing water and pours a glass for each of you, and then another when you’ve downed the first. You wonder if there is more to come...
+	
+<!--</Watersports kink dream>-->\
+<<elseif $player.therapistSurvey eq 100>><!--<AgePlay kink dream>-->\
+	Placeholder.
+<!--</AgePlay kink dream>-->\
+<<elseif $player.therapistSurvey eq 3>><!--<Degradation kink dream>-->\
+	You sprawl on the concrete floor, the black fatigues and combat boots of your disciplinary trainer looming over you as you await his next cruelty.\
+	<<if $kinkAllow.abusive>>\
+		He delivers immediately, grabbing you by the hair to yank your head back, and he stings your face with a rough slap as soon as you meet his sardonic, piercing eyes.\
+	<<endif>>\
+	<<if $kinkAllow.spitting>>\
+		With a pursed mouth, he spits on your cheek, demonstrating your complete lack of worth to him or anyone else.
+
+	<<endif>>\
+	<<if $kinkAllow.curse>>\
+		<<if $kinkAllow.whoring>>\
+			“You undisciplined, fucking whore,” he barks. “You just can’t help yourself, can you, you worthless\
+			<<if $kinkAllow.bimbo>>\
+			bimbo\
+			<<else>>\
+			slut\
+			<<endif>>\
+			All this punishment, and you’re still quaking like a bitch in heat for me to take you.”
+
+		<<elseif $kinkAllow.bimbo>>\
+			“You brainless, fucking bimbo,” he barks. “I put all this time in to teach you discipline, and you’re still quivering like the little slut you are to use those fat, dick-sucking lips of yours on my cock.”
+
+		<<else>>\
+			“You insolent, little bitch,” he barks. “All this punishment, and you’re still dripping for me.”
+
+		<<endif>>\
+	<<endif>>\
+	<<if $kinkAllow.mindControl>>\
+		Your mind cries out inside for you to resist, despite the impossible odds, to do anything to defy your captor. Despite your protest, the brainwashing you’ve been subjected to is impossible to overcome.  A hypnotic fog overtakes... overtakes that part of you, your lips seemingly moving on their own volition.
+
+		<<if $kinkAllow.whoring>>\
+			“Please... Fuck me. Use my worthless body.\
+			<<if $kinkAllow.bimbo>>\
+				I’ll be, like, a good little whore for you.”\
+			<<else>>\
+				I’m yours.”\
+			<<endif>>\
+			Oh, god, what did I just say?
+			
+		<<elseif $kinkAllow.bimbo>>\
+			“I’m totally sorry! Please, like, let me suck your cock!” Oh, god, what did I just say?
+
+		<<else>>\
+			“Please - fuck me,” you beg. Oh, god, what did I just say?
+
+		<<endif>>\
+	<<endif>>\
+	<<if $kinkAllow.questionable>>\
+		The trainer’s face shifts into to a cruel smile as he reaches down and loosens the blued metal buckle of his web belt and unbuttons the fly of his fatigues. He pulls his big dick free,\
+		<<if $kinkAllow.abusive>>\
+			wrenching your hair like a leash to pull you into position in front of it,\
+		<<else>>\
+			moving you into position for use in front of it,\
+		<<endif>>\
+		and prepares to take you once more...
+	<<else>>\
+		The trainer’s face shifts into to a cruel smile, releasing your head and letting it loll forward as you slump back to the cold, gray floor.
+
+		“I won’t make it that easy. But, mark my <<if $kinkAllow.curse>>words, you fucking slut<<else>>words<<endif>> – you’ll be begging on command by the time I’m through...”
+	<<endif>>\
+	
+<!--</Degradation kink dream>-->\
+<<elseif $player.therapistSurvey eq 100>><!--<Xbody kink dream>-->\
+	Placeholder.
+<!--</Xbody kink dream>-->\
+<<elseif $player.therapistSurvey eq 4>><!--<Feet and sweat kink dream>-->\
+	You’re lying on your back on a yoga mat, pinned by your personal trainer, an attractive, athletic college girl dressed like someone from an 80’s exercise video: a thong-style leotard, \
+	<<if $kinkAllow.hosiery>>tights, slouchy socks <<endif>>\
+	and sneakers.\
+	<<if $kinkAllow.footDisplay or $kinkAllow.FootWorship or $kinkAllow.hosiery or $kinkAllow.shoeBoot or $kinkAllow.odor>>\
+		“Now I’m going to teach you how to properly clean your trainer’s equipment...” she says, “...with your tongue.”
+
+		<<if $kinkAllow.shoeBoot>>\
+			Your trainer places her shoes in front of your upturned face. You gently hold her foot, open your mouth, and begin to lick the sole of her sneaker, ensuring you see only white before moving to the other one. When she is satisfied with your work, she pulls her feet\
+			<<if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor or $kinkAllow.footWorship>>\
+				away and begins removing her shoes.
+			<<else>>\
+				away.
+			<<endif>>\
+			
+		<<endif>>\
+\
+		<<if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor>>\
+			You try to utter protest, but the trainer swiftly slips off\
+			<<if not $kinkAllow.shoeBoot>>her shoes and<<endif>>\
+			one of her\
+			<<if $kinkAllow.shoeSockOdor>>sweat-soaked<<endif>>\
+			socks and shoves it in your mouth.\
+		<<endif>>\
+		<<if $kinkAllow.footDisplay>>\
+			Your trainer’s foot soon fills your vision,<<if $kinkAllow.footOdor>>and the strong scent of her sweat hits you. You instinctively recoil from the smell<<endif>>. “Isn’t it cute?” she asks, wiggling her toes. You nod quickly, trying to appease her.
+
+		<<endif>>\
+		<<if $kinkAllow.footWorship>>\
+			The trainer\
+			<<if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor>>\
+				removes the sock from your mouth and\
+			<<endif>>\
+			lowers her\
+			<<if $kinkAllow.footOdor>>sweaty,<<endif>>\
+			<<if $kinkAllow.hosiery>>tights-covered<<endif>>\
+			foot to your lips, and your mouth is forcefully invaded by toes.
+			
+		<<elseif $kinkAllow.hosiery or $kinkAllow.shoeSockOdor>>\
+			The trainer places the other sock directly over your nose, forcing you to breathe in the\
+			<<if $kinkAllow.shoeSockOdor>>strong<<else>>faint<<endif>>\
+			scent of her pheromones, before finally removing both socks.
+			
+		<<endif>>\
+\
+		<<if $kinkAllow.clothesOdor>>\
+			Next, the trainer brandishes a pair of worn panties, and presses the crotch into your nose and mouth. “Get licking, my little washing machine,” she orders, and you lap at the thin fabric in front of your face until the panties are finally soaked with your saliva.
+			
+			<<if $kinkAllow.armpitOdor>>\
+				Suddenly, you are pulled up by your shirt as your trainer shoves your face into her armpit. You extend your tongue and begin to lick away the salty pearls of sweat in the fold of her arm, after which, she lays you back down on the yoga mat.
+				
+			<<endif>>\		
+		<<endif>>\
+\
+		<<if $kinkAllow.assOdor>>\
+			Your trainer displaces the crotch of her leotard and underwear and presents you her ass. You greedily worship her ass cheeks and crack, eliciting a moan from your trainer before she pulls her ass away.
+			
+		<<endif>>\
+		<<if $kinkAllow.genitalOdor>>\
+			With a quick shift of position, the trainer moves her crotch in front of your face<<if not $kinkAllow.assOdor>>, displacing her leotard and underwear<<endif>>.\
+			You raise your head to meet her body and enthusiastically lick her slit, until finally she orgasms hard on your tongue.
+			
+		<<endif>>\
+	<<endif>>\
+	<<if $kinkAllow.footjob>>\
+		“I think you deserve a reward for all your hard work today,” your trainer says as she pulls down your shorts, freeing your semi-erect cock. She lays back, placing her\
+		<<if $kinkAllow.hosiery>>tights-covered<<endif>>\
+		feet on either side of your dick, and starts moving her legs up and down, using her soft soles to stimulate your penis.  You feel the pressure in your dick starting to build, until you cum hard, shooting thick lines of sperm over her feet.
+	<<endif>>\
+
+	“Well, $player.name, I hope you enjoyed your session,” your trainer says with a smile. “Hopefully, you’re looking forward to next time.” You nod enthusiastically, your penis already stiffening as you think about your next training session...
+	
+<!--</Feet and sweat kink survey>-->\
+<<elseif $player.therapistSurvey eq 5>><!--<Clothes kink dream>-->\
+	<<set _clothes = [$kink.leather, $kink.latex, $kink.nylon, $kink.frilly]>>\
+	<<set _clothesNum = 0>>\
+	<<for _i to 0; _i lt _clothes.length; _i++>>\
+		<<if _clothes[_i]>>\
+			<<set _clothesNum++>>\
+		<<endif>>\
+	<</for>>\
+	A strange room formed by a circle of full-length mirrors surrounds you. In your reflection, you see yourself\
+	<<if _clothesNum eq 0>>\
+		dressed in various clothes. However details slips away and you can't say anything special about your garments.
+	<<else>>\
+		<<if _clothesNum eq 1>>\
+			wearing a \
+		<<elseif _clothesNum eq 2>>\
+			dressed in a morphing set of clothes that\
+		<<endif>>\
+		<<if _clothesNum gt 2>>\
+			takes multiple forms. The first is a \
+		<<else>>\
+			transforms from one form into another. The first is a \
+		<<endif>>\
+		<<set _count = 0>>\
+		<<for _i to 0; _i lt _clothes.length; _i++>>\
+			<<if _clothes[_i]>>\
+				<<set _count++>>\
+				<<if _count eq 2>>\
+					<<if _clothesNum eq 2>>\
+						The other is a \
+					<<else>>\
+						The second is a \
+					<<endif>>\
+				<<elseif (_count eq 3) and (_clothesNum eq 4)>>\
+					The third is a \
+				<<elseif _count gte 3>>\
+					The final form is a \
+				<<endif>>\
+				<<if _i eq 0 and _clothes[_i]>>\
+					black, leather vest and pants holding the rich aroma of fine full grain leather, their supple resistance and tailored cut hugging you reassuringly as you move.
+				<<elseif _i eq 1 and _clothes[_i]>>\
+					smooth, latex bodysuit, wrapped over your body like a second skin, its lubricated interior transmitting every contact with the rubbery outer surface as an intensified sensation.
+				<<elseif _i eq 2 and _clothes[_i]>>\
+					clingy, sheer nylon pantyhose that clings to your legs with almost an electric tension, and lends them a surprisingly beautiful, womanly shape.
+				<<elseif _i eq 3 and _clothes[_i]>>\
+					very feminine, flowing gown that wraps you in silky comfort and hangs lightly on your body like a summer breeze with a hint of fragrant perfume.
+				<<endif>>\
+			<<endif>>\
+		<</for>>\
+
+		You revel in the feelings your five senses take in as <<if _clothesNum gt 1>>each<<else>>the<<endif>> garment covers you. Your arousal grows as material surrounds you in its embrace.
+	<<endif>>\
+
+<!--</Clothes kink dream>-->\
+<<elseif $player.therapistSurvey eq 6>><!--<Shrunk Penis kink dream>-->\
+	You find yourself standing at the front of Miss Willow’s health class, along with the rest of the boys in your class, participating in something she calls the “male genital exhibition.” She orders you all to strip and line up in order of smallest erect penis size to largest. 
+
+	You drop your pants, rub yourself to erection, and\
+	<<if $kinkAllow.penisShrink>>\
+		are stunned to find that your penis is practically half the size you remember. You\
+	<<endif>>\
+	reluctantly start comparing yourself to your classmates. You become increasingly distressed as you realize every penis you measure against is larger than yours, finally finding yourself at the front of the line, much to your embarrassment.
+
+	<<if $kinkAllow.sph>>\
+		“Now class, why don’t we see how our boys measure up?” Miss Willow as she approaches holding a tape measure. As she holds the tape to your shaft, you notice that the inch numbers have been replaced by words.
+
+		“$player.name,” Miss Willow announces, reading from the tape, “medically, a clitoris.”
+		
+		The class erupts into laughter, and you squirm in embarrassment, trying to ignore the pearl of precum that falls from your worthless baby-dick amidst the uproar...
+	<<else>>\
+		Miss Willow flashes you a smile, looking at your\
+			<<if $kinkAllow.penisShrink>>\
+				tiny\
+			<<endif>>\
+		penis, and passes you a pamphlet titled "How to satisfy your gilrfriend/boyfriend if you have small dick"...
+	<<endif>>\
+	
+<!--</Shrunk Penis kink dream>-->\
+<<elseif $player.therapistSurvey eq 100>><!--<TG kink dream>-->\
+	Your mind drifts towards an image of yourself, lying on a bed naked. You feel your penis twitch, and then it, along with your testicles, begins to retract inside your body. You look down in arousal as your formerly male genitals diminish almost completely, before they merge into the clitoris and outer folds of a fully feminine pussy. Your fingers reach out to touch your new womanhood, eliciting a tingle of sexual pleasure...
+	
+<!--</TG kink dream>-->\
+<<endif>>\
+</div>\
+	[[Reconsider answers|TherapistSurvey][$scene=""]]
+	<<if $player.therapistSurvey lte 5>>\
+		[[Next page|TherapistSurvey][$scene=""; $player.therapistSurvey++]]
+	<<else>>\
+		[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
+	<<endif>>\
+\
+<<elseif ($player.perversion.therapist eq 2)>>\
 <span id="quickTherapistSurveyDetailed">\
+<<if $player.therapistSurvey eq 0>><!--<BDSM kink survey>-->\
 1) Are you aroused by any of the following thoughts: being physically restrained, being treated as a subordinate, treating another person as a subordinate, and/or giving or receiving punishment (including physical punishments)?
 	<!--<BDSM kink survey>-->\
 	
@@ -97,7 +435,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</BDSM kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 1>><!--<Semen kink survey>-->\
 2) Do you consider the presence of semen in sexual play arousing, either when you encounter it yourself or when it is a part of activity with a sexual partner?
 	<!--<Semen kink survey>-->\
 	
@@ -166,7 +504,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Semen kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 2>><!--<Watersports kink survey>-->\
 3) Does the thought of urination have a sexual appeal for you?
 	<!--<Watersports kink survey>-->\
 	
@@ -215,7 +553,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Watersports kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 100>><!--<AgePlay kink survey DISABLED>-->\
 	<!--<AgePlay kink survey DISABLED>-->\
 <!--
 4) Have you ever found sexual excitement in the idea of being treated like a child or baby?
@@ -268,6 +606,7 @@ Yes – (check all that apply)\
 -------------------
 -->\
 <!--</AgePlay kink survey>-->\
+<<elseif $player.therapistSurvey eq 3>><!--<Degradation kink survey>-->\
 4) Do you find the idea of having someone acting vocally or physically abusive towards you a turn-on?
 	<!--<Degradation kink survey>-->\
 	
@@ -376,7 +715,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Degradation kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 100>><!--<Xbody kink survey DISABLED>-->\
 	<!--<Xbody kink survey>-->\
 <!--
 6) Do bodies with unusual characteristics, especially size variations, make them especially appealing to you sexually?
@@ -468,6 +807,7 @@ Yes – (check all that apply)\
 -------------------
 -->\
 <!--</Xbody kink survey>-->\
+<<elseif $player.therapistSurvey eq 4>><!--<Feet and Odor kink survey>-->\
 5) Have you ever felt turned-on by feet or by items worn on the feet such as shoes or hosiery?
 	<!--<Feet kink survey>-->\
 	
@@ -536,7 +876,6 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Feet kink survey>-->\
--------------------
 6) Have you ever derived sexual excitement from the smell or feeling of sweaty or unclean body parts or clothing?
 	<!--<Odor kink survey>-->\
 	
@@ -615,7 +954,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Odor kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 5>><!--<Clothes kink survey>-->\
 7) Does wearing or feeling garments made of certain materials have an especially sensual or erotic appeal to you?
 	<!--<Clothes kink survey>-->\
 <!-- Note, clothes kinks activate right in survey, no need for separate therapy -->
@@ -674,7 +1013,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Clothes kink survey>-->\
--------------------
+<<elseif $player.therapistSurvey eq 6>><!--<Shrunk Penis kink survey>-->\
 8) Does the idea of having a small penis and/or being humiliated for your penis size appeal to you sexually?
 	<!--<Shrunk Penis kink survey>-->\
 	
@@ -713,7 +1052,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Shrunk Penis kink survey>-->\	
--------------------
+<<elseif $player.therapistSurvey eq 100>><!--<TG kink survey DISABLED>-->\
 	<!--<TG kink survey>-->\
 	<!--
 11) Do you gain arousal from thinking about physical alteration of your current gender to that of the opposite sex (ie, turn on stemming from your sexual organs being physically changed to that of the opposite gender, as opposed to crossdressing, cosmetic enhancements or other kinds of gender-related identity changes)?
@@ -733,7 +1072,16 @@ Yes – I am turned on by the idea of having my sex organs transformed to the op
 -------------------
 -->\
 <!--</TG kink survey>-->\
-[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
+<<endif>>\
+-------------------
+<<if [0,2,4,5,6].includes($player.therapistSurvey)>>\
+[[Imagine how it might feel|TherapistSurvey][$scene="SurveyDreams"]]
+<<endif>>\
+<<if $player.therapistSurvey lte 5>>\
+	[[Next page|TherapistSurvey][$scene=""; $player.therapistSurvey++]]
+<<else>>\
+	[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
+<<endif>>\
 </span>\
 <<else>>\
 It's a bug. Please call bugs exterminators.

@@ -1,11 +1,11 @@
-:: Jobs party maid [pos_476_1717]
+:: Task party maid [pos_476_1717]
 \
 <<set _pay=50>>\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<if (not $player.jobs.partyMaidStep) or ($player.jobs.partyMaidStep eq 0)>>\
+<<if (not $flags.partyMaidStarted) and (not $flags.partyMaidPunish)>>\
 	<<if $flags.maidUniform>>\
 		<<set $flags.maidUniform = false>>\
 		<<set _item=$items.chastityDevice>>\
@@ -16,7 +16,7 @@
 			<<set $time.hour = 15>>\
 			You wait a bit as it is too early for the party.
 		<<endif>>\
-	<<if ($player.jobs.maidPerversion eq 0)>>\
+	<<if (not $flags.partyMaidDone)>>\
 		As you get ready to go over to Miss Juliette’s house, you see a bag and a note on the door handle.
 
 		The note reads: 
@@ -38,10 +38,10 @@
 	<<endif>>\
 	
 	<<if (not _c)>>\
-	[[Put on chastity cage|Jobs party maid][$player.jobs.partyMaidStep=0; $flags.maidUniform = true]]
+	[[Put on chastity cage|Task party maid][$flags.partyMaidStarted=false; $flags.maidUniform = true]]
 	<<endif>>\
-	[[Go to Miss Juliette’s house|Jobs party maid][$time.addMinutes(160); $player.jobs.partyMaidStep=1]]
-<<elseif ($player.jobs.partyMaidStep eq 1)>>\
+	[[Go to Miss Juliette’s house|Task party maid][$time.addMinutes(160); $flags.partyMaidStarted=true]]
+<<elseif ($flags.partyMaidStarted)>>\
 	<<showImage "general" "job_maid_party.gif">>\
 	You arrive there and knock on the door.
 	
@@ -157,7 +157,7 @@
 	<<endif>>\
 	a stream of cum pouring from your flaccid penis as you feel humiliated and aroused beyond anything you’ve experienced before. Everybody cheers, and some girl shouts, @@.bully2;"We made the sissy cum!"@@ and everyone laughs.
 	
-	<<if ($player.jobs.maidPerversion eq 0)>>\
+	<<if (not $flags.partyMaidDone)>>\
 		Juliette seems to be going on faster than before thrusting in and out making you moan and cum more and more. Finally she moans herself and with a few more thrust, she stops.
 		
 		Everyone seems satisfied, and the guests start leaving one by one while you clean up the mess they made. It's hard work with your ass sore and anus burning.
@@ -205,13 +205,10 @@
 	
 	<<set $player.money+=_pay>>\
 	<<set $player.jobs.workedToday=true>>\
-	<<if ($player.jobs.maidPerversion lt 10)>>\
-		<<set $player.jobs.maidPerversion++>>\
-	<<endif>>\
 	<<set playerCode.masturbate.cum()>>\
 	<<set $flags.exhausted=true>>\
-	[[Go home|Go to bedroom][$time.addMinutes(30); $player.jobs.partyMaidStep=0; $locations.jobPartyMaid.active=false]]
-<<elseif ($player.jobs.partyMaidStep eq 2)>>\
+	[[Go home|Go to bedroom][$time.addMinutes(30); $flags.partyMaidStarted=false; $flags.partyMaidDone=true; $flags.partyMaidTask=false]]
+<<else>>\
 	<<showImage "general" "job_maid_facesit.gif">>\
 	<<if (not _c)>>\
 		@@.guardian;"First you will wear a chastity for the rest of weekend."@@ $Guardian makes you put it, then locks it.
@@ -279,5 +276,5 @@
 	Ecstatic that she's finally gone, you slowly crawl to your room, awkwardly caressing your sore anus.
 
 	<<set playerCode.masturbate.cum()>>\
-	[[Go to your bedroom|Go to bedroom][$locations.jobPartyMaid.active=false; $player.jobs.partyMaidStep=0]]
+	[[Go to your bedroom|Go to bedroom][$flags.partyMaidTask=false; $flags.partyMaidTask=false;]]
 <<endif>>\

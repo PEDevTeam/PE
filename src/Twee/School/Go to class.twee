@@ -13,9 +13,9 @@
 <<endif>>\
 is dressed in her usual silky blouse that allows her ample tits to stand proudly, and a tight skirt showcasing her firm derrière. You're constantly distracted by her curves.
 
-<<if $player.perversion.teacher lte 4 and $player.tasks.nailPolishPenalty>>\
-	<<set $player.tasks.nailPolishPenalty = false>>\
-	<<set $player.tasks.nailPolishPenaltyOver = true>>\
+<<if $player.perversion.teacher lte 4 and $player.punishments.nailPolishPenalty>>\
+	<<set $player.punishments.nailPolishPenalty = false>>\
+	<<set $player.punishments.nailPolishPenaltyOver = true>>\
 	You walk inside the class, trying to hide your hands, but a girl behind you sees them and loudly says:
 
 	@@.femvoice7;Hey, $player.name, are you wearing nail polish? An interesting choice of color too! Do you like looking girly?"@@
@@ -64,7 +64,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 		
 		[[Exit to the hallway|Go to hallway]]
 		<<if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2>>\
-			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.tasks.refusedToPay=true]]">>
+			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]">>
 		<<endif>>\
 	<<else>>\
 		@@.teacher;"Come up here, please."@@ 
@@ -79,7 +79,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 		[[Get out of there|Go to hallway]]
 		<<if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2>>\
-			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.tasks.refusedToPay=true]]">>
+			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]">>
 		<<endif>>\
 	<<endif>>\
 <<elseif not $flags.femaleClass>>
@@ -99,7 +99,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 	[[Wait outside|Go to hallway]]
 	<<if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2>>\
-		<<print "[[Wait outside but refuse to pay her|Go to hallway][$player.tasks.refusedToPay=true]]">>
+		<<print "[[Wait outside but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]">>
 	<<endif>>\
 <<else>>\
 	<<set _sl = playerCode.slutScore()>>\
@@ -201,7 +201,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 	<<print "[[Go to the hallway with "+$teacher+"|Go to hallway]]">>
 	<<if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2>>\
-		<<print "[[Go to the hallway with "+$teacher+" but refuse to pay her|Go to hallway][$player.tasks.refusedToPay=true]]">>
+		<<print "[[Go to the hallway with "+$teacher+" but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]">>
 	<<endif>>\
 <<endif>>
 

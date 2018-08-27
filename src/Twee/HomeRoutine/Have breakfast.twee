@@ -159,10 +159,10 @@
 				You find yourself pouting, and $guardian enjoys a chuckle at your expense.
 				
 			<<endif>>\
-		<<elseif (random(2) eq 0) and window.timeCode.isSaturday() and $player.jobs.active and (not $locations.jobPartyMaid.active) and ($player.perversion.guardian gte 7) and ($player.perversion.guardianCooldown gt 8)>>\
-			<<set $locations.jobPartyMaid.active = true>>\
+		<<elseif (random(2) eq 0) and window.timeCode.isSaturday() and (not $flags.partyMaidTask) and ($player.perversion.guardian gte 7) and ($player.perversion.guardianCooldown gt 8)>>\
+			<<set $flags.partyMaidTask = true>>\
 			
-			<<if ($player.jobs.maidPerversion eq 0)>>\
+			<<if (not $flags.partyMaidDone)>>\
 			@@.guardian;"I have something for you that will suit your abilities. I’ve been talking to my friend Juliette about your excellent skills as a slutty maid, and she happens to need one just like you. You remember her don’t you? She used to visit <<if $kink.incest>>us<<else>>your mother<<endif>> with her daughter. I always thought you had a crush on her."@@
 
 			You did! Juliette's daughter was named Lily, and you have been dreaming about her since you were seven. She used to go to the same school as you. A few years older than you, she graduated and went to college this year. You are consoled that she's been away during your ordeal with the teacher - but it's not that she ever seemed to notice you, anyway. Your heart sinks at the possibility she could find out what you have become.
@@ -1274,10 +1274,10 @@
 
 		<<if ($time.day eq 1) and (not $kink.incest)>>\
 			[[Go to your bedroom|Go to bedroom][$guardian=$babysitter; $Guardian=$babysitter; $myguardian=$babysitter; $Myguardian=$babysitter]]
-		<<elseif window.timeCode.isSunday() and $locations.jobPartyMaid.active and ($player.jobs.maidPerversion eq 0)>>\
+		<<elseif window.timeCode.isSunday() and $flags.partyMaidTask and (not $flags.partyMaidDone)>>\
 			@@.guardian;"$player.name, do you remember when I told you I'd be very disappointed if you ditched the party? Well, now I am. Juliette was so sad about her ruined plans, and now she's pissed at me for putting her in that position with her friends. Follow me... you owe her an apology!"@@
 			
-			[[Follow her|Jobs party maid][$player.jobs.partyMaidStep=2]]
+			[[Follow her|Task party maid][$flags.partyMaidStarted=false; $flags.partyMaidPunish=true; $flags.partyMaidTask=false;]]
 		<<else>>\
 			[[Go to your room|Go to bedroom]]
 		<<endif>>\

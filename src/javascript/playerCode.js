@@ -100,43 +100,6 @@ window.playerCode={
 			player.clothes.push(c.id);
 		}
 	},
-	addPenalty:	function (penalties) {
-		var player=State.active.variables.player;
-		if (penalties < player.tasks.penalty) {
-			player.tasks.penalty += penalties/player.tasks.penalty;
-		}
-		if (penalties == player.tasks.penalty) {
-			player.tasks.penalty += 1;
-		}
-		if (penalties > player.tasks.penalty) {
-			player.tasks.penalty = penalties;
-		}
-		if (State.active.variables.time.day % 7 == 1) {
-			if (penalties < player.tasks.penaltyMonday) {
-				player.tasks.penaltyMonday += penalties/player.tasks.penaltyMonday;
-			}
-			if (penalties == player.tasks.penaltyMonday) {
-				player.tasks.penaltyMonday += 1;
-			}
-			if (penalties > player.tasks.penaltyMonday) {
-				player.tasks.penaltyMonday = penalties;
-			}
-			player.tasks.penaltyMonday = 0.01*Math.floor(100*player.tasks.penaltyMonday);
-		}
-		player.tasks.penalty = 0.01*Math.floor(100*player.tasks.penalty);
-	},
-	updateSeverity:	function (penalties) {
-		var player=State.active.variables.player;
-		if (penalties == 0 && player.tasks.punSeverity > 1) {
-			player.tasks.punSeverity -= 1;
-		}
-		if (penalties >= player.tasks.punSeverity) {
-			player.tasks.punSeverity += 1;
-			if (penalties > (player.tasks.punSeverity*2)) {
-				player.tasks.punSeverity += 1;
-			}
-		}
-	},
 	masturbate: {
 		isReady: function() {
 			var time=State.active.variables.time;
@@ -498,7 +461,7 @@ window.playerCode={
 		for (var j=0; j < Object.keys(items).length; j++) {
 			o=items[Object.keys(items)[j]];
 			if ((o.clothingType & clothingType) > 0) {
-				if (State.active.variables.player.clothes.indexOf(o.id) >= 0) {
+				if (State.active.variables.inventory.indexOf(o.id) >= 0) {
 					return true;
 				}
 			}

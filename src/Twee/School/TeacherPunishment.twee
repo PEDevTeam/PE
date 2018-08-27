@@ -2,17 +2,17 @@
 \
 <<if window.timeCode.isMonday()>>\
 	<<if $bribeAmount-$player.bribeDiscount lte 200>>\
-		<<set playerCode.addPenalty(2)>>\
+		<<set teacherCode.addPenalty(2)>>\
 	<<elseif $bribeAmount-$player.bribeDiscount lte 500>>\
-		<<set playerCode.addPenalty(3)>>\
+		<<set teacherCode.addPenalty(3)>>\
 	<<elseif $bribeAmount-$player.bribeDiscount lte 700>>\
-		<<set playerCode.addPenalty(4)>>\
+		<<set teacherCode.addPenalty(4)>>\
 	<<elseif $bribeAmount-$player.bribeDiscount lte 1000>>\
-		<<set playerCode.addPenalty(5)>>\
+		<<set teacherCode.addPenalty(5)>>\
 	<<else>>\
-		<<set playerCode.addPenalty(6)>>\
+		<<set teacherCode.addPenalty(6)>>\
 	<<endif>>\
-	<<if $player.tasks.refusedToPay or $player.tasks.refusedToCrossdress>>\
+	<<if $player.punishments.refusedToPay or $player.punishments.refusedToCrossdress>>\
 		@@.teacher;"You know our arrangement; I’ll have to punish you now. Come with me!"@@
 	<<else>>\
 		@@.teacher;"My, broke again? You know our arrangement. I will have to punish you now. Come with me!"@@
@@ -20,8 +20,8 @@
 	
 <<endif>>\
 \
-<<set $player.tasks.penaltySkipped = false>>\
-<<set _pg = $player.tasks.penalty>>\
+<<set $player.punishments.penaltySkipped = false>>\
+<<set _pg = $player.punishments.penalty>>\
 <<if window.timeCode.isMonday()>>\
 	<<set _punish=window.teacherCode.selectPunishment( _pg, punTypes.FailToPay+punTypes.FailToPayBodyMod, true)>>\
 <<else>>\
@@ -36,19 +36,10 @@
 	<<endif>>\
 	<<set _punish.end()>>\
 <<else>>\
-	<!-- PLACEHOLDER  -->\
 	<<if window.timeCode.isMonday()>>\
-		<<if $player.perversion.teacher lte 5>>\
-			<<set $scene="analSmoothing1">>\
-		<<elseif $player.perversion.teacher lte 7>>\
-			<<set $scene="analSmoothing2">>\
-		<<else>>\
-			<<set $scene="analSmoothing3">>\
-		<<endif>>\
-		<<display [[TeacherPunishmentsScenes]]>>\
+		<<set $scene="placeholderMonday">>\
 	<<else>>\
-		No punishment. Most likely bug. Scene val = $scene
+		<<set $scene="placeholder">>\
 	<<endif>>\
+	<<display [[TeacherPunishmentsScenes]]>>\
 <<endif>>\
-
-

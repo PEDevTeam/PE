@@ -74,6 +74,10 @@ Do you want to check anything else?\
 <<if (($tasksTeacherBody.semiPermCheckUp.status eq 1) or ($player.salonTab gt 0)) and (not $flags.salonSemiPerm)>>\
 	<<print '[[Semi permanent treatments check up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0]]'>>   
 <<endif>>\
+\
+<<if ($kink.penisShrinkProgress eq 1) and (not $player.flags.salonPenisShrinkTalk)>>\
+	[[Talk about your shrunk penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $player.flags.salonPenisShrinkTalk=true]]
+<<endif>>\
 
 [[Check yourself][$player.checkPlace=2]]
 [[Return to the clinic lobby|Go to clinic]]

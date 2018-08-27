@@ -1424,7 +1424,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.tasks.penalty >= 1 && State.active.variables.flags.chorePunKinky);
+			return (State.active.variables.player.punishments.penalty >= 1 && State.active.variables.flags.chorePunKinky);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1471,7 +1471,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return State.active.variables.flags.gTrialStrapOn && (State.active.variables.player.tasks.penalty == 0) && State.active.variables.flags.guardianStrapon;
+			return State.active.variables.flags.gTrialStrapOn && (State.active.variables.player.punishments.penalty == 0) && State.active.variables.flags.guardianStrapon;
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1736,7 +1736,7 @@ window.tasksTeacher={
 					window.tasksTeacher.penaltySissyShow.rewardDebt = 200;
 				}
 				State.active.variables.tasksTeacher.penaltySissyShow.progress++;
-				State.active.variables.player.tasks.penaltySissyShow = true;
+				State.active.variables.player.punishments.penaltySissyShow = true;
 			},
 			fail: function() { return false; }
 		}
@@ -1795,7 +1795,7 @@ window.tasksTeacher={
 					window.tasksTeacher.penaltyTrials.rewardDebt = 100;
 				}
 				State.active.variables.tasksTeacher.penaltyTrials.progress++;
-				State.active.variables.player.tasks.penaltyTrials = true;
+				State.active.variables.player.punishments.penaltyTrials = true;
 			},
 			fail: function() { return false; }
 		}

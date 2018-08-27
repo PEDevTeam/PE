@@ -9,7 +9,7 @@
 	<<elseif $scene eq "FailToPay">>\
 		You return to $teacher, dreading the consequences of your little rebellion.
 
-		<<if $player.tasks.refusedToCrossdress>>\
+		<<if $player.punishments.refusedToCrossdress>>\
 			@@.teacher;"So, I guess it is time for my talk with the principal."@@ 
 			
 			She walks toward the door and your heart sinks as you realize you're about to be expelled.
@@ -17,7 +17,7 @@
 			@@.teacher;"So, you don't have enough money? It would seem the principal is owed a conversation then, instead."@@ 
 			
 			She walks toward the door and your heart sinks as you realize you're about to be expelled.\
-			<<if $player.tasks.refusedToPay>>\
+			<<if $player.punishments.refusedToPay>>\
 				Desperate, you run to her, telling her that you will pay, taking out the money, but $teacher just frowns at you.
 				
 				@@.teacher;"You had your chance! I won't accept it now, but there may be another way to earn my forgiveness this time."@@
@@ -78,7 +78,7 @@
 	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 	<<set $flags.sissyConfession = true>>\
 	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
-		<<set $player.tasks.penalty = 0>>\
+		<<set $player.punishments.penalty = 0>>\
 	<<endif>>\
 	Fidgeting in your chair, you begin to read the script out loud...
 
