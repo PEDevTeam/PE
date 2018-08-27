@@ -1,4 +1,4 @@
-:: Jobs fastfood [pos_476_1717]
+:: Jobs fastfood finish [pos_476_1717]
 \
 <<showImage "general" "job_fast_food.jpg">>\
 <<set _slb = playerCode.slutScoreBasic()>>\
@@ -35,9 +35,6 @@
 <<else>>\
 	<<set $player.jobs.tips+=25>>\
 <<endif>>\
-\
-<<set $player.money+=_pay>>\
-<<set $player.money+=_tips>>\
 \
 <<set _plan=$player.jobs.salonPlan>>\
 <<if playerCode.isMind_1()>>\
@@ -335,14 +332,14 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-\
 
-	At the end of your shift you count your tips. You received $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
-<<endif>>\
+At the end of your shift you count your tips. You received $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
 
 <<set _pay+=_tips>>\
 @@.reward;You earned $<<print _pay>>!@@
 
+<<set $player.money+=_pay>>\
+<<set $player.money+=_tips>>\
 <<set $player.jobs.workedToday=true>>\
 <<set $flags.exhausted=true>>\
 <<if ($player.jobs.fastfoodPerversion lt 10)>>\

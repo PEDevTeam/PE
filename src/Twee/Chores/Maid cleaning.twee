@@ -6,8 +6,11 @@
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _fail to false>>\
+<<set _noDefaultEnd to false>>\
+<<set _boyfriend to false>>\
 <<if ($player.perversion.guardian eq 5) and ($player.perversion.guardianCooldown gt 4)>>\
 <<showImage "chores" "boyfriend.gif">>\
+<<set _boyfriend to true>>\
 <<else>>\
 <<showImage "chores" "maid_work.gif">>\
 <<endif>>\
@@ -242,6 +245,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		
 		@@.hero;This is going to be awkward.@@
 		
+		<<set _noDefaultEnd to true>>\
 		<<set $time.addMinutes(choresList.maidCleaning.minutes)>>\
 		<<set _choreV.dayPerformed to $time.day>>\
 		[[Pick up the phone|Guardian boyfriend scene][$scene="phone"]]
@@ -538,7 +542,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	<<endif>>\
 	<!--</Generic and strapon 7>--  perv (7)  -->\
 <<endif>>\
-<<if ($player.perversion.boyfriend neq 3) or ($player.perversion.guardian neq 5)>>\
+<<if (not _noDefaultEnd)>>\
 
 	<<if _fail>>\
 		<<set $scene="choreFail">>\

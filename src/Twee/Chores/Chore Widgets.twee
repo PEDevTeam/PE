@@ -129,7 +129,8 @@ The chores available to you are:
 
 <<widget "performChore">>\
 <<set $player.currentChore=$args[0]>>\
-<<showImage "chores" choresList[$args[0]].image>>\
+<<set _image = choresList[$args[0]].image>>\
+<<showImage "chores" _image>>\
 <<set $scene=choresList[$args[0]].name>>\
 \
 <<display [[Chores]]>>\

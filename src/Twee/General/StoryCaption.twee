@@ -29,7 +29,9 @@
 <<if playerCode.checkStatus()>>\
 	@@.statusHorny0;$status.text@@\
 <<else>>\
-	<<if playerCode.masturbate.isCalm()>>\
+	<<if $flags.exhausted>>\
+		@@.statusHorny0;Exhausted@@\
+	<<elseif playerCode.masturbate.isCalm()>>\
 		@@.statusRelaxed;Pacified@@\
 	<<elseif playerCode.isNotHorny()>>\
 		@@.statusSatisfied;Calm@@\

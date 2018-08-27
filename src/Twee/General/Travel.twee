@@ -94,24 +94,11 @@ Jobs:
 			<<set _description += $guardian>>\
 			<<set _description += "\'s clinic">>\
 		<<endif>>\
-		<<if (_to.id eq locationsJS.jobFastfood.id) or $player.jobs.workedToday>>\
-			<<if (not window.timeCode.canWork())>>\
+		<<if (_to.id eq locationsJS.jobFastfood.id) or (_to.id eq locationsJS.jobSexshop.id)>>\
+			<<if (not window.timeCode.canWork()) or $player.jobs.workedToday>>\
 				<<continue>>\
 			<<endif>>\
-		<<endif>>\
-		<<if (_to.id eq locationsJS.jobSexshop.id) or $player.jobs.workedToday>>\
-			<<if (not window.timeCode.canWork())>>\
-				<<continue>>\
-			<<endif>>\
-			<<if ($player.jobs.adultstorePerversion eq 0)>>\
-				<<set _description = "Work at the shop downtown">>\
-			<<endif>>\
-		<<endif>>\
-		<<if (_to.id eq locationsJS.jobPartyMaid.id)>>\
-			<<if (not window.timeCode.canWork()) or (_from.id neq locationsJS.home.id)>>\
-				<<continue>>\
-			<<endif>>\
-			<<if ($player.jobs.adultstorePerversion eq 0)>>\
+			<<if ($player.jobs.adultstorePerversion eq 0) and (_to.id eq locationsJS.jobSexshop.id)>>\
 				<<set _description = "Work at the shop downtown">>\
 			<<endif>>\
 		<<endif>>\

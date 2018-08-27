@@ -97,10 +97,8 @@ window.structures={
 		if (vars.inventory == null) { vars.inventory = []; }
 		
 		if (vars.reason == null) { vars.reason = {}; }
-		if (vars.reason.dressedGuardian == null) { vars.reason = {}; }
-		if (vars.reason.dressedGuardianWork == null) { vars.reason = {}; }
-		if (vars.reason == null) { vars.reason = {}; }
-		if (vars.reason == null) { vars.reason = {}; }
+
+		if (vars.once == null) { vars.reason = {}; }
 		
 	},
 	setupClothesCheck: function() {
@@ -491,17 +489,6 @@ window.structures={
 	setupPunishments: function() {
 		var vars=State.active.variables;
 
-		// Static variables
-		var punVarList=window.punishmentsVars;
-		if (vars.teacherPunishmentsVars == null) {
-			vars.teacherPunishmentsVars = {};
-		}
-		for (var i=0; i < Object.keys(punVarList).length; i++) {
-			if (vars.teacherPunishmentsVars[Object.keys(punVarList)[i]] == null) {
-				vars.teacherPunishmentsVars[Object.keys(punVarList)[i]] = punVarList[Object.keys(punVarList)[i]];
-			}
-		}
-		
 		// punishments array
 		
 		var punList=window.teacherPunishments;
@@ -520,7 +507,7 @@ window.structures={
 				if (object.id == null) { object.id = talksObj.id; }
 				if (object.active == null) { object.active = talksObj.active; }
 				if (object.progress == null) { object.progress = 0; }
-				if (object.timeStart == null) { object.timeStart = 0; }
+				if (object.timeStart == null) { object.timeStart = -100; }
 			}
 		}
 		
@@ -647,24 +634,6 @@ window.structures={
 	},
 },
 
-window.punishmentsVars={
-	penalty: 0,
-	penaltyMonday: 0,
-	punSeverity: 0,
-	lastPunName: 0,
-	aphrodisiacDuration: 0,
-	penaltySkipped: false,
-	penaltyCollar: false,
-	penaltyWaxed: false,
-	penaltyClinic: false,
-	penaltyTrials: false,
-	penaltySissyShow: false,
-	nailPolishPenalty: false,
-	nailPolishPenaltyOver: false,
-	refusedToPay: false,
-	refusedToCrossdress: false
-}
-
 window.playerList={
 	name: "",
 	debugA: false,
@@ -759,7 +728,7 @@ window.playerAddonsList={
 		quickFemaleSchool: false,
 		quickFemaleCasual: false
 	},
-	tasks: {
+	punishments: {
 		penalty: 0,
 		penaltyMonday: 0,
 		punSeverity: 0,
@@ -779,10 +748,10 @@ window.playerAddonsList={
 	jobs: {
 		active: false,
 		salonPlan: 0,
+		pay: 0,
+		tips: 0,
 		fastfoodPerversion: 0,
 		adultstorePerversion: 0,
-		maidActive: false,
-		maidPerversion: 0,
 		workedToday: false
 	},
 	perversion: {
@@ -887,6 +856,30 @@ window.bodyList={
 	permManicure: 0,
 	permMakeup: 0,
 	permAnal: 0,
+	
+	boobsNoticedTeacher: 0,
+	lipsNoticedTeacher: 0,
+	assNoticedTeacher: 0,
+	faceNoticedTeacher: 0,
+	manicureNoticedTeacher: 0,
+	makeupNoticedTeacher: 0,
+	analNoticedTeacher: 0,
+	
+	boobsNoticedGuardian: 0,
+	lipsNoticedGuardian: 0,
+	assNoticedGuardian: 0,
+	faceNoticedGuardian: 0,
+	manicureNoticedGuardian: 0,
+	makeupNoticedGuardian: 0,
+	analNoticedGuardian: 0,
+	
+	boobsNoticedFriend: 0,
+	lipsNoticedFriend: 0,
+	assNoticedFriend: 0,
+	faceNoticedFriend: 0,
+	manicureNoticedFriend: 0,
+	makeupNoticedFriend: 0,
+	analNoticedFriend: 0,
 },
 
 window.flagsList={

@@ -49,7 +49,7 @@
 	<</for>>
 							
 	<<if _curClothes[8].id eq $items.buttPlugInflate.id>>
-		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5);>>
+		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
 		<<set _curClothes[8].image to "buttplug_inflate_">>
 		<<set _curClothes[8].image to _curClothes[8].image + $player.buttplugInflate>>
 		<<set _curClothes[8].image to _curClothes[8].image + ".jpg">>
@@ -551,7 +551,8 @@
 		$friend: $player.perversion.friend<br>
 	<<endif>>
 	<<if $player.debugA>>
-		Penalty score: $player.tasks.penalty<br>
+		Penalty score: $player.punishments.penalty<br>
+		Severity score: $player.punishments.punSeverity<br>
 	<<endif>>
 <</replace>>
 <</nobr>>\
