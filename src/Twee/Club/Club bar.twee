@@ -1,12 +1,11 @@
 :: Club bar [pos_216_1085]
-<<if $time.hours >= 23>>\
-	<<if $player.drunk gte 40>><<display "Drunk message">>
-	<<else>>\
-		It is getting late, so with heavy sigh you get ready to go home.
-		
-		[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
-	<<endif>>\
-<<elseif $scene eq "mainBar">><!--<mainBar>-->\
+<<if $player.drunk gte 40>>\
+	<<display "Drunk message">>\
+<<elseif $time.hours >= 23>>\
+	It is getting late, so with heavy sigh you get ready to go home.
+	
+	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
+<<elseif $scene eq "mainBar">>\
 	A short, half-wall divider separates the club’s bar and ultra-lounge from the main club, giving it at least a slightly more intimate feeling, even if it’s no less noisy. After all, both areas share the same overhead space.
 
 	The lounge’s sleek furniture is styled in a lux, modern look. Blue-lighted tabletops and luminescent strips form islands of light amid the mostly dark area. It’s crowded, but the jumble of clientele is cast only in a pale cyan glow, filling the room with a sea of silhouettes as people come and go.
@@ -30,8 +29,7 @@
 
 		[[Head back to the main club|The Club][$scene="MainClub"]]
 	<<endif>>\
-	<!--</mainBar>-->\
-<<elseif $scene eq "wellDrink">><!--<wellDrink>-->\
+<<elseif $scene eq "wellDrink">>\
 	The bartender nods and gets right to work on serving your drink. Squirting the necessary ingredients into a chilled metal shaker, he quickly mixes the contents with an over-the-shoulder, two-handed shake and then flips the whole thing into the air.
 
 	It spins in a dizzying arc a few feet over his head, and he pirouettes, scooping up a fresh drink glass from the countertop as he whirls through a complete circle. Just in time, he catches the shaker upside down with one hand, and meets it with the glass using the other. The entire shaker dumps straight into the glass, and not a single drop is spilled. He slides the glass to you, wishing you enjoyment.
@@ -39,8 +37,7 @@
 	You sip the drink. It’s well mixed, but it’s still made from the cheap stuff. Still, there’s just enough mixer and ice in it to cover most of the harsher liquor. You feel a pleasant warming feeling as it goes down.
 
 	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=5]]
-	<!--</wellDrink>-->\	
-<<elseif $scene eq "regularCocktail">><!--<regularCocktail>-->\
+<<elseif $scene eq "regularCocktail">>\
 	The bartender nods and promptly goes to the lighted back shelf to get supplies for your cocktail.\
 	<<selectScene TheClubBar_1 RND2RND>>\
 	<<scene>>\
@@ -120,8 +117,7 @@
 	<</selectScene>>\
 	
 	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=10]]
-	<!--</regularCocktail>-->\	
-<<elseif $scene eq "doubleCocktail">><!--<doubleCocktail>-->\
+<<elseif $scene eq "doubleCocktail">>\
 	You order a double cocktail, requesting a little extra be added to the drink. He nods, and gets right to work. However, as your bartender mixes up the drink, he sets up a little trick on the counter.
 
 	<<selectScene TheClubBar_2 RND2RND>>\
@@ -234,5 +230,4 @@
 	<</selectScene>>\
 	
 	[[You finish your drink|Club bar][$scene="mainBar"; $time.addMinutes(10); $player.drunk+=15]]
-	<!--</doubleCocktail>-->\
 <<endif>>\

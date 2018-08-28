@@ -1,5 +1,5 @@
 window.gameCode={
-	version: 0.7800
+	version: 0.7801
 }
 
 window.sidebarTabs=[

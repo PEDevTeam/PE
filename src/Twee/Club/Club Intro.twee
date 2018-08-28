@@ -1,4 +1,4 @@
-:: The Club Intro [pos_216_1085]
+:: Club Intro [pos_216_1085]
 \
 <<if $scene eq "ApproachBouncer">><!--<ApproachBouncer>-->\
 	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
@@ -11,8 +11,8 @@
 
 	The eyes of the nearby crowd begin to fall on you, paying attention to your predicament. If you’re going to do something to change his mind, it had better be quick.
 
-	[[Try talking your way in|The Club Intro][$scene="TalkWayIn"]]
-	[[Give up and leave|The Club Intro][$scene="GiveUp"]]
+	[[Try talking your way in|Club Intro][$scene="TalkWayIn"]]
+	[[Give up and leave|Club Intro][$scene="GiveUp"]]
 	<!--</ApproachBouncer>-->\
 <<elseif $scene eq "TalkWayIn">><!--<TalkWayIn>-->\
 	@@.heroT;“Please,”@@ you say, @@.heroT;“I have to get in. Isn’t there anything I can do?”@@
@@ -35,13 +35,13 @@
 
 	You’d better do something quickly, or you aren’t getting in.
 
-	[[Try to show off some of your sweet dance moves|The Club Intro][$scene="TryDance"]]
-	[[Try to kiss a guy at the front of the queue|The Club Intro][$scene="KissGuy"]]
-	[[Go for a kiss with one of the girls waiting for the bouncer|The Club Intro][$scene="KissGirl"]]
+	[[Try to show off some of your sweet dance moves|Club Intro][$scene="TryDance"]]
+	[[Try to kiss a guy at the front of the queue|Club Intro][$scene="KissGuy"]]
+	[[Go for a kiss with one of the girls waiting for the bouncer|Club Intro][$scene="KissGirl"]]
 	<<if (not playerCode.isMind_0())>>\
-		[[Flash the bouncer ‘something special’|The Club Intro][$scene="FlashPanties"]]
+		[[Flash the bouncer ‘something special’|Club Intro][$scene="FlashPanties"]]
 	<<endif>>\
-	[[Give up and leave|The Club Intro][$scene="GiveUp"]]
+	[[Give up and leave|Club Intro][$scene="GiveUp"]]
 	<!--</TalkWayIn>-->\
 <<elseif $scene eq "TryDance">><!--<TryDance>-->\
 	Not sure what else to do, your mind suddenly offers you an imaginary vignette in which you break into dance, shaking it like you mean it to earn your way into the club. 
@@ -112,7 +112,7 @@
 
 	@@.clubBouncer1;“Well, that was cute. You can go in.”@@
 
-	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</KissGuy>-->\
 <<elseif $scene eq "KissGirl">><!--<KissGirl>-->\
 	Even though you’re dressed up like one, you’d still much rather kiss a girl. Though you’re incredibly nervous, the small amount of time you have to decide what to do gives you a quick adrenaline boost, and you just go for it. You close your eyes, breathe in, open them and then turn around, quickly stepping forward to the front-most girl waiting behind you for the bouncer.
@@ -148,7 +148,7 @@
 
 	@@.clubBouncer1;“Well, that was cute. You can go in.”@@
 
-	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</KissGirl>-->\
 <<elseif $scene eq "FlashPanties">><!--<FlashPanties>-->\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -181,7 +181,7 @@
 
 	Still, you got in!
 
-	[[Go through the doors|The Club Intro][$scene="GoInside"]]
+	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</FlashPanties>-->\
 <<elseif $scene eq "GoInside">><!--<GoInside>-->\
 	You traverse a small foyer and enter a second set of double doors, crossing the threshold into the massive main club.

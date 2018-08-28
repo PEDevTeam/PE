@@ -143,13 +143,13 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<if ($body.anal gt 0) and ($body.anal gt $body.permAnal) and ($player.daring gt 7)>>\
 		<<set _item=itemsC.token>>\
 		<<set _override=false>>\
-		<<if $body.anal eq 1>><<set _item.cost = 2*itemsC.analSmoothing1.cost>>\
-		<<elseif $body.anal eq 2>><<set _item.cost = 2*itemsC.analSmoothing2.cost>>\
-		<<elseif $body.anal eq 3>><<set _item.cost = 2*itemsC.analSmoothing3.cost>>\
+		<<if $body.anal eq 1>><<set $items[_item.id].cost = 2*itemsC.analSmoothing1.cost>>\
+		<<elseif $body.anal eq 2>><<set $items[_item.id].cost = 2*itemsC.analSmoothing2.cost>>\
+		<<elseif $body.anal eq 3>><<set $items[_item.id].cost = 2*itemsC.analSmoothing3.cost>>\
 		<<endif>>\
-		<<set _item.image = itemsC.analSmoothing3.image>>\
-		<<set _item.daringRec = 9>>\
-		<<set _item.name = "Permanent anal smoothening">>\
+		<<set $items[_item.id].image = itemsC.analSmoothing3.image>>\
+		<<set $items[_item.id].daringRec = 9>>\
+		<<set $items[_item.id].name = "Permanent anal smoothening">>\
 		<<set _sceneName="PermanentAnalSmoothing">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\

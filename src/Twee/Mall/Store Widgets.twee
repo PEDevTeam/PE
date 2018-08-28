@@ -92,29 +92,29 @@
 		<<elseif playerCode.owns(_o) and ((not $showimages) or (not _image) or (not _o.maxAlt) or (_o.maxAlt and (_o.maxAlt gt 0) and _oV.ownAlt[_oV.storeCur]))>>\
 			<<set _in to _in + '@@.owned;owned@@'>>\
 		<<elseif _image and $showimages and _o.schoolAlt and ($player.perversion.teacher eq 3) and (_oV.storeCur gt _o.schoolAlt)>>\	
-			<<set _in to _in + '//@@.halftransparent;too colorful style@@//'>>\
+			<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
 		<<elseif (_o.clothingType eq itemTypes.Earrings) and (not $body.earsPierced)>>\
-			<<set _in to _in + '//@@.halftransparent;ears not pierced@@//'>>\
+			<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
 		<<elseif _disabled>>\
-			<<set _in to _in + '//@@.halftransparent;not needed@@//'>>\
+			<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\
 		<<elseif ($player.daring lt _daringRec)>>\
 			<<if _o.female>>\
 				<<if (_daringRec lte 5) and ($player.daring lte 5) and _oV.postponed>>\
-					<<set _in to _in + '//@@.halftransparent;dont need more of these@@//'>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //dont need more of these//@@'>>\
 				<<elseif ($player.daring gt 5) and _o.slutty>>\
-					<<set _in to _in + '//@@.halftransparent;too slutty@@//'>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //too slutty//@@'>>\
 				<<elseif ($player.daring gt 3)>>\
-					<<set _in to _in + '//@@.halftransparent;too risque@@//'>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //too risque//@@'>>\
 				<<else>>\
-					<<set _in to _in + '//@@.halftransparent;too girly@@//'>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //too girly//@@'>>\
 				<<endif>>\
 			<<else>>\
-				<<set _in to _in + '//@@.halftransparent;too daring@@//'>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
 			<<endif>>\
 		<<elseif $player.money gte _cost>>\
 			<<set _in to _in + '<<click "Buy">><<buyItem "' + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
 		<<else>>\
-			<<set _in to _in + '@@.halftransparent;too expensive@@'>>\
+			<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
 		<<endif>>\
 		<<if _image and $showimages>>\
 			<<set _in to _in + '</span>'>>\

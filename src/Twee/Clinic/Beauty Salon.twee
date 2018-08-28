@@ -2,28 +2,28 @@
 \
 <<showImage "general" "beauty_salon.jpg">>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-You enter the Beauty salon and are greeted by an enthusiastic young woman uniformed in a barely decent version of //"sexy nurse."// Her name tag reads, "Nancy."
-
 <<if (not $flags.salonVisited)>>\
-<<set $flags.salonVisited to true>>\
-<<set $flags.salonVisitedFirst to true>>\
-She looks over your\
+	<<set $flags.salonVisited to true>>\
+	<<set $flags.salonVisitedFirst to true>>\
+	You enter the Beauty salon and are greeted by an enthusiastic young woman uniformed in a barely decent version of //"sexy nurse."// Her name tag reads, "Nancy."
+
+	She looks over your\
 	<<if (_o and _o.female)>>\
-	dress and flashes a knowing smile, making you realize that she is not fooled for a minute, before listing a number of options available from the salon.
+		dress and flashes a knowing smile, making you realize that she is not fooled for a minute, before listing a number of options available from the salon.
 	<<else>>\
-	outfit with barely hidden amusement before listing a number of options available from the salon.
+		outfit with barely hidden amusement before listing a number of options available from the salon.
 	<<endif>>\
 	<<if playerCode.isMind_0()>>\
-	Your cheeks flush hot with embarrassment, as you read through the various feminizing procedures.\
+		Your cheeks flush hot with embarrassment, as you read through the various feminizing procedures.\
 	<<elseif playerCode.isMind_1()>>\
-	Your cheeks flush hot with embarrassment, but you also find yourself getting excited as you read through the various feminizing procedures.\
+		Your cheeks flush hot with embarrassment, but you also find yourself getting excited as you read through the various feminizing procedures.\
 	<<else>>\
-	You notice that Nancy offers several permanent solutions. 
-	
-	You're not sure why, but an image flashes in your mind of your chest, heavy with huge, permanent breasts, your skin smooth and hairless, your face tattooed with flawless makeup. Your body breaks out in a cold sweat and your heart hammers with excitement. You have no idea why that happened.\
+		You notice that Nancy offers several permanent solutions. 
+		
+		You're not sure why, but an image flashes in your mind of your chest, heavy with huge, permanent breasts, your skin smooth and hairless, your face tattooed with flawless makeup. Your body breaks out in a cold sweat and your heart hammers with excitement. You have no idea why that happened.\
 	<<endif>>\
 <<else>>\
-Do you want to check anything else?\
+	Nancy smiles to you, waiting if you would like to choose any of treatments.\
 <<endif>>\
 
 <<if $player.salonTab gt 0>>\
@@ -31,10 +31,9 @@ Do you want to check anything else?\
 	<<if $player.money lt $player.salonTab>>\
 		You don't have enough money to pay up your tab.
 	<<else>>\
-	
-	
-		[[Pay up your tab]]
+		- [[Pay up your tab]]\
 	<<endif>>\
+	
 <<endif>>\
 
 <<if ($player.daring gt 2)>>\

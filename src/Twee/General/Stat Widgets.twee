@@ -598,7 +598,7 @@
 	<<elseif $player.perversion.teacher eq 2>>\
 	[[Teach perv 2 to 3|Go to bedroom][$player.perversion.teacher++;$player.daring=5; $player.debugN=3; $flags.chastityKey=true; $player.daringFlag.toiletsMasturbating=true; $flags.chastityLocked=true]] \
 	<<elseif $player.perversion.teacher eq 3>>\
-	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true; $flags.femaleClass=true; $items.schoolFemale.disabled=false]] \
+	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true; $flags.femaleClass=true; $player.perversion.crossdressing=10; $items.schoolFemale.disabled=false]] \
 	<<elseif $player.perversion.teacher eq 4>>\
 	[[Teach perv 4 to 5|Go to bedroom][$player.perversion.teacher++;$player.daring=7; $player.daringFlag.posingtoCoach=true]] \
 	<<elseif $player.perversion.teacher eq 5>>\
@@ -637,6 +637,11 @@
 	<<print '<<click " Skip day ">><<set $time.addHours(24)>><<display "Daily resets">><<updateDebug>><</click>>'>> $time.day\
 		
 	<<print '<<click " +Daring ">><<set $player.daring++>><<updateDebug>><</click>>'>> $player.daring\
+	
+	Slut score = <<print playerCode.slutScoreBasic()>>\
+	
+	perv club = $player.perversion.club
+	perv crossdr = $player.perversion.crossdressing
 <</replace>>\
 <</widget>>\
 
