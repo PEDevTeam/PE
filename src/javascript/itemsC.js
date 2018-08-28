@@ -23,10 +23,17 @@ window.quickSlotSets={
 window.itemF={
 	name: function(item) {
 		var oV;
+		var items=State.active.variables.items;
 		if (item == null) {
 			return false;
 		}
+
+		oV=items[item.id];
+		
 		var name=item.name;
+		if ((oV != null) && (oV.name != null)) {
+			name = oV.name;
+		}
 		return name;
 	},
 	nameById: function(id) {
@@ -1813,7 +1820,7 @@ window.itemsC={
 		daringRec: 6,
 		disabled: false,
 		cost: 30,
-		image: "earrings_studs.jpg"
+		image: "piercing_ears.jpg"
 	},
 	PiercingLips: {
 		id: "PiercingLips",

@@ -103,6 +103,7 @@ window.structures={
 	},
 	setupClothesCheck: function() {
 		var clothes=window.clothes;
+		var vars=State.active.variables;
 		if (vars.reason == null) {
 			vars.reason = {};
 		}
@@ -469,7 +470,7 @@ window.structures={
 		}
 		
 		// deleting talks with no corresponding ID in JavaScript list
-		var talksNewList = State.active.variables.dreams;
+		var talksNewList = State.active.variables.therapistTalks;
 		for (var i=0; i < Object.keys(talksNewList).length; i++) {
 			var found = false;
 			
@@ -512,7 +513,7 @@ window.structures={
 		}
 		
 		// deleting punishments with no corresponding ID in JavaScript list
-		var punNewList = State.active.variables.dreams;
+		var punNewList = State.active.variables.teacherPunishments;
 		for (var i=0; i < Object.keys(punNewList).length; i++) {
 			var found = false;
 			
@@ -616,7 +617,7 @@ window.structures={
 			}
 		}
 		
-		var tasksBodyNewTeacher = State.active.variables.tasksTeacher;
+		var tasksBodyNewTeacher = State.active.variables.tasksTeacherBody;
 		for (var i=0; i < Object.keys(tasksBodyNewTeacher).length; i++) {
 			var found = false;
 			
@@ -777,6 +778,7 @@ window.playerAddonsList={
 		crossdressing: 0,
 		mall: 0,
 		club: 0,
+		danceClub: 0,
 		noseWagerCount: 0,
 		bjFirst: 0,	/* "bully", "coach" */
 		bjSkill: 0,

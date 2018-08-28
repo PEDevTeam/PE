@@ -78,34 +78,34 @@ window.misc={
 		var body=State.active.variables.body;
 		var items=window.itemsC;
 		var cost=0;
-		if (body.semiPermAss > body.permAss) {
-			if (body.semiPermAss == 1) { cost+=items.AssEnhancingXL.cost; }
-			if (body.semiPermAss == 1) { cost+=items.AssEnhancing.cost; }
+		if (body.semiAss > body.permAss) {
+			if (body.semiAss == 2) { cost+=items.AssEnhancingXL.cost; }
+			if (body.semiAss == 1) { cost+=items.AssEnhancing.cost; }
 		}
-		if (body.semiPermLips > body.permLips) {
-			if (body.semiPermLips == 1) { cost+=items.LipsEnhancingXL.cost; }
-			if (body.semiPermLips == 1) { cost+=items.LipsEnhancing.cost; }
+		if (body.semiLips > body.permLips) {
+			if (body.semiLips == 2) { cost+=items.LipsEnhancingXL.cost; }
+			if (body.semiLips == 1) { cost+=items.LipsEnhancing.cost; }
 		}
-		if (body.semiPermManicure > body.permManicure) {
-			if (body.semiPermManicure == 1) { cost+=items.GarishManicure.cost; }
-			if (body.semiPermManicure == 1) { cost+=items.Manicure.cost; }
+		if (body.semiManicure > body.permManicure) {
+			if (body.semiManicure == 2) { cost+=items.GarishManicure.cost; }
+			if (body.semiManicure == 1) { cost+=items.Manicure.cost; }
 		}
-		if (body.semiPermBoobs > body.permBoobs) {
-			if (body.semiPermBoobs == 4) { cost+=items.breastImplantsDD.cost; }
-			if (body.semiPermBoobs == 3) { cost+=items.breastImplantsC.cost; }
-			if (body.semiPermBoobs == 2) { cost+=items.breastImplantsB.cost; }
-			if (body.semiPermBoobs == 1) { cost+=items.breastImplantsA.cost; }
+		if (body.semiBoobs > body.permBoobs) {
+			if (body.semiBoobs == 4) { cost+=items.breastImplantsDD.cost; }
+			if (body.semiBoobs == 3) { cost+=items.breastImplantsC.cost; }
+			if (body.semiBoobs == 2) { cost+=items.breastImplantsB.cost; }
+			if (body.semiBoobs == 1) { cost+=items.breastImplantsA.cost; }
 		}
-		if (body.semiPermMakeup > body.permMakeup) {
-			if (body.semiPermMakeup == 4) { cost+=items.HeavyMakeup.cost; }
-			if (body.semiPermMakeup == 3) { cost+=items.BimboMakeup.cost; }
-			if (body.semiPermMakeup == 2) { cost+=items.NormalMakeup.cost; }
-			if (body.semiPermMakeup == 1) { cost+=items.SubtleMakeup.cost; }
+		if (body.semiMakeup > body.permMakeup) {
+			if (body.semiMakeup == 4) { cost+=items.HeavyMakeup.cost; }
+			if (body.semiMakeup == 3) { cost+=items.BimboMakeup.cost; }
+			if (body.semiMakeup == 2) { cost+=items.NormalMakeup.cost; }
+			if (body.semiMakeup == 1) { cost+=items.SubtleMakeup.cost; }
 		}
-		if (body.semiPermAnal > body.permAnal) {
-			if (body.semiPermAnal == 3) { cost+=items.analSmoothing3.cost; }
-			if (body.semiPermAnal == 2) { cost+=items.analSmoothing2.cost; }
-			if (body.semiPermAnal == 1) { cost+=items.analSmoothing1.cost; }
+		if (body.semiAnal > body.permAnal) {
+			if (body.semiAnal == 3) { cost+=items.analSmoothing3.cost; }
+			if (body.semiAnal == 2) { cost+=items.analSmoothing2.cost; }
+			if (body.semiAnal == 1) { cost+=items.analSmoothing1.cost; }
 		}
 		cost = 10*Math.round(cost/20);
 		// half cost rounded by 10

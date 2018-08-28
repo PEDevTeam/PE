@@ -564,7 +564,7 @@ window.kinks= [
 			if ( State.active.variables.kinkAllow.cumEating ) { State.active.variables.kink.cumEating = true; }
 			if ( State.active.variables.kinkAllow.ownCum ) { State.active.variables.kink.ownCum = true; }
 			if ( State.active.variables.kinkAllow.cumSwap ) { State.active.variables.kink.cumSwap = true; }
-			State.active.variables.dreamsGuardian.CumCake.active=true;
+			State.active.variables.dreams.CumCake.active=true;
 		},
 		stop: function() {
 			State.active.variables.kinkAllow.semenConsumption = false;
@@ -574,7 +574,7 @@ window.kinks= [
 			State.active.variables.kink.cumEating = false;
 			State.active.variables.kink.ownCum = false;
 			State.active.variables.kink.cumSwap = false;
-			State.active.variables.dreamsGuardian.CumCake.active=false; 
+			State.active.variables.dreams.CumCake.active=false; 
 		}
 	},
 	{
@@ -607,7 +607,7 @@ window.kinks= [
 			if ( State.active.variables.kinkAllow.wetting ) { State.active.variables.kink.wetting = true; }
 			if ( State.active.variables.kinkAllow.urineDrink ) { State.active.variables.kink.urineDrink = true; }
 			if ( State.active.variables.kinkAllow.urinePlay ) { State.active.variables.kink.urinePlay = true; }
-			State.active.variables.dreamsGuardian.PissHypno.active=true;
+			State.active.variables.dreams.PissHypno.active=true;
 		},
 		stop: function() {
 			State.active.variables.kinkAllow.watersports = false;
@@ -615,7 +615,7 @@ window.kinks= [
 			State.active.variables.kink.wetting = false;
 			State.active.variables.kink.urineDrink = false;
 			State.active.variables.kink.urinePlay = false;
-			State.active.variables.dreamsGuardian.PissHypno.active=false;
+			State.active.variables.dreams.PissHypno.active=false;
 		}
 	},
 	{

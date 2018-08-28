@@ -1,0 +1,181 @@
+:: Task clubSelfieLadiesRoom [pos_216_1085]
+<<set _slb = playerCode.slutScoreBasic()>>\
+The club ladies’ room is constantly crowded, but it’s a far more social place than the speech- and eye contact-avoidant guys’ bathrooms you’re used to. There is no shortage of discussion here, even among strangers, and the sing-song overlap of so many ladies’ voices creates a strange privacy of its own.
+
+You sidle up to the sink counter and try to look as inconspicuous as possible, washing your hands and pretending to gussy up, as you search through the mirror for someone who might take a photo with you. 
+
+Your heart beats a little faster as you attempt to judge if any woman is more or less likely to take offense should you ask her. The ladies are all dressed up and made up, though, masking most social status cues you would be able to follow. You resign yourself to the fact you just have no idea.
+
+Luckily, the crowd thins down for a moment, mercifully reducing the odds of your getting embarrassed by many women at once. You spot a woman who might be approachable, muster up your courage, get your cell camera ready to go, and ask her if you can take a selfie with her.
+
+<<if [0,1].includes(_slb)>>\
+	She glances at you, your question drawing her focus away from what she was doing at the sink. Your request is obviously unexpected and a bit unwelcome. She pauses as if about to speak, but instead, the woman’s look grows more intense. Then, realization emerges:
+
+	@@.femvoice4;“Hey, you’re not a…”@@ she exclaims. @@.femvoice4;“You’re a guy! What are you doing in here?! Get out before I go get security, you pervert!”@@
+
+	[[You beat a hasty exit|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$time.addMinutes(10)]]
+<<elseif [2,3].includes(_slb)>>\
+	The woman glances up upon hearing your question, finishing up with the sink then turning your way. Puzzlement and suspicion tint her expression as she looks you over. Her eyes narrow.
+
+	@@.femvoice4;“Am I on some kind of hidden camera thing? You’re cute and all, but, um… I think maybe only one of us is actually supposed to be in here. Are you serious?”@@
+
+	<<if playerCode.isMind_0()>>\
+		You stammer something in apology about taking a stupid dare to prove you were in the ladies’ room and having to take a photo to do it. You beat around the truth in fear that $teacher might somehow find out if you tell anyone about your task, but it makes it much harder to think on your feet. You definitely sound like an idiot. You turn a bright shade of crimson as you speak, tripping over your own tongue the whole way. The woman listens intently as you stumble along, lighting up in amusement.
+
+		@@.femvoice4;“Well, sugar,”@@ she says. @@.femvoice4;“Since you’re putting so much effort into it already, I’ll do it for ////$////20.”@@
+
+		<<if $player.money lt 20>>\
+			You again babble a stream of words – something about not having enough money, how wearing girls’ clothes is not your normal thing, how you’re sorry about bothering her, and how you normally don’t do things like this, especially to girls. You conclude with a sad, pathetic plea for her not to tell anyone about this. At least, that’s what you tried to say; you’re not sure what you actually said counts as English.
+
+			Her entertainment grows with each bungled sentence, until she finally breaks into a fit of giggles.
+
+			@@.femvoice4;“Alright, bitch. Forget the money,”@@ she laughs. @@.femvoice4;“Just give me your damn cell.”@@
+		<<else>>\
+			Seeing no other choice, you hand her a twenty. After folding it neatly, she slips the bill into her bra.
+		<<endif>>\
+
+		She takes your cell, leans in close to you, makes a silly duck face, and snaps the selfie. Handing back your mobile, she blows you a kiss with an audible ‘muah.’
+
+		@@.femvoice4;“Nice clothes, by the way,”@@ she chuckles, walking out.
+
+		You wait for what you hope is long enough to keep her from seeing you again when you leave.
+
+		[[Slink back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3; $time.addMinutes(10)]]
+	<<elseif playerCode.isMind_1()>>\
+		You try to explain what you’re doing in a ladies’ bathroom asking a random woman for a photo, but mainly fail to form basic sentences. Everything you say comes out sounding worse than what you meant:
+
+		You don’t wear girls’ clothing that much, just more than boys do. @@.heroT;“I mean, normal boys… and I didn’t mean that I’m not normal!”@@
+
+		You don’t go in women’s bathrooms that much. @@.heroT;“Only when I have to… like, when I’m wearing girls’ clothes - not that I do it a lot!”@@
+
+		You aren’t in here trying to have sex with a woman. @@.heroT;“Or sex with a guy! – And, it’s not that I wouldn’t have sex with you, if it wasn’t weird – I mean, you’re not weird!”@@
+
+		You only want to take a picture of her in the bathroom. @@.heroT;“I meant, because you’re in the bathroom…I mean, because I need a selfie in the bathroom with a girl, in here!”@@
+
+		By the time your explanation reaches full seizure after agonizing death throes, the lady’s eyes and mouth are wide with bafflement. Yet, she wordlessly takes your mobile, stands next to you, and clicks off a selfie. The review image shows two hopelessly confused people.
+
+		She hands you your cell back and walks out briskly, leaving you to mull over what the hell just happened.
+
+		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+	<<else>>\ 
+		You try to reassure her that you’re not trying to do anything weird (well, except taking the selfie), and apologize for putting her on the spot by asking. You come up with the explanation that you’re dressing this way mainly because it’s free for girls to get in the club, and tell her you asked for a selfie with her because it makes you feel more comfortable to be dressed like this when there’s another girl in the photo. 
+
+		You also point out there’s only enough light to take selfies with your phone when you’re in the bathroom, and obviously it has to be the women’s room, given your outfit. You cover your unease with a final cheesy comment that besides, someone had to look this good in these clothes, and that it was kind of hard finding someone else just as fabulous to be in the photo with you.
+
+		By the moment you realize you’ve implied you need a photo with another girl besides yourself, her expression has softened. You catch yourself wondering if you actually meant it the way it came out. Before you can spend much time on the thought, she’s grabbed your cell to help you out.
+
+		She leans her head against yours like you’re old girlfriends, tells you to say ‘sexy,’ and fires off a selfie. 
+
+		As the review image comes up, you almost double-take at the photo. You aren’t sure if it was the lighting, the pose, or your expressions, but you process it as a photo of two girls, even though you were in it.
+
+		@@.femvoice4;“Well, ok, sweetie,”@@ she says. @@.femvoice4;“There you are! But, um, maybe you should keep a lower profile in here.”@@
+
+		As she leaves, you momentarily wonder if that photo didn’t capture your real self.
+
+		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+	<<endif>>\
+<<elseif [4,5].includes(_slb)>>\
+	The girl finishes washing her hands, looking up to see who’s asked the question. She looks you over, thinking about your request, and nods her consent.
+
+	@@.femvoice4;“Sure, honey,”@@ she says. @@.femvoice4;“Let me just check my makeup really quick.”@@
+
+	She leans towards the mirror and makes a few odd facial expressions that help her look over the state of her cosmetics. You’ve seen $guardian do it a few times when getting ready to go out, but you aren’t really sure what women look for since\
+	<<if $body.makeup gt 0>>\
+		you’ve always had help getting your makeup done.
+	<<else>>\
+		you’ve never actually worn any makeup yourself.
+	<<endif>>\
+
+	<<if playerCode.isMind_0()>>\
+		You can’t help but notice how much time this sort of thing takes a girl, and you’re glad,\
+		<<if $body.makeup gt 0>>\
+			even though you don’t really like wearing it, at least a professional did your makeup for you.
+		<<else>>\
+			despite the fact you might now pass as a girl, you haven’t had to bother with makeup so far.
+		<<endif>>\
+	<<elseif playerCode.isMind_1()>>\
+		However, you notice the care that she puts in her appearance, and wonder if\
+		<<if $body.makeup gt 0>>\
+			wearing makeup more often wouldn’t help you feel better about your own looks.
+		<<else>>\
+			trying on some makeup in the near future wouldn’t improve your own looks.
+		<<endif>>\
+	<<else>>\
+		You watch her closely as she touches up her makeup, wondering\
+		<<if $body.makeup gt 0>>\
+			if you might learn some beauty tips that you could use yourself.
+		<<else>>\
+			if you might try out that girl’s look sometime.
+		<<endif>>\
+	<<endif>>\
+
+	Finishing up, you give her your cell and she holds it up. You casually lean against her shoulder and she does the same towards you. She tilts her head to catch the light, and then clicks the photo button. The review image appears on the screen for a few seconds, and you’re almost surprised by how it just looks like a photo of two ordinary girls.
+
+	She hands your mobile back to you, smiles politely and leaves.
+
+	[[Head back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+<<elseif [6,7].includes(_slb)>>\
+	The girl gives you an odd, slantwise glance as she finishes up with her routine at the counter, withholding her direct attention until after she’s done. She seems to take her sweet time with this, too. Her expression and body language aren’t unfriendly, per se, but she seems like she’s sizing you up.
+
+	@@.femvoice4;“So, who are you again?”@@ she probes icily, tilting her hip. She looks you antagonistically.
+
+	Not waiting for your reply, she assumes a more dominant posture. She pivots on her high heels, takes a few quick paces toward you, and stops well inside your normal personal space.
+
+	She reaches for your hair, taking a forelock of it in her thumb and forefinger, while her gaze sweeps over your body and face with a penetrating stare. She releases the strand, turning the back of her hand to stroke you lightly across the cheek. This isn’t a kind gesture – you feel like you’re on the dinner menu.
+
+	@@.femvoice4;“Hmm… pretty,”@@ she murmurs in such a way you can’t tell if she’s being sarcastic or not.
+
+	You wilt, retreating a few clumsy steps by reflex. You almost immediately run out of space, your butt checked ungracefully by the edge of the counter. She simply closes the distance again, facing you square on, with her hips nearly touching yours. You lean backwards and plant your palms on the countertop to steady yourself, off guard.
+
+	You feel her fingertips trace over your clothing along the contour of your outer thigh before climbing up your hip and across your belly, then slowing down just above your navel. She rotates her hand until just the nail of her index finger is in contact, drags it up the center of your chest and neck, and finishes with a little flick to the underside of your chin. She leans in close enough that you can feel her breath on your cheek.
+
+	@@.femvoice4;“Alright, miss pretty,”@@ she leers. @@.femvoice4;“Let’s see what you have here.”@@
+
+	With her opposite hand, she snatches your mobile from you. She turns her back to you, working the phone with both of her thumbs. You can’t tell if she’s going through your data, which feeds your feelings of exposure and stirs up momentary alarm.
+
+	Without warning, she lifts your phone, where you see the camera app is still up. You’ve barely even had time to look before she takes the selfie. As the review image becomes visible, you see her in the foreground looking very much put together, with a flattering smile. You, on the other hand, are the pathetic canary in back, about to be eaten by a cat.
+
+	Before you can say anything, she boops you on the nose with her finger, dumps your phone on the counter top, and strolls away with a pleased look. As she passes, she looks over her shoulder, slowing for a parting shot before leaving:
+
+	@@.femvoice4;“See you later, bitch.”@@
+
+	You fumble as you recover your cell and a few shreds of self-confidence.
+
+	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+<<else>>\
+	At your question, the girl looks around the bathroom, just to make sure you were actually asking her. When she realizes there’s no one else nearby, she responds with a shy smile and a nod of her head.
+
+	She takes some extra time checking herself in the mirror, sorting out imperceptible flaws her clothing and makeup, and sneaking peeks at you via your reflection. She brushes her lap to smooth her dress as she turns and steps your way. As her eyes flicker over you and meet yours, you spot a little twinkle.
+
+	She’s gets side by side with you, and you get your camera up and ready. Because of her closeness, your off-hand is the only one free to take the photo, so you have some difficulty getting the selfie app to cooperate. She starts to say something, but doesn’t. This happens a few times as you fumble around with the camera some more, until eventually she just reaches for your cell. Her hand rests against yours, lingering there a moment before she eases the phone into her palm.
+
+	@@.femvoice4;“Sorry… don’t want to… it’ll be easier if I…”@@ she stammers shyly.
+
+	She smiles softly, and with a few adjustments to the camera settings, she has you both framed in the image preview. With a small flourish of her head, she moves the hair out of her face, then leans in more closely than you were expecting. As she concentrates on the preview, her cheek brushes your own. Her eyes meet yours in the camera view for a moment.
+
+	@@.femvoice4;“Erm, I… I think you’re really beautiful,”@@ she whispers.
+
+	You melt a little, and you hear the shutter sound as she clicks the button. You begin to move away, but she keeps the phone in place, waiting for the shot’s review to clear before she starts to recompose the image.
+
+	@@.femvoice4;“Wait, I… just want to…”@@ she mutters, adjusting some app settings you’ve never really paid attention to.
+
+	She leans back in, working you both back into the shot, and you have to admit the preview shows a far better photo. She snaps a couple of frames while she tries to get it just right. Then, her face accidentally touches yours again, gently but with a little more contact than last time.
+
+	She pulls back at the touch in surprise, starting to mutter an apology, but then she’s face to face with you and your eyes are lost in hers again.
+
+	@@.femvoice4;“I’m not trying to… But I… Can I just…?”@@
+
+	Before you can say anything, she leans forward and kisses you deeply as her lithe body and slender arms enfold you in a warm embrace. Her lips take you over, dissolving your awareness into a decadent swirl of tongues and the soft caress of mouths. Your feet feel like they’ve left the earth behind, and a flood of emotion fills you before you can catch up with the leaping heart in your chest.
+
+	Then, you hear the shutter click sound, and you realize she has been aiming the camera again. The kiss ends abruptly and she pulls away, immediately looking down to make edits while you are left breathless. You see one last shot on the preview: a gorgeous black-and-white close-up of your entwined arms and faces. It looks like something from a coffee table book or a gallery.
+
+	@@.femvoice4;“I’m gonna just message this… for my portfolio…”@@
+
+	Stunned, you can only watch as she uploads the picture, hits ‘send,’ and then erases every trace of her contact info from your phone before returning it. She walks away without another word.
+
+	At least she left me the pictures.
+
+	As the taste of her epic kiss fades away in your mouth, you think you maybe just experienced true love: between a girl and her photography.
+
+	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+<<endif>>\

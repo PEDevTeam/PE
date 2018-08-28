@@ -1039,6 +1039,7 @@ window.tasksTeacher={
 
 	
 	TheClubIntro: { // perv 3+ cross 8+
+		id: "TheClubIntro",
 		name: "Task The Club Intro",
 		hasPassage: true,
 		text: {
@@ -1055,7 +1056,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4);
+			return ((State.active.variables.player.perversion.crossdressing >= 8) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1070,7 +1071,7 @@ window.tasksTeacher={
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
 		progress: 0,  // for progressing scenes
 		startDay: 0,  // day task was started
-		maxDays: 5,  // number of days allowed before task will fail
+		maxDays: 6,  // number of days allowed before task will fail
 		cooldown: 1,  // number of days before task available again
 		rewardMoney: 0,
 		rewardDebt: 10,
@@ -1082,7 +1083,51 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	
+	clubSelfieLadiesRoom: { // perv 4+
+		id: "clubSelfieLadiesRoom",
+		name: "Take a Selfie With a Woman in the Ladies\’ Room",
+		hasPassage: true,
+		text: {
+			given: "You need to practice passing as a girl in public. Go back to the club this weekend and take a selfie with a woman in the ladies\’ room.",
+			perform: "",
+			finish: "$teacher looks at the selfie you took with the lady at the club.\n\n@@.teacher;\"I see you managed to get a girl to take a photo with you as one of our own. Good job.@@",
+			fail: "You did not get a girl to take a selfie with you in the ladies\’ bathroom like I asked. Maybe you should work harder on your appearance if you\’re finding it difficult.",
+			reminder: "I will remind you – you\’re to go to the club this weekend and take a selfie with a girl in the ladies\’ restroom.",
+			checkMe: {
+				given: "go to the club this weekend. Take a selfie with a girl in the ladies room.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.club > 0);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 4, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 7,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
 	
 	selfieToiletsChastity: {	// perv 5-6
 		id: "selfieToiletsChastity",

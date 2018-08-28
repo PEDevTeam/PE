@@ -913,7 +913,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>
 	<<endif>>\
 <<else>>\
-	<<print $misc.schoolMessage()>>
+	<<print window.timeCode.schoolMessage()>>
 <<endif>>\
 <<if (not timeCode.isMonday())>>\
 	<<if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)>>\

@@ -28,10 +28,10 @@
 	<<if ($body.permManicure lte 0)>>\
 		<<set _item=itemsC.token>>\
 		<<set _override=false>>\
-		<<set _item.cost = 10*$items.Manicure.cost>>\
-		<<set _item.image = $items.Manicure.image>>\
-		<<set _item.daringRec = 8>>\
-		<<set _item.name = "Permanent manicure">>\
+		<<set $items[_item.id].cost = 10*itemsC.Manicure.cost>>\
+		<<set $items[_item.id].image = itemsC.Manicure.image>>\
+		<<set $items[_item.id].daringRec = 8>>\
+		<<set $items[_item.id].name = "Permanent manicure">>\
 		<<set _sceneName="PermanentManicure">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
@@ -39,10 +39,10 @@
 	<<if ($body.permManicure lte 1)>>\
 		<<set _item=itemsC.token>>\
 		<<set _override=false>>\
-		<<set _item.cost = 3*$items.GarishManicure.cost>>\
-		<<set _item.image = $items.GarishManicure.image>>\
-		<<set _item.daringRec = 9>>\
-		<<set _item.name = "Permanent garish manicure">>\
+		<<set $items[_item.id].cost = 3*itemsC.GarishManicure.cost>>\
+		<<set $items[_item.id].image = itemsC.GarishManicure.image>>\
+		<<set $items[_item.id].daringRec = 9>>\
+		<<set $items[_item.id].name = "Permanent garish manicure">>\
 		<<set _sceneName="PermanentGarishManicure">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
@@ -86,8 +86,8 @@
 <<if playerCode.haveHaircut()>>\
 	<<set _item=itemsC.token>>\
 	<<set _override=false>>\
-	<<set _item.cost = 20>>\
-	<<set _item.daringRec = 3>>\
+	<<set $items[_item.id].cost = 20>>\
+	<<set $items[_item.id].daringRec = 3>>\
 \
 	<<if ($body.hairstyle eq 1)>>\
 		<<set _hairLine = "hair_short_">>\
@@ -103,43 +103,43 @@
 \
 	<<if $body.hairColor neq 0>>\
 		<<set _sceneName="Black">>\
-		<<set _item.image = _hairLine+"black.jpg">>\
-		<<set _item.name = "Hair color - Black">>\
+		<<set $items[_item.id].image = _hairLine+"black.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Black">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 1>>\
 		<<set _sceneName="Brown">>\
-		<<set _item.image = _hairLine+"brown.jpg">>\
-		<<set _item.name = "Hair color - Brown">>\
+		<<set $items[_item.id].image = _hairLine+"brown.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Brown">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 2>>\
 		<<set _sceneName="Red">>\
-		<<set _item.image = _hairLine+"red.jpg">>\
-		<<set _item.name = "Hair color - Red">>\
+		<<set $items[_item.id].image = _hairLine+"red.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Red">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 3>>\
 		<<set _sceneName="Blonde">>\
-		<<set _item.image = _hairLine+"blonde.jpg">>\
-		<<set _item.name = "Hair color - Blonde">>\
+		<<set $items[_item.id].image = _hairLine+"blonde.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Blonde">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 4>>\
 		<<set _sceneName="Silver">>\
-		<<set _item.image = _hairLine+"silver.jpg">>\
-		<<set _item.name = "Hair color - Silver">>\
+		<<set $items[_item.id].image = _hairLine+"silver.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Silver">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 5>>\
 		<<set _sceneName="Pink">>\
-		<<set _item.image = _hairLine+"pink.jpg">>\
-		<<set _item.name = "Hair color - Pink">>\
+		<<set $items[_item.id].image = _hairLine+"pink.jpg">>\
+		<<set $items[_item.id].name = "Hair color - Pink">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
