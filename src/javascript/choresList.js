@@ -131,7 +131,7 @@ window.choresList={
 		dayPerformed: -100
 	},
 	maidKitchen: {
-		id: "kitchen3",
+		id: "maidKitchen",
 		name: "Clean the kitchen",
 		image: "maid_kitchen.gif",
 		active: true,
@@ -215,7 +215,7 @@ window.choresList={
 		dayPerformed: -100
 	},
 	maidBathroom: {
-		id: "bathroom4",
+		id: "maidBathroom",
 		name: "Wash clothes carefully",
 		image: "maid_wash_clothes.gif",
 		active: true,

@@ -32,12 +32,15 @@
 		<<set $time.hour = 22>>\
 		<<set $time.minutes = random(20)>>\
 	<<endif>>\
-	<<set $chores[_cn].dayPerformed = $time.day>>\
-	<<set $chores[_cn].fail = false>>\
-	<<for _j=_cn+1; _j lt choresList.length; _j++>>\
-		<<if choresList[_j].extra>>\
-			<<set $chores[_j].dayPerformed = $time.day>>\
-			<<set $chores[_j].fail = false>>\
+	<<set _choreFound = false>>\
+	<<for _j=0; _j lt Object.keys(choresList).length; _j++>>\
+		<<set _cl = Object.keys(choresList)[_j]>>\
+		<<if _cn neq _cl and (not _choreFound)>>\
+			<<continue>>
+		<<elseif (_cn eq _cl) or (_choreFound and choresList[_cl].extra)>>\
+			<<set _choreFound = true>>\
+			<<set $chores[_cl].dayPerformed = $time.day>>\
+			<<set $chores[_cl].fail = false>>\
 		<<else>>\
 			<<set _j = choresList.length+1>>\
 		<<endif>>\
