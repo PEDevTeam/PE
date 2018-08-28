@@ -2598,7 +2598,7 @@ window.choresList={
 		dayPerformed: -100
 	},
 	maidKitchen: {
-		id: "kitchen3",
+		id: "maidKitchen",
 		name: "Clean the kitchen",
 		image: "maid_kitchen.gif",
 		active: true,
@@ -2682,7 +2682,7 @@ window.choresList={
 		dayPerformed: -100
 	},
 	maidBathroom: {
-		id: "bathroom4",
+		id: "maidBathroom",
 		name: "Wash clothes carefully",
 		image: "maid_wash_clothes.gif",
 		active: true,
@@ -3726,7 +3726,7 @@ window.dreamsTeacher={
 }
 /* twine-user-script #5: "gameCode.js" */
 window.gameCode={
-	version: 0.7801
+	version: 0.7802
 }
 
 window.sidebarTabs=[
@@ -15714,12 +15714,15 @@ The chores available to you are:
 		&lt;&lt;set $time.hour = 22&gt;&gt;\
 		&lt;&lt;set $time.minutes = random(20)&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;set $chores[_cn].dayPerformed = $time.day&gt;&gt;\
-	&lt;&lt;set $chores[_cn].fail = false&gt;&gt;\
-	&lt;&lt;for _j=_cn+1; _j lt choresList.length; _j++&gt;&gt;\
-		&lt;&lt;if choresList[_j].extra&gt;&gt;\
-			&lt;&lt;set $chores[_j].dayPerformed = $time.day&gt;&gt;\
-			&lt;&lt;set $chores[_j].fail = false&gt;&gt;\
+	&lt;&lt;set _choreFound = false&gt;&gt;\
+	&lt;&lt;for _j=0; _j lt Object.keys(choresList).length; _j++&gt;&gt;\
+		&lt;&lt;set _cl = Object.keys(choresList)[_j]&gt;&gt;\
+		&lt;&lt;if _cn neq _cl and (not _choreFound)&gt;&gt;\
+			&lt;&lt;continue&gt;&gt;
+		&lt;&lt;elseif (_cn eq _cl) or (_choreFound and choresList[_cl].extra)&gt;&gt;\
+			&lt;&lt;set _choreFound = true&gt;&gt;\
+			&lt;&lt;set $chores[_cl].dayPerformed = $time.day&gt;&gt;\
+			&lt;&lt;set $chores[_cl].fail = false&gt;&gt;\
 		&lt;&lt;else&gt;&gt;\
 			&lt;&lt;set _j = choresList.length+1&gt;&gt;\
 		&lt;&lt;endif&gt;&gt;\
@@ -37229,7 +37232,7 @@ And now you have to decide what to tell $teacher. What do you really want after 
 			&quot;If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off, and I will go straight to the principal.&quot;@@
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;elseif $flags.lockedWeekend&gt;&gt;\
-		&lt;&lt;if ($player.tasks.penalty eq 0)&gt;&gt;\
+		&lt;&lt;if ($player.punishments.penalty eq 0)&gt;&gt;\
 			You agreed to stay locked in chastity so this weekend you will have to find other ways to deal with the frustration or just endure it.
 		&lt;&lt;else&gt;&gt;\
 			You realize that this weekend you will remain locked in chastity. @@.hero;Oh, joy...@@
@@ -49272,8 +49275,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;else&gt;&gt;\
 			takes off her boots\
 		&lt;&lt;endif&gt;&gt;\
-		and then steps lightly onto the center of your chest&lt;&lt;if $player.haveBoobs()&gt;&gt;, between your breasts
-		&lt;&lt;endif&gt;&gt;. She slowly eases part of her weight onto you. Her body is light, but the pressure is concentrated and uncomfortable. She steps again, and the compression intensifies as she takes her place above you, using you as a human floor mat.
+		and then steps lightly onto the center of your chest&lt;&lt;if $body.boobs gt 0&gt;&gt;, between your breasts&lt;&lt;endif&gt;&gt;. She slowly eases part of her weight onto you. Her body is light, but the pressure is concentrated and uncomfortable. She steps again, and the compression intensifies as she takes her place above you, using you as a human floor mat.
 
 		She moves relatively slowly, but the discomfort is immediate whenever she shifts. Few things could leave you so completely at her mercy and subordinated to her as this, being not-so-gently squashed underfoot by her. You take the weight of her whole form intimately inside you, as if you’re being invisibly penetrated by her pressure itself.
 
