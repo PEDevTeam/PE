@@ -32576,6 +32576,9 @@ What&#39;s your new name?
 			&lt;&lt;if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 100)&gt;&gt;\
 				&lt;&lt;set $player.exp.chastityExp++&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
+			&lt;&lt;if _dream.once&gt;&gt;\
+				&lt;&lt;set $dreams[_dream.id].progress=1&gt;&gt;\
+			&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;if _dream.hasPassage&gt;&gt;\
 				&lt;&lt;set $scene=_dream.name&gt;&gt;\
 				&lt;div class=&quot;delayed_text_fast&quot;&gt;&lt;div class=&quot;dream&quot;&gt;\
@@ -33917,7 +33920,7 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 &lt;!--&lt;/Fake dick suck dream&gt;--&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-&lt;div class=&quot;delayed_text_fast&quot;&gt;[[Sleep|Good morning]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="113" name="Special punishments" tags="pos_2598_360" position="350,1475">\
+&lt;div class=&quot;delayed_text_fast&quot;&gt;[[Sleep|Good morning][window.timeCode.newDay()]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="113" name="Special punishments" tags="pos_2598_360" position="350,1475">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
