@@ -152,6 +152,9 @@
 			<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 100)>>\
 				<<set $player.exp.chastityExp++>>\
 			<<endif>>\
+			<<if _dream.once>>\
+				<<set $dreams[_dream.id].progress=1>>\
+			<<endif>>\
 			<<if _dream.hasPassage>>\
 				<<set $scene=_dream.name>>\
 				<div class="delayed_text_fast"><div class="dream">\
