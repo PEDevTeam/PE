@@ -24,7 +24,8 @@
 			<<showImage "general" "sunrise.jpg">>\
 		<<endif>>\
 	<<elseif _dream.image eq "">>\
-		<<print '<<showImage "general" "dream_'+random(6)+'.gif">>'>>\
+		<<print '<<showImageSpecial "general" "dream_'+random(6)+'.gif" "dream_image">>'>>\
+		<div class="dream_image"></div>\
 	<<else>>\
 		<<print '<<showImage "general" _dream.image>>'>>\
 	<<endif>>\

@@ -1,0 +1,18 @@
+:: Debug List of flags [pos_1273_215]
+\
+<div class="topRight"><<click "BACK">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>></div>\
+<<for _i to 0; _i lt Object.keys($flags).length; _i++>>\
+	<<print Object.keys($flags)[_i]>> @@.halftransparent;=@@\
+	<<set _val = $flags[Object.keys($flags)[_i]]>>\
+	<<if typeof(_val) eq "object">>\
+		<<print Object.keys(_val)[_i]>> @@.halftransparent;:{@@
+		<<for _j to 0; _j lt Object.keys(_val).length; _j++>>\
+			@@.halftransparent;- @@ <<print Object.keys(_val)[_j]>> @@.halftransparent;=@@\
+			<<print _val[Object.keys(_val)[_j]]>>
+		<</for>>\
+		@@.halftransparent; }@@
+	<<else>>\
+		<<print _val>>
+	<<endif>>\
+	
+<</for>>\

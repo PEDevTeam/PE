@@ -36,8 +36,8 @@
 	<<set $player.jobs.tips+=25>>\
 <<endif>>\
 \
-<<set $player.money+=_pay>>\
-<<set $player.money+=_tips>>\
+<<set $player.money+=$player.jobs.pay>>\
+<<set $player.money+=$player.jobs.tips>>\
 \
 <<set _plan=$player.jobs.salonPlan>>\
 <<if playerCode.isMind_1()>>\
@@ -51,7 +51,7 @@
 	
 	The job is easy enough with the exception of a few rude customers, but you manage. There are a few times where you nearly drop some of the plates, though luckily, you recover.
 	
-	By the end of your shift, you’ve earned $<<print _pay>>, but you got no tips for your clumsy work. Not as much as you had hoped, however. The manager says she can't pay you more, but promises to help you with the tips problem.
+	By the end of your shift, you’ve earned $<<print $player.jobs.pay>>, but you got no tips for your clumsy work. Not as much as you had hoped, however. The manager says she can't pay you more, but promises to help you with the tips problem.
 
 	<<if playerCode.isMind_0()>>\
 		You are bit tired and your head is still hazy from the customers' orders, but most of all you are annoyed by the occasional ogling from the customers.
@@ -65,7 +65,7 @@
 	
 	You notice that more people are checking you out as you make your rounds. You can hear some hushed giggles from some girls in the booth behind you. Trying not to get too discouraged, you keep taking orders, ignoring the trite jokes from some of your customers.
 	
-	After your shift, you count your earnings. You receive $<<print _pay>> for your work, plus you got $<<print _tips>> in tips. It seems that a few patrons must have pitied you or just liked how you look in this new uniform, because you earned more than last time.
+	After your shift, you count your earnings. You receive $<<print $player.jobs.pay>> for your work, plus you got $<<print $player.jobs.tips>> in tips. It seems that a few patrons must have pitied you or just liked how you look in this new uniform, because you earned more than last time.
 	
 	<<if playerCode.isMind_0()>>\
 		It is embarrassing to admit that this new uniform helped, but it seems it's the only way to earn more cash.
@@ -108,7 +108,7 @@
 		Despite all this, you spend your shift basking in the naughty attention your uniform draws. Your cheeks are red from giddy embarrassment and arousal as you imagine people finding out your secret and talking about it. It is almost tempting to //accidentally// flash someone, just to see their reaction.
 	<<endif>>\
 	
-	At the end of your shift, you count your tips. You receive $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
+	At the end of your shift, you count your tips. You receive $<<print $player.jobs.pay>> for your work, plus you got $<<print $player.jobs.tips>> in tips.
 	
 <<else>>\
 	After a short walk to the local fast food restaurant, you clock in and start taking orders.
@@ -337,11 +337,11 @@
 	<<endif>>\
 \
 
-	At the end of your shift you count your tips. You received $<<print _pay>> for your work, plus you got $<<print _tips>> in tips.
+	At the end of your shift you count your tips. You received $<<print $player.jobs.pay>> for your work, plus you got $<<print $player.jobs.tips>> in tips.
 <<endif>>\
 
-<<set _pay+=_tips>>\
-@@.reward;You earned $<<print _pay>>!@@
+<<set $player.jobs.pay+=$player.jobs.tips>>\
+@@.reward;You earned $<<print $player.jobs.pay>>!@@
 
 <<set $player.jobs.workedToday=true>>\
 <<set $flags.exhausted=true>>\

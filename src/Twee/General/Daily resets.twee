@@ -163,6 +163,10 @@
 <<if $flags.walletForgottenStart>>\
 	<<set $flags.walletForgottenEnd = true>>\
 <<endif>>\
+<<if $player.drunk gte 40>>\
+	<<set $flags.clubHangover = true>>\
+<<endif>>\
+<<set $player.drunk = 0>>\
 <<if $player.debugN eq 50>>\
 	<<set $player.debugN = 0>>\
 	<<display [[Go to your room|Go to bedroom]]>>\

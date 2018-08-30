@@ -42,17 +42,10 @@
 							playerCode.isWearingOn(itemTypes.Shoes),
 							playerCode.isWearingOn(itemTypes.Stockings)]>>
 
-	<<for _i to 0; _i lt _curClothes.length; _i++>>
-		<<if _curClothes[_i]>>
-			<<set _curClothes[_i].image to window.itemF.image(_curClothes[_i])>>
-		<<endif>>
-	<</for>>
-							
 	<<if _curClothes[8].id eq $items.buttPlugInflate.id>>
 		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
-		<<set _curClothes[8].image to "buttplug_inflate_">>
-		<<set _curClothes[8].image to _curClothes[8].image + $player.buttplugInflate>>
-		<<set _curClothes[8].image to _curClothes[8].image + ".jpg">>
+		<<set _inflateImage = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
+		<<set _curClothes[8] = { image: _inflateImage }>>
 	<<endif>>
 	
 	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
@@ -79,16 +72,16 @@
 		
 		<<if $flags.gTrialBalletHeels>>
 			<<wearClothing $items.balletHeels.id>>
-			<<set _curClothes[9] = $items.balletHeels>>
+			<<set _curClothes[9] = itemsC.balletHeels>>
 		<<else>>\
 			<<if $flags.gTrialLatexMaid>>
 				<<wearClothing $items.stilettoHeels.id>>
 				<<set $items.stilettoHeels.curAlt=39>>
-				<<set _curClothes[9] = _itemsC.stilettoHeels>>
+				<<set _curClothes[9] = itemsC.stilettoHeels>>
 			<<else>>
 				<<wearClothing $items.highHeel3.id>>
 				<<set $items.highHeel3.curAlt=39>>
-				<<set _curClothes[9] = _itemsC.highHeel3>>
+				<<set _curClothes[9] = itemsC.highHeel3>>
 			<<endif>>
 		<<endif>>
 		
@@ -96,12 +89,12 @@
 			<<if _curClothes[10].id neq $items.stockingsLatex.id>>
 				<<wearClothing $items.stockingsLatex.id>>
 				<<set $items.stockingsLatex.curAlt=39>>
-				<<set _curClothes[10] = _itemsC.stockingsLatex>>
+				<<set _curClothes[10] = itemsC.stockingsLatex>>
 			<<endif>>
 		<<else>>
 			<<wearClothing $items.stockings.id>>
 			<<set $items.stockings.curAlt=39>>
-			<<set _curClothes[10] = _itemsC.stockings>>
+			<<set _curClothes[10] = itemsC.stockings>>
 		<<endif>>
 		
 	<<endif>>
@@ -134,10 +127,13 @@
 
 		<<if _curClothes[_i]>>
 
+			<<if (_curClothes[_i].id)>>
+				<<set _image = window.itemF.image(_curClothes[_i])>>
+			<<endif>>
 			<<if (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
-				<<showImageSidebar _curClothes[_i].image $items[_curClothes[_i].id].curAlt _small _i>>
+				<<showImageSidebar _image $items[_curClothes[_i].id].curAlt _small _i>>
 			<<else>>
-				<<showImageSidebar _curClothes[_i].image 100 _small _i>>
+				<<showImageSidebar _image 100 _small _i>>
 			<<endif>>
 
 		<<else>>
@@ -637,11 +633,9 @@
 	<<print '<<click " Skip day ">><<set $time.addHours(24)>><<display "Daily resets">><<updateDebug>><</click>>'>> $time.day\
 		
 	<<print '<<click " +Daring ">><<set $player.daring++>><<updateDebug>><</click>>'>> $player.daring\
+	, slb=<<print playerCode.slutScoreBasic()>>\
 	
-	Slut score = <<print playerCode.slutScoreBasic()>>\
-	
-	perv club = $player.perversion.club
-	perv crossdr = $player.perversion.crossdressing
+	<<click "List of vars">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>>
 <</replace>>\
 <</widget>>\
 

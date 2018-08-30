@@ -5,13 +5,13 @@ window.dreamsSelector={
 		var sp=0;   // highest start priority
 		var cp=0;   // priority
 		for (var i=0; i < Object.keys(dreams).length; i++) {
-			var dream=dreams[Object.keys(dreams)[i]];
-			var dreamV=State.active.variables.dreams[dream.id];
+			var dreamJS=dreams[Object.keys(dreams)[i]];
+			var dreamV=State.active.variables.dreams[dreamJS.id];
 
 			if (!dreamV) { return; }
 
-			if (dreamV.active && (!dream.once || (dreamV.progress == 0)) && dream.check()) {
-				cp = dream.startPriority;
+			if (dreamV.active && (!dreamJS.once || (dreamV.progress == 0)) && dreamJS.check()) {
+				cp = dreamJS.startPriority;
 				if (dreamV.startPriority != null) {
 					cp = dreamV.startPriority;
 				}
@@ -21,8 +21,8 @@ window.dreamsSelector={
 					sp=cp;
 				}
 				if (cp >= sp) {
-					tl.push(dream);
-					ct+=dream.chance;
+					tl.push(dreamJS);
+					ct+=dreamJS.chance;
 				}
 			}
 		}
@@ -33,12 +33,27 @@ window.dreamsSelector={
 		for (var i=0; i < tl.length; i++) {
 			rt-=tl[i].chance;
 			if (rt <= 0) {
+				/*
 				if (tl[i].once) {
 					State.active.variables.dreams[tl[i].id].progress=1;
 				}
+				*/
 				return tl[i];
 			}
 		}
+	},
+	specialDreams: function(dreams) {
+		for (var i=0; i < Object.keys(dreams).length; i++) {
+			var dreamJS=dreams[Object.keys(dreams)[i]];
+			var dreamV=State.active.variables.dreams[dreamJS.id];
+
+			if (!dreamV) { return false; }
+
+			if (dreamV.active && dreamJS.once && (dreamV.progress == 0) && dreamJS.check() && (dreamJS.startPriority > 0)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

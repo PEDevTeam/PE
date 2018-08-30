@@ -36,9 +36,11 @@
 	[[Perform chores]]\
 	<<set _ca = window.choresFunc.choresAvailable()>>\
 	<<if _ca eq 0>>\
-	@@.worn;- no chores available@@
+		//@@.halftransparent;- no chores available@@//
+	<<elseif $time.hour gte 20>>\
+		//@@.halftransparent;- too late in the day@@//
 	<<else>>\
-	@@.worn;- <<print _ca>> chores available@@
+		@@.worn;- <<print _ca>> chores available@@
 	<<endif>>\
 <<endif>>\
 <<if ($player.perversion.upload gt 0)>>\

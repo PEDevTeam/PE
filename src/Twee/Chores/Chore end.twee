@@ -5,7 +5,9 @@
 	<<set _cn = $player.currentChore>>\
 	<<set _rw = choresList[_cn].reward>>\
 	@@.reward;You earned $<<print _rw>>!@@\
-	<<set $player.money+=_rw>>\
+	<<if _rw>>\
+		<<set $player.money+=_rw>>\
+	<<endif>>\
 	<<set _ts=choresList[_cn].minutes>>\
 	<<if $chores[_cn].fail>>\
 		<<if $player.perversion.guardian lte 2>>\

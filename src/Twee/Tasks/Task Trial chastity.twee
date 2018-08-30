@@ -93,7 +93,7 @@
 
 	Unable to bear more, you scurry out of the store with what's left of your shrunken self-respect.
 	
-	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.chastityUsedTo=0]]
+	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.exp.chastityExp=0]]
 	
 <<elseif ($tasksTeacher.trialChastity.status eq 5)>>\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -248,7 +248,7 @@
 	<<if ($tasksTeacher.trialChastity.cooldown eq 1) or ($tasksTeacher.trialChastity.cooldown eq 2)>>\
 		<<removeFromInv $items.buttPlugHeart.id>>\
 	<<endif>>\
-	<<set $player.money+=$tasksTeacher.trialChastity.rewardMoney>>\
+	<<set $player.money+=tasksTeacher.trialChastity.rewardMoney>>\
 	You choose the money.
 	
 	The shopkeeper thanks your for your cooperation with the company's product testing research, then heads for the register to ring up your payment transaction. She rapidly keys the point of sale computer, scans a few codes taped to the counter with a sensor, and punches a few more buttons. The register only makes a short, unpleasant 'boop-boop' sound in reply.
