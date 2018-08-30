@@ -551,7 +551,7 @@ window.structures={
 				if (object.canStart == null) { object.canStart = taskListed.canStart; }
 				if (object.status == null) { object.status = 0; }
 				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = 0; }
+				if (object.startDay == null) { object.startDay = -100; }
 			}
 		}
 		
@@ -573,7 +573,7 @@ window.structures={
 				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
 				if (object.status == null) { object.status = 0; }
 				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = 0; }
+				if (object.startDay == null) { object.startDay = -100; }
 			}
 		}
 		
@@ -595,7 +595,7 @@ window.structures={
 				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
 				if (object.status == null) { object.status = 0; }
 				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = 0; }
+				if (object.startDay == null) { object.startDay = -100; }
 				
 			}
 		}
@@ -647,6 +647,7 @@ window.playerList={
 	daring: 0,
 	drunk: 0,
 	arousal: 0,
+	stamina: 0,
 	eager: 0,
 	reluctant: 0,
 	workLastDay: 0,
@@ -657,9 +658,6 @@ window.playerList={
 	hairColor: 1,
 	quickSet: 0,
 	shoppingType: 0,
-	sleepCheck: 0,
-	chastityUsedTo: 0,
-	vibratorUsedTo: 0,
 	uploadType: 0,
 	checkPlace: 0,
 	masturbationType: 0,
@@ -796,6 +794,24 @@ window.playerAddonsList={
 		DayTease: 0,
 		HourTease: 0,
 		MinuteTease: 0
+	},
+	exp: {
+		crossdressingExp: 0,
+		chastityExp: 0,
+		buttplugExp: 0,
+		heelsExp: 0,
+		dildoSuckExp: 0,
+		crossdressingExp: 0,
+		pettingFirst: 0,	/* "bully", "coach" */
+		pettingExp: 0,
+		handjobFirst: 0,	/* "bully", "coach" */
+		handjobExp: 0,
+		bjFirst: 0,	/* "bully", "coach" */
+		bjExp: 0,
+		vibratorFirst: 0, /* "guardian", "therapist", "shop" */
+		vibratorExp: 0,
+		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
+		analExp: 0
 	},
 },
 

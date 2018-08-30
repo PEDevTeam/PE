@@ -1,0 +1,16 @@
+:: Debug List of items [pos_1273_215]
+\
+<div class="topRight"><<click "BACK">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>></div>\
+<<for _i to 0; _i lt Object.keys($items).length; _i++>>\
+	<<print Object.keys($items)[_i]>> @@.halftransparent;=@@\
+	<<set _val = $items[Object.keys($items)[_i]]>>\
+	<<if typeof(_val) eq "object">>\
+		@@.halftransparent;:{@@
+		<<for _j to 0; _j lt Object.keys(_val).length; _j++>>\
+			@@.halftransparent;- @@ <<print Object.keys(_val)[_j]>> @@.halftransparent;=@@\
+			<<print _val[Object.keys(_val)[_j]]>>
+		<</for>>\
+		@@.halftransparent; }@@
+	<<endif>>\
+	
+<</for>>\

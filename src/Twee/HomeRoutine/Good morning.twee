@@ -20,9 +20,6 @@
 	<<set $flags.sleepGuardianRoom = false>>\
 <<elseif $time.day eq 1>>\
 	<<showImage "general" "sunrise.jpg">>\
-<<elseif (not $flags.restlessDream)>>\
-	<<display "Guardian fantasy">>
-	
 <<elseif $showimages>>\
 	<<if $flags.roomHelp and random(1) eq 0>>\
 		<<if $player.room.morning eq 0>>\
@@ -40,11 +37,10 @@
 		<<showImage "general" "sunrise.jpg">>\
 	<<endif>>\
 <<endif>>\
-<<set $flags.restlessDream = false>>\
 \
-<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.chastityUsedTo gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set $tasksTeacher.trialChastity.status = 6>>\
-<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.chastityUsedTo gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
 
 	You've slept well, despite wearing a chastity cage. You can't believe how quickly you got used to it.
 	
@@ -558,7 +554,8 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 		<<print "[[Peep on "+$guardian+" while she's sleeping|Peep on guardian]]">>
 	<<endif>>\
 	<!--</alarm>-->\
-<<elseif $player.drunk gte 40>>\
+<<elseif $flags.clubHangover>>\
+	<<set $flags.clubHangover = false>>\
 	<<selectScene drunkenMorning RND2RND>>\
 	<<scene>>
 		You wake up, confused when you discover that you’re wearing a life vest and have an excessive amount of sunscreen applied to your face and arms. A number of empty candy bar wrappers and water bottles are also strewn across the floor, and a signal mirror fashioned from a sheet of folded aluminum foil has been angled towards the window.
