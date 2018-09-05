@@ -1,8 +1,9 @@
 :: Club dance floor [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
-<<elseif $time.hours >= 23>>\
+<<elseif (($time.hour gte 23) or ($time.hour lt 7)) and $scene eq "danceFloor">>\
 	It is getting late, so with heavy sigh you get ready to go home.
 	
 	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
@@ -23,7 +24,14 @@
 	<<else>>\
 		[[Just dance and have fun|Club dance floor][$scene="DanceForFun"]]
 		[[Find someone to dance with|Club dance floor][$scene="FindPartner"]]
-		[[Visit the DJ booth|Club dance floor][$scene="VisitDJbooth"]]
+		<<if ($tasksTeacher.clubFlashBoobs.status eq 1) and ($body.boobs gte 2)>>\
+			[[Flash boobs at DJ booth|Task clubFlashBoobs][$scene="step1"]]
+		<<else>>\
+			[[Visit the DJ booth|Club dance floor][$scene="VisitDJbooth"]]
+		<<endif>>\
+		<<if ($tasksTeacher.clubDancePanties.status eq 1) and ($player.perversion.danceClub gte 2) and _u and _u.female>>\
+			[[Dance with someone and give them your panties|Task clubDancePanties][$scene="step1"]]
+		<<endif>>\
 	<<endif>>\
 	[[Head back to the club|The Club][$scene="MainClub"]]
 <<elseif $scene eq "TryToDance">>\
@@ -55,7 +63,7 @@
 
 	You think maybe there could be something to this after all.
 	
-	[[Take a breather|Club dance floor][$scene="danceFloor"; $player.perversion.danceClub=1]]
+	[[Take a breather|Club dance floor][$scene="danceFloor"; $player.perversion.danceClub=1; $time.addMinutes(30)]]
 <<elseif $scene eq "DanceForFun">>\
 	You tune out the world for a moment, letting the dance music saturating your senses carry you away in its wake. You let go of yourself, moving around as the moment strikes you. While your dancing abilities have been held back by your crippling self-consciousness, you are able to slip away into a sort of anonymity amid the tide of sensation around you.
 
@@ -63,7 +71,7 @@
 
 	Minutes slip away in the semi-darkness, as you grow less and less aware of the proximity of others and let it all blur together into a luminous, waking dream.
 
-	[[You give in and let it take you for a while|Club dance floor][$scene="danceFloor"; $time.addMinutes(15)]]
+	[[You give in and let it take you for a while|Club dance floor][$scene="danceFloor"; $time.addMinutes(20)]]
 <<elseif $scene eq "FindPartner">>\
 	<<if $player.perversion.danceClub lte 3>>\
 		<<set $player.perversion.danceClub++>>\
@@ -106,7 +114,7 @@
 
 			That was disappointing.
 
-			[[You meander off, too|Club dance floor][$scene="danceFloor"]]
+			[[You meander off, too|Club dance floor][$scene="danceFloor"; $time.addMinutes(10)]]
 		<<else>>\
 			When you get closer together, the girl smiles awkwardly. @@.femvoice5;“Um, hi,”@@ she says, shouting over the music and crowd noise.
 
@@ -134,7 +142,7 @@
 
 			That was depressing.
 
-			[[You meander off, too|Club dance floor][$scene="danceFloor"]]
+			[[You meander off, too|Club dance floor][$scene="danceFloor"; $time.addMinutes(10)]]
 		<<endif>>\
 	<<scene>>\
 		A short distance away, you see an athletic-looking young woman, with that certain type of homegrown attractiveness that either sex would describe as pretty. She doesn’t notice you approaching at first, but when she does, she meets you halfway and you’re soon face-to-face.
@@ -185,7 +193,7 @@
 
 		@@.femvoice8;“Pretty sure you were trying to ask me to dance, so here’s my answer.”@@
 		
-		[[Dance with her|Club dance floor][$scene="danceWithHotGirl"]]
+		[[Dance with her|Club dance floor][$scene="danceWithHotGirl"; $time.addMinutes(10)]]
 	<<scene>>\
 		You don’t see her coming until she’s somewhat nearby, but a woman is coming right toward you, hurrying a little faster through the crowd than its natural ebb and flow allow. She alternates between rushed steps and hesitant stops as dancers unintentionally block her way, and you see her twist her shoulders to get around them with a concerned, even mildly frightened look.
 
@@ -199,11 +207,13 @@
 
 		Glancing over her shoulder, the woman spots him, too, and quickly turns back to you. You feel one of her hands gently slide into the back of your hair and she tilts your head so you are practically nose-to-nose. She doesn’t actually touch her lips to yours, but they get close enough that anyone around you would probably misidentify the gesture as an intimate kiss.
 
-		@@.femvoice6;“I’m sorry I surprised you like this, but I didn’t know what else to do,”@@ she says, a pleading tone in her voice. @@.femvoice6;“I tried to cut it off with that guy over there tonight and he wouldn’t take no for an answer, so I told him I was with someone else. He got angry and I’m scared.@@
+		@@.femvoice6;“I’m sorry I surprised you like this, but I didn’t know what else to do,”@@ she says, a pleading tone in her voice.
+
+		@@.femvoice6;“I tried to cut it off with that guy over there tonight and he wouldn’t take no for an answer, so I told him I was with someone else. He got angry and I’m scared.@@
 
 		@@.femvoice6;“I saw you and you seemed safe, and I didn’t know what else to do. Thank you for not freaking out.”@@
 		
-		[[Keep dancing|Club dance floor][$scene="danceWithShyGirl"]]
+		[[Keep dancing|Club dance floor][$scene="danceWithShyGirl"; $time.addMinutes(10)]]
 	<</selectScene>>\
 <<elseif $scene eq "danceWithHotGirl">>\
 	You quickly get up to speed, finding a place in the music to start moving in a way that puts you in time with her. It takes you longer than you should, and her expression becomes visibly entertained as you struggle with finding a basic rhythm.
@@ -222,7 +232,7 @@
 
 	@@.femvoice8;“I was wondering when you would do that,”@@ she smiles. @@.femvoice8;“See, much better now, isn’t it?”@@
 
-	[[Just enjoy it|Club dance floor][$scene="danceWithHotGirl2"]]
+	[[Just enjoy it|Club dance floor][$scene="danceWithHotGirl2"; $time.addMinutes(10)]]
 <<elseif $scene eq "danceWithHotGirl2">>\
 	Finally relaxing, you’re able to allow the music and spectacle around you to immerse you, and soon you find that dancing with the girl next to you becomes much more enjoyable. Freed from focusing on whether your foot is supposed to go up or down, or your body to turn this way or that, you actually get to enjoy her company and the basic pleasure of moving together.
 
@@ -240,7 +250,7 @@
 
 	She gives you a little kiss on the cheek and another of her warm smiles before she steps away. Waving goodbye, you watch her fade into the crowd among the bright lights and deep shadows of the club.
 
-	[[Rest up for a bit|Club dance floor][$scene="danceFloor"]]
+	[[Rest up for a bit|Club dance floor][$scene="danceFloor"; $time.addMinutes(20)]]
 <<elseif $scene eq "danceWithShyGirl">>\
 	Aside from the fact you are freaking out a little, you don’t know what else to do, so you just keep dancing with her. A short while later, you see the other man in question emerge from the nearest edge of the crowd, locking onto her with a jealous stare.
 
@@ -270,11 +280,110 @@
 
 	With that she takes a step back, gives you a slightly melancholy smile, and makes her way toward the club exit.
 
-	[[You watch her go|Club dance floor][$scene="danceFloor"]]
+	[[You watch her go|Club dance floor][$scene="danceFloor"; $time.addMinutes(20)]]
 <<elseif $scene eq "VisitDJbooth">>\
-	You join a line of people waiting for the DJ, presumably hoping to give her requests, ask for shout-outs, or whatever. The line, which travels around the base of the DJ booth and up a small staircase into her booth, moves incredibly slowly.
+	<<if ($body.boobsNoticedDJ eq 0)>>\
+		You join a line of people waiting for the DJ, presumably hoping to give her requests, ask for shout-outs, or whatever. The line, which travels around the base of the DJ booth and up a small staircase into her booth, moves incredibly slowly.
 
-	After a good deal of time passes, you feel like you’re not making any progress. You get tired of waiting, since you don’t really have any business with her right now anyway.
+		After a good deal of time passes, you feel like you’re not making any progress. You get tired of waiting, since you don’t really have any business with her right now anyway.
 
-	[[Go back to the dance floor|Club dance floor][$scene="danceFloor"]]
+		[[Go back to the dance floor|Club dance floor][$scene="danceFloor"; $time.addMinutes(20)]]
+	<<else>>\
+		You join the queue of people trying to wait for the DJ. The line is long, given the popularity of the club and the DJ herself, and you wait for a while. Suddenly, the DJ spots you. To the disgruntlement of everyone waiting ahead of you, she yells at them to @@.clubDJ;“Get the hell out of the way!”@@ and waves you up to her booth past the crowd.
+
+		@@.clubDJ;“Hey, you! What’s up?”@@ she asks, giving you a quick hug as you enter the booth.
+
+		<<if not $once.firstVisitClubDJbooth>>\
+			<<set $once.firstVisitClubDJbooth=true>>\
+			@@.clubDJ;“I almost didn’t recognize you with your top on! Just kidding. That was a pretty ballsy move, girlfriend. Respect.”@@
+
+			She kisses two of her fingers and holds them up towards you in an honorific gesture.
+
+		<<endif>>\
+		<<if $flags.clubVIP>>\
+			@@.clubDJ;“Hey, they told me you got into the VIP! That’s pretty tight! I’m probably supposed to call you ma’am now, and be all reverent but, um, only my grandma wants that kind of treatment, right?”@@
+
+		<<endif>>\
+		She’s still on the clock, so she keeps running her DJ equipment, keeping one ear covered by her closed-ear headphones and both hands on her mixing and light boards. She pays you divided attention, but you can tell she’s sincerely trying to focus on both you and her job at once.
+
+		<<if ($body.boobs eq 3) and ($body.boobsNoticedDJ lte 2)>>\
+			<<set $body.boobsNoticedDJ = 2>>\
+			@@.clubDJ;“Hey, look at you! You got your boobs done, didn’t you? I love it!”@@
+
+			She takes a good look at your chest.
+
+			@@.clubDJ;“Are you gonna flash ‘em again? Say yes! I’ll put you on the mic right now!”@@
+
+			Your eyes widen a little. Doing that once was definitely enough to last you. She just laughs.
+
+			@@.clubDJ;“Joking. Manager told me not to do that again after your thing. I might anyway, sometime.”@@
+
+			She winks suggestively.
+			
+		<<elseif ($body.boobs eq 4)>>\
+			<<if ($body.boobsNoticedDJ lte 2)>>\
+				@@.clubDJ;“Holy crap! You got yourself stacked since last time, girl! Seriously, I was only joking about that whole ‘small packages’ thing, but damn…”@@
+
+				She looks at your boobs with lecherous delight.
+
+				@@.clubDJ;“Can I touch them again? They were kind of small last time, and I…”@@
+
+				She does it anyway, giving them a gentle-but-thorough cupping. She giggles.
+
+				@@.clubDJ;“What can I say? I’ve always been a sucker for the big boobies. I’d get some done like that myself, but it’s not like it’s the same thing. Plus I’m a DJ, and jumping around all night, with big girls like that… ”@@
+
+				She makes a cute ‘yuck’ face, pantomiming punching herself in the eye, and then smiles at you.
+			<<elseif ($body.boobsNoticedDJ lte 3)>>\
+				@@.clubDJ;“Wow, you got your boobs even bigger? They were a good size last time, but damn! You aren’t playing around anymore!”@@
+
+				She gleefully looks over the ‘merchandise.’
+
+				@@.clubDJ;“Mind if I touch ‘em again? Sorry, I just can’t help myself.”@@
+
+				And then she does help herself, to a gentle-but-thorough cupping. She giggles.
+
+				@@.clubDJ;“I was always so sad I didn’t get a bigger present from the boob fairy when I was younger. I guess I just have to live vicariously. Seriously, girl. MmMm.”@@
+
+				She laughs aloud, slapping you on the shoulder with a playful smile.
+			<<endif>>\
+			<<set $body.boobsNoticedDJ = 4>>\
+			
+		<<endif>>\
+		@@.clubDJ;“So, what brings you by, sister? I wish I could chat more, but I’m on the clock.”@@
+
+		She wiggles her body flirtatiously, grooving out to the music she’s playing over the house system while her eyes sparkle in your direction. You can tell she’s having a great time, and it’s infectious.
+
+		[[Request a song|Club dance floor][$scene="DJrequestSong"]]
+		[[Nothing right now|Club dance floor][$scene="DJnevermind"]]
+	<<endif>>\
+<<elseif $scene eq "DJrequestSong">>\
+	You give your song request to the DJ, leaning in to her one ear that isn’t covered by her headphones so she can hear you tell her. She nods and gives you a thumbs-up.
+
+	@@.clubDJ;“For you, anything, honey! I really dig your style.”@@
+
+	She quickly cross-fades the music and puts on your song with a subtle cross-mix to transition. The entire club starts to reverberate with your selection.
+
+	@@.clubDJ;“Well, don’t just stand there! Get out there and shake it. I’ll be keeping an eye on you. Check me later, ok?”@@
+
+	The DJ happily waves goodbye as you make your way back, past all the people waiting their turns to meet with her.
+
+	[[Go back to the dance floor|Club dance floor][$scene="danceFloor"; $time.addMinutes(5)]]
+<<elseif $scene eq "DJnevermind">>\
+	You explain that you don’t have anything in particular you want right now, and just decided to drop by her booth.
+
+	@@.clubDJ;“Aw, you just came by to see me? You’re the best, baby! It’s good seeing you, too.”@@
+
+	She gives you a quick peck on the cheek.
+
+	@@.clubDJ;“You can always come up here anytime. But, I’m sorry I can’t chill with you longer - there’s like, fifty people waiting to come up right now and the manager gets mad if I don’t deal with that.”@@
+
+	The DJ seems sincere enough, and the people waiting in the line are starting to get a little impatient.
+
+	@@.clubDJ;“Sorry. Catch you again soon, alright?”@@
+
+	She smiles and waves to you as you head toward the stairs to make your way down from the booth.
+
+	@@.clubDJ;“I’m serious. Don’t be a stranger, girl!”@@
+
+	[[Go back to the dance floor|Club dance floor][$scene="danceFloor"; $time.addMinutes(5)]]
 <<endif>>\

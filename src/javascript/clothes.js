@@ -127,12 +127,17 @@ window.clothes={
 	dressedClub: {
 		check: function() {
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
+			var u=playerCode.isWearingOn(itemTypes.Outerwear);
 			if (o && o.school) {
 				State.active.variables.reason.dressedClub="It's against the rules to wear any school clothes to the club";
 				return false;
 			}
 			if (o && !o.female) {
 				State.active.variables.reason.dressedClub="You don't think you could make it in wearing male clothing";
+				return false;
+			}
+			if (u && !u.female) {
+				State.active.variables.reason.dressedClub="You don't think it's a good idea to wear briefs to the club";
 				return false;
 			}
 			return true;

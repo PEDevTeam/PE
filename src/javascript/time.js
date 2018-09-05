@@ -147,7 +147,7 @@ window.timeCode={
 	},
 	isClubOpen: function() {
 		var time=State.active.variables.time;
-		return (time.hour >= 17) && (time.hour <= 23) && ([5,6,0].includes(time.day % 7));
+		return (time.hour >= 15) && (time.hour <= 23) && ([5,6,0].includes(time.day % 7));
 	},
 	isClubAvailable: function() {
 		return (State.active.variables.player.perversion.club > 0) || ((State.active.variables.tasksTeacher.TheClubIntro.status == 1) && window.timeCode.isSaturday());
@@ -162,7 +162,10 @@ window.timeCode={
 	},
 	schoolRequired: function() {
 		var time=State.active.variables.time;
-		if ((time.day % 7 == 1) && (time.hour < 15)) {
+		/*if ((time.day % 7 == 1) && (time.hour < 15)) {
+			return true;
+		}*/
+		if ([1,2,3,4,5].includes(time.day % 7) && (time.hour < 15)) {
 			return true;
 		}
 		return false;

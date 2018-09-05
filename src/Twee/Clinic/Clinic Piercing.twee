@@ -54,9 +54,6 @@ Nancy offers various piercing options.
 		<<set _item=itemsC.PiercingEars>>\
 		<<buyItem _item.id>>\
 		<<set $body.earsPierced = true>>\
-		<<set $items.hoopsEarrings.disabled to false>>\
-		<<set $items.rubyEarrings.disabled to false>>\
-		<<set $items.diamondStuds.disabled to false>>\
 		@@.heroT;"I'd like to get my ears pierced,"@@ you tell Nancy.
 		@@.nurse;"Excellent choice!"@@  She exclaims.
 		<<if ($body.nose eq 3)>>\
@@ -190,8 +187,7 @@ Nancy offers various piercing options.
 		You stare down at your chest.
 
 		@@.reward; You now have pierced nipples with small, golden rings in them!@@
-
-		<<endif>>\
+	<<endif>>\
 
 [[Return|Clinic Piercing][$scene=""; $random.stored=0]]
 <<endif>>\

@@ -29,7 +29,7 @@ window.misc={
 	},
 	getSnoopItems: function() {
 		var ra=[];
-		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine, itemsC.pantiesLatex, itemsC.gString];
+		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
 		for (var i=0; i < sia.length; i++) {
 			if (!playerCode.owns(sia[i])) {
 				ra.push(sia[i]);

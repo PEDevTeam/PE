@@ -1,0 +1,394 @@
+:: Club restroom [pos_216_1085]
+<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set window.wordsCode.setwords()>>\
+<<if $player.drunk gte 40>>\
+	<<display "Drunk message">>\
+<<elseif $time.hour >= 23>>\
+	It is getting late, so with heavy sigh you get ready to go home.
+	
+	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
+<<elseif $scene eq "clubRestroom">>\
+	The club ladies’ room is a relatively large and spacious bathroom with numerous stalls, whose doors open towards a long, granite vanity counter full of sinks and a mirror filling most of the wall. The regular flow of ladies coming in and out of the room makes it a frequently crowded location, but it’s uncommonly tidy, owing to the high caliber of the club’s housekeeping staff.
+
+	Conversation is steady among the women waiting for a stall or tidying up in the mirror, even among strangers, providing a constant background of intermingled voices. That, and the sound of the club’s music track playing from outside, add a layer of privacy to individual exchanges.
+
+	<<if $player.drunk gte 5>><<display "Drunk message">>
+	<<endif>>\
+	[[Freshen up in the mirror|Club restroom][$scene="clubRestroomFreshen"]]
+	<<if $player.perversion.clubToiletCooldown lt ($time.day*60*24 + $time.hour*60 + $time.minute)>>\
+		[[Use the toilet|Club restroom][$scene="clubToilet";$random.store(10)]]
+	<<endif>>\
+	[[Head back to the club|The Club][$scene="MainClub"]]
+
+<<elseif $scene eq "clubRestroomFreshen">>\
+	You step up to the mirror and peer at your reflection. You brush your fingertips through your hair to put a few loose strands back in place, and try to take care of the other little imperfections you spot in your appearance as best you can. 
+
+	<<if playerCode.isMind_0()>>\
+		Despite all that’s happened, it’s still very strange to find yourself doing this in the women’s restroom. You glance around furtively, hoping none of the ladies around you will call you out. Still, it’s not like you have much choice. You don’t dare set foot in the men’s room dressed like this.
+	<<elseif playerCode.isMind_1()>>\
+		Only after some time passes, does the full realization strike you that you’re in the ladies’ room doing this. Looking at your feminine appearance, you suppose it only makes practical sense. However, part of you is beginning to forget that you’re straddling a fence between the worlds of two different genders. Standing here, like this, you’re no longer sure which side you belong on most.
+	<<else>>\
+		You start to lose track of time as you correct or hide each tiny blemish, until ultimately you’re satisfied with the appearance of the feminine person staring back at you from the mirror.
+	<<endif>>\
+
+	<<if _slb lte 1>>\
+		<<selectScene clubRestroom1 SEQ2RND>>\
+		<<scene>>\
+			A woman steps up to the sink next to yours and begins to wash her hands. As soon as she glances up at you, however, her eyes widen. Leaving the running water as is, she abruptly steps back and heads out of the restroom, glancing over her shoulder nervously at you as she walks swiftly out.
+		<<scene>>\
+			A woman begins washing her hands in the adjacent sink. She makes eye contact with you in the mirror, and you see her eyes narrow suspiciously. She shakes her head at you judgmentally. Shutting off the water, the woman flicks her wet hands in the basin, and walks away with a quickened step. She shoots daggers at you with her stare as she hurriedly dries her hands and leaves.
+		<<scene>>\
+			A woman arrives at the sink next to yours and begins washing her hands, grabbing a dollop of soap before interlacing her fingers in the stream of water. She looks up at your reflection, then gives you a sidelong glance and a dubious shake of her head.
+			
+			@@.femvoice3;“Looks like you’re in for a tougher night than me, buddy,”@@ she smirks.
+
+			She rinses off the soap before drying her hands and exiting.
+		<</selectScene>>\
+		
+		It would seem not everyone is as convinced by your appearance as it initially seemed. You finish up as quickly as you can to avoid further risk of trouble.
+	<<elseif _slb lte 3>>\
+		<<selectScene clubRestroom2 SEQ2RND>>\
+		<<scene>>\
+			You turn briefly as a woman walks from behind you and takes her place at the sink counter. She flips on the faucet and starts to wash. She glances your way as she pumps the soap dispenser, and then pays you no mind as she works up a lather. 
+
+			Suddenly, she gives you a second look, and you see a touch of confusion in her expression. She rinses off and dries her hands, making a little too obvious effort to avoid eye contact again before she walks out.
+		<<scene>>\
+			A girl walks in from the club and steps to the counter in the spot next to you. She turns her attention to the mirror, pulling a lipstick tube from her tiny purse, and begins coloring in the minute uneven spots on her puckered lips. Her attention remains fixed on her reflection as she finishes, then she begins adjusting the locks of her shoulder-length, fashionably-styled and highlighted hair.
+
+			Noticing your interest, she makes eye contact with you and then turns back to her grooming. A second later, she looks at you again, a judgy little frown forming.
+
+			@@.femvoice11;“Um… yeah,”@@ she says sarcastically, looking at you over with distaste. @@.femvoice11;“Not quite there yet, are we?”@@
+
+			With a flip of her hair, she walks off indignantly, leaving you standing alone again.
+		<<scene>>\
+			A pair of girls walks in from the club, chatting loudly between themselves. They saunter over next to you, scattering a bevy of cosmetics products across the counter, and then start refreshing their makeup as they converse. You mind your own business as best you can, but their conversation is loud enough that it’s nearly impossible to ignore.
+
+			You occasionally glance their way as their discussion jumps from one seemingly random topic to the next, each attending to her face in a lean towards the mirror. Eventually, they finish up and start slipping their arsenal of beauty items back into their designer handbags. They take a quick selfie together, before heading back towards the restroom exit.
+
+			As they pass almost out of earshot, you overhear one of them remarking, @@.femvoice9;“I didn’t want to say anything ‘cause it’s rude, but I’m kinda sure that was a guy in drag back there.”@@
+
+			Their shared burst of giggles is cut short by the closing door.
+		<</selectScene>>\
+	<<elseif _slb lte 5>>\
+		<<selectScene clubRestroom3 SEQ2RND>>\
+		<<scene>>\
+			A girl walks in from the noisy club and moves to the sink immediately next to yours, opening up a little, round compact. Looking first at her reflection in the tiny mirror inside, and then to the huge mirror in front of you both, she begins using a little pad to blot her cheeks, forehead and nose with the enclosed powder puff.
+
+			She turns to you, and asks, @@.femvoice10;“How do I look? It’s like a damned sauna out there. Not too shiny?”@@
+
+			She turns her face from side to side, looking at you inquisitively. Not quite sure what to say, you shake your head.
+
+			@@.femvoice10;“Oh, honey,”@@ she says with a concerned note. @@.femvoice10;“Here, looks like you could use a little touch up, too.”@@
+
+			Without waiting for a reply, she blots the pad again, and touches the puff to your face with a gentle flurry of little pats.
+
+			@@.femvoice10;“K. Bye. Have fun,”@@ she says, snapping the compact closed and walking out. 
+
+			You look yourself over in the mirror again. 
+
+			There is less shine now. Huh.
+		<<scene>>\
+			A woman steps out of one of the bathroom stalls and walks up to the counter to wash her hands. Her little, black bodycon dress hugs her curves, leaving nothing about her attractive, full figure to the imagination. She looks herself over in the mirror, and then turns her back to you with a short half-step in your direction.
+
+			@@.femvoice1;“Would you mind unzipping me?”@@ she asks, lifting her hair above the dress’ collar.
+
+			You look over her shapely body, and find the dress’ delicate zipper at the nape of her neck. Taking hold of the tiny clasp, you pull downward until the slider reaches her mid-back.
+
+			@@.femvoice1;“Thanks,”@@ she says.
+
+			The woman then tugs the front of her dress downward, reaching inside through the now-slackened upper half, which exposes her lacy brassiere and the tops of her generous boobs.
+
+			She reaches inside and unceremoniously adjusts each large breast inside her bra, reseating each one using her cupped hand into a more comfortable position. You catch an eyeful of exposed side-boob and both nipples in the process, and do your best to restrain your surprise. Thankfully, she doesn’t notice your reaction.
+
+			@@.femvoice1;“One more time?”@@ she asks, restoring her dress to her shoulders and turning her back towards you again. @@.femvoice1;“Thanks.”@@
+
+			You zip her up, and she repositions her hair, gently adjusts her bosom once more, and smooths out her dress. She washes up, then heads out of the restroom.
+
+			Maybe I’m just ‘one of the girls’ now? 
+
+			You silently peer at your reflection. You’re quite not sure how to feel about that.
+		<<scene>>\
+			The sharp clack of tall stilettos across the tile floor announces a woman approaching you. You turn to glance at her as she reaches the sink next to yours. 
+
+			Her form-fitting cocktail dress is overlaid by a see-through crop-top trimmed in lace, her ensemble serving to amplify her slender-but-distinct curves. A finely-wrought gold necklace at her neck and a collection of bangles on her wrist complete her sexy, elegant look. You have a hard time keeping your urge to stare in check.
+
+			As she leans over to wash her hands, she extends her plush rump behind her to balance. Her eyes find yours in the mirror just as you reign in a furtive glimpse of her rear, and she smiles coquettishly. Rinsing and drying her hands, she looks you over, giving you a knowing look.
+
+			@@.femvoice4;“Don’t worry, honey. I won’t tell if you won’t.”@@
+
+			What the…?
+
+			It’s only then that you realize that she has the same secret you do! Your mouth slackens in shock as she walks out, her hips swaying seductively away with each click of her heels.
+		<</selectScene>>\
+	<<elseif _slb lte 7>>\
+		<<selectScene clubRestroom4 SEQ2RND>>\
+		<<scene>>\
+			A woman emerges from the stall behind you, walking over toward the sink beside yours. She finishes hammering a text message into her phone, and you get the clear sense it’s no pleasant chat that’s taking place.
+
+			@@.femvoice10;“Go fuck yourself!”@@ she curses aloud, probably at the recipient of her message. @@.femvoice10;“Cheating asshole!”@@
+
+			As she starts the faucet and puts her hands in the water, you see she’s naturally rather plain-looking, even though she’s clearly spent some time on her hairstyle, clothing and sundry accessories. Her frustration is visible, so you give her a concerned look in the mirror.
+
+			@@.femvoice10;“God, I don’t know how you pretty girls do it,”@@ she gripes. @@.femvoice10;“It must be sooo nice to have been born with looks like yours.”@@
+
+			Before you can say a word edge-wise, she briskly dries her hands, walking away in a huff while practically broadcasting her annoyance at you.
+
+			Wait - was she just jealous of me?
+
+			If only she knew.
+		<<scene>>\
+			A girl in a slinky, sleeveless purple dress and a matching pair of high-fashion wedge heels moseys into the restroom, her long legs striding with a practiced sway. She reaches the counter next to you and pivots a little on her toes, smoothing her dress over her enticing, petite figure and looking at herself side-on in the mirror. 
+
+			She reaches into her purse and produces a bottle of mascara, which she uses to enhance her already lengthy and defined eyelashes. Afterward, she performs a little touch-up with a lip pencil, pursing her soft lips and then blotting them with a paper towel. A full lip mark is left behind.
+
+			She meets your gaze in the mirror, smiling deviously when she looks you over.
+
+			@@.femvoice1;“O-M-G!”@@ she exclaims. @@.femvoice1;“Sexy bitches on the prowl to-night! Amiright?”@@
+
+			She gives you a little hip bump, pulling you around the waist into a flirty little circling dance for a few seconds. You can’t help but laugh, and you smile back at her infectious grin.
+
+			@@.femvoice1;“Kill ‘em, girl!”@@ she chirps. @@.femvoice1;“I’m claiming at least one body before I leave this club tonight.”@@
+
+			She points her fingers up like a gun and blows on the tip. She winks and then spins on her soles before she strolls away, leaving you feeling warm and fuzzy inside from the little confidence booster. It feels good, even if it’s a little bit confusing to feel this way after what she said about you.
+		<<scene>>\
+			You hear the door open, and a group of young women enters the bathroom, arriving at once in a large and boisterous gaggle that surrounds you at the counter. You instantly find yourself at the center of an animated discussion about the events of the evening, including such topics as drinks, dancing, flirting and what they plan to do later with their dates.
+
+			As the ladies primp and wash up, they lean against you, touch your shoulders, hand things to one another in front and back of you, and otherwise fail to notice that you’re a stranger to their group. You overhear within a short time that they’re from the big university on the outskirts of town, and gather that they’re sorority girls from different houses.
+
+			At one point, one of the ladies, already helping two of her friends freshen up their makeup, takes you by the chin without prompting. She helps you out, too, adding some blusher and a little shadow to your eyelids.
+
+			She nods in approval and gets a second opinion from her friends, who agree that you look even better than when you left campus with them, which was already pretty much @@.femvoice3;“on point.”@@ Despite their confusion about your origins, it feels strangely good to get the complement.
+
+			By the time they are ready to move on, you find yourself nodding and gesturing as if you were a natural participant in the conversation, even though you really have no idea what’s going on. Then, just as suddenly as they arrived, and with no clear signal to do so, they all leave at once. You’re left at the counter, by yourself once again. 
+
+			Looking in the mirror, though, you have to admit your makeup does look a little better.
+		<</selectScene>>\
+	<<elseif _slb lte 9>>\
+		<<selectScene clubRestroom5 SEQ2RND>>\
+		<<scene>>\
+			As you stand at the counter, a pair of ladies arrive separately from two different toilet stalls. It’s soon obvious they know one another, as they begin discussing things between themselves as they each wash their hands and tidy up.
+
+			After a little while, you catch side looks from them, and their conversation gets a little quieter. Their conspiratorial body language suggests whatever they’re saying is about you, and it doesn’t seem too flattering. You even hear the occasional giggle amid their murmurings, mostly after they glance your way.
+
+			You try to avoid further eye contact as best you can, but your ears are buzzing. You feel the shade being cast on you acutely, no matter how hard you try to ignore it. You end up staring yourself in the eyes in the mirror, fuming silently.
+
+			Finally, the two of them seem to have finished up whatever they needed to do, and slowly walk by you in tandem. The one in back stops and gives you a long, hostile stare, looking you over slowly from your feet on up.
+
+			@@.femvoice6;“So, let me guess,”@@ she jabs. @@.femvoice6;“Working the streets was too slow so you had to come to the club to find more tricks, huh?”@@
+
+			The two of them snicker and walk out. You recoil at the insult, but stay quiet. Looking at your slutty reflection, there’s not a lot you could say.
+		<<scene>>\
+			A woman in a chic cocktail dress, wearing a designer label handbag and a more-than-sufficient amount of fine jewelry to complement, emerges from one of the stalls. She looks at you with barely veiled contempt as she comes toward the sink counter, making a point of stepping widely around you and going to the sink at the far end.
+
+			With her handkerchief, she turns the faucet on and proceeds to wash her hands, turning her head to various angles as she examines herself in her reflection. Each time her gaze happens to fall in your direction, she emits a disdainful sigh, pursing her lips as if she tasted something sour.
+
+			Finishing, she uses her handkerchief again to stop the water, before drying her hands on a fresh paper towel. As she heads for the door, she pauses, turning her head to look at you haughtily.
+
+			@@.femvoice11;“You ought to be ashamed of yourself, going out like that in public,”@@ she scolds. @@.femvoice11;“Have some respect for yourself, young lady.”@@
+			
+			With that, she slings her handbag in the crook of her arm, and heads out the door with a dignified step.
+
+			You turn back to the mirror, shaking your head, a smoldering feeling sitting in the pit of your stomach. 
+
+			Who the hell is she to judge me?
+
+			As you examine your overtly sexualized likeness, however, you wonder if she’s right.
+		<<scene>>\
+			You hear a stall door swing open behind you, and glance into the mirror to see who’s coming out. 
+
+			A girl in a black leather jacket and miniskirt, with a spiked collar, torn stockings and combat boots walks up to the sink next to yours and turns on the water. After washing her tattooed hands and forearms, she splashes some water on her face and over the shaved right side of her asymmetric haircut.
+
+			As she towels off the leftover moisture with a paper towel, she spots you in the mirror, looking you over with sudden interest.
+
+			@@.femvoice2;“Just have to say, that’s one sick look,”@@ she says respectfully. @@.femvoice2;“Bold move, my friend. I wish I had that kind of courage to express myself.”@@
+
+			She nods her head slowly, and then walks away. It’s not until the bathroom door closes behind her that you begin to wonder if she was actually serious or just trying to mess with you by being ironic.
+
+			Looking at your slutty reflection in the mirror, self-doubt starts to creep in.
+		<</selectScene>>\
+	<<endif>>\
+
+	[[Step back|Club restroom][$scene="clubRestroom"]]
+	[[Head back to the club|The Club][$scene="MainClub"]]
+<<elseif $scene eq "clubToilet">>\
+	<<set $player.perversion.clubToiletCooldown = $time.day*60*24 + $time.hour*60 + $time.minute + 40>>\
+	You enter one of the stalls, prepare your clothing appropriately and sit down on the toilet seat. At least you can give the club credit for one thing – these stalls are at the very peak of public toilet cleanliness. You quickly do the business you came to do, then tidy up.
+
+	<<if $random.stored lt 4>>\
+		You become aware of a strange noise coming from outside your stall. There’s enough of a gap between the panels that you could glimpse what’s going on, if you made the effort to look. Then again, you wonder - should you really be peeping in a public restroom?
+
+		[[Peek through the stall|Club restroom][$scene="clubToiletPeek";$random.store(5)]]
+	<<endif>>\
+	[[Clean up and head back to the club|The Club][$scene="MainClub"]]
+<<elseif $scene eq "clubToiletPeek">>\
+	<<if ($random.stored lte 0)>>\
+		Peeking through the slit between the panels between the stall, you see that the rest of the bathroom has been vacated except for one young couple - a girl in a sleek, body-hugging dress and heels, and a guy in expensive-looking vest, shirt and dress slacks combination. They’re making out against the edge of the sink counter, tearing at the fasteners of each other’s clothing with a desperate urgency to reveal one another’s bodies.
+
+		@@.femvoice6;“Oh, my god… mmm… are you sure we won’t… mmm… get caught?”@@ asks the girl, glancing over her shoulder toward the nearby doorway between kisses.
+
+		@@.malevoice3;“Don’t worry,”@@ the guy responds, dabbing her neck with his lips between words, @@.malevoice3;“I put the ‘closed for cleaning’ sign out. We’ve got a few minutes.”@@
+
+		@@.femvoice6;“Then hurry,”@@ she urges. @@.femvoice6;“I want you in me right now.”@@
+
+		With that, she manages to pull his sizeable cock free of his pants. As it slips free into her grasping palm, she starts stroking him in her manicured fingers, quickly massaging his thickening member into a full state of erect attention.
+
+		Simultaneously, he exposes her breasts with a downward tug at the dress’ bust, letting her small, teardrop-shaped mounds spring gently free. Her little, puffy nipples perk up immediately in the open air. 
+
+		She quickly slips the hemline up and above the thin straps of her V-string panties, and with a quick tug, she slides the delicate undergarment down and over her ankles, tossing them on the counter. Her exposed pussy, shaved except for a faint, martini-shaped patch above her slit, is already plump with arousal. As she lifts herself onto the countertop and opens her legs into a seated spread, her lower lips gently part to expose her ready vagina.
+
+		[[Keep watching|Club restroom events][$scene="keepWatching"]]
+	<<elseif ($random.stored lte 1)>>\
+		As you look through the opening between the privacy panels, you quickly connect the strange noises with the woman in the next stall. The tall, willowy woman is seated on the toilet, her legs splayed out widely and her back tilted against the wall behind her. Her medium-length, layer-cut hair is draped back over her shoulders, the sombre-caramel locks in a slight state of disarray.
+
+		She wears a fashion-forward boho jacket with a gypsy skirt, the latter of which has been pulled up around her waist. Her calves are enclosed in knee-length slouch boots, with her silky brown panties draped loosely around one of them, leaving a completely unobstructed view of her spread, slender thighs and the manicured pussy between them. One of her arms is languidly slung over her hip, allowing that hand to drape between her legs.
+
+		As your eyes take in your stolen view of her, she slowly orbits her inner thighs with her fingertips, here and there allowing a flitting touch to graze her exposed lower lips. It seems she is purposely avoiding more direct contact with her sex, but the closeness of her strokes sometimes creates a small stretching in the pliable skin around her puss.
+
+		She stops, shifting position, reaching briefly down to collect her handbag from the floor. Her hand delves into the patchwork bag and withdraws a bright green vibrator, a phallic-shaped wand about the length of her hand and wrist combined. Returning her satchel to its place, she takes the device in an overhand grip and slips it over her mons.
+
+		The woman begins to slowly move the still-unpowered toy in small, upward strokes, holding it parallel to her skin and letting it slide lightly over her. The folds of her pussy give way to each passage of the firm, rubbery barrel, slipping to one side or another as she pets herself with it. As her stroking continues, the terminus of her petals begins to gradually open, and the vibrator starts to shine a little with traces of her growing moistness.
+
+		As the end of the vibe begins to take on a more lubricated sheen, she pauses, twisting the base of the device with her opposite hand. The cylindrical end clicks once, and the vibrator hums to life with a low-pitched purr. The woman’s eyes flutter, and she continues her intimate massage.
+
+		Upending the toy, she begins to apply the tip with a more directed touch, her legs moving restlessly as the vibrator thrums against her. The wand moves over her now fully-visible entrance, peeling apart the last still-clinging half-sections of her labia, and up and around her gradually-engorging womanhood. As it traces back to the pink threshold of her hole, she lets the tip push the barest bit inward, before repeating the circle again.
+
+		Her eyes close amid an expression of intensifying pleasure. The woman’s mouth opens and you hear her deepening breaths become steadily heavier. Her free hand grasps the loose fabric of her skirt, her painted fingernails bunching the material tensely as her toes point downward. Her hips buck slightly, eagerly lifting to purchase even firmer contact with the point of the vibrator.
+
+		Overtaken by lust, she finally slips the vibrator inside. The mouth of her vagina elastically swallows the toy’s girth as it disappears into her, then leaves the shaft slick and glistening as she pulls it back out. With each further thrust, the depth and force of her penetration is greater, until she is fucking herself in a hard, steady rhythm.
+
+		[[Keep watching|Club restroom events][$scene="keepWatchingVibrator"]]
+	<<elseif ($random.stored lte 2) and $kinkAllow.semenConsumption and ($player.daring gte 8)>>\
+		The gap between partitions affords you a view into the next, much larger stall over, in which the noises you heard seem to have originated. As you position your head, you immediately spot the source of the noises: a partially undressed couple, fucking right up against the corner you’re looking through. You notice that the rest of the bathroom has grown rather quiet, and they’re surely taking advantage of it.
+
+		Your up-close view is confusing at first, with loose-hanging clothing and a variety of limbs going this way and that. Slowly, you begin to register the details.
+
+		The girl is standing, but leaning back against the corner you’re looking through. Her long, toned legs are positioned to either side of the gap beneath her hiked-up silver dress, her height enhanced by a sexy pair of ankle boots. The lower curve of her comely ass frames the upper half of what you can see – that and the rear half of her cock-filled pussy.
+
+		The guy’s muscular legs are in turn between hers, covered below the knee by dress pants that are held up by a partially-slackened belt. The tail end of a checked dress shirt hangs behind him. His hips are the driving force behind their sexual escapade, blocking and then revealing the light shining into their stall from above.
+
+		Their actual coupling is happening a mere hand’s distance from your vantage point. You can easily see and hear every detail, having clear view of the ongoing penetration. As her opening stretches to let him inside with each thrust, his heavy balls swing back and forth in your exact direction. From the way he’s taking her, it takes no guesswork to see he’s both hung and highly fit, and from what you can hear, she has zero complaints about that.
+
+		Abruptly, the couple decides to change it up, and you have only a half-second’s notice before they part and the girl’s body moves away. You see them repositioning for a moment, when suddenly you hear her voice.
+
+		@@.femvoice8;“Hey, someone’s watching us through the crack,”@@ she says. @@.femvoice8;“Right there.”@@
+
+		@@.malevoice5;“What? Hey, who’s there?”@@ the guy responds, looking your way before you have a chance to pull back. You’ve been spotted!
+
+		You start to panic and get ready to make your escape, when the woman interrupts.
+
+		@@.femvoice8;“Wait! Don’t go!”@@ she says. @@.femvoice8;“It’s ok – we kind of like an audience.”@@
+
+		@@.malevoice5;“We have sex in public all the time. It turns us on to get caught sometimes,”@@ he says, reassuringly. @@.malevoice5;“Don’t worry, no one’s upset.”@@
+
+		@@.femvoice8;“Actually, why don’t you come over here and get a better view?”@@ she asks, amorously.
+
+		You hear the door of their stall creak open slightly, followed by sound of the couple moving towards the back wall. You have a pretty good idea from the sounds they make afterward that they’ve started having sex again, albeit a little more gently than before.
+
+		Despite your initial fears, you’re still completely turned on after the scene you witnessed, and the erotic sounds you’re hearing now keep you that way. The idea of being invited to watch them without any obstruction is just too much to pass up.
+
+		[[Go to their stall|Club restroom events][$scene="goToTheirStall"]]
+	<<elseif ($random.stored lte 3) and ($kinkAllow.urineDrink or $kinkAllow.facesit) and ($player.daring gte 8)>>\
+		You tilt your head to look between the stalls, the gap between their partitions offering a somewhat narrow view of the stall next to yours. However, the noises you heard seem to be coming from there, their source being the comely woman seated on the toilet inside.
+
+		You can’t get the best view from the angle you’re at, but you can see that her black lace panties have been pulled down around her knees, which are in turn clad in dark, thigh-high stockings with a lacy pattern of their own. Her main clothing is of the @@.femvoice3;“little black dress”@@ variety, and her little, curvy body fills it out quite well, except for the part that is yanked up over her hips. Her small feet are dressed in black, spool-heel boots, which are currently kicked out at the ends of her long, extended legs.
+
+		Her raven-colored hair is swept across and covering her face. Her bowed head ensures the next thing you notice is her close concentration on one of her hands, which is busily jilling away at her pussy. Though her sex itself is concealed by her legs from your viewpoint, the spirited movement of her hand is unmistakable.
+
+		You lustily watch her masturbation session for several moments, hoping to catch a glimpse of something more revealing, when her head tilts up a little and she shakes the hair loose from her face. Her lust-addled eyes, now clear of obstruction, start to squint, and then you see her sightline trace upward until she makes eye contact with you.
+
+		Oh, shit, she’s seen me.
+
+		@@.clubBouncer2;“Hey, what the actual fuck, you pervert!?!”@@ she spits, twisting her legs defensively away from you as she covers herself with her arms.
+
+		You back away from the crack and start forming the plan of your escape attempt, when you hear the clack of her boots. She gets on her feet and storms out of her stall. You’ve barely slid the latch open to run for it, when your stall door flies open and you’re eyeball to eyeball with the angry woman. 
+
+		She wastes no time in shoving you back onto the toilet seat behind you. She locks the door behind her and gets right in your business. She stabs your sternum with her fingers, hard.
+
+		@@.clubBouncer2;“Well, pervert?”@@ she shouts. @@.clubBouncer2;“You wanted to see me. Here I am! What are going to do now?!?”@@
+
+		Her face, which you think would be pretty if it wasn’t so twisted in anger directed right at you, personally, holds nothing but vitriol. Your eyes widen at the sudden reversal of your fortunes, and you can only stammer idiotically.
+
+		@@.clubBouncer2;“So, you’re brave enough to invade my privacy, but you don’t even have the guts to give me an explanation?”@@ she demands. @@.clubBouncer2;“What kind of pathetic pervert are you?”@@
+
+		You stutter incoherently, but only more speechless nothing passes your lips.
+
+		@@.clubBouncer2;“Not even some lame excuse?”@@
+
+		No, you can’t even manage that.
+
+		<<if $kinkAllow.curse>>\
+			@@.clubBouncer2;“This is bullshit. I was about to cum, and you fucking ruined it,”@@ she fumes. @@.clubBouncer2;“You know what, pervert? You’re going to pay me back by being my bitch, until I decide I’m fucking done with you.”@@
+		<<else>>\
+			@@.clubBouncer2;“I can’t believe this,”@@ she fumes. @@.clubBouncer2;“I was about to cum, and you ruined it for me. Well, pervert… now you’re going to pay me back. You’re going to do whatever I say, until I’m done with you.”@@
+		<<endif>>\
+
+		Oh, shit. This probably isn’t going to end well.
+
+		@@.clubBouncer2;“Hurry up. Get on your knees,”@@ she snaps. @@.clubBouncer2;“If you don’t, I’ll have security handle you instead.”@@
+
+		The small army of suited guards beyond the bathroom door gives you pause. It doesn’t seem like you have a lot of choice.
+
+		[[Go to their stall|Club restroom events][$scene="getOnYourKnees"]]
+	<<elseif ($random.stored lte 4) and (not $kinkAllow.penisShrink) and ($player.daring gte 8)>>\
+		The crack between the partitions offers you a view into the next, much larger, end stall. There, you discover the source of the noises you heard, a couple treating themselves to some naughty fun.
+
+		The male half of the pair is dressed in a sharp, casual suit, and he’s standing along the opposite wall from you with his pants unbuttoned and lowered slightly below his waist. His light brown hair is flecked with gray, but it’s the about only thing about his somewhat youthful countenance that suggests any advancement in his age. His head is rolled back with his face slack and eyes closed – he’s clearly on the receiving end of a pleasurable act.
+
+		His partner is a woman in a yellow skirt and a black tube top, crouched down in front of him on her strappy, heeled sandals. The coppery brown of her hair is hardly a natural color, but the extensive styling and shine surrounding it are evidence of a large amount spent to get her look. While you can’t see past her lush head of hair, her body position and the periodic bobbing of her locks tells you that she’s definitely sucking him off.
+
+		You watch them go at it, hoping for a more revealing view, when the woman switches position, presumably to take some pressure off her legs. As she settles into her new stance, she glances over towards you and gets suspicious immediately.
+
+		@@.femvoice11;“Hey, you in the other stall,”@@ she says, @@.femvoice11;“I can see your feet under there. What do you think you’re doing? Are you watching us? Oh, god, someone’s watching us.”@@
+
+		Oh, crap. I’m busted.
+
+		The man’s eyes open, and he spots you, too, looking you right in the eye. @@.malevoice1;“You’d better come out. I want a word with you.”@@
+
+		You exit your stall, heading for the couple’s. The door opens and you are ushered inside to find a pair of stern faces. When they see you, their expressions soften a little.
+
+		@@.femvoice11;“Look, it’s just some girl,”@@ the woman says dismissively.
+
+		The man angrily interjects, anyway. @@.malevoice1;“What’s the matter with you? You get off on violating people’s privacy or something?”@@
+
+		Suddenly the woman’s eyes narrow. @@.femvoice11;“Wait a minute, you’re...”@@
+
+		She suddenly lifts the front of your $skirt and <<if _u>>pulls down your panties to expose your<<else>>exposes your<<endif>> $penis.
+
+		She bursts into laughter at the sight. @@.femvoice11;“’She’ isn’t a real girl, after all. But it looks like she might as well be.”@@
+
+		The man joins in laughing with her, and the two of them seem to be greatly enjoying your discomfiture. You could die with embarrassment and shame.
+
+		@@.femvoice11;“Well, since you’re obviously so interested in being a girl,”@@ the woman says, @@.femvoice11;“I’ll give you some pointers.@@
+
+		@@.femvoice11;“First of all, stand over here. I have something to show you.”@@
+
+		[[Do as you’re told|Club restroom events][$scene="doAsYouTold"]]
+	<<else>>\
+		As you look through the slit, you realize you have a fairly clear view of the stall next to yours. The sounds you heard are definitely coming from there – directly across from you are two gorgeous women in a partial state of undress, right in the middle of pleasuring one another.
+
+		One of the women is standing upright, holding up her red, pleated skirt to the middle of her belly. Her sheer black blouse has been almost completely unbuttoned, allowing a wide-open view of her lacy canopy bra and the beautifully rounded breasts they contain. Her panties - soft-looking, polka-dotted affairs - are currently at half-mast, stretched tightly between her parted legs below each knee. She gains a little height from a pair of fashionably trashy black heels, which also makes her exposed kitty visible to you, waxed and smooth.
+
+		The other woman is naked below the waist, except for a pair of knee-high, striped socks and some moto boots. A form-fitting red tank also clothes her, but its open design exposes nearly all of her upper back and shoulders. She is crouched near the floor, the inverted heart shape of her ass gently resting on the heels of her boots, and both her hands hold the other woman’s hips in place so she can devour her pussy.
+
+		This she does eagerly, her mouth and tongue lapping away at the other woman’s folds with a steady-but-gentle rocking of her head. Her lips join her oral play as well, pausing occasionally to slurp the woman’s fleshier fem parts into gentle suction, then releasing them for a soft caress from the flat of her tongue or a teasing flutter from its tip.
+
+		The standing woman’s clit is getting its own special attention, too. Her two longest fingers are splayed to either side of her button, attending to it with soft strokes that force its hooded little nub into rhythmic circles. Occasionally, she forces it downward so the woman below her can have a taste of it, an act that causes her to whimper quietly.
+
+		Her breathing growing heavy, the woman above begins to lose stability. Her knees get increasingly unsteady as the potent ministrations of her crouched partner drive her closer to the edge. Perhaps sensing this, the woman below slides two fingers gently inside her partner’s vagina, one knuckle at a time, until the hapless woman’s pussy is fully impaled on her invading digits.
+
+		With a beckoning motion that draws out a dewy bit of fem-cum, the woman below adjusts her attentions ever-so-slightly, lengthening and deepening the movements of her tongue without losing their gentle touch. The soft flaps of the woman’s pussy engorge subtly in response, and you can see them swimming back and forth atop her lover’s skillful tongue.
+
+		A shudder slowly comes over the standing woman. As it builds to a visible quake, her eyes close and her head leans back against the wall of the stall. Her hips tilt as one of her knees goes weak, and her hand flies out to catch herself on her partner’s head, fingers curling in ecstasy. An intense, low wailing builds in her throat, and though she clearly tries to hold it back, it comes forth anyway.
+
+		The woman below stays in contact with her lover’s spasming sex, but halts her own motions. She patiently allows the woman above to ride her out, her partner’s slowly bucking hips tilting her head with them as the orgasm peaks and then slowly subsides. At an appreciative stroking of her hair to signal the end of climax, she disengages. She pauses to leave a tender kiss on the lowest curve of her lover’s belly, eliciting a contented smile.
+
+		The two recover their clothes and fumble to get dressed in the tiny space together. You decide to back away from your covert viewpoint before they notice you.
+
+		[[Wait until it’s clear, then go back out into the restroom|Club restroom][$scene="clubRestroom"]]
+	<<endif>>\
+	[[Clean up and head back to the club|The Club][$scene="MainClub"]]
+<<endif>>\

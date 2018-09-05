@@ -13,7 +13,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	@@.femvoice4;“Hey, you’re not a…”@@ she exclaims. @@.femvoice4;“You’re a guy! What are you doing in here?! Get out before I go get security, you pervert!”@@
 
-	[[You beat a hasty exit|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$time.addMinutes(10)]]
+	[[You beat a hasty exit|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 <<elseif [2,3].includes(_slb)>>\
 	The woman glances up upon hearing your question, finishing up with the sink then turning your way. Puzzlement and suspicion tint her expression as she looks you over. Her eyes narrow.
 
@@ -40,7 +40,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 		You wait for what you hope is long enough to keep her from seeing you again when you leave.
 
-		[[Slink back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3; $time.addMinutes(10)]]
+		[[Slink back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 	<<elseif playerCode.isMind_1()>>\
 		You try to explain what you’re doing in a ladies’ bathroom asking a random woman for a photo, but mainly fail to form basic sentences. Everything you say comes out sounding worse than what you meant:
 
@@ -56,7 +56,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 		She hands you your cell back and walks out briskly, leaving you to mull over what the hell just happened.
 
-		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 	<<else>>\ 
 		You try to reassure her that you’re not trying to do anything weird (well, except taking the selfie), and apologize for putting her on the spot by asking. You come up with the explanation that you’re dressing this way mainly because it’s free for girls to get in the club, and tell her you asked for a selfie with her because it makes you feel more comfortable to be dressed like this when there’s another girl in the photo. 
 
@@ -72,7 +72,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 		As she leaves, you momentarily wonder if that photo didn’t capture your real self.
 
-		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 	<<endif>>\
 <<elseif [4,5].includes(_slb)>>\
 	The girl finishes washing her hands, looking up to see who’s asked the question. She looks you over, thinking about your request, and nods her consent.
@@ -113,7 +113,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	She hands your mobile back to you, smiles politely and leaves.
 
-	[[Head back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+	[[Head back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=5; $time.addMinutes(10)]]
 <<elseif [6,7].includes(_slb)>>\
 	The girl gives you an odd, slantwise glance as she finishes up with her routine at the counter, withholding her direct attention until after she’s done. She seems to take her sweet time with this, too. Her expression and body language aren’t unfriendly, per se, but she seems like she’s sizing you up.
 
@@ -141,7 +141,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	You fumble as you recover your cell and a few shreds of self-confidence.
 
-	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=7; $time.addMinutes(10)]]
 <<else>>\
 	At your question, the girl looks around the bathroom, just to make sure you were actually asking her. When she realizes there’s no one else nearby, she responds with a shy smile and a nod of her head.
 
@@ -177,5 +177,5 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	As the taste of her epic kiss fades away in your mouth, you think you maybe just experienced true love: between a girl and her photography.
 
-	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$time.addMinutes(10)]]
+	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=10; $time.addMinutes(10)]]
 <<endif>>\

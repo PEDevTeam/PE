@@ -1,7 +1,7 @@
 :: Club bar [pos_216_1085]
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
-<<elseif $time.hours >= 23>>\
+<<elseif $time.hour >= 23>>\
 	It is getting late, so with heavy sigh you get ready to go home.
 	
 	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
@@ -14,21 +14,23 @@
 
 	You take a seat at the bar. Its long, under-lit counter provides slightly more brightness to your immediate surroundings. A number of patrons are constantly arriving and leaving the bar, and it’s easy to get jostled. Fortunately, the bar is well staffed by skilled, attentive bartenders. It’s not long at all before one of them comes to take your order.
 
-	<<if $player.drunk gte 5>><<display "Drunk message">>
+	<<if $player.drunk gte 5>><<display "Drunk message">>\
+	
 	<<endif>>\
-	<<if $player.drunk lte 40>>\
-		<<if $player.money gte 10>>[[Have a well drink ($10)|Club bar][$scene="wellDrink"]]
-		<<else>>Have a well drink ($10) - not enough money
-		<<endif>>\
-		<<if $player.money gte 15>>[[Have a regular cocktail ($15)|Club bar][$scene="regularCocktail"]]
-		<<else>>Have a regular cocktail ($15) - not enough money
-		<<endif>>\
-		<<if $player.money gte 22>>[[Have a double cocktail ($22)|Club bar][$scene="doubleCocktail"]]
-		<<else>>Have a double cocktail ($22) - not enough money
-		<<endif>>\
+	<<if $player.money gte 10>>[[Have a well drink ($10)|Club bar][$scene="wellDrink"]]
+	<<else>>@@.halftransparent;Have a well drink ($10) - not enough money@@
+	<<endif>>\
+	<<if $player.money gte 15>>[[Have a regular cocktail ($15)|Club bar][$scene="regularCocktail"]]
+	<<else>>@@.halftransparent;Have a regular cocktail ($15) - not enough money@@
+	<<endif>>\
+	<<if $player.money gte 22>>[[Have a double cocktail ($22)|Club bar][$scene="doubleCocktail"]]
+	<<else>>@@.halftransparent;Have a double cocktail ($22) - not enough money@@
+	<<endif>>\
+	<<if ($tasksTeacher.clubBarHandy.status eq 1)>>\
+		[[Look for someone to complete the handjob task|Task clubBarHandy][$scene="step1"]]
+	<<endif>>\
 
-		[[Head back to the main club|The Club][$scene="MainClub"]]
-	<<endif>>\
+	[[Head back to the main club|The Club][$scene="MainClub"]]
 <<elseif $scene eq "wellDrink">>\
 	The bartender nods and gets right to work on serving your drink. Squirting the necessary ingredients into a chilled metal shaker, he quickly mixes the contents with an over-the-shoulder, two-handed shake and then flips the whole thing into the air.
 

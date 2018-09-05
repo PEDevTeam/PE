@@ -78,6 +78,16 @@ window.tasksFunction = {
 		var taskV = this.getVariableObject(task.id);
 		return taskV.status == 3;
 	},
+	taskRewardDebt: function(task) {
+		var taskV = this.getVariableObject(task.id);
+		if (taskV.rewardDebt != null) { return taskV.rewardDebt; }
+		return task.rewardDebt;
+	},
+	taskRewardMoney: function(task) {
+		var taskV = this.getVariableObject(task.id);
+		if (taskV.rewardMoney != null) { return taskV.rewardMoney; }
+		return task.rewardMoney;
+	},
 	emailPriority: function(task) {
 		var oV;
 		if (task == null) {
@@ -1101,7 +1111,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.club > 0);
+			return ((State.active.variables.player.perversion.club > 0) && (playerCode.slutScoreBasic() > State.active.variables.tasksTeacher.clubSelfieLadiesRoom.progress));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1128,6 +1138,187 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
+	clubDancePanties: { // perv 4+
+		id: "clubDancePanties",
+		name: "Dance With, and Give panties to a Random Stranger",
+		hasPassage: true,
+		text: {
+			given: "Go to the club this weekend, and dance with a stranger. Give the panties you’re wearing to them.",
+			perform: "",
+			finish: "$teacher reviews your latest efforts at the club.\n\n@@.teacher;\"Good, you danced with someone and gave your panties to them.@@",
+			fail: "I am not pleased that you decided to ignore my instructions at the club. I’m adding a mark against you for your failure.",
+			reminder: "Remember to dance with a random stranger at the club, and give them the panties you’re wearing.",
+			checkMe: {
+				given: "in the evening this weekend, dance with a stranger and give them the panties you’re wearing.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return ((State.active.variables.player.perversion.club > 0) && (State.active.variables.tasksTeacher.clubDancePanties.progress < 15) && (State.active.variables.tasksTeacher.clubSelfieLadiesRoom.progress > 0));
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 4, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 7,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 30,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	clubFlashBoobs: { // perv 5+
+		id: "clubFlashBoobs",
+		name: "Flash Boobs on the club dance floor",
+		hasPassage: true,
+		text: {
+			given: "I think you need to get more comfortable with new part of yourself. Go to the club before the end of this weekend and talk the DJ into letting you flash your breasts to the crowd. Get a photo of it for proof.",
+			perform: "",
+			finish: "$teacher examines the photo from the club.\n\n@@.teacher;\"Well, this should help teach you how embarrassing it is for a woman to be objectified in public spaces. Just think how many other photos there must be floating around now. Though, maybe you actually enjoyed that? We'll see.",
+			fail: "No photo? Then, obviously, no one at the club saw your boobs as I instructed, either. How disappointing.",
+			reminder: "Talk to the DJ at the club this weekend and flash your boobs in front of the crowd. Be sure to get a photo of it.",
+			checkMe: {
+				given: "Go to the club this weekend, talk to the DJ and flash your breasts to the crowd. You need a photo.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return ((State.active.variables.player.perversion.club > 0) && (State.active.variables.body.boobs > State.active.variables.body.boobsNoticedDJ) && (State.active.variables.body.boobs >= 2) && (State.active.variables.tasksTeacher.clubDancePanties.progress > 0));
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 5, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 7,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 30,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	clubBarHandy: { // perv 6+
+		id: "clubBarHandy",
+		name: "Give a Hand Job at the Club Bar Without Being Caught",
+		hasPassage: true,
+		text: {
+			given: "Go back to the club and find a random stranger. Provide them with… ‘manual stimulation’ at the bar. Do not get caught, or you are completely on your own and I will mark the task as a failure.\n\n\"Do not forget to bring me proof.",
+			perform: "",
+			finish: "$teacher looks over the proof of your hand job exploit at the club.\n\n@@.teacher;\"Well, it seems we have found a way to bring out another one of your ‘talents.’ Good job at the club.",
+			fail: "It seems you could not manage a simple evening out, merely spending time with someone in a bar. I am adding a mark against you this week for your failure.",
+			reminder: "Make sure you find a random stranger at the club, and use your hands to stimulate them - intimately.",
+			checkMe: {
+				given: "In the evening this weekend, give a hand job to a random stranger at the club bar.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.tasksTeacher.clubBarHandy.progress < 8) && (State.active.variables.body.boobsNoticedDJ > 0);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 6, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 7,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 30,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	clubDinnerGown: { // perv 6+
+		id: "clubDinnerGown",
+		name: "Dress up in an evening gown provided, then give a pre-arranged patron head under a table",
+		hasPassage: true,
+		text: {
+			given: "I have something special in mind for you this Saturday: I’ve planned for you to have dinner with someone. I’ve located a gown for you, and I want you to wear it to the restaurant at the club - be sure to arrive early to pick it up. The maître d’ will introduce you to your dining companion when you arrive.\n\n\"This evening out was only possible through the extreme generosity of some of my social contacts, so you would be best served by not missing it.",
+			perform: "",
+			finish: "$teacher twirls a long stem rose with amusement.\n\n@@.teacher;\"I hope you enjoyed your evening out. Perhaps the experience will give you deeper respect for certain ‘social pressures’ a woman can face. At any rate, I trust the dinner… satisfied your appetite?",
+			fail: "I went to great expense to arrange a fine dining experience and you were completely ungrateful in return. This certainly warrants a mark against you.",
+			reminder: "Remember, you’re to go to the club restaurant for dinner this weekend in the gown I’ve arranged for you.",
+			checkMe: {
+				given: "I need to pick up the evening gown $teacher arranged and go to the club for dinner this weekend.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.player.punishments.penalty >= 2 || State.active.variables.kink.degradation);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 6, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 7,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 30,
+		failPenalty: 8,
+		events: {
+			start: function() { State.active.variables.tasksTeacher.clubDinnerGown.canStart=false; },
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	
 	
 	selfieToiletsChastity: {	// perv 5-6
 		id: "selfieToiletsChastity",
@@ -1772,13 +1963,13 @@ window.tasksTeacher={
 			finish: function() { return true; },
 			success: function() {
 				if (State.active.variables.tasksTeacher.penaltySissyShow.progress >= 3) {
-					window.tasksTeacher.penaltySissyShow.rewardDebt = 50;
+					State.active.variables.tasksTeacher.penaltySissyShow.rewardDebt = 50;
 				}
 				if (State.active.variables.tasksTeacher.penaltySissyShow.progress == 2) {
-					window.tasksTeacher.penaltySissyShow.rewardDebt = 100;
+					State.active.variables.tasksTeacher.penaltySissyShow.rewardDebt = 100;
 				}
 				if (State.active.variables.tasksTeacher.penaltySissyShow.progress == 1) {
-					window.tasksTeacher.penaltySissyShow.rewardDebt = 200;
+					State.active.variables.tasksTeacher.penaltySissyShow.rewardDebt = 200;
 				}
 				State.active.variables.tasksTeacher.penaltySissyShow.progress++;
 				State.active.variables.player.punishments.penaltySissyShow = true;
@@ -1831,13 +2022,13 @@ window.tasksTeacher={
 			finish: function() { return true; },
 			success: function() {
 				if (State.active.variables.tasksTeacher.penaltyTrials.progress >= 3) {
-					window.tasksTeacher.penaltyTrials.rewardDebt = 25;
+					State.active.variables.tasksTeacher.penaltyTrials.rewardDebt = 25;
 				}
 				if (State.active.variables.tasksTeacher.penaltyTrials.progress == 2) {
-					window.tasksTeacher.penaltyTrials.rewardDebt = 50;
+					State.active.variables.tasksTeacher.penaltyTrials.rewardDebt = 50;
 				}
 				if (State.active.variables.tasksTeacher.penaltyTrials.progress == 1) {
-					window.tasksTeacher.penaltyTrials.rewardDebt = 100;
+					State.active.variables.tasksTeacher.penaltyTrials.rewardDebt = 100;
 				}
 				State.active.variables.tasksTeacher.penaltyTrials.progress++;
 				State.active.variables.player.punishments.penaltyTrials = true;
@@ -2432,16 +2623,16 @@ window.tasksTeacherBody={
 			},
 			success: function() {
 				if ((State.active.variables.body.boobs == 1)) {
-					window.tasksTeacherBody.breastsIncrease.rewardMoney = 50;
+					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 50;
 				}
 				if ((State.active.variables.body.boobs == 2)) {
-					window.tasksTeacherBody.breastsIncrease.rewardMoney = 100;
+					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 100;
 				}
 				if ((State.active.variables.body.boobs == 3)) {
-					window.tasksTeacherBody.breastsIncrease.rewardMoney = 200;
+					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 200;
 				}
 				if ((State.active.variables.body.boobs == 4)) {
-					window.tasksTeacherBody.breastsIncrease.rewardMoney = 400;
+					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 400;
 				}
 			},
 			fail: function() { return false; }
@@ -2508,16 +2699,16 @@ window.tasksTeacherBody={
 			},
 			success: function() {
 				if ((State.active.variables.body.boobs == 1)) {
-					window.tasksTeacherBody.breastsMaintain.rewardMoney = 50;
+					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 50;
 				}
 				if ((State.active.variables.body.boobs == 2)) {
-					window.tasksTeacherBody.breastsMaintain.rewardMoney = 100;
+					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 100;
 				}
 				if ((State.active.variables.body.boobs == 3)) {
-					window.tasksTeacherBody.breastsMaintain.rewardMoney = 200;
+					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 200;
 				}
 				if ((State.active.variables.body.boobs == 4)) {
-					window.tasksTeacherBody.breastsMaintain.rewardMoney = 400;
+					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 400;
 				}
 			},
 			fail: function() { return false; }
