@@ -1,13 +1,16 @@
 :: Task Nightwear selfie [pos_649_554]
 \
-<<if not playerCode.isWearingOn(itemTypes.Chastity)>>\
-	You aren't wearing chastity.
+<<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))>>\
+	<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+		<<wearClothing $items.chastityDevice.id>>\
+		You put on chastity device.
+	<<endif>>\
+	<<if (not playerCode.isWearing(itemsC.silkyTeddy))>>\
+		<<wearClothing $items.silkyTeddy.id>>\
+		You put on your frilly nightie.
+	<<endif>>\
 	
-	[[Return|Go to bedroom]]
-<<elseif not playerCode.isWearing(itemsC.silkyTeddy)>>\
-	You aren't wearing feminine nightwear.
-	
-	[[Return|Go to bedroom]]
+	[[continue|Task Nightwear selfie]]
 <<else>>\
 	You take a selfie of yourself in the silky teddy, making sure to lift the hem up slightly and flash your chastity cage.
 

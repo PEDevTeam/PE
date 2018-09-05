@@ -10,7 +10,7 @@
 		Nancy says that semi-permanent treatments reversal are not provided for clients who haven't fully payed their tab.
 	<<else>>\
 		Nancy asks if you want to reverse any of special semi-permanent treatments.
-
+\
 	<img id="item_preview" class="hidden">\
 
 	<<set _item=itemsC.token>>\
@@ -18,7 +18,9 @@
 	<<set _override=false>>\
 \
 	<<if ($body.semiAss gt $body.permAss)>>\
-		<<if ($body.ass eq 2) and ($body.semiAss eq 2)>>\
+		<<if ($body.ass gt $body.semiAss)>>\
+			@@.halftransparent;Ass size enhancing reversal - first you need to wait for temporary treatment to recede.@@
+		<<elseif ($body.ass eq 2) and ($body.semiAss eq 2)>>\
 			<<set $items[_item.id].cost = 5*itemsC.AssEnhancingXL.cost>>\
 			<<set $items[_item.id].image = itemsC.AssEnhancingXL.image>>\
 			<<set $items[_item.id].name = "Ass size XL enhancing reversal">>\
@@ -34,7 +36,9 @@
 	<<endif>>\
 \
 	<<if ($body.semiLips gt $body.permLips)>>\
-		<<if ($body.lips eq 2) and ($body.semiLips eq 2)>>\
+		<<if ($body.lips gt $body.semiLips)>>\
+			@@.halftransparent;Lips size enhancing reversal - first you need to wait for temporary treatment to recede.@@
+		<<elseif ($body.lips eq 2) and ($body.semiLips eq 2)>>\
 			<<set $items[_item.id].cost = 5*itemsC.LipsEnhancingXL.cost>>\
 			<<set $items[_item.id].image = itemsC.LipsEnhancingXL.image>>\
 			<<set $items[_item.id].name = "Lips size XL enhancing reversal">>\
@@ -66,7 +70,9 @@
 	<<endif>>\
 \
 	<<if ($body.semiBoobs gt $body.permBoobs)>>\
-		<<if ($body.boobs eq 4) and ($body.semiBoobs eq 4)>>\
+		<<if ($body.boobs gt $body.semiBoobs)>>\
+			@@.halftransparent;Breast size enhancing reversal - first you need to wait for temporary treatment to recede.@@
+		<<elseif ($body.boobs eq 4) and ($body.semiBoobs eq 4)>>\
 			<<set $items[_item.id].cost = 5*itemsC.breastImplantsDD.cost>>\
 			<<set $items[_item.id].image = itemsC.breastImplantsDD.image>>\
 			<<set $items[_item.id].name = "Massive breast implants reversal">>\
@@ -94,7 +100,9 @@
 	<<endif>>\
 \
 	<<if ($body.semiMakeup gt $body.permMakeup)>>\
-		<<if ($body.makeup eq 4) and ($body.semiMakeup eq 4)>>\
+		<<if ($body.makeup gt $body.semiMakeup)>>\
+			@@.halftransparent;Makeup tattoo reversal - first you need to wait for temporary makeup to fade.@@
+		<<elseif ($body.makeup eq 4) and ($body.semiMakeup eq 4)>>\
 			<<set $items[_item.id].cost = 10*itemsC.HeavyMakeup.cost>>\
 			<<set $items[_item.id].image = itemsC.HeavyMakeup.image>>\
 			<<set $items[_item.id].name = "Heavy makeup tattoo reversal">>\

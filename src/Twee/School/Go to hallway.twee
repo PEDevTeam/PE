@@ -139,11 +139,7 @@
 				<<set $tasksTeacher.wearDressToSchool.canStart = false>>\
 				<<set $tasksTeacher.wearDressToSchool.status = 0>>\
 				<<set $player.punishments.refusedToCrossdress = false>>\
-				<<if $tasksTeacher.wearDressToSchool.rewardDebt>>\
-					<<set $player.bribeDiscount += $tasksTeacher.wearDressToSchool.rewardDebt>>\
-				<<else>>\
-					<<set $player.bribeDiscount += tasksTeacher.wearDressToSchool.rewardDebt>>\
-				<<endif>>\
+				<<set $player.bribeDiscount += window.tasksFunction.taskRewardDebt(tasksTeacher.wearDressToSchool)>>\
 				<<set $player.perversion.teacher to 4>>\
 				<<set $player.perversion.teacherCooldown = 0>>\
 				She looks at you for a moment, self-gratified. 
@@ -386,63 +382,64 @@
 <!--</reaction to body mods>-->\
 	<!--<tasks check>-->\
 \
-	<<set _sp = false>>\
-	<<if window.timeCode.isMonday()>>\
-		<<set _activeTasksBody = window.tasksFunction.activeTasks(window.tasksTeacherBody)>>\
-		<<for _i to 0; _i lt _activeTasksBody.length; _i++>>\
-			<<if (_activeTasksBody[_i].events.finish()) or window.tasksFunction.isTaskComplete(_activeTasksBody[_i])>>\
-				<<print window.tasksFunction.getTaskText(_activeTasksBody[_i].name, _activeTasksBody[_i].text, 'finish')>>\
-				<<set _activeTasksBody[_i].events.success()>>\
-				<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
-				<<set _sp = true>>\
-			<<else>>\
-				@@.teacher;"<<print _activeTasksBody[_i].text.fail>>"@@\
-				<<set _activeTasksBody[_i].events.fail()>>\
-				<<set teacherCode.addPenalty(_activeTasksBody[_i].failPenalty)>>\
-				<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
-				<<set _sp = true>>\
-			<<endif>>\
-			<<if _sp>>\
-
-			
-			<<endif>>\
-		<</for>>\
-	<<endif>>\
+<<if window.timeCode.isMonday()>>\
+	<<set _activeTasksBody = window.tasksFunction.activeTasks(window.tasksTeacherBody)>>\
+	<<for _i to 0; _i lt _activeTasksBody.length; _i++>>\
+		<<set _sp = false>>\
+		<<if (_activeTasksBody[_i].events.finish()) or window.tasksFunction.isTaskComplete(_activeTasksBody[_i])>>\
+			<<print window.tasksFunction.getTaskText(_activeTasksBody[_i].name, _activeTasksBody[_i].text, 'finish')>>\
+			<<set _activeTasksBody[_i].events.success()>>\
+			<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
+			<<set _sp = true>>\
+		<<else>>\
+			@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasksBody[_i].name, _activeTasksBody[_i].text, 'fail')>>"@@\
+			<<set _activeTasksBody[_i].events.fail()>>\
+			<<set teacherCode.addPenalty(_activeTasksBody[_i].failPenalty)>>\
+			<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
+			<<set _sp = true>>\
+		<<endif>>\
+		<<if _sp>>\
+		
+		
+		<<endif>>\
+	<</for>>\
+<<endif>>\
 \
-	<<set _r = true>>\
-	<<set _activeTasks = tasksFunction.activeTasks(tasksTeacher)>>\
-	<<for _i to 0; _i lt _activeTasks.length; _i++>>\
-		<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
-			<<set _activeTasks[_i].events.success()>>\
-			<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'finish')>>\
+<<set _activeTasks = tasksFunction.activeTasks(tasksTeacher)>>\
+<<for _i to 0; _i lt _activeTasks.length; _i++>>\
+	<<set _sp = false>>\
+	<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
+		<<set _activeTasks[_i].events.success()>>\
+		<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'finish')>>\
 <!--	--><<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
-<!--		--><<if _activeTasks[_i].rewardDebt gt 0>>\
-<!--			--><<set $player.bribeDiscount += _activeTasks[_i].rewardDebt>>\
-<!--			-->@@.teacher; Minus $<<print _activeTasks[_i].rewardDebt>> from debt."@@\
+<!--		--><<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
+<!--		--><<if _rewardDebt gt 0>>\
+<!--			--><<set $player.bribeDiscount += _rewardDebt>>\
+<!--			-->@@.teacher; Minus $<<print _rewardDebt>> from debt."@@\
 <!--		--><<else>>\
 <!--			-->@@.teacher;"@@\
 <!--		--><<endif>>\
 <!--	--><<endif>>\
-			<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
-			<<set $tasksTeacher[_activeTasks[_i].id].startDay = $time.day>>\
-			<<set _sp = true>>\
-		<<elseif (window.tasksFunction.isTaskOverDue(_activeTasks[_i]) or window.tasksFunction.isTaskFail(_activeTasks[_i]))>>\
-			@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'fail')>>"@@\
-			<<set _activeTasks[_i].events.fail()>>\
-			<<set teacherCode.addPenalty(_activeTasks[_i].failPenalty)>>\
-			<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
-			<<set $tasksTeacher[_activeTasks[_i].id].startDay = $time.day>>\
-			<<set _sp = true>>\
-		<<elseif (random(2) eq 0) and _r>>\
-			<<set _r = false>>\
-			<<set _sp = true>>\
-			@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'reminder')>>"@@\
-		<<endif>>\
-		<<if _sp>>\
-
-		
-		<<endif>>\
-	<</for>>\
+		<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
+		<<set $tasksTeacher[_activeTasks[_i].id].startDay = $time.day>>\
+		<<set _sp = true>>\
+	<<elseif (window.tasksFunction.isTaskOverDue(_activeTasks[_i]) or window.tasksFunction.isTaskFail(_activeTasks[_i]))>>\
+		@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'fail')>>"@@\
+		<<set _activeTasks[_i].events.fail()>>\
+		<<set teacherCode.addPenalty(_activeTasks[_i].failPenalty)>>\
+		<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
+		<<set $tasksTeacher[_activeTasks[_i].id].startDay = $time.day>>\
+		<<set _sp = true>>\
+	<<elseif (random(2) eq 0)>>\
+		<<set _r = false>>\
+		<<set _sp = true>>\
+		@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'reminder')>>"@@\
+	<<endif>>\
+	<<if _sp>>\
+	
+	
+	<<endif>>\
+<</for>>\
 \
 <!--</tasks check>-->\
 \
@@ -501,7 +498,7 @@
 <!--	--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 <!--	--><<set $player.daysInPanties++>>\
 <!--	--><<if (not playerCode.isWearing(itemsC.gString)) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\
-<!--		-->@@.teacher;<<openQuote>>@@@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
+<!--		-->@@.teacher;"@@<br><br>@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
 <!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if _c and (not $flags.chastityKey) and ($player.perversion.teacher eq 2 and $player.perversion.teacherCooldown gt 0)>>\
@@ -644,11 +641,10 @@
 		<<endif>>\
 		<<set _taskBody = window.tasksFunction.newTask(window.tasksTeacherBody)>>\
 		<<if _taskBody.name neq "No tasks">>\
-			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@\
+			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
 			<<set _taskBody.events.start()>>\
-			<<set $player.jobs.salonPlan += _taskBody.rewardMoney>>\
+			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_task)>>\
 			<<set _t = true>>\
-			
 			
 		<<endif>>\
 		<<if _t>>\
@@ -664,7 +660,7 @@
 		<<else>>\
 			@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I suggest you to consider part-time jobs this weekend."@@\
 		<<endif>>\
-		<<if (not $locations.jobSexshop.active) or (not $locations.fastfood.active)>>\
+		<<if (not $locations.jobSexshop.active) or (not $locations.jobFastfood.active)>>\
 			@@.teacher;<<openQuote>>A friend of mine owns a fast food restaurant and asked for my help in finding a server. I think you would do well. There is also a vacancy for an assistant at the shop downtown if that is more for your liking."@@\
 			<<set $locations.jobSexshop.active = true>>\
 			<<set $locations.jobFastfood.active = true>>\

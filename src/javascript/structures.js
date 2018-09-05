@@ -23,6 +23,8 @@ window.structures={
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
 		this.setupPlayer();
 		this.setupStandaloneVars();
+		this.setupClothesCheck();
+		this.setupMinigameVars();
 		this.setupStatus();
 		this.setupAvatar();
 		this.setupFlags();
@@ -33,6 +35,12 @@ window.structures={
 		this.setupQuickSlot();
 		this.setupItems();
 		this.setupChores();
+		this.setupDreams();
+		this.setupLocations();
+		this.setupFriendRiddles();
+		this.setupTalks();
+		this.setupPunishments();
+		this.setupTasks();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
@@ -98,7 +106,7 @@ window.structures={
 		
 		if (vars.reason == null) { vars.reason = {}; }
 
-		if (vars.once == null) { vars.reason = {}; }
+		if (vars.once == null) { vars.once = {}; } /* For checks that happen only once and never used anywhere else */
 		
 	},
 	setupClothesCheck: function() {
@@ -777,6 +785,7 @@ window.playerAddonsList={
 		mall: 0,
 		club: 0,
 		danceClub: 0,
+		clubToiletCooldown: 0,
 		noseWagerCount: 0,
 		bjFirst: 0,	/* "bully", "coach" */
 		bjSkill: 0,
@@ -898,6 +907,8 @@ window.bodyList={
 	manicureNoticedFriend: 0,
 	makeupNoticedFriend: 0,
 	analNoticedFriend: 0,
+	
+	boobsNoticedDJ: 0,
 },
 
 window.flagsList={
@@ -905,6 +916,7 @@ window.flagsList={
 	roomHelp: false,
 	avatarHelp: false,
 	checkSelfHelp: false,
+	easyMinigames: false,
 	bribePaid: false,
 	bribeTransfered: false,
 	bribeFail: false,
@@ -1157,16 +1169,6 @@ window.flagsList={
 
 window.kinkList={
 	incest: false,
-	incestOff: false,
-	piss: false,
-	pissOff: false,
-	sphOff: false,
-	bondageOff: false,
-	maso: false,
-	masoOff: false,
-	cum: false,
-	cumOff: false,
-	creampie: false,
 	futa: false,
 
 	semenConsumptionStart: false,	

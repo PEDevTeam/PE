@@ -563,7 +563,7 @@ window.teacherPunishments = {
 		onlyOnce:	true,
 		chance:		10,
 		priority:	1,
-		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [0, 5] },
+		baseReq:	{ teacher: [3, 6], guardian: [0, 10], therapist: [0, 10], penalties: [0, 5] },
 		extraReq:	function () {
 					return (!State.active.variables.flags.teacherNoticeBreastsA) && (!playerCode.haveBoobs());
 				},
@@ -581,7 +581,7 @@ window.teacherPunishments = {
 		onlyOnce:	true,
 		chance:		10,
 		priority:	1,
-		baseReq:	{ teacher: [4, 7], guardian: [0, 10], therapist: [0, 10], penalties: [0, 6] },
+		baseReq:	{ teacher: [3, 7], guardian: [0, 10], therapist: [0, 10], penalties: [0, 6] },
 		extraReq:	function () {
 					return (!State.active.variables.flags.teacherNoticeBreastsB) && (!playerCode.haveBplus());
 				},

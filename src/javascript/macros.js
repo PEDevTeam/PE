@@ -135,8 +135,8 @@ macros.getInventoryList = {
 					f=true;
 //					new Wikifier(place, 'you currently have these items:<br><br><img id="inv_item" class="hidden">');
 				}
-				td+=getItemName(inv[i]);
 				td+='<br>';
+				td+=getItemName(inv[i]);
 			}
 		}
 		if (!f) {
@@ -207,6 +207,15 @@ macros.wearClothing = {
 		if (ca.length > 0) {
 			state.active.variables.player.clothes=state.active.variables.player.clothes.sort();
 		}
+		var type=params[1];
+		if (type) {
+			var wV=getItemObject(params[0]);
+			if (!wV) {
+					throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
+					return;
+				}
+			wV.curAlt=type;
+		}
 	}
 };
 
@@ -234,15 +243,21 @@ macros.buyItem = {
 				state.active.variables.inventory=state.active.variables.inventory.sort();
 			}
 			if (w.maxAlt) {
-				if (state.active.variables.showimages) {
-					if ((wV.curAlt==0) && (wV.ownAlt.length==0)) {
-						wV.curAlt=wV.storeCur;
-					}
-					wV.ownAlt[wV.storeCur]=true;
-					state.active.variables.player.money-=Math.floor((wV.storeCur%10)*cost*0.02);
+				var type=params[1];
+				if (type != null) {
+					wV.curAlt=type;
 				}
-				if (!state.active.variables.showimages) {
-					wV.ownAlt[0]=true;
+				if (type == null) {
+					if (state.active.variables.showimages) {
+						if ((wV.curAlt==0) && (wV.ownAlt.length==0)) {
+							wV.curAlt=wV.storeCur;
+						}
+						wV.ownAlt[wV.storeCur]=true;
+						state.active.variables.player.money-=Math.floor((wV.storeCur%10)*cost*0.02);
+					}
+					if (!state.active.variables.showimages) {
+						wV.ownAlt[0]=true;
+					}
 				}
 			}
 		}

@@ -56,7 +56,7 @@ Jobs:
 		<<endif>>\
 \
 \
-		<<if (window.timeCode.schoolRequired()) and (_to.id neq locationsJS.school.id)>>\
+		<<if (window.timeCode.schoolRequired()) and (_to.id neq locationsJS.school.id) and (_to.id neq locationsJS.home.id)>>\
 			<<set _available = false>>\
 			<<set _reason = "You need to go to school today">>\
 		<<endif>>\
@@ -142,14 +142,15 @@ Jobs:
 		<<endif>>\
 		<<if _available>>\
 			<<set _time = window.misc.calculateDistance(_from, _to)>>\
-			<<set _timeOnArrivalMin = $time.minute + _time>>\
 			<<set _timeOnArrivalHour = $time.hour>>\
-			<<if _timeOnArrivalMin gte 60>>\
+			<<for _timeOnArrivalMin = $time.minute + _time; _timeOnArrivalMin gte 60; _timeOnArrivalMin-=60>>\
 				<<set _timeOnArrivalHour++>>\
-				<<set _timeOnArrivalMin-=60>>\
 				<<if _timeOnArrivalHour gte 24>>\
 					<<set _timeOnArrivalHour=0>>\
 				<<endif>>\
+			<</for>>\
+			<<if _timeOnArrivalMin lt 10>>\
+				<<set _timeOnArrivalMin="0"+_timeOnArrivalMin>>\
 			<<endif>>\
 			<div class="tooltip"><<print "[[_description|_destination][$time.addMinutes("+_time+"); $player.location = \""+_to.id+"\"]]">> <span id="test_surv" class="tooltiptext">It will take <<print _time>> minutes (to <<print _timeOnArrivalHour>>:<<print _timeOnArrivalMin>>)</span></div>\
 		<<else>>\

@@ -1,7 +1,7 @@
 :: Club restaurant [pos_216_1085]
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
-<<elseif $time.hours >= 23>>\
+<<elseif $time.hour >= 23>>\
 	It is getting late, so with heavy sigh you get ready to go home.
 	
 	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
@@ -35,17 +35,17 @@
 	<<endif>>
 	[[Head back to the club|The Club][$scene="MainClub"]]
 <<elseif $scene eq "clubDinner">>\
-	[if pc has VIP membership]
-	The maître d’ leads you directly to your table, flanked by the personal waiter the club restaurant has detailed to serve you. The table selected for you has a spectacular view of the entire restaurant, and you’re seated and shown all the courtesy of an honored dignitary.
+	<<if $flags.clubVIP>>\
+		The maître d’ leads you directly to your table, flanked by the personal waiter the club restaurant has detailed to serve you. The table selected for you has a spectacular view of the entire restaurant, and you’re seated and shown all the courtesy of an honored dignitary.
 
-	Your table is on a raised area of the restaurant floor, made semi-private by a long, planter-like partition with a slowly-descending flow of water through smooth pond stones running over it. Beyond it, the open expanse of the restaurant proper is framed in simple cuboid forms that incorporate natural materials including teak and granite. 
+		Your table is on a raised area of the restaurant floor, made semi-private by a long, planter-like partition with a slowly-descending flow of water through smooth pond stones running over it. Beyond it, the open expanse of the restaurant proper is framed in simple cuboid forms that incorporate natural materials including teak and granite. 
 
-	The large room is economical but beautiful in its simplicity, and forms a dynamic and spacious interplay of light and air. The venue is highly contemporary and flawless in execution, no doubt the work of a highly-sought architect.
-	[else]
-	A hostess at last arrives to escort you to your table. You are seated in one of the gallery tables, where the opulent modernity of the club restaurant is on display above the several nearby tables around you. As you take your seat, a waiter fills your glass and politely offers a few moments to review the meal course before he returns to take your order.
+		The large room is economical but beautiful in its simplicity, and forms a dynamic and spacious interplay of light and air. The venue is highly contemporary and flawless in execution, no doubt the work of a highly-sought architect.
+	<<else>>\
+		A hostess at last arrives to escort you to your table. You are seated in one of the gallery tables, where the opulent modernity of the club restaurant is on display above the several nearby tables around you. As you take your seat, a waiter fills your glass and politely offers a few moments to review the meal course before he returns to take your order.
 
-	Your table is one of several positioned on the open main floor of the restaurant. Above you, a high and largely open space is framed in simple cuboid forms made from natural materials including teak and granite. The large room feels at once impressive and airy, economical but beautiful, and forms a dynamic and spacious interplay of light and air. The venue is highly contemporary and flawless in execution, no doubt the work of a highly-sought architect.
-	[endif]
+		Your table is one of several positioned on the open main floor of the restaurant. Above you, a high and largely open space is framed in simple cuboid forms made from natural materials including teak and granite. The large room feels at once impressive and airy, economical but beautiful, and forms a dynamic and spacious interplay of light and air. The venue is highly contemporary and flawless in execution, no doubt the work of a highly-sought architect.
+	<<endif>>\
 
 	Broad, flat lighting panels overlaid by thin vertical planks complement a host of inverted light towers of beige paper-box construction, filling the space with a warm and flattering light. The tables beneath are simple yet elegant in design, full of patrons enjoying a dramatic and refined dining experience.
 
@@ -60,39 +60,38 @@
 	You know enough to place your linen napkin on your lap, but otherwise, you can’t help but notice there are 12 separate implements in your place setting. Since you haven’t grown up eating at fine restaurants, well, ever, you’re a little confused by the arrangement. Fortunately, the waiter is polite and helpful in a non-threatening way, and helps you enjoy your experience with timely suggestions.
 
 	Before long, dinner service arrives.\
-	[gen random 0-4]
-	[switch random()]
-	[case 0]
-	Tonight’s service consists of four courses: 
+	<<selectScene clubRestaurant SEQ2RND>>\
+		<<scene>>\
+		Tonight’s service consists of four courses: 
 
-	The first to arrive is the appetizer, a grapefruit crostini, coated in fried shredded onion, and possessing a light, flaky crunch. A cold tapioca and watercress salad with cucumber ice shavings arrives next, offering you a subtle combination of cooling textures that abound with the clarion freshness of the accompanying greens. 
+		The first to arrive is the appetizer, a grapefruit crostini, coated in fried shredded onion, and possessing a light, flaky crunch. A cold tapioca and watercress salad with cucumber ice shavings arrives next, offering you a subtle combination of cooling textures that abound with the clarion freshness of the accompanying greens. 
 
-	The main course of langoustine ravioli with grated sage and shallots is savory and rich, with aromatic overtones that harmonize perfectly with the hand-pinched heirloom pasta. For dessert, your mouth is subdued by the sweet delight of poached cinnamon pears with a uniquely decadent drizzled mead molasses topping, served to you in a presentation that’s almost too beautiful to eat.
-	[case 1]
-	The meal begins to arrive, and the full experience consists of four courses:
+		The main course of langoustine ravioli with grated sage and shallots is savory and rich, with aromatic overtones that harmonize perfectly with the hand-pinched heirloom pasta. For dessert, your mouth is subdued by the sweet delight of poached cinnamon pears with a uniquely decadent drizzled mead molasses topping, served to you in a presentation that’s almost too beautiful to eat.
+	<<scene>>\
+		The meal begins to arrive, and the full experience consists of four courses:
 
-	For an appetizer, the chef has created a potato pancake corsage - delicate slices of savory garlic tuber crêpe dramatically curled like a rose blossom and dressed with tiny leaves of mint. The next course is a salad of turnip and radish served with a strawberry and poppy seed relish, its crisp and light texture providing the perfect stage for its spicy-sweet concerto.
+		For an appetizer, the chef has created a potato pancake corsage - delicate slices of savory garlic tuber crêpe dramatically curled like a rose blossom and dressed with tiny leaves of mint. The next course is a salad of turnip and radish served with a strawberry and poppy seed relish, its crisp and light texture providing the perfect stage for its spicy-sweet concerto.
 
-	The main course is a novel German-Korean fusion rouladen, made from razor thin slices of beef wrapped into dramatic wedges and melded with sesame-seasoned bacon, onion and pickled cucumber. Last, but definitely not least, dessert is a vanilla-based gelato, whose flavors are matched by long shavings of bittersweet dark chocolate and a pistachio dressing that ties it all together.
-	[case 2]
-	The evening’s courses arrive one by one, each one brought to your table with white glove service:
+		The main course is a novel German-Korean fusion rouladen, made from razor thin slices of beef wrapped into dramatic wedges and melded with sesame-seasoned bacon, onion and pickled cucumber. Last, but definitely not least, dessert is a vanilla-based gelato, whose flavors are matched by long shavings of bittersweet dark chocolate and a pistachio dressing that ties it all together.
+	<<scene>>\
+		The evening’s courses arrive one by one, each one brought to your table with white glove service:
 
-	The appetizer tonight is a dish of moose cheese morsels with blackened summer sausage, served in a delicate pastry wrap and garnished with long slivers of green onion. It is followed by the salad course, composed of fresh blueberries and yellow nasturtium petals touched with a rose petal vinaigrette. The sweet and floral combination’s bright primary colors make for a vivid presentation.
+		The appetizer tonight is a dish of moose cheese morsels with blackened summer sausage, served in a delicate pastry wrap and garnished with long slivers of green onion. It is followed by the salad course, composed of fresh blueberries and yellow nasturtium petals touched with a rose petal vinaigrette. The sweet and floral combination’s bright primary colors make for a vivid presentation.
 
-	The main course is also rather spectacular – a still-sizzling salmon steak on a bed of flaming cognac is brought and immediately served over crisp bread with a raft of dill ladyfingers and asparagus. It is followed up with dessert, a soothingly cool carrot-almond ice cream dish dressed with cubes of fresh green apple and candy-coated biscuit sticks.
-	[case 3]
-	The first of four courses arrives, each followed by the perfect amount of delay before the next service.
+		The main course is also rather spectacular – a still-sizzling salmon steak on a bed of flaming cognac is brought and immediately served over crisp bread with a raft of dill ladyfingers and asparagus. It is followed up with dessert, a soothingly cool carrot-almond ice cream dish dressed with cubes of fresh green apple and candy-coated biscuit sticks.
+	<<scene>>\
+		The first of four courses arrives, each followed by the perfect amount of delay before the next service.
 
-	Your appetizer tonight is a dilled yogurt cheese wrap, served in tissue-thin phyllo and garnished with chopped chives and fine peppercorns; the dish’s richness and outsized flavor are belied by its tiny size. The next to be served is a rosemary chicken, garlic and avocado salad – artfully served, its terrific freshness and piquant subtext are the perfect match for its use of thin strips of kale and chard.
+		Your appetizer tonight is a dilled yogurt cheese wrap, served in tissue-thin phyllo and garnished with chopped chives and fine peppercorns; the dish’s richness and outsized flavor are belied by its tiny size. The next to be served is a rosemary chicken, garlic and avocado salad – artfully served, its terrific freshness and piquant subtext are the perfect match for its use of thin strips of kale and chard.
 
-	The entrée course is a seven-cheese and mushroom hot pie, whose name implies a simpler dish than the extravagantly structured and flavorful work of art that arrives, containing surprise notes of mustard seed and coriander that flesh out each bite. Your dessert concludes the meal, a patisserie-style butterscotch cake finished with chocolate coffee kernels and sapphire sea salt – mouthwatering.
-	[default]
-	Tonight’s dinner is composed of a soup course, a salad, the main entrée, and the dessert:
+		The entrée course is a seven-cheese and mushroom hot pie, whose name implies a simpler dish than the extravagantly structured and flavorful work of art that arrives, containing surprise notes of mustard seed and coriander that flesh out each bite. Your dessert concludes the meal, a patisserie-style butterscotch cake finished with chocolate coffee kernels and sapphire sea salt – mouthwatering.
+	<<scene>>\
+		Tonight’s dinner is composed of a soup course, a salad, the main entrée, and the dessert:
 
-	The soup arrives first, a thin toasted buckwheat groat soup with rustic cabbage. Its flavor is alive with subtexts of bacon and paprika, but its simple preparation isn’t too filling or overwhelming for the courses yet to come. Your salad comes next, a potato-based course accompanied by chopped pickles, egg, and chicken and blended with a creamy mayonnaise-based sauce, then garnished with cucumber spears and sausage cubes.
+		The soup arrives first, a thin toasted buckwheat groat soup with rustic cabbage. Its flavor is alive with subtexts of bacon and paprika, but its simple preparation isn’t too filling or overwhelming for the courses yet to come. Your salad comes next, a potato-based course accompanied by chopped pickles, egg, and chicken and blended with a creamy mayonnaise-based sauce, then garnished with cucumber spears and sausage cubes.
 
-	The main course this evening is a delicate salted herring, served exceptionally fresh in perfectly textured morsels over a bed of thin rye bruschetta with a lemon and beet garnish. For the finale, the waiter brings you a bowl of ice cream flambé, alight in blue flame and drizzled with a milk chocolate batter that crisps to a waffle-like consistency at your table.
-	[/switch]
+		The main course this evening is a delicate salted herring, served exceptionally fresh in perfectly textured morsels over a bed of thin rye bruschetta with a lemon and beet garnish. For the finale, the waiter brings you a bowl of ice cream flambé, alight in blue flame and drizzled with a milk chocolate batter that crisps to a waffle-like consistency at your table.
+	<</selectScene>>\
 
 	Each course is a work of art, lovingly prepared with an eye for its presentation and timing of flavors as vital as their sublime impact on your palette. You are delighted as the flavors ebb and flow with an interplay of contrasts, with each bite having a detectable order in which its notes rise and fall on your taste buds. The portions keep you satisfied at each course, striking the perfect balance of quantity and texture to leave you sated but not overfull.
 

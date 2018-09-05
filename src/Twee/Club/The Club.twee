@@ -19,18 +19,23 @@
 <<if $player.drunk gte 5>><<display "Drunk message">>
 <<endif>>\
 <<if $player.drunk lte 40>>\
-	[[Go out on the dance floor|Club dance floor][$scene="danceFloor"]]
-	[[Head over to the bar|Club bar][$scene="mainBar"]]
-	[[Use the ladies’ room]]
-	[[Go up to the VIP lounge]]
-	[[Go to the club restaurant|Club restaurant][$scene="mainRestaurant"]]
+	<<if ($time.hour >= 23) or ($time.hour < 7)>>\
+		It is getting late, so with heavy sigh you get ready to go home.
+		
+		[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
+	<<else>>\
+		[[Go out on the dance floor|Club dance floor][$scene="danceFloor"]]
+		[[Head over to the bar|Club bar][$scene="mainBar"]]
+		[[Use the ladies room|Club restroom][$scene="clubRestroom"]]
+		[[Go to the club restaurant|Club restaurant][$scene="mainRestaurant"]]
+		/*[[Go up to the VIP lounge]]*/\
 
-	/*	[Club tasks go here when active, otherwise ‘Leave the club’ has only one line space above it]
-		‘Give panties’ task only appears after ‘Try to dance’ has been used once.
-	*/\
-	<<if $tasksTeacher.clubSelfieLadiesRoom.status eq 1>>\
-		[[Go in the ladies room to take a selfie with a girl|Task clubSelfieLadiesRoom]]
+		/*	[Club tasks go here when active, otherwise ‘Leave the club’ has only one line space above it]
+			‘Give panties’ task only appears after ‘Try to dance’ has been used once.
+		*/\
+		<<if $tasksTeacher.clubSelfieLadiesRoom.status eq 1>>\
+			[[Go in the ladies room to take a selfie with a girl|Task clubSelfieLadiesRoom]]
+		<<endif>>\
+		[[Exit the club|Club entrance][$scene="clubExit"]]
 	<<endif>>\
-
-	[[Leave the club and go home|Go to bedroom][$time.addMinutes(30)]]
 <<endif>>\

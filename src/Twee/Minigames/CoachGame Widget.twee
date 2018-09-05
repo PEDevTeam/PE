@@ -14,17 +14,8 @@
 		<<Daring 9>>\
 		<<set $player.daringFlag.coachGame=true>>\
 		<<endif>>\
-	<<else>>\
-		<<if $kink.futa>>\
-			<<showImage "general" "coach_dick_futa.gif">>\
-		<<else>>\
-			<<showImage "general" "coach_dick.gif">>\
-		<<endif>>\
 	<<endif>>\
 	<<set _dc to window.coachMinigame.getRandomCoach()>>\
-	
-	ID = <<print _dc.id>>
-	
 	<<if $minigames.coachgame.lastActionSuccess eq 0>>\
 		@@.coach;"No, $player.name , pay attention, since you are still fumbling around I will give you a hint again, try to remember it."@@
 
@@ -56,9 +47,9 @@
 	<<endif>>\
 	<<if not $minigames.coachgame.actionSuccess[_dc.id]>>\
 		<<if $kink.futa>>\
-			<<print ' @@.heroT;" _dc.hintF "@@'>>
+			<<print ' @@.heroT;"_dc.hintF"@@'>>
 		<<else>>\
-			<<print ' @@.heroT;" _dc.hint "@@'>>
+			<<print ' @@.heroT;"_dc.hint"@@'>>
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.coach gte 6>>\
@@ -69,20 +60,27 @@
 		<<endif>>\
 	<<endif>>\
 	
-	What would you like to do?
 	<<set _lg to window.coachgameList.length>>\
 	<<if $player.perversion.coach lt 3>>\
 	<<set _lg-->>\
 	<<endif>>\
-
 	<<for _i to 0; _i lt _lg; _i++>>\
 		<<set _o to coachgameList[_i]>>\
 		<<set _m to "window.coachMinigame.processAction(" + _dc.id + ", " + _o.id + ");$time.addMinutes(5)">>\
-		<<if $kink.futa>>\
-			<<print '[[' + _o.optionF + '|Coach game][' + _m + ']]'>>
-		<<else>>\
-			<<print '[[' + _o.option + '|Coach game][' + _m + ']]'>>
+		<<set _highlightAction = false>>\
+		<<if $flags.easyMinigames or ($player.perversion.coach gte 6)>>\
+			<<if _dc.id eq _o.id>>\
+				<<set _highlightAction = true>>\
+			<<endif>>\
 		<<endif>>\
+		<<if _highlightAction>>@@.info;[@@<<endif>>\
+		<<if $kink.futa>>\
+			<<print '[[' + _o.optionF + '|Coach game][' + _m + ']]'>>\
+		<<else>>\
+			<<print '[[' + _o.option + '|Coach game][' + _m + ']]'>>\
+		<<endif>>\
+		<<if _highlightAction>>@@.info;]@@<<endif>>\
+		
 	<</for>>\
 	
 	<!--

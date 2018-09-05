@@ -136,7 +136,7 @@
 		<<if window.clothes.dressedSleep.check()>>\
 			[[Try experimental way to deal with sleep problems|Therapist sleep][$scene="Therapist sleep"]]
 		<<else>>\
-			<<notDressed "Try experimental way to deal with sleep problems" $reason.dressedSleep>>
+			<div class="tooltip">@@.halftransparent;Try experimental way to deal with sleep problems@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
@@ -148,7 +148,7 @@
 	<<if window.clothes.dressedWhore.check()>>\
 		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
 	<<else>>\
-		<<notDressed "Sell yourself on the street" $reason.dressedWhore>>
+		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedWhore>></span></div>
 	<<endif>>\
 <<endif>>\
 \
@@ -156,12 +156,20 @@
 	<<if window.clothes.dressedGuardian.check()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
 	<<else>>\
-		<<print '<<notDressed "Replace alarm clock batteries" $reason.dressedGuardian>>'>>
+		<div class="tooltip">@@.halftransparent;Replace alarm clock batteries@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedGuardian>></span></div>
 	<<endif>>\
 <<endif>>\
 \
 <<if $flags.partyMaidTask and window.timeCode.isWeekend()>>\
 	[[Work as maid at the party|Task party maid][$flags.partyMaidStarted=false]]
+<<endif>>\
+\
+<<if ($tasksTeacher.clubDinnerGown.status eq 1) and window.timeCode.isSaturday() and ($time.hour lt 20)>>\
+	<<if window.clothes.dressedOutside.check()>>\
+		[[Pick up your gown for dinner at the club|Task clubDinnerGown][$scene="step1"]]
+	<<else>>\
+		<div class="tooltip">@@.halftransparent;Pick up your gown for dinner at the club@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedOutside>></span></div>
+	<<endif>>\
 <<endif>>\
 \
 <<if ($tasksTeacher.selfieNightwear.status eq 1)>>\

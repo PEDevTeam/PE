@@ -48,7 +48,7 @@
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings)>>\
+			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyStockings = true>>\
 				<<set $scene = "first buy female">>\
@@ -64,7 +64,7 @@
 			<<goto [[Shop events]]>>\
 		<<endif>>\
 	<<endif>>\
-<<elseif $scene eq "first buy female">><!--<First buy events>-->\
+<<elseif $scene eq "first buy female">>\
 	<<if _item and ($player.perversion.mall lte 1)>>\
 		<<set $flags.firstBuyFemale = true>>\
 		It's extremely embarrassing to buy the <<print _item.name.toLowerCase()>>. Clutching\ 
@@ -104,7 +104,7 @@
 			"It's, \
 		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
 			"They're, \
-		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
+		<<else>>\
 			"They're, \
 		<<endif>>\
 		um, for... my sister?"@@
@@ -126,7 +126,7 @@
 		
 		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.
 		
-		@@.reward;You get your first\
+		@@.reward;You bought your first\
 		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
 			<<if _item.sleepWear>>\
 				feminine nightwear.\
@@ -146,7 +146,7 @@
 				stockings.\
 			<<endif>>\
 		<<endif>>\
-		@@\
+		@@
 		
 		[[Return to the mall|Go to the mall]]
 	<<endif>>\
@@ -175,5 +175,3 @@
 	<<set $player.bought="">>\
 <!--</Extra items for school dress>-->\
 <<endif>>\
-
-

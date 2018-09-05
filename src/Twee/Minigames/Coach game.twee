@@ -1,12 +1,14 @@
 :: Coach game [pos_1261_2323]
 \
 <<if $player.debugA>>\
+@@.info;\
 Id = <<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).id ;>> \
 Perv = <<print $player.perversion.coach ;>> \
 Progress = <<print $minigames.coachgame.coachiness ;>> \
 Alertness = <<print $minigames.coachgame.alertness ;>> \
 Win = <<print $minigames.coachgame.win ;>> \
 Canwin = <<print window.coachMinigame.canWin() ;>>
+@@\
 <<endif>>\
 <<if window.coachMinigame.isCame()>>\
 	<<set _act = window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).id >>\
@@ -17,38 +19,66 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 		
 		After pulling out, Coach dumps the rest of $futa.his_her cum into your open mouth. Under $futa.his_her heavy gaze you have no choice but to swallow. It feels hot and sticky as it goes down your throat, forcing you to swallow several times before your mouth is empty.
 		<<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).action>>\
+		
 	<<elseif (_act eq 5) or (_act eq 6) or (_act eq 7)>>\
 		<<showImage "general" "coach_cum_on_face.gif">>\
 		<<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).action>>\
+		
 		Coach's cock suddenly twitches and $futa.he_she sprays cum all over your face. Some of it drips onto your lips. It's salty but has a subtle sweet taste.
 	<<else>>\
 		<<showImage "general" "coach_cum_ass.gif">>\
 		<<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).action>>\
-		Coach's cock suddenly twitches and $futa.he_she cums ait was just a draft.<<endif>>\
+		
+		Coach's cock suddenly twitches and $futa.he_she cums ait was just a draft.
+	<<endif>>\
 
 	<<if window.coachMinigame.halfWin()>>\
-	@@.coach;"Good job, $player.name , your technique is getting better. I noticed your eagerness today, keep this up."@@
-		<<if $player.perversion.coach lt 5>>\
+		<<if $player.perversion.coach lte 5>>\
 		<<set $player.perversion.coach++>>\
 		<<endif>>\
 		<<if $player.perversion.coach lte 1>>\
-		It's humiliating to hear $futa.him_her complimenting your performance. Still, $futa.he_she is right - you have indeed learned a little about sucking cocks.
+			@@.coach;"Good job, $player.name , you still not there yet, but give it some time and you will figure it out."@@
+			
+			It's humiliating to hear $futa.him_her complimenting your performance. Still, $futa.he_she is right - you have indeed learned a little about sucking cocks.
 		<<elseif $player.perversion.coach eq 2>>\
-		It's embarrassing, but you're pleased to hear $futa.his_her approval. You've learned a few more things about pleasing $futa.him_her.
+			@@.coach;"Good job, $player.name , your technique is getting better. I noticed your eagerness today, keep this up."@@
+			
+			It's embarrassing, but you're pleased to hear $futa.his_her approval. You've learned a few more things about pleasing $futa.him_her.
 		<<elseif $player.perversion.coach eq 3>>\
-		It's embarrassing... you realize you were looking forward to this moment. It feels so good to be appreciated. You learned a few more things about servicing cocks with your mouth.
-		<<elseif $player.perversion.coach gte 4>>\
-		It's embarrassing how much you were looking forward to this moment, but it feels so good to be appreciated.
+			@@.coach;"Excelent, $player.name , you getting better and better. You are natural cocksucker."@@
+			
+			It's embarrassing... you realize you were looking forward to this moment. It feels so good to be appreciated. You learned a few more things about servicing cocks with your mouth.
+		<<elseif $player.perversion.coach eq 4>>\
+			@@.coach;"Very good, $player.name , you are really improving. Some people say that older men's cocks is an aquired taste, but you seems to get into it in no time."@@
+			
+			It's embarrassing how much you were looking forward to this moment, but it feels so good to be appreciated.
+		<<elseif $player.perversion.coach eq 5>>\
+			@@.coach;"Oh my, you almost as good as a decent street whore. Do you get some extra training besides me or you you're just that good?"@@
+			
+			It's embarrassing how much you were looking forward to this moment, but it feels so good to be appreciated.
+		<<elseif $player.perversion.coach eq 6>>\
+			@@.coach;"Almost there, //cocksucker//. You're gettting really good with your mouth. I want you to try extra hard next time you visit me and maybe you will earn a special reward for your efforts."@@
+			
+			You feel wave of arousal, when he calls you //cocksucker//. You hate to admit it, but after spending so much time on your knees, sucking his massive cock, these degratory nicknames feel like form of endearament instead of insult. You lower you eyes in shame, realising that you are getting perversively proud and pleased to be called a talanted cocksucker.
+		<<else>>\
+			@@.coach;"You tease! I bet you did it intentionally. Well, as long as you want to improve your cocksucking skills, I will help you out."@@
 		<<endif>>\
 	<<else>>\
 		<<if $player.perversion.coach lt 5>>\
 		<<set $player.perversion.coach++>>\
 		<<endif>>\
-		@@.coach;"Well, that was disappointing, $player.name, don't tell me you need extra stimulation to try harder."@@
-		You quickly apologize to Coach and tell $futa.him_her that you will do better next time. You're surprised to realize you actually mean it.
-		At least you've learned a few things about pleasing cocks.
+		<<if $player.perversion.coach lte 5>>\
+			@@.coach;"Well, that was disappointing, $player.name, don't tell me you need extra stimulation to try harder."@@
+			
+			You quickly apologize to Coach and tell $futa.him_her that you will do better next time. You're surprised to realize you actually mean it. At least you've learned a few things about pleasing cocks.
+		<<else>>\
+			@@.coach;"That was very disappointing, $player.name. I thought that you finally figured it out. My my, but don't worry, we will make an exemplary cocksucker out of you yet. It just might tike more time than I thought. ."@@
+			
+			You feel ashamed, which is usual, but suddenly you realize that instead of being ashamed for your perversive actions, you feel disappointed in yourself for not satisfying Coach's massive cock. Maybe it's his wordplay finally getting to you or you just want him to praise you, but you want to prove to him that you can do it.
+		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.coach eq 6>>\
+	
 		You feel that this time you've grasped something essential about what Coach is trying to teach you. Next time will be different.
 	<<endif>>\
 	
@@ -88,7 +118,6 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 		@@.heroT;"Thank you."@@ You are surprised - you sincerely meant that. @@.heroT;"That was incredible."@@
 
 		<<Daring 10>>\
-
 		@@.coach;"I will tell $teacher, that you've satisfied me, and that you don't really have to come here every day any more. I'm not as young as I used to be, after all. Still, you're welcome here any time, I'm not going to turn down those sweet lips and that tight ass of yours."@@
 
 		You nod absentmindedly as you clean up and prepare to go, surprised that in the moment you totally forgot about $teacher.
@@ -100,6 +129,7 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 		Each word echoes in your head, but instead of revulsion, anger, or shame you feel a familiar sense of excitement that would be arousing if you weren't this spent. Oh, god, $futa.he_she made you associate these words with the pleasure from sex. Now it won't feel right if you aren't being demeaned during sex!
 		
 		Coach laughs, noticing you've realized what $futa.he_she has done to you before $futa.he_she sends you on your way.
+		
 		<<set playerCode.masturbate.cum()>>\
 	<<elseif (not ($body.anal eq 1)) and (not ($body.anal eq 2)) and (not ($body.anal eq 3))>>\
 		Coach's dick slowly spreads your anus, making you moan like the eager slut you are. You arch your back and let out a long whimper as $futa.he_she slowly forces $futa.his_her fat shaft into you, making you squirm as you take every inch.
@@ -115,6 +145,7 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 			<<endif>>\
 			
 		You give $futa.his_her penis a sweet goodbye kiss, clean up and walk off on wobbly legs.
+		
 		<<set playerCode.masturbate.cum()>>\
 	<<elseif ($body.anal eq 1)>>\
 		Coach's dick slowly spreads your anus, making you moan like the eager slut you are. You arch your back and let out a long whimper as $futa.he_she smoothly slides $futa.his_her fat shaft into you, meeting little to no resistance, making you pant as you take every inch.

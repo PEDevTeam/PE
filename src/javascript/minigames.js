@@ -264,7 +264,7 @@ window.coachMinigame = {
 				break;
 			}
 		}
-		return ((coachgame.dreaminess - coachgame.alertness > _wa.alert) && (State.active.variables.player.perversion.coach >= 3));
+		return ((coachgame.coachiness - coachgame.alertness > _wa.alert) && (State.active.variables.player.perversion.coach >= 3));
 	},
 	halfWin: function() {
 		var coachgame=State.active.variables.minigames.coachgame;
@@ -292,7 +292,7 @@ window.coachMinigame = {
 
 window.coachgameList=[
 	{
-		id: 0,
+		id: 1,
 		win: false,
 		success: false,
 		chance: 1,
@@ -310,7 +310,7 @@ window.coachgameList=[
 		actionF: "You gently kiss the tip of her penis."
 	},
 	{
-		id: 1,
+		id: 2,
 		win: false,
 		success: false,
 		chance: 4,
@@ -328,7 +328,7 @@ window.coachgameList=[
 		actionF: "You lick around head of her dick, leaving no spots untouched."
 	},
 	{
-		id: 2,
+		id: 3,
 		win: false,
 		success: false,
 		chance: 3,
@@ -346,7 +346,7 @@ window.coachgameList=[
 		actionF: "You place your lips over the head of her dick, slowly sucking it into your mouth and teasing it with your tongue."
 	},
 	{
-		id: 3,
+		id: 4,
 		win: false,
 		success: false,
 		chance: 5,
@@ -364,7 +364,7 @@ window.coachgameList=[
 		actionF: "You take a breath before stretching your lips around the enormous dick, squeezing the half-hard penis down your throat until your lips meet her pubic hair."
 	},
 	{
-		id: 4,
+		id: 5,
 		win: false,
 		success: false,
 		chance: 5,
@@ -382,7 +382,7 @@ window.coachgameList=[
 		actionF: "You lick the entire length of her shaft, from the head to balls."
 	},
 	{
-		id: 5,
+		id: 6,
 		win: false,
 		success: false,
 		chance: 2,
@@ -400,7 +400,7 @@ window.coachgameList=[
 		actionF: "You reach for Coach's swollen balls and gently massage them with your hands, giving occasional kisses."
 	},
 	{
-		id: 6,
+		id: 7,
 		win: false,
 		success: false,
 		chance: 1,
@@ -418,7 +418,7 @@ window.coachgameList=[
 		actionF: "You run your hands over Coach's half-hard cock, squeezing gently."
 	},
 	{
-		id: 7,
+		id: 8,
 		win: false,
 		success: false,
 		chance: 4,
@@ -436,7 +436,7 @@ window.coachgameList=[
 		actionF: "You turn around and rub her dick with your butt, sliding it between your butt cheeks."
 	},
 	{
-		id: 8,
+		id: 9,
 		win: true,
 		success: false,
 		chance: 1,

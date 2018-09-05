@@ -15,7 +15,7 @@
 		<<set $dreams.Panties.active = true>>\
 	<<endif>>\
 	<<if _o and _o.female and (not $therapistTalks.talkCrossdressing.start)>>\
-		<<set $therapistTalks.talkCrossdressing.start=true>>\
+		/*<<set $therapistTalks.talkCrossdressing.start=true>>  DISABLED UNTIL PROPER TALK SCENE*/\
 	<<endif>>\
 	<<if _u and _u.female and _u.slutty and (not $player.daringFlag.femaleUnderwear)>>\
 		<<set $player.daringFlag.femaleUnderwear to true>>\
@@ -29,7 +29,7 @@
 <<nobr>>\
 <<replace "#sidebar_clothes">>
 <<if $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
-@@.sidebarImages;
+<div class="sidebarImages">
 	<<set _curClothes=[playerCode.isWearingOn(itemTypes.Outerwear),
 							playerCode.isWearingOn(itemTypes.Earrings),
 							playerCode.isWearingOn(itemTypes.Collar),
@@ -45,29 +45,29 @@
 	<<if _curClothes[8].id eq $items.buttPlugInflate.id>>
 		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
 		<<set _inflateImage = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
-		<<set _curClothes[8] = { image: _inflateImage }>>
+		<<set _curClothes[8] = { id: "buttPlugInflate", image: _inflateImage }>>
 	<<endif>>
 	
 	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
 	
 		<<if $flags.gTrialLatexMaid>>\
-			<<set _curClothes[0] = { image: "maid_dress_latex.jpg" }>>
+			<<set _curClothes[0] = { id: "maidOutfit", image: "maid_dress_latex.jpg" }>>
 		<<else>>
-			<<set _curClothes[0] = { image: "maid_dress.jpg" }>>
+			<<set _curClothes[0] = { id: "maidOutfit", image: "maid_dress.jpg" }>>
 		<<endif>>
 		
 		<<if (not _curClothes[2])>>
 			<<if $flags.gTrialLatexMaid>>\
-				<<set _curClothes[2] = { image: "choker_05.jpg" }>>
+				<<set _curClothes[2] = { id: "choker", image: "choker_05.jpg" }>>
 			<<else>>
-				<<set _curClothes[2] = { image: "choker_00.jpg" }>>
+				<<set _curClothes[2] = { id: "choker", image: "choker_00.jpg" }>>
 			<<endif>>
 		<<endif>>
 		
-		<<set _curClothes[3] = { image: "maid_headband.jpg" }>>
+		<<set _curClothes[3] = { id: "hairband", image: "maid_headband.jpg" }>>
 		
 		<<if (not _curClothes[4])>>
-			<<set _curClothes[4] = { image: "maid_duster.jpg" }>>
+			<<set _curClothes[4] = { id: "hairband", image: "maid_duster.jpg" }>>
 		<<endif>>
 		
 		<<if $flags.gTrialBalletHeels>>
@@ -128,12 +128,12 @@
 		<<if _curClothes[_i]>>
 
 			<<if (_curClothes[_i].id)>>
-				<<set _image = window.itemF.image(_curClothes[_i])>>
+				<<set _itemSidebarImage = window.itemF.image(_curClothes[_i])>>
 			<<endif>>
 			<<if (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
-				<<showImageSidebar _image $items[_curClothes[_i].id].curAlt _small _i>>
+				<<showImageSidebar _itemSidebarImage $items[_curClothes[_i].id].curAlt _small _i>>
 			<<else>>
-				<<showImageSidebar _image 100 _small _i>>
+				<<showImageSidebar _itemSidebarImage 100 _small _i>>
 			<<endif>>
 
 		<<else>>
@@ -158,7 +158,7 @@
 		<<endif>>
 		
 	<</for>>
-@@
+</div>
 <!--</Clothes mini-images>-->
 <<elseif $showimages and $avatar.active>><!--<Avatar window>-->
 

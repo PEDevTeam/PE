@@ -1,0 +1,411 @@
+:: Task clubBarHandy [pos_216_1085]
+\
+<<if $scene eq "step1">>\
+	You walk over to the club’s bar and ultra-lounge. A short, half-wall divider separates it from the main club, giving it at least a slightly more intimate feeling, even if it’s no less noisy. After all, both areas share the same overhead space.
+
+	The lounge’s sleek furniture is styled in a lux, modern look. Blue-lighted tabletops and luminescent strips form islands of light amid the mostly dark area. It’s crowded, but the jumble of clientele is cast only in a pale cyan glow. You can’t avoid the feeling that you’re surrounded by anonymous, silhouetted strangers.
+
+	You take a seat at the long bar to get a better look around. The bar’s long, under-lit counter provides slightly more brightness to your immediate surroundings, and at least offers you a figural shoreline to the sea of patrons. You look around and sigh, wondering how the hell you are going to pick out someone to offer a hand job to. At least $teacher didn’t give you any specifics about who it had to be.
+
+	Standing out among the crowd are several black-suited bouncers around the bar’s entrance and in a few tactically advantageous places around the room. They have clearly made a point of being visible, with most standing near lighted displays or other brighter spots.
+
+	Hmm.
+
+	The club’s well-staffed bar is also full of attentive barkeeps. One of them soon spots you, and asks you what you’d like to have. You just tell him you’re waiting for someone, and, with a nod, the bartender is off to other customers. Not long afterward, another one greets you, and then soon after, another.
+
+	Damn, everyone’s paying attention here. This isn’t going to be easy. Maybe I should at least buy a drink?
+
+	<<if $player.money gte 10>>[[Buy a well drink ($10)|Task clubBarHandy][$scene="drink"; $player.money-=10; $player.drunk+=5]]
+	<<else>>@@.halftransparent;Have a well drink ($10) - not enough money@@
+	<<endif>>\
+	<<if $player.money gte 15>>[[Buy a regular cocktail ($15)|Task clubBarHandy][$scene="drink"; $player.money-=15; $player.drunk+=10]]
+	<<else>>@@.halftransparent;Have a regular cocktail ($15) - not enough money@@
+	<<endif>>\
+	<<if $player.money gte 22>>[[Buy a double cocktail ($22)|Task clubBarHandy][$scene="drink"; $player.money-=22; $player.drunk+=15]]
+	<<else>>@@.halftransparent;Have a double cocktail ($22) - not enough money@@
+	<<endif>>\
+
+	[[Offer a hand job to the first person you see sitting by themselves|Task clubBarHandy][$scene="offer"]]
+<<elseif $scene eq "drink">>\
+	You put in your drink order, which the bartender begins making with impressive speed, performing a flashy bar trick with spinning bottles and glasses that pass several times around and over his body. Much of the time, both liquids and their containers are in the air several feet from one another, passing perilously through open gravity and space. 
+
+	Somehow, all of the whirling parts arrive in front of you as a neatly made beverage, with not even a droplet spilled. You pass your cash forward with amazement, and the bartender makes the bills disappear with equal speed, though with much less flair.
+
+	With a drink in hand, you find yourself far less noticed by the bar staff, and regain enough confidence to search in earnest. You sip lightly, trying to draw the least amount of attention as you scan the room. The drink is remarkably stealthy with its alcohol, and you barely feel anything as it reduces your edginess.
+
+	Eventually, you feel like you have a few options… maybe. You see:
+
+		<<if (1 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
+			[[A guy in a fashionable sport suit sitting solo at the corner table|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=1; $scene="guyInSuit"]]
+		<<endif>>\
+		<<if (2 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
+			[[A sultry-looking woman in a black dress and stiletto heels at the end of the bar|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=2; $scene="sultryWoman"]]
+		<<endif>>\
+		<<if (4 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
+			[[Two younger, tipsy girls in sundresses and sandals at a table in the middle|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=4; $scene="twoGirls"]]
+		<<endif>>\
+
+	[[Bad idea... I should just go home|The Club][$tasksTeacher.clubBarHandy.status=3; $scene="MainClub"]]
+<<elseif $scene eq "guyInSuit">>\
+	You down the remnants of your drink and leave the glass behind on the bar. You quickly rehearse a couple of possible things you might say when you get to the table, but none of them sounds any good. Finally, you just stand up and let your feet take you to the corner table.
+
+	<<if playerCode.isMind_0()>>\
+		The thought of giving a hand job to a male doesn’t appeal to you at all, but you’re pretty sure the guy in the fashionable suit is your best shot to finish $teacher’s little task. His appearance looks polished and expensive, so at least he’s probably not dirty, and you think a guy is more likely to agree to what you’re planning to offer.
+
+		Fortunately, he’s still alone when you get to the table, and he looks up at you curiously. You bury your trepidation as much as possible, and sit at the seat next to him.
+	<<elseif playerCode.isMind_1()>>\
+		As you walk towards the table, you consider your choice. The man in the suit is really nicely (and expensively) attired, even a little handsome, and you think he’ll probably be the most receptive person among your options since he’s a young guy and dressed out. You’re not really into guys, but you could see a certain kind of metro appeal, if you were.
+
+		He only turns to you curiously as you approach his table, and his calm reaction helps you quash your stage fright as you ease into the seat next to him.
+	<<else>>\
+		You think again about the options available and you reaffirm your decision as you approach the table where the guy in the fashionable suit is sitting. He is definitely easy on the eyes, and his look is both polished and expensive. A young guy who takes that kind of care with his appearance is probably up for… more interesting things.
+
+		As you reach the table, you’re relieved no one else has arrived before you, and you slide into the seat next to him. He turns to you curiously, but calmly. Unconsciously, you cross your legs and compose yourself, reassured by his relaxed reaction.
+	<<endif>>\
+
+	@@.malevoice5;“Hello,”@@ he says. @@.malevoice5;“Do I know you?”@@
+	
+	You smile nervously and shake your head, and search for a response among the fleeting words scattering among your thoughts. You manage to keep mostly cool, but you elicit a confused smile from the suited gentlemen as he leans back and touches his fingertips together.
+
+	@@.malevoice5;“Well, something’s brought you to my table. To what do I owe the pleasure?”@@
+
+	More straws escape your mental grasp, so you finally just decide not to say anything.
+
+	You scoot closer, emboldened since the table will keep anyone passing by from seeing what you’ve been tasked to do, and by the fact that the corner table is the least lit in the entire lounge.
+
+	You reach under the table, finding the suited man’s groin within easy reach. As your fingers make contact with his pants, the man only blinks a couple of times in reaction. At least, that’s the only reaction you get above the table.
+
+	@@.malevoice5;“So, I see the pleasure is to be more… direct than I expected,”@@ he says. @@.malevoice5;“Actions over words, then? No waste of time - I can appreciate that. I don’t often meet a girl who is so ‘to the point.’”@@
+
+	He smoothly looks around, then lowers his arms so his hands join yours under the table. His fingers gently take hold of your own, moving them aside. At first you think he is trying to stop you, but when his hands move yours back in place, you find he’s unzipped his fly and pulled aside his underwear to expose his naked cock.
+
+	[[Give him a hand job|Task clubBarHandy][$scene="guyInSuitHandjob"]]
+<<elseif $scene eq "guyInSuitHandjob">>\
+	You wrap your fingers around him, finding his penis warm, firm and ready. As you hold him, several bar patrons pass the table, unaware of what’s happening. You can barely believe you’re doing this, but you can’t deny how much thrill the danger of being caught adds.
+
+	You start to stroke him, feeling the looser outer skin slide along with your grasp over the firmer, unmoving core of his erection. You’ve done this to yourself countless times, so you’re quite experienced with it, but it’s suddenly a very foreign feeling when it’s not your own body. His eyes narrow a little and his breathing gets a little heavier, letting you know what you’re doing is effective.
+
+	@@.malevoice5;“I admit, you have me at a disadvantage,”@@ he says. @@.malevoice5;“Not that I… mind.”@@
+
+	You do your best to keep your motion below the table, but you know you have to increase your pace in order to finish. The tip of his cock slickens with pre-cum, and you let it slide between your hand and his skin to lubricate your work. His eyes close, and he leans back fully in his seat, although his expression remains remarkably calm under the circumstances. 
+
+	You think someone will catch you at any moment, but thankfully, the combination of dim lighting, lots of alcohol use and the constant crowd around you all help keep things undetected.
+
+	Under all this tension, you nearly forgot that $teacher told you that you have to get proof. You gingerly take your cell phone out with your unoccupied hand, open the camera app, and try your best to aim it under the table.
+
+	Just as you are about to take the photo, the suited man moans and you feel his cock tense. You shift your grip and take the top of his cock in your fist, pumping him across the finish as he begins shooting into your closed fingers. With his eyes closed in climax, the flash under the table as you get your proof goes totally unnoticed.
+
+	You grab a napkin and quickly clean up, hiding your hand near your lap, with only slight difficulty. Wordlessly, and with impressive subtlety, the man also cleans and re-zips himself.
+
+	@@.malevoice5;“That was delightfully unexpected, miss. Thank you,”@@ he says. @@.malevoice5;“But… honestly, I’m not sure what else to say.”@@
+
+	<<if playerCode.isMind_0()>>\
+		You certainly aren’t, either, so you decide to leave things right there. Embarrassed, you leave the table and quickly exit the bar before you get any more reasons to wish you could vanish.
+	<<elseif playerCode.isMind_1()>>\
+		In reply, you just slyly smile. Leaving things there, you slide out of the chair and head back to the club. You find yourself feeling a fleeting sense of satisfaction, while the rush lingers long after you leave.
+	<<else>>\
+		In reply, you just blow him a kiss and smile. Though you’re not quite sure why you did that, you feel an unexpected sense of satisfaction at getting a stranger off in public. The rush of the whole experience lingers well after you leave the bar and head back to the club.
+	<<endif>>\
+
+	[[Head back to the club|The Club][$scene="MainClub"]]
+<<elseif $scene eq "sultryWoman">>\
+	You down the remnants of your drink and leave the glass behind on the counter. You quickly rehearse a couple of possible things you might say when you get to the far end of the bar, but none of them sounds any good. Finally, you just stand up and let your feet take you.
+
+	<<if playerCode.isMind_0()>>\
+		You can’t believe you’re in a crowded club, thinking about doing something naughty in public to a perfect stranger. The woman is gorgeous, so that’s not the problem – well, actually it makes it harder because she is so beautiful. You are so nervous, even walking over to her is difficult.
+
+		You have no idea what will happen, but you think about the others you could have chosen and it reaffirms your decision. If you have to do something with somebody for $teacher’s task, you might as well try it with the hottest lady in here. While you don’t want to assume anything about her from her looks, you can at least say she isn’t avoiding attention.
+
+		Then, again, you really have no idea what you’re doing.
+	<<elseif playerCode.isMind_1()>>\
+		You are both terrified and turned on by what you’re about to try to do. Seeing the beautiful woman across the bar, you are reassured you made the best choice, but you’re incredibly nervous. Even walking over to her is turning out to be difficult.
+
+		You feel somewhat reassured by the fact that you aren’t really just some creepy guy going after a woman in a club - this is all because $teacher is making you do it. You find the feeling of being a little girly yourself makes it slightly easier to handle. The fleeting thought of you sitting with her, being her wingman, briefly crosses your mind, but that’s taking things way too far and you fight back the thought.
+	<<else>>\
+		You head towards the beautiful woman sitting on the opposite end of the bar, and you are reassured that you made the best choice. However, you still feel extremely nervous, and find just walking towards her is hard.
+
+		Although the thought of approaching a gorgeous, perfect stranger is nerve-wracking, the idea of being naughty in public, where others might see you, is beyond thrilling. The rush courses through your veins, and although you’re worried about what you’ll even say to her about $teacher’s task when you get there, you hope that being girly yourself will take some of the pressure off. 
+
+		In a way, you find you actually relate to her more than to any of the others here, and you hope she doesn’t get angry at you for what you plan to ask.
+	<<endif>>\
+
+	After what seems an endless journey due to your anxiety, but also because it’s actually relatively out of the way in the large club, you reach the woman at the end of the bar. She pays little attention to you as you approach, but as soon as she realizes you’re there to meet her, she takes a sip of her cocktail and glances up at you. 
+
+	She’s still every bit as beautiful up close, but you can see now she might be much older than you expected. Her comely features and skillful makeup make it impossible to tell how much – she is clearly in both her element and her prime.
+
+	@@.femvoice7;“How unusual,”@@ she says. @@.femvoice7;“Ordinarily, the only ones who venture back here are cocky jerks with too much booze in their system and enough cologne to gag a skunk. Even the bartenders barely bother, and I tip like royalty.@@
+
+	@@.femvoice7;“A nice change of pace, but we’re far enough over that you had to come here on purpose. So, what is it? Are you looking for company, or trying to avoid it?”@@
+
+	She looks you over with an amused expression. You survey your surroundings for a moment while you try to think of how to answer her.
+
+	By its remoteness, the bar’s end has a good deal more general privacy than most of the lounge. However, if there isn’t much in the way of concealment if anyone came over, except in the contrast between the under-lit bar and relatively dark seats below.
+
+	[['"Looking for company"'|Task clubBarHandy][$scene="sultryWomanHandjob"]]
+	[['"Trying to avoid it"'|Task clubBarHandy][$scene="sultryWomanHandjob"]]
+<<elseif $scene eq "sultryWomanHandjob">>\
+	Fighting through your butterflies, you tell her as delicately as you can what you came for, and that you hope she doesn’t mind your taking precautions with the extra privacy back here. You leave out the real reason ‘why,’ chalking it up to a dare instead. To your surprise, she doesn’t slap you or throw a drink in your face as you feared she might.
+
+	@@.femvoice7;“My, my - a sweet little thing like you with an offer like that,”@@ she says. @@.femvoice7;“And here I thought it was going to be just another boring night at the bar.@@
+
+	@@.femvoice7;“Lucky for you, nobody interesting seems interested, and I’m drunk, horny, and have a healthy exhibitionist streak. Have a seat next to me, sweety.”@@
+
+	As you do, she turns on her barstool so her knees point towards you, and parts them a little. The hem of her dress comes only to her middle thighs, but you see only shadows beneath in the dim lighting.
+
+	With a practiced shimmy of her hips, she pulls the side of her dress back to her hip along one side, and takes hold of the black string of her skimpy thong panties. Barely even leaning, she gracefully slides them down and over her long, spiked heels without exposing any more skin than usual, and tucks them into her purse.
+
+	@@.femvoice7;“This should be fun.”@@
+
+	She turns back towards the bar, her long legs still parted but angled away from you. She adjusts her dress again, this time sliding the bottom edge of her dress back under her butt. From the side, she almost looks like she’s dressed normally, but her underside is now fully exposed. She gives you a dirty little smile that could thaw out a freezer.
+
+	At her invitation, you reach underneath her. The skin of her legs is smooth and cool, and soft against your fingers, as your nearest hand slips beyond the bunched fabric of her dress.
+
+	You follow the curve of her inner thigh to the lower crest of her ass, where your fingers find a warmer landing against the soft folds of her labia. Her mound is plump and yielding to the touch, and has been waxed smooth. The woman only lifts her head and closes her eyes a little as you begin to touch her pussy, both of you making a conscious effort to keep things subtle.
+
+	You’ve seen plenty of girls on the internet, but seeing is one thing; feeling a live woman in person is quite another. Your hand explores her freely, though you don’t have much room with her legs spaced so close apart. You feel the innermost curve of her leg where it joins her hip, the plush feeling of her thigh pressing the sides of your hand, and the pleasant warmth of her as your fingertips explore upward across her mons.
+	// May need to mod this slightly with a flag check to reflect any experience at touching others. //
+
+	Having gleaned most of what you know from porn, you expected to immediately find a wet opening, but at first she doesn’t seem to have any openings at all. You extend your fingers and press upwards, but all you can feel is a flap of skin that is not entirely dissimilar to the softest part of your earlobe, just warmer, longer and a little looser.
+
+	Due to the closeness of her legs, you find it most comfortable to touch her using only your index and middle finger together, and apparently, so does she. You experimentally press against her pussy with gentler and firmer touches until you find what she enjoys most. You settle on an up-and-down gesture, alternating your fingers gently against her. 
+
+	When you stroke the part of her pussy closest to her belly, she moans a little. You detect a firmer little nub there, and realize you’ve found her clit. She moves when you touch it at first, but she seems to enjoy it when you press around the area.
+
+	@@.femvoice7;“Oh, god. Please, do that some more,”@@ she urges.
+
+	[[Do it some more|Task clubBarHandy][$scene="sultryWomanHandjob2"]]
+<<elseif $scene eq "sultryWomanHandjob2">>\
+	You continue stroking her lightly between your fingers, and her breasts begin to rise and fall visibly as her breathing gets heavier. You are a little surprised soon after, when what you thought was a single flap of skin parts into two. 
+
+	Suddenly, the moistness you thought was missing at first is now all around your fingers. Lubricated by her juices, your fingertips begin to slide easily, and then you find her entrance. It’s at first not much different than the feeling of pressing on the center of your relaxed tongue, but then your finger slides through a jelly-like ring and then it’s surrounded by tender wetness and gentle heat unlike anything you’ve ever felt before.
+
+	You withdraw, then press in lightly again, feeling her body expand around your fingers to take them in. The walls of her vagina are lined with soft, wrinkled ridges that slip over your fingertips amid the slick moistness inside her. You feel her body delicately contracting as you push in and out, caressing you back.
+
+	She tilts her hips a little and pushes so your fingers slide out, then she moves her thighs so your hand moves back over her clit. This time, you can feel her fully-distended clit distinctly, and you when you run your fingertips over it, she squirms in her chair and braces herself with an open hand against the bar. Her legs begin to quiver rapidly, and you feel her thighs squeeze your hand tightly as she starts to orgasm. A modest dousing of fem cum splashes your fingers.
+
+	Remembering your requirement to get proof, you gingerly slip your cell phone out and ready its camera for a quick shot, making sure not to telegraph anything and keeping it close to your body. Your shot distinctly shows your hand is up her dress, and you hope that should work. Fortunately, despite the dim lighting, the flash isn’t needed, and no one notices.
+
+	You are concentrating so much on what’s happening to your aroused companion that you fail to notice that a bartender is approaching until he’s almost in front of you. You try to pull your hand away, but at that exact moment, she notices the bartender, too, and her leg traps your hand when she sits up. Your fingers are pinned right under her pussy.
+
+	@@.malevoice6;“Hi, ladies, what would you like?”@@ asks the bartender.
+
+	@@.femvoice7;“More of what I just had!”@@ she exclaims, a little too enthusiastically.
+
+	@@.malevoice6;“Ok…”@@ the bartender replies, raising an eyebrow. He takes a look at her tab ticket, and turns toward the back wall to get the necessary bottles.
+
+	@@.femvoice7;“Keep going!”@@ she whispers urgently.
+
+	With the bartender so close by you’re unsure, but you do as she asks.
+
+	The barkeep starts making her another drink, once again with the club’s signature juggling-mixology act. This time, it’s hard to even pay attention to it. You work your fingers around her clit once more, making little circles with your fingertips since your still-pinioned hand is going nowhere. Unexpectedly, her reaction is actually far stronger than when your hand was free, and she bites her lip to contain a little scream.
+
+	As she moves in reaction to her pleasure, you realize she has actually had a great amount of control over your motions the whole time, using her small body’s weight to guide you to do what she wants. The thought turns you on immensely.
+
+	As the drink arrives with a final, tumbling flourish, her nethers start shuddering again. With the smallest tilt of her hips, she releases you. Your hand finally slips free, and she pounds her own on the bar top.
+
+	@@.femvoice7;“Oh, god! Yes! Thank you!”@@ she shouts, orgasmically.
+
+	@@.malevoice6;“Um, don’t mention it…”@@ the bartender says, his confusion obvious as he turns to you. 
+
+	@@.malevoice6;“Anything for you?”@@
+
+	@@.heroT;“Um, I think I’m actually done here,”@@ you say, and get up to leave. You leave the sultry-looking woman to her blissful self, and head back to the club.
+
+	[[Go back to the club|The Club][$scene="MainClub"]]
+<<elseif $scene eq "twoGirls">>\
+	You down the remnants of your drink and leave the glass behind on the counter. You quickly rehearse a couple of possible things you might say when you get to the girls’ table, but none of them sounds any good. Finally, you just stand up and let your feet take you.
+
+	<<if playerCode.isMind_0()>>\
+		As you walk towards the table, you are incredibly nervous, but still confident that you made the right choice. When you consider the other options, talking to the two tipsy-looking girls seems like the obvious decision. 
+
+		On the one hand, they are definitely here to have a good time, and on the other, there are two of them so you think it’s less likely they will freak out if you ask about $teacher’s task than if there was only one girl by herself. 
+
+		Besides that, if this actually works, you can’t help but think of the possibilities of doing naughty things in public with two girls.
+	<<elseif playerCode.isMind_1()>>\
+		You battle your tension as you approach the girls’ table, but manage to avoid full-fledged panic by reaffirming your choice to visit them instead of one of the other options.
+
+		First, the girls are probably closest to your age, so there’s not as much intimidation as there would be talking with someone years older than you, or if you had to bring up $teacher’s task one-on-one - since there’s two of them, it’ll probably be less weird. Second, it helps that you’re a little girly yourself, and somehow talking with them feels easier than going up to some judgmental club guy with his game on.
+	<<else>>\
+		You’re still mostly all nerves as you walk over to the girls’ table, but you feel like talking to them is a better decision than any of the other possibilities in the bar. Thinking it over calms you a little, and in hindsight it feels like the natural choice.
+
+		The two girls are relaxed, obviously having a good time together, and not very far off in age from you. You’re feeling pretty girly yourself right now, so you feel like you relate more to them than you would with anyone else here. You really hope they don’t get upset with you for asking about $teacher’s task. Besides, you’d feel way more intimidated trying to talk to some perfectly-groomed guy with his club game on.
+	<<endif>>\
+
+	You are actually surprised to reach their table so soon, still unprepared with words to say. You look at the two girls, trying to force out some kind of opening, when the girl closest to you looks up, setting down her drink among a large group of empty glasses. Unexpectedly, they both stagger to their feet tipsily, and genuine smiles appear on their faces.
+
+	@@.femvoice8;“Oh, my god! Hey! It’s… you!”@@ she says, snapping her fingers loosely and wagging a finger.
+
+	@@.femvoice9;“It is!”@@ agrees her companion. @@.femvoice9;“Hey!”@@
+
+	One after the other, they each plant pecks on your cheek that smell of fruity booze, and give you bent-arm half-hugs around your shoulders. Their similar sundresses show off their trim figures and modestly-sized breasts, and you feel both as each girl presses against you.
+
+	The nearest girl grabs you by the wrist and pulls you into the booth seat between them. You’re nearly certain neither of them has ever seen you before, but after their greeting, you’re no longer sure yourself.
+
+	@@.femvoice8;“It’s been, like, forever!”@@ the girl on your right says. @@.femvoice8;“Since that thing, um, that time.”@@
+
+	@@.femvoice9;“Oh, yeah!”@@ laughs the girl on your left. @@.femvoice9;“That was the best. We drank. So. Much.”@@
+
+	@@.femvoice8;“It’s so weird running into you here! We’ve never even been to this club before. Is this, like, your spot?”@@ She links her arm in yours.
+
+	@@.femvoice9;“Oh, look at your outfit! Aren’t you super cute?”@@ She touches your arm and smiles.
+
+	@@.femvoice8;“I know, right? You know, I was shopping over at that new place last weekend, and I saw something kind of like that. Definite must-have! But I got new shoes instead.”@@
+
+	@@.femvoice9;“You went shopping without us? Some friend…. Kidding! You’re the best.”@@ She leans across you and smooches the other girl’s cheek, brushing your body with her own.
+
+	A few minutes elapse like this, without your needing to (or being able to) say anything. You’ve definitely never met these girls before, but you have to keep reminding yourself of it. You begin to feel strangely cozy and relaxed, even though their confusing conversation has no discernable thread to follow.
+
+	Still, you have no idea how to even bring up your task. You’re still thinking about it when the girl on the left decides to go to the bar to order more drinks, leaving you alone with the girl on your right.
+
+	@@.femvoice8;“So, um, what do you think about her?”@@ she asks out of nowhere, indicating she’s talking about the other girl with a tilt of her head. @@.femvoice8;“I’m not supposed to tell, but she’s totally into chicks. I think she likes you, but she’s too shy to say.”@@
+
+	Her eyes search yours intently, her expression one of delight at expecting something juicy in return for her own revelation. You start to answer, but she interrupts before you can.
+
+	@@.femvoice8;“You should, definitely! We had a little thing once – you know, ‘experimenting’ and all that. It was fun, but not my usual. Probably just a spring break thing, you know?”@@
+
+	She looks at you again with a devious smile.
+
+	@@.femvoice8;“I have it. Truth or Dare! Think of something dirty, and I’ll dare you to do it to her.”@@
+
+	Leaning in conspiratorially, she asks, @@.femvoice8;“So, what should I tell her? I want to watch.”@@
+
+	Actually, you have just the thing.
+
+	[[Whisper conditions of the task to her|Task clubBarHandy][$scene="twoGirlsHandjob"]]
+<<elseif $scene eq "twoGirlsHandjob">>\
+	You whisper in the girl’s ear, and explain $teacher’s task. Although you leave out the real ‘why’ behind it, you do mention that you need the photo to prove it happened. She laughs out loud, slapping you lightly on the shoulder in mock embarrassment.
+
+	@@.femvoice8;“So you do have a dirty mind, after all! It’s always the quiet ones you have to look out for.”@@
+
+	Just then, the other girl arrives, bumping back down at your side with an impressive cluster of umbrella-covered concoctions for the table that well outnumbers you all. Both girls lean close against you as they each take a drink in hand, draining them rapidly. You take one of the cocktails to join them, but the girl on the left pulls your hand to her mouth instead, and drinks some of it down, too, giggling at you.
+
+	@@.femvoice9;“Sorry, I was thirsty!”@@ she laughs.
+
+	@@.femvoice8;“You big slut! Always drinking around,”@@ her friend on the right replies, finishing her own cocktail. @@.femvoice8;“Hey, we’re doing Truth or Dare.”@@
+
+	The girl on the left smiles. @@.femvoice9;“Yay! I love that game! Who’s first?”@@
+
+	The girl to your right nudges you with her elbow.
+
+	@@.femvoice8;“Her. Okay - truth, or dare?”@@ She looks at you expectantly.
+
+	@@.hero;It’s not really a choice, is it?@@
+
+	Your stomach flutters as you get ready to reply.
+
+	[[Dare|Task clubBarHandy][$scene="twoGirlsHandjob2"]]
+<<elseif $scene eq "twoGirlsHandjob2">>\
+	@@.heroT;“Dare,”@@ you answer.
+
+	@@.femvoice9;“Wow, straight for the danger zone, huh?”@@ asks the girl on the left. @@.femvoice9;“You’ve obviously never played this game with her around before.”@@
+
+	@@.femvoice8;“Yeah, okay, Miss ‘How many guys can there possibly be on that boat?,’ I see how it’s going to be,”@@ the other girl retorts. @@.femvoice7;“Anyways. I dare you to finger her, right now, at this table.”@@
+
+	@@.femvoice9;“Oh, my god! I swear, I can’t take her anywhere.”@@ She reaches for, takes and downs the rest of what used to be your drink.
+
+	@@.femvoice8;“And me, too, while you’re at it,”@@ she adds ever so casually, smiling at her added twist.
+
+	@@.hero;Wait, what?@@
+
+	@@.femvoice9;“It’s a dare. You have to!”@@ she laughs giddily.
+
+	[[Go through with it|Task clubBarHandy][$scene="twoGirlsHandjob3"]]
+<<elseif $scene eq "twoGirlsHandjob3">>\
+	Your nervousness suddenly returns at full strength. While the scenario itself is straight out of a porn fantasy, it’s different when it involves you, and it’s in public, and… there’re two girls. Not that you didn’t appreciate all of that before, but now, what do you actually do? You don’t really have much experience at this.
+
+	You barely have time to think it over when both girls begin slipping their panties down from under their dresses. They both have the flirty, brightly-colored hipster kind, and as they drop them on your lap, you are grateful that no one else around seems to notice. Both of them scoot as close to you as they can, lifting glasses and clinking them together in front of you with a giggle.
+
+	You cautiously reach under the table into the laps of the two girls, finding the already short hems of their dresses are fully hiked up to each of their waists. To your relief, you think the overhang of the table probably covers everything, but you still feel like could get caught at any second. The rush is intense.
+
+	Reaching further, you feel each pair of legs widen a little as your palm brushes over the small patch of neatly trimmed, wispy pubic hair on the girl on the left, and a little, scratchy landing strip on the girl to the right. Your fingers reach further, between warm, cushiony thighs, and then you feel the heat of soft, pliant pussies against your fingertips.
+
+	@@.femvoice8;“Yeah. That’s it! Do it!”@@ the girl on your right encourages you.
+
+	Continuing downward, you discover the girl on the left has a puffy mound of smooth skin with just a tidy crease through its center, whereas a small pair of fleshy petals belongs to her friend. Both of them are a little bit moist to the touch, especially towards the middle, but their intimate places are hardly the wet, open holes you expected from watching porn. As your fingers explore, you barely even notice an entrance at all, actually, although the girl on the right seems to have much more lubricating girl cum to spare than her friend does.
+
+	You feel the fingers of the girl on your left touching your hand. The palm of her hand cups the back of yours, and then her middle and index fingers begin to lead your own, gently steering your motions across her pussy into a gentle, ‘come hither’ motion. Her outer cleft yields a little, revealing a slit within, and you feel a shallow, slippery groove beneath as her hand eases you inward.
+
+	The girl on the right takes a cue from her friend and begins steering your opposite hand over herself. Her touch is a bit more forceful, pushing your hand into firm circles that cause her folds to squish in and out between a small gap between your fingers. You feel them slipping around under your touch for a while, and then you notice the prod of a harder nub as she introduces you to her clit.
+
+	Both girls are openly enjoying themselves, their expressions hiding none of their obvious pleasuring. You’re really worried that someone is going to spot you, but a few glimpses in the dim at passing patrons reassures you that no one else seems to notice or care.
+
+	[[Keep going|Task clubBarHandy][$scene="twoGirlsHandjob4"]]
+<<elseif $scene eq "twoGirlsHandjob4">>\
+	The girl on the right changes tempo suddenly, hooking your two fingers sharply, and then her fingers press yours. Combined, they dive together into the warm, slippery wetness of her vagina, and you hear her gasp out loud. 
+
+	She starts pumping your hand, thrusting your fingers and hers in and out of herself aggressively. Her pussy is soon saturated in her juices, and you even feel some splash your forearm with the strength of her hard masturbation. Eventually, she pulls back the hand that’s with yours, but as she does it, she squeezes your hand and forces it in herself until she’s taking four of your fingers at once.
+
+	Her friend does something similar, though instead of pushing your fingertips inside with hers, she takes you by your wrist instead. She guides you to penetrate her by yourself. Your second set of fingers to be taken inside a girl makes the plunge much more tenderly. Once she gives you a rhythm, her hand lets go of yours, and you feel her start to stroke her clitoris by the tugging it makes around her passage.
+
+	You are so absorbed by the concentration you’ve given to the two girls, that you hardly noticed until now how turned on you are yourself. The rush of your public escapade, the risk of it all, and not least having a literal hand in the girls’ excitement – it’s all so much at once. It’s really difficult to focus on what you’re doing, but you notice that you’ve gotten wet yourself in your excitement, with a growing pool of pre cum having coated your own privates.
+
+	Both girls begin losing control as they rub themselves towards their looming climax. Both stop trying to guide you at all, and just ride your embedded fingers.
+
+	You can barely believe this is all happening. Inconveniently, this reminds you that you need proof for $teacher that it did.
+	
+	[[Reach for your cell phone|Task clubBarHandy][$scene="twoGirlsHandjob5"]]
+<<elseif $scene eq "twoGirlsHandjob5">>\
+	@@.heroT;“Oh, no! I need a photo!”@@ you exclaim. @@.heroT;“My phone!”@@
+
+	The girl on the right nods, somehow acknowledging you despite her intense distraction. You begin to pull your hand away from her, but she pants, @@.femvoice8;“Don’t you dare stop!”@@
+
+	She fumbles around with her free hand until she finds your cell phone, never stopping her wild ride, and raises it up to take a photo from over your heads. Somehow, she manages to get all three of you in view, and even though it’s a crazy angle, what’s happening is obvious enough. As she clicks the button to take the photo, you feel her body start shaking and your phone falls out of her hand and into your lap.
+
+	@@.femvoice8;“Oh, my god! Cumming!”@@ she cries.
+
+	@@.femvoice9;“Me too!”@@ her friend responds.
+
+	Both girls’ bodies begin to shudder, and you feel the girl on the right’s pussy contract intensely in a pulsing rhythm around your hand. The girl on the left just squeezes your forearm tightly with her thighs, squinting her eyes as she rides out her climax. Thankfully, the volume of the noisy club keeps their orgasmic moaning from carrying beyond your table.
+
+	Your hands are sore as they let go of them, and your fingers are thoroughly covered in feminine goo. A minute passes, and they both finally recover, taking their underthings off your lap as you all clean up.
+
+	@@.femvoice8;“How awesome was that?”@@ asks the girl on the right as she pulls up her panties.
+
+	@@.femvoice9;“Seriously - Best. Dare. Ever,”@@ says the girl on the left, pulling up her own. @@.femvoice9;“I didn’t think you’d go through with it.”@@
+
+	@@.femvoice8;“Yeah, I think everyone had too much to drink, maybe.”@@
+
+	@@.femvoice9;“I know, right?”@@ she says, looking at you. @@.femvoice9;“Hey, you’ve got at least eight empty glasses right there! You’re always such a bad influence on me, you lush!”@@
+
+	@@.femvoice8;“We should go then. Call us later, ok, girly?”@@
+
+	The girl on the right gives you a peck on the cheek, but its takes you a moment too long to realize you don’t actually have their numbers.
+
+	@@.femvoice9;“Yeah, you have to come out with us again!”@@ 
+
+	The girl on your left gives you a matching kiss on your other cheek. 
+
+	Before you can say anything else, they get up and leave. You still have no idea who those girls were, but you’re unlikely to forget them.
+
+	[[Go back to the club|The Club][$scene="MainClub"]]
+<<elseif $scene eq "offer">>\
+	You feel like you’re drawing too much attention to yourself by sitting at the bar without ordering anything, so you get up and look around for someone – anyone – who looks like they might be alone. You eye the bouncers and the bar staff as nonchalantly as you can, but you feel like you’re under surveillance. Then again, you’re wandering around without a drink in a bar, alone… maybe you are?
+
+	You spot an easy-going-looking lady in a casual blouse and a trendy skirt sitting on the opposite side of the bar, and start to walk towards her. Before you get there, a bodybuilder type, wearing tight, wicking fabric clothes that conform to his highly visible muscles, steps in and sits next to her. You quickly scratch that plan, as it’s obvious he’s her date.
+
+	@@.hero;No.@@
+
+	Next, you spot an open seat at a bigger table across the lounge, next to a happy-go-lucky-looking man in a Hawaiian shirt. He’s happily bobbing his head to the music with a number of empty glasses in front of him. Just before you arrive, however, a group of five attractive young ladies arriving from the dance floor surround him, retrieve their purses from under the table, and drag him off toward the club exit. 
+
+	@@.hero;Nope.@@
+
+	You see an open spot at a relatively private two-seat table in a darker corner, where a swarthy, handsome man in a leather jacket is sitting, minding his own business. You almost get there, but he gets up and leaves before you do.
+
+	@@.hero;No… again!@@
+
+	You stop to get your bearings, realizing you’ve just paced from one side of the club to the other and back again, twice, and you’re still getting nowhere with $teacher’s tasking. You groan aloud in frustration, just as someone taps you on the shoulder.
+
+	@@.clubBouncer2;“Excuse me, miss. Are you ok? I couldn’t help but notice you wandering around like you’re lost or something.”@@
+
+	You feel a clenching in the pit of your stomach when you realize it’s one of the bouncers asking, his suspicion of you obvious. Before you can get a handle on it, your fear and guilt wash all over your face, and you are at a complete loss for words to explain anything. Your mouth just hangs open stupidly, and nothing except air and a little whine comes out of your throat.
+
+	The bouncer eyes you with even more skepticism, and you panic. 
+
+	You rush out of the bar and head toward the exit via the dance floor, hoping the crowd conceals you. You have to get out of this club, as fast as you can! You feel an invisible army of bouncers closing in, but you don’t dare look back.
+
+	By the time you reach the empty sidewalk across from the club, you’re panting in the cool night air. You finally turn your head towards the club, but where you expected to see heavy men in pursuit, you see only the usual business at the club entrance.
+
+	You stop to catch your breath. After a couple of minutes, you do, but you can’t pull it together enough to go back in. You decide to call it a night.
+
+	[[Head for home|Go to bedroom][$tasksTeacher.clubBarHandy.status=3; $time.addMinutes(60); $scene="hoome"]]
+<<endif>>\
