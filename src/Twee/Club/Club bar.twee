@@ -17,13 +17,13 @@
 	<<if $player.drunk gte 5>><<display "Drunk message">>\
 	
 	<<endif>>\
-	<<if $player.money gte 10>>[[Have a well drink ($10)|Club bar][$scene="wellDrink"]]
+	<<if $player.money gte 10>>[[Have a well drink ($10)|Club bar][$scene="wellDrink"; $player.money-=10]]
 	<<else>>@@.halftransparent;Have a well drink ($10) - not enough money@@
 	<<endif>>\
-	<<if $player.money gte 15>>[[Have a regular cocktail ($15)|Club bar][$scene="regularCocktail"]]
+	<<if $player.money gte 15>>[[Have a regular cocktail ($15)|Club bar][$scene="regularCocktail"; $player.money-=15]]
 	<<else>>@@.halftransparent;Have a regular cocktail ($15) - not enough money@@
 	<<endif>>\
-	<<if $player.money gte 22>>[[Have a double cocktail ($22)|Club bar][$scene="doubleCocktail"]]
+	<<if $player.money gte 22>>[[Have a double cocktail ($22)|Club bar][$scene="doubleCocktail"; $player.money-=22]]
 	<<else>>@@.halftransparent;Have a double cocktail ($22) - not enough money@@
 	<<endif>>\
 	<<if ($tasksTeacher.clubBarHandy.status eq 1)>>\

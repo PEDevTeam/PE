@@ -1,6 +1,8 @@
 window.gameCode={
-	version: 0.7803
+	version: 0.7901
 }
+
+Config.history.maxStates=0;
 
 window.sidebarTabs=[
 	{

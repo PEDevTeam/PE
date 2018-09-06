@@ -500,6 +500,26 @@ window.playerCode={
 			}
 		}
 	},
+	clothesOverride: function() {
+		/* Check for wet panties */
+		if (State.active.variables.flags.laundryAccident) {
+			var itemsC=window.itemsC;
+			var player=State.active.variables.player;
+			
+			var i=player.clothes.indexOf(itemsC.pantiesCotton.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+			var i=player.clothes.indexOf(itemsC.gString.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+			var i=player.clothes.indexOf(itemsC.pantiesLatex.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+		}
+	},
 	deleteQuickSlot: function(slot) {
 		var quickS=State.active.variables.quickSlot;
 		var max=Object.keys(quickS).length - slot;
@@ -548,6 +568,8 @@ window.playerCode={
 				}
 			}
 		}
+		
+		window.playerCode.clothesOverride();
 	},
 	wearPajamas: function() {
 		var c=this.isWearingOn(window.itemTypes.Chastity);
