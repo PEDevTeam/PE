@@ -725,7 +725,7 @@ String.prototype.toProperCase = function () {
 };
 
 Config.history.controls = false;
-
+Config.history.maxStates=1;
 
 Macro.add('selectScene', {
 	tags	: ['scene', 'restIsRandom'],
