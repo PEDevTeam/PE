@@ -3784,8 +3784,10 @@ window.dreamsTeacher={
 }
 /* twine-user-script #5: "gameCode.js" */
 window.gameCode={
-	version: 0.7803
+	version: 0.7901
 }
+
+Config.history.maxStates=0;
 
 window.sidebarTabs=[
 	{
@@ -5341,7 +5343,7 @@ window.itemsC={
 		surgery: true,
 		daringRec: 6,
 		disabled: false,
-		cost: 15,
+		cost: 30,
 		image: "hr_depilatory.jpg"
 	},
 	Waxing: {
@@ -8501,6 +8503,26 @@ window.playerCode={
 			}
 		}
 	},
+	clothesOverride: function() {
+		/* Check for wet panties */
+		if (State.active.variables.flags.laundryAccident) {
+			var itemsC=window.itemsC;
+			var player=State.active.variables.player;
+			
+			var i=player.clothes.indexOf(itemsC.pantiesCotton.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+			var i=player.clothes.indexOf(itemsC.gString.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+			var i=player.clothes.indexOf(itemsC.pantiesLatex.id);
+			if (i >= 0) {
+				player.clothes.splice(i, 1);
+			}
+		}
+	},
 	deleteQuickSlot: function(slot) {
 		var quickS=State.active.variables.quickSlot;
 		var max=Object.keys(quickS).length - slot;
@@ -8549,6 +8571,8 @@ window.playerCode={
 				}
 			}
 		}
+		
+		window.playerCode.clothesOverride();
 	},
 	wearPajamas: function() {
 		var c=this.isWearingOn(window.itemTypes.Chastity);
@@ -8678,6 +8702,14 @@ window.rewardMoney={
 	specialHypnosis: 50
 },
 
+window.versionControl={
+	update: function() {
+		if (State.active.variables.gameVersion == 0.7900) {
+			if (State.active.variables.player.perversion.teacher >= 4) { State.active.variables.player.perversion.crossdressing=10;	}
+		}
+	}
+},
+
 window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
@@ -8702,6 +8734,7 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
@@ -11067,7 +11100,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.player.perversion.crossdressing >= 8) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
+			return (((State.active.variables.player.perversion.crossdressing >= 8) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -12439,28 +12472,28 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if (($body.makeup == 1)) {
+				if ((State.active.variables.body.makeup == 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent, not flashy, but it really makes you look pretty.\"@@";
 				}
-				if (($body.makeup == 2)) {
+				if ((State.active.variables.body.makeup == 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
 				}
-				if (($body.makeup == 3)) {
+				if ((State.active.variables.body.makeup == 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
 				}
-				if (($body.makeup == 4)) {
+				if ((State.active.variables.body.makeup == 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
 				}
-				if (($body.makeup == 1) && ($body.permMakeup >= 1)) {
+				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
 				}
-				if (($body.makeup == 2) && ($body.permMakeup >= 2)) {
+				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
 				}
-				if (($body.makeup == 3) && ($body.permMakeup >= 3)) {
+				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb, horny bimbo! That is so hot, I love it.\"@@";
 				}
-				if (($body.makeup == 4) && ($body.permMakeup >= 4)) {
+				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
 				return ((playerCode.haveMakeup() && State.active.variables.flags.salonMakeup) || playerCode.havePermanentMakeup());
@@ -17297,7 +17330,7 @@ For a few minutes, they keep up a steady rhythm, then $guardian picks up the pac
 
 	@@.heroT;&quot;Hello-o?&quot;@@ you stutter, as the annoyance incarnate takes off your heels. You feel a nervous jolt from your soles as $futa.he_she starts to tickle your feet, and have to will yourself to silence as you thrash your calves in a futile escape attempt. You really want to hit $futa.him_her now.
 	
-	@@.guardian;&quot;player.name? I&#39;m almost at the clinic, are you there?&quot;@@ A cold shiver goes through your spine - it seems you&#39;ve lost track of time.
+	@@.guardian;&quot;$player.name? I&#39;m almost at the clinic, are you there?&quot;@@ A cold shiver goes through your spine - it seems you&#39;ve lost track of time.
 	
 	@@.heroT;&quot;N-no, not yet. I...&quot;@@ 
 	
@@ -22672,13 +22705,13 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 	&lt;&lt;if $player.drunk gte 5&gt;&gt;&lt;&lt;display &quot;Drunk message&quot;&gt;&gt;\
 	
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $player.money gte 10&gt;&gt;[[Have a well drink ($10)|Club bar][$scene=&quot;wellDrink&quot;]]
+	&lt;&lt;if $player.money gte 10&gt;&gt;[[Have a well drink ($10)|Club bar][$scene=&quot;wellDrink&quot;; $player.money-=10]]
 	&lt;&lt;else&gt;&gt;@@.halftransparent;Have a well drink ($10) - not enough money@@
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $player.money gte 15&gt;&gt;[[Have a regular cocktail ($15)|Club bar][$scene=&quot;regularCocktail&quot;]]
+	&lt;&lt;if $player.money gte 15&gt;&gt;[[Have a regular cocktail ($15)|Club bar][$scene=&quot;regularCocktail&quot;; $player.money-=15]]
 	&lt;&lt;else&gt;&gt;@@.halftransparent;Have a regular cocktail ($15) - not enough money@@
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $player.money gte 22&gt;&gt;[[Have a double cocktail ($22)|Club bar][$scene=&quot;doubleCocktail&quot;]]
+	&lt;&lt;if $player.money gte 22&gt;&gt;[[Have a double cocktail ($22)|Club bar][$scene=&quot;doubleCocktail&quot;; $player.money-=22]]
 	&lt;&lt;else&gt;&gt;@@.halftransparent;Have a double cocktail ($22) - not enough money@@
 	&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;if ($tasksTeacher.clubBarHandy.status eq 1)&gt;&gt;\
@@ -31587,97 +31620,12 @@ Jobs:
 \
 [[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
 \
-&lt;&lt;if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)&gt;&gt;\
-	You need to return chastity cage to the store before going to school. \
-&lt;&lt;endif&gt;&gt;\
 &lt;&lt;if (not $flags.walletForgottenEnd) and window.timeCode.isMonday() and ($flags.walletForgottenStart or ($player.perversion.teacher gte 3 and (not $flags.sissyConfession) and random(20) eq 0))&gt;&gt;\
 	&lt;&lt;set $flags.walletForgottenStart = true&gt;&gt;\
 	&lt;&lt;delayedLink 5 &quot;Pick up your wallet&quot;&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;\
 \
-/*
-	&lt;!--&lt;go to school&gt;--&gt;\
-&lt;&lt;if window.timeCode.haveSchool()&gt;&gt;\
-	&lt;&lt;if window.clothes.dressedSchool.check()&gt;&gt;\
-		&lt;&lt;if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)&gt;&gt;\
-		You need to return chastity cage to the store before going to school. \
-		&lt;&lt;else&gt;&gt;\
-		[[Go to school][window.timeCode.addMinutes(15)]] \
-		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;notDressed &quot;Go to school&quot; $reason.dressedSchool&gt;&gt;\
-		@@.inv_action_faded;-@@ &lt;&lt;print &#39;&lt;&lt;click &quot; Dress for school&quot;&gt;&gt;&gt;&gt;&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.School)&gt;&gt;&lt;&lt;set $player.quickSet=quickSlotSets.School&gt;&gt;&lt;&lt;updateClothes&gt;&gt;&lt;&lt;replace &quot;#clothing_selector&quot;&gt;&gt;&lt;&lt;display &quot;Clothing Selector&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt; \
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-	&lt;!--&lt;/go to school&gt;--&gt;\
-	&lt;!--&lt;go to mall&gt;--&gt;\
-&lt;&lt;if (not window.timeCode.schoolRequired())&gt;&gt;\
-	&lt;&lt;if window.timeCode.isMallOpen()&gt;&gt;\
-		&lt;&lt;if window.clothes.dressedOutside.check()&gt;&gt;\
-			[[Go to the mall][window.timeCode.addMinutes(30)]]
-		&lt;&lt;else&gt;&gt;\
-			&lt;&lt;notDressed &quot;Go to the mall&quot; $reason.dressedOutside&gt;&gt;
-		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;else&gt;&gt;\
-	&lt;&lt;click &quot;Go to the mall&quot;&gt;&gt;&lt;&lt;replace &quot;#mall_deny&quot;&gt;&gt;@@.deny; I need to go to school@@&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;span id=&quot;mall_deny&quot;&gt;&lt;/span&gt;
-&lt;&lt;endif&gt;&gt;\
-	&lt;!--&lt;/go to mall&gt;-- Mall --&gt;\
-	&lt;!--&lt;go to Club&gt;--&gt;\
-&lt;&lt;if (not window.timeCode.schoolRequired()) and window.timeCode.isClubOpen() and (($player.perversion.club gt 0) or (($tasksTeacher.TheClubIntro.status eq 1) and window.timeCode.isSaturday()))&gt;&gt;\
-	&lt;&lt;if window.clothes.dressedOutside.check()&gt;&gt;\
-		&lt;&lt;if window.clothes.dressedClub.check()&gt;&gt;\
-			[[Go to the club|Club entrance][$scene=&quot;Entrance&quot;; $time.addMinutes(30)]]
-		&lt;&lt;else&gt;&gt;\
-			&lt;&lt;notDressed &quot;Go to the club&quot; $reason.dressedClub&gt;&gt;
-		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;notDressed &quot;Go to the club&quot; $reason.dressedOutside&gt;&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-	&lt;!--&lt;/go to Club&gt;--&gt;\
-&lt;&lt;if window.timeCode.needTherapy()&gt;&gt;\
-	&lt;&lt;if (not window.timeCode.schoolRequired())&gt;&gt;\
-		&lt;&lt;if window.clothes.dressedTherapy.check()&gt;&gt;\
-			[[Visit therapist][window.timeCode.addMinutes(120)]]
-		&lt;&lt;else&gt;&gt;\
-			&lt;&lt;notDressed &quot;Visit therapist&quot; $reason.dressedTherapy&gt;&gt;
-		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;click &quot;Visit therapist&quot;&gt;&gt;&lt;&lt;replace &quot;#therapist_deny&quot;&gt;&gt;@@.deny; I need to go to school@@&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;span id=&quot;therapist_deny&quot;&gt;&lt;/span&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if (window.timeCode.isWeekend() and window.timeCode.canNap() and (not window.timeCode.schoolRequired()))&gt;&gt;\
-	&lt;&lt;if window.clothes.dressedOutside.check()&gt;&gt;\
-		&lt;&lt;print &quot;[[Go to &quot;+$guardian+&quot;&#39;s clinic|Go to clinic][$random.store(4)]]&quot;&gt;&gt;
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;print &#39;&lt;&lt;notDressed &quot;Go to &#39;+$guardian+&#39;\&#39;s clinic&quot; $reason.dressedOutside&gt;&gt;&#39;&gt;&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and ($time.day gt $player.friendLastVisit)&gt;&gt;\
-	&lt;&lt;if window.clothes.dressedOutside.check()&gt;&gt;\
-		&lt;&lt;if window.clothes.dressedFriend.check()&gt;&gt;\
-			&lt;&lt;if $flags.friendNamed&gt;&gt;\
-				&lt;&lt;print &quot;[[Visit &quot;+$friend+&quot;|Visit friend][window.timeCode.addMinutes(10)]]&quot;&gt;&gt;
-			&lt;&lt;else&gt;&gt;\
-				&lt;&lt;print &quot;[[Visit &quot;+$friend+&quot;|Name friend][$flags.friendVisitedToday=true]]&quot;&gt;&gt;
-			&lt;&lt;endif&gt;&gt;\
-		&lt;&lt;else&gt;&gt;\
-			&lt;&lt;print &#39;&lt;&lt;notDressed &quot;Visit &#39;+$friend+&#39;&quot; $reason.dressedFriend&gt;&gt;&#39;&gt;&gt;
-		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;print &#39;&lt;&lt;notDressed &quot;Visit &#39;+$friend+&#39;&quot; $reason.dressedOutside&gt;&gt;&#39;&gt;&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if window.timeCode.isWeekend() and ($time.hour gt 5) and ($time.hour lt 16) and $player.jobs.active and (not $player.jobs.workedToday)&gt;&gt;\
-	&lt;&lt;if window.clothes.dressedOutside.check()&gt;&gt;\
-		&lt;&lt;print &quot;[[Part time jobs|Part time jobs]]&quot;&gt;&gt;
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;print &#39;&lt;&lt;notDressed &quot;Part time jobs&quot; $reason.dressedOutside&gt;&gt;&#39;&gt;&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-*/\
 &lt;&lt;if window.timeCode.canNap()&gt;&gt;\
 	&lt;&lt;if window.timeCode.schoolRequired()&gt;&gt;\
 		&lt;div class=&quot;tooltip&quot;&gt;@@.halftransparent;Have a nap@@ &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;I need to go to school&lt;/span&gt;&lt;/div&gt;
@@ -31755,7 +31703,7 @@ Jobs:
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
-&lt;&lt;if ($tasksTeacher.selfieNightwear.status eq 1)&gt;&gt;\
+&lt;&lt;if ($tasksTeacher.selfieNightwear.status eq 1) and playerCode.owns(itemsC.silkyTeddy)&gt;&gt;\
 	[[Take a selfie in your nightie|Task Nightwear selfie]]
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if ($tasksTeacher.playButtplug.status eq 1)&gt;&gt;\
@@ -39987,7 +39935,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 		
 		You get up and are thankful for the chastity device stopping your penis from sticking out against your pants.
 		
-		[[Exit to the hallway|Go to hallway]]
+		[[Exit to the hallway|Go to hallway][$player.punishments.refusedToPay=false]]
 		&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 			&lt;&lt;print &quot;[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 		&lt;&lt;endif&gt;&gt;\
@@ -40002,7 +39950,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 		
 		@@.teacher;&quot;Wait outside the classroom, $player.name.&quot;@@
 
-		[[Get out of there|Go to hallway]]
+		[[Get out of there|Go to hallway][$player.punishments.refusedToPay=false]]
 		&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 			&lt;&lt;print &quot;[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 		&lt;&lt;endif&gt;&gt;\
@@ -40022,7 +39970,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 	@@.teacher;&quot;Wait outside the classroom for me.&quot;@@
 
-	[[Wait outside|Go to hallway]]
+	[[Wait outside|Go to hallway][$player.punishments.refusedToPay=false]]
 	&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 		&lt;&lt;print &quot;[[Wait outside but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
@@ -40124,7 +40072,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	&lt;&lt;endif&gt;&gt;\
 	@@.teacher;&quot;$player.name,&quot;@@ $teacher says, @@.teacher;&quot;can I see you outside in the hallway for a moment please.&quot;@@
 
-	&lt;&lt;print &quot;[[Go to the hallway with &quot;+$teacher+&quot;|Go to hallway]]&quot;&gt;&gt;
+	&lt;&lt;print &quot;[[Go to the hallway with &quot;+$teacher+&quot;|Go to hallway][$player.punishments.refusedToPay=false]]&quot;&gt;&gt;
 	&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 		&lt;&lt;print &quot;[[Go to the hallway with &quot;+$teacher+&quot; but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
@@ -40313,8 +40261,9 @@ You go to the detention room. $teacher is waiting for you.
 				&lt;&lt;set $tasksTeacher.wearDressToSchool.status = 0&gt;&gt;\
 				&lt;&lt;set $player.punishments.refusedToCrossdress = false&gt;&gt;\
 				&lt;&lt;set $player.bribeDiscount += window.tasksFunction.taskRewardDebt(tasksTeacher.wearDressToSchool)&gt;&gt;\
-				&lt;&lt;set $player.perversion.teacher to 4&gt;&gt;\
+				&lt;&lt;set $player.perversion.teacher = 4&gt;&gt;\
 				&lt;&lt;set $player.perversion.teacherCooldown = 0&gt;&gt;\
+				&lt;&lt;set $player.perversion.crossdressing = 10&gt;&gt;\
 				She looks at you for a moment, self-gratified. 
 				
 				&lt;&lt;if (playerCode.isMaid()) and not playerCode.owns(itemsC.schoolMale)&gt;&gt;\
@@ -42224,12 +42173,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It&#39;s an
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;print window.timeCode.schoolMessage()&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if (not timeCode.isMonday())&gt;&gt;\
-	&lt;&lt;if (not window.timeCode.isMonday()) and ($tasksTeacher.trialChastity.status eq 5)&gt;&gt;\
-
-		You need to return chastity cage to the store before going to school.
-
-	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if $time.hour lte 9&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="168" name="Make out with bully" tags="pos_437_2587" position="975,2100">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -50365,7 +50309,7 @@ She winks, handing you an envelope with crisp, new currency in it.
 &lt;&lt;if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 1)&gt;&gt;\
 	[[Go home|Hypnosis aftereffect]]
 &lt;&lt;else&gt;&gt;\
-	[[Go home|Go to bedroom]]
+	&lt;&lt;display [[Travel]]&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="227" name="Hypnosis aftereffect" tags="pos_2292_1732" position="850,2850">\
 Walking home, you catch yourself ogling a random guy. You wonder how his juicy cock would feel on your tongue...
 
