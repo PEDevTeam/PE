@@ -1066,7 +1066,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.player.perversion.crossdressing >= 8) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
+			return (((State.active.variables.player.perversion.crossdressing >= 8) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -2438,28 +2438,28 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if (($body.makeup == 1)) {
+				if ((State.active.variables.body.makeup == 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent, not flashy, but it really makes you look pretty.\"@@";
 				}
-				if (($body.makeup == 2)) {
+				if ((State.active.variables.body.makeup == 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
 				}
-				if (($body.makeup == 3)) {
+				if ((State.active.variables.body.makeup == 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
 				}
-				if (($body.makeup == 4)) {
+				if ((State.active.variables.body.makeup == 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
 				}
-				if (($body.makeup == 1) && ($body.permMakeup >= 1)) {
+				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
 				}
-				if (($body.makeup == 2) && ($body.permMakeup >= 2)) {
+				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
 				}
-				if (($body.makeup == 3) && ($body.permMakeup >= 3)) {
+				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb, horny bimbo! That is so hot, I love it.\"@@";
 				}
-				if (($body.makeup == 4) && ($body.permMakeup >= 4)) {
+				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
 				return ((playerCode.haveMakeup() && State.active.variables.flags.salonMakeup) || playerCode.havePermanentMakeup());

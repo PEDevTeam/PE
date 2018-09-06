@@ -1411,7 +1411,7 @@ window.itemsC={
 		surgery: true,
 		daringRec: 6,
 		disabled: false,
-		cost: 15,
+		cost: 30,
 		image: "hr_depilatory.jpg"
 	},
 	Waxing: {

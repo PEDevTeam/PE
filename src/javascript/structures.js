@@ -17,6 +17,14 @@ window.rewardMoney={
 	specialHypnosis: 50
 },
 
+window.versionControl={
+	update: function() {
+		if (State.active.variables.gameVersion == 0.7900) {
+			if (State.active.variables.player.perversion.teacher >= 4) { State.active.variables.player.perversion.crossdressing=10;	}
+		}
+	}
+},
+
 window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
@@ -41,6 +49,7 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
