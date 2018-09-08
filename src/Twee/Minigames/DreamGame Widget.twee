@@ -41,15 +41,13 @@
 	<<for _i to 0; _i lt window.dreamgameList.length; _i++>>\
 		<<set _o to window.dreamgameList[_i]>>\
 		<<set _m to "window.dreamMinigame.processAction(" + _ds.id + ", " + _o.id + ");$time.addMinutes(5)">>\
-		<<set _highlightAction = false>>\
-		<<if $flags.easyMinigames>>\
-			<<if _ds.id eq _o.id>>\
-				<<set _highlightAction = true>>\
-			<<endif>>\
+		<<if $flags.easyMinigames and (_ds.id eq _o.id)>>\
+			<span class="hint">\
+			<<print '[[' + _o.option + '|Dream game][' + _m + ']]'>>\
+			</span>\
+		<<else>>\
+			<<print '[[' + _o.option + '|Dream game][' + _m + ']]'>>\
 		<<endif>>\
-		<<if _highlightAction>>@@.info;[@@<<endif>>\
-		<<print '[[' + _o.option + '|Dream game][' + _m + ']]'>>\
-		<<if _highlightAction>>@@.info;]@@<<endif>>\
 		
 	<</for>>\
 	

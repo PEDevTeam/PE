@@ -2,6 +2,9 @@
 \
 <<set _passage="Clinic Makeup and tattoo">>\
 <<if $scene eq "">>\
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 <<if (not $flags.salonMakeup)>>\
 	Nancy offers to apply makeup and shows you a list of various designs she can tattoo on you.
 

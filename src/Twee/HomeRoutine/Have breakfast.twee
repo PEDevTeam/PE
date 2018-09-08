@@ -14,7 +14,7 @@
 	<<if playerCode.isMaid()>>\
 	<!--<maid start>*********************-->\
 		<<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\
-			<<wearClothing $items.maidOutfit.id>>\
+			<<wearClothing 'maidOutfit'>>\
 			<<if $flags.gTrialPenisGag>>\
 			You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
 			<<endif>>\
@@ -30,7 +30,7 @@
 			heels and a cute headband.
 			<<if $flags.gTrialGiantVibroPlug>>\
 				<<if playerCode.owns(itemsC.buttPlugVibro)>>\
-					<<wearClothing $items.buttPlugVibro.id>>\
+					<<wearClothing 'buttPlugVibro'>>\
 				<<endif>>\
 			After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
 			<<endif>>\
@@ -196,12 +196,12 @@
 		<!--<clothes check for guardian>-->\
 		<<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\
 			<<if $player.perversion.guardian lte 2>>\
-				<<wearClothing $items.pyjamasMale.id>>\
+				<<wearClothing 'pyjamasMale'>>\
 				You don't want $guardian to find out what you are wearing, so you quickly change to your regular pajamas.
 			<<else>>\
 				<<if playerCode.isMind_0()>>\
 					You don't want to give $guardian anything else to tease you with, so you quickly change to your regular pajamas.
-					<<wearClothing $items.pyjamasMale.id>>\
+					<<wearClothing 'pyjamasMale'>>\
 				<<else>>\
 					This silky nightie is so soft and comfy that you can't bring yourself to change into your ordinary nightwear. $Guardian might tease you for it, but in your sleepy haze, you decide to roll with it.
 					<<set $flags.nightieSleep = true>>\
@@ -209,18 +209,18 @@
 			<<endif>>
 		<<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
 			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
-				<<wearClothing $items.silkyTeddy.id>>\
+				<<wearClothing 'silkyTeddy'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
 			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
-				<<wearClothing $items.pyjamasMale.id>>\
+				<<wearClothing 'pyjamasMale'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 			<<endif>>
 		<<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
 			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
-				<<wearClothing $items.silkyTeddy.id>>\
+				<<wearClothing 'silkyTeddy'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
 			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
-				<<wearClothing $items.pyjamasMale.id>>\
+				<<wearClothing 'pyjamasMale'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your pajamas.
 			<<endif>>
 		<<endif>>\
@@ -323,7 +323,7 @@
 			
 			@@.hero;Damn.@@
 				
-			<<removeFromInv $items.alarmClock.id>>\
+			<<removeFromInv 'alarmClock'>>\
 		<<endif>>\
 	<!--</regular start>*********************-->\
 	<<endif>>\
@@ -1041,7 +1041,7 @@
 						@@.guardian;until tomorrow."@@ Damn... but you don't have the key so it is going to be until next weekend.\
 					<<endif>>\
 					$Guardian hands you your chastity cage and you obediently put it on and lock it.\
-					<<wearClothing $items.chastityDevice.id>>\
+					<<wearClothing 'chastityDevice'>>\
 				<<else>>\
 					@@.guardian;I'm sure that you put on your chastity cage afterwards. Good boy.@@\
 				<<endif>>\
@@ -1100,7 +1100,6 @@
 			<<else>>@@.guardian;And don't forget to clean up after cumming."@@\
 			<<endif>>\
 		<<endif>>\
-
 	<<set $player.masturbationType = 0>>\
 	
 	<<endif>>\
@@ -1219,16 +1218,18 @@
 			You shake off your dread at what the day might bring, accept the kiss she plants on your cheek, and go back to your room to get dressed.
 		<<elseif $player.perversion.guardian eq 5>>\
 			<<selectScene guardian_morning_6 RND>>\
-			<<scene 40>>
+			<<scene 40>>\
 			@@.guardian;"Have a wonderful day<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, winking. 
 			
 			You <<if not window.timeCode.isWeekend()>>blush at her teasing about your extra school activities, <<endif>>give her a hug and go back to your room.
-			<<scene 40>>@@.guardian;"You're off<<if !window.timeCode.isWeekend()>> to school<<else>> from school today<<endif>>? Wait, come here,"@@ $guardian says, standing and walking over to you. She raises her hands, looking you in the eyes, and softly strokes your cheek. 
+			<<scene 40>>\
+			@@.guardian;"You're off<<if !window.timeCode.isWeekend()>> to school<<else>> from school today<<endif>>? Wait, come here,"@@ $guardian says, standing and walking over to you. She raises her hands, looking you in the eyes, and softly strokes your cheek. 
 			
 			@@.guardian;"Have a good day, $player.name."@@ 
 			
 			She leans close to your face, and kisses you lightly on the lips. Then, she winks and goes back to her coffee. A bit flustered, you hesitantly head to your room to get dressed.
-			<<scene 20>>$Guardian absentmindedly plays with her hair and looks at you. Catching your eyes, she stands and walks over to you. 
+			<<scene 20>>\
+			$Guardian absentmindedly plays with her hair and looks at you. Catching your eyes, she stands and walks over to you. 
 			
 			@@.guardian;"Come here, sweetheart."@@ 
 			

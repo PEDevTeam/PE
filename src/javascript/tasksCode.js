@@ -2139,7 +2139,7 @@ window.tasksTeacherBody={
 		text: {
 			given: "I think it is time to get your ears pierced. Next week I want to see you with a lovely earring.",
 			perform: "",
-			finish: "$teacher looks at your earrings.\n\n@@.teacher;\"It looks good on you.\"@@",
+			finish: "$teacher looks at your ears.\n\n@@.teacher;\"I see you pierced your ears, like I asked you to, good.\"@@",
 			fail: "Are you that afraid of a little pain so you ignore my request? Too bad. Take a mark.",
 			reminder: "Don't forget to get your ears pierced.",
 			checkMe: {
@@ -2344,7 +2344,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (!playerCode.haveMakeup() && (State.active.variables.tasksTeacher.selfieHomeMakeup.status == 0));
+			return ((State.active.variables.body.makeup == 0) && (State.active.variables.tasksTeacher.selfieHomeMakeup.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2361,7 +2361,7 @@ window.tasksTeacherBody={
 		startDay: 0,  // day task was started
 		maxDays: 0,  // number of days allowed before task will fail
 		cooldown: 1,  // number of days before task available again
-		rewardMoney: 50,
+		rewardMoney: 20,
 		rewardDebt: 0,
 		failPenalty: 1,
 		events: {
@@ -2369,29 +2369,22 @@ window.tasksTeacherBody={
 			finish: function() {
 				if ((State.active.variables.body.makeup == 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent. Not flashy, but it really makes you look pretty.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 2)) {
+				} else if ((State.active.variables.body.makeup == 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 3)) {
+				} else if ((State.active.variables.body.makeup == 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 4)) {
+				} else if ((State.active.variables.body.makeup == 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
+				} else if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
+				} else if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
+				} else if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb horny bimbo! That is so hot, I love it.\"@@";
-				}
-				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
+				} else if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
-				return (playerCode.haveMakeup());
+				return (State.active.variables.body.makeup > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2415,7 +2408,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (playerCode.haveMakeup() && (!playerCode.havePermanentMakeup()));
+			return ((State.active.variables.body.makeup > 0) && (State.active.variables.body.semiMakeup == 0) && (State.active.variables.body.permMakeup == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2432,7 +2425,7 @@ window.tasksTeacherBody={
 		startDay: 0,  // day task was started
 		maxDays: 0,  // number of days allowed before task will fail
 		cooldown: 1,  // number of days before task available again
-		rewardMoney: 50,
+		rewardMoney: 20,
 		rewardDebt: 0,
 		failPenalty: 1,
 		events: {
@@ -2462,7 +2455,7 @@ window.tasksTeacherBody={
 				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
-				return ((playerCode.haveMakeup() && State.active.variables.flags.salonMakeup) || playerCode.havePermanentMakeup());
+				return (State.active.variables.flags.salonMakeup || (State.active.variables.body.semiMakeup > 0) || (State.active.variables.body.permMakeup > 0));
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2486,7 +2479,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((!(State.active.variables.body.manicure == 1)) && (!(State.active.variables.body.manicure == 2)));
+			return (State.active.variables.body.manicure == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2533,7 +2526,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (((State.active.variables.body.manicure == 1) || (State.active.variables.body.manicure == 2)) && (State.active.variables.body.permManicure <= 0) && (State.active.variables.body.semiManicure <= 0));
+			return ((State.active.variables.body.manicure > 0) && (State.active.variables.body.permManicure == 0) && (State.active.variables.body.semiManicure == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2570,7 +2563,7 @@ window.tasksTeacherBody={
 			given: "I think you need bigger breasts.",
 			perform: "",
 			finish: "$teacher looks at your breasts.\n\n@@.teacher;\"Good boy.\"@@",
-			fail: "Huh. Not going to follow my requests? Too bad. Take a mark.",
+			fail: "Too shy to try a boob job? Too bad, I thought you would enjoy that. Take a mark.",
 			reminder: "Don't forget about that boob job you need to get.",
 			checkMe: {
 				given: "get bigger boobs.",
@@ -2580,7 +2573,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((!playerCode.haveBplus()) || ((!playerCode.haveCplus()) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs == 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0);
+			return ((State.active.variables.body.boobs <= 1) || ((State.active.variables.body.boobs <= 2) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs <= 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2643,20 +2636,20 @@ window.tasksTeacherBody={
 		name:"Task breast maintain",
 		hasPassage: false,
 		text: {
-			given: "Your breasts look so nice in your uniform. Make sure you maintain them for next week.",
+			given: "Your breasts look so nice in your uniform. Make sure you have at least same size next week.",
 			perform: "",
 			finish: "$teacher looks at your breasts.\n\n@@.teacher;\"Good boy.\"@@",
-			fail: "Huh. Not going to follow my requests? This will not end well for you. Have a mark.",
+			fail: "Huh. Breasts are too much of a burden for you? Very disappointing. Have a mark.",
 			reminder: "Don't forget about your boob job.",
 			checkMe: {
-				given: "maintain your boobs at their current size.",
+				given: "keep your boobs size.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
 			}
 		},
 		Conditions: function() {
-			return ((((State.active.variables.body.boobs == 1) || (State.active.variables.body.boobs == 2)) && (State.active.variables.body.permBoobs <= 0) && (State.active.variables.body.permBoobs <= 0) && State.active.variables.player.perversion.teacher <= 6) || ((State.active.variables.body.boobs == 3) && (State.active.variables.body.permBoobs <= 2) && (State.active.variables.body.permBoobs <= 2) && State.active.variables.player.perversion.teacher <= 7) || ((State.active.variables.body.boobs == 4) && (State.active.variables.body.permBoobs <= 3) && (State.active.variables.body.permBoobs <= 3))) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0);
+			return (State.active.variables.body.boobs > State.active.variables.body.permBoobs) && (State.active.variables.body.boobs > State.active.variables.body.semiBoobs) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2863,7 +2856,7 @@ window.tasksTeacherBody={
 			given: "I think you need to do something about your figure. I want to see you with a plump little butt next week.",
 			perform: "",
 			finish: "$teacher looks at your plump butt..\n\n@@.teacher;\"Looking good.\"@@",
-			fail: "Huh. Not going to follow my requests? You can take a mark instead.",
+			fail: "Was you afraid to not get into your favorite pants? You would have liked to have a plump ass. Mark for disobedience.",
 			reminder: "Don't forget about your butt treatment.",
 			checkMe: {
 				given: "make your butt bigger.",
@@ -2896,7 +2889,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.ass == 1) || (State.active.variables.body.ass == 2));
+				return (State.active.variables.body.ass > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2910,7 +2903,7 @@ window.tasksTeacherBody={
 			given: "Make sure you keep up with your butt enhancing treatments.",
 			perform: "",
 			finish: "$teacher looks at your heart-shaped butt.\n\n@@.teacher;\"Now this is a figure that will turn some heads. Looking good.\"@@",
-			fail: "Huh. Not going to follow my requests? Too bad. You can take a mark instead.",
+			fail: "Were you tired of people staring at your ass? I told you to maintain its plump form. Too bad, a mark for disobedience.",
 			reminder: "Don't forget about your butt treatment.",
 			checkMe: {
 				given: "keep your butt properly plump.",
@@ -2943,7 +2936,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.ass == 1) || (State.active.variables.body.ass == 2)) && State.active.variables.flags.salonAss);
+				return ((State.active.variables.body.ass > 0) && State.active.variables.flags.salonAss);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3004,7 +2997,7 @@ window.tasksTeacherBody={
 			given: "You know, I think it's time for you to get an anal smoothing course. Next week I want to see you walk around with your anus nice and smooth.",
 			perform: "",
 			finish: "$teacher slides her finger along your anus, making you twitch from the sensation.\n\n@@.teacher;\"It is so smooth... such a good, obedient boy. I bet you enjoyed the procedure too, didn't you?\"@@",
-			fail: "Huh. Ignoring my requests? Guess we'll have to see what we can do about that, won't we? Take this mark, for starters.",
+			fail: "Too shy to try anal smoothening procedure. Afraid that sissy like you might enjoy it too much? A mark, for disobedience.",
 			reminder: "Don't forget to get your anus smoothed out this weekend.",
 			checkMe: {
 				given: "sign for an anal smoothing procedure.",

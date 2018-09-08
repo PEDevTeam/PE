@@ -2,6 +2,9 @@
 \
 <<set _passage="Clinic Piercing">>\
 <<if $scene eq "">>\
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 Nancy offers various piercing options.
 
 <img id="item_preview" class="hidden">\

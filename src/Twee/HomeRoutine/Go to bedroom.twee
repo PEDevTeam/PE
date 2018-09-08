@@ -59,14 +59,14 @@
 	
 <<endif>>\
 <<if ($time.hour lt 23)>>\
-	<<if (not window.timeCode.schoolRequired())>>\
+	<<if window.timeCode.schoolRequired() and ($time.hour gte 9)>>\
+		<div class="tooltip">@@.halftransparent;Masturbate@@ <span id="test_surv" class="tooltiptext">I need to go to school</span></div>
+	<<else>>\
 		<<if playerCode.masturbate.isReady()>>\
 			[[Masturbate]]
 		<<else>>\
-			<<click "Masturbate">><<replace "#masturbate">>@@.done;You need to wait a while before doing that again@@<</replace>><</click>> <span id="masturbate"></span>
+			<div class="tooltip">@@.halftransparent;Masturbate@@ <span id="test_surv" class="tooltiptext">You need to wait a while before doing that again</span></div>
 		<<endif>>\
-	<<else>>\
-		<<click "Masturbate">><<replace "#masturbate_deny">>@@.deny; I need to go to school@@<</replace>><</click>> <span id="masturbate_deny"></span>
 	<<endif>>\
 <<endif>>\
 <<if (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 23)>>\

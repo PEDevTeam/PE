@@ -20,8 +20,8 @@
 <<if $flags.buttplugLost>>\
 	@@.teacher;"Oh, $player.name, that was hilarious. I have not laughed like that for a very long time. Still, as much as I would like to see that expression on your face again, I need to confiscate this butt-plug. Word of advice - find a bigger one. A much bigger one."@@
 
-	<<removeClothing $items.buttPlugHeart.id>>\
-	<<removeFromInv $items.buttPlugHeart.id>>\
+	<<removeClothing 'buttPlugHeart'>>\
+	<<removeFromInv 'buttPlugHeart'>>\
 	<<set $items.buttPlugHeart.disabled=true>>\
 	<<set $flags.buttplugLost=false>>\
 <<endif>>\
@@ -163,14 +163,14 @@
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@
 					<<if _u and (not _u.female)>>\
-						<<addToInv $items.gString.id>>\
-						<<wearClothing $items.gString.id>>\
+						<<addToInv 'gString'>>\
+						<<wearClothing 'gString'>>\
 						
 						She throws you a kinky looking lacy panties. @@.teacher;"There is no place for boring boxers now. Take them off and put on these panties."@@
 					<<endif>>\
 					<<if _f and (not _f.female)>>\
-						<<addToInv $items.flats.id>>\
-						<<wearClothing $items.flats.id>>\
+						<<addToInv 'flats'>>\
+						<<wearClothing 'flats'>>\
 						
 						$teacher points to a pair of flats near her desk. @@.teacher;"Those shoes do not meet the dress code for your new uniform, so change into these for now. I would like to see you in heels some day, though they may be a bit hard for you at first."@@
 					<<endif>>\
@@ -225,7 +225,7 @@
 			@@.teacher;"Really, $player.name?\
 			<<if _c>>\
 				A chastity cage?\
-			<<elseif _u.id eq $items.gString.id>>\
+			<<elseif _u.id eq itemsC.gString.id>>\
 				Lacy panties?\
 			<<else>>\
 				Latex panties?\
@@ -252,8 +252,8 @@
 					
 					@@.teacher;"There we are. Those are much more appropriate for you. There will be no further excuse if you fail to arrive in suitable underthings."@@
 					
-					<<addToInv $items.gString.id>>\
-					<<wearClothing $items.gString.id>>\
+					<<addToInv 'gString'>>\
+					<<wearClothing 'gString'>>\
 				<<endif>>\
 			<<else>>\
 				@@.teacher;"In light of this, I am changing our arrangement: every day you will wear a chastity cage to school if you want your weekly debt decreased. To show you understand this is a punishment, you must also wear a butt-plug. As a token of my interest in your well-being, I will take off some debt when you do.
@@ -593,7 +593,7 @@
 <!----><<endif>>\
 <!----><<if $minigames.coachgame.playedYesterday>>\
 <!--	--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>old geezer<<else>>bitch<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
 <!----><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
 <!--	-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\

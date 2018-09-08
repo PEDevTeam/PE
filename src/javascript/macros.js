@@ -41,7 +41,7 @@ macros.addToInv = {
       return;
     }
 	var w=window.itemsC[params[0]];
-	var wV=getItemObject(params[0]);
+	var wV=window.itemF.itemTwee(params[0]);
 	var type=params[1];
 	if (w.surgery) {
 		return;
@@ -115,14 +115,6 @@ macros.invWithLinks = {
 };
 
 macros.getInventoryList = {
-	getAction: function(itemObject) {
-		var vars=state.active.variables;
-		var items=vars.items;
-//		if ((itemObject==items.diary) && (state.passage=='Go to bedroom')) {
-//			return "-  [[Write down your story|Export screen]]";
-//		}
-		return "";
-	},
   handler: function(place, macroName, params, parser) {
 //		new Wikifier(place, 'Aside from your clothing, ');
 		var inv=state.active.variables.inventory;
@@ -130,13 +122,13 @@ macros.getInventoryList = {
 		var td='';
 		for (var i=0; i<inv.length; i++) {
 			var o=window.itemsC[inv[i]];
-			if (o && o.clothingType == 0 && o.surgery == false && o.store != 1 && o.store != 2) {
+			if (o && o.clothingType == 0 && (!o.surgery) && o.store != 1 && o.store != 2) {
 				if (!f) {
 					f=true;
 //					new Wikifier(place, 'you currently have these items:<br><br><img id="inv_item" class="hidden">');
 				}
 				td+='<br>';
-				td+=getItemName(inv[i]);
+				td+=window.itemF.nameById(inv[i]);
 			}
 		}
 		if (!f) {
@@ -209,7 +201,7 @@ macros.wearClothing = {
 		}
 		var type=params[1];
 		if (type) {
-			var wV=getItemObject(params[0]);
+			var wV=window.itemF.itemTwee(params[0]);
 			if (!wV) {
 					throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
 					return;
@@ -222,7 +214,7 @@ macros.wearClothing = {
 macros.buyItem = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
-		var wV=getItemObject(params[0]);
+		var wV=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;
@@ -273,7 +265,7 @@ macros.buyItem = {
 macros.payForItem = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
-		var wV=getItemObject(params[0]);
+		var wV=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;
@@ -309,12 +301,15 @@ function getItem(id) {
 }
 
 function getItemObject(id) {
-	var ca=state.active.variables.items;
+	/*var ca=state.active.variables.items;
 	
 	for (var i=0; i<Object.keys(ca).length; i++) {
 		if (ca[Object.keys(ca)[i]].id==id) {
 			return ca[Object.keys(ca)[i]];
 		}
+	}*/
+	if (state.active.variables.items[id] && state.active.variables.items[id].name) {
+		return state.active.variables.items[id].name;
 	}
 		
 	return false;
@@ -323,7 +318,7 @@ function getItemObject(id) {
 function getItemName(id) {
 	var ca=state.active.variables.items;
 	var w=window.itemsC[id];
-	var wV=getItemObject(id);
+	var wV=window.itemF.itemTwee(id);
 
 	if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + id + "'");
@@ -500,7 +495,7 @@ macros.removeClothingType = {
 
 macros.nextClothing = {
   handler: function(place, macroName, params, parser) {
-		var w=getItemObject(params[0]);
+		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;
@@ -520,7 +515,7 @@ macros.nextClothing = {
 
 macros.previousClothing = {
   handler: function(place, macroName, params, parser) {
-		var w=getItemObject(params[0]);
+		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;
@@ -541,7 +536,7 @@ macros.previousClothing = {
 macros.nextStoreClothing = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
-		var wV=getItemObject(params[0]);
+		var wV=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;
@@ -574,7 +569,7 @@ macros.nextStoreClothing = {
 macros.previousStoreClothing = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
-		var wV=getItemObject(params[0]);
+		var wV=window.itemF.itemTwee(params[0]);
 		if (!w) {
 			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
 			return;

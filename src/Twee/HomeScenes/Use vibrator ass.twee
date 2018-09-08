@@ -3,7 +3,6 @@
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _p to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _v to $items.vibrator>>\
 <<if ($tasksEmail.PinkRollers.status gte 2)>>\
 <<print '<<showImage "general" "dildo_rollers_'+random(2)+'.gif">>'>>\
 You put on pink socks and $guardian 's pink roller skates that were once the source of your embarrassment when you were learning to skate a long time ago.
@@ -14,9 +13,9 @@ You put on pink socks and $guardian 's pink roller skates that were once the sou
 <<endif>>\
 <<if _b>>\
 	<<removeClothing _b.id>>\
-	You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if _v.stolen>>$guardian's<<else>>your<<endif>> vibrator, you \
+	You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if $items.vibrator.stolen>>$guardian's<<else>>your<<endif>> vibrator, you \
 <<else>>\
-	You take <<if _v.stolen>>$guardian's<<else>>your<<endif>> vibrator and \
+	You take <<if $items.vibrator.stolen>>$guardian's<<else>>your<<endif>> vibrator and \
 <<endif>>\
 lick it wet, then hold it standing up on the floor while you sit down on it.  It enters you more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
 
@@ -44,7 +43,7 @@ The vibrations begin sending you into a rhythm of ecstasy, then relaxation - har
 
 	You consider your reply and open your mouth to speak, but $guardian interrupts.
 
-	<<if _v.stolen>>\
+	<<if $items.vibrator.stolen>>\
 		@@.guardian;"Is that my vib..."@@ She stops midword and frowns.
 
 	<<endif>>\

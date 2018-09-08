@@ -48,7 +48,7 @@ window.locationsJS={
 		x: 0,
 		y: 0,
 		busRange: 0,
-		remote: 100,
+		remote: 20,
 		active: true,
 		important: false
 	},

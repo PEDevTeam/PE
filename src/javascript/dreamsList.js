@@ -226,7 +226,7 @@ window.dreamsGuardian={
 			return [0,1,2].includes(State.active.variables.player.perversion.guardian);
 		}
 	},
-	SchoolPantiesExposed: {
+	SchoolPantiesExposed: { /*not implemented*/
 		id: "SchoolPantiesExposed",
 		name: "Dream School panties exposed",
 		image: "",
@@ -235,7 +235,7 @@ window.dreamsGuardian={
 		once: true,
 		chance: 10,
 		startPriority: 1,
-		description: "School panties exposed",
+		description: "",
 		check: function() {
 			return true;
 		}
@@ -263,21 +263,21 @@ window.dreamsGuardian={
 		once: true,
 		chance: 10,
 		startPriority: 10,
-		description: "SPH dream",
+		description: "",
 		check: function() {
 			return true;
 		}
 	},
 	TrainingPenis: {
 		id: "TrainingPenis",
-		name: "Dream Fake cock",
+		name: "Fake dick suck dream",
 		image: "",
 		hasPassage: true,
 		active: false,
 		once: true,
 		chance: 10,
 		startPriority: 10,
-		description: "Fake dick suck dream",
+		description: "",
 		check: function() {
 			return true;
 		}

@@ -1,29 +1,28 @@
 :: Initialise [pos_130_4]
 \
-<<set _item = itemsC.pyjamasMale.id>><<addToInv _item>>\
-<<set _item = itemsC.casualMale.id>><<addToInv _item>>\
-<<set _item = itemsC.schoolMale.id>><<addToInv _item>>\
-<<set _item = itemsC.jocksLucky.id>><<addToInv _item>>\
-<<set _item = itemsC.sneakers.id>><<addToInv _item>>\
-<<set _item = itemsC.schoolShoes.id>><<addToInv _item>>\
+<<addToInv 'pyjamasMale'>>\
+<<addToInv 'casualMale'>>\
+<<addToInv 'schoolMale'>>\
+<<addToInv 'jocksLucky'>>\
+<<addToInv 'sneakers'>>\
+<<addToInv 'schoolShoes'>>\
 \
 <<for _i to 0; _i lt Object.keys($quickSlot).length; _i++>>\
-	<<set _quickslot = $quickSlot[Object.keys($quickSlot)[_i]]>>\
-	<<if _quickslot.name eq "School">>\
-		<<set _quickslot.clothes=[$items.schoolMale.id, $items.jocksLucky.id, $items.schoolShoes.id]>>\
-		<<set _quickslot.types=[0, 0, 0]>>\
+	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "School">>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['schoolMale', 'jocksLucky', 'schoolShoes']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0, 0, 0]>>\
 	<<endif>>\
-	<<if _quickslot.name eq "Casual">>\
-		<<set _quickslot.clothes=[$items.casualMale.id, $items.jocksLucky.id, $items.sneakers.id]>>\
-		<<set _quickslot.types=[0, 0, 0]>>\
+	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Casual">>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['casualMale', 'jocksLucky', 'sneakers']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0, 0, 0]>>\
 	<<endif>>\
-	<<if _quickslot.name eq "Nightwear">>\
-		<<set _quickslot.clothes=[$items.pyjamasMale.id]>>\
-		<<set _quickslot.types=[0]>>\
+	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Nightwear">>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['pyjamasMale']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]>>\
 	<<endif>>\
-	<<if _quickslot.name eq "Maid">>\
-		<<set _quickslot.clothes=[$items.maidOutfit.id]>>\
-		<<set _quickslot.types=[0]>>\
+	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Maid">>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['maidOutfit']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]>>\
 	<<endif>>\
 <</for>>\
 <<goto [[Begin]]>>\

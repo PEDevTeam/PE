@@ -313,7 +313,7 @@ window.choresList={
 		perversionMax: 10,
 		daringRequired: 3,
 		extra: false,
-		daysWait: 1,
+		daysWait: 4,
 		required: false,
 		dayPerformed: -100
 	},
@@ -333,7 +333,7 @@ window.choresList={
 		perversionMax: 10,
 		daringRequired: 3,
 		extra: false,
-		daysWait: 1,
+		daysWait: 4,
 		required: false,
 		dayPerformed: -100
 	}

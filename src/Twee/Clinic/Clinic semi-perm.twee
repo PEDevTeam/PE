@@ -5,7 +5,10 @@
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<if $scene eq "">><!--<list of semiPermRemovals>-->\
+<<if $scene eq "">>
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 	<<if $player.salonTab gt 0>>\
 		Nancy says that semi-permanent treatments reversal are not provided for clients who haven't fully payed their tab.
 	<<else>>\
@@ -131,7 +134,6 @@
 	<<endif>>\
 	
 	[[Return to Salon|Beauty Salon][$scene=""]]
-<!--</list of semiPermRemovals>-->\
 \
 <<elseif $scene eq "semiPerm_checkUp" or $scene eq "Makeover">><!--<semiPerm_checkUp>-->\
 	<<set $flags.salonSemiPerm = true>>\

@@ -67,19 +67,21 @@
 	<<for _i to 0; _i lt _lg; _i++>>\
 		<<set _o to coachgameList[_i]>>\
 		<<set _m to "window.coachMinigame.processAction(" + _dc.id + ", " + _o.id + ");$time.addMinutes(5)">>\
-		<<set _highlightAction = false>>\
-		<<if $flags.easyMinigames or ($player.perversion.coach gte 6)>>\
-			<<if _dc.id eq _o.id>>\
-				<<set _highlightAction = true>>\
+		<<if ($flags.easyMinigames or ($player.perversion.coach gte 6)) and (_dc.id eq _o.id)>>\
+			<span class="hint">\
+			<<if $kink.futa>>\
+				 <<print '[[' + _o.optionF + '|Coach game][' + _m + ']]'>>\
+			<<else>>\
+				<<print '[[' + _o.option + '|Coach game][' + _m + ']]'>>\
+			<<endif>>\
+			</span>\
+		<<else>>\
+			<<if $kink.futa>>\
+				<<print '[[' + _o.optionF + '|Coach game][' + _m + ']]'>>\
+			<<else>>\
+				<<print '[[' + _o.option + '|Coach game][' + _m + ']]'>>\
 			<<endif>>\
 		<<endif>>\
-		<<if _highlightAction>>@@.info;[@@<<endif>>\
-		<<if $kink.futa>>\
-			<<print '[[' + _o.optionF + '|Coach game][' + _m + ']]'>>\
-		<<else>>\
-			<<print '[[' + _o.option + '|Coach game][' + _m + ']]'>>\
-		<<endif>>\
-		<<if _highlightAction>>@@.info;]@@<<endif>>\
 		
 	<</for>>\
 	

@@ -18,9 +18,11 @@
 	She thanks you for your help, gives you a hug and wishes you good luck as you walk out. You wonder what kind of research $therapist is conducting that could require such survey.
 
 	[[Go home|Go to bedroom][$scene=""]]
-<<elseif ($player.perversion.therapist eq 2) and ($scene eq "SurveyDreams")>>\
-<div class="dream">\
-	<<if $player.therapistSurvey eq 0>><!--<BDSM kink survey dream>-->\
+<<elseif ($player.perversion.therapist eq 2)>>\
+<div id="surveyDream" class="dream">\
+<<if ($scene eq "SurveyDreams")>>\
+<<set _hideDreamOption = true>>\
+<<if $player.therapistSurvey eq 0>><!--<BDSM kink survey dream>-->\
 	You find yourself almost naked in a dimly-lit room with Moresque ornamentation and the faint scent of incense. The walls around you are interspersed with candlelit sconces, and racks containing instruments of pain and torture occupy several niches. At the room’s center is a cluster of restraint devices built from hardwood and iron.
 
 	From the shadows steps a leather-clad dominatrix, her knee-high, heeled boots striding the slow and confident pace of one who knows she is fully in charge. You quail instinctively, as if her assertive aura has already forced your obedience.
@@ -345,15 +347,8 @@
 	
 <!--</TG kink dream>-->\
 <<endif>>\
+<<endif>>\
 </div>\
-	[[Reconsider answers|TherapistSurvey][$scene=""]]
-	<<if $player.therapistSurvey lte 5>>\
-		[[Next page|TherapistSurvey][$scene=""; $player.therapistSurvey++]]
-	<<else>>\
-		[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
-	<<endif>>\
-\
-<<elseif ($player.perversion.therapist eq 2)>>\
 <span id="quickTherapistSurveyDetailed">\
 <<if $player.therapistSurvey eq 0>><!--<BDSM kink survey>-->\
 1) Are you aroused by any of the following thoughts: being physically restrained, being treated as a subordinate, treating another person as a subordinate, and/or giving or receiving punishment (including physical punishments)?
@@ -369,7 +364,7 @@ No – I prefer erotic encounters to be on mostly free, equal terms and painless
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.bdsm = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes\
 <<if not $kinkAllow.bdsm>>\
 	<<set $kinkAllow.painPlay = false>>\
 	<<set $kinkAllow.xPain = false>>\
@@ -377,7 +372,16 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.bondage = false>>\
 	<<set $kinkAllow.facesit = false>>\
 	<<set $kinkAllow.trampling = false>>\
-<<endif>>\
+<<endif>> \
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.bdsm = true>>\
+<<set $kinkAllow.painPlay = true>>\
+<<set $kinkAllow.xPain = true>>\
+<<set $kinkAllow.petPlay = true>>\
+<<set $kinkAllow.bondage = true>>\
+<<set $kinkAllow.facesit = true>>\
+<<set $kinkAllow.trampling = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Pain play">>\
@@ -448,7 +452,7 @@ No – I only think about ejaculation as a part of climax, not a distinct or sep
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.semenConsumption = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes\
 <<if not $kinkAllow.semenConsumption>>\
 	<<set $kinkAllow.creampie = false>>\
 	<<set $kinkAllow.bukkake = false>>\
@@ -456,6 +460,14 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.ownCum = false>>\
 	<<set $kinkAllow.cumSwap = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.semenConsumption = true>>\
+	<<set $kinkAllow.creampie = true>>\
+	<<set $kinkAllow.bukkake = true>>\
+	<<set $kinkAllow.cumEating = true>>\
+	<<set $kinkAllow.ownCum = true>>\
+	<<set $kinkAllow.cumSwap = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Creampie">>\
@@ -517,12 +529,18 @@ No – Urination is not something I associate with sex.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.watersports = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.watersports>>\
 	<<set $kinkAllow.wetting = false>>\
 	<<set $kinkAllow.urineDrink = false>>\
 	<<set $kinkAllow.urinePlay = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.watersports = true>>\
+	<<set $kinkAllow.wetting = true>>\
+	<<set $kinkAllow.urineDrink = true>>\
+	<<set $kinkAllow.urinePlay = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Wetting">>\
@@ -568,12 +586,18 @@ No – Urination is not something I associate with sex.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.agePlay = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.agePlay>>\
 	<<set $kinkAllow.diapering = false>>\
 	<<set $kinkAllow.adultBaby = false>>\
 	<<set $kinkAllow.ageBehavior = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.agePlay = true>>\
+	<<set $kinkAllow.diapering = true>>\
+	<<set $kinkAllow.adultBaby = true>>\
+	<<set $kinkAllow.ageBehavior = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Diapering">>\
@@ -619,7 +643,7 @@ No – I don’t like overtly abusive behavior.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.degradation = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.degradation>>\
 	<<set $kinkAllow.curse = false>>\
 	<<set $kinkAllow.whoring = false>>\
@@ -631,6 +655,18 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.tattoo = false>>\
 	<<set $kinkAllow.piercing = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.degradation = true>>\
+	<<set $kinkAllow.curse = true>>\
+	<<set $kinkAllow.whoring = true>>\
+	<<set $kinkAllow.bimbo = true>>\
+	<<set $kinkAllow.spitting = true>>\
+	<<set $kinkAllow.abusive = true>>\
+	<<set $kinkAllow.mindControl = true>>\
+	<<set $kinkAllow.questionable = true>>\
+	<<set $kinkAllow.tattoo = true>>\
+	<<set $kinkAllow.piercing = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Cursing">>\
@@ -729,7 +765,7 @@ No – I do not pay much attention to it or it does not turn me on in particular
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.xBody = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.xBody>>\
 	<<set $kinkAllow.bbw = false>>\
 	<<set $kinkAllow.hyperBreasts = false>>\
@@ -739,6 +775,16 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.muscle = false>>\
 	<<set $kinkAllow.expansionWeight = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.xBody = true>>\
+	<<set $kinkAllow.bbw = true>>\
+	<<set $kinkAllow.hyperBreasts = true>>\
+	<<set $kinkAllow.hyperPenis = true>>\
+	<<set $kinkAllow.dwarf = true>>\
+	<<set $kinkAllow.tall = true>>\
+	<<set $kinkAllow.muscle = true>>\
+	<<set $kinkAllow.expansionWeight = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "BBW">>\
@@ -820,7 +866,7 @@ No – I do not find feet or items worn on them arousing.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.footFetish = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.footFetish>>\
 	<<set $kinkAllow.footDisplay = false>>\
 	<<set $kinkAllow.footWorship = false>>\
@@ -828,6 +874,14 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.shoeBoot = false>>\
 	<<set $kinkAllow.footjob = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.footFetish = true>>\
+	<<set $kinkAllow.footDisplay = true>>\
+	<<set $kinkAllow.footWorship = true>>\
+	<<set $kinkAllow.hosiery = true>>\
+	<<set $kinkAllow.shoeBoot = true>>\
+	<<set $kinkAllow.footjob = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Foot Display">>\
@@ -875,6 +929,7 @@ Yes – (check all that apply)\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Feet kink survey>-->\
+
 6) Have you ever derived sexual excitement from the smell or feeling of sweaty or unclean body parts or clothing?
 	<!--<Odor kink survey>-->\
 	
@@ -888,7 +943,7 @@ No – I am not aroused by sweat or body odors.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.odor = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.odor>>\
 	<<set $kinkAllow.clothesOdor = false>>\
 	<<set $kinkAllow.shoeSockOdor = false>>\
@@ -897,6 +952,15 @@ Yes – (check all that apply)\
 	<<set $kinkAllow.assOdor = false>>\
 	<<set $kinkAllow.genitalOdor = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.odor = true>>\
+	<<set $kinkAllow.clothesOdor = true>>\
+	<<set $kinkAllow.shoeSockOdor = true>>\
+	<<set $kinkAllow.footOdor = true>>\
+	<<set $kinkAllow.armpitOdor = true>>\
+	<<set $kinkAllow.assOdor = true>>\
+	<<set $kinkAllow.genitalOdor = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Clothes">>\
@@ -967,13 +1031,20 @@ No – I am not aroused by any specific clothing material.\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kink.clothing = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kink.clothing>>\
 	<<set $kink.latex = false>>\
 	<<set $kink.leather = false>>\
 	<<set $kink.nylon = false>>\
 	<<set $kink.frilly = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kink.clothing = true>>\
+	<<set $kink.latex = true>>\
+	<<set $kink.leather = true>>\
+	<<set $kink.nylon = true>>\
+	<<set $kink.frilly = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Latex">>\
@@ -1026,11 +1097,16 @@ No – I do not find the ideas of my genitals becoming smaller or my being tease
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.smallPenis = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-Yes – (check all that apply)\
+Yes \
 <<if not $kinkAllow.smallPenis>>\
 	<<set $kinkAllow.penisShrink = false>>\
 	<<set $kinkAllow.sph = false>>\
 <<endif>>\
+<<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
+<<set $kinkAllow.smallPenis = true>>\
+	<<set $kinkAllow.penisShrink = true>>\
+	<<set $kinkAllow.sph = true>>\
+<<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Penis Shrinking">>\
@@ -1073,8 +1149,10 @@ Yes – I am turned on by the idea of having my sex organs transformed to the op
 <!--</TG kink survey>-->\
 <<endif>>\
 -------------------
-<<if [0,2,4,5,6].includes($player.therapistSurvey)>>\
+<<if [0,2,4,5,6].includes($player.therapistSurvey) and (not _hideDreamOption)>>\
+<div class="dream">\
 [[Imagine how it might feel|TherapistSurvey][$scene="SurveyDreams"]]
+</div>\
 <<endif>>\
 <<if $player.therapistSurvey lte 5>>\
 	[[Next page|TherapistSurvey][$scene=""; $player.therapistSurvey++]]

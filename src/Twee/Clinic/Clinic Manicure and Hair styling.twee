@@ -2,6 +2,9 @@
 \
 <<set _passage="Clinic Manicure and Hair styling">>\
 <<if $scene eq "">>\
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 <<set _showManicureOptions = false>>\
 <<if $body.permManicure gte 2>>\
 	Nancy smiles upon seeing your permanent whorish manicure and asks if you want to change your hairstyle.
