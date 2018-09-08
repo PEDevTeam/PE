@@ -365,16 +365,16 @@
 	<<else>>\
 		[[Retreat to the ladies room|Task clubDancePanties][$scene="runAwayRestroom"; $tasksTeacher.clubDancePanties.status=2; $tasksTeacher.clubDancePanties.progress+=8;$time.addMinutes(5)]]
 	<<endif>>\
-<<elseif $scene eq "runAwayRestroom">>\
+<<elseif $scene eq "runAwayRestroom" or $scene eq "runAway">>\
 	<<set _panties=false>>\
-	<<if _u.maxAlt and ($items[_u.id].ownAlt.length gt 1)>>\
+	<<if _u.maxAlt>>\
 		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
 			<<if $items[_u.id].ownAlt[_i]>>\
-				<<if ($items[_u.id].curAlt neq _i)>>\
-					<<set $items[_u.id].curAlt = _i>>\
-					<<set _panties=true>>\
-				<<else>>\
+				<<if ($items[_u.id].curAlt eq _i)>>\
 					<<set $items[_u.id].ownAlt[_i] = null>>\
+				<<else>>\
+					<<set _pantiesNewCur=_i>>\
+					<<set _panties=true>>\
 				<<endif>>\
 			<<endif>>\
 		<</for>>\
@@ -382,47 +382,51 @@
 	<<removeClothing _u.id>>\
 	<<if (not _panties)>>\
 		<<removeFromInv _u.id>>\
-	<<endif>>\
-	You quickly retreat to the ladies room.
-	
-	<<if playerCode.owns(itemsC.pantiesCotton)>><<wearClothing $items.pantiesCotton.id>><<set _panties=true>>\
-	<<elseif playerCode.owns(itemsC.gString)>><<wearClothing $items.gString.id>><<set _panties=true>>\
-	<<elseif playerCode.owns(itemsC.pantiesLatex)>><<wearClothing $items.pantiesLatex.id>><<set _panties=true>>\
-	<<endif>>\
-	<<if _panties>>\
-		Luckily this time you've come prepared. You enter empty cabin and put on spare pair of underwear.
 	<<else>>\
-		You curse your lack of forethough. Sadly you don't have any spare underwear, but this time you at least don't panic.
+		<<set $items[_u.id].curAlt = _pantiesNewCur>>\
 	<<endif>>\
-	
-	[[Head back to the club|The Club][$scene="MainClub"]]
-<<elseif $scene eq "runAway">>\
-	You flee the dance floor and then the club entirely, ready to burst with humiliation. The noticeable draft under your dress reminds you at every step what you’ve just done.
-	
-	As you head out into the night air beyond the club’s outer door, it’s even worse. The sudden chill against your warmed-up skin makes your\
-	<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
-		exposed balls beneath your caged penis retract from the cold.
-	<<elseif $body.penisShrink gt 0>>\
-		little, exposed penis and balls shrink even further in the cold.
-	<<else>>\
-		exposed penis and balls shrivel from the cold.
-	<<endif>>\
-	
-	<<if ($time.hour gt 7) and ($time.hour lte 22)>>\
-		<<set $time.hour = 23>>\
-		In your distress you take wrong turn and almost get lost. It takes some time to figure out where you are and return to familiar streets.
+	<<if $scene eq "runAwayRestroom">>\
+		You quickly retreat to the ladies room.
 		
+		<<if playerCode.owns(itemsC.pantiesCotton)>><<wearClothing 'pantiesCotton'>><<set _panties=true>>\
+		<<elseif playerCode.owns(itemsC.gString)>><<wearClothing 'gString'>><<set _panties=true>>\
+		<<elseif playerCode.owns(itemsC.pantiesLatex)>><<wearClothing 'pantiesLatex'>><<set _panties=true>>\
+		<<endif>>\
+		<<if _panties>>\
+			Luckily this time you've come prepared. You enter empty cabin and put on spare pair of underwear.
+		<<else>>\
+			You curse your lack of forethough. Sadly you don't have any spare underwear, but this time you at least don't panic.
+		<<endif>>\
+		
+		[[Head back to the club|The Club][$scene="MainClub"]]
+	<<else>>\
+		You flee the dance floor and then the club entirely, ready to burst with humiliation. The noticeable draft under your dress reminds you at every step what you’ve just done.
+		
+		As you head out into the night air beyond the club’s outer door, it’s even worse. The sudden chill against your warmed-up skin makes your\
+		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+			exposed balls beneath your caged penis retract from the cold.
+		<<elseif $body.penisShrink gt 0>>\
+			little, exposed penis and balls shrink even further in the cold.
+		<<else>>\
+			exposed penis and balls shrivel from the cold.
+		<<endif>>\
+		
+		<<if ($time.hour gt 7) and ($time.hour lte 22)>>\
+			<<set $time.hour = 23>>\
+			In your distress you take wrong turn and almost get lost. It takes some time to figure out where you are and return to familiar streets.
+			
+		<<endif>>\
+		You eventually make your way back home. When you arrive, the lights in the house are all out and your house is silent.
+
+		That detail actually brings you a little relief. You know $guardian is always home by now and probably asleep, and the last thing you want is to explain any of what just happened to her.
+
+		[[Go inside|Task clubDancePanties][$scene="runAwayHome"]]
 	<<endif>>\
-	You eventually make your way back home. When you arrive, the lights in the house are all out and your house is silent.
-
-	That detail actually brings you a little relief. You know $guardian is always home by now and probably asleep, and the last thing you want is to explain any of what just happened to her.
-
-	[[Go inside|Task clubDancePanties][$scene="runAwayHome"]]
 <<elseif $scene eq "runAwayHome">>\
 	<<if playerCode.owns(itemsC.pantiesCotton) or playerCode.owns(itemsC.gString) or playerCode.owns(itemsC.pantiesLatex)>>\
-		You quietly close the front door and lock it, thinking about the high chances that guardian is sleeping soundly right now. A naughty thought crosses your mind when you feel the loose feeling around your privates where your surrendered underwear used to be.
+		You quietly close the front door and lock it, thinking about the high chances that $guardian is sleeping soundly right now. A naughty thought crosses your mind when you feel the loose feeling around your privates where your surrendered underwear used to be.
 
-		You wonder… What if I ‘borrow’ some of guardian’s?
+		You wonder… What if I ‘borrow’ some of $guardian’s?
 		<<if $player.daring lte 5>>\
 
 			After all, there’s absolutely no way you’re going out commando again tomorrow, not after what happened tonight.
@@ -462,11 +466,11 @@
 
 	You think way too hard about how much room you need before you stop, expecting the drawer to squeak $guardian awake at any second. You need enough room to reach in and take something out without messing up her whole drawer, but closing the drawer again will be just as risky as opening it.
 
-	You settle on opening it to about the length of your hand. You reach in, searching by feel for something you hope won’t be missed. While guardian is not big on folding her lingerie, you’re not really sure how much she pays attention to what and where things are in there.
+	You settle on opening it to about the length of your hand. You reach in, searching by feel for something you hope won’t be missed. While $guardian is not big on folding her lingerie, you’re not really sure how much she pays attention to what and where things are in there.
 
 	In the end, you decide to take something from the bottom and hope for the best. To your surprise, the panties you pull out have a rubbery feel to them, and as they spring into an unfolded state, you realize you are holding a pair made from latex.
 
-	You are a little scared to take these, because you have no idea if these are her only pair made from this material, and whether she will miss them immediately or not at all. That said, there is no way you can figure out how to fold them in the dark, nor can you put them back in without making a complete mess of guardian’s drawer or making lots of noise. 
+	You are a little scared to take these, because you have no idea if these are her only pair made from this material, and whether she will miss them immediately or not at all. That said, there is no way you can figure out how to fold them in the dark, nor can you put them back in without making a complete mess of $guardian’s drawer or making lots of noise. 
 
 	You decide to ease the drawer closed. Luckily it slides in without any further drama, and you sneak your way out of the room.
 

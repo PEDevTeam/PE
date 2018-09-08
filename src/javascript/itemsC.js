@@ -21,53 +21,43 @@ window.quickSlotSets={
 },
 
 window.itemF={
+	itemTwee: function(id) {
+		if (State.active.variables.items[id] == null) {
+			return false;
+		}
+		
+		return State.active.variables.items[id];
+	},
 	name: function(item) {
-		var oV;
-		var items=State.active.variables.items;
 		if (item == null) {
 			return false;
 		}
-
-		oV=items[item.id];
-		
-		var name=item.name;
-		if ((oV != null) && (oV.name != null)) {
-			name = oV.name;
+		if ((State.active.variables.items[item.id] != null) && (State.active.variables.items[item.id].name != null)) {
+			return State.active.variables.items[item.id].name;
 		}
-		return name;
+		return item.name;
 	},
 	nameById: function(id) {
-		var oV;
-		var items=State.active.variables.items;
-		var o=window.itemsC[id];
-		if (o != null) {
-			oV=items[id];
-			
-			var name=o.name;
-			if ((oV != null) && (oV.name != null)) {
-				name = oV.name;
+		if (window.itemsC[id] != null) {
+			if ((State.active.variables.items[id] != null) && (State.active.variables.items[id].name != null)) {
+				return State.active.variables.items[id].name;
 			}
-			return name;
+			return window.itemsC[id].name;
 		}
 		
 		return false;
 	},
 	deleteItem: function(id) {
-		var items=State.active.variables.items;
-		delete items[id];
+		delete State.active.variables.items[id];
 	},
 	image: function(item) {
-		var oV;
 		if (item == null) {
 			return false;
 		}
-		var image=item.image;
-		var items=State.active.variables.items;
-		oV=items[item.id];
-		if ((oV != null) && (oV.image != null)) {
-			image = oV.image;
+		if ((State.active.variables.items[item.id] != null) && (State.active.variables.items[item.id].image != null)) {
+			return State.active.variables.items[item.id].image;
 		}
-		return image;
+		return item.image;
 	},
 	cost: function(item) {
 		var oV;

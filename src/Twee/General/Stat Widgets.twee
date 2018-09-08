@@ -41,69 +41,44 @@
 							playerCode.isWearingOn(itemTypes.AnalPlug),
 							playerCode.isWearingOn(itemTypes.Shoes),
 							playerCode.isWearingOn(itemTypes.Stockings)]>>
+	<<set _curClothesOver=[]>>
 
-	<<if _curClothes[8].id eq $items.buttPlugInflate.id>>
+	<<if _curClothes[8] eq 'buttPlugInflate'>>
 		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
-		<<set _inflateImage = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
-		<<set _curClothes[8] = { id: "buttPlugInflate", image: _inflateImage }>>
+		<<set _curClothesOver[8] = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
 	<<endif>>
 	
-	<<if _curClothes[0] and (_curClothes[0].daringRec eq 13)>>
-	
-		<<if $flags.gTrialLatexMaid>>\
-			<<set _curClothes[0] = { id: "maidOutfit", image: "maid_dress_latex.jpg" }>>
+	<<if _curClothes[0] and (_curClothes[0].id eq 'maidOutfit')>>
+
+		<<if $flags.gTrialLatexMaid>>
+			<<set _curClothesOver[0] = "maid_dress_latex.jpg">>
 		<<else>>
-			<<set _curClothes[0] = { id: "maidOutfit", image: "maid_dress.jpg" }>>
+			<<set _curClothesOver[0] = "maid_dress.jpg">>
 		<<endif>>
 		
 		<<if (not _curClothes[2])>>
-			<<if $flags.gTrialLatexMaid>>\
-				<<set _curClothes[2] = { id: "choker", image: "choker_05.jpg" }>>
+			<<if $flags.gTrialLatexMaid>>
+				<<set _curClothesOver[2] = "choker_05.jpg">>
 			<<else>>
-				<<set _curClothes[2] = { id: "choker", image: "choker_00.jpg" }>>
+				<<set _curClothesOver[2] = "choker_00.jpg">>
 			<<endif>>
 		<<endif>>
 		
-		<<set _curClothes[3] = { id: "hairband", image: "maid_headband.jpg" }>>
+		<<if (not _curClothes[3])>>
+			<<set _curClothesOver[3] = "maid_headband.jpg">>
+		<<endif>>
 		
 		<<if (not _curClothes[4])>>
-			<<set _curClothes[4] = { id: "hairband", image: "maid_duster.jpg" }>>
-		<<endif>>
-		
-		<<if $flags.gTrialBalletHeels>>
-			<<wearClothing $items.balletHeels.id>>
-			<<set _curClothes[9] = itemsC.balletHeels>>
-		<<else>>\
-			<<if $flags.gTrialLatexMaid>>
-				<<wearClothing $items.stilettoHeels.id>>
-				<<set $items.stilettoHeels.curAlt=39>>
-				<<set _curClothes[9] = itemsC.stilettoHeels>>
-			<<else>>
-				<<wearClothing $items.highHeel3.id>>
-				<<set $items.highHeel3.curAlt=39>>
-				<<set _curClothes[9] = itemsC.highHeel3>>
-			<<endif>>
-		<<endif>>
-		
-		<<if $flags.gTrialLatexMaid>>\
-			<<if _curClothes[10].id neq $items.stockingsLatex.id>>
-				<<wearClothing $items.stockingsLatex.id>>
-				<<set $items.stockingsLatex.curAlt=39>>
-				<<set _curClothes[10] = itemsC.stockingsLatex>>
-			<<endif>>
-		<<else>>
-			<<wearClothing $items.stockings.id>>
-			<<set $items.stockings.curAlt=39>>
-			<<set _curClothes[10] = itemsC.stockings>>
+			<<set _curClothesOver[4] = "maid_duster.jpg">>
 		<<endif>>
 		
 	<<endif>>
 	
 	<<set _combineSlot=0>>
-	<<if _curClothes[1]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[2]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[3]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[4]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[1] or _curClothesOver[1]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[2] or _curClothesOver[2]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[3] or _curClothesOver[3]>><<set _combineSlot++>><<endif>>
+	<<if _curClothes[4] or _curClothesOver[4]>><<set _combineSlot++>><<endif>>
 	
 	<<for _i to 0; _i lt _curClothes.length; _i++>>
 
@@ -115,7 +90,7 @@
 
 		<<if (_combineSlot eq 0) and [2,3,4].includes(_i)>>
 			<<continue>>
-		<<elseif (_combineSlot eq 1) and (not _curClothes[_i]) and [1,2,3,4].includes(_i)>>
+		<<elseif (_combineSlot eq 1) and (not _curClothes[_i]) and (not _curClothesOver[_i]) and [1,2,3,4].includes(_i)>>
 			<<continue>>
 		<<elseif (_combineSlot gt 1) and [1,2,3,4].includes(_i)>>
 			<<if [2,4].includes(_i)>>
@@ -125,12 +100,14 @@
 			<<endif>>
 		<<endif>>
 
-		<<if _curClothes[_i]>>
+		<<if _curClothes[_i] or _curClothesOver[_i]>>
 
-			<<if (_curClothes[_i].id)>>
+			<<if _curClothesOver[_i]>>
+				<<set _itemSidebarImage = _curClothesOver[_i]>>
+			<<else>>
 				<<set _itemSidebarImage = window.itemF.image(_curClothes[_i])>>
 			<<endif>>
-			<<if (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
+			<<if (not _curClothesOver[_i]) and (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
 				<<showImageSidebar _itemSidebarImage $items[_curClothes[_i].id].curAlt _small _i>>
 			<<else>>
 				<<showImageSidebar _itemSidebarImage 100 _small _i>>

@@ -6,6 +6,9 @@
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<if $scene eq "">>\
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 Nancy asks if you want to make any changes to your body. There are options for increasing breast size, making lips fuller, reshaping your nose, altering your overall face form and even smoothing your anus. Also there are options to make temporary treatments permanent.
 
 <<if $body.nose eq 3>>\
@@ -1204,6 +1207,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<elseif $scene eq "softeningFacial">>\
 	<<set _item=itemsC.softeningFacial>>\
 	<<buyItem _item.id>>\
+	<<set $body.face = 1>>\
 	<<set $flags.salonNose=true>>\
 
 	@@.heroT;"I'd like to have softer facial features,"@@ you tell Nancy.

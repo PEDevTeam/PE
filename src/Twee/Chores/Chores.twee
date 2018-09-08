@@ -16,13 +16,12 @@
 	<<if playerCode.owns(itemsC.highHeel3)>>\
 		You put on a pair of high heels, as part of your punishment.
 	
-		<<set _f=$items.highHeel3>>\
 	<<else>>\
 		You switch to the pair of high heels that $guardian left for you.
 		
-		<<addToInv $items.highHeel3.id 40>>\
-		<<set _f=$items.highHeel3>>\
+		<<addToInv 'highHeel3' 40>>\
 	<<endif>>\
+	<<set _f=itemsC.highHeel3>>\
 <<endif>>\
 	<!--<Fail calculations>-->\
 <<if not $flags.choreCheck>>\

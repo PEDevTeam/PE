@@ -6,11 +6,6 @@
 	<<set $scene = "looking up dom dress">>\
 	<<goto [[Guardian kinky reward]]>>\
 <<endif>>\
-<<if $scene eq "removeChastity">>\
-	<<set $scene="">>\
-	<<removeClothing $items.chastityDevice.id>>\
-	<<updatebar>>\
-<<endif>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 Alright! How do you want to do this?
 
@@ -35,30 +30,42 @@ Alright! How do you want to do this?
 			<<endif>>\
 		<<else>>\
 			<<if playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
-				<<click "Try to use vibrator on your penis">><<replace "#vibratCageDeny">>@@.done; You are already very horny, you don't want to tease yourself anymore@@<</replace>><</click>> <span id="vibratCageDeny"></span>
+				<div class="tooltip">@@.halftransparent;Try to use vibrator on your penis@@ <span id="test_surv" class="tooltiptext">You are already very horny, you don't want to tease yourself anymore</span></div>
 			<<else>>\
 				<<print "[[Try to use vibrator on your penis|Use vibrator cage]]">>
 			<<endif>>\
 			<<if $therapistTalks.talkVibrator.start or (not playerCode.isMind_0()) or $player.perversion.teacher gte 4>>\
-				<<print "[[Use "+_stol+" vibrator in your ass|Use vibrator ass]]">>
+				<<if playerCode.masturbate.isCalm()>>\
+					<div class="tooltip"><<print "@@.halftransparent;Use "+_stol+" vibrator in your ass@@">><span id="test_surv" class="tooltiptext">You already did all you could to deal with arousal</span></div>
+				<<else>>\
+					<<print "[[Use "+_stol+" vibrator in your ass|Use vibrator ass]]">>
+				<<endif>>\
 			<<else>>\
-				<<click "Use vibrator in your ass">><<replace "#vibratAssDeny">>@@.done; You don't want to do that@@<</replace>><</click>> <span id="vibratAssDeny"></span>
+				<div class="tooltip">@@.halftransparent;Use vibrator in your ass@@ <span id="test_surv" class="tooltiptext">You are not ready to do that</span></div>
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
 <<if not $flags.confiscatedInternet>>\
 	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
-		<<click "Watch some porn on your computer">><<replace "#watchPornDeny">>@@.done;You are too horny to watch porn while being locked in chastity@@<</replace>><</click>> <span id="watchPornDeny"></span>
+		<div class="tooltip">@@.halftransparent;Watch some porn on your computer@@ <span id="test_surv" class="tooltiptext">You are too horny to watch porn while being locked in chastity</span></div>
 	<<else>>\
 		[[Watch some porn on your computer|Watch porn on computer][$player.room.laptop=true;$scene="masturbate"]]
 	<<endif>>\
 <<endif>>\
 <<if $flags.cameraBedroom>>\
-	[[Watch spy camera stream][$random.stored=1; $player.room.laptop=true]]
+	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<div class="tooltip">@@.halftransparent;Watch spy camera stream@@ <span id="test_surv" class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>
+	<<else>>\
+		[[Watch spy camera stream][$random.stored=1; $player.room.laptop=true]]
+	<<endif>>\
 <<endif>>\
 <<if playerCode.owns(itemsC.playgirlMagazine)>>\
-	[[Read Playgirl magazine]]
+	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span id="test_surv" class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>
+	<<else>>\
+		[[Read Playgirl magazine]]
+	<<endif>>\
 <<endif>>\
 <<if $kink.painPlay and $flags.chorePunKinky>>\
 	<<print '[[Ask '+$guardian+' to spank you|Special punishments][$scene=\"taskSpanking\"]]'>>
@@ -74,7 +81,7 @@ Alright! How do you want to do this?
 	<<if $flags.chastityLocked>>\
 		[[Unlock chastity cage|Masturbate][$flags.chastityLocked=false]]
 	<<else>>\
-		[[Remove chastity cage|Masturbate][$scene="removeChastity"]]
+		[[Remove chastity cage|Masturbate][window.playerCode.removeClothesJS(_c.id)]]
 	<<endif>>\
 <<endif>>\
 [[Do something else|Go to bedroom]]

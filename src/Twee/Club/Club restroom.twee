@@ -22,6 +22,9 @@
 	<<if $player.perversion.clubToiletCooldown lt ($time.day*60*24 + $time.hour*60 + $time.minute)>>\
 		[[Use the toilet|Club restroom][$scene="clubToilet";$random.store(10)]]
 	<<endif>>\
+	<<if $tasksTeacher.clubSelfieLadiesRoom.status eq 1>>\
+		[[Wait for someone and try to take a selfie|Task clubSelfieLadiesRoom]]
+	<<endif>>\
 	[[Head back to the club|The Club][$scene="MainClub"]]
 
 <<elseif $scene eq "clubRestroomFreshen">>\

@@ -180,7 +180,7 @@
                 <<set _in to _in + ' <<click @@.off;&#xe811;@@ >><<set $items[Object.keys($items)[' + _i + ']].ward=true>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>> \
                 <<set _in to _in + " ">>\
             <<endif>>\
-            <<set _in to _in + window.playerCode.getNameById(_o.id)>>\
+            <<set _in to _in + window.itemF.nameById(_o.id)>>\
             <<if _o.info>>\
                 <<set _in to _in + " ">>\
 				<<if _o.id eq itemsC.schoolMale.id>>\
@@ -231,12 +231,12 @@
 						<<set _in to _in + '<<click @@.on;&#xe810;@@>><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 						<<set _in to _in + " ">>\
 					<<endif>>\
-					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 			<<elseif $flags.laundryAccident and ((_o.clothingType & itemTypes.Underwear) gt 0) and _o.female>>\
 				<<set _in to _in + " //@@.halftransparent;Wet@@//">>\
 			<<else>>\
-				<<set _in to _in + '<<click " ' + _verb + '">><<wearClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+				<<set _in to _in + '<<click " ' + _verb + '">><<wearClothing "' + _o.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<endif>>\
 			<<if $showimages and (not $avatar.active)>>\
 				<<set _in to _in + '</span>'>>\
@@ -310,19 +310,19 @@
 	<<endif>>\
 	<<if (playerCode.owns(itemsC.buttPlugHeart) and (not playerCode.isWearing(itemsC.buttPlugHeart)))>>\
 		<<if _b>> @@.inv_action_faded; / @@ <<endif>>\
-		<<print '<<click " Small butt-plug ">><<wearClothing $items.buttPlugHeart.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<<print '<<click " Small butt-plug ">><<wearClothing "buttPlugHeart">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
 	<<if (playerCode.owns(itemsC.buttPlugDildo) and not playerCode.isWearing(itemsC.buttPlugDildo))>>\
 		<<if _b or (_bm gt 1)>> @@.inv_action_faded; / @@ <<endif>>\
-		<<print '<<click " PlugDildo ">><<wearClothing $items.buttPlugDildo.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<<print '<<click " PlugDildo ">><<wearClothing "buttPlugDildo">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
 	<<if (playerCode.owns(itemsC.buttPlugVibro) and not playerCode.isWearing(itemsC.buttPlugVibro))>>\
 		<<if _b or (_bm gt 1)>> @@.inv_action_faded; / @@ <<endif>>\
-		<<print '<<click " VibroPlug ">><<wearClothing $items.buttPlugVibro.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<<print '<<click " VibroPlug ">><<wearClothing "buttPlugVibro">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
 	<<if (playerCode.owns(itemsC.buttPlugInflate) and not playerCode.isWearing(itemsC.buttPlugInflate))>>\
 		<<if _b or (_bm gt 1)>> @@.inv_action_faded; / @@ <<endif>>\
-		<<print '<<click " InflatablePlug ">><<wearClothing $items.buttPlugInflate.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<<print '<<click " InflatablePlug ">><<wearClothing "buttPlugInflate">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
 <!--<<if _b>> @@.worn; Plugged @@\ <<endif>>-->\
 	<<if _bm gte 1>>
@@ -338,10 +338,10 @@
 					<<print '<<click " Lock chastity">><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 				@@.inv_action_faded;/@@ \
-				<<print '<<click " Remove chastity ">><<removeClothing $items.chastityDevice.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+				<<print '<<click " Remove chastity ">><<removeClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
 			<<endif>>\
 		<<else>>\
-			<<print '<<click " Put on chastity cage ">><<wearClothing $items.chastityDevice.id>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+			<<print '<<click " Put on chastity cage ">><<wearClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
 		<<endif>>\
 	<<endif>>\
 	<<click "Undress">><<set playerCode.getNaked()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
@@ -349,5 +349,3 @@
 <div class="clothesDivider"></div>\
 <<endif>>\
 \
-
-

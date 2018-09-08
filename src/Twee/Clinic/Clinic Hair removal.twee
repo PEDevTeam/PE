@@ -2,6 +2,9 @@
 \
 <<set _passage="Clinic Hair removal">>\
 <<if $scene eq "">>\
+	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
+		<<goto [[Beauty Salon]]>>\
+	<<endif>>\
 <<if ($body.bodyhair eq 3)>>\
 	Nancy smiles and tells you that you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever, aren't you so glad?  Only men, and boys, have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
 

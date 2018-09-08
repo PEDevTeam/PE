@@ -92,7 +92,7 @@
 	<<endif>>\
 	<<set $items.alarmClock.disabled=true>>\
 	<<if playerCode.owns(itemsC.alarmClock)>>\
-	<<removeFromInv $items.alarmClock.id>>\
+	<<removeFromInv 'alarmClock'>>\
 	<<endif>>\
 	<<set $flags.dreamgameCaughtTalk to true>>\
 	<<set $time.guardian.wakeHour to 7>>\
@@ -168,7 +168,7 @@
 	<<set $player.perversion.guardian to 4>>\
 	<<set $player.masturbationType = 0>>\
 	<<if (not playerCode.owns(itemsC.vibrator))>>\
-		<<addToInv $items.vibrator.id>>\
+		<<addToInv 'vibrator'>>\
 	<<endif>>\
 	Your eyes slowly open. $Guardian is shaking you awake, looking down at you sternly.
 
@@ -211,7 +211,7 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 5>>\
 	<<if playerCode.owns(itemsC.alarmClock)>>\
-		<<removeFromInv $items.alarmClock.id>>\
+		<<removeFromInv 'alarmClock'>>\
 	<<endif>>\
 	<<set $items.alarmClock.disabled=true>>\
 	<<if $flags.guardianFuckedByStrapon>>\
@@ -294,42 +294,42 @@
 	<<set window.playerCode.purgeMaleClothes()>>\
 	<<set window.playerCode.disableMaleClothes()>>\
 	<<set $flags.clothesPurged to true>>\
-	<<addToInv $items.maidOutfit.id>>\
-	<<wearClothing $items.maidOutfit.id>>\
-	<<addToInv $items.stockings.id 39>>\
+	<<addToInv 'maidOutfit'>>\
+	<<wearClothing 'maidOutfit'>>\
+	<<addToInv 'stockings' 39>>\
 	<<set $items.stockings.curAlt=39>>\
-	<<wearClothing $items.stockings.id>>\
-	<<addToInv $items.highHeel3.id 39>>\
+	<<wearClothing 'stockings'>>\
+	<<addToInv 'highHeel3' 39>>\
 	<<set $items.highHeel3.curAlt=39>>\
-	<<wearClothing $items.highHeel3.id>>\
+	<<wearClothing 'highHeel3'>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
 	<<else>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing except for the school uniform.@@\
-		<<addToInv $items.schoolMale.id>>\
-		<<addToInv $items.schoolShoes.id>>\
+		<<addToInv 'schoolMale'>>\
+		<<addToInv 'schoolShoes'>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.silkyTeddy))>>\
 		@@.guardian;I got you something new to sleep in. I'm sure you'll love it.@@\
-		<<addToInv $items.silkyTeddy.id>>\
+		<<addToInv 'silkyTeddy'>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.summerDress)) and (not playerCode.owns(itemsC.sluttyDress))>>\
 		@@.guardian;I got you a dress as a little present from me.@@\
-		<<addToInv $items.summerDress.id>>\
+		<<addToInv 'summerDress'>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.gString))>>\
 		@@.guardian;Also I've got you some underwear.@@\
-		<<addToInv $items.gString.id 40>>\
+		<<addToInv 'gString' 40>>\
 	<<endif>>\
 	<<if $items.gString.ownAlt[40]>>\
-		<<addToInv $items.braSexy.id 40>>\
+		<<addToInv 'braSexy' 40>>\
 	<<endif>>\
 	<<if $items.pantiesCotton.ownAlt[40]>>\
-		<<addToInv $items.bra.id 40>>\
+		<<addToInv 'bra' 40>>\
 	<<endif>>\
 	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not playerCode.owns(itemsC.schoolFemale))>>\
 		@@.guardian;I even got you a new school uniform.@@\
-		<<addToInv $items.schoolFemale.id>>\
+		<<addToInv 'schoolFemale'>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.flats)) and (not $items.highHeel3.ownAlt[0])>>\
 		<<if playerCode.owns(itemsC.schoolShoes)>>\
@@ -337,7 +337,7 @@
 		<<else>>\
 			@@.guardian;I brought you my old shoes since you don't have any left.@@\
 		<<endif>>\
-		<<addToInv $items.highHeel3.id>>\
+		<<addToInv 'highHeel3'>>\
 	<<endif>>\
 
 	<<if $player.room.style lte 4>>\
@@ -351,10 +351,10 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>><<removeFromInv $items.roomGamer.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>><<removeFromInv $items.roomPunk.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>><<removeFromInv $items.roomGeek.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>><<removeFromInv $items.roomSport.id>><<endif>>\
+	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>><<removeFromInv 'roomGamer'>><<endif>>\
+	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>><<removeFromInv 'roomPunk'>><<endif>>\
+	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>><<removeFromInv 'roomGeek'>><<endif>>\
+	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>><<removeFromInv 'roomSport'>><<endif>>\
 	<<set $player.room.junk=[]>>\
 \
 	<<if $flags.dreamgameCaughtWin>>\
@@ -389,15 +389,15 @@
 		<<set $items.maidOutfit.ownAlt[0]=false>>\
 		<<set $items.maidOutfit.ownAlt[1]=true>>\
 		<<set $flags.gTrialLatexMaid=true>>\
-		<<addToInv $items.stockingsLatex.id 39>>\
+		<<addToInv 'stockingsLatex' 39>>\
 		<<set $items.stockingsLatex.curAlt=39>>\
-		<<wearClothing $items.stockingsLatex.id>>\
-		<<addToInv $items.stilettoHeels.id 39>>\
+		<<wearClothing 'stockingsLatex'>>\
+		<<addToInv 'stilettoHeels' 39>>\
 		<<set $items.stilettoHeels.curAlt=39>>\
-		<<wearClothing $items.stilettoHeels.id>>\
+		<<wearClothing 'stilettoHeels'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\
-		<<addToInv $items.buttPlugVibro.id>>\
-		<<wearClothing $items.buttPlugVibro.id>>\
+		<<addToInv 'buttPlugVibro'>>\
+		<<wearClothing 'buttPlugVibro'>>\
 		Your eyes open suddenly to find $guardian angrily shaking you awake. There is a wild, unrestrained fire in $guardian's eyes. However, the absence of any of the normal empathy in her expression scares you the most.
 
 		@@.guardian;"Do I have your attention? I'd better."@@ She stares icily at your worried face, allowing you a moment to adjust to being awake so you can really understand the gravity of your situation.

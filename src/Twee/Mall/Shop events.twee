@@ -1,29 +1,29 @@
 :: Shop events [pos_1800_2092]
 \
-<<set _item = playerCode.getItemById($player.bought)>>\
+<<set _item = itemsC[$player.bought]>>\
 <<if $scene eq "general">>\
 	<<if _item>>\
 		<<set _repeat=false>>\
 		<<if playerCode.isMind_0()>>\
-			<<if ($player.bought eq $items.summerDress.id) or ($player.bought eq $items.skirtTop.id)>>\
+			<<if ($player.bought eq itemsC.summerDress.id) or ($player.bought eq itemsC.skirtTop.id)>>\
 				<<set $items.summerDress.postponed = true>>\
 				<<set $items.skirtTop.postponed = true>>\
-			<<elseif ($player.bought eq $items.flats.id) or ($player.bought eq $items.highHeel3.id)>>\
+			<<elseif ($player.bought eq itemsC.flats.id) or ($player.bought eq itemsC.highHeel3.id)>>\
 				<<set $items.flats.postponed = true>>\
 				<<set $items.highHeel3.postponed = true>>\
-			<<elseif ($player.bought eq $items.girlsneakers.id)>>\
+			<<elseif ($player.bought eq itemsC.girlsneakers.id)>>\
 				<<set $items.girlsneakers.postponed = true>>\
-			<<elseif ($player.bought eq $items.pantiesLatex.id) or ($player.bought eq $items.gString.id)>>\
+			<<elseif ($player.bought eq itemsC.pantiesLatex.id) or ($player.bought eq itemsC.gString.id)>>\
 				<<set $items.pantiesLatex.postponed = true>>\
 				<<set $items.gString.postponed = true>>\
-			<<elseif ($player.bought eq $items.silkyTeddy.id)>>\
+			<<elseif ($player.bought eq itemsC.silkyTeddy.id)>>\
 				<<set $items.silkyTeddy.postponed = true>>\
-			<<elseif ($player.bought eq $items.bra.id) or ($player.bought eq $items.braSexy.id)>>\
+			<<elseif ($player.bought eq itemsC.bra.id) or ($player.bought eq itemsC.braSexy.id)>>\
 				<<set $items.bra.postponed = true>>\
 				<<set $items.braSexy.postponed = true>>\
-			<<elseif ($player.bought eq $items.socks.id)>>\
+			<<elseif ($player.bought eq itemsC.socks.id)>>\
 				<<set $items.socks.postponed = true>>\
-			<<elseif ($player.bought eq $items.stockings.id)>>\
+			<<elseif ($player.bought eq itemsC.stockings.id)>>\
 				<<set $items.stockings.postponed = true>>\
 			<<endif>>\
 		<<endif>>\
@@ -55,7 +55,7 @@
 				<<set _repeat=true>>\
 			<<endif>>\
 		<<endif>>\
-		<<if ($player.bought eq $items.schoolFemale.id) and ((not $items.socks.ownAlt[0]) or ((not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])))>>\
+		<<if ($player.bought eq itemsC.schoolFemale.id) and ((not $items.socks.ownAlt[0]) or ((not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])))>>\
 			<<set $player.perversion.mall++>>\
 			<<set $scene = "female Uniform">>\
 			<<set _repeat=true>>\
@@ -91,7 +91,7 @@
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
 			bra\
 		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq $items.socks.id)>>\
+			<<if ($player.bought eq itemsC.socks.id)>>\
 				feminine socks\
 			<<else>>\
 				stockings\
@@ -140,7 +140,7 @@
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
 			bra.\
 		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq $items.socks.id)>>\
+			<<if ($player.bought eq itemsC.socks.id)>>\
 				feminine socks.\
 			<<else>>\
 				stockings.\
@@ -158,14 +158,14 @@
 	
 	You also pick\
 	<<if (not $items.socks.ownAlt[0])>>\
-		<<addToInv $items.socks.id>>\
+		<<addToInv 'socks'>>\
 		black knee high socks\
 		<<if (not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])>>\
 			and\
 		<<endif>>\
 	<<endif>>\
 	<<if (not $items.flats.ownAlt[0])>>\
-		<<addToInv $items.flats.id>>\
+		<<addToInv 'flats'>>\
 		a pair of flats\
 	<<endif>>\
 	to complete the set.

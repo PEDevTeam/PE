@@ -205,91 +205,86 @@ window.structures={
 		}
 	},
 	setupBody: function() {
-		var vars=State.active.variables;
 		var bodyList=window.bodyList;
-		if (vars.body == null) {
-			vars.body = {};
+		if (State.active.variables.body == null) {
+			State.active.variables.body = {};
 		}
 		for (var i=0; i < Object.keys(bodyList).length; i++) {
-			if (vars.body[Object.keys(bodyList)[i]] == null) {
-				vars.body[Object.keys(bodyList)[i]] = bodyList[Object.keys(bodyList)[i]];
+			if (State.active.variables.body[Object.keys(bodyList)[i]] == null) {
+				State.active.variables.body[Object.keys(bodyList)[i]] = bodyList[Object.keys(bodyList)[i]];
 			}
 		}
 	},
 	setupFriend: function() {
-		var vars=State.active.variables;
 		var friendList=window.friendList;
-		if (vars.friendG == null) {
-			vars.friendG = {};
+		if (State.active.variables.friendG == null) {
+			State.active.variables.friendG = {};
 		}
 		for (var i=0; i < Object.keys(friendList).length; i++) {
-			if (vars.friendG[Object.keys(friendList)[i]] == null) {
-				vars.friendG[Object.keys(friendList)[i]] = friendList[Object.keys(friendList)[i]];
+			if (State.active.variables.friendG[Object.keys(friendList)[i]] == null) {
+				State.active.variables.friendG[Object.keys(friendList)[i]] = friendList[Object.keys(friendList)[i]];
 			}
 		}
 	},
 	setupFuta: function() {
-		var vars=State.active.variables;
 		var futaList=window.futaList;
-		if (vars.futa == null) {
-			vars.futa = {};
+		if (State.active.variables.futa == null) {
+			State.active.variables.futa = {};
 		}
 		for (var i=0; i < Object.keys(futaList).length; i++) {
-			if (vars.futa[Object.keys(futaList)[i]] == null) {
-				vars.futa[Object.keys(futaList)[i]] = futaList[Object.keys(futaList)[i]];
+			if (State.active.variables.futa[Object.keys(futaList)[i]] == null) {
+				State.active.variables.futa[Object.keys(futaList)[i]] = futaList[Object.keys(futaList)[i]];
 			}
 		}
 	},
 	setupQuickSlot: function() {
-		var vars=State.active.variables;
 		var slotList=window.quickSlotList;
-		if (vars.quickSlot == null) {
-			vars.quickSlot = {};
+		if (State.active.variables.quickSlot == null) {
+			State.active.variables.quickSlot = {};
 		}
 		for (var i=0; i < Object.keys(slotList).length; i++) {
-			if (vars.quickSlot[Object.keys(slotList)[i]] == null) {
-				vars.quickSlot[Object.keys(slotList)[i]] = {};
+			if (State.active.variables.quickSlot[Object.keys(slotList)[i]] == null) {
+				State.active.variables.quickSlot[Object.keys(slotList)[i]] = {};
 			}
-			if (vars.quickSlot[Object.keys(slotList)[i]].name == null) {
-				vars.quickSlot[Object.keys(slotList)[i]].name = slotList[Object.keys(slotList)[i]].name;
+			if (State.active.variables.quickSlot[Object.keys(slotList)[i]].name == null) {
+				State.active.variables.quickSlot[Object.keys(slotList)[i]].name = slotList[Object.keys(slotList)[i]].name;
 			}
-			if (vars.quickSlot[Object.keys(slotList)[i]].extra == null) {
-				vars.quickSlot[Object.keys(slotList)[i]].extra = slotList[Object.keys(slotList)[i]].extra;
+			if (State.active.variables.quickSlot[Object.keys(slotList)[i]].extra == null) {
+				State.active.variables.quickSlot[Object.keys(slotList)[i]].extra = slotList[Object.keys(slotList)[i]].extra;
 			}
-			if (vars.quickSlot[Object.keys(slotList)[i]].clothes == null) {
-				vars.quickSlot[Object.keys(slotList)[i]].clothes = [];
+			if (State.active.variables.quickSlot[Object.keys(slotList)[i]].clothes == null) {
+				State.active.variables.quickSlot[Object.keys(slotList)[i]].clothes = [];
 			}
-			if (vars.quickSlot[Object.keys(slotList)[i]].types == null) {
-				vars.quickSlot[Object.keys(slotList)[i]].types = [];
+			if (State.active.variables.quickSlot[Object.keys(slotList)[i]].types == null) {
+				State.active.variables.quickSlot[Object.keys(slotList)[i]].types = [];
 			}
 		}
 	},
 
 	setupItems: function() {
-		var vars=State.active.variables;
 		var itemsC=window.itemsC;
-		if (vars.items == null) {
-			vars.items = {};
+		if (State.active.variables.items == null) {
+			State.active.variables.items = {};
 		}
 		
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
-			if (vars.items[Object.keys(itemsC)[i]] == null) {
-				vars.items[Object.keys(itemsC)[i]] = {};
+			if (State.active.variables.items[Object.keys(itemsC)[i]] == null) {
+				State.active.variables.items[Object.keys(itemsC)[i]] = {};
 				
-				var object = vars.items[Object.keys(itemsC)[i]];
+				var itemObject = State.active.variables.items[Object.keys(itemsC)[i]];
 				var listItemsC = itemsC[Object.keys(itemsC)[i]];
 				
-				object.id = listItemsC.id;
+				itemObject.id = listItemsC.id;
 				
 				if (listItemsC.clothingType > 0) {
-					if (object.ward == null) { object.ward = false; }
+					if (itemObject.ward == null) { itemObject.ward = false; }
 				}
 				
 				if (listItemsC.maxAlt != null) {
-					if (object.curAlt == null) { object.curAlt = 0; }
-					if (object.ownAlt == null) { object.ownAlt = []; }
-					if (object.storeCur == null) { object.storeCur = 0; }
-					if (object.storeAlt == null) { object.storeAlt = []; }
+					if (itemObject.curAlt == null) { itemObject.curAlt = 0; }
+					if (itemObject.ownAlt == null) { itemObject.ownAlt = []; }
+					if (itemObject.storeCur == null) { itemObject.storeCur = 0; }
+					if (itemObject.storeAlt == null) { itemObject.storeAlt = []; }
 				}
 				
 			}
@@ -313,17 +308,16 @@ window.structures={
 		}
 	},
 	setupChores: function() {
-		var vars=State.active.variables;
 		var choresList=window.choresList;
-		if (vars.chores == null) {
-			vars.chores = {};
+		if (State.active.variables.chores == null) {
+			State.active.variables.chores = {};
 		}
 		
 		for (var i=0; i < Object.keys(choresList).length; i++) {
-			if (vars.chores[Object.keys(choresList)[i]] == null) {
-				vars.chores[Object.keys(choresList)[i]] = {};
+			if (State.active.variables.chores[Object.keys(choresList)[i]] == null) {
+				State.active.variables.chores[Object.keys(choresList)[i]] = {};
 				
-				var choreV = vars.chores[Object.keys(choresList)[i]];
+				var choreV = State.active.variables.chores[Object.keys(choresList)[i]];
 				var choreJS = choresList[Object.keys(choresList)[i]];
 				
 				choreV.id = choreJS.id;
@@ -352,39 +346,38 @@ window.structures={
 	},
 	
 	setupDreams: function() {
-		var vars=State.active.variables;
 		var dreamsGuardian=window.dreamsGuardian;
 		var dreamsTeacher=window.dreamsTeacher;
 		
-		if (vars.dreams == null) {
-			vars.dreams = {};
+		if (State.active.variables.dreams == null) {
+			State.active.variables.dreams = {};
 		}
 		
 		for (var i=0; i < Object.keys(dreamsGuardian).length; i++) {
-			if (vars.dreams[Object.keys(dreamsGuardian)[i]] == null) {
-				vars.dreams[Object.keys(dreamsGuardian)[i]] = {};
+			if (State.active.variables.dreams[Object.keys(dreamsGuardian)[i]] == null) {
+				State.active.variables.dreams[Object.keys(dreamsGuardian)[i]] = {};
 				
-				var object = vars.dreams[Object.keys(dreamsGuardian)[i]];
+				var dreamObject = State.active.variables.dreams[Object.keys(dreamsGuardian)[i]];
 				var dreamsG = dreamsGuardian[Object.keys(dreamsGuardian)[i]];
 
-				if (object.id == null) { object.id = dreamsG.id; }
-				if (object.active == null) { object.active = dreamsG.active; }
-				if (object.startPriority == null) { object.startPriority = dreamsG.startPriority; }
-				if (object.progress == null) { object.progress = 0; }
+				if (dreamObject.id == null) { dreamObject.id = dreamsG.id; }
+				if (dreamObject.active == null) { dreamObject.active = dreamsG.active; }
+				if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsG.startPriority; }
+				if (dreamObject.progress == null) { dreamObject.progress = 0; }
 			}
 		}
 		
 		for (var i=0; i < Object.keys(dreamsTeacher).length; i++) {
-			if (vars.dreams[Object.keys(dreamsTeacher)[i]] == null) {
-				vars.dreams[Object.keys(dreamsTeacher)[i]] = {};
+			if (State.active.variables.dreams[Object.keys(dreamsTeacher)[i]] == null) {
+				State.active.variables.dreams[Object.keys(dreamsTeacher)[i]] = {};
 				
-				var object = vars.dreams[Object.keys(dreamsTeacher)[i]];
+				var dreamObject = State.active.variables.dreams[Object.keys(dreamsTeacher)[i]];
 				var dreamsT = dreamsTeacher[Object.keys(dreamsTeacher)[i]];
 
-				if (object.id == null) { object.id = dreamsT.id; }
-				if (object.active == null) { object.active = dreamsT.active; }
-				if (object.startPriority == null) { object.startPriority = dreamsT.startPriority; }
-				if (object.progress == null) { object.progress = 0; }
+				if (dreamObject.id == null) { dreamObject.id = dreamsT.id; }
+				if (dreamObject.active == null) { dreamObject.active = dreamsT.active; }
+				if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsT.startPriority; }
+				if (dreamObject.progress == null) { dreamObject.progress = 0; }
 			}
 		}
 		
@@ -560,15 +553,15 @@ window.structures={
 			if (vars.tasksTeacher[Object.keys(tasksList)[i]] == null) {
 				vars.tasksTeacher[Object.keys(tasksList)[i]] = {};
 				
-				var object = vars.tasksTeacher[Object.keys(tasksList)[i]];
+				var taskTdObject = vars.tasksTeacher[Object.keys(tasksList)[i]];
 				var taskListed = tasksList[Object.keys(tasksList)[i]];
 				
-				object.id = taskListed.id;
+				taskTdObject.id = taskListed.id;
 				
-				if (object.canStart == null) { object.canStart = taskListed.canStart; }
-				if (object.status == null) { object.status = 0; }
-				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = -100; }
+				if (taskTdObject.canStart == null) { taskTdObject.canStart = taskListed.canStart; }
+				if (taskTdObject.status == null) { taskTdObject.status = 0; }
+				if (taskTdObject.progress == null) { taskTdObject.progress = 0; }
+				if (taskTdObject.startDay == null) { taskTdObject.startDay = -100; }
 			}
 		}
 		
@@ -582,15 +575,15 @@ window.structures={
 			if (vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] == null) {
 				vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] = {};
 				
-				var object = vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]];
+				var taskTbObject = vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]];
 				var taskBodyListed = tasksBodyList[Object.keys(tasksBodyList)[i]];
 				
-				object.id = taskBodyListed.id;
+				taskTbObject.id = taskBodyListed.id;
 				
-				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
-				if (object.status == null) { object.status = 0; }
-				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = -100; }
+				if (taskTbObject.canStart == null) { taskTbObject.canStart = taskBodyListed.canStart; }
+				if (taskTbObject.status == null) { taskTbObject.status = 0; }
+				if (taskTbObject.progress == null) { taskTbObject.progress = 0; }
+				if (taskTbObject.startDay == null) { taskTbObject.startDay = -100; }
 			}
 		}
 		
@@ -604,15 +597,15 @@ window.structures={
 			if (vars.tasksEmail[Object.keys(emailList)[i]] == null) {
 				vars.tasksEmail[Object.keys(emailList)[i]] = {};
 				
-				var object = vars.tasksEmail[Object.keys(emailList)[i]];
+				var taskEmObject = vars.tasksEmail[Object.keys(emailList)[i]];
 				var emailListed = emailList[Object.keys(emailList)[i]];
 				
-				object.id = taskBodyListed.id;
+				taskEmObject.id = emailListed.id;
 				
-				if (object.canStart == null) { object.canStart = taskBodyListed.canStart; }
-				if (object.status == null) { object.status = 0; }
-				if (object.progress == null) { object.progress = 0; }
-				if (object.startDay == null) { object.startDay = -100; }
+				if (taskEmObject.canStart == null) { taskEmObject.canStart = emailListed.canStart; }
+				if (taskEmObject.status == null) { taskEmObject.status = 0; }
+				if (taskEmObject.progress == null) { taskEmObject.progress = 0; }
+				if (taskEmObject.startDay == null) { taskEmObject.startDay = -100; }
 				
 			}
 		}

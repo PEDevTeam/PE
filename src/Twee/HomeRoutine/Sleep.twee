@@ -39,7 +39,7 @@
 \
 	<<if _restlessDream>>\
 		<<set _before="">>\
-		<<set _tf=2>>/*Time for message before sleep*/\
+		<<set _tf=1>>/*Time for message before sleep*/\
 		<<set _ti=$time.day>>\
 		<<set _te=$player.masturbate.lastDay>>\
 		<<set _tt=_ti - _te - 5>>\
@@ -133,7 +133,7 @@
 			<<endif>>\
 			<<set document.getElementById('dreamImage_2').className="dream_image_reveal">>\
 			<<set document.getElementById('dreamImage_1').className="dream_image_fade">>\
-		<<next 3s>>\
+		<<next 2s>>\
 			<<set document.getElementById('sleepAltOptions').className="hidden">>\
 			<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 100)>>\
 				<<set $player.exp.chastityExp++>>\
@@ -171,7 +171,7 @@
 			<<endif>>\
 		<<next 5s>>\
 			<<if _dream.image eq "">>\
-				<<set document.getElementById('dreamImage_1').src="images/dreams/dreamX_"+random(1)+".gif">>\
+				<<set document.getElementById('dreamImage_1').src="images/dreams/dream_x_"+random(1)+".gif">>\
 				<<set document.getElementById('dreamImage_1').className="dream_image_reveal">>\
 				<<set document.getElementById('dreamImage_2').className="dream_image_fade">>\
 			<<endif>>\

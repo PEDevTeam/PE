@@ -15,82 +15,15 @@ window.playerCode={
 	isWearing: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},
-	isWearingOn: function(clothingType) {
-		var o;
-		var items=window.itemsC;
-		for (var j=0; j < Object.keys(items).length; j++) {
-			o=items[Object.keys(items)[j]];
-			if ((o.clothingType & clothingType) > 0) {
-				if (State.active.variables.player.clothes.indexOf(o.id) >= 0) {
-					return o;
-				}
-			}
-		}
-		return false;
-	},
-	getItemByName: function(name) {
-		var o;
-		var items=window.itemsC;
-		for (var j=0; j < Object.keys(items).length; j++) {
-			o=items[Object.keys(items)[j]];
-			if (o.name == name) {
+	isWearingOn: function(type) {
+		for (var j=0; j < State.active.variables.player.clothes.length; j++) {
+			var o=window.itemsC[State.active.variables.player.clothes[j]];
+			if (o && ((o.clothingType & type) > 0)) {
 				return o;
 			}
 		}
+		
 		return false;
-	},
-	getItemById: function(id) {
-		var o;
-		var items=window.itemsC;
-		for (var j=0; j < Object.keys(items).length; j++) {
-			o=items[Object.keys(items)[j]];
-			if (o.id == id) {
-				return o;
-			}
-		}
-		return false;
-	},
-	getRealItemById: function(id) {
-		var o;
-		var items=State.active.variables.items;
-		for (var j=0; j < Object.keys(items).length; j++) {
-			o=items[Object.keys(items)[j]];
-			if (o.id == id) {
-				return o;
-			}
-		}
-		return false;
-	},
-	getNameById: function(id) {
-		var o;
-		var oV;
-		var name="";
-		var items=State.active.variables.items;
-		for (var j=0; j < Object.keys(window.itemsC).length; j++) {
-			o=window.itemsC[Object.keys(window.itemsC)[j]];
-			oV=items[Object.keys(window.itemsC)[j]];
-			if (o.id == id) {
-				name = o.name;
-				if ((oV != null) && (oV.name != null)) {
-					name = oV.name;
-				}
-				return name;
-			}
-		}
-		return false;
-	},
-	getName: function(item) {
-		var oV;
-		if (item == null) {
-			return false;
-		}
-		var name=item.name;
-		var items=State.active.variables.items;
-		oV=items[Object.keys(item)];
-		if ((oV != null) && (oV.name != null)) {
-			name = oV.name;
-		}
-		return name;
 	},
 	getNaked: function() {
 		var c=this.isWearingOn(window.itemTypes.Chastity);
@@ -136,8 +69,7 @@ window.playerCode={
 		},
 		tempRelief: function(hours) {
 			var time=State.active.variables.time;
-			var player=State.active.variables.player;
-			var masturbate=player.masturbate;
+			var masturbate=State.active.variables.player.masturbate;
 			if (this.isCalm()) {
 				return;
 			}
@@ -154,8 +86,7 @@ window.playerCode={
 		},
 		cum: function() {
 			var time=State.active.variables.time;
-			var player=State.active.variables.player;
-			var masturbate=player.masturbate;
+			var masturbate=State.active.variables.player.masturbate;
 			window.playerCode.changeArousal(-100);
 			window.playerCode.setStatus("Satisfied",3,0);
 			State.active.variables.flags.forcedHorny=false;
@@ -240,80 +171,61 @@ window.playerCode={
 		return (State.active.variables.player.perversion.teacher >= 8);
 	},
 	isWaxed: function() {
-		var body=State.active.variables.body;
-		return (body.bodyhair == 1);
+		return (State.active.variables.body.bodyhair == 1);
 	},
 	isHairless: function() {
-		var body=State.active.variables.body;
-		return (body.bodyhair >= 2);
+		return (State.active.variables.body.bodyhair >= 2);
 	},
 	haveHaircut: function() {
-		var body=State.active.variables.body;
-		return (body.hairstyle > 0);
+		return (State.active.variables.body.hairstyle > 0);
 	},
 	hairstyle: function() {
-		var body=State.active.variables.body;
-		return body.hairstyle;
+		return State.active.variables.body.hairstyle;
 	},
 	scoreMakeup: function() {
-		var body=State.active.variables.body;
-		return body.makeup;
+		return State.active.variables.body.makeup;
 	},
 	scoreBoobs: function() {
-		var body=State.active.variables.body;
-		return body.boobs;
+		return State.active.variables.body.boobs;
 	},
 	scoreAss: function() {
-		var body=State.active.variables.body;
-		return body.ass;
+		return State.active.variables.body.ass;
 	},
 	scoreLips: function() {
-		var body=State.active.variables.body;
-		return body.lips;
+		return State.active.variables.body.lips;
 	},
 	scoreAnalSmooth: function() {
-		var body=State.active.variables.body;
-		return body.anal;
+		return State.active.variables.body.anal;
 	},
 	haveMakeup: function() {
-		var body=State.active.variables.body;
-		return (body.makeup > 0);
+		return (State.active.variables.body.makeup > 0);
 	},
 	haveBimboMakeup: function() {
-		var body=State.active.variables.body;
-		return (body.makeup >= 3);
+		return (State.active.variables.body.makeup >= 3);
 	},
 	haveHeavyMakeup: function() {
-		var body=State.active.variables.body;
-		return (body.makeup == 4);
+		return (State.active.variables.body.makeup == 4);
 	},
 	havePermanentMakeup: function() {
-		var player=State.active.variables.player;
-		return (player.permMakeup > 0 || player.semiPermMakeup > 0);
+		return (State.active.variables.body.permMakeup > 0 || State.active.variables.body.semiMakeup > 0);
 	},
 	haveGirlyFace: function() {
-		var body=State.active.variables.body;
-		return (body.makeup > 0 || body.face > 0);
+		return (State.active.variables.body.makeup > 0 || State.active.variables.body.face > 0);
 	},
 	haveBoobs: function() {
-		var body=State.active.variables.body;
-		return (body.boobs > 0);
+		return (State.active.variables.body.boobs > 0);
 	},
 	haveBplus: function() {
-		var body=State.active.variables.body;
-		return (body.boobs > 1);
+		return (State.active.variables.body.boobs > 1);
 	},
 	haveCplus: function() {
-		var body=State.active.variables.body;
-		return (body.boobs > 2);
+		return (State.active.variables.body.boobs > 2);
 	},
 	haveLips: function() {
-		var body=State.active.variables.body;
-		return (body.lips > 0);
+		return (State.active.variables.body.lips > 0);
 	},
 	haveAss: function() {
-		var body=State.active.variables.body;
-		return (body.ass > 0);
+		return (State.active.variables.body.ass > 0);
 	},
 	slutScoreBasic: function() {
 		var score=0;
@@ -500,7 +412,37 @@ window.playerCode={
 			}
 		}
 	},
+	wearClothesJS: function(id) {
+		if (!id) {
+			return;
+		}
+		var item=window.itemsC[id];
+		if (!item) {
+			return;
+		}
+		var ca=state.active.variables.player.clothes;
+		for (var i=ca.length-1; i>=0; i--) {		
+			var pc=window.itemsC[ca[i]];
+			if ((pc==null) || (((pc.clothingType + pc.cantWearWith) & (item.clothingType + item.cantWearWith)) > 0)) {
+				state.active.variables.player.clothes.splice(i, 1);
+			}
+		}
+		state.active.variables.player.clothes.push(id);
+		if (ca.length > 0) {
+			state.active.variables.player.clothes=state.active.variables.player.clothes.sort();
+		}
+	},
+	removeClothesJS: function(id) {
+		if (!id) {
+			return;
+		}
+		var i=state.active.variables.player.clothes.indexOf(id);
+		if (i >= 0) {
+			state.active.variables.player.clothes.splice(i, 1);
+		}
+	},
 	clothesOverride: function() {
+		var itemsC=window.itemsC;
 		/* Check for wet panties */
 		if (State.active.variables.flags.laundryAccident) {
 			var itemsC=window.itemsC;
@@ -517,6 +459,30 @@ window.playerCode={
 			var i=player.clothes.indexOf(itemsC.pantiesLatex.id);
 			if (i >= 0) {
 				player.clothes.splice(i, 1);
+			}
+		}
+		/* Forcing on Maid stuff */
+		if (playerCode.isWearing(window.itemsC.maidOutfit)) {
+			if (State.active.variables.flags.gTrialBalletHeels) {
+				this.wearClothesJS('balletHeels');
+			} else {
+				if (State.active.variables.flags.gTrialLatexMaid) {
+					State.active.variables.items.stilettoHeels.curAlt=39;
+					this.wearClothesJS('stilettoHeels');
+				} else {
+					State.active.variables.items.highHeel3.curAlt=39;
+					this.wearClothesJS('highHeel3');
+				}
+			}
+			
+			if (State.active.variables.flags.gTrialLatexMaid) {
+				if (!playerCode.isWearing(window.itemsC.stockingsLatex)) {
+					State.active.variables.items.stockingsLatex.curAlt=39;
+					this.wearClothesJS('stockingsLatex');
+				}
+			} else {
+				State.active.variables.items.stockings.curAlt=39;
+				this.wearClothesJS('stockings');
 			}
 		}
 	},
