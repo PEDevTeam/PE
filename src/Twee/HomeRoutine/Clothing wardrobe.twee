@@ -1,26 +1,5 @@
 :: Clothing wardrobe [pos_1276_820]
 \
-<<if (not $showimages)>>\
-	@@.avatar_switch;<<print '<<click " A ">><<set $showimages=true>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>@@\
-<<elseif $avatar.active>>\
-	<span id="avatar_window"><<display "Avatar">></span>\
-	@@.avatar_switch;<<print '<<click " A ">><<set $avatar.active=false>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>@@\
-<<else>>\
-	<<if (not $flags.arrowsHelp)>>\
-		<<set $flags.arrowsHelp = true>>\
-		<<print '<<showMultiImage "avatar_0" "arrows_help.png" "general">>'>>\
-	<<endif>>\
-	@@.avatar_switch;<<print '<<click " A ">><<set $avatar.active=true>><<set $showimages=false>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>@@\
-<<endif>>\
-<<if not $avatar.active>>\
-	<span id="clothing_images"></span>
-	<<if $itemsSize gt 0>>\
-		@@.avatar_text_size_d;<<print '<<click " ↓ ">><<set $itemsSize-->><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>@@\
-	<<endif>>\
-	<<if $itemsSize lt 6>>\
-		@@.avatar_text_size_u;<<print '<<click " ↑ ">><<set $itemsSize++>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>@@\
-	<<endif>>\
-<<endif>>\
 <<set _ward="Wardrobe: ">>\
 <<if $flags.wardrobeSelector>>\
 	<<set _ward+="Quick ">>\

@@ -1,10 +1,9 @@
 :: Clinic Makeup and tattoo [pos_2916_720]
 \
 <<set _passage="Clinic Makeup and tattoo">>\
-<<if $scene eq "">>\
-	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
-		<<goto [[Beauty Salon]]>>\
-	<<endif>>\
+<<if ($scene eq "") and (($time.hour <= 5) or ($time.hour >= 21))>>\
+	<<goto [[Beauty Salon]]>>\
+<<elseif $scene eq "">>\
 <<if (not $flags.salonMakeup)>>\
 	Nancy offers to apply makeup and shows you a list of various designs she can tattoo on you.
 
@@ -14,10 +13,17 @@
 	<<endif>>\
 <<else>>\
 	Nancy smiles, looking at your\
-	<<if ($body.permMakeup gte 1) or ($body.semiMakeup gte 1)>>\
+	<<if ($body.makeup eq $body.permMakeup)>>\
 		permanently\
+	<<elseif ($body.makeup eq $body.semiMakeup)>>\
+		semi-permanently\
 	<<endif>>\
-	made-up face, and shows you a list of various designs she can tattoo on you.
+	made-up face, and\
+	<<if playerCode.owns(itemsC.beautyMark) and playerCode.owns(itemsC.tattooButterfly) and playerCode.owns(itemsC.tattooBunny) and playerCode.owns(itemsC.tattooHeart) and playerCode.owns(itemsC.tattooSlut) and playerCode.owns(itemsC.tattooSissy) and playerCode.owns(itemsC.tattooStupidWhore) and playerCode.owns(itemsC.tattooStockings)>>\
+		tells you that you already got all the tattoos on the list.
+	<<else>>\
+		shows you a list of various designs she can tattoo on you.
+	<<endif>>\
 	
 <<endif>>\
 <img id="item_preview" class="hidden">\
@@ -28,6 +34,7 @@
 	<<set _item=itemsC.SubtleMakeup>>\
 		<<set _sceneName="SubtleMakeup">>\
 		<<set _override=($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)>>\
+		<<set _time=10>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -35,6 +42,7 @@
 	<<set _item=itemsC.NormalMakeup>>\
 		<<set _sceneName="NormalMakeup">>\
 		<<set _override=(($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)) and ($player.perversion.teacher gte 4)>>\
+		<<set _time=15>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -42,6 +50,7 @@
 	<<set _item=itemsC.BimboMakeup>>\
 		<<set _sceneName="BimboMakeup">>\
 		<<set _override=false>>\
+		<<set _time=30>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -49,6 +58,7 @@
 	<<set _item=itemsC.HeavyMakeup>>\
 		<<set _sceneName="HeavyMakeup">>\
 		<<set _override=false>>\
+		<<set _time=40>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -56,6 +66,7 @@
 	<<set _item=itemsC.PermanentSubtleMakeup>>\
 		<<set _sceneName="PermanentSubtleMakeup">>\
 		<<set _override=false>>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -63,6 +74,7 @@
 	<<set _item=itemsC.PermanentNormalMakeup>>\
 		<<set _sceneName="PermanentNormalMakeup">>\
 		<<set _override=false>>\
+		<<set _time=90>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -70,6 +82,7 @@
 	<<set _item=itemsC.PermanentBimboMakeup>>\
 		<<set _sceneName="PermanentBimboMakeup">>\
 		<<set _override=false>>\
+		<<set _time=110>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -77,6 +90,7 @@
 	<<set _item=itemsC.PermanentHeavyMakeup>>\
 		<<set _sceneName="PermanentHeavyMakeup">>\
 		<<set _override=false>>\
+		<<set _time=140>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -85,6 +99,7 @@
 <<set _item=itemsC.tattooSissy>>\
 	<<set _sceneName="tattooSissy">>\
 	<<set _override=false>>\
+	<<set _time=30>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -92,6 +107,7 @@
 <<set _item=itemsC.tattooStockings>>\
 	<<set _sceneName="tattooStockings">>\
 	<<set _override=false>>\
+	<<set _time=60>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -99,6 +115,7 @@
 <<set _item=itemsC.tattooStupidWhore>>\
 	<<set _sceneName="tattooStupidWhore">>\
 	<<set _override=false>>\
+	<<set _time=60>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -106,6 +123,7 @@
 <<set _item=itemsC.tattooSlut>>\
 	<<set _sceneName="tattooSlut">>\
 	<<set _override=false>>\
+	<<set _time=60>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -113,6 +131,7 @@
 <<set _item=itemsC.tattooHeart>>\
 	<<set _sceneName="tattooHeart">>\
 	<<set _override=false>>\
+	<<set _time=20>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -120,6 +139,7 @@
 <<set _item=itemsC.tattooBunny>>\
 	<<set _sceneName="tattooBunny">>\
 	<<set _override=false>>\
+	<<set _time=20>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -127,6 +147,7 @@
 <<set _item=itemsC.tattooButterfly>>\
 	<<set _sceneName="tattooButterfly">>\
 	<<set _override=false>>\
+	<<set _time=60>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -134,6 +155,7 @@
 <<set _item=itemsC.beautyMark>>\
 	<<set _sceneName="beautyMark">>\
 	<<set _override=false>>\
+	<<set _time=5>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
@@ -148,8 +170,6 @@
 \
 	<<if $scene eq "SubtleMakeup">>\
 		<<showImage "general" "makeup_application.jpg">>\
-		<<set _item=itemsC.SubtleMakeup>>\
-		<<buyItem _item.id>>\
 		<<set $body.makeup = 1>>\
 		Nancy leads you over to a spa chair, and asks you to have a seat.
 		
@@ -181,8 +201,6 @@
 		<<endif>>\
 	<<elseif $scene eq "NormalMakeup">>\
 		<<showImage "general" "makeup_application.jpg">>\
-		<<set _item=itemsC.NormalMakeup>>\
-		<<buyItem _item.id>>\
 		<<set $body.makeup = 2>>\
 		Nancy invites you to sit in one of her cushy spa chairs, and then pulls over a rolling tray full of makeup and styling tools. She adds a small table on her opposite side with a few extra items, including some flesh-colored palettes, brushes, tubes of liners and lip colors, a half-dozen powder sifters, and other items you can't immediately identify except that they're obviously beauty products.
 		
@@ -209,8 +227,6 @@
 		<<endif>>\
 	<<elseif $scene eq "BimboMakeup">>\
 		<<showImage "general" "makeup_application.jpg">>\
-		<<set _item=itemsC.BimboMakeup>>\
-		<<buyItem _item.id>>\
 		<<set $body.makeup = 3>>\
 		Nancy has you sit in a spa chair, seeing that you're comfortable before pushing a medium-sized table covered with makeup and styling tools over by your side. A carousel of beauty products occupies the table's center, surrounded by a suite of grooming instruments and a large variety of colors, containers, sifters, brushes, puffs, sponges and other tools of the trade.
 		
@@ -251,8 +267,6 @@
 		<<endif>>\
 	<<elseif $scene eq "HeavyMakeup">>\
 		<<showImage "general" "makeup_application.jpg">>\
-		<<set _item=itemsC.HeavyMakeup>>\
-		<<buyItem _item.id>>\
 		<<set $body.makeup = 4>>\
 		Nancy leads you over to a spa chair, and is doubly attentive in seeing to your complete comfort. She even gives you a special, heart-shaped pillow from her personal locker, tucking it under your head with a pat on your cheek.
 		
@@ -423,7 +437,7 @@
 <<elseif $scene eq "tattooSissy">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooSissy>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to have a 'sissy' tattoo,"@@ you whisper to Nancy.
 	
 	@@.nurse;"Nice choice!"@@ she exclaims.
@@ -454,7 +468,7 @@
 <<elseif $scene eq "tattooStockings">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooStockings>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to have the stockings tattoos,"@@ you whisper to Nancy.
 	
 	@@.nurse;"Nice choice!"@@ she exclaims.
@@ -477,7 +491,7 @@
 <<elseif $scene eq "tattooStupidWhore">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooStupidWhore>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to get a lower back tattoo,"@@ you whisper to Nancy.
 	
 	@@.nurse;"Ooh, the tramp stamp! The old party girl's standby. Most girls seriously underestimate how much tattoos turn men on!"@@ She exclaims.
@@ -506,7 +520,7 @@
 <<elseif $scene eq "tattooSlut">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooSlut>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to have a 'slut' tattoo,"@@ you whisper to Nancy.
 	
 	@@.nurse;"Nice choice!"@@ she exclaims.
@@ -531,7 +545,7 @@
 <<elseif $scene eq "tattooHeart">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooHeart>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to have a heart tattoo,"@@ you tell Nancy.
 	
 	@@.nurse;"Great choice!"@@ she exclaims.
@@ -550,7 +564,7 @@
 <<elseif $scene eq "tattooBunny">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooBunny>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to get a bunny symbol tattoo,"@@ you tell Nancy.
 	
 	@@.nurse;"Splendid!"@@ she exclaims.
@@ -579,7 +593,7 @@
 <<elseif $scene eq "tattooButterfly">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooButterfly>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to get a butterfly tattoo,"@@ you tell Nancy.
 	
 	@@.nurse;"Splendid!"@@ she exclaims.
@@ -602,7 +616,7 @@
 <<elseif $scene eq "beautyMark">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.beautyMark>>\
-	<<buyItem _item.id>>\
+	<<addToInv _item.id>>\
 	@@.heroT;"I'd like to have a beauty mark,"@@ you tell Nancy.
 	@@.nurse;"Nice choice!"@@ she exclaims.
 

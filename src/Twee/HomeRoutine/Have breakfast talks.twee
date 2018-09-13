@@ -1,0 +1,320 @@
+:: Have breakfast talks [pos_879_459]
+\
+<<set _tempReward = false>>\
+<<if $flags.choreReward and ($time.weekDay() gte 3) and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1)>>\
+	<<set _tempReward = true>>\
+<<endif>>\
+/* FOR TEMPORARY PLACEMENT OF REWARDS */\
+<<if $time.day == 1 && !$kink.incest>>/* GAME START INTRO TO BABYSITTER */\
+	She smiles at you and picks up her morning coffee.
+	
+	@@.guardian;"Don't forget - I'm going to be away for at least a few months doing my sales run,"@@ $guardian says, @@.guardian;"so $babysitter is on her way over here to look after you."@@
+
+	$babysitter is your childhood babysitter. Even though you're now old enough to be left on your own, your mother still asks $babysitter over, knowing she's eager to get out of her parents' house.  Your relationship with $babysitter has never really changed, and she naturally assumes a motherly role with you. 
+	
+	Your house only has two bedrooms, so she just uses your mother's. It's great that you get on well together, undoubtedly helped by how knock-out beautiful she is. If only she didn't have a $futa.boy_girl////friend...
+<<elseif ($player.perversion.guardian gte 1) and ($player.therapistMode eq false)>>/* THERAPIST START */\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	She frowns at you for a moment.
+	
+	<<set playerCode.activateTherapist(2)>>\
+	<<if ($player.perversion.guardian lte 2)>>\
+		@@.guardian;"I've decided you need to see a therapist to work out why you would invade my privacy like you did.@@\
+	<<else>>\
+		@@.guardian;"I've decided you need to see a therapist to help you work out your new interests.@@\
+		<<if $items.pantiesCotton.ownAlt[40] or $items.vibrator.ownAlt[40] or playerCode.owns(itemsC.playgirlMagazine)>>\
+			@@.guardian;You know, I've found my\
+			<<if $items.pantiesCotton.ownAlt[40]>>\
+				panties\
+			<<elseif $items.vibrator.ownAlt[40]>>\
+				adult toy\
+			<<elseif playerCode.owns(itemsC.playgirlMagazine)>>\
+				magazine\
+			<<endif>>\
+			in your room. You have to know that some things are private.@@\
+		<<endif>>\
+	<<endif>>\
+	@@.guardian;I've set up appointments for you every\
+	<<for _i to 0; _i lt $player.therapistDays.length; _i++>>\
+		<<if _i gt 0>>\
+			<<if $player.therapistDays.length - _i gt 1>>\
+				,\
+			<<else>>\
+				and\
+			<<endif>>\
+		<<endif>>\
+		<<print weekdaysCode[$player.therapistDays[_i]]>><</for>>."@@
+		
+	@@.guardian;"Also, I think you should do more housework."@@\
+<<elseif $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>/* AFTER DRESSING UP SCENE */\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	$Guardian acts a bit awkwardly around you today. She doesn't talk about yesterday, maybe because she's embarrassed about her drinking or her outburst at the end. Determined to resolve the issue, you decide to confront her about //the punishment// last evening.
+<<elseif [3,4].includes($player.perversion.guardian) and [1,2].includes($player.perversion.guardianCorruption)>>/* AFTER SPANKING SCENE */\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	<<if $player.perversion.guardianCorruption eq 1>>\
+		$Guardian is a bit awkward around you today. Noticing your stare, she smiles apologetically, but you catch some sort of wild gleam in her eyes. Reflexively you rub your butt, recalling recent events.
+		
+		Thankfully she doesn't comment on that //punishment// of yours.
+	<<else>>\
+		She smiles at you and picks up her morning coffee. You catch her biting lip and looking at you dreamily before she notices your stare and averts her eyes.
+	<<endif>>\
+	<<set $player.perversion.guardianCorruption++>>\
+<<elseif ($player.perversion.guardian eq 4) and [11,12,13,14,15].includes($player.perversion.guardianCorruption)>>/* AFTER VIBRATOR SCENE */\
+	<<set _skipBodymods = true>>\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	<<if $player.perversion.guardianCorruption eq 11>>\
+		<<set $player.perversion.guardianCorruption++>>\
+		$Guardian glances at you and quickly averts her eyes, slightly blushing. She looks unsure how to act around you and her nervousness seems contagious, so you both sit there in awkward silence for some time.
+		
+		Finally, $guardian decides to break the silence with, @@.guardian;"You have a very sensitive butt, for a boy."@@ 
+		
+		You almost choke on your cereal and scrunch in a coughing fit, trying to avoid flaring up like tomato. You glare at her, but she hides behind her cup of coffee, smiling and trying to look innocent. You bet her timing was intentional.
+		
+		Waiting to get back at her, you lie in wait for the moment she takes a sip from her cup, and quip, @@.heroT;"And I had to squeeze out the towel that I used to wipe the chair you were sitting on."@@
+		
+		You are rewarded with the sight of her doing a spit-take, which launches her last sip of coffee into a mist that settles over half the table. 
+		
+		Caught off guard by your sassy response, she suddenly dissolves in giggles. After a few seconds, you both are laughing.
+
+		You help her clean up the mess as the awkward tension between you slightly fades. You finish your breakfast without further incident.
+	<<elseif $player.perversion.guardianCorruption eq 12>>\
+		<<set $player.perversion.guardianCorruption++>>\
+		$Guardian still acts a bit awkwardly around you, throwing you strange glances sometimes. You wonder what she thinks about //the thing//, but you are too afraid to ask directly, and she doesn't say a word to clue you to what her issue is.
+		
+		This uncertainty keeps you extremely nervous, but you decide to give it some time and wait for her to make first move.
+	<<elseif $player.perversion.guardianCorruption eq 13>>\
+		<<set $player.perversion.guardianCorruption++>>\
+		Today, she is mostly her usual self. She smiles at you as she picks up her morning coffee, but you catch a certain evasiveness in her glance. You get the sense she was going to ask something, but wavered at the last second.
+		
+		You stare at her with an anticipating look, but she just makes some random comment about the weather, avoiding the issue.
+	<<elseif $player.perversion.guardianCorruption eq 14>>\
+		<<set $player.perversion.guardianCorruption++>>\
+		She smiles at you and picks up her morning coffee. She has an unusual gleam in her eyes today.
+	<<elseif ($player.perversion.guardianCorruption eq 15) and ($time.weekDay() lte 4)>>\
+		<<set _skipEnd = true>>\
+		$Guardian suddenly looks a bit nervous. She fidgets on her seat, glances at you and says.
+		
+		@@.guardian;"About my last //present//, I... I got carried away. I'm sorry."@@
+
+		She quickly glances at you again and continues.
+		
+		@@.guardian;"I just wanted to ask if you are ok."@@
+		
+		[[Say that you loved it|Guardian kinky reward][$scene="strapon yes";$time.addMinutes(30); $player.perversion.guardianCorruption=18]]
+		[[Say that it was too weird|Guardian kinky reward][$scene="strapon no";$time.addMinutes(30); $player.perversion.guardianCorruption=17]]
+	<<endif>>\
+<<elseif _tempReward and $flags.gTrialStrapOn and (not $flags.guardianStrapon) and (not $flags.straponSurprise) and [5,6].includes($player.perversion.guardian)>>/* STRAPON FROM STORE INTRO SCENE */\
+	<<set $flags.straponSurprise = true>>\
+	$Guardian winks at you and cheerfully tells that she has a surprise for you this weekend. She seems to revel in keeping you fidgeting, savoring her juicy secret. You do your best to fish the slightest detail from her, all to no avail. She's adamant about it, so you're left to wonder what she has planned this time.
+<<elseif _tempReward and (not $flags.choreRewSpinning) and [3,4].includes($player.perversion.guardian)>>/* WRONG GIFT */\
+	<<set $flags.choreReward = false>>\
+	<<set $flags.choreRewSpinning = true>>\
+	<<set _skipBodymods = true>>\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	$Guardian leans toward you and whispers conspiratorially, @@.guardian;"I have something special for you."@@ For a tiny moment, you recall one of your fantasies featuring her, letting yourself indulge in a fleeting hope of wish fulfillment.
+
+	She walks out of the kitchen for a bit and returns with a skateboard. It's not just any skateboard, either: it's the most coveted deck on the market right now, with a cool tribal design, top-of-the-line trucks and the best ceramic bearings you can buy. It's obvious she spent both time and some good money getting it.
+
+	But you can't keep the disappointment off your face - why did she have to get //this// one?
+	
+	It's not that you didn't dream about owning a board like this, maybe as recently last year. Hell, you might still love to skate with it, even if you haven't done any riding for some time.
+
+	The thing is, not too long ago, a punk classmate of yours - one of $bully's inner circle - lost a skateboard. Since you were already his favorite target, $bully wasted no time accusing you of stealing it.
+
+	You shudder, remembering how $bully and his asshole friends ganged up on you and surrounded you, cruelly interrogating you as their main suspect. They were out for blood. The bruises you got while getting away from them lasted for days. Eventually, the rumor died out and $bully went back to his normal level of douchery, but nobody ever found out what really happened to the board.
+
+	The skateboard in $guardian's hands looks //just like the one $bully's friend lost.//
+
+	You probably could repaint it or something, but if you were ever seen with it by those punks and they figured it out, you'd be a dead man.
+	
+	Seeing your fallen face, $guardian's smile falters @@.guardian;"Sorry, I just thought that you liked this stuff. I should have asked."@@
+	
+	It isn't her fault, and you really don't want her to feel bad about it, so you hurry to reassure her. Embarrassed to admit your cowardice, you make up a story that your friend had a bad fall while skating and doesn't skate anymore, so you don't want to remind your friend about that.
+	
+	$Guardian nods and agrees it's unfortunate, but you feel like she sees right through your thin story. You can tell she's just as disappointed as you are, and probably thinks you just don't want to be rude about a bad gift. 
+
+	She says she'll figure out what to do with the skateboard and promises she'll try to find something more to your liking next time. You feel a little guilty about it, but you're genuinely thankful she went to all the effort to make you happy.
+<<elseif _tempReward and ($time.weekDay() eq 6) and (not $flags.choreRewCallOfHonor)>>/* CALL OF HONOR GIFT */\
+	<<set $flags.choreReward = false>>\
+	<<set $flags.choreRewCallOfHonor = true>>\
+	<<set _skipBodymods = true>>\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	@@.guardian;"Hey, $player.name, I got you something special for all the hard work you've been doing."@@ 
+
+	$Guardian hands you a new version of //Call of Honor// for your PSBox. It's not just any version, either - it's the Ultra-Black Day One Obsessive Completist Edition! You can barely believe your eyes as you hold the black-with-hologram-printed packaging in your very hands. Pre-orders were sold out for this well ahead of launch day - how did she...?
+
+	$Guardian sees your face, and quickly answers your question. @@.guardian;"The guy at the game store said this is the one to have right now. They were officially out of those, but I flirted with him a little and he gave me one out of the employee stash."@@
+
+	You examine the epic gift, still in total disbelief. You gush words of thanks, barely containing your urge to play immediately.
+
+	$Guardian wraps you in a big hug and kisses you on the cheek. @@.guardian;"You're welcome, sweetie."@@
+
+	@@.hero;Hell, yeah!@@
+<<elseif ($time.weekDay() eq 3) and ($flags.choreLazy or ($player.choreFailsCurrent gte 4)) and (($player.perversion.guardianCorruption eq 15 and $flags.guardianPunishVibrator) or $player.perversion.guardianCorruption eq 17) and ($player.perversion.guardian eq 4)>>\
+	<<set $flags.straponForced = true>>\
+	@@.guardian;"It seems you still haven't learned your lesson about being lazy. If you don't change your approach, I will come up with something unorthodox to keep you motivated."@@
+<<elseif window.timeCode.isSunday() and $flags.partyMaidTask and (not $flags.partyMaidDone)>>\
+	<<set _skipBodymods = true>>\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	<<set _skipEnd = true>>\
+	@@.guardian;"$player.name, do you remember when I told you I'd be very disappointed if you ditched the party? Well, now I am. Juliette was so sad about her ruined plans, and now she's pissed at me for putting her in that position with her friends. Follow me... you owe her an apology!"@@
+	
+	[[Follow her|Task party maid][$flags.partyMaidStarted=false; $flags.partyMaidPunish=true; $flags.partyMaidTask=false;]]
+<<elseif $flags.guardianBoyfriendMet>>/* AFTER MEETING BOYFRIEND */\
+	<<set $flags.guardianBoyfriendMet = false>>\
+	<<set _skipBodymods = true>>\
+	<<set _skipMasturbation = true>>\
+	<<set _skipChores = true>>\
+	<<set _skipGoodwishing = true>>\
+	<<if $player.perversion.boyfriend eq 1>>\
+		@@.guardian;"You know, I've noticed my $futa.boy_girl////friend is really curious about you. It's perfectly understandable, with how sexy you are in this uniform,"@@ $guardian says, winking.
+		
+		@@.guardian;"I haven't actually told $futa.him_her that you're @@\
+		<<if $kink.incest>>\
+			@@.guardian;my son.@@\
+		<<else>>\
+			@@.guardian;a boy.@@\
+		<<endif>>\
+		@@.guardian;Honestly, it's a bit embarrassing to bring it up. But, don't get any funny ideas - keep your distance and don't encourage $futa.him_her."@@
+		
+		She gives you a pointed look, making you flare up in indignation.
+		
+		<<switch playerCode.isMind()>>\
+		<<case 0>>\
+			@@.hero;Like hell I would encourage anything from $futa.him_her!@@\
+		<<case 1>>\
+			@@.hero;Like hell I would encourage anything from $futa.him_her, no matter how attractive $futa.he_she is!@@\
+		<<default>>\
+			@@.hero;$futa.He_She is kinda attractive, but I should listen to $myguardian.@@\
+		<</switch>>\
+		You keep silent, though, and it seems that $guardian misinterprets your reaction.
+		
+		@@.guardian;"I know $futa.he_she has good looks, but $futa.he_she can be a real jerk from time to time. Sometimes, I wonder why I keep $futa.him_her around."@@ 
+		
+		$Guardian's gaze wanders a bit before settling on you again.
+		
+		@@.guardian;"Still, I draw the line there. No fucking my $futa.boy_girl////friend in my house."@@
+		
+		A level stare lets you know that she is really serious about it.
+		<<if $flags.guardianFuckedByStrapon>>\
+
+			She suddenly softens. A bit shyly, she adds, @@.guardian;"I... I will fuck you plenty with my strap-on if you'll be a good boy."@@
+		<<endif>>\
+	<<elseif $player.perversion.boyfriend eq 2>>\
+		@@.guardian;"My $futa.boy_girl////friend told me that you've been a real tease."@@ 
+		
+		$Guardian gives you a hard look, but quickly breaks down into a snicker after seeing your shocked face. 
+		
+		@@.guardian;"I know, I know. $futa.He_She can be full of shit sometimes. Just ignore $futa.him_her - a couple of sleazy compliments and a little light flirting won't kill you. Believe me, it will pass."@@
+		
+		You doubt massaging your anus counts as 'light flirting,' but hopefully $guardian's right about it passing.
+		
+		@@.guardian;"You should have seen your face when I told you. Damn, where's a camera when you need one?"@@ 
+		
+		You find yourself pouting, and $guardian enjoys a chuckle at your expense.
+	<<endif>>\
+<<elseif (not $flags.newBoyfriendIntro) and ($player.perversion.guardian gte 6) and ($player.perversion.guardianCooldown gt 12)>>/* MEETING NEW BOYFRIEND */\
+	<<set $flags.newBoyfriendIntro = true>>\
+	<<if $flags.guardianEvil>>\
+		<<set $chores.suckGuardianBoyfriend.active = true>>\
+		<<set $chores.cleanGuardianPussy.active = true>>\
+		<<set $flags.newBoyfriend=true>>\
+		@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@
+		
+		As you nod, she continues. @@.guardian;"Funny story - $futa.he_she apologized and actually paid for cleaning. And asked me for a date."@@ You don't like how smug she looks. 
+
+		@@.guardian;"So, you are also getting new chores from now on."@@
+
+		You aren't really sure what to say to that.
+
+		@@.guardian;"I told $futa.him_her everything about you. $futa.He_She is more than willing to put your sorry ass through hell if I ask $futa.him_her to."@@
+	<<else>>\
+		<<set _skipBodymods = true>>\
+		<<set _skipMasturbation = true>>\
+		<<set _skipChores = true>>\
+		<<set _skipGoodwishing = true>>\
+		<<set _skipEnd = true>>\
+		@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@ $guardian looks a bit uncertain and somewhat guilty.
+		
+		As you nod, she continues. @@.guardian;"Funny story, $futa.he_she apologized and actually paid for cleaning."@@ 
+
+		She hesitates, but looks at you and confesses.
+
+		@@.guardian;"$futa.He_She asked me out on a date."@@
+
+		You're not really sure what to say to that. @@.guardian;"I know, I know. My last $futa.boy_girl////friend was a total shit. I really messed up there. This\
+		<<if $kink.futa>>girl<<else>>guy<<endif>>\
+		is actually sweet, but after all that, I won't go if you are against it. I don't want to put you in a tough position again."@@
+		
+		[[Tell her you agree, but only on one condition|Guardian kinky reward][$scene="boyfriend yes"]]
+		[[Tell that you don't want to share her with anyone|Guardian kinky reward][$scene="boyfriend no"]]
+	<<endif>>\
+<<elseif (random(2) eq 0) and window.timeCode.isSaturday() and (not $flags.partyMaidTask) and ($player.perversion.guardian gte 7) and ($player.perversion.guardianCooldown gt 8)>>/* START OF PARTY MAID TASK */\
+	<<set $flags.partyMaidTask = true>>\
+	<<if (not $flags.partyMaidDone)>>\
+		@@.guardian;"I have something for you that will suit your abilities. I’ve been talking to my friend Juliette about your excellent skills as a slutty maid, and she happens to need one just like you. You remember her don’t you? She used to visit <<if $kink.incest>>us<<else>>your mother<<endif>> with her daughter. I always thought you had a crush on her."@@
+
+		You did! Juliette's daughter was named Lily, and you have been dreaming about her since you were seven. She used to go to the same school as you. A few years older than you, she graduated and went to college this year. You are consoled that she's been away during your ordeal with the teacher - but it's not that she ever seemed to notice you, anyway. Your heart sinks at the possibility she could find out what you have become.
+
+		@@.guardian;"You see, Juliette is throwing an adult-themed party at her new home, and she wants someone to serve food and entertain the guests. I couldn’t think of anything more entertaining than a silly little sissy like you, so I offered her your services. Don’t you dare let me down! You're a disappointment as a male, but you've shown yourself to be quite the whore these few months. 
+		
+		"So, this is what you get for being such a slut: During your time with Juliette, she will have absolute authority over you. I’ve given her total permission to punish you as she sees fit. She can spank you if you misbehave, or worse - it’s up to her imagination, really. Believe me, she is very imaginative. 
+		
+		"I don’t think her daughter will be attending the party, but I’d wager you will see her. Or rather, she will see you and what you really are."@@
+
+		She lets her words sink in, watching your crestfallen expression with a smug smile.
+		
+		@@.guardian;"I will be //very// disappointed if you don't go, so be a good boy and don't forget about it."@@
+
+		@@.hero;Damn, she is really serious about this. I'd better go to that party.@@
+
+		@@.guardian;"Unfortunately, I won’t be able to able to make it to the party - I have so much work to do at the clinic this weekend. However, I told Juliette to take as many pictures and recordings as she can. I wouldn’t want to miss your first foray into the professional maid business."@@
+	<<else>>\
+		@@.guardian;"You remember Juliette? She loved your performance at the party and would like you to repeat it if possible."@@
+		
+		You shudder as you recall what happened there last time. $Guardian responds to your apprehension with a haughty laugh.
+		
+		@@.guardian;"I know you loved it. Don't be late, and don't forget your //special// uniform."@@
+	<<endif>>\
+<<else>>/* ROUTINE SCENES */\
+	<<if $player.perversion.guardian eq 0>>\
+		She smiles at you and picks up her morning coffee.
+	<<elseif $player.perversion.guardian eq 1>>\
+		She frowns at you for a moment.
+
+		After a moment, she relaxes and her expression warms a bit.
+	<<elseif $player.perversion.guardian eq 2>>\
+		With a calculating look in her eyes, she smiles and picks up her morning coffee, eyeing you closely.
+	<<elseif $player.perversion.guardian lte 4>>\
+		She smiles at you and picks up her morning coffee.
+	<<else>>\	
+		<<if (not $flags.guardianCumDrink) or $flags.guardianCondomsAsk>>\
+			She smiles at you and sips her coffee, as you serve her.
+			<<if $flags.gTrialPenisGag>>\
+				The taste of the cereal is tainted by the after-taste from the gag, but you still finish the bowl.
+			<<endif>>\
+		<<elseif (not $flags.guardianCondoms)>>\
+			@@.guardian;"How's your breakfast taste? Nice and creamy?"@@ she asks with a laugh. You can only blush in response.
+		<<else>>\
+			She recoils slightly at the sight of what you're eating, but recovers enough to give you a nasty grin. @@.guardian;"Oh, my god, you're gross. Eat up, Cum Dump."@@
+		<<endif>>\
+		<<if $flags.gTrialPenisGag>>\
+			Finishing, you take the dildo gag in hand. You give it a long and thorough licking, like it was a delicious ice cream treat, then place it back into its box. Entertained by the show, $guardian smiles, knowing you will be enjoying the aftertaste for the rest of the day.
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+/* END OF BREAKFAST TALKS */\

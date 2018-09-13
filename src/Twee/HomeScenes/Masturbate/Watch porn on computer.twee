@@ -1,0 +1,268 @@
+:: Watch porn on computer [pos_620_933]
+\
+<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<if $scene eq "watchPorn">>\
+	<<if $player.perversion.pornType eq 0>>/*Vanilla porn*/\
+		<<if playerCode.isMind_0()>>/*Vanilla porn*/\
+			<<print '<<showImage "porn" "mind0_'+random(0)+'.gif">>'>>\
+			You browse through your favorite sites, looking over what's new. You finally settle on a video featuring one of your favorite pornstars.
+			
+			You love the way her eye-catching tits, overdone make-up and big hair make her look like a helpless slut of a bimbo.
+			
+			You fantasize about what it would be like to fuck her as she fakes her way to one orgasm after another. You watch her as she's pounded by a headless guy's cock in rapid-fire positions.
+		<<else>>\
+			<<print '<<showImage "porn" "mind1_'+random(0)+'.gif">>'>>\
+			You browse through your favorite sites, looking over what's new. You finally settle on a video with one of your favorite pornstars.
+			
+			This time, you keep finding your eyes wandering to her male co-star -  the way his muscles ripple as he squeezes her whorish tits, the way the sweat glistens on his broad shoulders, and the sheer size of his fat cock. 
+			
+			@@.hero;That thing is huge! It must be as long as my forearm, and I could barely wrap my hand around it.@@
+			
+			You feel a heat in your groin as you watch him plow the girl in the video, your ass clenching in time to his thrusts.
+		<<endif>>\
+	<<elseif $player.perversion.pornType eq 2>>/*Shemales on females*/\
+		<<print '<<showImage "porn" "mind1_'+random(0)+'.gif">>'>>\
+		You browse through your favorite sites, looking over what's new. You finally settle on a video with one of your favorite pornstars.
+		
+		This time, you keep finding your eyes wandering to her co-star - a voluptuous shemale with a massive cock. The way she squeezes her whorish tits, the way the sweat glistens on her tights, and the sheer size of her fat cock. 
+		
+		@@.hero;That thing is huge! It must be as long as my forearm, and I could barely wrap my hand around it.@@
+		
+		You feel a heat in your groin as you watch her plow the pornstar in the video, your ass clenching in time to her thrusts.
+	<<else>>/*Female PoV*/\
+		<<print '<<showImage "porn" "mind2_'+random(0)+'.gif">>'>>\
+		You go to your favorite sites, but they don't quite do it for you. You do a little bit of searching around. 
+		
+		You finally settle on a POV video... from the girl's side of things. A massive cock fills your screen and you can feel your mouth watering from the sight of it. 
+		
+		@@.hero;Oh, my god, there's no way I'd be able to fit that in my mouth!@@
+		
+		The camera moves smoothly closer to the man's belly and you can almost smell him, almost feel the smooth, warm flesh on your tongue. Suddenly the camera spins and you're looking down a smooth, hairless back at a tight round ass being speared by another huge cock
+		
+		@@.hero;I didn't realize this was a spit-roast!@@
+		
+		You... the girl... is being pounded from both sides, and you're not sure whether the moaning you hear is hers or your own.
+	<<endif>>\
+
+	<<if (not _c)>>/* WITHOUT CHASTITY */\
+		<<if _b>>\
+			<<if _b.id eq 'buttPlugHeart'>>\
+				<<set playerCode.upArousalTo(10,50)>>\
+				Small buttplug in your butt makes everything more intense. Unable to hold you start massaging base of the plug as you grasp your penis.
+			<<elseif _b.id eq 'buttPlugDildo'>>\
+				<<set playerCode.upArousalTo(20,50)>>\
+				Dildo buttplug in your butt makes everything much more intense. Unable to hold you start massaging base of the plug as you grasp your penis. You can't even tell for sure what stimulates you more - touching your penis or sensations from buttplug rubbing your insides.
+			<<elseif _b.id eq 'buttPlugVibro'>>\
+				<<set playerCode.upArousalTo(30,50)>>\
+				Sensations from vibro buttplug rumbling in your anus is so intense that it's hard to focus on the screen. Unable to resist you start massaging base of the plug, increasing the effect even more. Holding and jerking your penis feels secondary to the pressure, building up from having your hole ravaged by relentless toy.
+			<<elseif _b.id eq 'buttPlugInflate'>>\
+				<<set playerCode.upArousalTo(20,50)>>\
+				It is quite unusual experience with inflatible plug up your ass. Unable to resist you squeeze the pump once, making the toy expand inside you as you rub your penis.
+			<<endif>>\
+			
+		<<endif>>\
+		<<if $player.exp.vibratorExp eq 0 and false>>\
+			<<set $scene = "jerk">>\
+			<<include "Watch porn on computer">>\
+		<<else>>\
+			<span id="masturbateWatchPorn">\
+			<<click "Jerk off">><<set $scene = "jerk">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<click "Use vibrator">><<set $scene = "useVibratorNoCage">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			/* TODO - option to use vibrator, bu don't cum, just tease yourself */\
+			<<if playerCode.isButtslut()>>\
+				<<click "Use vibrator, but don't touch your penis">><<set $scene = "useVibratorNoJerk">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<endif>>\
+			</span>\
+		<<endif>>\
+	<<else>>/* IN CHASTITY */\
+		<<if _b>>\
+			<<if _b.id eq 'buttPlugHeart'>>\
+				<<set playerCode.upArousalTo(10,50)>>\
+				Small buttplug in your butt makes everything more intense. Unable to hold you start massaging base of the plug.
+			<<elseif _b.id eq 'buttPlugDildo'>>\
+				<<set playerCode.upArousalTo(20,50)>>\
+				Dildo buttplug in your butt makes everything much more intense. Unable to hold you start massaging base of the plug. Pressure of chastity cage and sensations from buttplug rubbing your insides drive you crazy.
+			<<elseif _b.id eq 'buttPlugVibro'>>\
+				<<set playerCode.upArousalTo(30,50)>>\
+				Sensations from vibro buttplug rumbling in your anus is so intense that it's hard to focus on the screen. Unable to touch your penis you start massaging base of the plug, which only makes the effect stronger. You moan soflty, slowly breaking under constant pressure, builded up from having your hole ravaged by relentless toy.
+			<<elseif _b.id eq 'buttPlugInflate'>>\
+				<<set playerCode.upArousalTo(20,50)>>\
+				It is quite unusual experience with inflatible plug up your ass. Unable to resist you squeeze the pump once, making the toy expand inside you as you watch the screen.
+			<<endif>>\
+			
+		<<endif>>\
+		<<if $flags.chastityKey and $flags.chastityLocked>>\
+			You can feel your penis moving in its chastity cage, but without the key you can't do anyhing about it.
+		
+		<<endif>>\
+		<span id="masturbateWatchPorn">\
+		<<if (not $flags.chastityKey) or (not $flags.chastityLocked)>>\
+			<<if $player.arousal gt 80>>/* TODO - ADD LIMITS */\
+				<<set _autojerk = true>>\
+				<<removeClothing _c.id>>\
+				<<set $scene = "removeChastAndJerk">>\
+				<<include "Watch porn on computer">>\
+			<<else>>\
+				<<click "Remove chastity and jerk">><<removeClothing _c.id>><<set $scene = "removeChastAndJerk">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<endif>>\
+		<<endif>>\
+		<<if (not _autojerk)>>\
+			<<click "Just watch">><<set $scene = "justWatch">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<if $player.exp.vibratorExp eq 0>>\
+				<<click "Use vibrator">><<set $scene = "useVibratorCage">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<endif>>\
+			/* TODO - option to use vibrator, but don't cum, just tease yourself */\
+			<<if _b and ["buttPlugInflate", "buttPlugVibro"].includes(_b.id)>>\
+				<<click "Play with buttplug">><<set $scene = "useButtplug">><<replace "#masturbateWatchPorn">><<include "Watch porn on computer">><</replace>><</click>>
+			<<endif>>\
+		<<endif>>\
+		</span>\
+	<<endif>>\
+<<elseif $scene eq "jerk">>/* regular wank */\
+	<<if _b>>\
+		<<print '<<showImage "general" "mast_wank_plug.gif">>'>>\
+	<<else>>\
+		<<print '<<showImage "general" "mast_wank.gif">>'>>\
+	<<endif>>\
+	Finally, you cum after a couple of minutes watching the porn.
+	
+	<<set _type = window.masturbateType.watchPornCum>>\
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif $scene eq "removeChastAndJerk">>/* take chastity off and wank */\
+	<<if _b>>\
+		<<print '<<showImage "general" "mast_wank_plug.gif">>'>>\
+	<<else>>\
+		<<print '<<showImage "general" "mast_wank.gif">>'>>\
+	<<endif>>\
+	
+	Desperately horny you fevereshly <<if $flags.chastityLocked>>unlock and <<endif>>take chastity off.
+	<<if (not $flags.chastityKey)>>\
+		<<set $flags.chastityLocked = false>>\
+	<<endif>>\
+		
+	You cum almost imidiately after touching your freed penis. It leaves you slightly disappointed, but nevertheless satisfied.
+	
+	<<if (not _b) and ($player.masturbationType gte 400)>>\
+		Shamefully you recall how much better it felt to cum with a vibrator up your ass. Last time it lasted longer and was so intense that you felt completely spent afterwards.
+		
+		@@.hero;I'm becoming such buttslut.@@
+		
+	<<endif>>\
+	<<set _type = window.masturbateType.watchPornCum>>\
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif ["useVibratorNoCage", "useVibratorNoJerk"].includes($scene)>>/* no chastity vibrator wank scenes */\
+	<<if $scene eq "useVibratorNoCage">>\
+		<<print '<<showImage "general" "mast_wank_vibr.gif">>'>>\
+	<<else>>\
+		<<print '<<showImage "general" "dildo_play_no_chast.gif">>'>>\
+	<<endif>>\
+	Horny beyond reason you grab $items.vibrator.name and lick it wet.\
+	<<if _b>>\
+		You pull your buttplug and it slides out of your ass with barely audible 'pop'.\
+	<<endif>>\
+	Not letting go of your penis you position the vibrator against your anus and push it in.
+	
+	It enters you more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
+
+	With trembling fingers you reach down and turn the dial on it, and it suddenly jumps to life, vibrating softly in your ass.
+	
+	<<if $scene eq "useVibratorNoCage">>\
+		Your penis pulses hard in your hand. Double stimulation from both front and rear sends you reeling. Looking at the action on the screen you focus on embracing the fantasy and finally cum, imagening yourself being there.
+		/* TODO - unique descriptions, based on porn type */\
+		<<set _type = window.masturbateType.watchPornVibCum>>\
+	<<else>>\
+		Your penis pulses hard. You're desperate for touch, but you just bite your lip and keep your hands off.\
+		<<if playerCode.isButtslut()>>\
+			This time you want a different kind of release. So with a heavy sigh you just watch your penis twitching as it responds to the relentless sensations of the toy in your ass.
+			
+			Finally, you cum after a couple of minutes watching the porn.
+			<<set _type = window.masturbateType.watchPornVibCum>>\
+		<<else>>\
+			This time you decided to keep your hands away from your penis, focusing purely on the $items.vibrator.name. So with a heavy sigh you just watch your penis twitching as it responds to the relentless sensations of the toy in your ass.
+			
+			You whimper, it feels like you're about to explode, but release never comes. After spending some time in sweet torture, you give up and remove the vibrator.
+			
+			Still, it left you a bit mollified, dulling some of the tension at least for a little while.
+			<<set _type = window.masturbateType.watchPornCalm>>\
+		<<endif>>\
+	<<endif>>\
+	
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif $scene eq "justWatch">>\
+	<<print '<<showImage "general" "chastity_half_horny.gif">>'>>\
+	You give up on trying to get release and just helplessly watch, horny, frustrated and slowly leaking from your chastity.
+	
+	/* TODO - different reactions on type of porn */\
+	<<set _type = window.masturbateType.watchPornChastNoCum>>\
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif $scene eq "useVibratorCage">>\
+	<<print '<<showImage "general" "dildo_play_'+random(9)+'.gif">>'>>\
+	Horny beyond reason you grab $items.vibrator.name and lick it wet.\
+	<<if _b>>\
+		You pull your buttplug and it slides out of your ass with barely audible 'pop'.\
+	<<endif>>\
+	You take the $items.vibrator.name and press its tip against your anus. You push slightly and it slowly starts sliding in. It enters much more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
+
+	With trembling fingers you reach down and turn the dial on it, and it suddenly jumps to life, vibrating softly in your ass.
+
+	Your penis pulses firmly within your chastity cage and you're immediately on the edge.  You rub the plastic surrounding your penis in vain, but you feel nothing except the relentless sensations of the toy in your ass.
+	
+	<<if playerCode.isButtslut()>>\
+		You feel like you're about to explode and you whimper, afraid to cry out lest you scream, until finally the pressure breaks and	a solid stream of jizz pours from tip of your chastiy cage. It flows steadily and seems to go forever, while your orgasm pulses hard despite your cock being confined in its cage.
+		
+		<<set _type = window.masturbateType.watchPornChastCum>>\
+	<<else>>\
+		You whimper, it feels like you're about to explode, but release never comes. After spending some time in sweet torture, you give up and remove the vibrator.
+		
+		Still, it left you a bit mollified, dulling some of the tension at least for a little while.
+		<<set _type = window.masturbateType.watchPornChastCalm>>\
+	<<endif>>\
+
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif $scene eq "useButtplug">>\
+	<<print '<<showImage "general" "mast_plugged.gif">>'>>\
+	You give up on trying to get release and just helplessly watch, horny, frustrated and slowly leaking from your chastity.
+	
+	<<if _b.id eq 'buttPlugVibro'>>\
+		Massive vibrating butt plug makes this torture excruciating.
+	<<elseif _b.id eq 'buttPlugInflate'>>\
+		Desperate for any kind of release you grasp pump of the butt plug and sqeeze it again... and again... until you're at your limit. You slump down, taking submissive pose to reduce discomfort from expanded plug. With ass elevated in air and head down on the floor you try to relax, which is incredibly hard in your aroused state. 
+
+		You don't know what pushed you to do all that - curiosity, desire to feel extremely stretched or being trapped. You know that escape is one move avay, you should just deflate the plug and this torture will end.
+		
+		But you don't do that, your arms just refuse to move when you halfheartedly try to convince yourself to do sensible thing. Instead you just lie there, slowly getting used to your hole stretched to limit, locked in chastity and watching porn. This is definetly an unique way to spend time.
+	<<endif>>\
+
+	<<set _type = window.masturbateType.watchPornChastNoCum>>\
+	<<set $scene = "watchPornEnd">>\
+	<<include "Watch porn on computer">>\
+<<elseif $scene eq "watchPornEnd">>\
+	<<if $player.perversion.guardian gte 4>>\
+		<<set $player.masturbationType = _type>>\
+		After some time a familiar *bing* from your computer notifies you of a recording of your activities.
+		
+	<<endif>>\
+	<<if ($player.perversion.friend eq 0) and $flags.friendNamed>>\
+		@@.hero;I wonder what porn $friend watches.  Maybe $friendG.he_she can suggest some that I'll like more.@@
+	
+		<<set $player.perversion.friend to 1>>\
+	<<endif>>\
+\
+	<<set playerCode.changeArousal(5)>>\
+	<<set playerCode.upArousalTo(50,50)>>\
+	<<if _type lt 100>>\
+		<<set playerCode.masturbate.tease(1)>>\
+		[[Look for some other options to masturbate|Masturbate][$scene=""]]
+	<<elseif _type lt 200>>\
+		<<set playerCode.masturbate.tempRelief(1)>>\
+	<<else>>\
+		<<set playerCode.masturbate.cum()>>\
+	<<endif>>\
+	[[Return|Go to bedroom]]
+<<endif>>\

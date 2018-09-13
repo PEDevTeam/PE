@@ -5,10 +5,9 @@
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<if $scene eq "">>
-	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
-		<<goto [[Beauty Salon]]>>\
-	<<endif>>\
+<<if ($scene eq "") and (($time.hour <= 5) or ($time.hour >= 21))>>\
+	<<goto [[Beauty Salon]]>>\
+<<elseif $scene eq "">>\
 	<<if $player.salonTab gt 0>>\
 		Nancy says that semi-permanent treatments reversal are not provided for clients who haven't fully payed their tab.
 	<<else>>\
@@ -28,13 +27,15 @@
 			<<set $items[_item.id].image = itemsC.AssEnhancingXL.image>>\
 			<<set $items[_item.id].name = "Ass size XL enhancing reversal">>\
 			<<set _sceneName="semiPermAssXL_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.ass eq 1) and ($body.semiAss eq 1)>>\
 			<<set $items[_item.id].cost = 10*itemsC.AssEnhancing.cost>>\
 			<<set $items[_item.id].image = itemsC.AssEnhancing.image>>\
 			<<set $items[_item.id].name = "Ass size enhancing reversal">>\
 			<<set _sceneName="semiPermAss_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<endif>>\
 	<<endif>>\
 \
@@ -46,13 +47,15 @@
 			<<set $items[_item.id].image = itemsC.LipsEnhancingXL.image>>\
 			<<set $items[_item.id].name = "Lips size XL enhancing reversal">>\
 			<<set _sceneName="semiPermLipsXL_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.lips eq 1) and ($body.semiLips eq 1)>>\
 			<<set $items[_item.id].cost = 10*itemsC.LipsEnhancing.cost>>\
 			<<set $items[_item.id].image = itemsC.LipsEnhancing.image>>\
 			<<set $items[_item.id].name = "Lips size enhancing reversal">>\
 			<<set _sceneName="semiPermLips_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<endif>>\
 	<<endif>>\
 \
@@ -62,13 +65,15 @@
 			<<set $items[_item.id].image = itemsC.GarishManicure.image>>\
 			<<set $items[_item.id].name = "Garish manicure hardening reversal">>\
 			<<set _sceneName="semiPermGarishManicure_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.manicure eq 1) and ($body.semiManicure eq 1)>>\
 			<<set $items[_item.id].cost = 10*itemsC.Manicure.cost>>\
 			<<set $items[_item.id].image = itemsC.Manicure.image>>\
 			<<set $items[_item.id].name = "Manicure hardening reversal">>\
 			<<set _sceneName="semiPermManicure_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<endif>>\
 	<<endif>>\
 \
@@ -80,25 +85,29 @@
 			<<set $items[_item.id].image = itemsC.breastImplantsDD.image>>\
 			<<set $items[_item.id].name = "Massive breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsDD_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.boobs eq 3) and ($body.semiBoobs eq 3)>>\
 			<<set $items[_item.id].cost = 8*itemsC.breastImplantsC.cost>>\
 			<<set $items[_item.id].image = itemsC.breastImplantsC.image>>\
 			<<set $items[_item.id].name = "Big breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsC_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.boobs eq 2) and ($body.semiBoobs eq 2)>>\
 			<<set $items[_item.id].cost = 10*itemsC.breastImplantsB.cost>>\
 			<<set $items[_item.id].image = itemsC.breastImplantsB.image>>\
 			<<set $items[_item.id].name = "Modest breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsB_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.boobs eq 1) and ($body.semiBoobs eq 1)>>\
 			<<set $items[_item.id].cost = 10*itemsC.breastImplantsA.cost>>\
 			<<set $items[_item.id].image = itemsC.breastImplantsA.image>>\
 			<<set $items[_item.id].name = "Small breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsA_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<endif>>\
 	<<endif>>\
 \
@@ -110,25 +119,29 @@
 			<<set $items[_item.id].image = itemsC.HeavyMakeup.image>>\
 			<<set $items[_item.id].name = "Heavy makeup tattoo reversal">>\
 			<<set _sceneName="semiPermHeavyMakeup_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.makeup eq 3) and ($body.semiMakeup eq 3)>>\
 			<<set $items[_item.id].cost = 10*itemsC.BimboMakeup.cost>>\
 			<<set $items[_item.id].image = itemsC.BimboMakeup.image>>\
 			<<set $items[_item.id].name = "Bimbo makeup tattoo reversal">>\
 			<<set _sceneName="semiPermBimboMakeup_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.makeup eq 2) and ($body.semiMakeup eq 2)>>\
 			<<set $items[_item.id].cost = 10*itemsC.NormalMakeup.cost>>\
 			<<set $items[_item.id].image = itemsC.NormalMakeup.image>>\
 			<<set $items[_item.id].name = "Sexy makeup tattoo reversal">>\
 			<<set _sceneName="semiPermNormalMakeup_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<elseif ($body.makeup eq 1) and ($body.semiMakeup eq 1)>>\
 			<<set $items[_item.id].cost = 10*itemsC.SubtleMakeup.cost>>\
 			<<set $items[_item.id].image = itemsC.SubtleMakeup.image>>\
 			<<set $items[_item.id].name = "Subtle makeup tattoo reversal">>\
 			<<set _sceneName="semiPermSubtleMakeup_reversal">>\
-			<<display "Clinic buy menu">>\
+			<<set _time=40>>\
+			<<include "Clinic buy menu">>
 		<<endif>>\
 	<<endif>>\
 	<<endif>>\

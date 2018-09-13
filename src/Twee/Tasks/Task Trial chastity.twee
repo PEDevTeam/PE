@@ -21,16 +21,16 @@
 		<<addToInv _item.id>>\
 		<<wearClothing _item.id>>\
 	<<else>>\
-		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
+		<<set $tasksTeacher.trialChastity.progress = 2>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
 		<<set _item=$items.buttPlugHeart>>\
 		<<addToInv _item.id>>\
 		<<wearClothing _item.id>>\
-	<<elseif $tasksTeacher.trialChastity.cooldown eq 2>>\
-		<<set $tasksTeacher.trialChastity.cooldown = 3>>\
+	<<elseif $tasksTeacher.trialChastity.progress eq 2>>\
+		<<set $tasksTeacher.trialChastity.progress = 3>>\
 	<<else>>\
-		<<set $tasksTeacher.trialChastity.cooldown = 4>>\
+		<<set $tasksTeacher.trialChastity.progress = 4>>\
 	<<endif>>\
 	/*
 	<<set $tasksTeacher.trialChastity.text.checkMe.reminder = "You haven't finished the trial yet.">>\
@@ -99,10 +99,10 @@
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 	<<if playerCode.isWearing(itemsC.chastityDevice)>>\
-		<<removeClothing $items.chastityDevice.id>>\
+		<<removeClothing 'chastityDevice'>>\
 	<<endif>>\
 	<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
-		<<removeClothing $items.buttPlugHeart.id>>\
+		<<removeClothing 'buttPlugHeart'>>\
 	<<endif>>\
 	You enter the adult store, finding the shopkeeper to help you finish the market research trial. She greets you and leads you back to the cubicles.
 	<<if _c or _b>>\
@@ -157,17 +157,17 @@
 
 	@@.shopclothes;“So, for the research, I can pay you for your time like we agreed, but sometimes we have testers who find they... //really like// using our products. As a second option, you could write a review, describing your experience, and I’ll give you a free chastity cage and butt-plug, similar to the ones you used in your testing, instead."@@
 	
-	<<if $tasksTeacher.trialChastity.cooldown eq 1>>\
+	<<if $tasksTeacher.trialChastity.progress eq 1>>\
 	Your first reaction is to take the money, but you think it over:
 
 	@@.hero;I still need a chastity to show $teacher, and both items would cost more if I just buy them in the store. I could save some cash by taking these items, but damn, I don't want to write up how it felt!@@
 	
 	<<endif>>\
-	[[Choose and wear items|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=12]]
-	[[Choose items|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=10]]
-	[[Choose money|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=11]]
+	[[Choose and wear items|Task Trial chastity][$tasksTeacher.trialChastity.status=2; $scene="wearItems"]]
+	[[Choose items|Task Trial chastity][$tasksTeacher.trialChastity.status=2; $scene="takeItems"]]
+	[[Choose money|Task Trial chastity][$tasksTeacher.trialChastity.status=2; $scene="takeMoney"]]
 
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 12)>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($scene eq "wearItems")>>\
 	You choose the items.
 	
 	The shopkeeper guides you over to a desk, then hands you the company's product testing feedback form and a pen. You sit down to write your review, describing your experience during the trial.
@@ -219,7 +219,7 @@
 	<<endif>>\
 	[[Get out of there|Go to the mall]]
 	
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 10)>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($scene eq "takeItems")>>\
 	You choose the items.
 	
 	The shopkeeper guides you over to a desk, then hands you the company's product testing feedback form and a pen. You sit down to write your review, describing your experience during the trial.
@@ -241,12 +241,14 @@
 	
 	[[Get out of there|Go to the mall]]
 	
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 11)>>\
-	<<if ($tasksTeacher.trialChastity.cooldown eq 1) or ($tasksTeacher.trialChastity.cooldown eq 4)>>\
-		<<removeFromInv $items.chastityDevice.id>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($scene eq "takeMoney")>>\
+	<<if ($tasksTeacher.trialChastity.progress eq 1) or ($tasksTeacher.trialChastity.progress eq 4)>>\
+		<<removeFromInv 'chastityDevice'>>\
+		<<removeClothing 'chastityDevice'>>\
 	<<endif>>\
-	<<if ($tasksTeacher.trialChastity.cooldown eq 1) or ($tasksTeacher.trialChastity.cooldown eq 2)>>\
-		<<removeFromInv $items.buttPlugHeart.id>>\
+	<<if ($tasksTeacher.trialChastity.progress eq 1) or ($tasksTeacher.trialChastity.progress eq 2)>>\
+		<<removeFromInv 'buttPlugHeart'>>\
+		<<removeClothing 'chastityDevice'>>\
 	<<endif>>\
 	<<set $player.money+=tasksTeacher.trialChastity.rewardMoney>>\
 	You choose the money.

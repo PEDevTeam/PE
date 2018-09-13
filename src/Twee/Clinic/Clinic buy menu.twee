@@ -1,5 +1,6 @@
 :: Clinic buy menu [pos_2536_720]
 \
+<<if _item>>\
 	<<set _image = window.itemF.image(_item)>>\
 	<<set _name = window.itemF.name(_item)>>\
 	<<set _disabled = window.itemF.disabled(_item)>>\
@@ -13,14 +14,23 @@
 	<<set _in to _in +" "+ _cost+"$ ">>\
 	<<if $player.money gte _cost>>\
 		<<if ($player.daring gte _daringRec) or _override>>\
-			<<set _in to _in + '[[ Order |"'+_passage+'"][$scene="'+_sceneName+'"]]'>>\
+			<<if _time and (_time gt 0)>>\
+				<<set _in to _in + '[[ Order |"'+_passage+'"][$scene="'+_sceneName+'";$player.money-='+_cost+';window.timeCode.addMinutes('+_time+')]]'>>\
+				<<set _in to _in + '@@.halftransparent; ('>>\
+				<<set _in to _in + _time>>\
+				<<set _in to _in + ' min)@@'>>\
+			<<else>>\
+				<<set _in to _in + '[[ Order |"'+_passage+'"][$scene="'+_sceneName+'";$player.money-='+_cost+']]'>>\
+			<<endif>>\
 		<<else>>\
-			<<set _in to _in + '@@.deny; too risqué@@'>>\
+			<<set _in to _in + '@@.halftransparent; <s>Order</s> - too risqué@@'>>\
 		<<endif>>\
 	<<else>>\
-		<<set _in to _in + '@@.deny; Not enough money@@'>>\
+		<<set _in to _in + '@@.halftransparent; <s>Order</s> - Not enough money@@'>>\
 	<<endif>>\
 	<<if _image and $showimages>>\
 		<<set _in to _in + '</span>'>>\
 	<<endif>>\
-	<<print _in>>
+	<<set _time=0>>\
+	<<print _in>>\
+<<endif>>\

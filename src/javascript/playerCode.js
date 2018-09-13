@@ -11,7 +11,7 @@ window.playerCode={
 		} else {
 			player.therapistDays.push([1,2,3,4,5]);
 		}
-	},	
+	},
 	isWearing: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},
@@ -369,16 +369,14 @@ window.playerCode={
 	owns: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;
 	},
-	ownsType: function(clothingType) {
-		var items=window.itemsC;
-		for (var j=0; j < Object.keys(items).length; j++) {
-			o=items[Object.keys(items)[j]];
-			if ((o.clothingType & clothingType) > 0) {
-				if (State.active.variables.inventory.indexOf(o.id) >= 0) {
-					return true;
-				}
+	ownsType: function(type) {
+		for (var j=0; j < State.active.variables.inventory.length; j++) {
+			var o=window.itemsC[State.active.variables.inventory[j]];
+			if (o && ((o.clothingType & type) > 0)) {
+				return true;
 			}
 		}
+		
 		return false;
 	},
 	saveQuickSlot: function(slot) {
@@ -558,7 +556,7 @@ window.playerCode={
 		var itemsC=window.itemsC;
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
 			var o=itemsC[Object.keys(itemsC)[i]];
-			if (o.clothingType != itemTypes.NotClothing && playerCode.owns(o) && !o.female) {
+			if ([itemTypes.Underwear, itemTypes.Outerwear, itemTypes.Shoes].includes(o.clothingType) && playerCode.owns(o) && !o.female) {
 				State.active.variables.inventory.splice(State.active.variables.inventory.indexOf(o.id), 1);
 			}
 		}
@@ -573,6 +571,14 @@ window.playerCode={
 				oV.disabled=true;
 				oV.cost=0;
 			}
+		}
+	},
+	setBabysitter: function() {
+		if ((State.active.variables.time.day == 1) && !State.active.variables.kink.incestnumDays) {
+			State.active.variables.guardian=State.active.variables.babysitter;
+			State.active.variables.Guardian=State.active.variables.babysitter;
+			State.active.variables.myguardian=State.active.variables.babysitter;
+			State.active.variables.Myguardian=State.active.variables.babysitter;
 		}
 	},
 }

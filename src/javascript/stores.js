@@ -33,7 +33,7 @@ window.stores=[
 		name: "Intimate Apparel",
 		image: "lingerie_shop.jpg",
 		description: "For everything under your clothes.",
-		daringRequired: 1
+		daringRequired: 0
 	},
 	{  
 		name: "Klip Klops",

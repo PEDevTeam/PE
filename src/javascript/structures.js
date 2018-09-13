@@ -270,23 +270,22 @@ window.structures={
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
 			if (State.active.variables.items[Object.keys(itemsC)[i]] == null) {
 				State.active.variables.items[Object.keys(itemsC)[i]] = {};
-				
-				var itemObject = State.active.variables.items[Object.keys(itemsC)[i]];
-				var listItemsC = itemsC[Object.keys(itemsC)[i]];
-				
-				itemObject.id = listItemsC.id;
-				
-				if (listItemsC.clothingType > 0) {
-					if (itemObject.ward == null) { itemObject.ward = false; }
-				}
-				
-				if (listItemsC.maxAlt != null) {
-					if (itemObject.curAlt == null) { itemObject.curAlt = 0; }
-					if (itemObject.ownAlt == null) { itemObject.ownAlt = []; }
-					if (itemObject.storeCur == null) { itemObject.storeCur = 0; }
-					if (itemObject.storeAlt == null) { itemObject.storeAlt = []; }
-				}
-				
+			}
+			
+			var itemObject = State.active.variables.items[Object.keys(itemsC)[i]];
+			var listItemsC = itemsC[Object.keys(itemsC)[i]];
+			
+			itemObject.id = listItemsC.id;
+			
+			if (listItemsC.clothingType > 0) {
+				if (itemObject.ward == null) { itemObject.ward = false; }
+			}
+			
+			if (listItemsC.maxAlt != null) {
+				if (itemObject.curAlt == null) { itemObject.curAlt = 0; }
+				if (itemObject.ownAlt == null) { itemObject.ownAlt = []; }
+				if (itemObject.storeCur == null) { itemObject.storeCur = 0; }
+				if (itemObject.storeAlt == null) { itemObject.storeAlt = []; }
 			}
 		}
 		
@@ -356,29 +355,27 @@ window.structures={
 		for (var i=0; i < Object.keys(dreamsGuardian).length; i++) {
 			if (State.active.variables.dreams[Object.keys(dreamsGuardian)[i]] == null) {
 				State.active.variables.dreams[Object.keys(dreamsGuardian)[i]] = {};
-				
-				var dreamObject = State.active.variables.dreams[Object.keys(dreamsGuardian)[i]];
-				var dreamsG = dreamsGuardian[Object.keys(dreamsGuardian)[i]];
-
-				if (dreamObject.id == null) { dreamObject.id = dreamsG.id; }
-				if (dreamObject.active == null) { dreamObject.active = dreamsG.active; }
-				if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsG.startPriority; }
-				if (dreamObject.progress == null) { dreamObject.progress = 0; }
 			}
+			var dreamObject = State.active.variables.dreams[Object.keys(dreamsGuardian)[i]];
+			var dreamsG = dreamsGuardian[Object.keys(dreamsGuardian)[i]];
+
+			if (dreamObject.id == null) { dreamObject.id = dreamsG.id; }
+			if (dreamObject.active == null) { dreamObject.active = dreamsG.active; }
+			if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsG.startPriority; }
+			if (dreamObject.progress == null) { dreamObject.progress = 0; }
 		}
 		
 		for (var i=0; i < Object.keys(dreamsTeacher).length; i++) {
 			if (State.active.variables.dreams[Object.keys(dreamsTeacher)[i]] == null) {
 				State.active.variables.dreams[Object.keys(dreamsTeacher)[i]] = {};
-				
-				var dreamObject = State.active.variables.dreams[Object.keys(dreamsTeacher)[i]];
-				var dreamsT = dreamsTeacher[Object.keys(dreamsTeacher)[i]];
-
-				if (dreamObject.id == null) { dreamObject.id = dreamsT.id; }
-				if (dreamObject.active == null) { dreamObject.active = dreamsT.active; }
-				if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsT.startPriority; }
-				if (dreamObject.progress == null) { dreamObject.progress = 0; }
 			}
+			var dreamObject = State.active.variables.dreams[Object.keys(dreamsTeacher)[i]];
+			var dreamsT = dreamsTeacher[Object.keys(dreamsTeacher)[i]];
+
+			dreamObject.id = dreamsT.id;
+			if (dreamObject.active == null) { dreamObject.active = dreamsT.active; }
+			if (dreamObject.startPriority == null) { dreamObject.startPriority = dreamsT.startPriority; }
+			if (dreamObject.progress == null) { dreamObject.progress = 0; }
 		}
 		
 		// deleting dreams with no corresponding ID in JavaScript list
@@ -417,13 +414,12 @@ window.structures={
 		for (var i=0; i < Object.keys(locationsJS).length; i++) {
 			if (vars.locations[Object.keys(locationsJS)[i]] == null) {
 				vars.locations[Object.keys(locationsJS)[i]] = {};
-				
-				var locV = vars.locations[Object.keys(locationsJS)[i]];
-				var locJS = locationsJS[Object.keys(locationsJS)[i]];
+			}				
+			var locV = vars.locations[Object.keys(locationsJS)[i]];
+			var locJS = locationsJS[Object.keys(locationsJS)[i]];
 
-				if (locV.id == null) { locV.id = locJS.id; }
-				if (locV.active == null) { locV.active = locJS.active; }
-			}
+			locV.id = locJS.id;
+			if (locV.active == null) { locV.active = locJS.active; }
 		}
 		
 		// deleting dreams with no corresponding ID in JavaScript list
@@ -458,25 +454,23 @@ window.structures={
 	},
 	
 	setupTalks: function() {
-		var vars=State.active.variables;
 		var talksList=window.therapistTalks;
 		
-		if (vars.therapistTalks == null) {
-			vars.therapistTalks = {};
+		if (State.active.variables.therapistTalks == null) {
+			State.active.variables.therapistTalks = {};
 		}
 		
 		for (var i=0; i < Object.keys(talksList).length; i++) {
-			if (vars.therapistTalks[Object.keys(talksList)[i]] == null) {
-				vars.therapistTalks[Object.keys(talksList)[i]] = {};
-				
-				var object = vars.therapistTalks[Object.keys(talksList)[i]];
-				var talksObj = talksList[Object.keys(talksList)[i]];
-
-				if (object.id == null) { object.id = talksObj.id; }
-				if (object.start == null) { object.start = talksObj.start; }
-				if (object.finished == null) { object.finished = false; }
-				if (object.progress == null) { object.progress = 0; }
+			if (State.active.variables.therapistTalks[Object.keys(talksList)[i]] == null) {
+				State.active.variables.therapistTalks[Object.keys(talksList)[i]] = {};
 			}
+			var talkObject = State.active.variables.therapistTalks[Object.keys(talksList)[i]];
+			var talksObj = talksList[Object.keys(talksList)[i]];
+
+			talkObject.id = talksObj.id;
+			if (talkObject.start == null) { talkObject.start = talksObj.start; }
+			if (talkObject.finished == null) { talkObject.finished = false; }
+			if (talkObject.progress == null) { talkObject.progress = 0; }
 		}
 		
 		// deleting talks with no corresponding ID in JavaScript list
@@ -504,22 +498,21 @@ window.structures={
 		
 		var punList=window.teacherPunishments;
 		
-		if (vars.teacherPunishments == null) {
-			vars.teacherPunishments = {};
+		if (State.active.variables.teacherPunishments == null) {
+			State.active.variables.teacherPunishments = {};
 		}
 		
 		for (var i=0; i < Object.keys(punList).length; i++) {
-			if (vars.teacherPunishments[Object.keys(punList)[i]] == null) {
-				vars.teacherPunishments[Object.keys(punList)[i]] = {};
-				
-				var object = vars.teacherPunishments[Object.keys(punList)[i]];
-				var talksObj = punList[Object.keys(punList)[i]];
-
-				if (object.id == null) { object.id = talksObj.id; }
-				if (object.active == null) { object.active = talksObj.active; }
-				if (object.progress == null) { object.progress = 0; }
-				if (object.timeStart == null) { object.timeStart = -100; }
+			if (State.active.variables.teacherPunishments[Object.keys(punList)[i]] == null) {
+				State.active.variables.teacherPunishments[Object.keys(punList)[i]] = {};
 			}
+			var punObject = State.active.variables.teacherPunishments[Object.keys(punList)[i]];
+			var talksObj = punList[Object.keys(punList)[i]];
+
+			punObject.id = talksObj.id;
+			if (punObject.active == null) { punObject.active = talksObj.active; }
+			if (punObject.progress == null) { punObject.progress = 0; }
+			if (punObject.timeStart == null) { punObject.timeStart = -100; }
 		}
 		
 		// deleting punishments with no corresponding ID in JavaScript list
@@ -541,73 +534,67 @@ window.structures={
 	},
 	
 	setupTasks: function() {
-		var vars=State.active.variables;
-
 		// Daring tasks
 		var tasksList=window.tasksTeacher;
-		if (vars.tasksTeacher == null) {
-			vars.tasksTeacher = {};
+		if (State.active.variables.tasksTeacher == null) {
+			State.active.variables.tasksTeacher = {};
 		}
 		
 		for (var i=0; i < Object.keys(tasksList).length; i++) {
-			if (vars.tasksTeacher[Object.keys(tasksList)[i]] == null) {
-				vars.tasksTeacher[Object.keys(tasksList)[i]] = {};
-				
-				var taskTdObject = vars.tasksTeacher[Object.keys(tasksList)[i]];
-				var taskListed = tasksList[Object.keys(tasksList)[i]];
-				
-				taskTdObject.id = taskListed.id;
-				
-				if (taskTdObject.canStart == null) { taskTdObject.canStart = taskListed.canStart; }
-				if (taskTdObject.status == null) { taskTdObject.status = 0; }
-				if (taskTdObject.progress == null) { taskTdObject.progress = 0; }
-				if (taskTdObject.startDay == null) { taskTdObject.startDay = -100; }
+			if (State.active.variables.tasksTeacher[Object.keys(tasksList)[i]] == null) {
+				State.active.variables.tasksTeacher[Object.keys(tasksList)[i]] = {};
 			}
+			var taskTdObject = State.active.variables.tasksTeacher[Object.keys(tasksList)[i]];
+			var taskListed = tasksList[Object.keys(tasksList)[i]];
+			
+			taskTdObject.id = taskListed.id;
+			
+			if (taskTdObject.canStart == null) { taskTdObject.canStart = taskListed.canStart; }
+			if (taskTdObject.status == null) { taskTdObject.status = 0; }
+			if (taskTdObject.progress == null) { taskTdObject.progress = 0; }
+			if (taskTdObject.startDay == null) { taskTdObject.startDay = -100; }
 		}
 		
 		// Bodymods tasks
 		var tasksBodyList=window.tasksTeacherBody;
-		if (vars.tasksTeacherBody == null) {
-			vars.tasksTeacherBody = {};
+		if (State.active.variables.tasksTeacherBody == null) {
+			State.active.variables.tasksTeacherBody = {};
 		}
 		
 		for (var i=0; i < Object.keys(tasksBodyList).length; i++) {
-			if (vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] == null) {
-				vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]] = {};
-				
-				var taskTbObject = vars.tasksTeacherBody[Object.keys(tasksBodyList)[i]];
-				var taskBodyListed = tasksBodyList[Object.keys(tasksBodyList)[i]];
-				
-				taskTbObject.id = taskBodyListed.id;
-				
-				if (taskTbObject.canStart == null) { taskTbObject.canStart = taskBodyListed.canStart; }
-				if (taskTbObject.status == null) { taskTbObject.status = 0; }
-				if (taskTbObject.progress == null) { taskTbObject.progress = 0; }
-				if (taskTbObject.startDay == null) { taskTbObject.startDay = -100; }
+			if (State.active.variables.tasksTeacherBody[Object.keys(tasksBodyList)[i]] == null) {
+				State.active.variables.tasksTeacherBody[Object.keys(tasksBodyList)[i]] = {};
 			}
+			var taskTbObject = State.active.variables.tasksTeacherBody[Object.keys(tasksBodyList)[i]];
+			var taskBodyListed = tasksBodyList[Object.keys(tasksBodyList)[i]];
+			
+			taskTbObject.id = taskBodyListed.id;
+			
+			if (taskTbObject.canStart == null) { taskTbObject.canStart = taskBodyListed.canStart; }
+			if (taskTbObject.status == null) { taskTbObject.status = 0; }
+			if (taskTbObject.progress == null) { taskTbObject.progress = 0; }
+			if (taskTbObject.startDay == null) { taskTbObject.startDay = -100; }
 		}
 		
 		// Email tasks
 		var emailList=window.tasksEmail;
-		if (vars.tasksEmail == null) {
-			vars.tasksEmail = {};
+		if (State.active.variables.tasksEmail == null) {
+			State.active.variables.tasksEmail = {};
 		}
 		
 		for (var i=0; i < Object.keys(emailList).length; i++) {
-			if (vars.tasksEmail[Object.keys(emailList)[i]] == null) {
-				vars.tasksEmail[Object.keys(emailList)[i]] = {};
-				
-				var taskEmObject = vars.tasksEmail[Object.keys(emailList)[i]];
-				var emailListed = emailList[Object.keys(emailList)[i]];
-				
-				taskEmObject.id = emailListed.id;
-				
-				if (taskEmObject.canStart == null) { taskEmObject.canStart = emailListed.canStart; }
-				if (taskEmObject.status == null) { taskEmObject.status = 0; }
-				if (taskEmObject.progress == null) { taskEmObject.progress = 0; }
-				if (taskEmObject.startDay == null) { taskEmObject.startDay = -100; }
-				
+			if (State.active.variables.tasksEmail[Object.keys(emailList)[i]] == null) {
+				State.active.variables.tasksEmail[Object.keys(emailList)[i]] = {};
 			}
+			var taskEmObject = State.active.variables.tasksEmail[Object.keys(emailList)[i]];
+			var emailListed = emailList[Object.keys(emailList)[i]];
+			
+			taskEmObject.id = emailListed.id;
+			
+			if (taskEmObject.canStart == null) { taskEmObject.canStart = emailListed.canStart; }
+			if (taskEmObject.status == null) { taskEmObject.status = 0; }
+			if (taskEmObject.progress == null) { taskEmObject.progress = 0; }
+			if (taskEmObject.startDay == null) { taskEmObject.startDay = -100; }
 		}
 		
 		// deleting tasks with no corresponding ID in JavaScript list
@@ -640,6 +627,22 @@ window.structures={
 			
 			if (!found) {
 				delete tasksBodyNewTeacher[Object.keys(tasksBodyNewTeacher)[i]];
+			}
+		}
+		
+		var tasksEmailNew = State.active.variables.tasksEmail;
+		for (var i=0; i < Object.keys(tasksEmailNew).length; i++) {
+			var found = false;
+			
+			for (var j=0; j < Object.keys(emailList).length; j++) {
+				if (tasksEmailNew[Object.keys(emailList)[i]].id == emailList[Object.keys(emailList)[j]].id) {
+					var found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				delete tasksEmailNew[Object.keys(tasksEmailNew)[i]];
 			}
 		}
 	},
@@ -763,6 +766,10 @@ window.playerAddonsList={
 		adultstorePerversion: 0,
 		workedToday: false
 	},
+	mood: {
+		guardian: 0,
+		teacher: 0
+	},
 	perversion: {
 		guardian: 0,
 		guardianCooldown: 0,
@@ -781,6 +788,7 @@ window.playerAddonsList={
 		coach: 0,
 		photogirl: 0,
 		friend: 0,
+		pornType: 0,
 		upload: 0,
 		uploadCooldown: 0,
 		crossdressing: 0,
@@ -822,7 +830,9 @@ window.playerAddonsList={
 		vibratorFirst: 0, /* "guardian", "therapist", "shop" */
 		vibratorExp: 0,
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
-		analExp: 0
+		analExp: 0,
+		femaleUnderwear: false,
+		femaleSluttyUnderwear: false,
 	},
 },
 
@@ -860,6 +870,7 @@ window.bodyList={
 	hairstyle: 0,
 	hairColor: 1,
 	nose: 0,
+	freckles: 0,
 	earsPierced: false,
 	
 	boobs: 0,

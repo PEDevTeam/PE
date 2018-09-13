@@ -1,5 +1,51 @@
 :: Travel [pos_2705_10]
 \
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+/* INTERRUPT events START */\
+<<set _interrupt = false>>\
+<<set _interruptPassage = "">>\
+<<set _interruptPiority = 0>>\
+<<if _u and _u.female>>\
+	<<if (not $dreams.Panties.active)>>\
+		<<set $dreams.Panties.active = true>>\
+	<<endif>>\
+	<<if (not $player.exp.femaleUnderwearOut) and (_interruptPiority lte 5)>>\
+		<<set _interruptPassage = "Travel events">>\
+		<<set _interrupt = "femaleUnderwearOut">>\
+		<<set _interruptPiority = 5>>\
+	<<endif>>\
+	<<if _u.slutty and (not $player.exp.femaleSluttyUnderwearOut) and (_interruptPiority lte 10)>>\
+		<<set _interruptPassage = "Travel events">>\
+		<<set _interrupt = "femaleSluttyUnderwearOut">>\
+		<<set _interruptPiority = 10>>\
+	<<endif>>\
+<<endif>>\
+<<if _b and (not $player.exp.buttplugOut) and (_interruptPiority lte 5)>>\
+	<<set _interruptPassage = "Travel events">>\
+	<<set _interrupt = "buttplugOut">>\
+	<<set _interruptPiority = 5>>\
+<<endif>>\
+<<if _c and (not $player.exp.chastityOut) and (_interruptPiority lte 10)>>\
+	<<set _interruptPassage = "Travel events">>\
+	<<set _interrupt = "chastityOut">>\
+	<<set _interruptPiority = 10>>\
+<<endif>>\
+<<if _o and _o.female and false>>\
+	<<if (not $therapistTalks.talkCrossdressing.start)>>\
+	/*<<set $therapistTalks.talkCrossdressing.start=true>>  DISABLED UNTIL PROPER TALK SCENE*/\
+	<<endif>>\
+	<<if (not $player.exp.femaleClothes) and (_interruptPiority lte 5)>>\
+		/*<<set $player.exp.femaleClothes = true>>*/\
+		<<set _interruptPassage = "Travel events">>\
+		<<set _interrupt = "femaleClothes">>\
+		<<set _interruptPiority = 5>>\
+	<<endif>>\
+<<endif>>\
+/* INTERRUPT events END */\
+\
 <<set _from = null>>\
 <<if passage() eq "Go to bedroom">>\
 	<<set _from = locationsJS.home>>\
@@ -35,6 +81,10 @@
 			<<set _description = _to.description>>\
 		<<endif>>\
 \
+		/* Interrupt events */\
+		<<if (_interrupt)>>\
+			<<set _destination = _interruptPassage>>\
+		<<endif>>\
 \
 		<<if (window.timeCode.schoolRequired()) and (_to.id neq locationsJS.school.id) and (_to.id neq locationsJS.home.id)>>\
 			<<set _available = false>>\
@@ -50,15 +100,6 @@
 					<<set _quickDressForSchool = true>>\
 				<<endif>>\
 			<<endif>>\
-		<<endif>>\
-\
-		/* Random Events */\
-		<<if (false)>>\
-			<<set _destination = "random event destination">>\
-			<<set $player.location = locationsJS.tokenPlace.id>>\
-			<<set $player.destination = _to.id>>\
-			<<set $player.locationX = (_from.x + _to.x)*0.5>>\
-			<<set $player.locationY = (_from.y + _to.y)*0.5>>\
 		<<endif>>\
 \
 		<<if (_to.id eq locationsJS.mall.id)>>\
@@ -132,9 +173,9 @@
 			<<if _timeOnArrivalMin lt 10>>\
 				<<set _timeOnArrivalMin="0"+_timeOnArrivalMin>>\
 			<<endif>>\
-			<div class="tooltip"><<print "[[_description|_destination][$time.addMinutes("+_time+"); $player.location = \""+_to.id+"\"]]">> <span id="test_surv" class="tooltiptext">It will take <<print _time>> minutes (to <<print _timeOnArrivalHour>>:<<print _timeOnArrivalMin>>)</span></div>\
+			<div class="tooltip"><<print "[[_description|_destination][$time.addMinutes("+_time+"); $player.location = \""+_to.id+"\"; $scene = \""+_interrupt+"\"]]">> <span class="tooltiptext">It will take <<print _time>> minutes (to <<print _timeOnArrivalHour>>:<<print _timeOnArrivalMin>>)</span></div>\
 		<<else>>\
-			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
+			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span class="tooltiptext"><<print _reason>></span></div>\
 		<<endif>>\
 		<<if _quickDressForSchool>>\
 			@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\

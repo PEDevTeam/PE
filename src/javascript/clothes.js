@@ -2,6 +2,7 @@ window.daringValues={
 	daringUnderwearNone: 6,
 	daringUnderwearFemale: 3,
 	daringClothesFemale: 5,
+	daringChoker: 5,
 	daringCollar: 5,
 	daringCollarSlutty: 8,
 	daringHairband: 5,
@@ -53,15 +54,19 @@ window.clothes={
 				}
 				return false;
 			}
-			if (co && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing choker";
-				if (co.slutty) {
+			if (co) {
+				if (player.perversion.guardian <= 3) {
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing choker";
+					return false;
+				}
+				if (co.slutty && (player.perversion.guardian <= 4)) {
 					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing collar";
+					return false;
 				}
 				if (co.daringRec >=  8) {
 					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such collar";
+					return false;
 				}
-				return false;
 			}
 			if (hb && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing feminine hair acessorry";
@@ -190,7 +195,7 @@ window.clothes={
 				}
 				return false;
 			}
-			if (co && !co.slutty && (player.daring < window.daringValues.daringCollar)) {
+			if (co && !co.slutty && (player.daring < window.daringValues.daringChoker)) {
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing choker";
 				return false;
 			}
@@ -275,7 +280,7 @@ window.clothes={
 			var hb=playerCode.isWearingOn(itemTypes.Hairband);
 			var ea=playerCode.isWearingOn(itemTypes.Earrings);
 			var ex=playerCode.isWearingOn(itemTypes.Extra);
-			if (!window.clothes.dressedOutside.check(0)) {
+			if (!window.clothes.dressedOutside.check()) {
 				return false;
 			}
 			if (!o.school) {
@@ -302,12 +307,12 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
-				if (s && s.schoolAlt && (s.schoolAlt < items[s.id].curAlt) && (items[s.id].curAlt != 40)) {
-					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
-					return false;
-				}
 				if (s && (s.daringRec >= 7)) {
 					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
+					return false;
+				}
+				if (s && s.schoolAlt && (s.schoolAlt < items[s.id].curAlt) && (items[s.id].curAlt != 40)) {
+					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
 					return false;
 				}
 			}
