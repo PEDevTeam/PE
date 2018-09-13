@@ -2,7 +2,13 @@
 \
 <<if $scene eq "Therapist sleep">>\
 	You decide to go along with $therapist's crazy idea.
-	<<display "Watch porn on computer">>\
+
+	<<print '<<showImage "porn" "mind0_'+random(0)+'.gif">>'>>\
+	You browse through your favorite sites, looking over what's new. You finally settle on a video featuring one of your favorite pornstars.
+	
+	You love the way her eye-catching tits, overdone make-up and big hair make her look like a helpless slut of a bimbo.
+	
+	You fantasize about what it would be like to fuck her as she fakes her way to one orgasm after another. You watch her as she's pounded by a headless guy's cock in rapid-fire positions.
 	
 	<<if _c>>\
 		It's torture to watch such juicy porn while being locked in chastity, so you quickly pop the pill that $therapist gave you. Unfortunately, it doesn't seem to make it easier. If anything, you're just getting hornier.
@@ -49,9 +55,7 @@
 		You can hardly wait to use it.
 		
 	<<endif>>\
-	<<if not playerCode.owns(itemsC.vibrator)>>\
-		<<addToInv $items.vibrator.id>>\
-	<<endif>>\
+	<<addToInv 'vibrator' 42>>\
 	[[Use Sissy Trainer|Therapist sleep][$scene="Therapist sleep3"]]
 <<else>>\
 	<<print '<<showImage "general" "dildo_play_therapist.gif">>'>>\
@@ -105,5 +109,3 @@
 	<<endif>>\
 	[[Sleep|Sleep][$flags.restlessSleep = true; $therapistTalks.talkVibrator.start=true; playerCode.masturbate.lastDay=$time.day-5]]
 <<endif>>\
-
-

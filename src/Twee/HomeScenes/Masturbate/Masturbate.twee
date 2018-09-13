@@ -1,0 +1,145 @@
+:: Masturbate [pos_366_753]
+\
+<span id="masturbateDisplay">\
+<<if (not $flags.checkingGift) and $flags.choreRewSpinning>>\
+	<<set $flags.checkingGift = true>>\
+	<<set $flags.choreForcedFail = true>>\
+	<<set $scene = "looking up dom dress">>\
+	<<goto [[Guardian kinky reward]]>>\
+<<endif>>\
+<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<if (not $flags.confiscatedVibrator) and playerCode.owns(itemsC.vibrator)>>\
+	<<set _v = true>>\
+<<endif>>\
+Alright! How do you want to do this?
+<<if _c>>\
+	<<if (not $flags.chastityLocked)>>\
+		You're wearing unlocked chastity cage.
+	<<else>>\
+		<<if $flags.chastityKey>>\
+			You're wearing locked chastity cage, the key to it currentl in hands of $teacher.
+		<<else>>\
+			You're wearing locked chastity cage, which can be a problem. You can unlock it any moment.
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+<<if _v>><<if _c>>Luckily you<<else>>You<<endif>> own few fun toys:
+	<div class="item_preview_box"><img id="item_preview" class="hidden"></div>\
+\
+	/* VIBRATOR */\
+	<<if $items.vibrator.curAlt lt 40>><<set $items.vibrator.name="vibrator">>\
+	<<elseif $items.vibrator.curAlt eq 40>><<set $items.vibrator.name to $guardian + "'s vibrator">>\
+	<<elseif $items.vibrator.curAlt eq 42>><<set $items.vibrator.name="Sissy trainer">>\
+	<<endif>>\
+	<<set _name = window.itemF.name(itemsC.vibrator).toProperCase()>>\
+	<<set _image = window.itemF.altImage(itemsC.vibrator)>>\
+	<<if _image and $showimages>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview\');ip.src=\'images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview\').className=\'hidden\';">_name '>>\
+	<<else>>\
+		<<set _in to _name>>\
+	<<endif>>\
+	<<set _ar=0>>\
+	<<for _j to 0; _j lt $items.vibrator.ownAlt.length; _j++>>\
+		<<if $items.vibrator.ownAlt[_j]>>\
+			<<set _ar++>>\
+		<<endif>>\
+	<</for>>\
+	<<if _ar gt 1>>\
+		<<set _in to _in + ' <<click ←>><<previousClothing "' + itemsC.vibrator.id + '">><<updateClothes>><<replace "#masturbateDisplay">><<include "Masturbate">><</replace>><</click>>'>>\
+		<<set _in to _in + ' <<click →>><<nextClothing "' + itemsC.vibrator.id + '">><<updateClothes>><<replace "#masturbateDisplay">><<include "Masturbate">><</replace>><</click>>'>>\
+	<<endif>>\
+	<<if _image and $showimages>>\
+		<<set _in to _in + '</span>'>>\
+	<<endif>>\
+	&#9702; <<print _in>>\
+	
+	/* BUTTPLUG - biggest available */\
+	<<if window.playerCode.ownsType(itemTypes.AnalPlug)>>\
+		<<if _b>><<set _item = _b>>\
+		<<elseif playerCode.owns(itemsC.buttPlugInflate)>><<set _item = itemsC.buttPlugInflate>>\
+		<<elseif playerCode.owns(itemsC.buttPlugVibro)>><<set _item = itemsC.buttPlugVibro>>\
+		<<elseif playerCode.owns(itemsC.buttPlugDildo)>><<set _item = itemsC.buttPlugDildo>>\
+		<<elseif playerCode.owns(itemsC.buttPlugHeart)>><<set _item = itemsC.buttPlugHeart>>\
+		<<endif>>\
+		<<set _name = window.itemF.name(_item)>>\
+		<<set _image = window.itemF.altImage(_item)>>\
+		<<if _image and $showimages>>\
+			<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview\');ip.src=\'images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview\').className=\'hidden\';">_name '>>\
+		<<else>>\
+			<<set _in to _name + ' '>>\
+		<<endif>>\
+		<<if _b>>\
+			<<set _in to _in + '@@.worn; Inserted @@'>>\
+			<<set _in to _in + '<<click " remove">><<removeClothing "' + _item.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#masturbateDisplay">><<display "Masturbate">><</replace>><</click>>'>>\
+		<<else>>\
+			<<set _in to _in + '<<click " wear">><<wearClothing "' + _item.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#masturbateDisplay">><<display "Masturbate">><</replace>><</click>>'>>\
+		<<endif>>\
+		<<if _image and $showimages>>\
+			<<set _in to _in + '</span>'>>\
+		<<endif>>\
+		&#9702; <<print _in>>\
+		
+	<<endif>>\
+<<endif>>\
+
+<<if playerCode.owns(itemsC.vibrator)>>\
+	<<if $flags.confiscatedVibrator>>\
+		<div class="tooltip">@@.halftransparent;Use vibrator on your penis@@ <span class="tooltiptext">$guardian confiscated your toys.</span></div>
+	<<elseif _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<div class="tooltip">@@.halftransparent;Use vibrator on your penis@@ <span class="tooltiptext">You are already very horny, you don't want to tease yourself anymore</span></div>
+	<<else>>\
+		<<print "[[Use vibrator on your penis|Use vibrator penis]]">>
+	<<endif>>\
+	<<if playerCode.isButtslut() or _c>>\
+		<<if playerCode.masturbate.isCalm()>>\
+			<div class="tooltip">@@.halftransparent;Use vibrator in your ass@@<span class="tooltiptext">You already did all you could to deal with the arousal</span></div>
+		<<elseif $therapistTalks.talkVibrator.start or playerCode.isButtslut() or (not playerCode.isMind_0()) or $player.perversion.teacher gte 4>>\
+			<<print "[[Use vibrator in your ass|Use vibrator ass]]">>
+		<<else>>\
+			<div class="tooltip">@@.halftransparent;Use vibrator in your ass@@ <span class="tooltiptext">You are not ready to do that</span></div>
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+\
+<<if $flags.confiscatedInternet>>\
+	<div class="tooltip">@@.halftransparent;Watch some porn on your computer - Select porn@@ <span class="tooltiptext">$guardian enabled some sort of block to keep you from connecting to the Wi-Fi, so no porn for you</span></div>
+<<elseif _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+	<div class="tooltip">@@.halftransparent;Watch some porn on your computer - Select porn@@ <span class="tooltiptext">You are too horny to watch porn while being locked in chastity</span></div>
+<<else>>\
+	[[Watch porn on computer][$player.room.laptop=true;$scene="watchPorn"]] @@.halftransparent;-@@ [[Select porn][$player.room.laptop=true;$scene="watchPorn"]]
+<<endif>>\
+\
+<<if $flags.cameraBedroom>>\
+	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<div class="tooltip">@@.halftransparent;Watch spy camera stream@@ <span class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>
+	<<else>>\
+		[[Watch spy camera stream][$random.stored=1; $player.room.laptop=true]]
+	<<endif>>\
+<<endif>>\
+<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>
+	<<else>>\
+		[[Read Playgirl magazine]]
+	<<endif>>\
+<<endif>>\
+<<if $kink.painPlay and $flags.chorePunKinky>>\
+	<<print '[[Ask '+$guardian+' to spank you|Special punishments][$scene=\"taskSpanking\"]]'>>
+<<endif>>\
+<<if $flags.guardianStrapon and $flags.choreReward and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and window.timeCode.isWeekend()>>\
+	<<print '[[Ask '+$guardian+' to fuck you|Guardian kinky reward][$scene=\"strapon common\"]]'>>
+<<endif>>\
+<<if $flags.chorePunishmentDildo and not $flags.trainingCockSuck>>\
+	[[Suck training cock][$scene="suck"]]
+<<endif>>\
+
+<<if _c and ((not $flags.chastityKey) or (not $flags.chastityLocked))>>\
+	<<if $flags.chastityLocked>>\
+		[[Unlock chastity cage|Masturbate][$flags.chastityLocked=false]]
+	<<else>>\
+		[[Remove chastity cage|Masturbate][window.playerCode.removeClothesJS(_c.id)]]
+	<<endif>>\
+<<endif>>\
+[[Do something else|Go to bedroom]]
+</span>\

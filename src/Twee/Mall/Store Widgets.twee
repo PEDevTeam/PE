@@ -7,14 +7,15 @@
 <<display [[Shop events]]>>\
 <<print window.stores[$args[0]].description>> What would you like to buy?
 
-<div class="item_preview_box"><img id="item_preview_mall" class="hidden"></div>\
+<div class="item_preview_box"><img id="item_preview_mall" class="hidden"><img id="item_preview_mall_school" class="hidden"></div>\
 <<for _i=0; _i lt Object.keys(itemsC).length; _i++>>\
 	<<set _o=itemsC[Object.keys(itemsC)[_i]]>>\
 	<<set _oV=$items[Object.keys(itemsC)[_i]]>>\
 	<<set _cost = window.itemF.cost(_o)>>\
 	<<if (_o.store==$args[0]) and (_cost gt 0)>>\
 		<<set _out = false>>\
-		<<set _name = window.itemF.name(_o)>>\
+		/*<<set _name = window.itemF.name(_o)>>*/\
+		<<set _name = _o.name>>\
 		<<set _disabled = window.itemF.disabled(_o)>>\
 		<<set _daringRec = window.itemF.daringRec(_o)>>\
 		<<if _o.image and $showimages>>\
@@ -75,7 +76,20 @@
 				<<set _image = _image + _oV.storeCur + ".jpg">>\
 				<<set _cost = _cost + Math.floor((_oV.storeCur%10)*_cost*0.02)>>\
 			<<endif>>\
-			<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\';">_name '>>\
+			<<set _itemTypes = itemTypes.Shoes + itemTypes.Stockings + itemTypes.Earrings + itemTypes.Collar + itemTypes.Extra + itemTypes.Hairband>>\
+			<<set _checkForSchoolAllowed = (_o.clothingType & _itemTypes) gt 0>>\
+			<<if _checkForSchoolAllowed>>\
+			<<set _schoolAllowed = "school_no.png">>\
+			<<if _o.school>>\
+				<<set _schoolAllowed = "school_yes.png">>\
+				<<if _o.schoolAlt and (_oV.storeCur gt _o.schoolAlt) and ($player.perversion.teacher lt 8)>>\
+					<<set _schoolAllowed = "school_no.png">>\
+				<<endif>>\
+			<<endif>>\
+				<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'images/items/' + _image + '\';ip.className=\'\'; var sa=document.getElementById(\'item_preview_mall_school\');sa.src=\'images/items/' + _schoolAllowed + '\';sa.className=\'item_preview_mall\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_mall_school\').className=\'hidden\';">_name '>>\
+			<<else>>\
+				<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'images/items/' + _image + '\';ip.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\';">_name '>>\
+			<<endif>>\
 		<<else>>\
 			<<set _in to _name + ' '>>\
 		<<endif>>\
@@ -86,30 +100,34 @@
 			<<set _in to _in + '<<click "  ←">><<previousStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
 			<<set _in to _in + '<<click "→  ">><<nextStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
 		<<endif>>\
+		<<if (_o.id eq 'schoolFemale') and ($player.perversion.teacher gte 4 or $tasksTeacher.wearDressToSchool.canStart)>>\
+			<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a; @@<span id="test_info" class="tooltiptextWide">The school rules say that with school uniform you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \'provactive\'.</span></div>'>>\
+			<<set _in to _in + ' '>>\
+		<<endif>>\
 		<<if _image and $showimages and (_out or (_o.maxAlt and (_o.maxAlt gt 0) and (_oV.storeAlt.length eq 0)))>>\
-			<<set _in to _in + '@@.owned;owned@@'>>\
+			<<set _in to _in + '@@.owned;Owned@@'>>\
 			<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
 		<<elseif playerCode.owns(_o) and ((not $showimages) or (not _image) or (not _o.maxAlt) or (_o.maxAlt and (_o.maxAlt gt 0) and _oV.ownAlt[_oV.storeCur]))>>\
-			<<set _in to _in + '@@.owned;owned@@'>>\
+			<<set _in to _in + '@@.owned;Owned@@'>>\
 		<<elseif _image and $showimages and _o.schoolAlt and ($player.perversion.teacher eq 3) and (_oV.storeCur gt _o.schoolAlt)>>\	
-			<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
+			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too colorful style//@@'>>\
 		<<elseif (_o.clothingType eq itemTypes.Earrings) and (not $body.earsPierced)>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
+			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //ears not pierced//@@'>>\
 		<<elseif _disabled>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\
+			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //not needed//@@'>>\
 		<<elseif ($player.daring lt _daringRec)>>\
 			<<if _o.female>>\
 				<<if (_daringRec lte 5) and ($player.daring lte 5) and _oV.postponed>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //dont need more of these//@@'>>\
+					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //dont need more of these//@@'>>\
 				<<elseif ($player.daring gt 5) and _o.slutty>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too slutty//@@'>>\
+					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too slutty//@@'>>\
 				<<elseif ($player.daring gt 3)>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too risque//@@'>>\
+					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too risque//@@'>>\
 				<<else>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too girly//@@'>>\
+					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too girly//@@'>>\
 				<<endif>>\
 			<<else>>\
-				<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
+				<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too daring//@@'>>\
 			<<endif>>\
 		<<elseif $player.money gte _cost>>\
 			<<set _in to _in + '<<click "Buy">><<buyItem "' + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\

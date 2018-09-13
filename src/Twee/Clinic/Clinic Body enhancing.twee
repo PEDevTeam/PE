@@ -5,10 +5,9 @@
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<if $scene eq "">>\
-	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
-		<<goto [[Beauty Salon]]>>\
-	<<endif>>\
+<<if ($scene eq "") and (($time.hour <= 5) or ($time.hour >= 21))>>\
+	<<goto [[Beauty Salon]]>>\
+<<elseif $scene eq "">>\
 Nancy asks if you want to make any changes to your body. There are options for increasing breast size, making lips fuller, reshaping your nose, altering your overall face form and even smoothing your anus. Also there are options to make temporary treatments permanent.
 
 <<if $body.nose eq 3>>\
@@ -22,6 +21,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.breastImplantsDD>>\
 		<<set _sceneName="breastImplantsDD">>\
 		<<set _override=(($body.boobs eq 3) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 4) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _time=30>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -29,6 +29,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.breastImplantsC>>\
 		<<set _sceneName="breastImplantsC">>\
 		<<set _override=(($body.boobs eq 2) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 3) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _time=20>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -36,6 +37,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.breastImplantsB>>\
 		<<set _sceneName="breastImplantsB">>\
 		<<set _override=(($body.boobs eq 1) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 2) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _time=15>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -43,6 +45,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.breastImplantsA>>\
 		<<set _sceneName="breastImplantsA">>\
 		<<set _override=($tasksTeacherBody.breastsIncrease.status gt 0) or ($tasksTeacherBody.breastsMaintain.status gt 0)>>\
+		<<set _time=10>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -56,6 +59,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<if ($body.boobs gt $body.permBoobs)>>\
 		<<set _sceneName="breastPermanent">>\
 		<<set _override=false>>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -65,6 +69,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.LipsEnhancingXL>>\
 		<<set _sceneName="LipsEnhancingXL">>\
 		<<set _override=($tasksTeacherBody.lipsMaintainXL.status gt 0)>>\
+		<<set _time=15>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -72,6 +77,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.LipsEnhancing>>\
 		<<set _sceneName="LipsEnhancing">>\
 		<<set _override=($tasksTeacherBody.lipsIncrease.status gt 0) or ($tasksTeacherBody.lipsMaintain.status gt 0)>>\
+		<<set _time=5>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -79,6 +85,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.LipsPermanent>>\
 		<<set _sceneName="LipsPermanent">>\
 		<<set _override=false>>\
+		<<set _time=20>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -88,6 +95,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.AssEnhancingXL>>\
 		<<set _sceneName="AssEnhancingXL">>\
 		<<set _override=($tasksTeacherBody.assMaintainXL.status gt 0)>>\
+		<<set _time=20>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -95,6 +103,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.AssEnhancing>>\
 		<<set _sceneName="AssEnhancing">>\
 		<<set _override=($tasksTeacherBody.assIncrease.status gt 0) or ($tasksTeacherBody.assMaintain.status gt 0)>>\
+		<<set _time=10>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -102,6 +111,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.AssPermanent>>\
 		<<set _sceneName="AssPermanent">>\
 		<<set _override=false>>\
+		<<set _time=40>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -114,8 +124,9 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<if $body.nose eq 3>>\
 			<<set $items[_item.id].cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 200>>\
+			<<set $items[_item.id].cost = itemsC.analSmoothing3.cost>>\
 		<<endif>>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -126,8 +137,9 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<if $body.nose eq 3>>\
 			<<set $items[_item.id].cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 100>>\
+			<<set $items[_item.id].cost = itemsC.analSmoothing2.cost>>\
 		<<endif>>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -138,8 +150,9 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<if $body.nose eq 3>>\
 			<<set $items[_item.id].cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 100>>\
+			<<set $items[_item.id].cost = itemsC.analSmoothing1.cost>>\
 		<<endif>>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
@@ -154,6 +167,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set $items[_item.id].daringRec = 9>>\
 		<<set $items[_item.id].name = "Permanent anal smoothening">>\
 		<<set _sceneName="PermanentAnalSmoothing">>\
+		<<set _time=60>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -180,6 +194,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			<<set _item=itemsC.noseClassic>>\
 			<<set _sceneName="noseClassic">>\
 			<<set _override=false>>\
+			<<set _time=40>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
@@ -187,6 +202,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			<<set _item=itemsC.noseButton>>\
 			<<set _sceneName="noseButton">>\
 			<<set _override=false>>\
+			<<set _time=40>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
@@ -194,6 +210,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			<<set _item=itemsC.nosePiggy>>\
 			<<set _sceneName="nosePiggy">>\
 			<<set _override=false>>\
+			<<set _time=40>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
@@ -209,6 +226,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set _item=itemsC.PenisShrinking>>\
 	<<set _sceneName="PenisShrinking">>\
 	<<set _override=true>>\
+	<<set _time=15>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 
@@ -242,8 +260,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have small breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsA>>\
-		<<buyItem _item.id>>\
 		<<set $body.boobs = 1>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsB">>\
@@ -272,8 +288,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have noticeable, ample breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsB>>\
-		<<buyItem _item.id>>\
 		<<set $body.boobs = 2>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsC">>\
@@ -303,8 +317,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have big, round breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsC>>\
-		<<buyItem _item.id>>\
 		<<set $body.boobs = 3>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsDD">>\
@@ -353,8 +365,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have a pair of massive breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsDD>>\
-		<<buyItem _item.id>>\
 		<<set $body.boobs=4>>\
 		<<set $flags.salonBreast=true>>\
 	<<endif>>\
@@ -426,8 +436,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.LipsEnhancingXL>>\
-	<<buyItem _item.id>>\
 	<<set $body.lips = 2>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
@@ -462,8 +470,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.LipsEnhancing>>\
-	<<buyItem _item.id>>\
 	<<set $body.lips = 1>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
@@ -526,8 +532,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.AssEnhancingXL>>\
-	<<buyItem _item.id>>\
 	<<set $body.ass = 2>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
@@ -558,8 +562,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.AssEnhancing>>\
-	<<buyItem _item.id>>\
 	<<set $body.ass = 1>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\
@@ -674,9 +676,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set $flags.salonAnal=true>>\
 	<<if ($body.anal neq 3)>>\
 		<<set _item=itemsC.analSmoothing3>>\
-		<<if ($body.nose neq 3)>>\
-			<<buyItem _item.id>>\
-		<<endif>>\
 		<<set $body.anal = 3>>\
 	@@.heroT;"I'd like to get special anal smoothening course,"@@ you tell Nancy hesitantly, as you know what awaits you.
 	@@.nurse;"This is splendid!"@@  She exclaims with a wicked smile.
@@ -856,7 +855,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
 			
-			@@.reward;You now have a butt-plug dildo!;@@
+			@@.reward;You now have a butt-plug dildo!@@
 			
 			<<set _item=itemsC.buttPlugDildo>>\
 			<<addToInv _item.id>>\
@@ -889,9 +888,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.analSmoothing2>>\
-	<<if ($body.nose neq 3)>>\
-		<<buyItem _item.id>>\
-	<<endif>>\
 	<<set $body.anal = 2>>\
 	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothening2>-->\
@@ -978,7 +974,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
 			
-			@@.reward;You now have a butt-plug dildo!;@@
+			@@.reward;You now have a butt-plug dildo!@@
 			
 			<<set _item=itemsC.buttPlugDildo>>\
 			<<addToInv _item.id>>\
@@ -1012,9 +1008,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.analSmoothing1>>\
-	<<if ($body.nose neq 3)>>\
-		<<buyItem _item.id>>\
-	<<endif>>\
 	<<set $body.anal = 1>>\
 	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothening1>-->\
@@ -1050,7 +1043,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 	<<else>>\
 		<<set _item=itemsC.noseClassic>>\
-		<<buyItem _item.id>>\
 		<<set $body.nose = 1>>\
 		<<set $flags.salonNose=true>>\
 		@@.heroT;"I'd like to have a classic straight nose,"@@ you tell Nancy.
@@ -1103,7 +1095,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 	<<else>>\
 		<<set _item=itemsC.noseButton>>\
-		<<buyItem _item.id>>\
 		<<set $body.nose = 2>>\
 		<<set $flags.salonNose=true>>\
 
@@ -1124,8 +1115,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<endif>>\
 <<elseif $scene eq "nosePiggy">>\
-	<<set _item=itemsC.nosePiggy>>\
-	<<buyItem _item.id>>\
 	<<set $body.nose = 3>>\
 	<<set $flags.salonNose=true>>\
 	It seems like a weird option, but you got curious and the price is surprisingly low.
@@ -1185,8 +1174,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--</nose>-->\
 	<!--<face_softening>-->\
 <<elseif $scene eq "surgeryFacial">>\
-	<<set _item=itemsC.surgeryFacial>>\
-	<<buyItem _item.id>>\
 	<<set $body.face = 2>>\
 	<<set $flags.salonNose=true>>\
 	@@.heroT;"I'd like to have my facial features softened further,"@@ you tell Nancy.
@@ -1205,8 +1192,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <<elseif $scene eq "softeningFacial">>\
-	<<set _item=itemsC.softeningFacial>>\
-	<<buyItem _item.id>>\
 	<<set $body.face = 1>>\
 	<<set $flags.salonNose=true>>\
 
@@ -1222,14 +1207,12 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
 	
-	@@.reward;You now have even softer and more feminine features than before!@@
+	@@.reward;You now have softer and more feminine features!@@
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<!--</face_softening>-->\
 	<!--<penis_shrinking>-->\
 <<elseif $scene eq "PenisShrinking">>\
-	<<set _item=itemsC.PenisShrinking>>\
-	<<buyItem _item.id>>\
 	<<set $body.penisShrink = 1>>\
 	You hesitate, unsure how to start, and Nancy's intrigued gaze doesn't help you feel any less self-conscious. You start mumbling, avoiding the subject directly, going on about how you heard about certain treatments that affect the size of certain private parts.
 	

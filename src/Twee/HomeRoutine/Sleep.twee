@@ -36,6 +36,10 @@
 	<<if playerCode.isHorny()>>\
 		<<set _restlessDream = true>>\
 	<<endif>>\
+	<<if (not $once.restlesssSleep) and _restlessDream>>\
+		<<set $once.restlessSleep = true>>\
+		<<set $flags.restlessSleep = true>>\
+	<<endif>>\
 \
 	<<if _restlessDream>>\
 		<<set _before="">>\

@@ -31,17 +31,15 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 <<endif>>\
 
 <<if _item>>\
-	<<if (not playerCode.owns(_item))>>\
+	<<if _item.maxAlt>>\
+		<<addToInv _item.id 40>>\
+	<<else>>\
 		<<addToInv _item.id>>\
-		<<if _item.maxAlt>>\
-			<<set $items[_item.id].ownAlt[0] = false>>\
-		<<endif>>\
 	<<endif>>\
 	<<if _item.maxAlt>>\
 		<<set $items[_item.id].curAlt = 40>>\
 		<<set $items[_item.id].ownAlt[40] = true>>\
 	<<endif>>\
-	<<set _item.stolen=true>>\
 	<<if (not $player.daringFlag.snooping) and (_ia.length gt 1)>>\
 		<<set $player.daringFlag.snooping to true>>\
 		<<set $player.batterySneakDay = $time.day + 7>>\

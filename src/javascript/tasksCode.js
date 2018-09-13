@@ -1329,10 +1329,10 @@ window.tasksTeacher={
 			perform: "",
 			finish: [
 				'$teacher watches the video of you flashing your chastity cage to the man in the restroom.\n@@.teacher;\"That look on his face is priceless.@@',
-				'$teacher watches the video of you flashing your chastity cage.\n@@.teacher;\"Nice pout, $player.name@@',
-				'$teacher watches the \'flashing your chastity cage\' video.\n@@.teacher;\"Wink at the camera next time $player.name@@',
-				'$teacher watches the video on your phone.\n@@.teacher;\"Awww, you look all hot and bothered $player.name@@',
-				'$teacher watches the video.\n@@.teacher;\"I bet someone saw you filming this, $player.name@@'
+				'$teacher watches the video of you flashing your chastity cage.\n@@.teacher;\"Nice pout, $player.name\.@@',
+				'$teacher watches the \'flashing your chastity cage\' video.\n@@.teacher;\"Wink at the camera next time $player.name\.@@',
+				'$teacher watches the video on your phone.\n@@.teacher;\"Awww, you look all hot and bothered $player.name\.@@',
+				'$teacher watches the video.\n@@.teacher;\"I bet someone saw you filming this, $player.name\.@@'
 			],
 			fail: ["No video? Is our little sissy ashamed? A mark for disobedience.", "No video? Did you just forget? No matter. A mark for disobedience."],
 			reminder: "Don't forget to record yourself flashing a stranger.",
@@ -2179,115 +2179,18 @@ window.tasksTeacherBody={
 			fail: function() { return false; }
 		}
 	},
-	hairRemoval: {	// perv 4+
-		id: "hairRemoval",
-		name:"Task Hair removal",
-		hasPassage: false,
-		text: {
-			given: "You need to do something with your body hair. Next week, I want to see your skin looking as smooth as a baby's bottom.",
-			perform: "",
-			finish: "$teacher looks at your hairless skin.\n\n@@.teacher;\"Nice and smooth, keep this up.\"@@",
-			fail: "Was it forgetfulness or mere disobedience that led you to ignore me? Why do you still have body hair? Take a mark.",
-			reminder: "Don't forget to take care of your body hair.",
-			checkMe: {
-				given: "get rid of your body hair next week.",
-				finish: "You did it.",
-				fail: "",
-				reminder: "You haven't done it yet."
-			}
-		},
-		Conditions: function() {
-			return ((State.active.variables.tasksTeacherBody.legHairRemoval.progress >= 1) && (State.active.variables.body.bodyhair == 1));
-		},
-		image: "",
-		startPriority: 0,  // see priority system above
-		canStart: true,  // only if true can this task be picked
-		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
-		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
-		},
-		chance: 10,
-		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
-		progress: 0,  // for progressing scenes
-		startDay: 0,  // day task was started
-		maxDays: 0,  // number of days allowed before task will fail
-		cooldown: 1,  // number of days before task available again
-		rewardMoney: 20,
-		rewardDebt: 0,
-		failPenalty: 1,
-		events: {
-			start: function() {},
-			finish: function() {
-				return (State.active.variables.body.bodyhair > 0);
-			},
-			success: function() {},
-			fail: function() { return false; }
-		}
-	},
-	hairRemoval_renewal: {	// perv 4+
-		id: "hairRemoval_renewal",
-		name:"Task Hair removal renewal",
-		hasPassage: false,
-		text: {
-			given: "I like how you look without body hair. Keep this up. I expect to see you just as smooth next week.",
-			perform: "",
-			finish: "$teacher looks at your hairless skin.\n\n@@.teacher;\"Nice and smooth. Keep this up.\"@@",
-			fail: "Was it forgetfulness or mere disobedience that led you to ignore me? Why do you still have body hair? Take a mark.",
-			reminder: "Don't forget to take care of your body hair.",
-			checkMe: {
-				given: "get rid of your body hair next week.",
-				finish: "You did it.",
-				fail: "",
-				reminder: "You haven't done it yet."
-			}
-		},
-		Conditions: function() {
-			if ((State.active.variables.body.bodyhair == 2) && (!(State.active.variables.body.bodyhair == 3))) {
-				return true;
-			}
-			return false;
-		},
-		image: "",
-		startPriority: 0,  // see priority system above
-		canStart: true,  // only if true can this task be picked
-		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
-		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
-		},
-		chance: 10,
-		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
-		progress: 0,  // for progressing scenes
-		startDay: 0,  // day task was started
-		maxDays: 0,  // number of days allowed before task will fail
-		cooldown: 1,  // number of days before task available again
-		rewardMoney: 20,
-		rewardDebt: 0,
-		failPenalty: 1,
-		events: {
-			start: function() {},
-			finish: function() {
-				return (((State.active.variables.body.bodyhair == 2) && State.active.variables.flags.salonHairRemoval) || (State.active.variables.body.bodyhair == 3));
-			},
-			success: function() {},
-			fail: function() { return false; }
-		}
-	},
 	legHairRemoval: {	// perv 3+
 		id: "legHairRemoval",
 		name:"Task Leg hair removal",
 		hasPassage: false,
 		text: {
-			given: "Your legs are so unsightly like that. Go get them waxed. I expect to see them cleaned up and silky smooth next week.",
+			given: "Your legs are so unsightly like that. Go get them depilated. I expect to see them cleaned up and silky smooth next week.",
 			perform: "",
-			finish: "$teacher looks at your waxed, feminine legs.\n\n@@.teacher;\"Smooth and lovely. Good.\"@@",
+			finish: "$teacher looks at your depilated, feminine legs.\n\n@@.teacher;\"Smooth and lovely. Good.\"@@",
 			fail: "I see you chose to let your legs go unkempt despite my instructions. Take a mark for disobeying me.",
-			reminder: "Be sure to wax your legs.",
+			reminder: "Be sure to depilate your legs.",
 			checkMe: {
-				given: "get your legs waxed for next week.",
+				given: "get your legs depilated for next week.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
@@ -2326,6 +2229,104 @@ window.tasksTeacherBody={
 			fail: function() { return false; }
 		}
 	},
+	hairRemoval: {	// perv 3+
+		id: "hairRemoval",
+		name:"Task Hair removal",
+		hasPassage: false,
+		text: {
+			given: "You need to do something with your body hair. Next week, I want to see your skin looking as smooth as a baby's bottom. I suggest waxing. It might hurt a bit, but the result worth it.",
+			perform: "",
+			finish: "$teacher looks at your hairless skin.\n\n@@.teacher;\"Nice and smooth, keep this up.\"@@",
+			fail: "Was it forgetfulness or mere disobedience that led you to ignore me? Why do you still have body hair? Take a mark.",
+			reminder: "Don't forget to take care of your body hair.",
+			checkMe: {
+				given: "get rid of your body hair next week.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return ((State.active.variables.tasksTeacherBody.legHairRemoval.progress >= 1) && (State.active.variables.body.bodyhair <= 1));
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 0,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 20,
+		rewardDebt: 0,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() {
+				return (State.active.variables.body.bodyhair > 0);
+			},
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	hairRemoval_renewal: {	// perv 3+
+		id: "hairRemoval_renewal",
+		name:"Task Hair removal renewal",
+		hasPassage: false,
+		text: {
+			given: "I like how you look without body hair. Keep this up. I expect to see you just as smooth next week.",
+			perform: "",
+			finish: "$teacher looks at your hairless skin.\n\n@@.teacher;\"Nice and smooth. Keep this up.\"@@",
+			fail: "Was it forgetfulness or mere disobedience that led you to ignore me? Why do you still have body hair? Take a mark.",
+			reminder: "Don't forget to take care of your body hair.",
+			checkMe: {
+				given: "get rid of your body hair next week.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			if (State.active.variables.body.bodyhair == 2) {
+				return true;
+			}
+			return false;
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 0,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 20,
+		rewardDebt: 0,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() {
+				return (((State.active.variables.body.bodyhair == 2) && State.active.variables.flags.salonHairRemoval) || (State.active.variables.body.bodyhair == 3));
+			},
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+
 	makeup: {	// perv 5+
 		id: "makeup",
 		name:"Task makeup",
@@ -2555,7 +2556,7 @@ window.tasksTeacherBody={
 			fail: function() { return false; }
 		}
 	},
-	breastsIncrease: {	// perv 6 B-7 C-8 DD-10
+	breastsIncrease: {	// perv A-6, B-6, C-7, DD-8
 		id: "breastsIncrease",
 		name:"Task breast increase",
 		hasPassage: false,
@@ -2595,24 +2596,10 @@ window.tasksTeacherBody={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				if ((State.active.variables.body.boobs == 0)) {
-					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 0;
-				}
-				if ((State.active.variables.body.boobs == 1)) {
-					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 1;
-				}
-				if ((State.active.variables.body.boobs == 2)) {
-					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 2;
-				}
-				if ((State.active.variables.body.boobs == 3)) {
-					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 3;
-				}
-				if ((State.active.variables.body.boobs == 4)) {
-					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 4;
-				}
+				State.active.variables.tasksTeacherBody.breastsIncrease.progress = State.active.variables.body.boobs;
 			},
 			finish: function() {
-				return ((State.active.variables.body.boobs > State.active.variables.tasksTeacherBody.breastsIncrease.progress) || (State.active.variables.body.boobs == 4));
+				return (State.active.variables.body.boobs > State.active.variables.tasksTeacherBody.breastsIncrease.progress);
 			},
 			success: function() {
 				if ((State.active.variables.body.boobs == 1)) {
@@ -2671,21 +2658,7 @@ window.tasksTeacherBody={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				if ((State.active.variables.body.boobs == 0)) {
-					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 0;
-				}
-				if ((State.active.variables.body.boobs == 1)) {
-					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 1;
-				}
-				if ((State.active.variables.body.boobs == 2)) {
-					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 2;
-				}
-				if ((State.active.variables.body.boobs == 3)) {
-					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 3;
-				}
-				if ((State.active.variables.body.boobs == 4)) {
-					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 4;
-				}
+				State.active.variables.tasksTeacherBody.breastsMaintain.progress = State.active.variables.body.boobs;
 			},
 			finish: function() {
 				return (State.active.variables.body.boobs >= State.active.variables.tasksTeacherBody.breastsMaintain.progress);

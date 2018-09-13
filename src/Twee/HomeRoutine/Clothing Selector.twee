@@ -12,7 +12,7 @@
 \
 <<if window.timeCode.canNap()>>\
 	<<if window.timeCode.schoolRequired()>>\
-		<div class="tooltip">@@.halftransparent;Have a nap@@ <span id="test_surv" class="tooltiptext">I need to go to school</span></div>
+		<div class="tooltip">@@.halftransparent;Have a nap@@ <span class="tooltiptext">I need to go to school</span></div>
 	<<else>>\
 		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]\
 		<<if ($time.hour lt 15)>> @@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] <<endif>>
@@ -43,7 +43,7 @@
 		<<endif>>\
 		
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Go to sleep@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>\
+		<div class="tooltip">@@.halftransparent;Go to sleep@@ <span class="tooltiptext"><<print $reason.dressedSleep>></span></div>\
 		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Sleep)>><<set $player.quickSet=quickSlotSets.Sleep>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 		
 	<<endif>>\
@@ -51,7 +51,7 @@
 		<<if window.clothes.dressedSleep.check()>>\
 			[[Try experimental way to deal with sleep problems|Therapist sleep][$scene="Therapist sleep"]]
 		<<else>>\
-			<div class="tooltip">@@.halftransparent;Try experimental way to deal with sleep problems@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>
+			<div class="tooltip">@@.halftransparent;Try experimental way to deal with sleep problems@@ <span class="tooltiptext"><<print $reason.dressedSleep>></span></div>
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
@@ -63,7 +63,7 @@
 	<<if window.clothes.dressedWhore.check()>>\
 		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedWhore>></span></div>
+		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span class="tooltiptext"><<print $reason.dressedWhore>></span></div>
 	<<endif>>\
 <<endif>>\
 \
@@ -71,7 +71,7 @@
 	<<if window.clothes.dressedGuardian.check()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Replace alarm clock batteries@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedGuardian>></span></div>
+		<div class="tooltip">@@.halftransparent;Replace alarm clock batteries@@ <span class="tooltiptext"><<print $reason.dressedGuardian>></span></div>
 	<<endif>>\
 <<endif>>\
 \
@@ -83,7 +83,7 @@
 	<<if window.clothes.dressedOutside.check()>>\
 		[[Pick up your gown for dinner at the club|Task clubDinnerGown][$scene="step1"]]
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Pick up your gown for dinner at the club@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedOutside>></span></div>
+		<div class="tooltip">@@.halftransparent;Pick up your gown for dinner at the club@@ <span class="tooltiptext"><<print $reason.dressedOutside>></span></div>
 	<<endif>>\
 <<endif>>\
 \
@@ -106,7 +106,7 @@
 	[[Film yourself wiggling your butt with a fox tail butt-plug|Email FoxGirl]]
 <<endif>>\
 <<if ($tasksTeacher.fakeGirlfriend.status eq 1)>>\
-	[[Pretend to be $teacher's gay friend's girlfriend|Task Fake girlfriend]]
+	<<print "[[Pretend to be "+$teacher+"'s gay friend's girlfriend|Task Fake girlfriend]]">>
 <<endif>>\
 <<if ($tasksTeacher.guardianSpank.status eq 1)>>\
 	<<print '[[Ask '+$guardian+' to spank you|Special punishments][$scene=\"taskSpanking\"]]'>>
@@ -118,14 +118,14 @@
 	<<if window.clothes.dressedOutside.check()>>\
 		<<print "[[Go to the local glory hole|Task Glory hole]]">>
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Go to the local glory hole@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedOutside>></span></div>
+		<div class="tooltip">@@.halftransparent;Go to the local glory hole@@ <span class="tooltiptext"><<print $reason.dressedOutside>></span></div>
 	<<endif>>\
 <<endif>>\
 <<if ($tasksTeacher.penaltySissyShow.status eq 1)>>\
 	<<if window.clothes.dressedSchool.check()>>\
 		<<print "[[Punishment task at Ivy College campus|Task Sissy Show]]">>
 	<<else>>\
-		<div class="tooltip">@@.halftransparent;Punishment task at Ivy College campus@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSchool>></span></div>
+		<div class="tooltip">@@.halftransparent;Punishment task at Ivy College campus@@ <span class="tooltiptext"><<print $reason.dressedSchool>></span></div>
 	<<endif>>\
 <<endif>>\
 \

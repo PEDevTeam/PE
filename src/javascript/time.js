@@ -68,12 +68,6 @@ window.timeCode={
 			time.guardian.wakeHour=time.hour;
 			time.guardian.wakeMinute=time.minute;
 		}
-		if (player.blowjobsToday > player.maxBlowjobs) {
-			player.maxBlowjobs++;
-			State.active.variables.flags.moreBlowjobs=true;
-		} else {
-			State.active.variables.flags.moreBlowjobs=false;		
-		}
 		player.blowjobsToday=0;
 		State.active.variables.flags.bribePaid=false;
 		State.active.variables.flags.bribeFail=false;

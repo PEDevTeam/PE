@@ -1,23 +1,21 @@
 :: Settings [pos_2705_10]
 \
-<span id="settingsListMain">\
-@@.centerAlign;\
-<<if true>>\
+<span id="settingsListMain" class="centerAlign">\
 @@.frame100;\
 <<set _kinkDesc = "Images">>\
-<<set $scene = window.misc.toggleKink( $showimages )>>\
-<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set _scene = window.misc.toggleKink( $showimages )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true _scene>>'>><<replace "#settingsListMain">>\
 <<set $showimages = (not $showimages)>>\
-<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext">Uncheck to disable images</span></div> \
+<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span class="tooltiptext">Uncheck to disable images</span></div> \
 <<if not $showimages>>\
 <<set $avatar.active = false>>\
 <<endif>>\
 &#9702; \
 <<set _kinkDesc = "Drawn avatar">>\
-<<set $scene = window.misc.toggleKink( $avatar.active )>>\
-<div class="tooltip"><<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set _scene = window.misc.toggleKink( $avatar.active )>>\
+<div class="tooltip"><<click '<<checkbox "_temp" false true _scene>>'>><<replace "#settingsListMain">>\
 <<set $avatar.active = (not $avatar.active)>>\
-<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span id="test_surv" class="tooltiptext">Check to show drawn avatar instead of default images</span></div> \
+<<display "Settings">><</replace>><</click>> <<print _kinkDesc>> <span class="tooltiptext">Check to show drawn avatar instead of default images</span></div> \
 <<if true>>\
 @@.halftransparent; (Currently available only to Patreon contributors)@@
 <<endif>>\
@@ -25,22 +23,21 @@
 
 @@.frame80;\
 <<set _kinkDesc = "Debug/Cheat mode">>\
-<<set $scene = window.misc.toggleKink( $player.debugA )>>\
-<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set _scene = window.misc.toggleKink( $player.debugA )>>\
+<<click '<<checkbox "_temp" false true _scene>>'>><<replace "#settingsListMain">>\
 <<set $player.debugA = (not $player.debugA)>>\
 <<display "Settings">><</replace>><</click>> <<print _kinkDesc>> \
 &#9702; \
 <<set _kinkDesc = "Easy minigames">>\
-<<set $scene = window.misc.toggleKink( $flags.easyMinigames )>>\
-<<click '<<checkbox "_temp" false true $scene>>'>><<replace "#settingsListMain">>\
+<<set _scene = window.misc.toggleKink( $flags.easyMinigames )>>\
+<<click '<<checkbox "_temp" false true _scene>>'>><<replace "#settingsListMain">>\
 <<set $flags.easyMinigames = (not $flags.easyMinigames)>>\
 <<display "Settings">><</replace>><</click>> <<print _kinkDesc>> \
 @@\
 \
 <<if passage() eq "Begin">>\
-
-@@.frame80;\
-[[Debug Jump|Go to bedroom][$player.debugA=true; $player.clothes=[itemsC.schoolMale.id]; $player.name="April"; $babysitter="Emma"; $guardian="Emma"; $myguardian="Emma"; $Guardian="Emma"; $Myguardian="Emma"; $teacher="Buxom"; $therapist="Stacy"; $player.money=1000; $time.day=2; $time.hour=10; $player.daring=2; $player.perversion.guardian=0; $player.perversion.therapist=0; $player.perversion.teacher=0; $flags.wardrobeSelector = false]]
+@@.frame100;\
+	<b><<click "Debug jump">><<set $player.debugA=true;>><<set $player.clothes=[itemsC.schoolMale.id]>><<set $player.name="April">><<set $babysitter="Emma">><<set $guardian="Emma">><<set $myguardian="Emma">><<set $Guardian="Emma">><<set $Myguardian="Emma">><<set $teacher="Buxom">><<set $therapist="Stacy">><<set $player.money=1000>><<set $time.day=2>><<set $time.hour=10>><<set $player.daring=2>><<set $flags.wardrobeSelector = false>><<script>>Dialog.close();	Engine.play('Go to bedroom');<</script>><</click>></b>\
 @@\
 <<endif>> \
 
@@ -68,10 +65,7 @@
 <</script>>
 <</click>>\
 </b>\
-<<endif>>\
-
-<<set _mainSetings=true>>\
-<<display [[SettingsEnd]]>>\
 @@\
 
-
+<<set _mainSetings=true>>\
+<<include [[SettingsEnd]]>>\

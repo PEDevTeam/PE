@@ -13,7 +13,7 @@ You go to the detention room. $teacher is waiting for you.
 	
 	"If money is what is important to you, then perhaps I can use it to teach you a lesson. If you wish to prevent me from reporting you to the principal, it will cost you $<<print $bribeAmount>> every Monday.\
 	<<if $player.bribeDiscount gt 0>>\
-		Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>.@@
+		Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount to $<<print _nb>>.@@
 		
 	<<endif>>\
 	<<if $flags.bullySteal>>\
@@ -24,6 +24,7 @@ You go to the detention room. $teacher is waiting for you.
 	@@.teacher;"This is non-negotiable. Your only other option here is for me tell the principal about your little bribe attempt. You'll be expelled, of course."@@
 
 	You can't risk being expelled - she's got your balls and she knows it.
+	
 	@@.hero;Crap.@@
 
 	@@.teacher;"I suspect you may have some trouble coming up with that much money every week, so I'll reduce it if you show some humility."@@  Sounds worrying...
@@ -34,7 +35,7 @@ You go to the detention room. $teacher is waiting for you.
 	
 	You open your mouth to argue, but miffle out under $teacher's hard glare and just nod instead.
 
-	Frustrated and embarrassed for chickening out you try to convince yourself that it's not a big deal. You just hope that noone would find out about it.
+	Frustrated and embarrassed for chickening out you try to convince yourself that it's not a big deal. You just hope that no one would find out about it.
 
 	<<set $player.detention=false>>\
 	<<set $flags.bribePaid=true>>\

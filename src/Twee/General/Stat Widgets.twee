@@ -8,23 +8,6 @@
 	
 <</widget>>\
 
-<<widget "CheckUnderwear">>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-	<<if _u and _u.female and (not $dreams.Panties.active)>>\
-		<<set $dreams.Panties.active = true>>\
-	<<endif>>\
-	<<if _o and _o.female and (not $therapistTalks.talkCrossdressing.start)>>\
-		/*<<set $therapistTalks.talkCrossdressing.start=true>>  DISABLED UNTIL PROPER TALK SCENE*/\
-	<<endif>>\
-	<<if _u and _u.female and _u.slutty and (not $player.daringFlag.femaleUnderwear)>>\
-		<<set $player.daringFlag.femaleUnderwear to true>>\
-		It's a little bit scary walking outside wearing slutty female underwear, and it feels like everyone who looks at you can tell.
-
-		<<Daring 4>>\
-	<<endif>>\
-<</widget>>\
-
 <<widget "updateClothes">>\
 <<nobr>>\
 <<replace "#sidebar_clothes">>
@@ -533,8 +516,8 @@
 
 <<widget "updateDebug">>\
 <<replace "#sidebar_debug">>\
-	[[Skip day|Daily resets][$time.hour=16; window.timeCode.newDay(); $player.debugN=50]] , \
 	[[Sleep|Daily resets][$time.hour=16; window.timeCode.newDay(); $player.debugN=50]] , \
+	[[h8|Go to bedroom][$time.hour=8]] [[h14|Go to bedroom][$time.hour=14]] [[h17|Go to bedroom][$time.hour=17]] [[h21|Go to bedroom][$time.hour=21]], \
  	[[Email|Go to bedroom][$player.debugN=100; $player.perversion.uploadCooldown=0]]
 	[[Visit therapist]] ,\
 	<<if $player.debugN eq 100>>\
@@ -545,23 +528,23 @@
 	<<if $player.debugN eq 2>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.gString))>>\
-			<<addToInv $items.gString.id>>\
+			<<addToInv 'gString'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 3>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.chastityDevice))>>\
-			<<addToInv $items.chastityDevice.id>>\
+			<<addToInv 'chastityDevice'>>\
 		<<endif>>\
 		<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
-			<<addToInv $items.buttPlugHeart.id>>\
+			<<addToInv 'buttPlugHeart'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 4>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.schoolFemale))>>\
-			<<addToInv $items.schoolFemale.id>>\
+			<<addToInv 'schoolFemale'>>\
 		<<endif>>\
 		<<if (not playerCode.owns(itemsC.highHeel3))>>\
-			<<addToInv $items.highHeel3.id>>\
+			<<addToInv 'highHeel3'>>\
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher eq 0>>\

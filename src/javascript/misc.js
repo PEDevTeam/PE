@@ -15,8 +15,7 @@ window.misc={
 			State.active.variables.Guardian="Your mother";
 			State.active.variables.myguardian="my mother";
 			State.active.variables.Myguardian="My mother";
-		}
-		if (!State.active.variables.incest) {
+		} else {
 			State.active.variables.guardian=State.active.variables.babysitter;
 			State.active.variables.Guardian=State.active.variables.babysitter;
 			State.active.variables.myguardian=State.active.variables.babysitter;
@@ -30,8 +29,9 @@ window.misc={
 	getSnoopItems: function() {
 		var ra=[];
 		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
+		var items=State.active.variables.items;
 		for (var i=0; i < sia.length; i++) {
-			if (!playerCode.owns(sia[i])) {
+			if (!playerCode.owns(sia[i]) || (sia[i].maxAlt && !items[sia[i].id].ownAlt[40])) {
 				ra.push(sia[i]);
 			}
 		}
@@ -107,7 +107,7 @@ window.misc={
 			if (body.semiAnal == 2) { cost+=items.analSmoothing2.cost; }
 			if (body.semiAnal == 1) { cost+=items.analSmoothing1.cost; }
 		}
-		cost = 10*Math.round(cost/20);
+		cost = 10*Math.round(cost*0.05);
 		// half cost rounded by 10
 		return cost;
 	},
@@ -124,6 +124,46 @@ window.misc={
 			return ur[rr];
 		}
 	}
+},
+
+window.masturbateType={
+	watchPornChastNoCum:	  1,
+	watchPornChastCalm:		101,
+	watchPornCalm:			201,
+	watchPornCum:			301,
+	watchPornChastCum:		401,
+	watchPornVibCum:		501,
+	spyCamChastNoCum:		  2,
+	spyCamChastCalm:		102,
+	spyCamCalm:				202,
+	spyCamCum:				302,
+	spyCamChastCum:			402,
+	spyCamVibCum:			502,
+	playgirlChastNoCum:		  3,
+	playgirlChastCalm:		103,
+	playgirlCalm:			203,
+	playgirlCum:			303,
+	playgirlChastCum:		403,
+	playgirlVibCum:			503,
+	vibAssChastNoCum:		  4,
+	vibAssChastCalm:		104,
+	vibAssCalm:				204,
+	vibAssCum:				304,
+	vibAssChastCum:			404,
+	vibAssVibCum:			504,
+	vibPenisChastNoCum:		  5,
+	vibPenisChastCalm:		105,
+	vibPenisCalm:			205,
+	vibPenisCum:			305,
+	vibPenisChastCum:		405,
+	vibPenisVibCum:			505,
+	horseChastNoCum:		  6,
+	horseChastCalm:			106,
+	horseCalm:				206,
+	horseCum:				306,
+	horseChastCum:			406,
+	horseVibCum:			506,
+	special:				999
 },
 
 window.friendRiddles = [
