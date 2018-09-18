@@ -1097,7 +1097,7 @@ Macro.add('ChatNPCResponse', {
 /* acceptance macro, (c) 2018 Andrew Svedby, same licence as Perverted Education */
 
 Macro.add('acceptance', {
-    tags: ['between', 'default'],
+    tags: ['between', 'defaultAccept'],
     handler() {
 	let i;
 	let accept = State.active.variables.player.acceptance;
@@ -1118,9 +1118,9 @@ Macro.add('acceptance', {
 		break;
 	    default:
 		if (default_already) {
-		    return this.error('There can only be one <<default>>');
+		    return this.error('There can only be one <<defaultAccept>>');
 		} else if (this.payload[i].args.length != 0) {
-		    return this.error('<<default>> takes no arguments');
+		    return this.error('<<defaultAccept>> takes no arguments');
 		}
 		default_already = true;
 		break;
@@ -1129,14 +1129,14 @@ Macro.add('acceptance', {
 	let betweens = [], default_index = 0;
 	for (i=1; i<len; i++) {
 	    switch (this.payload[i].name) {
-	    case 'default':
-		default_index = i;
-		break;
-	    default:
+	    case 'between':
 		if (this.payload[i].args[0] <= accept_value &&
 		    accept_value <= this.payload[i].args[1]) {
 		    betweens.push(i);
 		}
+		break;
+	    default:
+		default_index = i;
 	    }
 	}
 	if (betweens.length > 0) {
@@ -1146,3 +1146,4 @@ Macro.add('acceptance', {
 	}
     }
 });
+
