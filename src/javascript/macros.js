@@ -1094,43 +1094,55 @@ Macro.add('ChatNPCResponse', {
     }
 });
 
-// ordinal macro as requested by Saoirsa, by Andrew Svedby
-ordinals = {
-    fifth: ['zeroth', 'first', 'second', 'third',
-	    'forth', 'fifth', 'sixth', 'seventh',
-	    'eight', 'ninth', 'tenth'],
-    fi5th: ['0th', '1st', '2nd', '3rd'],
-    ordFun: (macro, arr, casify) => {
-	if (macro.args.lenght  < 1) {
-	    return macro.error('takes at least one argument');
-	}
-	var num;
-	try { num = Scripting.evalJavaScript(macro.args.full); }
-	catch (ex) { return macro.error('error in argument evaluation ' + ex.message); }
-	if (!Number.isInteger(num) || num < 0) {
-	    return macro.error('takes non negative integer as argument');
-	} else if (num >= arr.length) {
-	    num += 'th';
-	} else {
-	    num = arr[num];
-	}
-	if (casify) { num = num.toUpperFirst(); }
-	return jQuery(macro.output).wiki(num);
-    }
-};
-Macro.add('ordinal', {
-    handler() {
-	return ordinals.ordFun(this, ordinals.fifth, false);
-    }
-});
-Macro.add('Ordinal', {
-    handler() {
-	return ordinals.ordFun(this, ordinals.fifth, true);
-    }
-});
-Macro.add('ord1nal', {
-    handler() {
-	return ordinals.ordFun(this, ordinals.fi5th, false);
-    }
-});
+/* acceptance macro, (c) 2018 Andrew Svedby, same licence as Perverted Education */
 
+Macro.add('acceptance', {
+    tags: ['between', 'default'],
+    handler() {
+	let i;
+	let accept = State.active.variables.player.acceptance;
+	const len = this.payload.length;
+	if (this.args.length != 1) {
+	    return this.error('take one argument, acceptance type');
+	} else if (!accept.hasOwnProperty(this.args[0])) {
+	    return this.error(this.args[0] + ' is not an acceptance type');
+	}
+	let accept_value = accept[this.args[0]];
+	let default_already = false;
+	for (i=1; i<len; i++) {
+	    switch (this.payload[i].name) {
+	    case 'between':
+		if (this.payload[i].args.length != 2) {
+		    return this.error('<<between>> takes two arguments, min and max');
+		}
+		break;
+	    default:
+		if (default_already) {
+		    return this.error('There can only be one <<default>>');
+		} else if (this.payload[i].args.length != 0) {
+		    return this.error('<<default>> takes no arguments');
+		}
+		default_already = true;
+		break;
+	    }
+	}
+	let betweens = [], default_index = 0;
+	for (i=1; i<len; i++) {
+	    switch (this.payload[i].name) {
+	    case 'default':
+		default_index = i;
+		break;
+	    default:
+		if (this.payload[i].args[0] <= accept_value &&
+		    accept_value <= this.payload[i].args[1]) {
+		    betweens.push(i);
+		}
+	    }
+	}
+	if (betweens.length > 0) {
+	    new Wikifier(this.output, this.payload[betweens[Math.floor(random(betweens.length - 1))]].contents);
+	} else if (default_index > 0) {
+	    new Wikifier(this.output, this.payload[default_index].contents);
+	}
+    }
+});
