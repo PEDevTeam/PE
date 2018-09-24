@@ -5,15 +5,15 @@
 	<<goto [[Beauty Salon]]>>\
 <<elseif $scene eq "">>\
 <<if ($body.bodyhair eq 3)>>\
-	Nancy smiles and tells you that you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever, aren't you so glad?  Only men, and boys, have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
+	Nancy smiles and says you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever. Aren't you so glad?  Only men and boys have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
 
 <<elseif $flags.salonHairRemoval and $body.bodyhair gte 2>>\
 	Nancy thanks you for using her services. She invites you to come back next weekend.
 <<else>>\
 	<<if $flags.salonHairRemoval>>\
-		Nancy smiles and ask if you're interested in more intensive treatments - full body waxing or maybe a more permanent solution?
+		Nancy smiles and asks if you're interested in more intensive treatments - full body waxing, or perhaps a more permanent solution?
 	<<else>>\
-		Nancy smiles and ask if you want legs depilatory, full body waxing or maybe a more permanent solution?
+		Nancy smiles and asks if you want a depilatory for your legs, a full body wax or maybe even a more permanent solution?
 	<<endif>>\
 
 	<img id="item_preview" class="hidden">\
@@ -40,7 +40,6 @@
 
 [[Return|Beauty Salon][$scene=""; $random.stored=0]]
 <<else>>\
-	/* WriterEdit - depilatory and waxing swapped places, please check */\
 	<<set _first=true>>\
 	<<if $scene eq "Depilatory">>\
 		<<showImage "general" "hr_depilatory.jpg">>\
@@ -143,5 +142,3 @@
 		[[Return|Beauty Salon][$scene=""; $random.stored=0]]
 	<<endif>>\
 <<endif>>\
-
-
