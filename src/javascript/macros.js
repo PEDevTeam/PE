@@ -1094,3 +1094,43 @@ Macro.add('ChatNPCResponse', {
     }
 });
 
+// ordinal macro as requested by Saoirsa, by Andrew Svedby
+ordinals = {
+    fifth: ['zeroth', 'first', 'second', 'third',
+	    'forth', 'fifth', 'sixth', 'seventh',
+	    'eight', 'ninth', 'tenth'],
+    fi5th: ['0th', '1st', '2nd', '3rd'],
+    ordFun: (macro, arr, casify) => {
+	if (macro.args.lenght  < 1) {
+	    return macro.error('takes at least one argument');
+	}
+	var num;
+	try { num = Scripting.evalJavaScript(macro.args.full); }
+	catch (ex) { return macro.error('error in argument evaluation ' + ex.message); }
+	if (!Number.isInteger(num) || num < 0) {
+	    return macro.error('takes non negative integer as argument');
+	} else if (num >= arr.length) {
+	    num += 'th';
+	} else {
+	    num = arr[num];
+	}
+	if (casify) { num = num.toUpperFirst(); }
+	return jQuery(macro.output).wiki(num);
+    }
+};
+Macro.add('ordinal', {
+    handler() {
+	return ordinals.ordFun(this, ordinals.fifth, false);
+    }
+});
+Macro.add('Ordinal', {
+    handler() {
+	return ordinals.ordFun(this, ordinals.fifth, true);
+    }
+});
+Macro.add('ord1nal', {
+    handler() {
+	return ordinals.ordFun(this, ordinals.fi5th, false);
+    }
+});
+
