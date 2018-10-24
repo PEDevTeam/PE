@@ -46,10 +46,6 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 	@@.hero;If I could only once more find a break from the unrelenting ouroboros that is my time these days.@@
 	
 <<endif>>\
-<<if $flags.laundryAccident and _u.female and _u.disabled>>\
-	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
-
-<<endif>>\
 <<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)>>\
 	<<set $player.perversion.therapistCooldown = 1>>\
 	You are relieved that you don't have those weird fantasies anymore.
@@ -62,6 +58,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 <!--</Misc events>-->\
 \
 <!--<Shoes stumble and clothes check>-->\
+/* TODO - move to Travel events
 <<if (not $flags.heelsFall)>>\
 	<<if playerCode.heelsCheck()>>\
 		<<if playerCode.isWearing(itemsC.stilettoHeels)>>\
@@ -137,6 +134,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 
 	<<endif>>\
 <<endif>>\
+*/\
 \
 <<if _b>>\
 	The butt-plug reminds you of its presence with every step, keeping you constantly aroused.\
@@ -146,9 +144,6 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		Your penis strains against your chastity device, fortunately hidden beneath your dress.\
 		<<if not _u>>\
 			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
-			<<if not $player.daringFlag.noUnderwear>>\
-				<<set $player.daringFlag.noUnderwear=true>>\
-			<<endif>>\
 		<<endif>>\
 	<<elseif playerCode.isHorny()>>\
 		Your erect penis tents your dress, making it obvious to everyone how desperately horny you are.\

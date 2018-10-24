@@ -13,16 +13,15 @@
 <<endif>>\
 is dressed in her usual silky blouse that allows her ample tits to stand proudly, and a tight skirt showcasing her firm derrière. You're constantly distracted by her curves.
 
-<<if $player.perversion.teacher lte 4 and $player.punishments.nailPolishPenalty>>\
-	<<set $player.punishments.nailPolishPenalty = false>>\
-	<<set $player.punishments.nailPolishPenaltyOver = true>>\
+<<if $player.perversion.teacher lte 4 and $teacherPunishments.nailPolishPenalty.progress eq 1>>\
+	<<set $teacherPunishments.nailPolishPenalty.progress = 2>>\
 	You walk inside the class, trying to hide your hands, but a girl behind you sees them and loudly says:
 
 	@@.femvoice7;Hey, $player.name, are you wearing nail polish? An interesting choice of color too! Do you like looking girly?"@@
 
 	Everyone in the vicinity turns their heads. You feel like you're under a spotlight. You murmur something about losing a bet, but no one seems convinced. Several people laugh at you, and you wilt with embarrassment until long after the laughter dies down.
 
-	<<if (not $player.daringFlag.femaleUnderwear)>>\
+	<<if (not $events.outsideInPanties)>>\
 	@@.hero;I think I should start wearing panties as $teacher instructed. That will be less humiliating. At least no one will notice that!@@
 
 	<<endif>>\
@@ -82,14 +81,11 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 			<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]">>
 		<<endif>>\
 	<<endif>>\
-<<elseif not $flags.femaleClass>>
-	<<if (not $player.daringFlag.femaleClothes)>>\
-		<<set $player.daringFlag.femaleClothes to true>>\
-		Your heart is pumping madly as you get ready to enter the classroom in your new uniform. Somehow, it's way scarier than all your previous cross-dressing endeavors.
-
-		<<Daring 6>>\
-	<<endif>>\
+<<elseif not $flags.femaleClass>>\
 	<<set $flags.femaleClass to true>>\
+	<<set events.record('inClassFemaleUniform')>>\
+	Your heart is pumping madly as you get ready to enter the classroom in your new uniform. Somehow, it's way scarier than all your previous cross-dressing endeavors.
+
 	There's some stifled laughter as you walk into the classroom in the girl's school dress.
 
 	@@.teacher;"$player.name,"@@ $teacher asks, @@.teacher;"Why are you wearing a girl's uniform? Is this a dare?"@@
@@ -169,14 +165,16 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 			Your cheeks burn with shame as you walk past your classmates, the way they recoil from your proximity only adding to your humiliation.  Even worse, as you reach $teacher, she takes you by the shoulders and turns you around to be sure everyone can see your arousal.
 			
 			<<endif>>\
-		<<if (($body.anal eq 1) or ($body.anal eq 2) or ($body.anal eq 3)) and playerCode.isWearing(itemsC.buttPlugHeart)>>\
-		Suddenly, the small butt-plug slides out from your slippery anus and falls on the floor with a loud @@.bully;THUD@@.
-		
-		@@.hero;Oh god, this can't be happening!@@
-		
-		The class freezes in shock, but moments later explodes in laughter as you run out of the class feeling extremely humiliated.
-		
-		<<set $flags.buttplugLost to true>>\
+		<<if ($body.anal gt 0) and playerCode.isWearing(itemsC.buttPlugHeart)>>\
+			Suddenly, the small butt-plug slides out from your slippery anus and falls on the floor with a loud @@.bully;THUD@@.
+			
+			@@.hero;Oh god, this can't be happening!@@
+			
+			The class freezes in shock, but moments later explodes in laughter as you run out of the class feeling extremely humiliated.
+			
+			<<set $flags.buttplugLost to true>>\
+			<<removeClothing 'buttPlugHeart'>>\
+			<<removeFromInv 'buttPlugHeart'>>\
 		<<endif>>\
 	<<else>>\
 		You try to ignore the stares and snide comments from your classmates and sit at your desk. $teacher begins the class and before long your mind starts to wander. 

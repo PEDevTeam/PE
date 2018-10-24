@@ -36,10 +36,10 @@
 	You’d better do something quickly, or you aren’t getting in.
 
 	[[Try to show off some of your sweet dance moves|Club Intro][$scene="TryDance"]]
-	[[Try to kiss a guy at the front of the queue|Club Intro][$scene="KissGuy"]]
-	[[Go for a kiss with one of the girls waiting for the bouncer|Club Intro][$scene="KissGirl"]]
-	<<if (not playerCode.isMind_0())>>\
-		[[Flash the bouncer ‘something special’|Club Intro][$scene="FlashPanties"]]
+	[[Go for a kiss with one of the girls waiting for the bouncer|Club Intro][$scene="KissGirl"; events.record('TheClubIntro','min')]]
+	[[Try to kiss a guy at the front of the queue|Club Intro][$scene="KissGuy"; events.record('TheClubIntro','mid')]]
+	<<if $player.feminization gte 40>>\
+		[[Flash the bouncer ‘something special’|Club Intro][$scene="FlashPanties"; events.record('TheClubIntro','max')]]
 	<<endif>>\
 	[[Give up and leave|Club Intro][$scene="GiveUp"]]
 	<!--</TalkWayIn>-->\

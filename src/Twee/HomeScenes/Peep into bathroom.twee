@@ -39,14 +39,7 @@
 
 	You hear the shower door open, and the sound of her moving about, but with your heart thudding in your ears, you decide to give up and slink away.
 
-	<<if not $player.daringFlag.bathroomDoor>>\
-		<<if $player.daring eq 0>>\
-		<<Daring 1>>\
-		<<elseif $player.daring eq 1>>\
-		<<Daring 2>>\
-		<<endif>>\
-		<<set $player.daringFlag.bathroomDoor=true>>\
-	<<endif>>\
+	<<set events.record('peepInBathroom')>>\
 	[[Go and have breakfast|Have breakfast]]
 <<elseif $scene eq "Wait">>\
 	<<showImage "general" "bathroom_towel.jpg">>\

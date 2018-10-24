@@ -22,9 +22,37 @@ window.misc={
 			State.active.variables.Myguardian=State.active.variables.babysitter;
 		}
 	},
+	mmContent: function(score) {
+		if (State.active.variables.player.perversion.mmChecks > 5) {
+			return (State.active.variables.player.bisexuality + 10) >= score;
+		}
+		return true;
+	},
 	toggleKink: function(kink) {
 		if (kink) {return "checked"}
 		return "unchecked";
+	},
+	once: function(flagName) {
+		if (State.active.variables.once[flagName]) {return false}
+		State.active.variables.once[flagName]=true;
+		return true;
+	},
+	text: function(obj) {
+		if (!obj) {
+			return 'ERROR: there is no such object';
+		}
+		if (Array.isArray(obj)) {
+			var len = obj.length;
+			if (len < 1) {
+				return 'ERROR: object ' + obj + ' has empty array for text ';
+			}
+			var i = Math.floor(Math.random() * len);
+			return obj[i];
+		} else if (typeof(obj) === 'function') {
+			return obj.call();
+		} else {
+			return obj;
+		}
 	},
 	getSnoopItems: function() {
 		var ra=[];
@@ -32,7 +60,9 @@ window.misc={
 		var items=State.active.variables.items;
 		for (var i=0; i < sia.length; i++) {
 			if (!playerCode.owns(sia[i]) || (sia[i].maxAlt && !items[sia[i].id].ownAlt[40])) {
-				ra.push(sia[i]);
+				if (!State.active.variables.events.readPlayGirl || (sia[i].id != itemsC.playgirlMagazine.id)) {
+					ra.push(sia[i]);
+				}
 			}
 		}
 		return ra;
@@ -40,7 +70,7 @@ window.misc={
 	wager: {
 		calculate: function() {
 			var player=State.active.variables.player;
-			if (player.daring >= 5) {
+			if (player.daring >= 50) {
 				player.wager=player.money;
 			} else {
 				player.wager=Math.trunc(player.money * (player.daring / 5));
@@ -123,7 +153,57 @@ window.misc={
 			State.active.variables.friendRiddles[Object.keys(ur)[rr]]=true;
 			return ur[rr];
 		}
-	}
+	},
+	carousel: function(interval) {
+		var i;
+		setTimeout(function() {
+			var slides = document.getElementById("slides");
+			if (slides != null) {
+				var arr = slides.getElementsByTagName("object");
+				for (i = 0; i < arr.length; i++) {
+				  /*arr[i].style.display = "none";*/
+				  arr[i].className = "hidden";
+				}
+
+				var fadingStyle = Math.floor(Math.min(interval, 5));
+				arr[0].className = "fading"+fadingStyle;
+				arr[1].className = "fadingNext";
+				
+				if (State.active.variables.slidesId) { clearTimeout(State.active.variables.slidesId); }
+				State.active.variables.slide=0;
+				window.misc.carouselRepeat(interval);
+			}
+		},0 );
+	},
+	carouselRepeat: function(interval) {
+		State.active.variables.slidesId = setTimeout(function() {
+			var slides = document.getElementById("slides");
+			if (slides != null) {
+				var arr = slides.getElementsByTagName("object");
+				/*arr[State.active.variables.slide].style.display = "none";*/
+				arr[State.active.variables.slide].className = "hidden";
+				
+				State.active.variables.slide++;
+				if (State.active.variables.slide >= arr.length) {State.active.variables.slide = 0;}
+				
+				if (State.active.variables.slide >= arr.length) {State.active.variables.slide = 0;}
+
+				var fadingStyle = Math.floor(Math.min(interval, 5));
+				arr[State.active.variables.slide].className = "fading"+fadingStyle;
+
+				setTimeout(function() {
+				if ((State.active.variables.slide+1) >= arr.length) {
+					arr[0].className = "fadingNext";
+				} else {
+					arr[State.active.variables.slide+1].className = "fadingNext";
+				}
+				},50 );
+				
+				window.misc.carouselRepeat(interval);
+				/*console.log(fadingStyle);*/
+			}
+		},1000*interval );
+	},
 },
 
 window.masturbateType={
@@ -150,7 +230,6 @@ window.masturbateType={
 	vibAssCalm:				204,
 	vibAssCum:				304,
 	vibAssChastCum:			404,
-	vibAssVibCum:			504,
 	vibPenisChastNoCum:		  5,
 	vibPenisChastCalm:		105,
 	vibPenisCalm:			205,
@@ -164,6 +243,20 @@ window.masturbateType={
 	horseChastCum:			406,
 	horseVibCum:			506,
 	special:				999
+},
+
+window.pornType={
+	vanilla:			0,
+	lesbians:			1,
+	shemalesOnFemales:	2,
+	onlyShemales:		3,
+	malesOnShemales:	4,
+	shemalesOnMales:	5,
+	pegging:			6,
+	femalesOnTraps:		7,
+	malesOnTraps:		8,
+	onlyTraps:			9,
+	femalePoV:			10
 },
 
 window.friendRiddles = [

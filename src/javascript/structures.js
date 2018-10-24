@@ -13,16 +13,12 @@ window.rewardMoney={
 	teacherCoachWhoring: 15,
 	uploadDefault: 30,
 	uploadSpecial: 50,
-	hypnosis: 20,
-	specialHypnosis: 50
+	hypnosis: 10,
+	specialHypnosis: 20
 },
 
 window.versionControl={
-	update: function() {
-		if (State.active.variables.gameVersion == 0.7900) {
-			if (State.active.variables.player.perversion.teacher >= 4) { State.active.variables.player.perversion.crossdressing=10;	}
-		}
-	}
+	update: function() {}
 },
 
 window.structures={
@@ -117,6 +113,10 @@ window.structures={
 
 		if (vars.once == null) { vars.once = {}; } /* For checks that happen only once and never used anywhere else */
 		
+		if (vars.events == null) { vars.events = {}; }
+		
+		if (vars.errorLog == null) { vars.errorLog = []; }
+		
 	},
 	setupClothesCheck: function() {
 		var clothes=window.clothes;
@@ -192,15 +192,15 @@ window.structures={
 		if (vars.kink == null) {
 			vars.kink = {};
 		}
-		if (vars.kinkAllow == null) {
-			vars.kinkAllow = {};
+		if (vars.kinkHypno == null) {
+			vars.kinkHypno = {};
 		}
 		for (var i=0; i < Object.keys(kinkList).length; i++) {
 			if (vars.kink[Object.keys(kinkList)[i]] == null) {
 				vars.kink[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
 			}
-			if (vars.kinkAllow[Object.keys(kinkList)[i]] == null) {
-				vars.kinkAllow[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
+			if (vars.kinkHypno[Object.keys(kinkList)[i]] == null) {
+				vars.kinkHypno[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
 			}
 		}
 	},
@@ -534,7 +534,7 @@ window.structures={
 	},
 	
 	setupTasks: function() {
-		// Daring tasks
+		// daring tasks
 		var tasksList=window.tasksTeacher;
 		if (State.active.variables.tasksTeacher == null) {
 			State.active.variables.tasksTeacher = {};
@@ -657,17 +657,27 @@ window.playerList={
 	money: 0,
 	location: "",
 	bought: "",
-	daring: 0,
+	keyholder: "", /* teacher, guardian, coach, bully */
 	drunk: 0,
 	arousal: 0,
 	stamina: 0,
+	daring: 0, /* general progression stat */
+	submission: 0, /* Acceptance stats */
+	exhibition: 0,
+	feminization: 0,
+	bisexuality: 0,
+	bodyMod: 0,
+	oralM: 0, /* blowjob */
+	oralF: 0, /* cunnilingus */
+	analM: 0, /* penile penetration */
+	analF: 0, /* pegging */
+	analT: 0, /* plugs and other toys */
 	eager: 0,
 	reluctant: 0,
 	workLastDay: 0,
 	blowjobsToday: 0,
 	maxBlowjobs: 1,
 	heelsSkill: 0,
-	daysInPanties: 0,
 	hairColor: 1,
 	quickSet: 0,
 	shoppingType: 0,
@@ -697,7 +707,6 @@ window.playerList={
 	therapistDays: [],
 	therapistTime: 0,
 	wager: 0,
-	detention: false,
 	alarmClockGuardian: false,
 	batteryExpireDay: 0,
 	batterySneakDay: 0,
@@ -722,24 +731,6 @@ window.playerAddonsList={
 		girlstie: 0,
 		drawer: false
 	},
-	daringFlag: {
-		bathroomDoor: false,
-		bribe: false,
-		snooping: false,
-		sleepingGrope: false,
-		femaleClothes: false,
-		femaleUnderwear: false,
-		toiletsMasturbating: false,
-		noUnderwear: false,
-		posingtoCoach: false,
-		handjob: false,
-		bjBully: false,
-		coachGame: false,
-		coachGameWin: false,
-		stunBully: false,
-		quickFemaleSchool: false,
-		quickFemaleCasual: false
-	},
 	punishments: {
 		penalty: 0,
 		penaltyMonday: 0,
@@ -752,8 +743,6 @@ window.playerAddonsList={
 		penaltyClinic: false,
 		penaltyTrials: false,
 		penaltySissyShow: false,
-		nailPolishPenalty: false,
-		nailPolishPenaltyOver: false,
 		refusedToPay: false,
 		refusedToCrossdress: false
 	},
@@ -791,10 +780,12 @@ window.playerAddonsList={
 		pornType: 0,
 		upload: 0,
 		uploadCooldown: 0,
-		crossdressing: 0,
+		crossdressTasks: 0,
 		mall: 0,
 		club: 0,
 		danceClub: 0,
+		mmScore: 0,
+		mmChecks: 0,
 		clubToiletCooldown: 0,
 		noseWagerCount: 0,
 		bjFirst: 0,	/* "bully", "coach" */
@@ -815,21 +806,20 @@ window.playerAddonsList={
 		MinuteTease: 0
 	},
 	exp: {
-		crossdressingExp: 0,
 		chastityExp: 0,
 		buttplugExp: 0,
 		heelsExp: 0,
 		dildoSuckExp: 0,
 		crossdressingExp: 0,
-		pettingFirst: 0,	/* "bully", "coach" */
+		pettingFirst: false,	/* "bully", "coach" */
 		pettingExp: 0,
-		handjobFirst: 0,	/* "bully", "coach" */
+		handjobFirst: false,	/* "assistant" */
 		handjobExp: 0,
-		bjFirst: 0,	/* "bully", "coach" */
+		bjFirst: false,	/* "bully", "coach" */
 		bjExp: 0,
-		vibratorFirst: 0, /* "guardian", "therapist", "shop" */
+		vibratorFirst: false, /* "guardian", "therapist", "shop" */
 		vibratorExp: 0,
-		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
+		analFirst: false, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analExp: 0,
 		femaleUnderwear: false,
 		femaleSluttyUnderwear: false,
@@ -933,6 +923,7 @@ window.flagsList={
 	bribePaid: false,
 	bribeTransfered: false,
 	bribeFail: false,
+	detention: false,
 	cameraBathroom: false,
 	cameraBedroom: false,
 	forcedHorny: false,
@@ -959,13 +950,6 @@ window.flagsList={
 	penisShrinkPunishment: false,
 	walletForgottenStart: false,
 	walletForgottenEnd: false,
-	firstBuyDress: false,
-	firstBuyShoes: false,
-	firstBuyPanties: false,
-	firstBuyBras: false,
-	firstBuyStockings: false,
-	firstBuyFemale: false,
-	secondBuyFemale: false,
 	friendNamed: false,
 	friendIsMale: true,
 	friendButtplugGame: false,
@@ -996,7 +980,6 @@ window.flagsList={
 	teacherPanties: false,
 	hairRibbon: false,
 	heelsOff: false,
-	batteriesExpire: false,
 	bathroomPeep: false,
 	nightieSleep: false,
 	sleepWarning: false,
@@ -1042,10 +1025,8 @@ window.flagsList={
 	guardianBfBlame: false,
 	guardianFuckedByStrapon: false,
 	guardianTeacherTalk: false,
-	guardianPunishDressUp: false,
 	guardianPunishVibrator: false,
 	guardianRuinedDress: false,
-	straponForced: false,
 	teacherNoticeHairRemovalPerm: false,
 	teacherNoticeManicure: false,
 	teacherNoticeManicurePerm: false,
@@ -1184,7 +1165,7 @@ window.kinkList={
 	incest: false,
 	futa: false,
 
-	semenConsumptionStart: false,	
+	semenConsumptionHypnoStarted: false,
 	semenConsumption: false,
 	creampie: false,
 	bukkake: false,
@@ -1192,18 +1173,18 @@ window.kinkList={
 	ownCum: false,
 	cumSwap: false,
 
-	watersportsStarted: false,	
+	watersportsHypnoStarted: false,
 	watersports: false,
 	wetting: false,
 	urineDrink: false,
 	urinePlay: false,
 	
-	smallPenisStarted: false,
+	smallPenisHypnoStarted: false,
 	smallPenis: false,
 	penisShrink: false,
 	sph: false,
 
-	bdsmStarted: false,
+	bdsmHypnoStarted: false,
 	bdsm: false,
 	painPlay: false,
 	xPain: false,
@@ -1212,7 +1193,7 @@ window.kinkList={
 	facesit: false,
 	trampling: false,
 
-	footFetishStarted: false,
+	footFetishHypnoStarted: false,
 	footFetish: false,
 	footDisplay: false,
 	footWorship: false,
@@ -1220,7 +1201,7 @@ window.kinkList={
 	shoeBoot: false,
 	footjob: false,
 
-	odorStarted: false,
+	odorHypnoStarted: false,
 	odor: false,
 	clothesOdor: false,
 	shoeSockOdor: false,
@@ -1229,7 +1210,7 @@ window.kinkList={
 	assOdor: false,
 	genitalOdor: false,
 
-	degradationStarted: false,
+	degradationHypnoStarted: false,
 	degradation: false,
 	curse: false,
 	whoring: false,
@@ -1241,15 +1222,16 @@ window.kinkList={
 	tattoo: false,
 	piercing: false,
 
-	agePlayStarted: false,
+	agePlayHypnoStarted: false,
 	agePlay: false,
 	diapering: false,
 	adultBaby: false,
 	ageBehavior: false,
 
-	xBodyStarted: false,
+	xBodyHypnoStarted: false,
 	xBody: false,
 	bbw: false,
+	flatChest: false,
 	hyperBreasts: false,
 	hyperPenis: false,
 	dwarf: false,
@@ -1257,14 +1239,13 @@ window.kinkList={
 	muscle: false,
 	expansionWeight: false,
 	
-	clothingStarted: false,
+	clothingHypnoStarted: false,
 	clothing: false,
 	latex: false,
 	leather: false,
 	nylon: false,
 	frilly: false,
 
-	genderChangeStarted: false,
 	genderChange: false
 },
 

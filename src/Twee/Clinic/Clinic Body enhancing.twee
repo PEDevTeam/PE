@@ -156,7 +156,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.anal gt 0) and ($body.anal gt $body.permAnal) and ($player.daring gt 7)>>\
+	<<if ($body.anal gt 0) and ($body.anal gt $body.permAnal)>>\
 		<<set _item=itemsC.token>>\
 		<<set _override=false>>\
 		<<if $body.anal eq 1>><<set $items[_item.id].cost = 2*itemsC.analSmoothing1.cost>>\
@@ -164,7 +164,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $body.anal eq 3>><<set $items[_item.id].cost = 2*itemsC.analSmoothing3.cost>>\
 		<<endif>>\
 		<<set $items[_item.id].image = itemsC.analSmoothing3.image>>\
-		<<set $items[_item.id].daringRec = 9>>\
+		<<set $items[_item.id].femRec = 90>>\
 		<<set $items[_item.id].name = "Permanent anal smoothening">>\
 		<<set _sceneName="PermanentAnalSmoothing">>\
 		<<set _time=60>>\
@@ -862,24 +862,22 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			<<wearClothing _item.id>>\
 			<<endif>>\
 		<<endif>>\
-	<<else>>\
+	<<elseif $kink.semenConsumption>>\
 		@@.nurse;"One last thing - You see, we're not allowed to keep clients' semen, so I have to return it."@@
 		
 		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-		Still weary from the ordeal, you can offer no resistance as Nancy firmly bends you over. 
-		
-		She draws the vial of your collected ejaculate into a clear plastic syringe. Spreading your rump with the thumb and forefinger of her other hand, she injects the whole reservoir of your own, still-warm cum up into your rectum. A tiny amount leaks out and a tendril of it flows down your thigh. You gasp in shock, but Nancy just reinserts your butt-plug and releases you.
-		
-		You feel humiliated, feeling the warmth and wetness of your own seed inside you. You manage to glare a little at her for what she's done to you, but she just smiles innocently back. She's really pretty... and you're so tired... Your urge to protest evaporates.
-		
+			Still weary from the ordeal, you can offer no resistance as Nancy firmly bends you over. 
+			
+			She draws the vial of your collected ejaculate into a clear plastic syringe. Spreading your rump with the thumb and forefinger of her other hand, she injects the whole reservoir of your own, still-warm cum up into your rectum. A tiny amount leaks out and a tendril of it flows down your thigh. You gasp in shock, but Nancy just reinserts your butt-plug and releases you.
+			
+			You feel humiliated, feeling the warmth and wetness of your own seed inside you. You manage to glare a little at her for what she's done to you, but she just smiles innocently back. She's really pretty... and you're so tired... Your urge to protest evaporates.
 		<<else>>\
-		You're still too exhausted from the ordeal to notice that Nancy has transferred the vial of your ejaculate into the reservoir of a plastic medicine spoon. Holding your face, Nancy tilts your mouth open and pours the full dose of your own, still-warm cum down your tongue in one draft. Releasing you, she pats you on the cheek with a cheery nod.
-		
-		The aftertaste of your own sperm on your taste buds fills you with humiliation. You manage to glare a little at Nancy for what she's done to you, but she just smiles innocently back. She's really pretty... and you're so tired... Your urge to protest evaporates.
-		
+			You're still too exhausted from the ordeal to notice that Nancy has transferred the vial of your ejaculate into the reservoir of a plastic medicine spoon. Holding your face, Nancy tilts your mouth open and pours the full dose of your own, still-warm cum down your tongue in one draft. Releasing you, she pats you on the cheek with a cheery nod.
+			
+			The aftertaste of your own sperm on your taste buds fills you with humiliation. You manage to glare a little at Nancy for what she's done to you, but she just smiles innocently back. She's really pretty... and you're so tired... Your urge to protest evaporates.
 		<<endif>>\
+		
 	<<endif>>\
-
 	<<if ($body.nose eq 3)>>\
 	@@.nurse;"Please, come again in a week, I will prepare something special, that would be perfect for you, free of charge."@@
 	<<else>>\

@@ -57,8 +57,9 @@ window.kinkTooltip={
 	adultBaby: "Being treated as a toddler baby by others, including wearing baby clothes, drinking from a bottle, using a pacifier, or sleeping in a crib@@.halftransparent; Not implemented yet@@",
 	ageBehavior: "Being treated as a child by others, including being dressed in clothes associated with children or being expected to participate in childish activities@@.halftransparent; Not implemented yet@@",
 
-	xBody: "Fetishizing large divergence in anatomy in comparison with average, especially size@@.halftransparent; Not implemented yet@@",
+	xBody: "Fetishizing large divergence in anatomy in comparison with average, especially size",
 	bbw: "Big, beautiful women – fetishizing women with extreme body fat and/or weight@@.halftransparent; Not implemented yet@@",
+	flatChest: "Arousal from flat chest or small breast size",
 	hyperBreasts: "Arousal stemming from breast size above what is considered common physically@@.halftransparent; Not implemented yet@@",
 	hyperPenis: "Arousal from extreme penis size and length@@.halftransparent; Not implemented yet@@",
 	dwarf: "Arousal by bodies being of unusually short stature or size@@.halftransparent; Not implemented yet@@",

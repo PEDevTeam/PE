@@ -85,7 +85,7 @@ Alright! How do you want to do this?
 
 <<if playerCode.owns(itemsC.vibrator)>>\
 	<<if $flags.confiscatedVibrator>>\
-		<div class="tooltip">@@.halftransparent;Use vibrator on your penis@@ <span class="tooltiptext">$guardian confiscated your toys.</span></div>
+		<div class="tooltip">@@.halftransparent;Use vibrator on your penis@@ <span class="tooltiptext">$Guardian confiscated your toys.</span></div>
 	<<elseif _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
 		<div class="tooltip">@@.halftransparent;Use vibrator on your penis@@ <span class="tooltiptext">You are already very horny, you don't want to tease yourself anymore</span></div>
 	<<else>>\
@@ -117,8 +117,12 @@ Alright! How do you want to do this?
 		[[Watch spy camera stream][$random.stored=1; $player.room.laptop=true]]
 	<<endif>>\
 <<endif>>\
-<<if playerCode.owns(itemsC.playgirlMagazine)>>\
-	<<if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
+<<if playerCode.owns(itemsC.playgirlMagazine) and window.misc.mmContent(40)>>\
+	<<if $events.readPlayGirl and ($player.bisexuality lt 20)>>\
+		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span class="tooltiptext">You aren't comfortable with the idea of masturbating on pictures of naked men</span></div>
+	<<elseif $events.readPlayGirl and ($player.bisexuality lt 40)>>\
+		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span class="tooltiptext">You are still hesitant about masturbaing on pictures of naked men</span></div>
+	<<elseif _c and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
 		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>
 	<<else>>\
 		[[Read Playgirl magazine]]

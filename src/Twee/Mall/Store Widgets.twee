@@ -1,10 +1,14 @@
 :: Store Widgets [pos_1712_2264 widget]
 \
 <<widget "itemSelector">>\
+<<set _itemSelector = true>>\
+<<set _shop = window.stores[$args[0]]>>\
+<<include [[Shop events selector]]>>\
+<<set _bought = false>>\
+<<if _itemSelector>>\
 <<print '<<showImageSpecial "general" "' + window.stores[$args[0]].image + '" "mall_image">>'>>\
 <!--<<print '<<showImage "general" "' + window.stores[$args[0]].image + '">>'>>\-->\
 <<print "''"+window.stores[$args[0]].name+"''">>
-<<display [[Shop events]]>>\
 <<print window.stores[$args[0]].description>> What would you like to buy?
 
 <div class="item_preview_box"><img id="item_preview_mall" class="hidden"><img id="item_preview_mall_school" class="hidden"></div>\
@@ -12,12 +16,11 @@
 	<<set _o=itemsC[Object.keys(itemsC)[_i]]>>\
 	<<set _oV=$items[Object.keys(itemsC)[_i]]>>\
 	<<set _cost = window.itemF.cost(_o)>>\
-	<<if (_o.store==$args[0]) and (_cost gt 0)>>\
+	<<set _disabled = window.itemF.disabled(_o)>>\
+	<<if (_o.store != null) and (_o.store==$args[0]) and (_cost gt 0) and (not _disabled)>>\
 		<<set _out = false>>\
 		/*<<set _name = window.itemF.name(_o)>>*/\
 		<<set _name = _o.name>>\
-		<<set _disabled = window.itemF.disabled(_o)>>\
-		<<set _daringRec = window.itemF.daringRec(_o)>>\
 		<<if _o.image and $showimages>>\
 			<<set _image = window.itemF.image(_o)>>\
 			<<if _o.maxAlt and _o.maxAlt gt 0>>\
@@ -100,7 +103,7 @@
 			<<set _in to _in + '<<click "  ←">><<previousStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
 			<<set _in to _in + '<<click "→  ">><<nextStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
 		<<endif>>\
-		<<if (_o.id eq 'schoolFemale') and ($player.perversion.teacher gte 4 or $tasksTeacher.wearDressToSchool.canStart)>>\
+		<<if (_o.id eq 'schoolFemale') and ($player.perversion.teacher gte 4 or $events.taskedToWearDressToSchool or $tasksTeacher.selfieFemaleUniform.status eq 1)>>\
 			<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a; @@<span id="test_info" class="tooltiptextWide">The school rules say that with school uniform you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \'provactive\'.</span></div>'>>\
 			<<set _in to _in + ' '>>\
 		<<endif>>\
@@ -109,19 +112,17 @@
 			<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
 		<<elseif playerCode.owns(_o) and ((not $showimages) or (not _image) or (not _o.maxAlt) or (_o.maxAlt and (_o.maxAlt gt 0) and _oV.ownAlt[_oV.storeCur]))>>\
 			<<set _in to _in + '@@.owned;Owned@@'>>\
-		<<elseif _image and $showimages and _o.schoolAlt and ($player.perversion.teacher eq 3) and (_oV.storeCur gt _o.schoolAlt)>>\	
-			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too colorful style//@@'>>\
 		<<elseif (_o.clothingType eq itemTypes.Earrings) and (not $body.earsPierced)>>\
-			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //ears not pierced//@@'>>\
-		<<elseif _disabled>>\
-			<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //not needed//@@'>>\
-		<<elseif ($player.daring lt _daringRec)>>\
+			<<set _in to _in + '@@.halftransparent;<s>Buy</s> @@'>>\
+			<<set _in to _in + '<div class="tooltip">@@.off;&#xe80a; @@<span class="tooltiptext">Your ears aren\'t pierced</span></div>'>>\
+		<<elseif _o.restrict()>>\
+			<<set _in to _in + '@@.halftransparent;<s>Buy</s> @@'>>\
+			<<set _in to _in + '<div class="tooltip">@@.off;&#xe80a; @@<span class="tooltiptext">'+_o.restrict()+'</span></div>'>>\
+		<<elseif _o.femRec and ($player.feminization lt _o.femRec) and (not _o.allow())>>\
 			<<if _o.female>>\
-				<<if (_daringRec lte 5) and ($player.daring lte 5) and _oV.postponed>>\
-					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //dont need more of these//@@'>>\
-				<<elseif ($player.daring gt 5) and _o.slutty>>\
+				<<if ($player.feminization gt 50) and _o.slutty>>\
 					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too slutty//@@'>>\
-				<<elseif ($player.daring gt 3)>>\
+				<<elseif ($player.feminization gt 30)>>\
 					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too risque//@@'>>\
 				<<else>>\
 					<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too girly//@@'>>\
@@ -130,31 +131,24 @@
 				<<set _in to _in + '@@.halftransparent;<s>Buy</s> - //too daring//@@'>>\
 			<<endif>>\
 		<<elseif $player.money gte _cost>>\
-			<<set _in to _in + '<<click "Buy">><<buyItem "' + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
+			<<set _in to _in + '<<click "Buy">><<buyItem "' + _o.id + '">><<set _bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
 		<<else>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
+			<<set _in to _in + '@@.halftransparent;Buy@@'>>\
 		<<endif>>\
 		<<if _image and $showimages>>\
 			<<set _in to _in + '</span>'>>\
 		<<endif>>\
 		<<print _in>>\
-		<<if $player.debugA and _image and $showimages and _o.maxAlt>>\
+		/*<<if $player.debugA and _image and $showimages and _o.maxAlt>>\
 			<<print _oV.storeCur>>\
-<!-- For tasks
-			- \
-			<<for _j=0; _j lte _o.maxAlt; _j++>>\
-				<<if _oV.storeAlt[_j]>>\
-				<<print _j>>\
-				<<endif>>\
-			<</for>>\
--->\
-		<<endif>>\
+		<<endif>>*/\
 		
 	<<endif>>\
 <</for>>\
 <<set $restock[$args[0]] = true>>\
 
 <<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
+<<endif>>\
 <</widget>>\
 
 <<widget "showStores">>\
@@ -163,9 +157,12 @@
 Which shop would you like to visit?
 <div class="clothesDivider"></div>\
 <<for _i=0; _i lt window.stores.length; _i++>>\
-	<<if window.stores[_i].daringRequired lte $player.daring>>\
-		<<print '<<click "' + window.stores[_i].name + '">><<replace "#mall">><<itemSelector ' + _i + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+	<<if $player.daring gte window.stores[_i].daringRequired>>\
+		<<print '<<click "&#9702; ' + window.stores[_i].name + '">><<replace "#mall">><<itemSelector ' + _i + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+	<<else>>\
+		<div class="tooltip">@@.halftransparent;&#9702; <<print window.stores[_i].name>>@@ <span class="tooltiptext"><<print window.stores[_i].reason>></span></div>
 	<<endif>>\
+	
 <</for>>\
 <div class="clothesDivider"></div>\
 <<showMallPlaces>>
@@ -189,7 +186,6 @@ The mall is closed now.
 <</widget>>\
 
 <<widget "showMallPlaces">>\
-
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -243,7 +239,7 @@ You could try to steal the stun gun if you are desperate.
 <<display [[Travel]]>>\
 /*
 <<if window.timeCode.haveSchool()>>\
-	<<if window.clothes.dressedSchool.check()>>\
+	<<if window.clothes.dressedSchool()>>\
 		[[Go to school][$time.addMinutes(15)]]
 	<<else>>\
 		<<notDressed "Go to school" $reason.dressedSchool>>

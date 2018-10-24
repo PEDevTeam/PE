@@ -1,30 +1,15 @@
 :: Sleep [pos_1410_216]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-\
 /* START of Sleep interrupts - events that triggers before sleep */\
-<<if $flags.straponSurprise and window.timeCode.isFriday()>>\
-	<<set $scene="strapon surprise">>\
-	<<set $flags.straponSurprise=false>>\
-	<<goto [[Guardian kinky reward]]>>\
-<<elseif $flags.straponForced and ($time.weekDay() eq 6) and ($flags.choreLazy or ($player.choreFailsCurrent gte 4)) and [15,17].includes($player.perversion.guardianCorruption) and $flags.guardianPunishVibrator and $player.perversion.guardian eq 4>>\
-	<<set $scene="strapon forced">>\
-	<<goto [[Guardian kinky reward]]>>\
-<<elseif (not $flags.guardianPunishDressUp) and ($flags.choreLazy or $player.choreFails gte 5) and ($time.weekDay() gte 3) and [3,4].includes($player.perversion.guardian) and $player.perversion.guardianCooldown gte 5>>\
-	<<set $scene="forced dressup">>\
-	<<set $flags.guardianPunishDressUp=true>>\
-	<<set $time.hour=23>>\
-	<<goto [[Special punishments]]>>\
-<<elseif $kink.penisShrink and $flags.penisShrinkSleep and $flags.penisShrinkProgress and ($body.penisShrink eq 1) and ($time.weekDay() eq 4)>>\
-	<<goto [[Penis shrinking event]]>>\
-<<elseif false and ($player.chorePunishmentDildoCooldown gt $player.chorePunishmentDildoLimit) and $flags.choreDildoAlarm and not $flags.trainingCockSuck and (not $scene eq "calmSleep")>>\
-	/* part of planned sequence with training dildo, which will be reworked */\
-	<<set $scene="alarm">>\
-	<<goto [[Suck training cock]]>>\
-/* END of Sleep interrupts */\
-/* Start of checks for restless sleep */\
+<<set _sleepEvent = window.travelFunction.selectEvent()>>\
+\
+<<if (_sleepEvent)>>\
+/*	*/<<set $scene = _sleepEvent.scene>>\
+/*	*/<<set _interruptPassage = _sleepEvent.passage>>\
+/*	*/<<include _interruptPassage>>\
 <<else>>\
+	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 	/* Getting used to chastity, buttplug, after smoothened anus, special dreams */\
 \
 	<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 3)>>\
@@ -49,17 +34,15 @@
 		<<set _tt=_ti - _te - 5>>\
 		<<if _tt lt 1>>\
 			<<set _tt=1>>\
-		<<elseif _tt gt 10>>\
+		<<elseif _tt gt 7>>\
 			<<if ($player.exp.chastityExp lt 20)>>\
-				<<set _tt=10>>\
-			<<elseif ($player.exp.chastityExp lt 40)>>\
-				<<set _tt=9>>\
-			<<elseif ($player.exp.chastityExp lt 60)>>\
 				<<set _tt=7>>\
+			<<elseif ($player.exp.chastityExp lt 40)>>\
+				<<set _tt=6>>\
+			<<elseif ($player.exp.chastityExp lt 60)>>\
+				<<set _tt=4>>\
 			<<elseif ($player.exp.chastityExp lt 80)>>\
-				<<set _tt=5>>\
-			<<elseif ($player.exp.chastityExp lt 100)>>\
-				<<set _tt=3>>\
+				<<set _tt=2>>\
 			<<else>>\
 				<<set _tt=1>>\
 			<<endif>>\
@@ -76,21 +59,21 @@
 			<<set $therapistTalks.talkChastitySleep.start=true>>\
 			<<if $player.exp.chastityExp lte 2>>\
 				<<if $player.exp.chastityExp eq 0>>\
-					<<set _tt=10>>\
+					<<set _tt=7>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "The chastity cage feels uncomfortable and you find it hard to relax with it on. ">>\
 					<<if _b>>\
 						<<set _before to _before + "Buttplug in your anus only makes things worse, keeping you stimulated as you penis is locked away. ">>\
 					<<endif>>\
 				<<elseif $player.exp.chastityExp eq 1>>\
-					<<set _tt=8>>\
+					<<set _tt=5>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "You just can't get completely used to the chastity cage, although it does seem a little less troublesome easier tonight. ">>\
 					<<if _b>>\
 						<<set _before to _before + "Buttplug in your anus keeps distracting you, stimulating your insides each time you move. ">>\
 					<<endif>>\
 				<<elseif $player.exp.chastityExp eq 2>>\
-					<<set _tt=5>>\
+					<<set _tt=2>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "You getting used to your chastity cage, somehow its tugging on your penis doesn't feel wrong anymore. ">>\
 					<<if _b>>\
@@ -185,6 +168,6 @@
 		<<endif>>\
 	<<else>>\
 		<<set window.timeCode.newDay()>>\
-		<<display [[Good morning]]>>\
+		<<include [[Good morning]]>>\
 	<<endif>>\
 <<endif>>\

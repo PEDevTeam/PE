@@ -75,17 +75,8 @@
 <<endif>>\
 <<if $flags.laundryAccident>>\
 	<<set $flags.laundryAccident to false>>\
-	<<if playerCode.owns(itemsC.gString)>>\
-		<<set $items.gString.disabled=false>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesLatex)>>
-		<<set $items.pantiesLatex.disabled=false>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesCotton)>>
-		<<set $items.pantiesCotton.disabled=false>>\
-	<<endif>>\
 <<endif>>\
-<<if (not $flags.laundryAccident) and (random(2) eq 0) and $flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
+<<if (not $flags.laundryAccident) and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 5) and (not window.timeCode.isWeekend()) and (misc.once('laundryForced') or (random(5) eq 0))>>\
 <<set $flags.laundryAccident to true>>\
 <<endif>>\
 \
@@ -111,26 +102,6 @@
 	<<set $player.room.junk[random($player.room.junkMax)]=true>>\
 <<else>>\
 	<<set $player.room.junk[random($player.room.junkMaxGirl)]=true>>\
-<<endif>>\
-<<if ($player.batteryExpireDay gt 0) and ($time.day gte $player.batteryExpireDay)>>\
-	<<set $player.alarmClockGuardian=false>>\
-	<<set $player.batteryExpireDay=0>>\
-	<<set $flags.batteriesExpire=true>>\
-	<<if (not $flags.guardianSnoopingCaught)>>\
-		<<set $items.batteriesQuality.disabled=false>>\
-	<<endif>>\
-<<endif>>\
-<<if $player.perversion.guardian gte 3 and $player.batteryExpireDay eq 0>>\
-	<<set $player.alarmClockGuardian=false>>\
-	<<set $player.batteryExpireDay=-1>>\
-	<<set $items.batteriesQuality.disabled=true>>\
-	<<set $items.batteries.disabled=true>>\
-	<<if playerCode.owns(itemsC.batteriesQuality)>>\
-		<<removeFromInv 'batteriesQuality'>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.batteries)>>\
-		<<removeFromInv 'batteries'>>\
-	<<endif>>\
 <<endif>>\
 <<if $flags.chorePunishmentDildo>>\
 	<<set $player.chorePunishmentDildoCooldown++>>\

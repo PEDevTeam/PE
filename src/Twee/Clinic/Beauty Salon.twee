@@ -57,8 +57,8 @@
 		<<print '[[Semi permanent treatments check up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0]]'>>   
 	<<endif>>\
 \
-	<<if ($kink.penisShrinkProgress eq 1) and (not $player.flags.salonPenisShrinkTalk)>>\
-		[[Talk about your shrunk penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $player.flags.salonPenisShrinkTalk=true]]
+	<<if ($kink.penisShrinkProgress eq 1) and (not $flags.salonPenisShrinkTalk)>>\
+		[[Talk about your shrunk penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $flags.salonPenisShrinkTalk=true]]
 	<<endif>>\
 
 	[[Check yourself][$player.checkPlace=2]]

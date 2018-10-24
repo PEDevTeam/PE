@@ -24,9 +24,9 @@
 		
 		@@.hero;Oh crap, I don’t want to get a manicure!\
 		<<if not window.timeCode.isFriday()>>\
-			 And the beauty salon is too far away to visit before tomorrow.@@\
+			 And the beauty salon is too far away to visit before tomorrow.\
 		<<endif>>\
-		
+		@@
 	<<endif>>\
 	<<if playerCode.isMind_0()>>\
 		You walk out, red-faced with frustrated embarrassment\
@@ -46,10 +46,6 @@
 		<<endif>>\
 	<<endif>>\
 	
-	<<if not $player.daringFlag.posingtoCoach>>\
-		<<set $player.daringFlag.posingtoCoach to true>>\
-		<<Daring 7>>\
-	<<endif>>\
 	[[Finish school]]
 <<elseif $player.perversion.coach eq 1>>\
 	<<showImage "general" "photo_studio.jpg">>\
@@ -158,7 +154,6 @@
 	<<set $player.perversion.teacher=6>>\
 	<<set $player.perversion.teacherCooldown=0>>\
 	<<set $items.nailPolish.disabled=true>>\
-	<<set $items.nailPolish.cost=0>>\
 	<<if playerCode.owns(itemsC.nailPolish)>>\
 		<<removeFromInv 'nailPolish'>>\
 	<<endif>>\
@@ -206,8 +201,7 @@
 
 	[[Finish school]]
 <<endif>>\
+<<set events.record('posingToCoach')>>\
 <<set $flags.coachPosing to true>>\
 <<set $flags.coachPosingHappy to true>>\
 <<set $flags.coachPosingAngry to false>>\
-
-

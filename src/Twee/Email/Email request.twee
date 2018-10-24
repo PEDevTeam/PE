@@ -15,9 +15,9 @@
 		<<if _sender eq "">>\
 			<<set _sender="Anonymous">>\
 		<<endif>>\
-		<<set _body=window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>\
+		<<set _body=window.tasksFunction.getTaskText(_task.id, _task.text, 'given')>>\
 		<<set _m=$email.addMessage(_sender, _body)>>\
-		<<set _m.body=window.tasksFunction.getTaskText(_task.name, _task.text, 'perform')>>\
+		<<set _m.body=window.tasksFunction.getTaskText(_task.id, _task.text, 'perform')>>\
 		<<set _m.allowInbox=_task.AllowInbox>>\
 		<<if _task.hasPassage>>\
 			<<set _m.passage.name=_task.PassageName>>\

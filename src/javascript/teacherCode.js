@@ -161,7 +161,7 @@ window.teacherPunishments = {
 		priority:	10,
 		baseReq:	{ teacher: [3, 3], guardian: [0, 10], therapist: [0, 10], penalties: [0, 10] },
 		extraReq:	function () {
-					return (State.active.variables.tasksTeacher.wearDressToSchool.status == 0);
+					return (State.active.variables.events.taskedToWearDressToSchool != null);
 				},
 		cooldown:	1,
 		start:		function () {},

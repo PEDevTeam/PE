@@ -11,14 +11,14 @@
 	<<endif>>\
 	
 	[[continue|Task Nightwear selfie]]
-<<else>>\
+<<elseif $scene neq "NightwearTaskOutcome1" and $scene neq "NightwearTaskOutcome2" and $scene neq "NightwearTaskOutcome3">>\
+	<<set $tasksTeacher.selfieNightwear.status = 2>>\
 	<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
 	<<if _f>>\
 		<<removeClothing _f.id>>\
 	<<endif>>\
 	You take a selfie of yourself in the silky teddy, making sure to lift the hem up slightly and flash your chastity cage.
 
-	<<set $tasksTeacher.selfieNightwear.status = 2>>\
 	<<if window.timeCode.canSleep()>>\
 		<<if playerCode.isMind_0()>>\
 			@@.hero;This day has been just... so humiliating and exhausting. I feel so tired I could fall asleep right here...@@
@@ -27,13 +27,6 @@
 		<<else>>\
 			@@.hero;I feel so sexy in this nightie! Maybe I should reward myself by going to bed early?@@
 		<<endif>>\
-
-			Do you want to just go to sleep now?
-			
-			<<if window.clothes.dressedSleep.check()>>\
-				[[Go to sleep|Sleep]]
-			<<endif>>\
-		<<delayedLink 1 "Return|Go to bedroom">>
 	<<else>>\
 		<<if playerCode.isMind_0()>>\
 			@@.hero;It feels more comforable than I expected. No wonder girls like these so much.@@
@@ -42,9 +35,30 @@
 		<<else>>\
 			@@.hero;I feel so sexy in this nightie!@@
 		<<endif>>\
+	<<endif>>\
 	
-		[[Return|Go to bedroom]]
+	[[It is too embarrassing, better to take it off|Task Nightwear selfie][$scene="NightwearTaskOutcome1"; events.record('selfieNightwear', 'min')]]
+	[[It is surprisingly pleasant, maybe just few more minutes...|Task Nightwear selfie][$scene="NightwearTaskOutcome2"; events.record('selfieNightwear')]]
+	[[It is so good, lie down and enjoy the feeling|Task Nightwear selfie][$scene="NightwearTaskOutcome3"; events.record('selfieNightwear', 'max')]]
+<<else>>\
+	<<if $scene eq "NightwearTaskOutcome1">>\
+		<<removeClothing 'silkyTeddy'>>\
+		You shrug off feminine nightwear, refusing to succumb to much softer and pleasant alternative to your pyjamas. You know that it would be too weird to sleep in these, but you still feel slightly disappointed.
+
+		[[Return|Go to bedroom][$scene=""]]
+	<<else>>\
+		You lie down for a bit and close your eyes.\
+		<<if window.timeCode.canSleep()>>\
+			In no time you start feeling sleepy, maybe just go to sleep now?
+				
+			<<if window.clothes.dressedSleep()>>\
+				[[Go to sleep|Sleep][$scene=""]]
+			<<endif>>\
+			<<delayedLink 1 "Return|Go to bedroom">>
+		<<else>>\
+			You rest for some time, feeling very comfortable. It is too early to sleep though, so you slowly get up.
+
+			[[Return|Go to bedroom][$scene=""]]
+		<<endif>>\
 	<<endif>>\
 <<endif>>\
-
-

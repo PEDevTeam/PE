@@ -17,17 +17,6 @@
 <div class="clothesDivider"></div>\
 <<set $clothingSelectorRender=true>>\
 \
-<<set _d=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-\
-<<if (_o) gt 0>>\
-<<endif>>\
-\
-\
 <div class="item_preview_box"><img id="item_preview_bedroom" class="hidden"></div>\
 <<set _type = false>>\
 <<if $flags.wardrobeSelector>>\
@@ -59,11 +48,37 @@
 						
 					<<endif>>\
 				<<else>>\
-					<<if $player.quickSlotHighlight eq (100+_i)>>\
-						<<set $player.quickSlotHighlight = 0>>\
-						@@.quickSetSave;<<print _quickslot.name>>@@\
+					<<set _worn = false>>\
+					<<for _k to 0; _k lt _quickslot.clothes.length; _k++>>\
+						<<if $player.clothes.includes(_quickslot.clothes[_k])>>\
+							<<set _worn = true>>\
+						<<else>>\
+							<<set _worn = false>>\
+						<<endif>>\
+					<</for>>\
+					<<if _worn and ($player.quickSet eq _i)>>\
+						@@.lightgreen;\
+						<<if $player.quickSlotHighlight eq (100+_i)>>\
+							<<set $player.quickSlotHighlight = 0>>\
+							@@.quickSetSave;<<print _quickslot.name>>@@\
+						<<else>>\
+							<<print _quickslot.name>>\
+						<<endif>>\
+						@@\
 					<<else>>\
-						<<print _quickslot.name>>\
+						<<if $player.quickSlotHighlight eq (100+_i)>>\
+							<<set $player.quickSlotHighlight = 0>>\
+							@@.quickSetSave;<<print _quickslot.name>>@@\
+						<<else>>\
+							<<print _quickslot.name>>\
+						<<endif>>\
+					<<endif>>\
+					<<if _i eq quickSlotSets.School>>\
+						<div class="tooltip">@@.on;&#xe80a;@@<span class="tooltiptextWide">Default slot for your school clothes. It is used in quick 'Dress for school' option.</span></div> \
+					<<elseif _i eq quickSlotSets.Casual>>\
+						<div class="tooltip">@@.on;&#xe80a;@@<span class="tooltiptextWide">Default slot for your casual clothes. It is used in some quick dress options.</span></div> \
+					<<elseif _i eq quickSlotSets.Sleep>>\
+						<div class="tooltip">@@.on;&#xe80a;@@<span class="tooltiptextWide">Default slot for your nightwear. It is used in quick 'Dress for sleep' option.</span></div> \
 					<<endif>>\
 					@@.inv_action_faded; - @@\
 					<<print '<<click " Wear ">><<set playerCode.loadQuickSlot('+_i+')>><<set $player.quickSet=('+_i+')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
@@ -256,20 +271,24 @@
 			<<elseif (_quickslot.clothes.length gt 0) and ((not _quickslot.extra) or (not _ex))>>\
 				<<set _ex=false>>\
 				<<set _toolTip = _quickslot.clothes.join(', ')>>\
-				<div class="tooltip"><<print _quickslot.name>><span id="quickSlot" class="tooltiptext"><<print _toolTip>></span></div>\
-<!--			<<print _quickslot.name>>-->\
+				<<set _setClothes = []>>\
 				<<set _worn = false>>\
 				<<for _j to 0; _j lt _quickslot.clothes.length; _j++>>\
+					<<set _setClothes.push(itemsC[_quickslot.clothes[_j]].name)>>\
 					<<if $player.clothes.includes(_quickslot.clothes[_j])>>\
 						<<set _worn = true>>\
 					<<else>>\
 						<<set _worn = false>>\
 					<<endif>>\
 				<</for>>\
-				@@.inv_action_faded; - @@\
+				<<set _toolTip = _setClothes.join(', ')>>\
 				<<if _worn and ($player.quickSet eq _i)>>\
+					<div class="tooltip">@@.lightgreen;<<print _quickslot.name>>@@<span id="quickSlot" class="tooltiptext"><<print _toolTip>></span></div>\
+					@@.inv_action_faded; - @@\
 					@@.worn; Wearing @@\
 				<<else>>\
+					<div class="tooltip"><<print _quickslot.name>><span id="quickSlot" class="tooltiptext"><<print _toolTip>></span></div>\
+					@@.inv_action_faded; - @@\
 					<<print '<<click " Wear ">>>><<set playerCode.loadQuickSlot('+_i+')>><<set $player.quickSet=('+_i+')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 			

@@ -5,7 +5,6 @@
 <<if $scene eq "walk around block">>\
 	<<if $tasksTeacher.crossdressAroundBlock.status eq 1>>\
 		<<set $tasksTeacher.crossdressAroundBlock.status = 2>>\
-		<<set $tasksTeacher.crossdressAroundBlock.progress++>>\
 	<<endif>>\
 \
 	<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
@@ -16,7 +15,7 @@
 		<<elseif playerCode.isMind_2()>>\
 			You feel giddy and excited at the thought of going outside dressed as a girl. You might have tried it even if $teacher hadn't asked you to.
 		<<endif>>\
-	<<elseif $flags.clothesPurged>>\
+	<<elseif playerCode.isMaid()>>\
 		Having no other choice, you decide to start small - maybe you'll just walk a bit around the block.
 	<<elseif playerCode.isMind_2()>>\
 		You feel giddy and excited at the thought of going outside dressed as a girl.
@@ -104,13 +103,8 @@
 	
 	At least you accomplished $teacher's task. Trying to focus on that - and avoiding people who might know you, of course - you reach your home and slip to your room.
 	
-	<<if ($player.perversion.crossdressing lte 4)>>\
-		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
-		<<set $player.perversion.crossdressing = 6>>\
+	<<if ($player.perversion.crossdressTasks eq 8)>>\
 		You feel much more confident in wearing female clothes. You still need to be careful and avoid neighbors or people who might recognize you, but at least you won't freeze at the thought of strangers seeing you in a dress.
-		
-		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@
 		
 	<<endif>>\
 	[[Go to your bedroom|Go to bedroom]]

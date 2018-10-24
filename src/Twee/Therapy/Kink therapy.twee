@@ -3,21 +3,63 @@
 <<set _k=window.therapyCode.getWatchedKink()>>\
 <<set _k.start()>>\
 <<if $showimages>>\
-<<print '<img src="images/therapist/'+_k.image+'">'>>
+<<print '<img src="images/therapist/'+_k.image+'">'>>\
+<<elseif (_k.hypnoLines neq null)>>\
+<div id="slides">\
+<div class="hypnoFrame">\
+<<for _j to 0; _j lt _k.hypnoLines.length; _j++>>\
+<object><div class="hypnoText"><<print _k.hypnoLines[_j]>></div></object>\
+<</for>>\
+</div>\
+</div>\
+<<set misc.carousel(2)>>\
 <<endif>>\
-@@.fading_text_long;Something inside of you flinches away, resisting the therapy.@@
-@@.fading_text_long;<<print _k.fadeOut[0]>>@@\
-@@.fading_text_med;<<print _k.fadeOut[1]>>@@\
-@@.fading_text_fast;<<print _k.fadeOut[2]>>@@
 
-@@.fading_text_long;<<print '[[Abort therapy|Stop kink therapy]]'>>@@
-<!--@@.fading_text_long;<<print '[[Stop therapy - (no '+_k.name+' content)|Stop kink therapy]]'>>@@-->
+<div id="line1">Something inside of you flinches away, instinctively resisting the therapy.
 
-@@.delayed_text_fast;<<print _k.fadeIn[0]>>@@\
-@@.delayed_text_med;<<print _k.fadeIn[1]>>@@\
-@@.delayed_text_long;<<print _k.fadeIn[2]>>@@\
+</div>\
+@@.hero;\
+<div id="line2" class="hidden"><<print _k.fadeOut[0]>></div>\
+<div id="line3" class="hidden">@@.transparent;.......@@<<print _k.fadeOut[1]>></div>\
+<div id="line4" class="hidden">@@.transparent;..............@@<<print _k.fadeOut[2]>></div>\
+@@\
+<div id="line1a" class="hidden">Slowly, gradually, you start to accept suggestions on the screen.
 
-<<print '<<delayedLink 5 "Finish watching|Finish kink therapy">>'>>
-<!--<<print '<<delayedLink 5 "Finish watching - (unlocks '+_k.name+' content)|Finish kink therapy">>'>>-->\
+</div>\
+@@.hero;\
+<div id="line2a" class="hidden"><<print _k.fadeIn[0]>></div>\
+<div id="line3a" class="hidden">@@.transparent;.......@@<<print _k.fadeIn[1]>></div>\
+<div id="line4a" class="hidden">@@.transparent;..............@@<<print _k.fadeIn[2]>></div>\
+@@\
 
-
+<div id="finalLine" class="hidden">[[Finish watching|Finish kink therapy]]</div>\
+\
+<<timed 2s>>\
+	<<set document.getElementById('line1').className="fading_text_med">>\
+	<<set document.getElementById('line2').className="delayed_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line3').className="delayed_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line4').className="delayed_text_fast">>\
+<<next 2s>>\
+	<<set document.getElementById('line2').className="fading_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line3').className="fading_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line4').className="fading_text_fast">>\
+<<next 2s>>\
+	<<set document.getElementById('line1').className="hidden">>\
+	<<set document.getElementById('line2').className="hidden">>\
+	<<set document.getElementById('line3').className="hidden">>\
+	<<set document.getElementById('line4').className="hidden">>\
+	<<set document.getElementById('line1a').className="delayed_text_med">>\
+<<next 2s>>\
+	<<set document.getElementById('line2a').className="delayed_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line3a').className="delayed_text_fast">>\
+<<next 1s>>\
+	<<set document.getElementById('line4a').className="delayed_text_fast">>\
+<<next 2s>>\
+	<<set document.getElementById('finalLine').className="delayed_text_fast">>\
+<</timed>>\
+/*@@.fading_text_long;<<print '[[Abort therapy|Stop kink therapy]]'>>@@*/\

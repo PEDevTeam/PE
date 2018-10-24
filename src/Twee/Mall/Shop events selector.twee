@@ -1,0 +1,47 @@
+:: Shop events selector [pos_1800_2092]
+\
+<<set _item = itemsC[_bought]>>\
+<<if _itemSelector>>\
+/*	*/<<if (_shop.name eq window.stores[window.storeType.adult].name) and misc.once('visitAdultStoreFirst')>>\
+/*		*/<<set _itemSelector = false>>\
+/*		*/<<set $scene = "visitAdultStoreFirst">>\
+/*		*/<<include [[Shop events]]>>\
+/*	*/<<elseif (_shop.name eq window.stores[window.storeType.lingerie].name) and $events.pantiesInspected and ($player.perversion.teacher eq 1) and misc.once('gstringAdvice')>>\
+/*		*/<<set _itemSelector = false>>\
+/*		*/<<set $scene = "gstringAdvice">>\
+/*		*/<<include [[Shop events]]>>\
+/*	*/<<elseif _item>>\
+/*		*/<<if (_item.clothingType eq itemTypes.Underwear) and _item.female>>\
+/*			*/<<set events.record('buyingPanties')>>\
+/*			*/<<if _item.slutty>>\
+/*				*/<<set events.record('buyingSluttyPanties')>>\
+/*			*/<<endif>>\
+/*		*/<<endif>>\
+/*		*/<<if (_item.clothingType eq itemTypes.Outerwear) and _item.female>>\
+/*			*/<<set events.record('buyingDress')>>\
+/*			*/<<if _item.slutty>>\
+/*				*/<<set events.record('buyingSluttyDress')>>\
+/*			*/<<endif>>\
+/*		*/<<endif>>\
+/*		*/<<if (_item.clothingType eq itemTypes.Chastity)>>\
+/*			*/<<set events.record('buyingChastity')>>\
+/*		*/<<endif>>\
+/*		*/<<if (_item.clothingType eq itemTypes.AnalPlug)>>\
+/*			*/<<set events.record('buyingAnalPlug')>>\
+/*		*/<<endif>>\
+/*		*/<<if ($player.feminization lte 40) and ($player.perversion.mall lt 2) and _item.female>>\
+/*			*/<<set $scene = "firstBuyFemaleClothes">>\
+/*			*/<<set $player.perversion.mall++>>\
+/*			*/<<set _itemSelector = false>>\
+/*		*/<<endif>>\
+/*		*/<<if (_bought eq itemsC.schoolFemale.id) and (window.itemF.ownedNumber(itemsC.schoolFemale) eq 1)>>\
+/*			*/<<set $player.perversion.mall=4>>\
+/*			*/<<set $scene = "femaleUniform">>\
+/*			*/<<set events.record('buyingFemaleUniform')>>\
+/*			*/<<set _itemSelector = false>>\
+/*		*/<<endif>>\
+/*		*/<<if (not _itemSelector)>>\
+/*			*/<<include [[Shop events]]>>\
+/*		*/<<endif>>\
+/*	*/<<endif>>\
+<<endif>>\

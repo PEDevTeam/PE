@@ -1,0 +1,17 @@
+:: TravelHub [pos_2705_10]
+\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+\
+<<set _interruptEvent = window.travelFunction.selectEvent()>>\
+\
+<<if (_interruptEvent)>>\
+/*	*/<<set $scene = _interruptEvent.scene>>\
+/*	*/<<set _interruptPassage = _interruptEvent.passage>>\
+/*	*/<<goto _interruptPassage>>\
+<<else>>\
+/*	*/<<set _destination = window.locationsJS[$player.location].destination>>\
+/*	*/<<goto _destination>>\
+<<endif>>\

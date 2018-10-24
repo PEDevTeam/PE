@@ -68,11 +68,11 @@ The chores available to you are:
 					<<set _min to _choreJS.minutes*$player.choreSpeed>>\
 				<<endif>>\
 				<<set _r to "(" + _min + " minutes" + _r + ")">>\
-				<<if _choreJS.maid and not window.clothes.dressedMaid.check()>>\
+				<<if _choreJS.maid and not window.clothes.dressedMaid()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedMaid "' + _r + '">>'>>
-				<<elseif _choreJS.outside and not window.clothes.dressedOutside.check()>>\
+				<<elseif _choreJS.outside and not window.clothes.dressedOutside()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedOutside "' + _r + '">>'>>
-				<<elseif not window.clothes.dressedGuardian.check()>>\
+				<<elseif not window.clothes.dressedGuardian()>>\
 					<<print '<<notDressed "' + _choreJS.name + '" $reason.dressedGuardian "' + _r + '">>'>>
 				<<else>>\
 					<<if _choreJS.hasPassage>>\
@@ -100,16 +100,8 @@ The chores available to you are:
 	<<endif>>\
 <</for>>\
 
-<<if _f and _f.slutty and ($player.chorePunishmentHeels lte $time.day)>>\
-	<<if playerCode.isMind_0() and $player.daring lte 6 and $player.perversion.guardian lte 4>>\
-		You take off your heels and change into something more suitable for work.
-		
-		<<if playerCode.owns(itemsC.sneakers)>>\
-			<<wearClothing 'sneakers'>>\
-		<<endif>>\
-	<<elseif playerCode.owns(itemsC.girlsneakers) or playerCode.owns(itemsC.flats) or playerCode.owns(itemsC.sneakers)>>\
-		[[Take off heels|Perform chores][$flags.heelsOff=true]]
-	<<endif>>\
+<<if _f and _f.slutty and ($player.chorePunishmentHeels lte $time.day) and (playerCode.owns(itemsC.girlsneakers) or playerCode.owns(itemsC.flats) or playerCode.owns(itemsC.sneakers))>>\
+	[[Take off heels|Perform chores][$flags.heelsOff=true]]
 <<endif>>\
 <<if $flags.chorePunOffer and (window.choresFunc.choresFails() gt 0)>>\
 	<<if $flags.chorePunKinky>>\
@@ -118,10 +110,10 @@ The chores available to you are:
 		<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
 	<<endif>>\
 <<endif>>\
-<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid.check())>>\
+<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid())>>\
 	[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 <<endif>>\
-<<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check()) or (not window.clothes.dressedGuardian.check()))>>\
+<<if not playerCode.isMaid() and ((not window.clothes.dressedOutside()) or (not window.clothes.dressedGuardian()))>>\
 	<<print '<<click " Change to casual clothes ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<goto [[Perform chores]]>><</click>>'>>
 <<endif>>\
 [[Return|Go to bedroom]]
@@ -144,7 +136,7 @@ The chores available to you are:
 			<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid.check())>>\
+	<<if playerCode.isMaid() and playerCode.owns(itemsC.maidOutfit) and (not window.clothes.dressedMaid())>>\
 		[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 	<<endif>>\
 	<<if window.choresFunc.canPerformChores()>>\

@@ -2,7 +2,6 @@
 \
 <<if $scene eq "walk at the park">>\
 	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
-	<<set $tasksTeacher.crossdressAtPark.progress++>>\
 	<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
 		<<if playerCode.isMind_0()>>\
 			You know a quiet place at the park where you won't be disturbed, and decide that's where you'll need to go to complete $teacher's task. It's still nerve-wracking to think of heading to such a public destination in girl's clothes, but taking a deep breath, you decide to go with it. Anyway, it will definitely be easier than whatever $teacher would probably make you do if you don't.
@@ -11,7 +10,7 @@
 		<<elseif playerCode.isMind_2()>>\
 			You know a quiet place at the park where you won't be disturbed. You're actually a little excited about being outside in girl's clothes, and such a public destination makes it even more so. You think you might have tried this even if $teacher hadn't asked you to.
 		<<endif>>\
-	<<elseif $flags.clothesPurged>>\
+	<<elseif playerCode.isMaid()>>\
 		Having no other choice, if you're going outside dressed as a girl, at least it will be somewhere quiet.
 	<<elseif playerCode.isMind_2()>>\
 		You feel giddy and excited at the thought of going to the park dressed as a girl.
@@ -20,7 +19,7 @@
 	You pack your\
 	<<if playerCode.owns(itemsC.skirtTop)>>skirt and top<<else>>dress<<endif>>\
 	and go to the park in\
-	<<if $flags.clothesPurged>>\
+	<<if playerCode.isMaid()>>\
 		<<if playerCode.owns(itemsC.schoolMale)>>\
 			your school uniform, the only male clothes that you have now.
 		<<else>>\
@@ -79,15 +78,11 @@
 		
 		Finally, you get back to your home and slip into your room.
 	<<endif>>\
-	<<if ($player.perversion.crossdressing lte 4)>>\
-		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
-		<<set $player.perversion.crossdressing = 6>>\
+	
+	<<if ($player.perversion.crossdressTasks eq 8)>>\
 		Maybe you needed to clear your head a bit or just relax and feel safe, but you realize that your fear about wearing female clothes outside has faded considerably. You still need to be careful and avoid neighbors or people who might recognize you, but you don't freeze at the thought of strangers seeing you in a dress anymore.
 		
-		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@
 	<<endif>>\
-	
 	[[Go to your bedroom|Go to bedroom]]
 <<endif>>\
 

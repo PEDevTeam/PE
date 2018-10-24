@@ -3,14 +3,7 @@
 <<widget "DreamGame">>\
 	<<if $minigames.dreamgame.lastActionId gte 0>>\
 		<<print window.dreamMinigame.getActionById($minigames.dreamgame.lastActionId).action>> \
-			<<if not $player.daringFlag.sleepingGrope>>\
-				<<if $player.daring eq 0>>\
-				<<Daring 1>>\
-				<<elseif $player.daring eq 1>>\
-				<<Daring 2>>\
-				<<endif>>\
-			<<set $player.daringFlag.sleepingGrope=true>>\
-			<<endif>>\
+			<<set events.record('dreamGame')>>\
 			<<if (not $flags.dreamgameCaught) and $player.perversion.guardian gte 1>>\
 				<<set $flags.dreamgameCaught=true>>\
 			<<endif>>\

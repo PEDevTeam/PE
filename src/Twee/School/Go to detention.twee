@@ -3,7 +3,7 @@
 <<showImage "general" "detention.jpg">>\
 You go to the detention room. $teacher is waiting for you.
 
-<<if $player.daringFlag.bribe>>\
+<<if $events.bribeTeacher>>\
 	<<set $bribeAmount=50>>\
 	<<set $player.bribeDiscount+=10*$time.weekDay()-10>>\
 	<<set _nb = $bribeAmount-$player.bribeDiscount>>\
@@ -37,7 +37,7 @@ You go to the detention room. $teacher is waiting for you.
 
 	Frustrated and embarrassed for chickening out you try to convince yourself that it's not a big deal. You just hope that no one would find out about it.
 
-	<<set $player.detention=false>>\
+	<<set $flags.detention=false>>\
 	<<set $flags.bribePaid=true>>\
 	[[Agree|Finish school]]
 <<else>>\

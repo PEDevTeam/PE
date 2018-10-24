@@ -3,7 +3,7 @@ window.hypnoCode={
 		var ha=[];
 		var tc=0;
 		for (var i=0; i < window.hypnoImages.length; i++) {
-			if (window.hypnoImages[i].kinkActive()) {
+			if (window.hypnoImages[i].conditions() && (State.active.variables.player.perversion.therapist == window.hypnoImages[i].stage)) {
 				ha.push(window.hypnoImages[i]);
 				tc+=window.hypnoImages[i].chance;
 			}
@@ -22,78 +22,43 @@ window.hypnoImages=[
 	{
 		filename: "hypno_1_1.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 3,
+		conditions: function() { return true; }
 	},
 	{
 		filename: "hypno_1_2.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 3,
+		conditions: function() { return true; }
 	},
 	{
-		filename: "hypno_1_3.gif",
+		filename: "hypno_2_1.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 4,
+		conditions: function() { return true; }
 	},
 	{
-		filename: "hypno_1_4.gif",
+		filename: "hypno_2_2.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 4,
+		conditions: function() { return true; }
 	},
 	{
-		filename: "hypno_1_5.gif",
+		filename: "hypno_2_3.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 4,
+		conditions: function() { return true; }
 	},
 	{
-		filename: "hypno_1_6.gif",
+		filename: "hypno_3_1.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
+		stage: 5,
+		conditions: function() { return true; }
 	},
 	{
-		filename: "hypno_1_7.gif",
+		filename: "hypno_3_2.gif",
 		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_cum.gif",
-		chance: 10,
-		kinkActive: function() {
-			return State.active.variables.kink.cumEating;
-		}
-	},
-	{
-		filename: "hypno_piss.gif",
-		chance: 10,
-		kinkActive:  function() {
-			return State.active.variables.kink.watersports;
-		}
-	},
-	{
-		filename: "hypno_sph.gif",
-		chance: 10,
-		kinkActive: function() {
-			return State.active.variables.kink.sph;
-		}
-	},
-	{
-		filename: "hypno_maso.gif",
-		chance: 10,
-		kinkActive: function() {
-			return State.active.variables.kink.painPlay;
-		}
+		stage: 5,
+		conditions: function() { return true; }
 	},
 ];

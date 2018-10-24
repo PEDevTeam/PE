@@ -24,6 +24,9 @@
 <<set window.structures.setupTasks()>>\
 <<set $gameVersion = gameCode.version>>*/\
 <<endif>>\
+<<if $errorLog.length gt 0>>\
+	@@.errorLog;<<click "ERRORS ">><<script>>Dialog.setup("Debug errorLog"); Dialog.wiki(Story.get("Debug errorLog").processText()); Dialog.open();<</script>><</click>><<print $errorLog.length>>@@
+<<endif>>\
 <span id="sidebar_time"></span><<updateTime>>
 <<if $time.day gt 0>>\
 @@.halftransparent;State:@@ \

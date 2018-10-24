@@ -1,7 +1,28 @@
 :: For testing [pos_649_2342]
 \
-\
 /*
+<div id="slides">\
+<object><img src="images/therapist/1.jpg" width="360" height="270"></object>\
+<object><img src="images/therapist/2.jpg" width="360" height="270"></object>\
+<object><img src="images/therapist/3.jpg" width="360" height="270"></object>\
+<object><img src="images/therapist/4.jpg" width="360" height="270"></object>\
+<object><img src="images/therapist/5.jpg" width="360" height="270"></object>\
+</div>\
+
+<<set misc.carousel(2)>>\
+
+<<set _k=window.kinks[0]>>\
+<div id="slidesText">\
+<div class="hypnoFrame">\
+<<for _j to 0; _j lt _k.hypnoLines.length; _j++>>\
+<object><div class="hypnoText"><<print _k.hypnoLines[_j]>></div></object>\
+<</for>>\
+</div>\
+</div>\
+
+<<print misc.text(tasksTeacher.clubFlashBoobs.text.given)>>
+<<set events.record('stunBully')>>\
+<<set events.record('masturbateWithVibratorAnal')>>
 <<set _chast to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<print _chast.id>>\
 [[start clubSelfieLadiesRoom|Go to bedroom][$tasksTeacher.clubSelfieLadiesRoom.status=1]]
@@ -174,7 +195,6 @@ $punishments.punStool.text
 <!--[[Test Novellist|Maid cleaning][$player.perversion.guardian=6; $player.perversion.guardianCooldown=10]]-->\
 <!--[[Test Boyfriend route|Maid cleaning][$player.perversion.guardianCooldown=10]]-->\
 <!--[[Guardian kinky reward][$scene="dominatrix dress"]]-->\
-<!--[[Test forced dress|Special punishments][$scene="forced dressup"; $flags.guardianPunishDressUp=true; $time.hour=23]]-->\
 <!--[[Reward|Go to bedroom][$flags.choreReward=true]]-->\
 <!--[[Chores 100|Go to bedroom][$player.choresPercent=100]]-->\
 <!--[[Therapist talk][$scene="talkFuta"]]-->\

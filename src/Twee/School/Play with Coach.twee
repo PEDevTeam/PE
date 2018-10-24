@@ -7,10 +7,10 @@
 		<<endif>>\
 You go to Coach, who is already waiting for you.
 
-<<if not $player.daringFlag.coachGame>>\
+<<if not $events.coachGame>>\
 	<<if $player.perversion.bjFirst eq 0>>\
 		<!-- Coach is the first one to get a bj (not possible at the moment) -->\
-		<<set $player.perversion.bjFirst = 2>>\
+		<<set $player.exp.bjFirst = "coach">>\
 	<<endif>>\
 	@@.coach;"Hello, $player.name, aren't you a heartless little minx, ignoring\
 	<<if $kink.futa>>\

@@ -12,7 +12,7 @@ _a.text
 <<endif>>\
 <<if _t>>\
 	<<if _t.hasPassage>>\
-		<<print '<<display '+_t.passage+'>>'>>
+		<<print '<<include '+_t.passage+'>>'>>
 		
 	<<else>>\
 		<<if (not $flags.therapistTalk)>>\
@@ -24,9 +24,9 @@ _a.text
 			
 		<<endif>>\
 		<<if _t.allowTalks and ($player.therapistTime gt 0)>>\
-			<<display "Therapist talk topics">>\
+			<<include "Therapist talk topics">>\
 		<<endif>>\
-		<<if _t.allowHypno()>>
+		<<if _t.allowHypno()>>\
 			[[Watch hypnotherapy][_t.finishHypno()]]
 			<<if _t.kinkHypno>>\
 				<<set _ka=window.therapyCode.getKinkArray()>>\
@@ -35,12 +35,10 @@ _a.text
 				<</for>>\
 			<<endif>>\
 			<<if not _t.forceHypno>>\
-		
-				<<display [[Travel]]>>\
+				<<include [[Travel]]>>\
 			<<endif>>\
 		<<else>>\
-	
-			<<display [[Travel]]>>\
+			<<include [[Travel]]>>\
 		<<endif>>\
 	<<endif>>\
 <<else>>\
@@ -50,5 +48,3 @@ _a.text
 <<endif>>\
 <<set $flags.therapistTalk=false>>\
 \
-
-

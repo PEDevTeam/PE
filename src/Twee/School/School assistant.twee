@@ -223,10 +223,7 @@
 		<<else>>\
 			@@.hero;So that's what giving a handjob feels like. It was strangely satisfying. And I loved how $futa.he_she looked at me.@@
 		<<endif>>\
-		<<if not $player.daringFlag.handjob>>\
-			<<set $player.daringFlag.handjob to true>>\
-			<<Daring 8>>
-		<<endif>>\
+		<<set events.record('assistantHandjob')>>\
 		
 		[[Finish school]]
 	<<endif>>\

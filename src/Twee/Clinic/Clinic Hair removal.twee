@@ -16,30 +16,31 @@
 		Nancy smiles and asks if you want a depilatory for your legs, a full body wax or maybe even a more permanent solution?
 	<<endif>>\
 
-	<img id="item_preview" class="hidden">\
-	<<if $body.bodyhair eq 0>>\
-		<<set _item=itemsC.Depilatory>>\
-		<<set _sceneName="Depilatory">>\
-		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
-		<<set _time=10>>\
+		<img id="item_preview" class="hidden">\
+		<<if $body.bodyhair eq 0>>\
+			<<set _item=itemsC.Depilatory>>\
+			<<set _sceneName="Depilatory">>\
+			<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
+			<<set _time=10>>\
+			<<include "Clinic buy menu">>
+		<<endif>>\
+\
+		<<set _item=itemsC.Waxing>>\
+		<<set _sceneName="Waxing">>\
+		<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+		<<set _time=30>>\
+		<<include "Clinic buy menu">>
+\
+		<<set _item=itemsC.LaserHairRemoval>>\
+		<<set _sceneName="LaserHairRemoval">>\
+		<<set _override=($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+		<<set _time=240>>\
 		<<include "Clinic buy menu">>
 	<<endif>>\
-\
-	<<set _item=itemsC.Waxing>>\
-	<<set _sceneName="Waxing">>\
-	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
-	<<set _time=30>>\
-	<<include "Clinic buy menu">>
-\
-	<<set _item=itemsC.LaserHairRemoval>>\
-	<<set _sceneName="LaserHairRemoval">>\
-	<<set _override=($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
-	<<set _time=240>>\
-	<<include "Clinic buy menu">>
-<<endif>>\
 
-[[Return|Beauty Salon][$scene=""; $random.stored=0]]
+	[[Return|Beauty Salon][$scene=""; $random.stored=0]]
 <<else>>\
+	/* WriterEdit - depilatory and waxing swapped places, please check */\
 	<<set _first=true>>\
 	<<if $scene eq "Depilatory">>\
 		<<showImage "general" "hr_depilatory.jpg">>\
@@ -142,3 +143,5 @@
 		[[Return|Beauty Salon][$scene=""; $random.stored=0]]
 	<<endif>>\
 <<endif>>\
+
+

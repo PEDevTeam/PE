@@ -1,72 +1,7 @@
 :: Shop events [pos_1800_2092]
 \
-<<set _item = itemsC[$player.bought]>>\
-<<if $scene eq "general">>\
-	<<if _item>>\
-		<<set _repeat=false>>\
-		<<if playerCode.isMind_0()>>\
-			<<if ($player.bought eq itemsC.summerDress.id) or ($player.bought eq itemsC.skirtTop.id)>>\
-				<<set $items.summerDress.postponed = true>>\
-				<<set $items.skirtTop.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.flats.id) or ($player.bought eq itemsC.highHeel3.id)>>\
-				<<set $items.flats.postponed = true>>\
-				<<set $items.highHeel3.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.girlsneakers.id)>>\
-				<<set $items.girlsneakers.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.pantiesLatex.id) or ($player.bought eq itemsC.gString.id)>>\
-				<<set $items.pantiesLatex.postponed = true>>\
-				<<set $items.gString.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.silkyTeddy.id)>>\
-				<<set $items.silkyTeddy.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.bra.id) or ($player.bought eq itemsC.braSexy.id)>>\
-				<<set $items.bra.postponed = true>>\
-				<<set $items.braSexy.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.socks.id)>>\
-				<<set $items.socks.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.stockings.id)>>\
-				<<set $items.stockings.postponed = true>>\
-			<<endif>>\
-		<<endif>>\
-		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
-			<<if (not $flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
-				<<set $flags.firstBuyDress = true>>\
-				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
-				<<set $flags.firstBuyShoes = true>>\
-				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
-				<<set $flags.firstBuyPanties = true>>\
-				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyBras) and (_item.clothingType eq itemTypes.Bras)>>\
-				<<set $flags.firstBuyBras = true>>\
-				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
-				<<set $player.perversion.mall++>>\
-				<<set $flags.firstBuyStockings = true>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<endif>>\
-		<<endif>>\
-		<<if ($player.bought eq itemsC.schoolFemale.id) and ((not $items.socks.ownAlt[0]) or ((not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])))>>\
-			<<set $player.perversion.mall++>>\
-			<<set $scene = "female Uniform">>\
-			<<set _repeat=true>>\
-		<<endif>>\
-		<<if _repeat>>\
-			<<goto [[Shop events]]>>\
-		<<endif>>\
-	<<endif>>\
-<<elseif $scene eq "first buy female">>\
+<<if $scene eq "firstBuyFemaleClothes">>\
 	<<if _item and ($player.perversion.mall lte 1)>>\
-		<<set $flags.firstBuyFemale = true>>\
 		It's extremely embarrassing to buy the <<print _item.name.toLowerCase()>>. Clutching\ 
 		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
 			it\
@@ -91,7 +26,7 @@
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
 			bra\
 		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq itemsC.socks.id)>>\
+			<<if (_bought eq itemsC.socks.id)>>\
 				feminine socks\
 			<<else>>\
 				stockings\
@@ -113,48 +48,22 @@
 		
 		A chuckle from the checkout clerk confirms you failed to fool anyone else, either. She presents your newly-purchased <<print _item.name.toLowerCase()>> to you with a cheerful invitation to come back anytime.
 		
-		Turning away from the counter, you look around to find all the other customers looking at you in amusement. They're staring at the <<print _item.name.toLowerCase()>> dangling from your fingers, and you just stand there, paralyzed by fear. One guy reaches for his cellphone. You dart for the exit in panic, while mocking catcalls follow you out.
+		Turning away from the counter, you look around to find all the other customers looking at you in amusement. They're staring at the <<print _item.name.toLowerCase()>> dangling from your fingers, and you just stand there, paralyzed by fear. You dart for the exit in panic, imagening mocking catcalls following you out.
 		
 		@@.hero;That was humiliating. Why couldn't I think of a better excuse?@@
 		
-		Without stopping, you rush outside and go home.
+		Without stopping, you rush outside and hide behind a corner.
 		
-		[[Go home|Go to bedroom][$time.addMinutes(30)]]
+		[[Take some time and calm down|Go to the mall][$time.addMinutes(15)]]
 	<<elseif _item>>\
-		<<set $flags.secondBuyFemale = true>>\
 		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. The cashier courteously invites you to enjoy it and come back again soon.
 		
 		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.
 		
-		@@.reward;You bought your first\
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
-			<<if _item.sleepWear>>\
-				feminine nightwear.\
-			<<else>>\
-				feminine clothes.\
-			<<endif>>\
-		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
-			feminine footwear.\
-		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
-			feminine underwear.\
-		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
-			bra.\
-		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq itemsC.socks.id)>>\
-				feminine socks.\
-			<<else>>\
-				stockings.\
-			<<endif>>\
-		<<endif>>\
-		@@
-		
-		[[Return to the mall|Go to the mall]]
+		<<click "Return">><<set _itemSelector = true>><<set $scene="general">><<set _bought="">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
 	<<endif>>\
-	<<set $scene = "general">>\
-	<<set $player.bought="">>\
-<!--</First buy events>-->\
-<<elseif $scene eq "female Uniform">><!--<Extra items for school dress>-->\
-	Psyching yourself up you buy female school uniform.
+<<elseif $scene eq "female Uniform">>\
+	Psyching yourself up you buy a female school uniform.
 	
 	You also pick\
 	<<if (not $items.socks.ownAlt[0])>>\
@@ -170,8 +79,91 @@
 	<<endif>>\
 	to complete the set.
 
-	[[Return|Go to the mall]]
-	<<set $scene = "general">>\
-	<<set $player.bought="">>\
-<!--</Extra items for school dress>-->\
+	<<click "Return">><<set _itemSelector=true>><<set $scene="general">><<set _bought="">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
+<<elseif $scene eq "visitAdultStoreFirst">>\
+	You visit adult store for the first time. You are very embarrassed.
+
+	<<click "Return">><<set _itemSelector=true>><<set $scene="general">><<set _bought="">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
+<<elseif $scene eq "gstringAdvice">>\
+	You stare at the female lingerie, recalling $teacher's inspection. It was humiliating to hear her comments about panties suiting you, but you just can't get the idea out of your head. You stand among the clothes racks in a daze, trying to decide what pair you need to wear to appease $teacher.
+	  
+	@@.shopclothes;"Can I help you?"@@
+	  
+	Startled, you turn around to face a smiling girl, clearly the store clerk. Caught off guard, you try to think up a reasonable explanation for being in the lingerie section and finally stammer out that you’re looking for a present for your girlfriend’s birthday. 
+	  
+	@@.shopclothes;"Oh, a lingerie set. I bet you're looking for something //special//,"@@ she says with a knowing wink. 
+
+	She points at something that looks like a set of flimsy straps holding a tiny, half-transparent piece of cloth, and your eyes go wide. The mere idea of showing up for the $teacher's next inspection in the barely-there garment mortifies you.
+	  
+	You nervously shake your head, mumbling that you would like something less flashy.
+	  
+	The clerk thinks for a moment. 
+
+	@@.shopclothes;"Hmm. In that case, I would suggest this."@@ 
+
+	She reaches for a nearby rack and pulls off a red and black bra and panties set.\
+	<<print '<<showImageSpecial "items" "' + itemsC.braSexy.image + '00" "general">>'>>\
+	<<print '<<showImageSpecial "items" "' + itemsC.gString.image + '00" "general">>'>>\
+	  
+	@@.shopclothes;"While the style is daring, this lingerie set is also very comfortable, making it a great gift if you’re looking for something a little more practical."@@
+	  
+	The salesgirl keeps telling you about the lingerie’s material and practical design, but you are too distracted by its familiar color scheme to hear her.
+	  
+	@@.hero;These are the academy’s colors. Talk about coincidence.@@
+	  
+	A slightly annoyed *ahem* snaps you out of your thoughts, and once the clerk is certain she has your attention, she repeats the question you missed.
+	  
+	@@.shopclothes;"What are her measurements?"@@
+	  
+	You look at her blankly, still a bit confused.
+
+	@@.heroT;"Her?"@@
+	  
+	@@.shopclothes;"Your girlfriend."@@
+	  
+	@@.heroT;"Oh, yes! Right. My girlfriend..."@@ 
+
+	You have no idea how female underwear sizes work, so you say the only thing that comes to your mind.
+
+	@@.heroT;"They’re uh... kinda like mine?"@@
+	  
+	The clerk considers your stature carefully, paying special attention to your hips. Then, she steps behind you and spends a few moments examining your rear.
+	  
+	@@.shopclothes;"Hmm yes. I suppose she must be."@@ 
+
+	Her revelatory tone and the coy smile on her face are unsettling.
+	  
+	@@.hero;What’s that supposed to mean? Does she just think I have a girlish figure, or… does she know they’re for me??@@
+
+	@@.shopclothes;"The pair I showed you should be the right fit for someone of //your size//. Don't worry, I'm sure you'll get //very lucky// when you show her the present you bought for her. A good woman appreciates pretty underwear, believe me."@@ 
+
+	She winks at you. 
+
+	@@.shopclothes;"Although, I might suggest picking something a little more //exciting// next time."@@
+
+	You involuntarily blush, remembering the lingerie she initially suggested. Her suspicious tone is starting to concern you.
+	  
+	@@.hero;Wait. Does she think that I'm dressing up for someone with a thing for boys in panties? Oh god. Maybe she’s like that herself and speaking from experience.@@
+	  
+	The more you think about it, the more confused you get. You can't help but admit that the salesgirl isn't completely wrong - you are putting on panties for a woman, just not in the way that she’s imagining. 
+
+	@@.hero;I’m not wearing these because $teacher has a fetish... Right?@@
+	  
+	Suddenly, you aren't so sure anymore. You can’t stop wondering why $teacher's demands are so specific. What if she really does have a thing for boys in frilly panties and the whole punishment thing is just a roundabout way to get you in a pair? Does that mean that she's interested in you? Maybe she’ll drop this //debt// nonsense if you show some initiative? If you play along, you might even have a shot with her, despite how this mess all started.
+	  
+	Somehow, the idea about showing up for the //examination// wearing something a little more sexy doesn't sound that crazy. You would just be playing up to someone's fantasy, a small sacrifice for solving your problems. In fact, you might manage to get out of trouble and into $teacher's panties at the same time, even if the way to do so is so unusual.
+	  
+	@@.hero;What should I do?@@
+  
+	<<if ($player.money gte (itemsC.gString.cost + itemsC.braSexy.cost))>>\
+		<<click "Buy G-Strings and lacy bra">><<set _itemSelector=true>><<set $scene="general">><<set events.record('buyingSluttyPanties')>><<set $player.perversion.mall=2>><<buyItem 'gString'>><<buyItem 'braSexy'>><<set _bought="gString">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
+	<<elseif ($player.money gte itemsC.gString.cost)>>\
+		<<click "Buy g-strings and lacy bra">><<set _itemSelector=true>><<set $scene="general">><<set events.record('buyingSluttyPanties')>><<set $player.perversion.mall=2>><<buyItem 'gString'>><<set _bought="gString">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
+	<<else>>\
+		Sadly, you don't even have enough money to buy panties. 
+
+		@@.hero;Maybe I should try saving some of my allowance until I can afford this.@@
+	
+	<<endif>>\
+	<<click "Return">><<set _itemSelector=true>><<set $scene="general">><<set _bought="">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>
 <<endif>>\

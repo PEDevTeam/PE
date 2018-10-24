@@ -1,0 +1,15 @@
+:: Clothes events [pos_760_1083]
+\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<if _b and (not $events.insertingAnalPlug)>>\
+<<set $scene = "chastityFirst">>\
+<<elseif _c and (not $events.wearingChastity)>>\
+<<set $scene = "buttplugFirst">>\
+<<endif>>\
+<<if $scene eq "chastityFirst">>\
+<<set window.events.record('wearingChastity','min')>>\
+<<elseif $scene eq "buttplugFirst">>\
+<<set window.events.record('insertingAnalPlug','min')>>\
+<<endif>>\

@@ -40,17 +40,17 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 		<<set $items[_item.id].curAlt = 40>>\
 		<<set $items[_item.id].ownAlt[40] = true>>\
 	<<endif>>\
-	<<if (not $player.daringFlag.snooping) and (_ia.length gt 1)>>\
-		<<set $player.daringFlag.snooping to true>>\
+	<<if _item.id eq "pantiesCotton">><<set events.record('stealingPanties')>>\
+	<<elseif _item.id eq "vibrator">><<set events.record('stealingVibrator')>>\
+	<<elseif _item.id eq "playgirlMagazine">><<set events.record('stealingPlaygirl')>>\
+	<<endif>>\
+	<<if (not $events.stealingPanties) and (not $events.stealingVibrator) and (not $events.stealingPlaygirl) and (_ia.length gt 1)>>\
 		<<set $player.batterySneakDay = $time.day + 7>>\
-		<<if $player.daring eq 0>><<Daring 1>>\
-		<<elseif $player.daring eq 1>><<Daring 2>>\
-		<<endif>>\
 		The sound of $guardian moving around in the house startles you. In panic you grab $guardian's <<print _item.name.toLowerCase()>> and rush to your room.
 		
 		[[Return to your room|Go to bedroom]]
 		
-	<<elseif (random(1) gt 0) and (not $flags.guardianSnooping) and ($player.batterySneakDay gt $time.day + 2) and (_ia.length gt 1)>>\
+	<<elseif (random(2) gt 0) and (not $flags.guardianSnooping) and ($player.batterySneakDay gt $time.day + 2) and (_ia.length gt 1)>>\
 		<<set $flags.guardianSnooping to true>>\
 		You grab $guardian's <<print _item.name.toLowerCase()>> and rush to your room.
 
@@ -66,8 +66,7 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 			<<endif>>\
 			<<set $flags.guardianSnoopingCaught to true>>\
 		<<endif>>\
-		<<set $player.alarmClockGuardian=false>>\
-		<<set $items.batteriesQuality.disabled=true>>\
+		<<removeFromInv 'batteries'>>\
 		<<print "[[Run out holding " + $guardian + "'s " + _item.name.toLowerCase() + "|Go to bedroom]]">>
 	<<endif>>\
 <<else>>\

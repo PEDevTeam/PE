@@ -4,40 +4,69 @@
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 You open $guardian's Playgirl magazine and begin flipping through.
 
-It's filled with hot, hunky guys with ridiculously chiseled abs. Some are glistening with oil, and all are sporting big, thick erect cocks.  Their eyes burn into you, demanding you service them, to take them deep down your throat, or let them bend you over and take you as they want.
-
-<<if not _c>>\
-You start idly playing with your own penis, and before long you realize you're hard. <<endif>>It's scary to think of being in a room with one of these beefcakes, nobody to see what he does to you, your own little world without other people judging your fantasies.  
-
-What if he was too rough? Would you mind? Would you care if he used you, covered you in his sperm and demanded you clean him up, then left without a care for your own pleasure? Or would you prefer him kissing you, frenching you, then 69ing until you both came together?
-
-What if you seduced him, dressed as a girl, and he didn't know?  You could slip under the table at a restaurant, open his pants and suck him deep until he put his hands on your head and gently fucked your mouth until he came. 
-
-You could stand up with a mouthful of his cum and swallow as you walked away, knowing he would fantasize about you doing it again.
-
-<<if _c>>\
-	You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+It's filled with hot, hunky guys with ridiculously chiseled abs. Some are glistening with oil, and all are sporting big, thick erect cocks.\
+<<if (not $events.reaadPlaygirlMagazine)>>\
+	You aren't even sure why you expected something different, it's not like cover hides anything. Mostly you were just curious about what gets off $guardian. And as much as you can tell it's all pretty vanilla. Extreme confidence in expression and poses, toned muscles, cocks that would make any woman scream in exstasy.
+	
+	@@.hero;Why am I even looking at this?@@
+	
+	Looking at the pictures makes you feel inadequate. Even from printed pages these guys look so threatening, that you shiver in uneasiyness. It's like they are telling you that you won't ever compare to them. And what is the worst - you slowly get aroused. But it's probably due to your fantasies about $guardian caressing herself, not because you think about hunky guys staring at you with their ready cocks in the open, demanding you to service them. At least you hope so.
+	
+	A weird thought flashes through your brain - you can jerk off on it, just like $guardian. It's what this magazine is for anyway. You could get back on them, prove these guys aren't anything more than a fetish fuel. Fuck them all for making you feel small and weak.
+	
+	Or maybe you shouldn't? It would be a bit weird to jerk off on guys. Maybe you should just put it away and forget about it?
+	
+	[[Throw away the magazine|Read Playgirl magazine first][$scene="ThrowAway"; window.events.record('readPlayGirl','min');$player.perversion.mmChecks+=2]]
+	[[You are curious, but not that curious|Read Playgirl magazine first][$scene="PutAside"; window.events.record('readPlayGirl','med');$player.perversion.mmChecks++]]
+	[[Masturbate while reading the magazine|Read Playgirl magazine first][$scene="Masturbate"; window.events.record('readPlayGirl','max');$player.perversion.mmChecks++]]
 <<else>>\
-	You come hard, clean up quickly and \
-<<endif>>\
-put the magazine away, glad that $guardian didn't walk in on you.
+	It's filled with hot, hunky guys with ridiculously chiseled abs. Some are glistening with oil, and all are sporting big, thick erect cocks. Their eyes burn into you, demanding you service them, to take them deep down your throat, or let them bend you over and take you as they want.
 
-<<if _c>>\
-	<<set playerCode.changeArousal(5)>>\
-	<<set playerCode.upArousalTo(50,50)>>\
-	<<if $player.perversion.guardian gte 4>>\
-		<<set $player.masturbationType = 5>>\
-		After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
-		
+	<<if not _c>>\
+		You start idly playing with your own penis, and before long you realize you're hard.\
 	<<endif>>\
-	[[Do something else|Go to bedroom]] 
-<<else>>\
-	<<if $player.perversion.guardian gte 4>>\
-		<<set $player.masturbationType = 6>>\
-		After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
-		
+	It's scary to think of being in a room with one of these beefcakes, nobody to see what he does to you, your own little world without other people judging your fantasies.  
+
+	What if he was too rough? Would you mind? Would you care if he used you, covered you in his sperm and demanded you clean him up, then left without a care for your own pleasure? Or would you prefer him kissing you, frenching you, then 69ing until you both came together?
+
+	What if you seduced him, dressed as a girl, and he didn't know?  You could slip under the table at a restaurant, open his pants and suck him deep until he put his hands on your head and gently fucked your mouth until he came. 
+
+	You could stand up with a mouthful of his cum and swallow as you walked away, knowing he would fantasize about you doing it again.
+
+	<<if _c>>\
+		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+	<<else>>\
+		You come hard, clean up quickly and \
 	<<endif>>\
-	[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	put the magazine away, glad that $guardian didn't walk in on you.
+	
+	/*
+	
+	- jerk off
+		+ mention buttplug
+	- cage
+		+ mention bodymods (penis, breasts, lips, anus)
+		+ mention buttplug
+	- use vibrator
+		+ mention cage
+		+ mention bodymods (penis, breasts, lips, anus)
+	
+	*/\
+	<<if _c>>\
+		<<set playerCode.changeArousal(5)>>\
+		<<set playerCode.upArousalTo(50,50)>>\
+		<<if $player.perversion.guardian gte 4>>\
+			<<set $player.masturbationType = window.masturbateType.playgirlChastNoCum>>\
+			After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
+			
+		<<endif>>\
+		[[Do something else|Go to bedroom]] 
+	<<else>>\
+		<<if $player.perversion.guardian gte 4>>\
+			<<set $player.masturbationType = window.masturbateType.playgirlCum>>\
+			After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
+			
+		<<endif>>\
+		[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	<<endif>>\
 <<endif>>\
-
-

@@ -2,17 +2,26 @@
 \
 You browse through your favorite sites, looking over what's new. There are few categores that catch your attention.
 
-[[Vanilla porn|Watch porn on computer][$player.perversion.pornType=0;$scene="watchPorn"]]
-<<if $kink.futa>>\
-	[[Shemales on females|Watch porn on computer][$player.perversion.pornType=2;$scene="watchPorn";$scene="watchPorn"]]
+[[Vanilla porn|Watch porn on computer][$player.perversion.pornType=window.pornType.vanilla;$scene="watchPorn"]]
+[[Lesbians|Watch porn on computer][$player.perversion.pornType=window.pornType.lesbians;$scene="watchPorn"]]
+<<if ($player.feminization gte 30) or $kink.futa or ($player.perversion.friend gte 2)>>\
+	[[Shemales on females|Watch porn on computer][$player.perversion.pornType=window.pornType.shemalesOnFemales;$scene="watchPorn"]]
+	[[Only shemales|Watch porn on computer][$player.perversion.pornType=window.pornType.onlyShemales;$scene="watchPorn"]]
 <<endif>>\
-/*
-[[Lesbians|Watch porn on computer][$player.perversion.pornType=1;$scene="watchPorn"]]
-[[Males on shemales|Watch porn on computer][$player.perversion.pornType=3;$scene="watchPorn"]]
-[[Shemales on males|Watch porn on computer][$player.perversion.pornType=4;$scene="watchPorn"]]
-[[Only shemales|Watch porn on computer][$player.perversion.pornType=5;$scene="watchPorn"]]
-[[Pegging|Watch porn on computer][$player.perversion.pornType=6;$scene="watchPorn"]]
-[[Males on traps|Watch porn on computer][$player.perversion.pornType=7;$scene="watchPorn"]]
-[[Only traps|Watch porn on computer][$player.perversion.pornType=8;$scene="watchPorn"]]
-[[Female PoV|Watch porn on computer][$player.perversion.pornType=9;$scene="watchPorn"]]
-*/\
+<<if ($player.feminization gte 50) and ($player.bisexuality gt 40)>>\
+	[[Males on shemales|Watch porn on computer][$player.perversion.pornType=window.pornType.malesOnShemales;$scene="watchPorn"]]
+	[[Shemales on males|Watch porn on computer][$player.perversion.pornType=window.pornType.shemalesOnMales;$scene="watchPorn"]]
+<<endif>>\
+<<if $player.feminization gte 50>>\
+	[[Pegging|Watch porn on computer][$player.perversion.pornType=window.pornType.pegging;$scene="watchPorn"]]
+	[[Females on traps|Watch porn on computer][$player.perversion.pornType=window.pornType.femalesOnTraps;$scene="watchPorn"]]
+<<endif>>\
+<<if ($player.feminization gte 60)>>\
+	<<if ($player.bisexuality gt 40)>>\
+		[[Males on traps|Watch porn on computer][$player.perversion.pornType=window.pornType.malesOnTraps;$scene="watchPorn"]]
+	<<endif>>\
+	[[Only traps|Watch porn on computer][$player.perversion.pornType=window.pornType.onlyTraps;$scene="watchPorn"]]
+<<endif>>\
+<<if ($player.feminization gte 70) and ($player.bisexuality gt 40)>>\
+	[[Female PoV|Watch porn on computer][$player.perversion.pornType=window.pornType.femalePoV;$scene="watchPorn"]]
+<<endif>>\

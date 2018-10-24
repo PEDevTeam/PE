@@ -15,6 +15,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	[[You beat a hasty exit|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=3;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 <<elseif [2,3].includes(_slb)>>\
+	<<set events.record('clubSelfieLadiesRoom')>>\
 	The woman glances up upon hearing your question, finishing up with the sink then turning your way. Puzzlement and suspicion tint her expression as she looks you over. Her eyes narrow.
 
 	@@.femvoice4;“Am I on some kind of hidden camera thing? You’re cute and all, but, um… I think maybe only one of us is actually supposed to be in here. Are you serious?”@@
@@ -75,6 +76,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 		[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=3; $time.addMinutes(10)]]
 	<<endif>>\
 <<elseif [4,5].includes(_slb)>>\
+	<<set events.record('clubSelfieLadiesRoom')>>\
 	The girl finishes washing her hands, looking up to see who’s asked the question. She looks you over, thinking about your request, and nods her consent.
 
 	@@.femvoice4;“Sure, honey,”@@ she says. @@.femvoice4;“Let me just check my makeup really quick.”@@
@@ -115,6 +117,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	[[Head back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=5; $time.addMinutes(10)]]
 <<elseif [6,7].includes(_slb)>>\
+	<<set events.record('clubSelfieLadiesRoom')>>\
 	The girl gives you an odd, slantwise glance as she finishes up with her routine at the counter, withholding her direct attention until after she’s done. She seems to take her sweet time with this, too. Her expression and body language aren’t unfriendly, per se, but she seems like she’s sizing you up.
 
 	@@.femvoice4;“So, who are you again?”@@ she probes icily, tilting her hip. She looks you antagonistically.
@@ -143,6 +146,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 
 	[[Go back into the club|The Club][$tasksTeacher.clubSelfieLadiesRoom.status=2;$tasksTeacher.clubSelfieLadiesRoom.progress=7; $time.addMinutes(10)]]
 <<else>>\
+	<<set events.record('clubSelfieLadiesRoom')>>\
 	At your question, the girl looks around the bathroom, just to make sure you were actually asking her. When she realizes there’s no one else nearby, she responds with a shy smile and a nod of her head.
 
 	She takes some extra time checking herself in the mirror, sorting out imperceptible flaws her clothing and makeup, and sneaking peeks at you via your reflection. She brushes her lap to smooth her dress as she turns and steps your way. As her eyes flicker over you and meet yours, you spot a little twinkle.

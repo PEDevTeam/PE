@@ -284,7 +284,7 @@ window.coachMinigame = {
 		coachgame.actionSuccess=[];
 		coachgame.win=false;
 		coachgame.playedToday=false;
-		if (State.active.variables.player.daringFlag.coachGameWin) {
+		if (State.active.variables.events.coachGameWin) {
 			coachgame.coachiness=8;
 		}
 	}

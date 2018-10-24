@@ -4,10 +4,10 @@
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set window.wordsCode.setwords()>>\
 \
-<<if $scene eq "femaleUnderwearOut">>\
-	<<set $player.exp.femaleUnderwearOut = true>>\
-	You step outside, unconsciously pulling up the waistband of your [pants/jeans] up to hide the silky fabric underneath.
+<<if $scene eq "outsideInPanties">>\
+	You step outside, unconsciously pulling up the waistband of your <<if _o.female>>clothes<<elseif _o.school>>pants<<else>>jeans<<endif>> up to hide the silky fabric underneath.
 
 	@@.hero;It’s ok. No one can see them. Just a normal guy walking down the street wearing normal, everyday underwear.@@
 
@@ -18,9 +18,7 @@
 	Despite the anxiety of potentially being discovered (or perhaps even because of it, a little) you gradually manage to begin to enjoy your first experience of being out in your new panties.
 
 	<<set _destination = locationsJS[$player.location].destination>><<print "[[Eventually, you get where you’re going|_destination]]">>
-<<elseif $scene eq "femaleSluttyUnderwearOut">>\
-	<<set $player.exp.femaleUnderwearOut = true>>\
-	<<set $player.exp.femaleSluttyUnderwearOut = true>>\
+<<elseif $scene eq "outsideInSluttyPanties">>\
 	You let out a quiet groan as you find yourself rooted in place, unable to keep walking. 
 
 	@@.hero;It’s amazing how a tiny piece of fabric can be this terrifying.@@
@@ -47,18 +45,10 @@
 
 	You check the time and are shocked at how late you’re running. Desperate to make up for lost time, you pick up the pace, constantly squirming as you try to adjust to your new wardrobe addition.
 
-	<<if $player.daring lt 4>>\
-		<<Daring 4>>\
-	<<endif>>\
 	<<set _destination = locationsJS[$player.location].destination>><<print "[[Eventually, you get where you’re going|_destination]]">>
-<<elseif $scene eq "chastityOut">>\
-	<<if _u and _u.female>>\
-		<<set $player.exp.femaleUnderwearOut = true>>\
-		<<set $player.exp.femaleSluttyUnderwearOut = true>>\
-	<<endif>>\
-	<<set $player.exp.chastityOut = true>>\
+<<elseif $scene eq "outsideInChastity">>\
 	<<if _b>>\
-		<<set $player.exp.buttplugOut = true>>\
+		<<set events.record('outsideWithButtplug')>>\
 		You head out, and your attention is instantly and inescapably pulled to your cock and rear hole. The sensations created by the new cage and plug you’re wearing are impossibly out of proportion to diminutive size of the new equipment occupying your body. You want to shed your <<if _o.female>>clothes<<elseif _o.school>>pants<<else>>jeans<<endif>> right here in the street, pull down your <<if _u.female>>panties<<elseif _u>>boxers<<endif>> and tear off the damned devices. 
 
 		You can’t, though. You’re trapped - and there’s nothing you can do about it while you’re in full, public view. Your eyes furtively search those of passers-by and then dart away, as you wonder if they can tell what’s being done to your body.
@@ -75,7 +65,7 @@
 
 		Eventually, however, you do get a little more used to the twin devices. You feel considerably less pain, but the now-unhindered pleasure that remains just intensifies your difficulty with being in chastity. After what seems like an eternity, and with legs wobbling and your breath shallow,\
 	<<else>>\
-		From the moment you step out, the new, hard plastic cage you’re wearing under your [boxers/panties/lacy panties/latex panties] constantly pinches and binds against your imprisoned penis. The relentless stimulation keeps you painfully half-erect, which only makes the fit even tighter and more constricting, in a vicious cycle.
+		From the moment you step out, the new, hard plastic cage you’re wearing under your <<if _u.female>>panties<<elseif _u>>boxers<<endif>> constantly pinches and binds against your imprisoned penis. The relentless stimulation keeps you painfully half-erect, which only makes the fit even tighter and more constricting, in a vicious cycle.
 
 		@@.hero;What was I thinking?@@
 
@@ -86,30 +76,20 @@
 		Eventually, you get where you’re going, but you’re not sure how - you realize you haven’t thought about anything besides your chastity device until\
 	<<endif>>\
 	<<set _destination = locationsJS[$player.location].destination>><<print "[[You finally arrive|_destination]]">>
-	<<if $player.daring lt 4>>\
-		<<Daring 4>>\
-	<<endif>>\
-<<elseif $scene eq "buttplugOut">>\
-	<<if _u and _u.female>>\
-		<<set $player.exp.femaleUnderwearOut = true>>\
-		<<set $player.exp.femaleSluttyUnderwearOut = true>>\
-	<<endif>>\
-	<<set $player.exp.buttplugOut = true>>\
+<<elseif $scene eq "outsideWithButtplug">>\
 	Every step you take forces your attention to the hard, intruding mass lodged in your stretched rear entrance. Though you gradually adjust to the buttplug wedging open your rectum for the first time, your stride agitates it into a stirring motion that tickles your sensitive prostate in turn. You swoon a little as little detonations of pleasure and mild pain jet through you unpredictably.
 
 	Your awkward gait draws cryptic glances from passers-by as you struggle toward your destination. Your heart races as you ponder whether everyone is just confused, or if the secret under your <<if _o.female>>clothes<<elseif _o.school>>pants<<else>>jeans<<endif>> is detectable somehow. When a stranger clad in leather and piercings flashes you a knowing grin, the seeming recognition drives your already-thudding heart into a frenzy. You scurry away, mortified.
 
 	@@.hero;Oh, god. They can tell!@@
 
-	The trip seems to take an eternity, and you spend it humbled and confused as to whether you’re more bothered or ‘hot and bothered.’ Your question is answered when you notice the heavy, damp spot of pre-cum in front of your [penis/chastity cage]. You only pray it wasn’t obvious to everyone else, too.
+	The trip seems to take an eternity, and you spend it humbled and confused as to whether you’re more bothered or ‘hot and bothered.’ Your question is answered when you notice the heavy, damp spot of pre-cum in front of your $penis. You only pray it wasn’t obvious to everyone else, too.
 	
-	<<if $player.daring lt 4>>\
-		<<Daring 4>>\
-	<<endif>>\
-	At long last,\	
+	At long last,\
 	<<set _destination = locationsJS[$player.location].destination>><<print "[[You finally arrive|_destination]]">>
 <<else>>\
 	It's a bug. Call bugfixers.
+	Name of the scene is: <<print $scene>>
 	
 	<<print "[[Continue|Go to bedroom]]">>
 <<endif>>\

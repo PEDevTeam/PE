@@ -3,6 +3,7 @@ window.gameCode={
 }
 
 Config.history.maxStates=1;
+Config.history.controls = false;
 
 window.sidebarTabs=[
 	{

@@ -1,7 +1,7 @@
 :: Dream game [pos_1908_0]
 \
 <<if window.dreamMinigame.isAwake()>>\
-	<<if $player.alarmClockGuardian and ($time.hour gt $time.guardian.wakeHour or ($time.hour eq $time.guardian.wakeHour and $time.minute gte $time.guardian.wakeMinute))>>\
+	<<if ($time.day lt $player.batteryExpireDay) and ($time.hour gt $time.guardian.wakeHour or ($time.hour eq $time.guardian.wakeHour and $time.minute gte $time.guardian.wakeMinute))>>\
 		A shrill beeping startles you, and you realize $guardian's alarm clock is going off.  You quickly duck out of the bedroom before she opens her eyes.
 	<<else>>\
 		You suddenly realize that $guardian's breathing has stopped, and fearing that she knows you're there, you quickly and quietly tip-toe out.

@@ -16,6 +16,7 @@
 	[[Refuse|Go to the mall]]
 	
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
+	<<set $tasksTeacher.trialChastity.progress = 1>>\
 	<<if (not playerCode.owns(itemsC.chastityDevice))>>\
 		<<set _item=$items.chastityDevice>>\
 		<<addToInv _item.id>>\
@@ -32,10 +33,7 @@
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.progress = 4>>\
 	<<endif>>\
-	/*
-	<<set $tasksTeacher.trialChastity.text.checkMe.reminder = "You haven't finished the trial yet.">>\
-	<<set $tasksTeacher.trialChastity.text.reminder = "I hope you will be very thorough describing your experience with this research project.">>\
-	*/\
+	/* WriterEdit - scene edited so PC takes off items after trying it on */\
 	You agree, so the shopkeeper takes you to a small cubicle with a curtain instead of a door. She brings several boxes containing chastity cages of various sizes, and a small metal butt-plug. She tells you to find a cage option that fits you and then leaves, noting she’ll be nearby if you need anything.
 
 	You take off your pants \
@@ -83,27 +81,35 @@
 	
 	As you finally find and wear a cage that fits you, she tells you in detail how to put in the butt-plug. Her lurid choice of directions are better suited to an erotic novel, so you guess she's still fucking with you. It's working, though. You press the metal of the plug against your anus, feeling cold and pressure; against your will, your penis stirs again. By the time you feel the plug seat into place, you're deeply mortified and flustered.
 
-	You hastily finish and dress. You're immediately aware of the slowly-warming but unyielding lump of butt-plug inside your rectum, as well as the turgid shaft of your penis straining painfully against its tormenting new cage. You take a deep breath and try shrug off the discomfort, but then your confronted by the fact you still have to go out like this. 
-	
-	The shopkeeper is waiting. She knows exactly what you've done to yourself, and what you're hiding under your clothing.
+	You hastily finish and start to dress. You're immediately aware of the slowly-warming but unyielding lump of butt-plug inside your rectum, as well as the turgid shaft of your penis straining painfully against its tormenting new cage. You take a deep breath and try shrug off the discomfort, but then your confronted by the fact you still have to go out like this.
 
-	You're beet red as you emerge. You keep your head down, unable to meet her eyes, but a furtive glance as you sidle by tells you she's smiling widely. You mumble excuses in hopes of making a hasty exit, but she cheerfully replies with more words of humiliating, parting advice instead.
+	The shopkeeper is waiting. She knows exactly what you've done to yourself, and what you're hiding under your clothing. You're beet red as you emerge. You keep your head down, unable to meet her eyes, but a furtive glance as you sidle by tells you she's smiling widely.
+	
+	@@.shopclothes;"So, everything is alright?"@@ she asks. @@.shopclothes;"Does it fit properly?"@@
+	
+	You just nod, not trusting your voice.
+	
+	@@.shopclothes;"Good, now you can return and take it off. I think it you would need to get used to it at your home. Walking around with these might be quite an experience for a first time."@@
+	
+	@@.hero;What?@@
+	
+	@@.heroT;What? Then why did you told me to put these on?@@
+	
+	@@.shopclothes;"I had to check if I guessed sizes correctly,"@@ she says. @@.shopclothes;"Also it was fun."@@
+	
+	You hastly return to the dressing cubicle and remove both items before exiting again. You mumble excuses in hopes of making a hasty exit, but she cheerfully replies with more words of humiliating, parting advice instead.
 	
 	@@.shopclothes;"See you again in a few days,"@@ she says. @@.shopclothes;"//Have fun!//"@@
 
 	Unable to bear more, you scurry out of the store with what's left of your shrunken self-respect.
 	
-	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.exp.chastityExp=0]]
-	
+	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;playerCode.removeClothesJS(chastityDevice);playerCode.removeClothesJS(buttPlugHeart)]]
+
 <<elseif ($tasksTeacher.trialChastity.status eq 5)>>\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<if playerCode.isWearing(itemsC.chastityDevice)>>\
-		<<removeClothing 'chastityDevice'>>\
-	<<endif>>\
-	<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
-		<<removeClothing 'buttPlugHeart'>>\
-	<<endif>>\
+	<<removeClothing 'chastityDevice'>>\
+	<<removeClothing 'buttPlugHeart'>>\
 	You enter the adult store, finding the shopkeeper to help you finish the market research trial. She greets you and leads you back to the cubicles.
 	<<if _c or _b>>\
 		She asks you to remove\

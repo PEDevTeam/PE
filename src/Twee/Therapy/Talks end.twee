@@ -1,0 +1,14 @@
+:: Talks end [pos_128_224]
+\
+<<set $scene="">>\
+<<if $player.therapistTime lte 0>>\
+	You've talked a lot today. You can to continue discussing things on your next visit.
+
+<<else>>\
+	<<include "Therapist talk topics">>\
+<<endif>>\
+<<if ($player.perversion.therapist gt 2)>>\
+	[[Return|Visit therapist][$flags.therapistTalk=true]]
+<<else>>\
+	<<include [[Travel]]>>\
+<<endif>>\

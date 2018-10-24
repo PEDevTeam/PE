@@ -11,129 +11,134 @@ You put on pink socks and $guardian 's pink roller skates that were once the sou
 <<else>>\
 <<print '<<showImage "general" "dildo_play_'+random(9)+'.gif">>'>>\
 <<endif>>\
-<<if _b>>\
-	<<removeClothing _b.id>>\
-	You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if $items.vibrator.curAlt eq 40>>$guardian's<<else>>your<<endif>> vibrator, you \
+<<if false and $player.exp.vibratorExp eq 0>>\
+	/* First scene */
 <<else>>\
-	You take <<if $items.vibrator.curAlt eq 40>>$guardian's<<else>>your<<endif>> vibrator and \
-<<endif>>\
-lick it wet, then hold it standing up on the floor while you sit down on it.  It enters you more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
-
-With trembling fingers you reach down and turn the dial on it, and it suddenly jumps to life, vibrating softly in your ass. \
-<<if _c>>\
-	Your penis pulses firmly within your chastity cage and you're immediately on the edge.  You rub the plastic surrounding your penis in vain, but you feel nothing except the relentless sensations of the toy in your ass.
-<<else>>\
-	Your penis pulses hard. You're desperate for touch, but you just bite your lip and keep your hands off. This time you want a different kind of release. So with a heavy sigh you just watch your penis twitching as it responds to the relentless sensations of the toy in your ass.
-<<endif>>\
-
-The vibrations begin sending you into a rhythm of ecstasy, then relaxation - hard as steel, then softening.  Each time the pulses get quicker and quicker, until you're just hard and the pressure grows and grows until you're worried it will be too much.\
-\
-<<if (not $flags.vibratorCaught) and ($player.perversion.guardian eq 3)>>\
-	<<set $flags.vibratorCaught to true>>\
-	You feel like you're about to explode and you whimper, but suddenly the door opens and $guardian enters your room, her eyes going wide at the scene. You forgot to lock the door, and someone forgot to knock!
-
-	In a panicked motion, you jerk the vibrator from your ass, forcing an involuntarily moan from you, to the further shock of $guardian.\
-	<<if (not $flags.guardianNoticeChastity)>>\
-		<<set $flags.guardianNoticeChastity = true>>\
-		She stares at your chastity cage and you realize you leak precum on your sheets in full view, as if whole thing wasn't humiliating enough.\
-	<<endif>>\
-	An uncomfortable silence hangs between you as you awkwardly stay on your knees, still holding the vibrator in your arms while $guardian struggles to find words, both of your faces red with embarrassment.
-
-	@@.guardian;"I... There is... What is all of this?!"@@
-
-	You consider your reply and open your mouth to speak, but $guardian interrupts.
-
-	<<if $items.vibrator.curAlt eq 40>>\
-		@@.guardian;"Is that my vib..."@@ She stops midword and frowns.
-
-	<<endif>>\
-	@@.guardian;"No, I don't even want to hear about it right now. I... I need to think about it."@@
-
-	With that, she turns around and carefully closes the door behind her. You don't even know why she came in to begin with.
-
-	Huh. That went well.
-
-	<<if $player.arousal lt 50>>\
-		Despite everything, the experience made you even hornier.
-		<<set playerCode.upArousalTo(50,50)>>\
-		
+	<<if _b>>\
+		<<removeClothing _b.id>>\
+		You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if $items.vibrator.curAlt eq 40>>$guardian's<<else>>your<<endif>> vibrator, you \
 	<<else>>\
-		Despite everything, the experience have dulled some of the tension, at least for a little while.
-		<<set playerCode.masturbate.tempRelief(1)>>\
-		
+		You take <<if $items.vibrator.curAlt eq 40>>$guardian's<<else>>your<<endif>> vibrator and \
 	<<endif>>\
-<<elseif playerCode.isButtslut()>>\
-	<<set playerCode.masturbate.cum()>>\
-	You feel like you're about to explode and you whimper, afraid to cry out lest you scream, until finally the pressure breaks and\
+	lick it wet, then hold it standing up on the floor while you sit down on it.  It enters you more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
 
-	<<if (not _c)>>\
-		a solid stream of jizz pours out of your cock.  A fountain of cum that seems to go forever, while your orgasm pulses hard.
-
-		Slowly you realize that you just came without touching your dick on this rare occasion when you actually could have! You feel your cheeks tinge red at the thought of what a submissive buttslut you're becoming.
-		
-		<<if $player.perversion.guardian gte 4>>\
-			<<set $player.masturbationType = 11>>\
-		<<endif>>\
+	With trembling fingers you reach down and turn the dial on it, and it suddenly jumps to life, vibrating softly in your ass. \
+	<<if _c>>\
+		Your penis pulses firmly within your chastity cage and you're immediately on the edge.  You rub the plastic surrounding your penis in vain, but you feel nothing except the relentless sensations of the toy in your ass.
 	<<else>>\
-		a solid stream of jizz pours from tip of your chastiy cage. It flows steadily and seems to go forever, while your orgasm pulses hard despite your cock being confined in its cage.
-		<<if (not $flags.chastityLocked)>>\
-		
-			You could have removed chastity cage, but you chose to leave it on. Somehow it feels more appropriate for a buttslut like you to have your penis kept small and tightly locked during the ejaculation.
-		<<endif>>\
-		
-		<<if ($player.perversion.guardian gte 4)>>\
-			<<set $player.masturbationType = 10>>\
-		<<endif>>\
+		Your penis pulses hard. You're desperate for touch, but you just bite your lip and keep your hands off. This time you want a different kind of release. So with a heavy sigh you just watch your penis twitching as it responds to the relentless sensations of the toy in your ass.
 	<<endif>>\
-	You open your eyes and realize you've had them closed for a while, and the vibrator is still buzzing away in your ass.  You quickly turn it off, gently pull it out and clean it off.  The pool of cum you're sitting in takes a bit longer to clean up, but after a bit of work you're left feeling clean, relaxed and looking forward to doing that again.
 
-<<else>>\
-	You whimper, it feels like you're about to explode, but release never comes. After spending some time in sweet torture, you give up and remove the vibrator.
+	The vibrations begin sending you into a rhythm of ecstasy, then relaxation - hard as steel, then softening.  Each time the pulses get quicker and quicker, until you're just hard and the pressure grows and grows until you're worried it will be too much.\
+	\
+	<<if (not $flags.vibratorCaught) and ($player.perversion.guardian eq 3)>>\
+		<<set $flags.vibratorCaught to true>>\
+		You feel like you're about to explode and you whimper, but suddenly the door opens and $guardian enters your room, her eyes going wide at the scene. You forgot to lock the door, and someone forgot to knock!
 
-	<<if ((not $flags.chastityKey) or (not $flags.chastityLocked))>>\
-		<<if $player.arousal lt 50>>\
-			The chastity cage is the only thing that stops you from jerking off. You could have take it off, but you chose to leave it on. Maybe you enjoy this feeling of helplessness, teasng yourself with the vibrator and unable to touch your penis?
-		<<else>>\
-			You chose to pacify your urges by slowly fucking yourself with the vibrator instead of removing the chastity cage and jerking off.
+		In a panicked motion, you jerk the vibrator from your ass, forcing an involuntarily moan from you, to the further shock of $guardian.\
+		<<if (not $flags.guardianNoticeChastity)>>\
+			<<set $flags.guardianNoticeChastity = true>>\
+			She stares at your chastity cage and you realize you leak precum on your sheets in full view, as if whole thing wasn't humiliating enough.\
 		<<endif>>\
-	
-	<<endif>>\
-	<<if (not playerCode.masturbate.isCalm())>>\
+		An uncomfortable silence hangs between you as you awkwardly stay on your knees, still holding the vibrator in your arms while $guardian struggles to find words, both of your faces red with embarrassment.
+
+		@@.guardian;"I... There is... What is all of this?!"@@
+
+		You consider your reply and open your mouth to speak, but $guardian interrupts.
+
+		<<if $items.vibrator.curAlt eq 40>>\
+			@@.guardian;"Is that my vib..."@@ She stops midword and frowns.
+
+		<<endif>>\
+		@@.guardian;"No, I don't even want to hear about it right now. I... I need to think about it."@@
+
+		With that, she turns around and carefully closes the door behind her. You don't even know why she came in to begin with.
+
+		Huh. That went well.
+
 		<<if $player.arousal lt 50>>\
-			It feels that it only made you hornier.
+			Despite everything, the experience made you even hornier.
 			<<set playerCode.upArousalTo(50,50)>>\
+			
 		<<else>>\
-			Still, it dulled some of the tension, allowing you to relax, at least for a little while.
-			<<set playerCode.masturbate.tempRelief(1)>><!-- 1 hour -->\
+			Despite everything, the experience have dulled some of the tension, at least for a little while.
+			<<set playerCode.masturbate.tempRelief(1)>>\
+			
 		<<endif>>\
+	<<elseif playerCode.isButtslut()>>\
+		<<set playerCode.masturbate.cum()>>\
+		You feel like you're about to explode and you whimper, afraid to cry out lest you scream, until finally the pressure breaks and\
 
-	<<endif>>\
-	<<if $player.perversion.guardian gte 4>>\
-		<<set $player.masturbationType = 9>>\
+		<<if (not _c)>>\
+
+			a solid stream of jizz pours out of your cock.  A fountain of cum that seems to go forever, while your orgasm pulses hard.
+
+			Slowly you realize that you just came without touching your dick on this rare occasion when you actually could have! You feel your cheeks tinge red at the thought of what a submissive buttslut you're becoming.
+			
+			<<if $player.perversion.guardian gte 4>>\
+				<<set $player.masturbationType = window.masturbateType.vibAssCum>>\
+			<<endif>>\
+		<<else>>\
+			a solid stream of jizz pours from tip of your chastiy cage. It flows steadily and seems to go forever, while your orgasm pulses hard despite your cock being confined in its cage.
+			<<if (not $flags.chastityLocked)>>\
+			
+				You could have removed chastity cage, but you chose to leave it on. Somehow it feels more appropriate for a buttslut like you to have your penis kept small and tightly locked during the ejaculation.
+			<<endif>>\
+			
+			<<if ($player.perversion.guardian gte 4)>>\
+				<<set $player.masturbationType = window.masturbateType.vibAssChastCum>>\
+			<<endif>>\
+		<<endif>>\
+		You open your eyes and realize you've had them closed for a while, and the vibrator is still buzzing away in your ass.  You quickly turn it off, gently pull it out and clean it off.  The pool of cum you're sitting in takes a bit longer to clean up, but after a bit of work you're left feeling clean, relaxed and looking forward to doing that again.
+
+	<<else>>\
+		You whimper, it feels like you're about to explode, but release never comes. After spending some time in sweet torture, you give up and remove the vibrator.
+
+		<<if ((not $flags.chastityKey) or (not $flags.chastityLocked))>>\
+			<<if $player.arousal lt 50>>\
+				The chastity cage is the only thing that stops you from jerking off. You could have take it off, but you chose to leave it on. Maybe you enjoy this feeling of helplessness, teasng yourself with the vibrator and unable to touch your penis?
+			<<else>>\
+				You chose to pacify your urges by slowly fucking yourself with the vibrator instead of removing the chastity cage and jerking off.
+			<<endif>>\
+		
+		<<endif>>\
+		<<if (not playerCode.masturbate.isCalm())>>\
+			<<if $player.arousal lt 50>>\
+				It feels that it only made you hornier.
+				<<set playerCode.upArousalTo(50,50)>>\
+			<<else>>\
+				Still, it dulled some of the tension, allowing you to relax, at least for a little while.
+				<<set playerCode.masturbate.tempRelief(1)>><!-- 1 hour -->\
+			<<endif>>\
+
+		<<endif>>\
+		<<if $player.perversion.guardian gte 4>>\
+			<<set $player.masturbationType = window.masturbateType.vibAssChastCalm>>\
+		<<endif>>\
 	<<endif>>\
 <<endif>>\
 \
+<<set $player.exp.vibratorExp++>>\
 <<if $player.perversion.guardian gte 4>>\
 	<<if $player.perversion.upload eq 0>>\
 		After some time a *bing* from your computer draws your attention and you find a "Fun time" folder with a video of you fucking yourself with the vibrator.
 		Must be some kind of auto-recording feature of the camera in your room.
 
 		[[Check video|UploadPorn]]
-	<<elseif ($tasksEmail.PinkRollers.status gte 2)>>\
-		<<set $tasksEmail.PinkRollers.status = 3>>\
-		After some time a familiar *bing* from your computer notifies you as a recording of you fucking yourself with a vibrator appears there.
-
-		[[Send video|UploadPorn]]
-	<<elseif ($tasksEmail.WebcamDildoAss.status gte 2)>>\
-		<<set $tasksEmail.WebcamDildoAss.status = 3>>\
-		After some time a familiar *bing* from your computer notifies you as a recording of you fucking yourself with a vibrator appears there.
-
-		[[Send video|UploadPorn]]
 	<<else>>\
+		<<if ($tasksEmail.PinkRollers.status gte 2)>>\
+			<<set $tasksEmail.PinkRollers.status = 3>>\
+			<<set _showSend = true>>\
+		<<endif>>\
+		<<if ($tasksEmail.WebcamDildoAss.status gte 2)>>\
+			<<set $tasksEmail.WebcamDildoAss.status = 3>>\
+			<<set _showSend = true>>\
+		<<endif>>\
 		After some time a familiar *bing* from your computer notifies you as a recording of you fucking yourself with a vibrator appears there.
-
+		
+		<<if _showSend>>\
+			[[Send video|UploadPorn]]
+		<<endif>>\
 	<<endif>>\
 <<endif>>\
 [[Do something else|Go to bedroom]]\
-
-

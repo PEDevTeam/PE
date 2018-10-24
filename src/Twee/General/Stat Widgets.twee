@@ -1,13 +1,5 @@
 :: Stat Widgets [pos_2302_12 widget]
 \
-<<widget "Daring">>\
-	<<if $args[0] gt $player.daring>>\
-		@@.statUp;You feel <<if ($args[0]-$player.daring) gt 1>>much <<endif>>more daring!@@
-		<<set $player.daring=$args[0]>>\
-	<<endif>>\
-	
-<</widget>>\
-
 <<widget "updateClothes">>\
 <<nobr>>\
 <<replace "#sidebar_clothes">>
@@ -161,7 +153,7 @@
 	<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>
 	<<if _f>>
 		<<if _f.female>>
-			<<if _f.daringRec gte 6>>
+			<<if _f.id eq "stilettoHeels">>
 				<<if $items[_f.id].curAlt eq 0>>
 					<<set _feets="feets_stripper_a.png">>
 				<<elseif $items[_f.id].curAlt eq 1>>
@@ -495,7 +487,6 @@
 <<widget "updateStats">>\
 <<nobr>>\
 <<replace "#sidebar_stats">>
-	<b>Daring:</b> $player.daring<br>
 	<<if $player.schoolTruantDays gt 0>>
 		<b>Truancy:</b> $player.schoolTruantDays<br>
 	<<endif>>
@@ -517,14 +508,14 @@
 <<widget "updateDebug">>\
 <<replace "#sidebar_debug">>\
 	[[Sleep|Daily resets][$time.hour=16; window.timeCode.newDay(); $player.debugN=50]] , \
-	[[h8|Go to bedroom][$time.hour=8]] [[h14|Go to bedroom][$time.hour=14]] [[h17|Go to bedroom][$time.hour=17]] [[h21|Go to bedroom][$time.hour=21]], \
- 	[[Email|Go to bedroom][$player.debugN=100; $player.perversion.uploadCooldown=0]]
-	[[Visit therapist]] ,\
+	[[h8|Go to bedroom][$time.hour=8]],[[h11|Go to bedroom][$time.hour=11]],[[h15|Go to bedroom][$time.hour=15]],[[h17|Go to bedroom][$time.hour=17]],[[h21|Go to bedroom][$time.hour=21]]
+ 	[[Email|Go to bedroom][$player.debugN=100; $player.perversion.uploadCooldown=0]], \
+	[[Therapist|Visit therapist]],\
 	<<if $player.debugN eq 100>>\
 	<<set $player.debugN = 0>>\
 	<<display "Email request">>\
 	<<endif>>\
-	<<print "[[Beauty salon|Go to clinic]]">>\
+	[[Salon|Go to clinic]]
 	<<if $player.debugN eq 2>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.gString))>>\
@@ -548,52 +539,57 @@
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher eq 0>>\
-	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $bribeAmount=50; $player.detention=false; $flags.bribePaid=true; $player.daringFlag.bribe=true]] \
+	[[Te_0-1|passage()][$player.perversion.teacher++; $bribeAmount=50; $flags.detention=false; $flags.bribePaid=true; events.record('bribeTeacher')]] \
 	<<elseif $player.perversion.teacher eq 1>>\
-	[[Teach perv 1 to 2|Go to bedroom][$player.perversion.teacher++;$player.daring=4; $player.debugN=2; $player.daringFlag.femaleUnderwear=true]] \
+	[[Te_1-2|passage()][$player.perversion.teacher++;$player.debugN=2; events.record('outsideInPanties')]] \
 	<<elseif $player.perversion.teacher eq 2>>\
-	[[Teach perv 2 to 3|Go to bedroom][$player.perversion.teacher++;$player.daring=5; $player.debugN=3; $flags.chastityKey=true; $player.daringFlag.toiletsMasturbating=true; $flags.chastityLocked=true]] \
+	[[Te_2-3|passage()][$player.perversion.teacher++;$player.debugN=3; $flags.chastityKey=true; events.record('masturbateInGirlsLockerRoom'); $flags.chastityLocked=true]] \
 	<<elseif $player.perversion.teacher eq 3>>\
-	[[Teach perv 3 to 4|Go to bedroom][$player.perversion.teacher++;$player.daring=6; $player.debugN=4; $player.daringFlag.noUnderwear=true; $flags.femaleClass=true; $player.perversion.crossdressing=10; $items.schoolFemale.disabled=false]] \
+	[[Te_3-4|passage()][$player.perversion.teacher++;$player.debugN=4; $flags.femaleClass=true;]] \
 	<<elseif $player.perversion.teacher eq 4>>\
-	[[Teach perv 4 to 5|Go to bedroom][$player.perversion.teacher++;$player.daring=7; $player.daringFlag.posingtoCoach=true]] \
+	[[Te_4-5|passage()][$player.perversion.teacher++; events.record('posingToCoach')]] \
 	<<elseif $player.perversion.teacher eq 5>>\
-	[[Teach perv 5 to 6|Go to bedroom][$player.perversion.teacher++;$player.daring=8; $player.daringFlag.bjBully=true]] \
+	[[Te_5-6|passage()][$player.perversion.teacher++; events.record('bjBully')]] \
 	<<elseif $player.perversion.teacher eq 6>>\
-	[[Teach perv 6 to 7|Go to bedroom][$player.perversion.teacher++;$player.daring=9; $player.daringFlag.coachGame=true]] \
+	[[Te_6-7|passage()][$player.perversion.teacher++; events.record('coachGame')]] \
 	<<elseif $player.perversion.teacher eq 7>>\
-	[[Teach perv 7 to 8|Go to bedroom][$player.perversion.teacher++;$player.daring=10; $player.perversion.coach=9; $player.daringFlag.coachGameWin=true]] \
+	[[Te_7-8|passage()][$player.perversion.teacher++;$player.perversion.coach=9; events.record('coachGameWin')]] \
 	<<endif>>\
-	
+	, \
 	<<if $player.perversion.guardian eq 0>>\
-	[[Guard perv 0 to 1|Good morning][$time.addHours(24);$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
+	[[G_0-1|Good morning][$time.addHours(24);$player.perversion.guardianCooldown=1;$flags.guardianSnoopingCaught=true;$player.perversion.guardian++]] \
 	<<elseif $player.perversion.guardian eq 1>>\
-	[[Guard perv 1 to 2|Good morning][$flags.dreamgameCaught=true]] \
+	[[G_1-2|Good morning][$flags.dreamgameCaught=true]] \
 	<<elseif $player.perversion.guardian eq 2>>\
-	[[Guard perv 2 to 3|Good morning][$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
+	[[G_2-3|Good morning][$player.perversion.guardianCooldown=1;$player.perversion.guardian++]] \
 	<<elseif $player.perversion.guardian eq 3>>\
-	[[Guard perv 3 to 4|Good morning][$flags.vibratorCaught=true]] \
+	[[G_3-4|Good morning][$flags.vibratorCaught=true]] \
 	<<elseif $player.perversion.guardian eq 4>>\
-	[[Guard perv 4 to 5|Good morning][$flags.uploadCaught=true; $player.perversion.upload=4]] \
+	[[G_4-5|Good morning][$flags.uploadCaught=true; $player.perversion.upload=4]] \
 	<<elseif $player.perversion.guardian eq 5>>\
-	[[Guard perv 5 to 6-7|Maid cleaning][$player.perversion.guardianCooldown=10]] \
+	[[G_5-7|Maid cleaning][$player.perversion.guardianCooldown=10]] \
 	<<endif>>\
-	
+	, \
 	<<if $player.perversion.therapist lt 5>>\
-	[[Therapist perv +1|Go to bedroom][$player.perversion.therapist++]]
+	[[Th+1|Go to bedroom][$player.perversion.therapist++]], \
 	<<endif>>\
 	<<if $player.perversion.friend lt 11>>\
-	[[Friend perv +1|Go to bedroom][$player.perversion.friend++]]
+	[[Fr+1|Go to bedroom][$player.perversion.friend++]]\
 	<<endif>>\
+	
+	[[Da+|passage()][$player.daring+=10]]|[[-|passage()][$player.daring-=10]] $player.daring, \
+	[[Su+|passage()][$player.submission+=10]]|[[-|passage()][$player.submission-=10]] $player.submission, \
+	[[Ex+|passage()][$player.exhibition+=10]]|[[-|passage()][$player.exhibition-=10]] $player.exhibition \
+	
+	[[Fm+|passage()][$player.feminization+=10]]|[[-|passage()][$player.feminization-=10]] $player.feminization, \
+	[[Bi+|passage()][$player.bisexuality+=10]]|[[-|passage()][$player.bisexuality-=10]] $player.bisexuality, \
+	[[Bm+|passage()][$player.bodyMod+=10]]|[[-|passage()][$player.bodyMod-=10]] $player.bodyMod \
 	
 	<<print '<<click " Cooldowns ">><<set $player.perversion.teacherCooldown=10>><<set $player.perversion.guardianCooldown=10>><<updateDebug>><</click>>'>> Te=$player.perversion.teacherCooldown, Gu=$player.perversion.guardianCooldown\
 	
-	<<print '<<click " +500$ ">><<set $player.money+=500>><<updateDebug>><</click>>'>> $player.money\
-		
-	<<print '<<click " Skip day ">><<set $time.addHours(24)>><<display "Daily resets">><<updateDebug>><</click>>'>> $time.day\
-		
-	<<print '<<click " +Daring ">><<set $player.daring++>><<updateDebug>><</click>>'>> $player.daring\
-	, slb=<<print playerCode.slutScoreBasic()>>\
+	<<print '<<click " +500$ ">><<set $player.money+=500>><<updateDebug>><</click>>'>> $player.money, \
+	<<print '<<click " Skip day ">><<set $time.addHours(24)>><<display "Daily resets">><<updateDebug>><</click>>'>> $time.day,\
+	slb=<<print playerCode.slutScoreBasic()>>\
 	
 	<<click "List of vars">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>>
 <</replace>>\

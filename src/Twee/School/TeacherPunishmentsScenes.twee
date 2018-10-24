@@ -36,7 +36,7 @@
 	<<endif>>\
 	I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests. If not, I will have to punish you."@@
 	
-	<<set $player.daring = 5>>\
+	<<set events.record('givingUpChastityKey')>>\
 	<<set $player.perversion.teacher = 3>>\
 	<<set $player.perversion.teacherCooldown = 0>>\
 	<<set $tasksTeacher.trialChastity.status = 0>>\
@@ -88,10 +88,7 @@
 	@@.teacher;""@@
 	@@.hero;@@
 <<elseif ($scene eq "wearDressToSchool")>>\
-	<<set $tasksTeacher.wearDressToSchool.canStart = true>>\
-	<<set $tasksTeacher.wearDressToSchool.status = 1>>\
-	<<set $tasksTeacher.wearDressToSchool.rewardDebt = 200>>\
-	<<set $items.schoolFemale.disabled to false>>\
+	<<set events.record('taskedToWearDressToSchool')>>\
 	You follow $teacher to her cabinet. She makes you stand beside a chair placed in front of her desk.
 	
 	@@.teacher;"You continue to disappoint me, $player.name, so I've been thinking how you might redeem yourself. Do you remember me promising to teach you more about women?"@@
@@ -107,7 +104,7 @@
 	@@.hero;Oh man, I am so fucked.@@
 	
 <<elseif ($scene eq "nailPolishPenalty")>>\
-	<<set $player.punishments.nailPolishPenalty = true>>\
+	<<set $teacherPunishments.nailPolishPenalty.progress = 1>>\
 	You follow $teacher to her room, where she makes you sit on a chair in front of her desk. Walking behind it, she retrieves a bottle of pink nail polish from a drawer.
 	
 	@@.teacher;"So, you spent all your money on frivolity, failed to follow my instructions, and yet you still have the nerve to come to me empty handed? I think you need to learn some humility and respect. Let us see how the other students will react when they see your nails painted like a girl's."@@
@@ -1295,9 +1292,6 @@
 		<<set $tasksTeacher.selfieHomeMakeup.status = 0>>\
 	<<endif>>\
 	<<set $tasksTeacher.selfieHomeMakeup.progress++>>\
-	<<if ($player.perversion.crossdressing lte 1)>>\
-		<<set $player.perversion.crossdressing++>>\
-	<<endif>>\
 	<<set $tasksTeacherBody.makeup.status = 0>>\
 	<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
 	<<set $flags.teacherNoticeSubtleMakeup = true>>\
@@ -1320,9 +1314,6 @@
 			<<set $tasksTeacher.selfieHomeMakeup.status = 0>>\
 		<<endif>>\
 		<<set $tasksTeacher.selfieHomeMakeup.progress++>>\
-		<<if ($player.perversion.crossdressing lte 1)>>\
-			<<set $player.perversion.crossdressing++>>\
-		<<endif>>\
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
 		<<set $flags.teacherNoticeNormalMakeup = true>>\
@@ -1357,9 +1348,6 @@
 			<<set $tasksTeacher.selfieHomeMakeup.status = 0>>\
 		<<endif>>\
 		<<set $tasksTeacher.selfieHomeMakeup.progress++>>\
-		<<if ($player.perversion.crossdressing lte 1)>>\
-			<<set $player.perversion.crossdressing++>>\
-		<<endif>>\
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
 		<<set $flags.teacherNoticeHeavyMakeup = true>>\

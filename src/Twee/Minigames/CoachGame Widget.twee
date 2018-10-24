@@ -10,10 +10,7 @@
 		<<else>>\
 			<<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).action>> \
 		<<endif>>\
-		<<if not $player.daringFlag.coachGame>>\
-		<<Daring 9>>\
-		<<set $player.daringFlag.coachGame=true>>\
-		<<endif>>\
+		<<set events.record('coachGame')>>\
 	<<endif>>\
 	<<set _dc to window.coachMinigame.getRandomCoach()>>\
 	<<if $minigames.coachgame.lastActionSuccess eq 0>>\

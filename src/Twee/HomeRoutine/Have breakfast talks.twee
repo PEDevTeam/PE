@@ -111,8 +111,8 @@
 		[[Say that you loved it|Guardian kinky reward][$scene="strapon yes";$time.addMinutes(30); $player.perversion.guardianCorruption=18]]
 		[[Say that it was too weird|Guardian kinky reward][$scene="strapon no";$time.addMinutes(30); $player.perversion.guardianCorruption=17]]
 	<<endif>>\
-<<elseif _tempReward and $flags.gTrialStrapOn and (not $flags.guardianStrapon) and (not $flags.straponSurprise) and [5,6].includes($player.perversion.guardian)>>/* STRAPON FROM STORE INTRO SCENE */\
-	<<set $flags.straponSurprise = true>>\
+<<elseif _tempReward and $flags.gTrialStrapOn and (not $flags.guardianStrapon) and (not $sleepEvents.straponSurprise.canStart) and [5,6].includes($player.perversion.guardian)>>/* STRAPON FROM STORE INTRO SCENE */\
+	<<set $sleepEvents.straponSurprise.canStart = true>>\
 	$Guardian winks at you and cheerfully tells that she has a surprise for you this weekend. She seems to revel in keeping you fidgeting, savoring her juicy secret. You do your best to fish the slightest detail from her, all to no avail. She's adamant about it, so you're left to wonder what she has planned this time.
 <<elseif _tempReward and (not $flags.choreRewSpinning) and [3,4].includes($player.perversion.guardian)>>/* WRONG GIFT */\
 	<<set $flags.choreReward = false>>\
@@ -163,7 +163,7 @@
 
 	@@.hero;Hell, yeah!@@
 <<elseif ($time.weekDay() eq 3) and ($flags.choreLazy or ($player.choreFailsCurrent gte 4)) and (($player.perversion.guardianCorruption eq 15 and $flags.guardianPunishVibrator) or $player.perversion.guardianCorruption eq 17) and ($player.perversion.guardian eq 4)>>\
-	<<set $flags.straponForced = true>>\
+	<<set $sleepEvents.straponForced.canStart = true>>\
 	@@.guardian;"It seems you still haven't learned your lesson about being lazy. If you don't change your approach, I will come up with something unorthodox to keep you motivated."@@
 <<elseif window.timeCode.isSunday() and $flags.partyMaidTask and (not $flags.partyMaidDone)>>\
 	<<set _skipBodymods = true>>\

@@ -1,0 +1,8 @@
+:: Debug errorLog [pos_1273_215]
+\
+<div class="topRight"><<click "clean Log">><<set $errorLog=[]>><<script>>Dialog.setup("Debug errorLog"); Dialog.wiki(Story.get("Debug errorLog").processText()); Dialog.open();<</script>><</click>></div>\
+
+<<for _i to 0; _i lt $errorLog.length; _i++>>\
+	<<print $errorLog[_i]>>
+	
+<</for>>\

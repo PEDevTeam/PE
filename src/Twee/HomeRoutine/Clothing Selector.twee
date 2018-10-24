@@ -1,6 +1,25 @@
 :: Clothing Selector [pos_1276_820]
 \
-<<display [[Clothing wardrobe]]>>\
+<<set _d=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+\
+/* Interrupt events - Disabled for now */\
+/*
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<if _b and (not $events.insertingAnalPlug)>>\
+<<goto [[Clothes events]]>>\
+<<elseif _c and (not $events.wearingChastity)>>\
+<<goto [[Clothes events]]>>\
+<<endif>>\
+*/\
+\
+<<include [[Clothing wardrobe]]>>\
 \
 [[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
 \
@@ -8,7 +27,7 @@
 	<<set $flags.walletForgottenStart = true>>\
 	<<delayedLink 5 "Pick up your wallet">>
 <<endif>>\
-<<display [[Travel]]>>\
+<<include [[Travel]]>>\
 \
 <<if window.timeCode.canNap()>>\
 	<<if window.timeCode.schoolRequired()>>\
@@ -30,13 +49,13 @@
 		[[Accept the punishment|Special punishments][$scene="spanking"]]\
 		
 	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
-		<<if window.clothes.dressedOutside.check() or playerCode.isWearing(itemsC.maidOutfit)>>\
+		<<if window.clothes.dressedOutside() or playerCode.isWearing(itemsC.maidOutfit)>>\
 			[[Go hunting for used condoms]]\
 		<<else>>\
 			<<notDressed "Go hunting for used condoms" $reason.dressedOutside>>\
 		<<endif>>\
 		
-	<<elseif window.clothes.dressedSleep.check()>>\
+	<<elseif window.clothes.dressedSleep()>>\
 		[[Go to sleep|Sleep]]\
 		<<if $flags.choreDildoAlarm and not $flags.trainingCockSuck>>\
 			- [[Suck training cock][$scene="suckSleep"]]\
@@ -48,7 +67,7 @@
 		
 	<<endif>>\
 	<<if $therapistTalks.talkChastitySleep.finished and (not $therapistTalks.talkVibrator.start)>>\
-		<<if window.clothes.dressedSleep.check()>>\
+		<<if window.clothes.dressedSleep()>>\
 			[[Try experimental way to deal with sleep problems|Therapist sleep][$scene="Therapist sleep"]]
 		<<else>>\
 			<div class="tooltip">@@.halftransparent;Try experimental way to deal with sleep problems@@ <span class="tooltiptext"><<print $reason.dressedSleep>></span></div>
@@ -60,15 +79,19 @@
 \
 	<!--<misc tasks>-- Misc -->\
 <<if window.timeCode.canWhore() and ($tasksTeacher.whoring.status eq 1)>>\
-	<<if window.clothes.dressedWhore.check()>>\
+	<<if window.clothes.dressedWhore()>>\
 		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span class="tooltiptext"><<print $reason.dressedWhore>></span></div>
 	<<endif>>\
 <<endif>>\
 \
-<<if (playerCode.owns(itemsC.batteries) or playerCode.owns(itemsC.batteriesQuality)) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\
-	<<if window.clothes.dressedGuardian.check()>>\
+<<if playerCode.owns(itemsC.batteries) and window.timeCode.guardian.isHome() and ($time.hour lt 20)>>\
+	<<if (($player.perversion.guardian gte 3) or $flags.guardianSnoopingCaught)>>\
+		<<removeFromInv 'batteries'>>\
+	<<elseif window.timeCode.batteriesWork()>>\
+		<div class="tooltip">@@.halftransparent;Replace alarm clock batteries@@ <span class="tooltiptext">Batteries still work, need to wait few days</span></div>
+	<<elseif window.clothes.dressedGuardian()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Replace alarm clock batteries@@ <span class="tooltiptext"><<print $reason.dressedGuardian>></span></div>
@@ -80,7 +103,7 @@
 <<endif>>\
 \
 <<if ($tasksTeacher.clubDinnerGown.status eq 1) and window.timeCode.isSaturday() and ($time.hour lt 20)>>\
-	<<if window.clothes.dressedOutside.check()>>\
+	<<if window.clothes.dressedOutside()>>\
 		[[Pick up your gown for dinner at the club|Task clubDinnerGown][$scene="step1"]]
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Pick up your gown for dinner at the club@@ <span class="tooltiptext"><<print $reason.dressedOutside>></span></div>
@@ -115,14 +138,14 @@
 	<<print '[[Ask '+$guardian+' to fuck you|Guardian kinky reward][$scene=\"strapon common\"]]'>>
 <<endif>>\
 <<if ($tasksTeacher.gloryHole.status eq 1)>>\
-	<<if window.clothes.dressedOutside.check()>>\
+	<<if window.clothes.dressedOutside()>>\
 		<<print "[[Go to the local glory hole|Task Glory hole]]">>
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Go to the local glory hole@@ <span class="tooltiptext"><<print $reason.dressedOutside>></span></div>
 	<<endif>>\
 <<endif>>\
 <<if ($tasksTeacher.penaltySissyShow.status eq 1)>>\
-	<<if window.clothes.dressedSchool.check()>>\
+	<<if window.clothes.dressedSchool()>>\
 		<<print "[[Punishment task at Ivy College campus|Task Sissy Show]]">>
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Punishment task at Ivy College campus@@ <span class="tooltiptext"><<print $reason.dressedSchool>></span></div>
@@ -144,18 +167,16 @@
 		[[Film yourself dancing|Task danceAtHome]]
 	<<endif>>\
 	<<if $player.perversion.teacher lte 3>>\
-		<<if ($tasksTeacher.crossdressAroundBlock.status eq 1) or ($tasksTeacher.crossdressAroundBlock.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+		<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
 			[[Walk around the block dressed as a girl|Task crossdressAroundBlock][$scene="walk around block"]]
 		<<endif>>\
-		<<if ($tasksTeacher.crossdressAtPark.status eq 1) or ($tasksTeacher.crossdressAtPark.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+		<<if ($tasksTeacher.crossdressAtPark.status eq 1)>>\
 			[[Crossdress at a quiet place in the park|Task crossdressAtPark][$scene="walk at the park"]]
 		<<endif>>\
-		<<if ($tasksTeacher.crossdressOnline.status eq 1) or ($tasksTeacher.crossdressOnline.progress eq 0 and [4,5].includes($player.perversion.crossdressing) and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+		<<if ($tasksTeacher.crossdressOnline.status eq 1)>>\
 			[[Upload your crossdressing photos to a clothes discussion thread|Task crossdressOnline]]
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
 <!--</misc tasks>-- Misc -->\
 \
-
-

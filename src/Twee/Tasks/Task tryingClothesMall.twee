@@ -3,11 +3,7 @@
 <!--<<showImage "general" "task_window_shopping.jpg">>-->\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set $tasksTeacher.tryingClothesMall.status = 2>>\
-<<set $tasksTeacher.tryingClothesMall.progress++>>\
-<<if ($player.perversion.crossdressing lte 3)>>\
-	<<set $player.perversion.crossdressing++>>\
-<<endif>>\
+<<set window.tasksFunction.taskComplete(tasksTeacher.tryingClothesMall)>>\
 You stand near the clothes store, hesitating, and try to psyche yourself up for the task ahead.
 
 <<if playerCode.isMind_0()>>\

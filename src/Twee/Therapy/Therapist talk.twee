@@ -1,8 +1,5 @@
 :: Therapist talk [pos_128_224]
 \
-<<set _topics=true>>\
-<<set _return=true>>\
-<<set _home=false>>\
 <<set _tasklist=window.therapyCode.topicsList()>>\
 <<if _tasklist>>\
 	<<for _i to 0; _i lt Object.keys(_tasklist).length; _i++>>\
@@ -36,6 +33,8 @@
 	
 	@@.hero;She's so cool. What's best is that she totally gets me!@@
 	
+	<<set window.events.record('talkStealing')>>\
+	<<include "Talks end">>\
 <!--</talkStealing>-->\
 <!--<talkUnderwear>-->\
 <<elseif ($scene eq "talkUnderwear")>>\
@@ -109,17 +108,13 @@
 		@@.therapist;"But, I think we already had a similar conversation about your nightwear choices."@@
 		
 	<<endif>>\
-	You talk a bit more about your experience, and she even gives you a few pointers about lingerie. It feels good to discuss it with her. You're glad you opened up.\
-	<<if playerCode.isMind_0()>>\
-		It actually makes you wonder. @@.hero;Is she right? It's just underwear - no big deal?@@
-		
-	<<elseif playerCode.isMind_1()>>\
-		It actually makes you wonder. @@.hero;Maybe she //is// right and I should just roll with it. It really feels nice.@@
-		
-	<<else>>\
-		It actually makes you certain. @@.hero;I love to wear pretty panties and there is nothing wrong with it.@@
-		
-	<<endif>>\
+	You talk a bit more about your experience, and she even gives you a few pointers about lingerie. It feels good to discuss it with her. You're glad you opened up.
+	<span id="talksOptions">\
+	
+		<<click "Is she right? It still feels kinda weird.">><<set window.events.record('talkUnderwear','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Maybe she //is// right and I should just roll with it. It really feels nice.">><<set window.events.record('talkUnderwear','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "She is right and I should just roll with it. It really feels nice.">><<set window.events.record('talkUnderwear','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkUnderwear>-->\
 <!--<talkNightwear>-->\
 <<elseif ($scene eq "talkNightwear")>>\
@@ -157,42 +152,33 @@
 	<<endif>>\
 	@@.therapist;"I see. Are you quite sure you didn't secretly want $guardian to catch you?"@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 20>>\
 		@@.heroT;"No! It was horrible!"@@
-		
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 40>>\
 		@@.heroT;"No. It was really embarrassing!"@@
-		
 	<<else>>\
 		@@.heroT;"No? I mean it was embarrassing to be seen dressed like a sissy.@@
-		
 	<<endif>>\
+	
 	@@.therapist;"But you still went for it, knowing $guardian might wake you up and see you?"@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 20>>\
 		@@.heroT;"But.... No! I just..."@@
-		
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 40>>\
 		@@.heroT;"But... oh... well, maybe..."@@
-		
 	<<else>>\
 		@@.heroT;"O-ohh... Oh my...@@
-		
 	<<endif>>\
+	
 	@@.therapist;"I suspect you may have wanted her to find out. Maybe not consciously, but still... Anyway, I think it's your business what you wear to bed and what is more comfortable for you. $Guardian may need some time to adjust, but she will come around. You know she loves you."@@
 	
-	You chat a bit more and feel a bit better afterward.\
+	You chat a bit more and feel a bit better afterward.
+	<span id="talksOptions">\
 	
-	<<if playerCode.isMind_0()>>\
-		Doubts re-enter your mind, however. @@.hero;Now, I'm confused.@@
-		
-	<<elseif playerCode.isMind_1()>>\
-		A question re-enters your mind, however: @@.hero;Did I really want $myguardian to find out?@@
-		
-	<<else>>\
-		@@.hero;She's right. That female underwear //is// more comfortable to sleep in.@@
-		
-	<<endif>>\
+		<<click "You still have doubts about whole thing.">><<set window.events.record('talkNightwear','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Did I really want $myguardian to find out? What if she is right?">><<set window.events.record('talkNightwear','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "She's actually right. That female underwear //is// more comfortable to sleep in.">><<set window.events.record('talkNightwear','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkNightwear>-->\
 <!--<talkClinicWork>-->\
 <<elseif ($scene eq "talkClinicWork")>>\
@@ -210,43 +196,33 @@
 	
 	@@.therapist;"I see. Are you sure you didn't //want// $guardian to catch you?"@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 20>>\
 		@@.heroT;"No! It was horrible!"@@
-		
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 40>>\
 		@@.heroT;"No. It was really embarrassing!"@@
-		
 	<<else>>\
 		@@.heroT;"No? I mean, it was embarrassing to be seen acting like a lazy sissy.@@
-		
 	<<endif>>\
+	
 	@@.therapist;"But you still went for it, knowing that $guardian might recognize you there?"@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 20>>\
 		@@.heroT;"But... No! I just..."@@
-		
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 40>>\
 		@@.heroT;"But... oh... well, maybe..."@@
-		
 	<<else>>\
 		@@.heroT;"O-ohh... Oh my...@@
-		
 	<<endif>>\
 
 	@@.therapist;"I suspect you may have wanted her to find out - maybe not consciously, but still.... Anyway, I think it's your business what you wear to work and what is more comfortable for you. $Guardian may need some time to adjust, but she will come around in the end. You know she loves you."@@
 	
-	You chat a bit more and feel a bit better afterward.\
-	<<if playerCode.isMind_0()>>\
-		Doubts re-enter your mind, however. @@.hero;Now I'm confused.@@
-		
-	<<elseif playerCode.isMind_1()>>\
-		The question comes back to you, however: @@.hero;Did I really want $myguardian to find out?@@
-		
-	<<else>>\
-		@@.hero;She //is// right. I am more comfortable in a dress.@@
-		
-	<<endif>>\
-
+	You chat a bit more and feel a bit better afterward.
+	<span id="talksOptions">\
+	
+		<<click "You still have doubts about whole thing.">><<set window.events.record('talkClinicWork','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Did I really want $myguardian to find out? What if she is right?">><<set window.events.record('talkClinicWork','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "She //is// right. I am really comfortable in a dress.">><<set window.events.record('talkClinicWork','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkClinicWork>-->\
 <!--<talkButtplug>-->\
 <<elseif ($scene eq "talkButtplug")>>\
@@ -321,15 +297,13 @@
 	
 	@@.heroT;"I... Ok..."@@ Your thoughts still in disarray, you can't yet take in the implications of $therapist's intense query. You find the whole topic very embarrassing, but to your shame you're also extremely aroused by it.
 	
-	You talk a bit more on related topics and $therapist gives you more advice. She stops asking for quite so many embarrassing details, and you calm down. Gradually, you begin to feel relief in discussing things with her.\
-	<<if playerCode.isMind_0()>>\
-		@@.hero;She was probably just messing with me. No way leaking precum while being so desperately horny is normal, right?@@
-	<<elseif playerCode.isMind_1()>>\
-		It actually makes you wonder. @@.hero;Well, yeah, it feels weird, but not in a bad way. Maybe she is right and I //do// actually enjoy it a bit.@@
-	<<else>>\
-		Now that you think about it, leaking like a bitch doesn't seems so bad @@.hero;//Always horny, always up for a fuck//. Sounds kinda nice.@@
-	<<endif>>\
-
+	You talk a bit more on related topics and $therapist gives you more advice. She stops asking for quite so many embarrassing details, and you calm down. Gradually, you begin to feel relief in discussing things with her.
+	<span id="talksOptions">\
+	
+		<<click "She was probably just messing with me. No way leaking precum while being so desperately horny is normal, right?">><<set window.events.record('talkButtplug','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Well, yeah, it feels weird, but not in a bad way. Maybe she is right and I //do// actually enjoy it a bit.">><<set window.events.record('talkButtplug','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Now that you think about it, leaking like a bitch doesn't seems so bad @@.hero;//Always horny, always up for a fuck//. Sounds kinda nice.@@">><<set window.events.record('talkButtplug','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkButtplug>-->\
 <!--<talkChastity>-->\
 <<elseif ($scene eq "talkChastity")>>\
@@ -388,17 +362,13 @@
 		@@.heroT;"Ok..."@@ You're not sure what that was about.
 	
 	<<endif>>\
-	It was all very embarrassing - a bit weird and somehow arousing - but in the end, it feels good to have discussed things with $therapist.\
-	<<if playerCode.isMind_0()>>\
-		The talk with her makes you wonder, @@.hero;What if she is right? What if I like it a little bit?@@
-		
-	<<elseif playerCode.isMind_1()>>\
-		The talk with her makes you wonder. @@.hero;She wasn't wrong. Maybe I //do// really like it?@@
-		
-	<<else>>\
-		The talk with her makes you wonder. @@.hero;What was she going to bring up, at the end? What if she'd wanted to ask for my key, so she could show me how it feels like to be locked up, for real? Would I have given it to her?@@ For some reason just thinking about it makes you horny.
-
-	<<endif>>\
+	It was all very embarrassing - a bit weird and somehow arousing - but in the end, it feels good to have discussed things with $therapist.
+	<span id="talksOptions">\
+	
+		<<click "What if she is right? What if I like it a little bit?">><<set window.events.record('talkChastity','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "She wasn't wrong. Maybe I //do// really like it?">><<set window.events.record('talkChastity','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "What was she going to bring up, at the end? If she'd ask for my key, would I have give it to her? Damn it sounds hot.">><<set window.events.record('talkChastity','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkChastity>-->\
 <!--<talkChastityKey>-->\
 <<elseif ($scene eq "talkChastityKey")>>\
@@ -446,9 +416,9 @@
 		
 		@@.therapist;"And all this while knowing it is $teacher who haunts your fantasies, who has locked you up... knowing you are utterly under her control."@@
 		
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 20>>\
 			It's so wrong, but her words make you squirm in your seat. You can't help but get more and more aroused as $therapist brings out each humiliatingly correct detail.\
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			It's so wrong, but you can't stop listening to her. You get more and more aroused as $therapist brings out each humiliatingly correct detail of your fantasies.\
 		<<else>>\
 			She is so right. You can't stop listening as she brings out the most humiliating details of your fantasies. And it makes you so horny!\
@@ -482,26 +452,24 @@
 		<<endif>>\
 		@@.therapist;"You know, some men,"@@ she says, pausing, @@.therapist;"...and women, too... would actually be ecstatic to be locked in chastity by a //hot teacher//. I bet it's a new and unique experience for you to be in that position, enduring inescapable arousal while waiting for her permission to be granted release? And all this while knowing it is $teacher, the subject of your fantasies, who has locked you away, who has you under her control?"@@
 		
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 20>>\
 			You hate it, but she isn't completely wrong. Listening to her actually makes you squirm in your seat, getting more and more aroused as $therapist brings out each humiliatingly correct detail. You see images of $teacher in your head, forcing you to do what she asks, taking control...
 			
 			You try to shake those thoughts from your mind and get a grip on yourself, but aren't entirely successful.
-			
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			@@.guardiandream;You suddenly picture $teacher standing over you, dangling your key. Her fashionably heeled foot rests next to you as you lie prostrate on the floor, waiting for her to unlock you. She pivots, shifting her weight from one foot to the other, giving you a fleeting glimpse up her stockinged thighs into her underskirt, as you gaze up at her, waiting for your sweet, sweet release...@@
 			
 			You suddenly find that your overly-aroused body has taken on a mind of its own. You're practically shaking, you are turned on so much. Trying to refocus on the therapy, you are only partially successful.
 			
 			@@.hero; Where did that just come from?@@
-			
 		<<else>>\
 			@@.guardiandream;You're at school, and you're kneeling on your classroom floor. $teacher stands over you, key in hand. She lifts a well-heeled foot and shoves you lightly but firmly, just enough to tip you on your back. She reaches down towards your leaking cage, taking hold of it, and you shudder in anticipation of your release. Her fingertips brush across the base of your cock, across the skin of your balls, then come to rest around the bottom of your cage. Instead of unlocking it, however, she merely pulls you upward by your encapsulated cock. You reflexively lift your hips, utterly under her control, trying to keep from...@@
 			
 			As you come to, you find you are painfully aroused, and realize you were totally gone for a moment. Your cock is streaming steadily with clear fluid, and even your taint is buzzing from the rush of endorphins. Try as you might, you can't get the images of $teacher out of your head. Even when you look back at $therapist, pretending you didn't just lose time, you think you can still feel the actual sensation of $teacher's touch fading against your skin.
 			
 			@@.hero; Holy... what the hell just happened?@@
-			
 		<<endif>>\
+		
 	<<endif>>\
 	@@.therapist;"$player.name, I thought I lost you for a second, there. What I asked was, you have no other option, but to obey her, right?"@@
 	
@@ -519,19 +487,19 @@
 		@@.therapist;"I'm not mocking you. I just wanted to check something. Tell me honestly, would you prefer to talk with me like this, //enduring// your chastity, or go back to how things are usually?"@@
 		
 		You're torn by her question. It's hard to deal with your chastity with such a sexy display on view, but you're still enthralled by her look and don't really want her to stop.\
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 30>>\
 			Trying to think rationally, you resolve to tell her it would be bad to agree to this torture. You take a breath... \
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			It is //so// tempting, but you have to refuse. You know she's going to endlessly tease you, otherwise. So you say:
 		<<else>>\
 			Not able to hold back you blurt out,\
 		<<endif>>\
 		@@.heroT;"I can handle it like this."@@
 		
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 30>>\
 			That wasn't what you were planning to say! @@.hero;Crap.@@
 			
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			//That// wasn't what you'd meant to say. @@.hero;Oh, my.@@
 			
 		<<endif>>\
@@ -544,16 +512,14 @@
 		
 		@@.therapist;"Tell me, now that you don't have the key, do you feel a temptation to put it on, knowing you wouldn't be free of it for at least a week?"@@
 		
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 20>>\
 			@@.heroT;"Hell no."@@
-			
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			@@.heroT;"I... no, I don't."@@
-			
 		<<else>>\
 			@@.heroT;"Well, sometimes."@@
-			
 		<<endif>>\
+		
 		@@.therapist;"Hmm, interesting. Maybe we will talk about it some other time."@@
 
 		That was a really weird question, and now you can't get the idea out of your head!
@@ -561,24 +527,29 @@
 	<<endif>>\
 	You talk a bit more on various related topics and $therapist brings out few examples of notorious relationships that secretly featured chastity play. In the end you're left with an impression that being locked and controlled, while extremely humiliating, could also be an intense, erotic experience.
 	
-	<<if playerCode.isMind_0()>>\
-		You feel very conflicted about this talk. She may be right about some things, but you still hate being locked up all the time.\
+	<<if $player.feminization lte 20>>\
+		You feel very conflicted about this talk.\
 		<<if _c>>\
 			If anything, listening to her only made it worse as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from frustration.\
 		<<endif>>\
-	<<elseif playerCode.isMind_1()>>\
-		You feel a bit conflicted by this talk. She may be right about some things, but being locked up all the time is so frustrating.\
+	<<elseif $player.feminization lte 30>>\
+		You feel a bit conflicted by this talk.\
 		<<if _c>>\
 			If anything, listening to her has only made it more intense as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from pent up arousal.\
 		<<endif>>\
 	<<else>>\
-		You're glad you decided to talk with her. She was totally right about your fantasies of $teacher. It's also true that being locked up all the time is very invigorating, keeping you constantly horny.\
+		You're glad you decided to talk with her. She was totally right about your fantasies of $teacher.\
 		<<if _c>>\
 			If anything, listening to her has made it much more intense - your penis is straining madly against its cage right now. You reach for it to shift to a more comfortable position and find you're oozing precum.\
 		<<endif>>\
 	<<endif>>\
 	
+	<span id="talksOptions">\
 	
+		<<click "She may be right about some things, but you still hate being locked up all the time.">><<set window.events.record('talkChastityKey','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "She may be right about some things, but being locked up all the time is so frustrating.">><<set window.events.record('talkChastityKey','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "It's true that being locked up all the time is very invigorating, keeping you constantly horny.">><<set window.events.record('talkChastityKey','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkChastityKey>-->\
 <!--<talkChastitySleep>-->\
 <<elseif ($scene eq "talkChastitySleep")>>\
@@ -600,16 +571,14 @@
 		@@.therapist;"I know, I know - it sounds strange. But if you're willing to try, I guarantee you will sleep like a baby for the night."@@
 		
 		You eye her skeptically, but she honestly seems to want to help you.\
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 20>>\
 			So you just nod, telling her you'll consider it.
-			
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			It seems counter-productive, but who knows? Maybe it really will help you?
-			
 		<<else>>\
 			After giving it some thought, you actually like this idea. It sounds so kinky. You can't wait to try it.
-			
 		<<endif>>\
+		
 		@@.therapist;"Oh, one more thing,"@@ she adds, handing you a small box. 
 
 		@@.therapist;"This could help if you go along with my idea, but please, promise me you won't open it until you take the pill."@@
@@ -631,13 +600,14 @@
 		$therapist looks a bit embarrassed. @@.therapist;"I know, I know - it sounds crazy. But if you are willing to try, I guarantee you will sleep like a baby for the night."@@
 
 		You look at her sceptically, but she seems to honestly want to help you.\
-		<<if playerCode.isMind_0()>>\
+		<<if $player.feminization lte 20>>\
 			So, you just nod, telling her you'll consider it.
-		<<elseif playerCode.isMind_1()>>\
+		<<elseif $player.feminization lte 40>>\
 			It seems counter-productive, but who knows? Maybe it really will help you?
 		<<else>>\
 			After giving it some thought you actually like this idea. It sounds so kinky. You can't wait to try it.
 		<<endif>>\
+		
 		@@.therapist;"One more thing,"@@ she adds, handing you a small box.
 
 		@@.therapist;"This could help you if you go along with my idea, but please, promise me you won't open it until you lock on the chastity cage."@@ 
@@ -646,15 +616,12 @@
 
 		@@.therapist;"Oh, and if you would like to try my method while being already locked, just watch some porn and take the pill."@@
 	<<endif>>\
+	<span id="talksOptions">\
 	
-	<<if playerCode.isMind_0()>>\
-		@@.hero;Well, that was strange.@@
-	<<elseif playerCode.isMind_1()>>\
-		@@.hero;Huh. That was weird. But intriguing.@@
-	<<else>>\
-		@@.hero;I knew she had some plan.@@
-	<<endif>>\
-	
+		<<click "Well, that was strange.">><<set window.events.record('talkChastitySleep','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Huh. That was weird. But intriguing.">><<set window.events.record('talkChastitySleep','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "I knew she had some plan.">><<set window.events.record('talkChastitySleep','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkChastitySleep>-->\
 <!--<talkVibrator>-->\
 <<elseif ($scene eq "talkVibrator")>>\
@@ -662,7 +629,7 @@
 	
 	@@.therapist;"To help you of course. Why? Did you really hate it?"@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 30>>\
 		@@.heroT;"Of course I hated it!"@@ $therapist looks crestfallen, but then she looks at your face and wonders.
 
 		@@.therapist;"But didn't you enjoyed it at least a bit?"@@
@@ -688,8 +655,7 @@
 		@@.heroT;"I..."@@ Despite your intentions to confront $therapist about her trickery, you just get more confused. To your shame, you can't stop thinking about her idea. After all, fucking yourself with a dildo kinda worked in a //backward// way, and you were able to sleep soundly. So you just meekly mumble, @@.heroT;"I'll think about it."@@
 		
 		You talk a bit more, $therapist fishing for kinky and embarrassing details of your little experiment.
-
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 50 or $player.analT lte 30>>\
 		@@.heroT;"Well, I won't say hate, but it was a pretty mean trick."@@
 
 		@@.therapist;"But you actually enjoyed it? You did, you totally did."@@
@@ -705,7 +671,6 @@
 		@@.heroT;"I..."@@ Despite your intention to confront $therapist about her trickery, you just end up more confused. To your shame, you can't stop thinking about her suggestion, getting aroused by the idea despite your reservations. After all, fucking yourself with a dildo actually worked, and you were able to sleep soundly. So you just meekly mumble, @@.heroT;"I... I'll try..."@@
 		
 		You talk a bit more, $therapist fishing for kinky and embarrassing details of your little experiment.
-
 	<<else>>\
 		@@.heroT;"N-no. It was just very surprising."@@
 
@@ -720,8 +685,13 @@
 		@@.therapist;"Oh... I was just kidding, but if you are really interested..."@@ $therapist blushes a bit, @@.therapist;"I can give you a few pointers."@@
 		 
 		You talk a bit more, $therapist giving you various advice about the //training//.
-		
 	<<endif>>\
+	<span id="talksOptions">\
+	
+		<<click "Well, that was strange.">><<set window.events.record('talkVibrator','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Huh. That was weird. But intriguing.">><<set window.events.record('talkVibrator','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "I knew she had some plan.">><<set window.events.record('talkVibrator','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkVibrator>-->\
 <!--<talkVibratorCaught>-->\
 <<elseif ($scene eq "talkVibratorCaught")>>\
@@ -757,18 +727,41 @@
 		@@.hero;Holy shit! Would she really do that?@@
 		
 		@@.therapist;"I see you've understood. Maybe you could be more artistic on the camera, just in case."@@ $therapist smiles at you and you see an impish sparkle in her eyes.
+	<<else>>\
+		She searches your face intently for a moment.
+
+		@@.therapist;"$player.name, tell me honestly, have you spied on $guardian?"@@
 		
-		<<if playerCode.isMind_0()>>\
-			@@.hero;Oh, god. Now it will be even more embarrassing to be under that camera.@@
-			
-		<<elseif playerCode.isMind_1()>>\
-			@@.hero;This is so weird. Still, it would be kinda hot if $myguardian would really do that.@@
-			
-		<<else>>\
-			@@.hero;Oh my... I'll show $myguardian the best sissy porn she'll ever see!@@
-			
-		<<endif>>\
+		@@.heroT;"What? No."@@
+		
+		@@.therapist;"But you thought about it, haven't you?"@@
+		
+		Caught by surprise, you meekly nod.
+		
+		@@.therapist;"It's not surprising really, I saw $guardian after all. I bet you sometimes acted on these fantasies, when all alone."@@
+
+		A furious blush spreads up as far as your ears and you have to lower your eyes.
+
+		@@.therapist;"I thought so... you don't have to say. Do you think $guardian would have some fun time during watching you?"@@
+
+		@@.heroT;"What?"@@
+
+		@@.therapist;"I bet it must look quite erotic, how you please yourself with a vibrator. It would be hard to resist."@@
+
+		Suddenly, there's an image in your mind of $guardian caressing her breasts and reaching down to her pussy, watching you locked in chastity while you desperately seek release at the end a dildo.
+
+		@@.hero;Holy shit! Would she really do that?@@
+		
+		$therapist smiles at your scandalized face.
+		
+		@@.therapist;"It doesn't change supervision being necessary, but maybe you should just make best of the situation. You could try to be more artistic on the camera, just in case."@@ $therapist winks at you and you see an impish sparkle in her eyes.
 	<<endif>>\
+	<span id="talksOptions">\
+	
+		<<click "Oh, god. Now it will be even more embarrassing to be under that camera.">><<set window.events.record('talkVibratorCaught','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "This is so weird. Still, it would be kinda hot if $myguardian would really do that.">><<set window.events.record('talkVibratorCaught','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Oh my... Maybe she is right, I could put up a good show if that is what $myguardian wants.">><<set window.events.record('talkVibratorCaught','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkVibratorCaught>-->\
 <!--<talkCrossdressing>-->\
 <<elseif ($scene eq "talkCrossdressing")>>\
@@ -783,6 +776,12 @@
 		@@.therapist;"And? How do you feel about it?"@@
 		
 	<<endif>>\
+	<span id="talksOptions">\
+	
+		<<click "Placeholder_1">><<set window.events.record('talkCrossdressing','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Placeholder_2">><<set window.events.record('talkCrossdressing','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Placeholder_3">><<set window.events.record('talkCrossdressing','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkCrossdressing>-->\
 <!--<talkUpload>-->\
 <<elseif ($scene eq "talkUpload")>>\
@@ -810,49 +809,44 @@
 
 	@@.therapist;"Well, sharing a video like that is almost the same as letting someone watch you pleasing yourself with a vibrator. So, does it makes your experience more exciting, knowing there are invisible spectators out there besides $guardian? Or maybe you imagine a kinky girl, or a random guy, or maybe even a grown up man watching the video of yours, fantasizing about you or pleasing themselves? You know, someone may be doing it right this moment..."@@
 	
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 40>>\
 		@@.hero;What?@@ A sudden realization hits you @@.hero;Oh... Oh, shit!@@
-
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 60>>\
 		@@.hero;What?@@ You suddenly realize you haven't thought about such intriguing details, @@.hero;Oh... Oh, my...@@
-
 	<<else>>\
 		@@.hero;Oh...@@ Just thinking about it makes you hard.
-
 	<<endif>>\
+	
 	@@.therapist;"They may not know you, but they surely know //about// you. Without context, they see a sissy-boy who seemingly enjoys being locked and surrendering to penetration on the end of a sex toy. I'd imagine some of them might even fantasize about having sex with you themselves."@@
 
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 30>>\
 		A sinking feeling engulfs you. You can almost feel the invisible hands of strangers running over your whole body, comments on your video coming up in low whispers in your ears...
 		
 		Feeling dirty, you shudder and shake your head, trying to snap of it, but can't get rid of it completely.
-		
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 70>>\
 		@@.guardiandream;The vivid image of a room full of shadowed, anonymous observers suddenly encroaches upon your imagination. As they watch, another vague figure mercilessly fucks you, filling and emptying you again and again as they repeatedly thrust into your accommodating body...@@
 
 		Your breathing gets a little more shallow as the image dissipates. @@.hero; What was that?@@
-
 	<<else>>\
 		@@.guardiandream;The vivid image of a room full of shadowed, anonymous observers suddenly encroaches upon your imagination. As they watch, another vague figure mercilessly fucks you, filling and emptying you again and again as they repeatedly thrust against you.@@
 
 		You surge with arousal, to the point of total distraction. @@.hero; Oh, my god... where did that come from?@@
-
 	<<endif>>\
+	
 	@@.therapist;"Perhaps, they even think of more actively participating in your anal play."@@ 
-	<<if playerCode.isMind_0()>>\
+	
+	<<if $player.feminization lte 30>>\
 		Once again, fleeting images form in your mind at her words. Thoughts of anonymous online followers thinking about using a toy on you or directing you to //do things//... you push the thoughts away, but you still feel like traces of them remain.
-
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 60>>\
 		@@.guardiandream;You're suddenly on all fours, head down, as another figure, this time wearing a strap-on, mounts you. As the figure seizes your hips and pulls you towards them, you feel your dildo-trained ass open pliantly around the implacable shaft boring its way inside you.@@
 
 		As the image fades, you can't avoid how turned on you are. You really have to concentrate to stop thinking about it. The underlying feeling of it stays stubbornly with you.
-
 	<<else>>\
 		@@.guardiandream;You're suddenly on all fours, head down, as another figure, this time wearing a strap-on, mounts you. As the figure seizes your hips and pulls you towards them, you feel your dildo-trained ass open pliantly around the implacable shaft boring its way inside you.@@
 
 		Your body reacts sensually to your vivid daydream, almost as lucidly as reality. Even as the images fade, the ghost of the actual, physical sensation somehow stays with you. You feel wetness at your crotch and your toes have curled a little in your shoes. You feel desperate to masturbate.
-
 	<<endif>>\
+	
 	You come to your senses, uncertain how much time passed but aware $therapist may have stopped talking while you were thinking.
 
 	@@.therapist;"So, want to share your thoughts?"@@
@@ -863,17 +857,13 @@
 
 	You're glad to switch topic and quickly nod. To your dismay, $therapist starts telling you anecdotes from the memoirs of famous porn actresses and actors: what they thought, how they felt, and various tricks that helped them with enticing an audience.
 	
-	As you listen to her, you involuntarily start to compare and draw parallels with yourself. After some time, you catch yourself imagining using these little tricks in your next video.\
-	<<if playerCode.isMind_0()>>\
-		It's really embarrassing, but maybe it would help you to get more money?
-		
-	<<elseif playerCode.isMind_1()>>\
-		You feel intrigued by the idea of trying it.
-		
-	<<else>>\
-		You wonder if it would help make your videos more popular?
-		
-	<<endif>>\
+	As you listen to her, you involuntarily start to compare and draw parallels with yourself. After some time, you catch yourself imagining using these little tricks in your next video.
+	<span id="talksOptions">\
+	
+		<<click "It's really embarrassing, but maybe it would help you to get more money?">><<set window.events.record('talkUpload','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "You feel intrigued by the idea of trying it.">><<set window.events.record('talkUpload','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "You wonder if it would help make your videos more popular?">><<set window.events.record('talkUpload','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkUpload>-->\
 <!--<talkUploadCaught>-->\
 <<elseif ($scene eq "talkUploadCaught")>>\
@@ -933,17 +923,13 @@
 
 	You really want to argue, but seeing her disarming half-smile you hesitate and eventually decide to just let it go.
 	
-	The talk leaves you confused. $therapist's theory about $teacher's and $guardian's reasoning has got you thinking:\
-	<<if playerCode.isMind_0()>>\
-		@@.hero;Do I really need supervision? Is it truly their way of worrying about me?@@
-		
-	<<elseif playerCode.isMind_1()>>\
-		@@.hero;Could it be for my own good?@@
-
-	<<else>>\
-		@@.hero;Does it mean I need to be controlled? That I need a strong arm to guide and lead me?@@
-
-	<<endif>>\
+	The talk leaves you confused. $therapist's theory about $teacher's and $guardian's reasoning has got you thinking.
+	<span id="talksOptions">\
+	
+		<<click "I don't think I really need supervision. Is it truly their way of worrying about me?">><<set window.events.record('talkUploadCaught','min')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Could it be for my own good?">><<set window.events.record('talkUploadCaught','mid')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+		<<click "Does it mean I need to be controlled? That I need a strong arm to guide and lead me?">><<set window.events.record('talkUploadCaught','max')>><<replace "#talksOptions">><<include "Talks end">><</replace>><</click>>
+	</span>\
 <!--</talkUploadCaught>-->\
 <!--<talkMaid>-->\
 <<elseif ($scene eq "talkMaid")>>\
@@ -977,16 +963,14 @@
 
 	@@.therapist;"It's... O-oh, wow..."@@ After some time, she glances back to you and quickly returns your phone looking embarrassed by her obvious appreciation of your photo. She take a moment to compose herself before continuing. @@.therapist;"It looks fantastic, a very good shot I must say. Great job."@@
 
-	<<if playerCode.isMind_0()>>\
+	<<if $player.feminization lte 35>>\
 		You feel very awkward after showing the picture to her. Her praise did feel nice though, even if it was about your looking great as a sissy maid. You curse yourself for this embarrassing slip, but an inappropriate pride fills you for the effect your photo had on her.
-
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif $player.feminization lte 65>>\
 		The session feels awkward after showing this picture to her. It feels so good to be praised, though. A strange pride fills you for the effect your photo had on her.
-
 	<<else>>\
 		Your heart melts at hearing her praise. You linger on her words, wishing you had more photos like that to show her.
-
 	<<endif>>\
+	
 	Following her gesture, you continue: @@.heroT;"Then I go to $myguardian's room and wake her up..."@@
 
 	Noticing your hesitation, $therapist wonders aloud, @@.therapist;"Are there particular details of this routine, that cause you concern?"@@
@@ -1001,11 +985,9 @@
 
 	@@.therapist;"It's alright, it's alright..."@@ As you calm down a bit, she softly pushes on. @@.therapist;"But you're getting used to it, right?"@@
 	
-	<<set _topics=false>>\
-	<<set _return=false>>\
-	<<set _home=false>>\
-	[[No, not really|Therapist talk][$scene="talkMaid_continue"; $therapistTalks.talkMaid.progress=0]]
-	[[Yes, slowly|Therapist talk][$scene="talkMaid_continue"; $therapistTalks.talkMaid.progress=1]]
+	[[No, not really|Therapist talk][$scene="talkMaid_continue"; window.events.record('talkMaid','min'); $therapistTalks.talkMaid.progress=0]]
+	[[Myabe, I' not sure|Therapist talk][$scene="talkMaid_continue"; window.events.record('talkMaid','mid'); $therapistTalks.talkMaid.progress=1]]
+	[[Yes, slowly|Therapist talk][$scene="talkMaid_continue"; window.events.record('talkMaid','max'); $therapistTalks.talkMaid.progress=1]]
 <<elseif ($scene eq "talkMaid_continue")>>\
 	<<if $therapistTalks.talkMaid.progress eq 0>>\
 		You shake your head. @@.heroT;"No. Not really. $Myguardian looks so sexy, relaxed and happy, but it's very frustrating to be around her like that. I don't know if I'll ever get used to that."@@
@@ -1025,7 +1007,6 @@
 		@@.therapist;"You won't know until you try, but I'm pretty sure about it. Don't worry, you'll work it out."@@
 
 		You just nod, confounded but somehow reassured by her words.
-	
 	<<else>>\
 		You weakly nod.
 
@@ -1036,8 +1017,8 @@
 		@@.heroT;"Well... yeah, I-we never been this kind of close, though I'm not sure..."@@
 		
 		@@.therapist;"It doesn't really matter what brings you together. Believe me, if you can ignore some minor discomfort and a bit of awkwardness, you'll find yourself happier with how things go now. Don't worry, you will work it out."@@
-		
 	<<endif>>\
+	
 	@@.therapist;"But we got distracted, could you continue describing your morning, please?"@@
 	
 	@@.heroT;"Oh, of course."@@ You think about where you stopped, @@.heroT;"After waking $myguardian up, I prepare towels and clothes for her at the bathroom."@@
@@ -1062,10 +1043,11 @@
 
 	Finally, you shrug off your stupor and notice her silently watching you with a faint smile. @@.therapist;"It was very interesting to hear about such an intriguing development in your life. I guess your maid duties are not limited to waking her up in the mornings? No need to rush though, we could talk about it another time if you want."@@
 	
-	<<if playerCode.isMind_0()>>\
-	<<elseif playerCode.isMind_1()>>\
+	<<if $player.feminization lte 30>>\
+	<<elseif $player.feminization lte 70>>\
 	<<else>>\
 	<<endif>>\
+	<<include "Talks end">>
 <!--</talkMaid>-->\
 <!--<talkFuta>-->\
 <<elseif ($scene eq "talkFuta")>>\
@@ -1148,24 +1130,8 @@
 	You gulp, but meeting her eyes you answer her honestly @@.heroT;"I don't know."@@
 
 	@@.therapist;"If it makes you feel more comfortable to think of me in that way, then I encourage you to do so. My objective has always been to make it as easy as possible for you to be at ease with yourself here.@@
-	<!--
 	
-	<<set _topics=false>>\
-	<<set _return=false>>\
-	<<set _home=false>>\
-	
-	You think carefully about your answer, knowing it could shape events going forward:
-	
-	[[Yes - sex between males is uncomfortable for me to think about, but I am ok with sexual thoughts about transgendered women][$scene="talkFutaYes"]]
-	[[No - sex between males is fine for me to think about][$scene="talkFutaNo"]]
-	@@.therapist;"Unless.... Maybe the real question is this one: Does the idea of males having sex together bother you? In other words, would it be more comfortable for you to experience sexual acts with someone who appears to be a woman, except in that one aspect?"@@
-
-	You think carefully about your answer, knowing it could shape events going forward:	
-	-->\
-<<elseif ($scene eq "talkFutaNo")>>\
-	@@.therapist;"I see,"@@ she replies. @@.therapist;"Well, I appreciate your honesty. Individual preferences about who we are and what turns us on are perfectly normal parts of life. As your therapist, I encourage you to explore ideas that excite you and learn to express them in healthy and appropriate ways."@@
-<<elseif ($scene eq "talkFutaYes")>>\
-	You feel a little comforted by her support. A lot has happened to you lately, and you're not sure you've caught up with it all yet.
+	<<include "Talks end">>
 <!--</talkFuta>-->\
 <!--<talkPenisShrinking>-->\
 <<elseif ($scene eq "talkPenisShrinking")>>\
@@ -1201,6 +1167,7 @@
 	
 	After a brief bit of searching, she prints out few pages with some physical therapy-based exercises. They deal with restoring circulation and preventing cramps and chaffing in the crotch area through toning the area around the upper thighs and groin. You really doubt that something like that could help your situation, but her genuine concern and desire to help feels nice.
 	
+	<<include "Talks end">>
 <<elseif ($scene eq "talkPenisShrinkingEnd")>>\
 	<<if $flags.penisShrinkPunishment>>\
 		You lower you eyes and sniff, failing to find words about what happened to you. $therapist doesn't push and gives you some time before slowly encouraging you to open up and start talking.
@@ -1266,28 +1233,11 @@
 	
 	In the end, your talk with $therapist doesn't reassure you completely, but you think she may have a point about the positive aspects of this unfortunate event.
 	
+	<<include "Talks end">>
 <!--</talkPenisShrinking>-->\
+<<else>>\
+	This is bug.
+	
+	<<include "Talks end">>
 <<endif>>\
 \
-<<set $scene="">>\
-<<if $player.therapistTime lte 0 and (_return or _home)>>\
-	You've talked a lot today. You can to continue discussing things on your next visit.
-
-	<<set _topics=false>>\
-<<endif>>\
-<<if ($player.perversion.therapist lte 2) and _return>>\
-	<<set _return=false>>\
-	<<set _home=true>>\
-<<endif>>\
-<<if _topics>>\
-	<<display "Therapist talk topics">>\
-<<endif>>\
-<<if _return>>\
-	[[Return|Visit therapist][$flags.therapistTalk=true]]
-<<endif>>\
-<<if _home>>\
-	[[Return home|Go to bedroom]]
-<<endif>>\
-\
-
-

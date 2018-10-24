@@ -90,7 +90,6 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 2>>\
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
 	<<if playerCode.owns(itemsC.alarmClock)>>\
 	<<removeFromInv 'alarmClock'>>\
 	<<endif>>\
@@ -213,7 +212,6 @@
 	<<if playerCode.owns(itemsC.alarmClock)>>\
 		<<removeFromInv 'alarmClock'>>\
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
 	<<if $flags.guardianFuckedByStrapon>>\
 		You open your eyes. $Guardian is there. Unusually, she is lying next to you, her hair draped across the sheets. She is watching you intently. @@.hero;Why is $guardian here?@@
 
@@ -292,8 +290,6 @@
 
 	<<set playerCode.getNaked()>>\
 	<<set window.playerCode.purgeMaleClothes()>>\
-	<<set window.playerCode.disableMaleClothes()>>\
-	<<set $flags.clothesPurged to true>>\
 	<<addToInv 'maidOutfit'>>\
 	<<wearClothing 'maidOutfit'>>\
 	<<addToInv 'stockings' 39>>\
@@ -302,7 +298,7 @@
 	<<addToInv 'highHeel3' 39>>\
 	<<set $items.highHeel3.curAlt=39>>\
 	<<wearClothing 'highHeel3'>>\
-	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
+	<<if ($player.perversion.teacher gte 4) or $events.taskedToWearDressToSchool>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
 	<<else>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing except for the school uniform.@@\
@@ -317,17 +313,13 @@
 		@@.guardian;I got you a dress as a little present from me.@@\
 		<<addToInv 'summerDress'>>\
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.gString))>>\
-		@@.guardian;Also I've got you some underwear.@@\
-		<<addToInv 'gString' 40>>\
-	<<endif>>\
-	<<if $items.gString.ownAlt[40]>>\
-		<<addToInv 'braSexy' 40>>\
-	<<endif>>\
+	@@.guardian;Also I've got you some underwear.@@\
+	<<addToInv 'gString' 40>>\
+	<<addToInv 'braSexy' 40>>\
 	<<if $items.pantiesCotton.ownAlt[40]>>\
 		<<addToInv 'bra' 40>>\
 	<<endif>>\
-	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not playerCode.owns(itemsC.schoolFemale))>>\
+	<<if (($player.perversion.teacher gte 4) or $events.taskedToWearDressToSchool) and (not playerCode.owns(itemsC.schoolFemale))>>\
 		@@.guardian;I even got you a new school uniform.@@\
 		<<addToInv 'schoolFemale'>>\
 	<<endif>>\
@@ -337,7 +329,7 @@
 		<<else>>\
 			@@.guardian;I brought you my old shoes since you don't have any left.@@\
 		<<endif>>\
-		<<addToInv 'highHeel3'>>\
+		<<addToInv 'highHeel3' 40>>\
 	<<endif>>\
 
 	<<if $player.room.style lte 4>>\
@@ -539,17 +531,16 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	@@.hero;Damn, my alarm clock is going off.@@
 	
 	You shut it off, roll over and close your eyes, trying to continue your dream, but it's no use. You get out of bed.
-	<<if $flags.batteriesExpire>>\
-	
+
+	<<if ($player.batteryExpireDay gt 0) and (($time.day - $player.batteryExpireDay) eq 1)>>\
 		The batteries in $guardian's alarm clock probably died.
 		<<if (not $flags.guardianSnoopingCaught)>>\
 			@@.hero;I could buy new ones to snoop in her room again.@@
 		<<else>>\
 			@@.hero;Too bad she won't let me snoop in her room again.@@
 		<<endif>>\
-		<<set $flags.batteriesExpire = false>>\
+		
 	<<endif>>\
-	
 	[[Have breakfast]] 
 	<<if (not $flags.dreamgameCaught)>>\
 		<<print "[[Peep on "+$guardian+" while she's sleeping|Peep on guardian]]">>
@@ -681,17 +672,15 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 		You gradually become aware of the sun streaming through your curtains, and you gently wake up, stretch and smile.  
 		
 		No school today!
-		<<if $flags.batteriesExpire>>\
-		
+		<<if ($player.batteryExpireDay gt 0) and (($time.day - $player.batteryExpireDay) eq 1)>>\
 			The batteries in $guardian's alarm clock probably died.
 			<<if (not $flags.guardianSnoopingCaught)>>\
 				@@.hero;I could buy new ones to snoop in her room again.@@
 			<<else>>\
 				@@.hero;Too bad she won't let me snoop in her room again.@@
 			<<endif>>\
-			<<set $flags.batteriesExpire = false>>\
+			
 		<<endif>>\
-
 		[[Get up and have breakfast|Have breakfast]]
 		<!--</weekend>-->\
 	<<else>><!--<schoolday>-->\
@@ -740,7 +729,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 			You wake up to a cold start, as $guardian is using her foot against your hip to shake you awake.
 			
 		<<endif>>\
-		<<if $player.alarmClockGuardian>>\
+		<<if ($time.day lt $player.batteryExpireDay)>>\
 			@@.guardian;"I need to wash my hair, so I'll be a while in the shower.  You'll have to organize your own breakfast this morning."@@
 			
 		<<else>>\
@@ -750,15 +739,14 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 				@@.guardian;"I overslept, as usual, and we're running late.@@\
 			<<endif>>\
 			@@.guardian;I'm going to take a quick shower, so you'll have to organize your own breakfast. Hurry up, $player.name!"@@
-			<<if $flags.batteriesExpire>>\
-			
+			<<if ($player.batteryExpireDay gt 0) and (($time.day - $player.batteryExpireDay) eq 1)>>\
+
 				It seems the batteries in $guardian's alarm clock died.
 				<<if (not $flags.guardianSnoopingCaught)>>\
 					@@.hero;I could buy new ones to snoop in her room again.@@
 				<<else>>\
 					@@.hero;Too bad she won't let me snoop in her room again.@@
 				<<endif>>\
-				<<set $flags.batteriesExpire = false>>\
 			<<endif>>\
 			
 		<<endif>>\

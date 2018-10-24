@@ -86,12 +86,10 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 <<elseif $minigames.coachgame.win>>\
 	<<showImage "general" "dick_sliding_in.gif">>\
 	<<print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).action>>
-	<<if not $player.daringFlag.coachGameWin>>\
-		<<set $player.daringFlag.coachGameWin to true>>\
+	<<if (not $events.coachGameWin)>>\
 		<<set $player.perversion.coach = 9>>\
-		<<if $player.perversion.analFirst eq 0>>\
-			<!-- Coach is the first one to pop PC cherry -->\
-			<<set $player.perversion.analFirst = 3>>\
+		<<if (not $player.perversion.analFirst)>>\
+			<<set $player.exp.analFirst = "coach">>\
 		<<endif>>\
 		Coach's dick slowly pushes against your anus, forcing out an involuntary moan from you. @@.hero; Was that me? I sound like an eager slut.@@ You hear $futa.him_her say, @@.coach;"Relax, just accept it."@@
 		
@@ -117,7 +115,6 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 		
 		@@.heroT;"Thank you."@@ You are surprised - you sincerely meant that. @@.heroT;"That was incredible."@@
 
-		<<Daring 10>>\
 		@@.coach;"I will tell $teacher, that you've satisfied me, and that you don't really have to come here every day any more. I'm not as young as I used to be, after all. Still, you're welcome here any time, I'm not going to turn down those sweet lips and that tight ass of yours."@@
 
 		You nod absentmindedly as you clean up and prepare to go, surprised that in the moment you totally forgot about $teacher.
@@ -129,7 +126,8 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 		Each word echoes in your head, but instead of revulsion, anger, or shame you feel a familiar sense of excitement that would be arousing if you weren't this spent. Oh, god, $futa.he_she made you associate these words with the pleasure from sex. Now it won't feel right if you aren't being demeaned during sex!
 		
 		Coach laughs, noticing you've realized what $futa.he_she has done to you before $futa.he_she sends you on your way.
-		
+
+		<<set events.record('coachGameWin')>>\
 		<<set playerCode.masturbate.cum()>>\
 	<<elseif (not ($body.anal eq 1)) and (not ($body.anal eq 2)) and (not ($body.anal eq 3))>>\
 		Coach's dick slowly spreads your anus, making you moan like the eager slut you are. You arch your back and let out a long whimper as $futa.he_she slowly forces $futa.his_her fat shaft into you, making you squirm as you take every inch.

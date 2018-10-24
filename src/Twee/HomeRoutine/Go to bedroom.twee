@@ -14,15 +14,6 @@
 	<<if playerCode.owns(itemsC.jocksLucky)>>\
 		$teacher will be angry if you come in your boxers, but wearing wet underwear all day sounds very uncomfortable. What to do?
 	<<endif>>\
-	<<if playerCode.owns(itemsC.gString)>>\
-		<<set $items.gString.disabled=true>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesLatex)>>
-		<<set $items.pantiesLatex.disabled=true>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesCotton)>>
-		<<set $items.pantiesCotton.disabled=true>>\
-	<<endif>>\
 	
 <<endif>>\
 <!--</Laundry>-->\
@@ -77,7 +68,7 @@
 			<<click "Ask to return vibrator">><<replace "#askreturnvibrator">>@@.done;You still have to fix your mess with your chores@@<</replace>><</click>> <span id="askreturnvibrator"></span>
 		<<endif>>\
 	<<elseif $flags.confiscatedVibrator and $flags.choreLazy>>\
-		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and playerCode.isWearingOn(itemTypes.Chastity) and $flags.chorePunKinky and $flags.guardianPunishDressUp>>\
+		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and playerCode.isWearingOn(itemTypes.Chastity) and $flags.chorePunKinky and $events.guardianPunishDressUp>>\
 		[[Try to steal vibrator|Ask to return things][$scene="steal vibrator"; $flags.guardianPunishVibrator=true]]
 		<<endif>>\
 	<<endif>>\

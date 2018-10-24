@@ -3,9 +3,8 @@
 <<if _item>>\
 	<<set _image = window.itemF.image(_item)>>\
 	<<set _name = window.itemF.name(_item)>>\
-	<<set _disabled = window.itemF.disabled(_item)>>\
 	<<set _cost = window.itemF.cost(_item)>>\
-	<<set _daringRec = window.itemF.daringRec(_item)>>\
+	<<set _femRec = window.itemF.femRec(_item)>>\
 	<<if _image and $showimages>>\
 		<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview\');ip.src=\'images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview\').className=\'hidden\';">_name '>>\
 	<<else>>\
@@ -13,7 +12,7 @@
 	<<endif>>\
 	<<set _in to _in +" "+ _cost+"$ ">>\
 	<<if $player.money gte _cost>>\
-		<<if ($player.daring gte _daringRec) or _override>>\
+		<<if ($player.feminization gte _femRec) or _override>>\
 			<<if _time and (_time gt 0)>>\
 				<<set _in to _in + '[[ Order |"'+_passage+'"][$scene="'+_sceneName+'";$player.money-='+_cost+';window.timeCode.addMinutes('+_time+')]]'>>\
 				<<set _in to _in + '@@.halftransparent; ('>>\

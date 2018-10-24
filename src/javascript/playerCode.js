@@ -25,6 +25,11 @@ window.playerCode={
 		
 		return false;
 	},
+	femRange: function(min, max) {
+		var fem=State.active.variables.player.feminization;
+		if ((fem >= min) && (fem <= max)) { return true; }
+		return false;
+	},
 	getNaked: function() {
 		var c=this.isWearingOn(window.itemTypes.Chastity);
 		var player=State.active.variables.player;
@@ -107,6 +112,11 @@ window.playerCode={
 		player.arousal=Math.floor(player.arousal + change);
 		player.arousal=Math.max(player.arousal, 0);
 		player.arousal=Math.min(player.arousal, 100);
+	},
+	statUp: function(stat, delta, max) {
+		var player=State.active.variables.player;
+		var increase=Math.min(max - player[stat], delta);
+		player[stat]+=Math.max(increase, 0);
 	},
 	setStatus: function(string, scenes, hours) {
 		var status=State.active.variables.status;
@@ -304,7 +314,7 @@ window.playerCode={
 		var s=this.isWearingOn(window.itemTypes.Shoes);
 		var player=State.active.variables.player;
 		if (s) {
-			if (s.daringRec > 6) {
+			if (s.crossRec >= 60) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -315,7 +325,7 @@ window.playerCode={
 				}
 				return false;
 			}
-			if (s.daringRec > 3) {
+			if (s.crossRec >= 30) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -558,18 +568,6 @@ window.playerCode={
 			var o=itemsC[Object.keys(itemsC)[i]];
 			if ([itemTypes.Underwear, itemTypes.Outerwear, itemTypes.Shoes].includes(o.clothingType) && playerCode.owns(o) && !o.female) {
 				State.active.variables.inventory.splice(State.active.variables.inventory.indexOf(o.id), 1);
-			}
-		}
-	},
-	disableMaleClothes: function() {
-		var itemsC=window.itemsC;
-		var items=State.active.variables.items;
-		for (var i=0; i < Object.keys(itemsC).length; i++) {
-			var o=itemsC[Object.keys(itemsC)[i]];
-			var oV=items[Object.keys(itemsC)[i]];
-			if ([itemTypes.Underwear, itemTypes.Outerwear, itemTypes.Shoes].includes(o.clothingType) && !o.female) {
-				oV.disabled=true;
-				oV.cost=0;
 			}
 		}
 	},

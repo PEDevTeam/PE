@@ -1,0 +1,59 @@
+:: Read Playgirl magazine first [pos_478_935]
+\
+<<showImage "porn" "playgirl_magazine.jpg">>\
+/* Porn image of a page with hunky man instead of the cover ? */\
+<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if $scene eq "Masturbate">>\
+	<<if not _c>>\
+		You start idly playing with your own penis, and before long you realize you're hard.\
+	<<endif>>\
+	/* ToDo: Start with fantasies about guardian, then shift to beefcakes */\
+	It's scary to think of being in a room with one of these beefcakes, nobody to see what he does to you, your own little world without other people judging your fantasies.  
+
+	What if he was too rough? Would you mind? Would you care if he used you, covered you in his sperm and demanded you clean him up, then left without a care for your own pleasure? Or would you prefer him kissing you, frenching you, then 69ing until you both came together?
+
+	What if you seduced him, dressed as a girl, and he didn't know? You could slip under the table at a restaurant, open his pants and suck him deep until he put his hands on your head and gently fucked your mouth until he came. 
+
+	You could stand up with a mouthful of his cum and swallow as you walked away, knowing he would fantasize about you doing it again.
+
+	<<if _c>>\
+		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+	<<else>>\
+		You come hard, clean up quickly and \
+	<<endif>>\
+	put the magazine away.
+
+	<<if ($player.bisexuality lt 40)>>\
+		You still feel weirded out by getting off from this. So you decide to put away the magazine for a while, at least until you figure out what happened and your feelings about it.
+	
+	<<endif>>\
+	<<if _c>>\
+		<<set playerCode.changeArousal(5)>>\
+		<<set playerCode.upArousalTo(50,50)>>\
+		<<if $player.perversion.guardian gte 4>>\
+			<<set $player.masturbationType = window.masturbateType.playgirlChastNoCum>>\
+			After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
+			
+		<<endif>>\
+		[[Do something else|Go to bedroom]]
+	<<else>>\
+		<<if $player.perversion.guardian gte 4>>\
+			<<set $player.masturbationType = window.masturbateType.playgirlCum>>\
+			After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
+			
+		<<endif>>\
+		[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	<<endif>>\
+<<elseif $scene eq "PutAside">>\
+	Too confused by conflicting thoughts you just put the magazine away. Maybe some day you will decide what to do with it.
+	
+	[[Do something else|Go to bedroom]]
+<<elseif $scene eq "ThrowAway">>\
+	<<removeFromInv 'playgirlMagazine'>>\
+	You aren't into men, you aren't even sure why you even considered to keep it. You take the playgirl magazine and throw it away.
+	
+	[[Do something else|Go to bedroom]]
+<<else>>\
+	This is bug.
+	[[Go to bedroom]]
+<<endif>>\

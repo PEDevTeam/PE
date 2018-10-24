@@ -3,13 +3,13 @@
 You walk over to the clinic where $guardian works.
 
 <<if window.timeCode.canWork()>>\
-	<<if window.clothes.dressedGuardianWork.check()>>\
+	<<if window.clothes.dressedGuardianWork()>>\
 		<<print '[[Work at '+$guardian+'\'s department|Work at clinic][$random.store(4)]]'>>
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Work at the clinic@@ <span class="tooltiptext"><<print $reason.dressedGuardianWork>></span></div>
 	<<endif>>\
 <<endif>>\
-<<if ($player.daring gte 2)>>\
+<<if ($player.daring gte 20)>>\
 	<<print "[[Enter the Beauty salon|Beauty Salon]]">>
 <<else>>\
 	<div class="tooltip">@@.halftransparent;Enter the Beauty salon@@ <span class="tooltiptext">It's too embarassing to go in there</span></div>

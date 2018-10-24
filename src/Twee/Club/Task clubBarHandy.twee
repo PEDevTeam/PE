@@ -36,16 +36,16 @@
 	Eventually, you feel like you have a few options… maybe. You see:
 
 		<<if (1 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
-			[[A guy in a fashionable sport suit sitting solo at the corner table|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=1; $scene="guyInSuit"]]
+			[[A guy in a fashionable sport suit sitting solo at the corner table|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=1; $scene="guyInSuit"; events.record('clubBarHandy','max')]]
 		<<endif>>\
 		<<if (2 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
-			[[A sultry-looking woman in a black dress and stiletto heels at the end of the bar|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=2; $scene="sultryWoman"]]
+			[[A sultry-looking woman in a black dress and stiletto heels at the end of the bar|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=2; $scene="sultryWoman"; events.record('clubBarHandy')]]
 		<<endif>>\
 		<<if (4 & $tasksTeacher.clubBarHandy.progress) eq 0>>\
-			[[Two younger, tipsy girls in sundresses and sandals at a table in the middle|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=4; $scene="twoGirls"]]
+			[[Two younger, tipsy girls in sundresses and sandals at a table in the middle|Task clubBarHandy][$tasksTeacher.clubBarHandy.status=2; $tasksTeacher.clubBarHandy.progress+=4; $scene="twoGirls"; events.record('clubBarHandy')]]
 		<<endif>>\
 
-	[[Bad idea... I should just go home|The Club][$tasksTeacher.clubBarHandy.status=3; $scene="MainClub"]]
+	[[Bad idea... I should just go home|The Club][$tasksTeacher.clubBarHandy.status=3; $scene="MainClub"; events.record('clubBarHandy','min')]]
 <<elseif $scene eq "guyInSuit">>\
 	You down the remnants of your drink and leave the glass behind on the bar. You quickly rehearse a couple of possible things you might say when you get to the table, but none of them sounds any good. Finally, you just stand up and let your feet take you to the corner table.
 

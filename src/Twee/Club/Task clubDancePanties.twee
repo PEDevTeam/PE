@@ -20,7 +20,7 @@
 
 		You venture deeper into the crowds of dancers around you, looking for someone with whom to complete $teacher’s latest with.
 
-		<<if $player.daring gte 6>>\
+		<<if $player.perversion.teacher gte 5>>\
 			You’ve already been out in public in both girls’ clothes and without underwear on, but knowing you’re about to take off the panties you are wearing right now, to give them to some complete stranger you have to search for, carries its own special embarrassment. It’s one thing to flirt with the risk of being discovered exposed, and quite another to be forced to orchestrate the exposure yourself.
 		<<else>>\
 			You can’t believe you’re about to do this. You’ve never even left your house without underwear on before, never mind a crowded place like this one. It’s a special kind of embarrassment to have to search out a stranger to give your panties to, knowing your first real public exposure is going to be one you have to orchestrate yourself.
@@ -366,6 +366,7 @@
 		[[Retreat to the ladies room|Task clubDancePanties][$scene="runAwayRestroom"; $tasksTeacher.clubDancePanties.status=2; $tasksTeacher.clubDancePanties.progress+=8;$time.addMinutes(5)]]
 	<<endif>>\
 <<elseif $scene eq "runAwayRestroom" or $scene eq "runAway">>\
+	<<set events.record('clubDancePanties')>>\
 	<<set _panties=false>>\
 	<<if _u.maxAlt>>\
 		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
@@ -427,13 +428,13 @@
 		You quietly close the front door and lock it, thinking about the high chances that $guardian is sleeping soundly right now. A naughty thought crosses your mind when you feel the loose feeling around your privates where your surrendered underwear used to be.
 
 		You wonder… What if I ‘borrow’ some of $guardian’s?
-		<<if $player.daring lte 5>>\
+		<<if $player.perversion.teacher lt 5>>\
 
 			After all, there’s absolutely no way you’re going out commando again tomorrow, not after what happened tonight.
 		<<endif>>\
 	<<else>>\
 		As you quietly close the door behind you, you freeze when you realize you’ve just given your only pair of underwear away.\
-		<<if $player.daring lte 5>>\
+		<<if $player.perversion.teacher lt 5>>\
 			It’s too late to buy some more now, and there’s absolutely no way you’re going out commando again tomorrow, not after what happened tonight.\
 		<<endif>>\
 		However, you know there’s only one solution at this hour, and that’s borrowing a pair of $guardian’s. She’s probably sound asleep, but you sneak as quietly as you can to her door, just to make sure.

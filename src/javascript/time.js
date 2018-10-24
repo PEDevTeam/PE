@@ -15,8 +15,14 @@ window.timeCode={
 		isShowering: function() {
 			var time=State.active.variables.time;
 			var t=(time.hour * 60 + time.minute) - (time.guardian.wakeHour * 60 + time.guardian.wakeMinute);
-			return (t >= 0) && (t <= (State.active.variables.player.alarmClockGuardian ? 30 : 15));
+			return (t >= 0) && (t <= (window.timeCode.batteriesWork() ? 30 : 15));
+		},
+		isHome: function() {
+			return (State.active.variables.time.hour >= 15) || window.timeCode.isWeekend();
 		}
+	},
+	batteriesWork: function() {
+		return (State.active.variables.time.day < State.active.variables.player.batteryExpireDay);
 	},
 	minutes: function() {
 		var time=State.active.variables.time;

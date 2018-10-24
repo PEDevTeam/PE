@@ -11,15 +11,11 @@ You walk into $guardian's room, open the back of her alarm clock and replace the
 
 This should stop her from sleeping in.
 
-<<if playerCode.owns(itemsC.batteries)>>\
-	<<removeFromInv 'batteries'>>\
+<<removeFromInv 'batteries'>>\
+<<if $player.batteryExpireDay eq 0>>\
 	<<set $player.batteryExpireDay=$time.day+2>>\
-	<<set $items.batteries.disabled=true>>\
-<<endif>>\
-<<if playerCode.owns(itemsC.batteriesQuality)>>\
-	<<removeFromInv 'batteriesQuality'>>\
+<<else>>\
 	<<set $player.batteryExpireDay=$time.day+3>>\
-	<<set $items.batteriesQuality.disabled=true>>\
 <<endif>>\
 \
 [[Return to your bedroom|Go to bedroom]]

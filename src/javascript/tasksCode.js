@@ -32,7 +32,7 @@ window.tasksFunction = {
 			rt-=tl[i].chance;
 			if (rt <= 0) {
 				var tlV=this.getVariableObject(tl[i].id);
-				if (tl[i].name != "No tasks") {
+				if (tl[i].id != "noTasksToday") {
 					tlV.status=1;
 					tlV.startDay=time.day;
 				}
@@ -74,6 +74,14 @@ window.tasksFunction = {
 		var taskV = this.getVariableObject(task.id);
 		return taskV.status == 2;
 	},
+	taskComplete: function(task) {
+		var taskV = this.getVariableObject(task.id);
+		if (taskV == null) {
+			var errorString = "Error: no task with ID = @@.errorLog;"+task.id+"@@";
+			state.active.variables.errorLog.push(errorString);
+		}
+		taskV.status = 2;
+	},
 	isTaskFail: function(task) {
 		var taskV = this.getVariableObject(task.id);
 		return taskV.status == 3;
@@ -104,13 +112,7 @@ window.tasksFunction = {
 		}
 		return startPriority;
 	},
-	
-	REST_IS_RANDOM: Symbol('REST_IS_RANDOM'),
-	SEQUENTIAL: Symbol('SEQUENTIAL'),
-	RANDOM: Symbol('RANDOM'),
 	getTaskText: function(taskName, textObj, whichText) {
-		var idx = whichText + '_index';
-		var arrSel = whichText + '_arraySelect';
 		if (!(whichText in textObj)) {
 			return 'ERROR: getTaskText, task ' + taskName + ' does not have a member named ' + whichText;
 		}
@@ -120,37 +122,12 @@ window.tasksFunction = {
 			if (len < 1) {
 				return 'ERROR: task ' + taskName + ' has empty array for text ' + whichText;
 			}
-			if (!(idx in textObj)) {
-				textObj[idx] = -1;
-			}
-			if (!(arrSel in textObj)) {
-				textObj[arrSel] = this.RANDOM;
-			}
-			if (textObj[arrSel] === this.SEQUENTIAL) {
-				textObj[idx] += 1;	
-				if (textObj[idx] >= len) {
-					return textObj[whichText] = textProp.pop();
-				}
-				if (textProp[textObj[idx]] !== this.REST_IS_RANDOM) {
-					return textProp[textObj[idx]];
-				}
-				textProp = textProp.slice(textObj[idx] + 1);
-				textObj[whichText] = textProp;
-				len = textProp.length;
-				textObj[arrSel] = this.RANDOM;
-				if (len < 1) {
-					return 'ERROR: task '  + taskName + ' has empty array after REST_IS_RANDOM for text ' + whichText;
-				}
-			};
 			var i = Math.floor(Math.random() * len);
-			if (len <= 2) { return textProp[i]; };
-			if (textObj[idx] == i) {
-				i = (i + 1) % len;
-			}
-			textObj[idx] = i;
 			return textProp[i];
+		} else if (typeof(textProp) === 'function') {
+			return textProp.call();
 		} else {
-			return textObj[whichText];
+			return textProp;
 		}
 	}
 },
@@ -159,7 +136,6 @@ window.tasksTeacher={
 	corsetTraining: {
 		id: "corsetTraining",
 		name:"Task Corset training",
-		hasPassage: false,
 		text: {
 			given: "You have to sleep all night in a corset.",
 			perform: "Despite your exhaustion, you struggle to get to sleep. The corset squeezes you incessantly, barely letting you get enough air to breathe.  Even yawning is painful. [[Go to sleep|Good morning][window.timeCode.newDay()]]",
@@ -201,32 +177,38 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	wearDressToSchool: {	// perv 3
-		id: "wearDressToSchool",
-		name:"Task Dress for school",
-		hasPassage: true,
+	complexTemplate: {
+		id: "complexTemplate",
+		name:"Task complex template",
 		text: {
-			given: "Don't forget to wear a proper outfit to school.",
-			perform: "",
-			finish: "$teacher smiles widely.\n\n@@.teacher;\"I did not want to bring it up in front of your peers, but this looks great on you, $player.name.@@",
-			fail: "You disappoint me. I thought I was clear on what would happen if you failed to do what I asked. Take a mark.",
-			reminder: "Don't forget to wear a proper outfit to school.",
-			checkMe: {
-				given: "to go to classes wearing a school dress.",
-				finish: "You did it.",
-				fail: "",
-				reminder: "You haven't done it yet."
+			given: function() {
+			const texts = ['Given 1', 'Given 2', 'Given ..', 'Given Rest'];
+			let p = State.active.variables.tasksTeacher.taskName.progress;
+			let index = Math.max(0, Math.min(p, texts.length - 1));
+			return givens[index];
+			},
+			perform: "Perform text",
+			finish: function() {
+				const texts = ['Finish 1', 'Finish 2', 'Finish ..', 'Finish N'];
+				const rnd_t = ['Finish rnd1', 'Finish ..', 'Finish rndN'];
+				let p = State.active.variables.tasksTeacher.taskName.progress;
+				if (p > texts.length) {
+					let index = Math.floor(Math.random() * rnd_t.length);
+					return rnd_t[index];
+				} else {
+					return finish[Math.max(0, p - 1)];
+				}
 			}
 		},
 		Conditions: function() {
 			return true;
 		},
 		image: "",
-		startPriority: 10,  // see priority system above
+		startPriority: 0,  // see priority system above
 		canStart: false,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 3 },
+			teacher:	{ min: 0, max: 10 },
 			therapist:	{ min: 0, max: 10 },
 			guardian:	{ min: 0, max: 10 }
 		},
@@ -234,11 +216,11 @@ window.tasksTeacher={
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
 		progress: 0,  // for progressing scenes
 		startDay: 0,  // day task was started
-		maxDays: 99,  // number of days allowed before task will fail
+		maxDays: 1,  // number of days allowed before task will fail
 		cooldown: 1,  // number of days before task available again
-		rewardMoney: 0,
+		rewardMoney: 20,
 		rewardDebt: 10,
-		failPenalty: 10,
+		failPenalty: 1,
 		events: {
 			start: function() {},
 			finish: function() { return true; },
@@ -249,7 +231,6 @@ window.tasksTeacher={
 	trialChastity: {	// perv 2
 		id: "trialChastity",
 		name:"Task Trial chastity",
-		hasPassage: true,
 		text: {
 			given: "I am not unreasonable. The items you will need are not cheap, so I will help you out. One of my friends has informed me there is an adult toy company undertaking some form of market research. You can inquire about it at the local adult store. I will put in a call to my friend for you later, just in case.",
 			perform: "",
@@ -294,10 +275,9 @@ window.tasksTeacher={
 		}
 	},
 
-	selfieNightwear: {	// perv 3-4, cross 0-1
+	selfieNightwear: {	// perv 3-4, cross 0-2
 		id: "selfieNightwear",
 		name:"Task Nightwear selfie",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Take a selfie while wearing sexy nightwear that shows your chastity cage.",
 			perform: "",
@@ -312,14 +292,14 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
+			return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1,2].includes(State.active.variables.player.perversion.crossdressTasks);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
+			teacher:	{ min: 3, max: 4 },
 			therapist:	{ min: 0, max: 10 },
 			guardian:	{ min: 1, max: 10 }
 		},
@@ -334,26 +314,24 @@ window.tasksTeacher={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				State.active.variables.items.silkyTeddy.daringRec = 0;
 				State.active.variables.tasksTeacher.selfieNightwear.startPriority = 0;
 				State.active.variables.tasksTeacher.selfieNightwear.progress++;
+				if (State.active.variables.player.perversion.crossdressTasks < 3) {
+					State.active.variables.player.perversion.crossdressTasks++;
+				}
 			},
 			finish: function() { return true; },
 			success: function() {
 				if (State.active.variables.tasksTeacher.selfieNightwear.progress >= 2) {
 					State.active.variables.tasksTeacher.selfieNightwear.canStart = false;
 				}
-				if (State.active.variables.player.perversion.crossdressing <= 1) {
-					State.active.variables.player.perversion.crossdressing++;
-				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	selfieFemaleClothes: {	// perv 3-3, cross 0-1
+	selfieFemaleClothes: {	// perv 3-3, cross 0-2
 		id: "selfieFemaleClothes",
 		name:"Task Female clothes selfie",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you today. Take a photo of yourself wearing female clothes.",
 			perform: "",
@@ -368,7 +346,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing <= 1) && (State.active.variables.tasksTeacher.selfieFemaleClothes.progress == 0);
+			return (State.active.variables.player.perversion.crossdressTasks <= 2);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -391,14 +369,18 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.selfieFemaleClothes.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 3) {
+					State.active.variables.player.perversion.crossdressTasks++;
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
-	selfieHomeMakeup: {	// perv 3-3, cross 0-1
+	selfieHomeMakeup: {	// perv 3-3, cross 0-2
 		id: "selfieHomeMakeup",
 		name:"Task Apply makeup",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you today. You need to try some things to understand women better. Film yourself applying makeup - lipstick, eyeshadow and so on. I want to see a real effort.",
 			perform: "",
@@ -413,7 +395,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing <= 1) && (State.active.variables.tasksTeacher.selfieHomeMakeup.progress == 0) && (!playerCode.haveMakeup() && (State.active.variables.tasksTeacherBody.makeup.status == 0));
+			return (State.active.variables.player.perversion.crossdressTasks <= 2) && !playerCode.haveMakeup();
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -436,15 +418,19 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.selfieHomeMakeup.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 3) {
+					State.active.variables.player.perversion.crossdressTasks++;
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
 
-	tryingClothesMall: {	// perv 3-3, cross 2-3
+	tryingClothesMall: {	// perv 3-3, cross 3-5, fem 30-34
 		id: "tryingClothesMall",
 		name:"Task Trying on clothes at Mall",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you today. I think you need to experiment more. Film yourself trying on dresses at one of local clothing stores.",
 			perform: "",
@@ -459,7 +445,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [2,3].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.tryingClothesMall.progress == 0);
+			return [3,4,5].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(30,34);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -470,6 +456,7 @@ window.tasksTeacher={
 			therapist:	{ min: 0, max: 10 },
 			guardian:	{ min: 0, max: 10 }
 		},
+		feminization:	{ min: 0, max: 10 },
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
 		progress: 0,  // for progressing scenes
@@ -480,18 +467,24 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=3;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.tryingClothesMall.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 4);
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
-	posingSeductively: {	// perv 3-3, cross 2-3
+	posingSeductively: {	// perv 3-3, cross 3-5, fem 30-34
 		id: "posingSeductively",
 		name:"Task Pose seductively",
-		hasPassage: true,
 		text: {
-			given: "I have a task for you today. I want you to work on your posing skills, try to make it as seductive as possible. And I want photos as a proof.",
+			given: "I have a task for you today. I want you to work on your posing skills. Put on some fancy dress and make few photos, as seductive as possible.",
 			perform: "",
 			finish: "$teacher checks your photos, looking pleased. Suddenly her eyes widen and she shows a picture of you in a very compromising pose. You must have somehow missed the photo and haven't erased it like the rest.\n\n@@.teacher;\"Oh my, I didn't expect you to be so... enthusiastic about my task.\"@@\n\nEmbarrassed, you lower your eyes and curse your luck.\n\n@@.teacher;\"Good boy.@@",
 			fail: "Ignoring my requests? You test my patience. Take a mark to refocus your attention.",
@@ -504,7 +497,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [2,3].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.posingSeductively.progress == 0);
+			return [3,4,5].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(30,34);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -525,16 +518,22 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=3;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.posingSeductively.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 4);
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
-	danceAtHome: {	// perv 3-3, cross 2-3
+	danceAtHome: {	// perv 3-3, cross 3-5, fem 30-34
 		id: "danceAtHome",
 		name:"Task Dance at home",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you. I want you to put on a dress and dance on camera. But not just any kind of dance: do something slow and sensual.",
 			perform: "",
@@ -549,7 +548,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [2,3].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.danceAtHome.progress == 0);
+			return [3,4,5].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(30,34);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -570,17 +569,23 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=3;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.danceAtHome.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 4);
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
 	
-	crossdressAroundBlock: {	// perv 3-3, cross 4-5
+	crossdressAroundBlock: {	// perv 3-3, cross 6-8, fem 35-39
 		id: "crossdressAroundBlock",
 		name:"Task Crossdress around block",
-		hasPassage: true,
 		text: {
 			given: "I have an interesting task for you. I think you need to be bolder in your experiments. Dress as a girl and go outside for a bit. I will need some photos as a proof.",
 			perform: "",
@@ -595,7 +600,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAroundBlock.progress == 0);
+			return [6,7,8].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(35,39);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -616,16 +621,24 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=6;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.crossdressAroundBlock.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 9) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 7);
+				} else {
+					window.events.record('readyOutsideDress');
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
-	crossdressAtPark: {	// perv 3-3, cross 4-5
+	crossdressAtPark: {	// perv 3-3, cross 6-8, fem 35-39
 		id: "crossdressAtPark",
 		name:"Task Crossdress at the park",
-		hasPassage: true,
 		text: {
 			given: "I have an interesting task for you. I think you need to experiment a bit more. I want few photos of you at the park, dressed as a girl.",
 			perform: "",
@@ -640,7 +653,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAtPark.progress == 0);
+			return [6,7,8].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(35,39);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -661,16 +674,24 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=6;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.crossdressAtPark.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 9) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 7);
+				} else {
+					window.events.record('readyOutsideDress');
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
-	crossdressOnline: {	// perv 3-3, cross 4-5
+	crossdressOnline: {	// perv 3-3, cross 6-8, fem 35-39
 		id: "crossdressOnline",
 		name:"Task Crossdress online",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you. I think you should learn more about taking care of your appearance. I want you to post a few of your selfies on an online discussion board, and ask how they look. You can keep it decent and leave your face out of the picture, but send me the link as proof.",
 			perform: "",
@@ -685,7 +706,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressOnline.progress == 0);
+			return [6,7,8].includes(State.active.variables.player.perversion.crossdressTasks) || window.playerCode.femRange(35,39);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -706,17 +727,25 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=6;	}
+			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.crossdressOnline.canStart=false;
+				if (State.active.variables.player.perversion.crossdressTasks < 9) {
+					State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 7);
+				} else {
+					window.events.record('readyOutsideDress');
+				}
+			},
 			fail: function() { return false; }
 		}
 	},
 	
-	windowshopping: {	// perv 3-4, cross 6-7
+	windowshopping: {	// perv 3-4, cross 9+, fem 40-60
 		id: "windowshopping",
 		name:"Task Windowshopping",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Take several photos of yourself strolling around the mall dressed as a girl, window-shopping for girly things while locked in chastity. Please be sure to include your butt-plug.",
 			perform: "",
@@ -731,7 +760,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return (State.active.variables.player.perversion.crossdressTasks >= 9) || window.playerCode.femRange(40,60);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -752,20 +781,20 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				window.events.record('readyOutsideDress');
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=9;	}
+			},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
-					State.active.variables.player.perversion.crossdressing++;
-				}
+				State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 10);
 			},
 			fail: function() { return false; }
 		}
 	},
-	suckPopsickle: {	// perv 3-4, cross 6-7
+	suckPopsickle: {	// perv 3-4, cross 9+, fem 40-60
 		id: "suckPopsickle",
 		name:"Task Suck popsickle",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Dress as a girl and suck a popsicle suggestively in a public place.",
 			perform: "",
@@ -780,7 +809,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return (State.active.variables.player.perversion.crossdressTasks >= 9) || window.playerCode.femRange(40,60);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -801,69 +830,20 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				window.events.record('readyOutsideDress');
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=9;	}
+			},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
-					State.active.variables.player.perversion.crossdressing++;
-				}
+				State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 10);
 			},
 			fail: function() { return false; }
 		}
 	},
-	selfieMallToilets: {	// perv 3-5, cross 6-7
-		id: "selfieMallToilets",
-		name:"Task Mall kissy selfie",
-		hasPassage: true,
-		text: {
-			given: "I have a special task for you today. Make a kissy selfie at a public toilet while wearing female clothes.",
-			perform: "",
-			finish: "$teacher takes your phone and looks at your selfie.\n\n@@.teacher;\"This one will do. Good boy, $player.name.@@",
-			fail: "I was expecting a selfie from you. No? Perhaps you simply enjoy being disciplined. A mark for you, then.",
-			reminder: "Don't forget to take that selfie I was talking about.",
-			checkMe: {
-				given: "take a selfie at the public toilets in the mall while wearing female clothes.",
-				finish: "You did it.",
-				fail: "",
-				reminder: "You haven't done it yet."
-			}
-		},
-		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
-		},
-		image: "",
-		startPriority: 0,  // see priority system above
-		canStart: true,  // only if true can this task be picked
-		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
-		perversion: {
-			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
-		},
-		chance: 10,
-		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
-		progress: 0,  // for progressing scenes
-		startDay: 0,  // day task was started
-		maxDays: 3,  // number of days allowed before task will fail
-		cooldown: 1,  // number of days before task available again
-		rewardMoney: 0,
-		rewardDebt: 10,
-		failPenalty: 1,
-		events: {
-			start: function() {},
-			finish: function() { return true; },
-			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
-					State.active.variables.player.perversion.crossdressing++;
-				}
-			},
-			fail: function() { return false; }
-		}
-	},
-	girlyDesert: {	// perv 3-3, cross 6-7
+	girlyDesert: {	// perv 3-3, cross 9+, fem 40-60
 		id: "girlyDesert",
 		name:"Task Girly desert",
-		hasPassage: true,
 		text: {
 			given: "I have a task for you today. Dress as a girl and go out to a café. Film yourself eating a desert there.",
 			perform: "",
@@ -878,7 +858,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.girlyDesert.progress == 0);
+			return (State.active.variables.player.perversion.crossdressTasks >= 9) || window.playerCode.femRange(40,60);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -899,37 +879,128 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {},
+			start: function() {
+				window.events.record('readyOutsideDress');
+				if (State.active.variables.player.perversion.crossdressTasks < 6) {	State.active.variables.player.perversion.crossdressTasks=9;	}
+			},
 			finish: function() { return true; },
 			success: function() {
-				State.active.variables.tasksTeacher.girlyDesert.progress++;
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
-					State.active.variables.player.perversion.crossdressing++;
-				}
+				State.active.variables.player.perversion.crossdressTasks=Math.max(State.active.variables.player.perversion.crossdressTasks+1, 10);
 			},
 			fail: function() { return false; }
 		}
 	},
-	
-	selfiePublicChastity: {	// perv 3-4, cross 8+
-		id: "selfiePublicChastity",
-		name:"Task Public chastity",
-		hasPassage: true,
+
+	selfieFemaleUniform: {	// perv 3, cross 9+
+		id: "selfieFemaleUniform",
+		name:"Task selfie in female uniform",
 		text: {
-			given: "I have a special task for you today. Go somewhere public while dressed as a girl, and take a selfie that shows your chastity.",
+			given: "I have a special task for you today. Make a photo set of yourself wearing school dress.",
 			perform: "",
-			finish: "$teacher looks at the photo on your phone.\n\n@@.teacher;\"Nice. I bet it was an interesting experience for you.@@",
-			fail: "No selfie? Are you so afraid someone will discover your secret? A mark for timidness.",
-			reminder: "Don't forget to make a chastity selfie at some public place.",
+			finish: "$teacher smiles widely.\n\n@@.teacher;\"I did not want to bring it up in front of your peers, but this looks great on you, $player.name.@@",
+			fail: "You disappoint me. I thought I was clear on what would happen if you failed to do what I asked. Take a mark.",
+			reminder: "Don't forget about female uniform.",
 			checkMe: {
-				given: "make a selfie that shows chastity somewhere public.",
+				given: "to go to classes wearing a school dress.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressTasks >= 11);
+		},
+		image: "",
+		startPriority: 10,
+		canStart: true,
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 3 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 5,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 10,
+		events: {
+			start: function() { window.events.record('readyOutsideDress'); },
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.tasksTeacher.selfieFemaleUniform.canStart=false;
+				State.active.variables.tasksTeacher.selfieFemaleUniform.progress++;
+			},
+			fail: function() { return false; }
+		}
+	},
+	wearDressToSchool: {	// perv 3
+		id: "wearDressToSchool",
+		name:"Task Dress for school",
+		text: {
+			given: "Don't forget to wear a proper outfit to school.",
+			perform: "",
+			finish: "$teacher smiles widely.\n\n@@.teacher;\"I did not want to bring it up in front of your peers, but this looks great on you, $player.name.@@",
+			fail: "You disappoint me. I thought I was clear on what would happen if you failed to do what I asked. Take a mark.",
+			reminder: "Don't forget to wear a proper outfit to school.",
+			checkMe: {
+				given: "to go to classes wearing a school dress.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return true;
+		},
+		image: "",
+		startPriority: 10,
+		canStart: false,
+		canStartDays: [1,2,3,4,5],
+		perversion: {
+			teacher:	{ min: 3, max: 3 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,
+		startDay: 0,
+		maxDays: 99,
+		cooldown: 1,
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 10,
+		events: {
+			start: function() { window.events.record('readyOutsideDress'); },
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	
+	selfieMallToilets: {	// perv 3-5, cross 10+
+		id: "selfieMallToilets",
+		name:"Task Mall kissy selfie",
+		text: {
+			given: "I have a special task for you today. Make a kissy selfie at a public toilet while wearing female clothes.",
+			perform: "",
+			finish: "$teacher takes your phone and looks at your selfie.\n\n@@.teacher;\"This one will do. Good boy, $player.name.@@",
+			fail: "I was expecting a selfie from you. No? Perhaps you simply enjoy being disciplined. A mark for you, then.",
+			reminder: "Don't forget to take that selfie I was talking about.",
+			checkMe: {
+				given: "take a selfie at the public toilets in the mall while wearing female clothes.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.crossdressTasks >= 10);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -952,14 +1023,57 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() { State.active.variables.player.perversion.crossdressTasks++; },
 			fail: function() { return false; }
 		}
 	},
-	trickGuy: {	// perv 3-4, cross 8+
+	selfiePublicChastity: {	// perv 3-4, cross 12+
+		id: "selfiePublicChastity",
+		name:"Task Public chastity",
+		text: {
+			given: "I have a special task for you today. Go somewhere public while dressed as a girl, and take a selfie that shows your chastity.",
+			perform: "",
+			finish: "$teacher looks at the photo on your phone.\n\n@@.teacher;\"Nice. I bet it was an interesting experience for you.@@",
+			fail: "No selfie? Are you so afraid someone will discover your secret? A mark for timidness.",
+			reminder: "Don't forget to make a chastity selfie at some public place.",
+			checkMe: {
+				given: "make a selfie that shows chastity somewhere public.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.crossdressTasks >= 12);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 4 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() { State.active.variables.player.perversion.crossdressTasks++; },
+			fail: function() { return false; }
+		}
+	},
+	trickGuy: {	// perv 3-4, cross 12+
 		id: "trickGuy",
 		name:"Task Trick guy",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Offer some random guy a blowjob and take a shot of him waiting for you. It is up to you what to do next.",
 			perform: "",
@@ -974,7 +1088,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressTasks >= 12);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -997,14 +1111,13 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() { State.active.variables.player.perversion.crossdressTasks++; },
 			fail: function() { return false; }
 		}
 	},
-	getHitOn: {	// perv 3-4, cross 8+
+	getHitOn: {	// perv 3-4, cross 12+
 		id: "getHitOn",
 		name:"Task Get hit on",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Record yourself getting hit on by some guy.",
 			perform: "",
@@ -1019,7 +1132,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressTasks >= 12);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1042,7 +1155,7 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() { State.active.variables.player.perversion.crossdressTasks++; },
 			fail: function() { return false; }
 		}
 	},
@@ -1051,7 +1164,6 @@ window.tasksTeacher={
 	TheClubIntro: { // perv 3+ cross 8+
 		id: "TheClubIntro",
 		name: "Task The Club Intro",
-		hasPassage: true,
 		text: {
 			given: "I want you to go to the local nightclub for their free ladies\’ night event Saturday, to see if you can pass as a girl in public. Dress up nicely and get the bouncer to let you in. Obviously, if you have to pay the cover charge, you fail.",
 			perform: "",
@@ -1066,7 +1178,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (((State.active.variables.player.perversion.crossdressing >= 8) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
+			return ((State.active.variables.player.perversion.crossdressTasks >= 11) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -1089,14 +1201,15 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.tasksTeacher.TheClubIntro.canStart=false;
+			},
 			fail: function() { return false; }
 		}
 	},
 	clubSelfieLadiesRoom: { // perv 4+
 		id: "clubSelfieLadiesRoom",
 		name: "Take a Selfie With a Woman in the Ladies\’ Room",
-		hasPassage: true,
 		text: {
 			given: "You need to practice passing as a girl in public. Go back to the club this weekend and take a selfie with a woman in the ladies\’ room.",
 			perform: "",
@@ -1141,7 +1254,6 @@ window.tasksTeacher={
 	clubDancePanties: { // perv 4+
 		id: "clubDancePanties",
 		name: "Dance With, and Give panties to a Random Stranger",
-		hasPassage: true,
 		text: {
 			given: "Go to the club this weekend, and dance with a stranger. Give the panties you’re wearing to them.",
 			perform: "",
@@ -1179,14 +1291,13 @@ window.tasksTeacher={
 		events: {
 			start: function() {},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() { window.events.record('readyNoUnderwear');},
 			fail: function() { return false; }
 		}
 	},
 	clubFlashBoobs: { // perv 5+
 		id: "clubFlashBoobs",
 		name: "Flash Boobs on the club dance floor",
-		hasPassage: true,
 		text: {
 			given: "I think you need to get more comfortable with new part of yourself. Go to the club before the end of this weekend and talk the DJ into letting you flash your breasts to the crowd. Get a photo of it for proof.",
 			perform: "",
@@ -1231,7 +1342,6 @@ window.tasksTeacher={
 	clubBarHandy: { // perv 6+
 		id: "clubBarHandy",
 		name: "Give a Hand Job at the Club Bar Without Being Caught",
-		hasPassage: true,
 		text: {
 			given: "Go back to the club and find a random stranger. Provide them with… ‘manual stimulation’ at the bar. Do not get caught, or you are completely on your own and I will mark the task as a failure.\n\n\"Do not forget to bring me proof.",
 			perform: "",
@@ -1276,7 +1386,6 @@ window.tasksTeacher={
 	clubDinnerGown: { // perv 6+
 		id: "clubDinnerGown",
 		name: "Dress up in an evening gown provided, then give a pre-arranged patron head under a table",
-		hasPassage: true,
 		text: {
 			given: "I have something special in mind for you this Saturday: I’ve planned for you to have dinner with someone. I’ve located a gown for you, and I want you to wear it to the restaurant at the club - be sure to arrive early to pick it up. The maître d’ will introduce you to your dining companion when you arrive.\n\n\"This evening out was only possible through the extreme generosity of some of my social contacts, so you would be best served by not missing it.",
 			perform: "",
@@ -1323,7 +1432,6 @@ window.tasksTeacher={
 	selfieToiletsChastity: {	// perv 5-6
 		id: "selfieToiletsChastity",
 		name:"Task Flash chastity",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Flash your chastity cage to a stranger while wearing female clothes.",
 			perform: "",
@@ -1374,7 +1482,6 @@ window.tasksTeacher={
 	askAdvice: {	// perv 3-4
 		id: "askAdvice",
 		name:"Task Ask advice",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Seek out one of your female classmates for some 'girl talk.' Ask her for some advice on something girly.",
 			perform: "",
@@ -1419,7 +1526,6 @@ window.tasksTeacher={
 	playButtplug: {	// perv 4-6
 		id: "playButtplug",
 		name:"Task Play with butt-plug",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Play with a butt-plug on camera while wearing a chastity cage.",
 			perform: "",
@@ -1464,7 +1570,6 @@ window.tasksTeacher={
 	askStranger: {	// perv 6-9
 		id: "askStranger",
 		name:"Task Ask stranger",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Film yourself asking a stranger to call you a sissy-slut, and having them write 'SISSY' on your back with a marker.",
 			perform: "",
@@ -1509,7 +1614,6 @@ window.tasksTeacher={
 	fakeGirlfriend: {	// perv 6-9
 		id: "fakeGirlfriend",
 		name:"Task Fake girlfriend",
-		hasPassage: true,
 		text: {
 			given: "I have a very special task for you. You see, one of my male friends is a closeted gay man, and his family and co-workers are among the most bigoted people I know. So your task is to act as his girlfriend in public for a couple of hours. I see the irony that you are the one best suited for this task, but who knows? You might make a friend!",
 			// Alt ToDo - "My friend needs his beard again. I hope you didn't have anything planned.";
@@ -1555,7 +1659,6 @@ window.tasksTeacher={
 	trainDildoBJ: {	// perv 5-7
 		id: "trainDildoBJ",
 		name:"Task train bj with dildo",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Take a dildo in your mouth as far as you can on camera.",
 			perform: "",
@@ -1600,7 +1703,6 @@ window.tasksTeacher={
 	guideHand: {	// perv 5-7
 		id: "guideHand",
 		name:"Task Guide hand",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Guide the hand of a stranger under your skirt at a public place while locked in chastity and going without underwear.",
 			perform: "",
@@ -1645,7 +1747,6 @@ window.tasksTeacher={
 	guardianSpank: {	// perv 4-8
 		id: "guardianSpank",
 		name:"Task Ask to be spanked",
-		hasPassage: true,
 		text: {
 			given: "I have a special task for you today. Ask $guardian to give you a spanking. Tell her you were a disobedient little girl.",
 			perform: "",
@@ -1692,7 +1793,6 @@ window.tasksTeacher={
 	guardianFuck: {	// perv 4-10
 		id: "guardianFuck",
 		name:"Task Ask to be fucked",
-		hasPassage: true,
 		text: {
 			given: "You were really obedient this week, just like a proper sissy should be. So your special task for today is to ask $guardian to fuck you with a strapon.",
 			perform: "",
@@ -1739,7 +1839,6 @@ window.tasksTeacher={
 	pissDrinking: {	// perv 8-10
 		id: "pissDrinking",
 		name:"Task Drink piss",
-		hasPassage: true,
 		text: {
 			given: "Film yourself letting someone piss in your mouth and I will reduce your weekly debt.",
 			perform: "",
@@ -1784,7 +1883,6 @@ window.tasksTeacher={
 	whoring: {	// perv 8-10
 		id: "whoring",
 		name:"Task Whoring",
-		hasPassage: true,
 		text: {
 			given: "Offer yourself to a stranger like a common whore and I will reduce your weekly debt.",
 			perform: "",
@@ -1829,7 +1927,6 @@ window.tasksTeacher={
 	gloryHole: {	// perv 10-10
 		id: "gloryHole",
 		name:"Task Glory hole",
-		hasPassage: true,
 		text: {
 			given: "Film yourself servicing some men at a glory hole.",
 			perform: "",
@@ -1874,7 +1971,6 @@ window.tasksTeacher={
 	schoolPublicToilet: {	// perv 10
 		id: "schoolPublicToilet",
 		name:"Task Public toilet",
-		hasPassage: true,
 		text: {
 			given: "Spend the morning as a public toilet here at school.",
 			perform: "",
@@ -1921,7 +2017,6 @@ window.tasksTeacher={
 	penaltySissyShow: {	// perv 4-10
 		id: "penaltySissyShow",
 		name:"Task Sissy Show",
-		hasPassage: true,
 		text: {
 			given: "As your debt have grown I have a special task for you. Go to the Ivy college downtown and assist Ms Goodwill with her classes. Remember to dress as a proper schoolgirl when you go there.",
 			perform: "",
@@ -1980,7 +2075,6 @@ window.tasksTeacher={
 	penaltyTrials: {	// perv 3-10
 		id: "penaltyTrials",
 		name:"Task Penalty Trials",
-		hasPassage: true,
 		text: {
 			given: "I will give you a chance to write off a considerable amount from your penalty. There is a fresh vacancy for testing new products at the adult toy company. You can ask about it at the local adult store.",
 			perform: "",
@@ -2039,7 +2133,6 @@ window.tasksTeacher={
 	noTasksToday: {
 		id: "noTasksToday",
 		name:"No tasks",
-		hasPassage: false,
 		text: {
 			given: "I have no special tasks for you today.",
 			perform: "",
@@ -2088,7 +2181,6 @@ window.tasksTeacherBody={
 	getHaircut: {	// perv 4+
 		id: "getHaircut",
 		name:"Task Haircut",
-		hasPassage: false,
 		text: {
 			given: "You definitely need a haircut. Next week I want to see you with a pretty haircut.",
 			perform: "",
@@ -2135,7 +2227,6 @@ window.tasksTeacherBody={
 	getEarsPierced: {	// perv 4+
 		id: "getEarsPierced",
 		name:"Task Ears pierced",
-		hasPassage: false,
 		text: {
 			given: "I think it is time to get your ears pierced. Next week I want to see you with a lovely earring.",
 			perform: "",
@@ -2182,7 +2273,6 @@ window.tasksTeacherBody={
 	legHairRemoval: {	// perv 3+
 		id: "legHairRemoval",
 		name:"Task Leg hair removal",
-		hasPassage: false,
 		text: {
 			given: "Your legs are so unsightly like that. Go get them depilated. I expect to see them cleaned up and silky smooth next week.",
 			perform: "",
@@ -2232,7 +2322,6 @@ window.tasksTeacherBody={
 	hairRemoval: {	// perv 3+
 		id: "hairRemoval",
 		name:"Task Hair removal",
-		hasPassage: false,
 		text: {
 			given: "You need to do something with your body hair. Next week, I want to see your skin looking as smooth as a baby's bottom. I suggest waxing. It might hurt a bit, but the result worth it.",
 			perform: "",
@@ -2279,7 +2368,6 @@ window.tasksTeacherBody={
 	hairRemoval_renewal: {	// perv 3+
 		id: "hairRemoval_renewal",
 		name:"Task Hair removal renewal",
-		hasPassage: false,
 		text: {
 			given: "I like how you look without body hair. Keep this up. I expect to see you just as smooth next week.",
 			perform: "",
@@ -2330,7 +2418,6 @@ window.tasksTeacherBody={
 	makeup: {	// perv 5+
 		id: "makeup",
 		name:"Task makeup",
-		hasPassage: false,
 		text: {
 			given: "You definitely need to have your face made up. Be a good boy and go find help if you cannot do it yourself",
 			perform: "",
@@ -2394,7 +2481,6 @@ window.tasksTeacherBody={
 	makeup_renewal: {
 		id: "makeup_renewal",
 		name:"Task makeup renewal",
-		hasPassage: false,
 		text: {
 			given: "Be sure to keep up your makeup next week.",
 			perform: "",
@@ -2465,7 +2551,6 @@ window.tasksTeacherBody={
 	manicure: {	// perv 5+
 		id: "manicure",
 		name:"Task Manicure",
-		hasPassage: false,
 		text: {
 			given: "You need to do something about your nails. Next week, I want to see you with a nice French manicure.",
 			perform: "",
@@ -2512,7 +2597,6 @@ window.tasksTeacherBody={
 	manicure_renewal: {
 		id: "manicure_renewal",
 		name:"Task Manicure renewal",
-		hasPassage: false,
 		text: {
 			given: "I like your manicure, so keep it up. I want you to maintain it properly.",
 			perform: "",
@@ -2559,7 +2643,6 @@ window.tasksTeacherBody={
 	breastsIncrease: {	// perv A-6, B-6, C-7, DD-8
 		id: "breastsIncrease",
 		name:"Task breast increase",
-		hasPassage: false,
 		text: {
 			given: "I think you need bigger breasts.",
 			perform: "",
@@ -2574,7 +2657,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.boobs <= 1) || ((State.active.variables.body.boobs <= 2) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs <= 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0);
+			return ((State.active.variables.body.boobs <= 1) || ((State.active.variables.body.boobs <= 2) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs <= 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0) && !State.active.variables.kink.flatChest;
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2621,7 +2704,6 @@ window.tasksTeacherBody={
 	breastsMaintain: {
 		id: "breastsMaintain",
 		name:"Task breast maintain",
-		hasPassage: false,
 		text: {
 			given: "Your breasts look so nice in your uniform. Make sure you have at least same size next week.",
 			perform: "",
@@ -2636,7 +2718,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.body.boobs > State.active.variables.body.permBoobs) && (State.active.variables.body.boobs > State.active.variables.body.semiBoobs) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0);
+			return (State.active.variables.body.boobs > State.active.variables.body.permBoobs) && (State.active.variables.body.boobs > State.active.variables.body.semiBoobs) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0) && !State.active.variables.kink.flatChest;
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2683,7 +2765,6 @@ window.tasksTeacherBody={
 	lipsIncrease: {	// perv 5+
 		id: "lipsIncrease",
 		name:"Task lips increase",
-		hasPassage: false,
 		text: {
 			given: "I think you need fuller lips. That would make your face much more lovely.",
 			perform: "",
@@ -2730,7 +2811,6 @@ window.tasksTeacherBody={
 	lipsMaintain: {
 		id: "lipsMaintain",
 		name:"Task lips maintain",
-		hasPassage: false,
 		text: {
 			given: "You look lovely with those full lips, make sure you keep up with the treatment for next week.",
 			perform: "",
@@ -2777,7 +2857,6 @@ window.tasksTeacherBody={
 	lipsMaintainXL: {
 		id: "lipsMaintainXL",
 		name:"Task lips maintain XL",
-		hasPassage: false,
 		text: {
 			given: "I personally do not find sluts with oversized, cocksucking lips appealing, but I think that it's rather fitting for you. Make sure they stay this way.",
 			perform: "",
@@ -2824,7 +2903,6 @@ window.tasksTeacherBody={
 	assIncrease: {	// perv 6+
 		id: "assIncrease",
 		name:"Task ass increase",
-		hasPassage: false,
 		text: {
 			given: "I think you need to do something about your figure. I want to see you with a plump little butt next week.",
 			perform: "",
@@ -2871,7 +2949,6 @@ window.tasksTeacherBody={
 	assMaintain: {
 		id: "assMaintain",
 		name:"Task ass maintain",
-		hasPassage: false,
 		text: {
 			given: "Make sure you keep up with your butt enhancing treatments.",
 			perform: "",
@@ -2918,7 +2995,6 @@ window.tasksTeacherBody={
 	assMaintainXL: {
 		id: "assMaintainXL",
 		name:"Task ass maintain XL",
-		hasPassage: false,
 		text: {
 			given: "Since you chose to have such a large ass, make sure you maintain that size and shape next week.",
 			perform: "",
@@ -2965,7 +3041,6 @@ window.tasksTeacherBody={
 	analSmooth: {	// perv 7+
 		id: "analSmooth",
 		name:"Task anal smoothening",
-		hasPassage: false,
 		text: {
 			given: "You know, I think it's time for you to get an anal smoothing course. Next week I want to see you walk around with your anus nice and smooth.",
 			perform: "",
@@ -3012,7 +3087,6 @@ window.tasksTeacherBody={
 	semiPermCheckUp: {
 		id: "semiPermCheckUp",
 		name:"Task semi-permanent treatments check up",
-		hasPassage: false,
 		text: {
 			given: "You need to keep your body well cared, so sign for the semi-permanent treatments check up this weekend. Nancy would be delightful to see you.",
 			perform: "",
@@ -3060,7 +3134,6 @@ window.tasksTeacherBody={
 	noTasksToday: {
 		id: "noTasksToday",
 		name:"No tasks",
-		hasPassage: false,
 		text: {
 			given: "",
 			perform: "",
@@ -3110,7 +3183,6 @@ window.tasksEmail={
 		id: "PinkRollers",
 		name:"PinkRollers",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,
@@ -3150,7 +3222,6 @@ window.tasksEmail={
 		id: "WebcamDildoAss",
 		name:"WebcamDildoAss",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,
@@ -3190,7 +3261,6 @@ window.tasksEmail={
 		id: "WebcamDeepthroat",
 		name:"WebcamDeepthroat",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,
@@ -3230,7 +3300,6 @@ window.tasksEmail={
 		id: "WebcamMaid",
 		name:"WebcamMaid",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,
@@ -3270,7 +3339,6 @@ window.tasksEmail={
 		id: "WebcamTail",
 		name:"WebcamTail",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,
@@ -3310,7 +3378,6 @@ window.tasksEmail={
 		id: "WebcamHorseCock",
 		name:"WebcamHorseCock",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email HorseCock",
 		PassageRepeat: false,
 		AllowInbox: false,
@@ -3350,7 +3417,6 @@ window.tasksEmail={
 		id: "WebcamSelfieChastity",
 		name:"WebcamSelfieChastity",
 		sender: "",
-		hasPassage: true,
 		PassageName: "Email links",
 		PassageRepeat: true,
 		AllowInbox: true,

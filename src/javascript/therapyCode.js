@@ -137,7 +137,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Introduction , start of routine, choice to continue or stop hypno
-		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - you can also stop those at any time during the course if you feel uncomfortable, and it will not affect the basic participation pay in any way. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print rewardMoney.specialHypnosis>> each.\"@@\n\nWell, that last session definitely felt weird. You are honestly scared by how it affected you, but you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?",
+		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - if you choose to participate you won' be able to interrupt the session till end. Most of these courses are one-time trials, but the pay if we include them is bigger - $<<print rewardMoney.specialHypnosis>> each.\"@@\n\nWell, that last session definitely felt weird. You are honestly scared by how it affected you, but you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?",
 		hasPassage: false,
 		chance: 10,
 		priority: 10,
@@ -216,7 +216,6 @@ window.therapySessions=[
 		finishSession: function() {
 			State.active.variables.player.perversion.friend=10;
 			State.active.variables.items.remotePlugs.disabled=false;
-			State.active.variables.items.remotePlugs.cost=100;
 		},
 		finishHypno: function() {}
 	},
@@ -267,9 +266,9 @@ window.therapySessions=[
 		finishSession: function() {},
 		finishHypno: function() {
 			window.misc.unpostponeClothes();
-			State.active.variables.player.perversion.therapistCooldown++;
-			if (State.active.variables.player.perversion.therapistCooldown > 5) {
-				State.active.variables.player.perversion.therapistCooldown=0;
+			window.events.record('hypnoMild');
+			if (State.active.variables.events.hypnoMild > 5 && State.active.variables.player.daring > 40) {
+				window.events.record('hypnoModerate');
 				State.active.variables.player.perversion.therapist=4;
 			}
 		}
@@ -293,11 +292,11 @@ window.therapySessions=[
 			return true;
 		},
 		check: function() {
-			return State.active.variables.player.perversion.therapistCooldown == 0;
+			return State.active.variables.events.hypnoMild <= 1;
 		},
 		finishSession: function() {},
 		finishHypno: function() {
-			State.active.variables.player.perversion.therapistCooldown++;
+			window.events.record('hypnoModerate');
 		}
 	},
 	{	//Routine for perversion 4 (mind_1)
@@ -323,9 +322,9 @@ window.therapySessions=[
 		},
 		finishSession: function() {},
 		finishHypno: function() {
-			State.active.variables.player.perversion.therapistCooldown++;
-			if (State.active.variables.player.perversion.therapistCooldown > 4) {
-				State.active.variables.player.perversion.therapistCooldown=0;
+			window.events.record('hypnoModerate');
+			if (State.active.variables.events.hypnoModerate > 5 && State.active.variables.player.daring > 70) {
+				window.events.record('hypnoHeavy');
 				State.active.variables.player.perversion.therapist=5;
 			}
 		}
@@ -352,7 +351,7 @@ window.therapySessions=[
 		},
 		finishSession: function() {},
 		finishHypno: function() {
-			State.active.variables.player.perversion.therapistCooldown++;
+			window.events.record('hypnoHeavy');
 		}
 	}
 ];
@@ -536,15 +535,20 @@ window.kinks= [
 		name: "Semen consumption",
 		code: "Protein Diet Enrichment",
 		image: "hypno_cum.gif",
+		hypnoLines: [
+			"You love taste of cum",
+			"Sissy like you should crave cum",
+			"Cum is only thing that matters"
+		],
 		fadeOut: [
 			"Cum",
-			", why are you thinking about cum?",
-			", cum is gross..."
+			"Why am I thinking about cum?",
+			"Cum is gross..."
 		],
 		fadeIn: [
 			"Cum is good",
-			", cum is tasty",
-			", I love cum"
+			"Cum is tasty",
+			"I love cum"
 		],
 		perversion: {
 			guardian: {min: 0, max: 100},
@@ -554,20 +558,15 @@ window.kinks= [
 		},
 		priority: 5,
 		check: function() {
-			return State.active.variables.kinkAllow.semenConsumption && !State.active.variables.kink.semenConsumptionStarted;
+			return State.active.variables.kink.semenConsumption && !State.active.variables.kinkHypno.semenConsumptionHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.semenConsumption=true;
-			State.active.variables.kink.semenConsumptionStarted=true;
-			if ( State.active.variables.kinkAllow.creampie ) { State.active.variables.kink.creampie = true; }
-			if ( State.active.variables.kinkAllow.bukkake ) { State.active.variables.kink.bukkake = true; }
-			if ( State.active.variables.kinkAllow.cumEating ) { State.active.variables.kink.cumEating = true; }
-			if ( State.active.variables.kinkAllow.ownCum ) { State.active.variables.kink.ownCum = true; }
-			if ( State.active.variables.kinkAllow.cumSwap ) { State.active.variables.kink.cumSwap = true; }
+			State.active.variables.kinkHypno.semenConsumptionHypnoStarted=true;
+			State.active.variables.kinkHypno.semenConsumption=true;
 			State.active.variables.dreams.CumCake.active=true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.semenConsumption = false;
+			State.active.variables.kinkHypno.semenConsumption = false;
 			State.active.variables.kink.semenConsumption = false;
 			State.active.variables.kink.creampie = false;
 			State.active.variables.kink.bukkake = false;
@@ -581,15 +580,20 @@ window.kinks= [
 		name: "Watersports",
 		code: "Bodily Emissions Management",
 		image: "hypno_piss.gif",
+		hypnoLines: [
+			"You love taste of urine",
+			"You are born to be public toilet",
+			"Your purpose is to serve"
+		],
 		fadeOut: [
 			"Huh",
-			", why are you thinking about urine",
-			", urine is gross..."
+			"Why am I thinking about urine",
+			"Urine is gross..."
 		],
 		fadeIn: [
 			"Piss is so refreshing",
-			", piss is so tasty",
-			", I love to drink piss"
+			"Piss is so tasty",
+			"I love to drink piss"
 		],
 		perversion: {
 			guardian: {min: 0, max: 100},
@@ -599,18 +603,15 @@ window.kinks= [
 		},
 		priority: 5,
 		check: function() {
-			return State.active.variables.kinkAllow.watersports && !State.active.variables.kink.watersports && !State.active.variables.kink.watersportsStarted;
+			return State.active.variables.kink.watersports && !State.active.variables.kinkHypno.watersportsHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.watersports = true;
-			State.active.variables.kink.watersportsStarted = true;
-			if ( State.active.variables.kinkAllow.wetting ) { State.active.variables.kink.wetting = true; }
-			if ( State.active.variables.kinkAllow.urineDrink ) { State.active.variables.kink.urineDrink = true; }
-			if ( State.active.variables.kinkAllow.urinePlay ) { State.active.variables.kink.urinePlay = true; }
+			State.active.variables.kinkHypno.watersportsHypnoStarted = true;
+			State.active.variables.kinkHypno.watersports = true;
 			State.active.variables.dreams.PissHypno.active=true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.watersports = false;
+			State.active.variables.kinkHypno.watersports = false;
 			State.active.variables.kink.watersports = false;
 			State.active.variables.kink.wetting = false;
 			State.active.variables.kink.urineDrink = false;
@@ -622,15 +623,20 @@ window.kinks= [
 		name: "Small penis",
 		code: "Sexual Prowess Hypotherapy",
 		image: "hypno_sph.gif",
+		hypnoLines: [
+			"Having small penis is a bliss",
+			"Forget about using your tiny prick",
+			"Your pityful clitty is what you deserve"
+		],
 		fadeOut: [
 			"Wait a second",
-			", why am I thinking about small penises",
-			", small penises are bad..."
+			"Why am I thinking about small penises",
+			"Small penises are bad..."
 		],
 		fadeIn: [
 			"A small penis is not so bad",
-			", small penises are cute",
-			", I would love to have a smaller penis"
+			"Small penises are cute",
+			"I would love to have a smaller penis"
 		],
 		perversion: {
 			guardian: {min: 0, max: 100},
@@ -640,16 +646,14 @@ window.kinks= [
 		},
 		priority: 5,
 		check: function() {
-			return State.active.variables.kinkAllow.smallPenis && !State.active.variables.kink.smallPenis && !State.active.variables.kink.smallPenisStarted;
+			return State.active.variables.kink.smallPenis && !State.active.variables.kinkHypno.smallPenisHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.smallPenis = true;
-			State.active.variables.kink.smallPenisStarted = true;
-			if ( State.active.variables.kinkAllow.penisShrink ) { State.active.variables.kink.penisShrink = true; }
-			if ( State.active.variables.kinkAllow.sph ) { State.active.variables.kink.sph = true; }
+			State.active.variables.kinkHypno.smallPenisHypnoStarted = true;
+			State.active.variables.kinkHypno.smallPenis = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.smallPenis = false;
+			State.active.variables.kinkHypno.smallPenis = false;
 			State.active.variables.kink.smallPenis = false;
 			State.active.variables.kink.penisShrink = false;
 			State.active.variables.kink.sph = false;
@@ -659,15 +663,20 @@ window.kinks= [
 		name: "BDSM",
 		code: "Relationship Role Definition",
 		image: "hypno_maso.gif",
+		hypnoLines: [
+			"Ask to be spanked",
+			"It's what you deserve",
+			"Submit to being tied and dominated"
+		],
 		fadeOut: [
 			"Wait a second",
-			", why are you thinking about being spanked",
-			", it's painful..."
+			"Why am I thinking about being spanked",
+			"It's painful..."
 		],
 		fadeIn: [
 			"I've been a bad boy",
-			", I need to be spanked",
-			", I need to be spanked so hard"
+			"I need to be spanked",
+			"I need to be spanked so hard"
 		],
 		priority: 5,
 		perversion: {
@@ -677,20 +686,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.bdsm && !State.active.variables.kink.bdsm && !State.active.variables.kink.bdsmStarted;
+			return State.active.variables.kink.bdsm && !State.active.variables.kinkHypno.bdsmHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.bdsm = true;
-			State.active.variables.kink.bdsmStarted = true;
-			if ( State.active.variables.kinkAllow.painPlay ) { State.active.variables.kink.painPlay = true; }
-			if ( State.active.variables.kinkAllow.xPain ) { State.active.variables.kink.xPain = true; }
-			if ( State.active.variables.kinkAllow.petPlay ) { State.active.variables.kink.petPlay = true; }
-			if ( State.active.variables.kinkAllow.bondage ) { State.active.variables.kink.bondage = true; }
-			if ( State.active.variables.kinkAllow.facesit ) { State.active.variables.kink.facesit = true; }
-			if ( State.active.variables.kinkAllow.trampling ) { State.active.variables.kink.trampling = true; }
+			State.active.variables.kinkHypno.bdsmHypnoStarted = true;
+			State.active.variables.kinkHypno.bdsm = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.bdsm = false;
+			State.active.variables.kinkHypno.bdsm = false;
 			State.active.variables.kink.bdsm = false;
 			State.active.variables.kink.painPlay = false;
 			State.active.variables.kink.petPlay = false;
@@ -703,15 +706,20 @@ window.kinks= [
 		name: "Foot fetish",
 		code: "Bodily Extremity Encouragement",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"You love women legs and feet",
+			"Worship it, get down and lick it",
+			"Kneel and accept your place"
+		],
 		fadeOut: [
 			"Feet",
-			", what is so special about it",
-			", I don't understand..."
+			"What is so special about it",
+			"I don't understand..."
 		],
 		fadeIn: [
 			"Feet",
-			", so pretty",
-			", so arousing..."
+			"So pretty",
+			"So arousing..."
 		],
 		priority: 5,
 		perversion: {
@@ -721,19 +729,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.footFetish && !State.active.variables.kink.footFetish && !State.active.variables.kink.footFetishStarted;
+			return State.active.variables.kink.footFetish && !State.active.variables.kinkHypno.footFetishHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.footFetish = true;
-			State.active.variables.kink.footFetishStarted = true;
-			if ( State.active.variables.kinkAllow.footDisplay ) { State.active.variables.kink.footDisplay = true; }
-			if ( State.active.variables.kinkAllow.footWorship ) { State.active.variables.kink.footWorship = true; }
-			if ( State.active.variables.kinkAllow.hosiery ) { State.active.variables.kink.hosiery = true; }
-			if ( State.active.variables.kinkAllow.shoeBoot ) { State.active.variables.kink.shoeBoot = true; }
-			if ( State.active.variables.kinkAllow.footjob ) { State.active.variables.kink.footjob = true; }
+			State.active.variables.kinkHypno.footFetishHypnoStarted = true;
+			State.active.variables.kinkHypno.footFetish = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.footFetish = false;
+			State.active.variables.kinkHypno.footFetish = false;
 			State.active.variables.kink.footFetish = false;
 			State.active.variables.kink.footDisplay = false;
 			State.active.variables.kink.footWorship = false;
@@ -746,15 +749,20 @@ window.kinks= [
 		name: "Sweat and intense body odors",
 		code: "Pheromone Enhancement",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"You love smell of sweaty bodies",
+			"So intense, so arousing",
+			"Give in, let it in"
+		],
 		fadeOut: [
 			"Sweat",
-			", it is gross",
-			", why am I thinking about it..."
+			"It is gross",
+			"Why am I thinking about it..."
 		],
 		fadeIn: [
 			"Sweaty bodies",
-			", so heavy, so erotic",
-			", its like I can smell sex in the air"
+			"So heavy, so erotic",
+			"Its like I can smell sex in the air"
 		],
 		priority: 5,
 		perversion: {
@@ -764,20 +772,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.odor && !State.active.variables.kink.odor && !State.active.variables.kink.odorStarted;
+			return State.active.variables.kink.odor && !State.active.variables.kinkHypno.odorHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.odor = true;
-			State.active.variables.kink.odorStarted = true;
-			if ( State.active.variables.kinkAllow.clothesOdor ) { State.active.variables.kink.clothesOdor = true; }
-			if ( State.active.variables.kinkAllow.shoeSockOdor ) { State.active.variables.kink.shoeSockOdor = true; }
-			if ( State.active.variables.kinkAllow.footOdor ) { State.active.variables.kink.footOdor = true; }
-			if ( State.active.variables.kinkAllow.armpitOdor ) { State.active.variables.kink.armpitOdor = true; }
-			if ( State.active.variables.kinkAllow.assOdor ) { State.active.variables.kink.assOdor = true; }
-			if ( State.active.variables.kinkAllow.genitalOdor ) { State.active.variables.kink.genitalOdor = true; }
+			State.active.variables.kinkHypno.odorHypnoStarted = true;
+			State.active.variables.kinkHypno.odor = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.odor = false;
+			State.active.variables.kinkHypno.odor = false;
 			State.active.variables.kink.odor = false;
 			State.active.variables.kink.clothesOdor = false;
 			State.active.variables.kink.shoeSockOdor = false;
@@ -791,15 +793,20 @@ window.kinks= [
 		name: "Degradation",
 		code: "Self-Confidence Strengthening",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"You are just a toy",
+			"Accept your place",
+			"Kneel and serve"
+		],
 		fadeOut: [
 			"What am I doing here?",
 			"I'm not like that",
-			", I don't like being degraded"
+			"I don't like being degraded"
 		],
 		fadeIn: [
 			"I feel so good to let go",
-			", I feel so low and dirty",
-			", I... I love it"
+			"I feel so low and dirty",
+			"I... I love it"
 		],
 		priority: 5,
 		perversion: {
@@ -809,23 +816,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.degradation && !State.active.variables.kink.degradation && !State.active.variables.kink.degradationStarted;
+			return State.active.variables.kink.degradation && !State.active.variables.kinkHypno.degradationHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.degradation = true;
-			State.active.variables.kink.degradationStarted = true;
-			if ( State.active.variables.kinkAllow.curse ) { State.active.variables.kink.curse = true; }
-			if ( State.active.variables.kinkAllow.whoring ) { State.active.variables.kink.whoring = true; }
-			if ( State.active.variables.kinkAllow.bimbo ) { State.active.variables.kink.bimbo = true; }
-			if ( State.active.variables.kinkAllow.spitting ) { State.active.variables.kink.spitting = true; }
-			if ( State.active.variables.kinkAllow.abusive ) { State.active.variables.kink.abusive = true; }
-			if ( State.active.variables.kinkAllow.mindControl ) { State.active.variables.kink.mindControl = true; }
-			if ( State.active.variables.kinkAllow.questionable ) { State.active.variables.kink.questionable = true; }
-			if ( State.active.variables.kinkAllow.tattoo ) { State.active.variables.kink.tattoo = true; }
-			if ( State.active.variables.kinkAllow.piercing ) { State.active.variables.kink.piercing = true; }
+			State.active.variables.kinkHypno.degradationHypnoStarted = true;
+			State.active.variables.kinkHypno.degradation = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.degradation = false;
+			State.active.variables.kinkHypno.degradation = false;
 			State.active.variables.kink.degradation = false;
 			State.active.variables.kink.curse = false;
 			State.active.variables.kink.whoring = false;
@@ -842,6 +840,11 @@ window.kinks= [
 		name: "Age play",
 		code: "Regression Therapy",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"Who is a cute little baby?",
+			"You are, yes you are",
+			"Suck that pacifier"
+		],
 		fadeOut: [
 			"What?",
 			"I'm not a baby?",
@@ -849,8 +852,8 @@ window.kinks= [
 		],
 		fadeIn: [
 			"I feel so helpless",
-			", I need to be cared for",
-			", I feel so small"
+			"I need to be cared for",
+			"I feel so small"
 		],
 		priority: 5,
 		perversion: {
@@ -860,17 +863,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.agePlay && !State.active.variables.kink.agePlay && !State.active.variables.kink.agePlayStarted;
+			return State.active.variables.kink.agePlay && !State.active.variables.kinkHypno.agePlayHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.agePlay = true;
-			State.active.variables.kink.agePlayStarted = true;
-			if ( State.active.variables.kinkAllow.diapering ) { State.active.variables.kink.diapering = true; }
-			if ( State.active.variables.kinkAllow.adultBaby ) { State.active.variables.kink.adultBaby = true; }
-			if ( State.active.variables.kinkAllow.ageBehavior ) { State.active.variables.kink.ageBehavior = true; }
+			State.active.variables.kinkHypno.agePlayHypnoStarted = true;
+			State.active.variables.kinkHypno.agePlay = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.agePlay = false;
+			State.active.variables.kinkHypno.agePlay = false;
 			State.active.variables.kink.agePlay = false;
 			State.active.variables.kink.diapering = false;
 			State.active.variables.kink.adultBaby = false;
@@ -881,15 +881,20 @@ window.kinks= [
 		name: "Xtreme body proportions",
 		code: "Body Confidence Enabling",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"Focus on your body",
+			"You can change anything",
+			"Just ask and be who you want to be"
+		],
 		fadeOut: [
 			"Wait a second",
-			", why am I having these fantasies",
-			", it is so strange..."
+			"Why am I having these fantasies",
+			"It is so strange..."
 		],
 		fadeIn: [
 			"Ordinary forms are so boring",
-			", I want something special",
-			", I love exoic looks"
+			"I want something special",
+			"I love exoic looks"
 		],
 		priority: 5,
 		perversion: {
@@ -899,23 +904,17 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.xBody && !State.active.variables.kink.xBody && !State.active.variables.kink.xBodyStarted;
+			return State.active.variables.kink.xBody && !State.active.variables.kinkHypno.xBodyHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.xBody = true;
-			State.active.variables.kink.xBodyStarted = true;
-			if ( State.active.variables.kinkAllow.bbw ) { State.active.variables.kink.bbw = true; }
-			if ( State.active.variables.kinkAllow.hyperBreasts ) { State.active.variables.kink.hyperBreasts = true; }
-			if ( State.active.variables.kinkAllow.hyperPenis ) { State.active.variables.kink.hyperPenis = true; }
-			if ( State.active.variables.kinkAllow.dwarf ) { State.active.variables.kink.dwarf = true; }
-			if ( State.active.variables.kinkAllow.tall ) { State.active.variables.kink.tall = true; }
-			if ( State.active.variables.kinkAllow.muscle ) { State.active.variables.kink.muscle = true; }
-			if ( State.active.variables.kinkAllow.expansionWeight ) { State.active.variables.kink.expansionWeight = true; }
+			State.active.variables.kinkHypno.xBodyHypnoStarted = true;
+			State.active.variables.kinkHypno.xBody = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.xBody = false;
+			State.active.variables.kinkHypno.xBody = false;
 			State.active.variables.kink.xBody = false;
 			State.active.variables.kink.bbw = false;
+			State.active.variables.kink.flatChest = false;
 			State.active.variables.kink.hyperBreasts = false;
 			State.active.variables.kink.hyperPenis = false;
 			State.active.variables.kink.dwarf = false;
@@ -928,15 +927,20 @@ window.kinks= [
 		name: "Clothing",
 		code: "Tactile Sensation Appreciation",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"You want to dress pretty",
+			"Tight dresses feel so good on your body",
+			"You love sexy clothes"
+		],
 		fadeOut: [
 			"Wait a second",
-			", why are you touching your clothes?",
-			", why does this feel so wrong?"
+			"Why are you touching your clothes?",
+			"Why does this feel so wrong?"
 		],
 		fadeIn: [
 			"Regular clothes are so boring",
-			", I so want to be dressed up",
-			", I love how it fills my senses, how it feels on my skin..."
+			"I so want to be dressed up",
+			"I love how it fills my senses, how it feels on my skin..."
 		],
 		priority: 5,
 		perversion: {
@@ -946,18 +950,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.clothing && !State.active.variables.kink.clothing && !State.active.variables.kink.clothingStarted;
+			return State.active.variables.kink.clothing && !State.active.variables.kinkHypno.clothingHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.clothing = true;
-			State.active.variables.kink.clothingStarted = true;
-			if ( State.active.variables.kinkAllow.latex ) { State.active.variables.kink.latex = true; }
-			if ( State.active.variables.kinkAllow.leather ) { State.active.variables.kink.leather = true; }
-			if ( State.active.variables.kinkAllow.nylon ) { State.active.variables.kink.nylon = true; }
-			if ( State.active.variables.kinkAllow.frilly ) { State.active.variables.kink.frilly = true; }
+			State.active.variables.kinkHypno.clothingHypnoStarted = true;
+			State.active.variables.kinkHypno.clothing = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.clothing = false;
+			State.active.variables.kinkHypno.clothing = false;
 			State.active.variables.kink.clothing = false;
 			State.active.variables.kink.latex = false;
 			State.active.variables.kink.leather = false;
@@ -969,15 +969,20 @@ window.kinks= [
 		name: "Gender change",
 		code: "Gender Dysphoria Realignment",
 		image: "hypno_1_1.gif",
+		hypnoLines: [
+			"Be honest with yourself",
+			"Isn't living as a girl make you happy?",
+			"Just accept it"
+		],
 		fadeOut: [
 			"I'm a boy",
-			", I'm sure about it",
-			", why am I so uncertain suddenly?"
+			"I'm sure about it",
+			"Why am I so uncertain suddenly?"
 		],
 		fadeIn: [
 			"I love girly things",
-			", I don't feel comfortable as a boy",
-			", I want to be a girl"
+			"I don't feel comfortable as a boy",
+			"I want to be a girl"
 		],
 		priority: 5,
 		perversion: {
@@ -987,14 +992,14 @@ window.kinks= [
 			friend: {min: 0, max: 100}
 		},
 		check: function() {
-			return State.active.variables.kinkAllow.genderChange && !State.active.variables.kink.genderChange && !State.active.variables.kink.genderChangeStarted;
+			return State.active.variables.kink.genderChange && !State.active.variables.kinkHypno.genderChangeHypnoStarted;
 		},
 		start: function() {
-			State.active.variables.kink.genderChangeStarted = true;
-			State.active.variables.kink.genderChange = true;
+			State.active.variables.kinkHypno.genderChangeHypnoStarted = true;
+			State.active.variables.kinkHypno.genderChange = true;
 		},
 		stop: function() {
-			State.active.variables.kinkAllow.genderChange = false;
+			State.active.variables.kinkHypno.genderChange = false;
 			State.active.variables.kink.genderChange = false;
 		}
 	}

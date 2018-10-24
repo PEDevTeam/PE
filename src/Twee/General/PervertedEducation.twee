@@ -308,7 +308,15 @@ Perverted Education
 }
 
 .quickSetSave {
-	animation: halfopac 1.0s 0s single;
+	/*animation: opac 1.0s single;*/
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-delay: 0s;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-iteration-count: 1;
+	animation-play-state: running;
+	animation-name: opac;
 }
 
 .green { /* Misc green for options and menus */
@@ -421,6 +429,10 @@ Perverted Education
 	font-style: italic;
 }
 
+.lightgreen { /* Slightly green, for inventory */
+	color: #77AA77; /* standard green, RGB 0, 128, 0 */
+}
+
 .clothesDivider { /* Divider for clothes types at wardrobe */
 	height: 1px;
 	width: 150px;
@@ -451,7 +463,7 @@ Perverted Education
 }
 
 .off {
-    color: #323232;
+    color: #494949;
 	font-family: tme-fa-icons;
 }
 
@@ -1835,6 +1847,92 @@ Perverted Education
 	width: 300px;
 	text-align: center;
 	padding: 5px;
+}
+
+#slides {
+	margin: 1em auto;
+}
+#slides object {
+	position: absolute;
+}
+#slides object img {
+	width: 400px;
+	height: 300px;
+	padding: 10px;
+}
+
+.fading0 {
+z-index: 20;
+animation: fader 1.0s;
+}
+
+.fading1 {
+z-index: 20;
+animation: fader 2.0s;
+}
+
+.fading2 {
+z-index: 20;
+animation: fader 4.0s;
+}
+
+.fading3 {
+z-index: 20;
+animation: fader 6.0s;
+}
+
+.fading4 {
+z-index: 20;
+animation: fader 8.0s;
+}
+
+.fading5 {
+z-index: 20;
+animation: fader 10.0s;
+}
+
+@-webkit-keyframes fader {
+0% { opacity: 1.0; }
+50% { opacity: 0.0; }
+100% { opacity: 0.0; }
+}
+@-moz-keyframes fader {
+0% { opacity: 1.0; }
+50% { opacity: 0.0; }
+100% { opacity: 0.0; }
+}
+@-ms-keyframes fader {
+0% { opacity: 1.0; }
+50% { opacity: 0.0; }
+100% { opacity: 0.0; }
+}
+
+.fadingNext {
+    z-index: 10;
+}
+
+.hypnoFrame {
+	border: 1px Solid grey;
+	width: 400px;
+	height: 30px;
+	/*text-align: center;*/
+	padding: 5px;
+}
+
+.hypnoText {
+	font-weight: bold;
+	color: pink;
+	width: 400px;
+	text-align: center;
+	/*margin-left: -100%;*/
+	/*margin-top: -28px;*/
+	animation: shakeSlow 3.0s infinite;
+}
+
+.errorLog {
+	font-weight: bold;
+	color: red;
+	border-bottom: 2px Solid red;
 }
 
 #stats td {
