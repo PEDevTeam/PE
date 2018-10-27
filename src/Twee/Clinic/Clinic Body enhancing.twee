@@ -262,6 +262,16 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 		<<set $body.boobs = 1>>\
 		<<set $flags.salonBreast=true>>\
+		
+		<<if (not $events.breastsIncreaseA)>>\
+			[[These are small, but still distracting|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseA','min')]]
+			[[These breasts are so sensitive|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseA','mid')]]
+			<<if $player.feminization gte 40>>\
+				[[It feels great|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseA','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<elseif $scene eq "breastImplantsB">>\
 		Nancy takes you to the back room of the salon.
 		
@@ -290,6 +300,16 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 		<<set $body.boobs = 2>>\
 		<<set $flags.salonBreast=true>>\
+		
+		<<if (not $events.breastsIncreaseB)>>\
+			[[These are so much bigger than previous size|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseB','min')]]
+			[[These looks good, but also much harder to hide|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseB','mid')]]
+			<<if $player.feminization gte 50>>\
+				[[Having breasts feels so good|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseB','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<elseif $scene eq "breastImplantsC">>\
 		Nancy takes you to the back room of the salon.
 		@@.nurse;"We'll need a bit of privacy for this treatment,"@@ she says, matter-of-factly.
@@ -319,6 +339,16 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 		<<set $body.boobs = 3>>\
 		<<set $flags.salonBreast=true>>\
+		
+		<<if (not $events.breastsIncreaseC)>>\
+			[[No chance to cover these up|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseC','min')]]
+			[[It is oddly arousing|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseC','mid')]]
+			<<if $player.feminization gte 50>>\
+				[[Having breasts feels so good|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseC','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<elseif $scene eq "breastImplantsDD">>\
 		Nancy takes you to the back room of the salon.
 		
@@ -367,9 +397,17 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 		<<set $body.boobs=4>>\
 		<<set $flags.salonBreast=true>>\
+		
+		<<if (not $events.breastsIncreaseDD)>>\
+			[[These boobs are too heavy|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseDD','min')]]
+			[[Damn, these are so big...|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseDD','mid')]]
+			<<if $player.feminization gte 50>>\
+				[[These are so wonderfully big|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('breastsIncreaseDD','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<endif>>\
-	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <<elseif $scene eq "breastPermanent">>\
 	<<if $body.boobs eq 1>>\
 		<<set $body.permBoobs = 1>>\
@@ -435,7 +473,15 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		@@.reward;You now have temporarily-enhanced, large pouting lips!@@
 	<<endif>>\
 	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<if (not $events.lipsIncreaseXL)>>\
+		[[It is so humiliating|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncreaseXL','min')]]
+		[[It will be hard to deal with all the stares|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncreaseXL','mid')]]
+		<<if $player.feminization gte 70>>\
+			[[It is so exciting to look this slutty|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncreaseXL','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<<set $body.lips = 2>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
@@ -469,7 +515,15 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		@@.reward; You now have temporarily enhanced lips!@@
 	<<endif>>\
 	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<if (not $events.lipsIncrease)>>\
+		[[It would be hard to get used to|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncrease','min')]]
+		[[It is rather unusual feeling, both arousing and embarrassing|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncrease','mid')]]
+		<<if $player.feminization gte 50>>\
+			[[These lips look so sexy|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('lipsIncrease','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<<set $body.lips = 1>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
@@ -530,8 +584,16 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<else>>\
 		@@.reward;You now have a temporarily large and curvy butt!@@
 	<<endif>>\
-	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+
+	<<if (not $events.assIncreaseXL)>>\
+		[[Hell, my ass is huge now! How would I fit in my clothes?|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncreaseXL','min')]]
+		[[It would draw stares like a magnet|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncreaseXL','mid')]]
+		<<if $player.feminization gte 70>>\
+			[[Oh, this is a porn worthy ass now|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncreaseXL','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<<set $body.ass = 2>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
@@ -561,7 +623,15 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		@@.reward;You now have a temporary enhancement to your butt!@@
 	<<endif>>\
 	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<if (not $events.assIncrease)>>\
+		[[Hopefully it would be just temporarily|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncrease','min')]]
+		[[It is definetely different, feels oddly pleasant though|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncrease','mid')]]
+		<<if $player.feminization gte 60>>\
+			[[Oh, this is a one sexy butt|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('assIncrease','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<<set $body.ass = 1>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\
@@ -1004,7 +1074,15 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	@@.reward;You now have a buttery-smooth anus!@@
 	
-	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<if (not $events.analSmooth)>>\
+		[[It is so humiliating|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('analSmooth','min')]]
+		[[Why does it leave such nice feeling? It's embarrassing|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('analSmooth','mid')]]
+		<<if $player.feminization gte 60>>\
+			[[Holy shit, it was so intense|Clinic Body enhancing][$scene=""; $random.stored=0; window.events.record('analSmooth','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<<set _item=itemsC.analSmoothing1>>\
 	<<set $body.anal = 1>>\
 	<<set $flags.salonAnal=true>>\

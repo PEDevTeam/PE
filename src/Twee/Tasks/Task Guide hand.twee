@@ -1,120 +1,105 @@
 :: Task Guide hand [pos_2021_3021]
 \
+/* WriterEdit - slight edits to few scenes */\
 <<if $scene eq "Caffee">>\
 	You go to the small cafeteria, hoping to find someone for the task that $teacher gave you.
 
-	<<if $flags.taskGuideHandGirl and $random.stored eq 0>>\
-		<<set $random.stored = 1>>\
-	<<endif>>\
-	<<if $flags.taskGuideHandWomanMan and $random.stored eq 1>>\
-		<<set $random.stored = 2>>\
-	<<endif>>\
-	<<if $flags.taskGuideHandCouple and $random.stored eq 2>>\
-		<<set $random.stored = 3>>\
-	<<endif>>\
-	<<if $flags.taskGuideHandTrap and $random.stored eq 3>>\
-		<<if (not $flags.taskGuideHandGirl)>>\
-			<<set $random.stored = 0>>\
-		<<elseif (not $flags.taskGuideHandWomanMan)>>\
-			<<set $random.stored = 1>>\
-		<<elseif (not $flags.taskGuideHandCouple)>>\
-			<<set $random.stored = 2>>\
-		<<endif>>\
-	<<endif>>\
-	<<if $random.stored eq 0>>\
-		You see a plain looking girl sitting alone, drinking a smoothie while reading a book, and some loud guys discussing a recent movie.
-		
-		[[Join the girl|Task Guide hand][$scene="Girl"; $tasksTeacher.guideHand.progress=0]]
-	<<elseif $random.stored eq 1>>\
+	<<if not $flags.taskGuideHandWomanMan>>\
 		You see a stern-looking woman sipping coffee, an older but still-muscular man, an intimidating punk, and a big family ordering food.
 		
-		[[Join the woman|Task Guide hand][$scene="Woman"; $tasksTeacher.guideHand.progress=0]]
-		[[Join the old man|Task Guide hand][$scene="Man"; $tasksTeacher.guideHand.progress=0]]
-	<<elseif $random.stored eq 2>>\
+		[[Join the woman|Task Guide hand][$scene="Woman"]]
+		[[Join the old man|Task Guide hand][$scene="Man"]]
+	<<elseif (not $flags.taskGuideHandGirl)>>\
+		You see a plain looking girl sitting alone, drinking a smoothie while reading a book, and some loud guys discussing a recent movie.
+		
+		[[Join the girl|Task Guide hand][$scene="Girl"]]
+	<<elseif (not $flags.taskGuideHandCouple)>>\
 		You see a sexy young couple cuddling at one of tables.
 		
-		[[Join the couple|Task Guide hand][$scene="Couple"; $tasksTeacher.guideHand.progress=0]]
-	<<elseif $random.stored eq 3>>\
+		[[Join the couple|Task Guide hand][$scene="Couple"]]
+	<<elseif (not $flags.taskGuideHandTrap)>>\
 		You see a stunningly beautiful woman with rest of the cafeteria empty.
 		
-		[[Join the beautiful woman|Task Guide hand][$scene="Trap"; $tasksTeacher.guideHand.progress=0]]
+		[[Join the beautiful woman|Task Guide hand][$scene="Trap"]]
 	<<endif>>\
 	[[Leave|Go to the mall][$tasksTeacher.guideHand.status=3]]
 <!--<Girl>*********************-->\
 <<elseif $scene eq "Girl">>\
 	<<showImage "general" "task_under_table.gif">>\
 	<<set $flags.taskGuideHandGirl = true>>\
-	<<if $tasksTeacher.guideHand.progress eq 0>>\
-		You approach the girl’s table and ask if the seat next to her is taken. She keeps reading, ignoring your request. @@.hero;I guess it’s better than a no...@@ You sit near her and ask the girl what she’s reading, but she continues to ignore you. Her hands obscuring the cover and spine of the book.
+	You approach the girl’s table and ask if the seat next to her is taken. She keeps reading, ignoring your request. @@.hero;I guess it’s better than a no...@@ You sit near her and ask the girl what she’s reading, but she continues to ignore you. Her hands obscuring the cover and spine of the book.
 
-		Her hand turns the page, leaving the book to pick up her smoothie. After taking a sip, she puts the cup down and you reach for her hand. Surprised, the girl doesn't resist as you drag it between your legs. You hear something between a gasp and a yelp escape her lips, obscured by the chatter of the guys at the other table breaks through. 
-		
-		She looks like a fish out of water with her eyes large as saucers and her mouth open wide. Unexpectedly, however, her expression soon changes from shocked to mischievous. Having a bad feeling, you change your mind and decide to flee, but her sudden grasp on your caged penis stops you on the spot.
-		
-		She leans in and whispers to you, @@.writer;"You know, I've heard about boys trying weird ways to hit on girls, but nothing like //this//..."@@ She gives your balls gently squeeze, emphasizing her point. @@.writer;"Count me intrigued."@@
-		
-		@@.hero;Oh crap...@@ A little unnerved by a predatory gleam in her eyes, you nervously glance around, looking for a way to escape.
-		
-		The girl notices your squirming and interrupts you by tightening her hold on your private parts. She smirks and mocks you. @@.writer;"Wanna call for help? Try that and I will scream about a pervert trying to molest me. I don't think those guys will listen to your explanations."@@ She glances toward group of guys several tables from you. While the guys don't look overly threatening, the prospect of being exposed as queer to them and accused of molesting a girl horrifies you.
-		
-		Seeing your fallen face, the girl continues. @@.writer;"So, be a good boy and treat a lady. I want a slice of chocolate cake with cream cheese icing."@@ She pauses for a moment, finishing a line from her book before closing it and looking at you expectingly.
-		
-		You pause for a moment, staring wide eyed at her, before your eyes drop compliantly and you get up from your seat to get her order.
-		
-		@@.hero;I hope I have enough money.@@
-		
-		[[Order the cake|Task Guide hand][$scene="Girl"; $tasksTeacher.guideHand.progress=1]]
-		[[Run away|Task Guide hand][$scene="Girl"; $tasksTeacher.guideHand.progress=2]]
-	<<elseif $tasksTeacher.guideHand.progress eq 1>>\
-		<<if $player.money gte 10>>\
-			<<set $player.money -= 10>>\
-			You order the cake, glancing nervously as the girl’s gaze follows you. The cashier gives you an odd look, but asks no questions. You take a spoon and the slice of cake back to the girl’s table, setting it in front of her.
-		<<else>>\
-			You check your pockets and realize that you don't even have enough money for a slice of a cake. With a sinking feeling, you turn to the girl, trying to pick the right words to explain.
-			
-			Seeing your predicament, the girl lets out disappointed sigh and rolls her eyes. @@.writer;"You are so pathetic. Wait here."@@ She orders the cake and returns to the table with an annoyed look, setting the slice down in front of her.
-		<<endif>>\
-			
-		She pauses for a moment, staring at it before looking up at you impatiently. @@.writer;"That spoon isn’t going to lift itself."@@
-		
-		You hesitantly take the spoon in your hand, gently scrape away at the edge of the cake and raise it to her mouth. Parting her lips, she slides them around the spoon and savors the chocolate cake. Her fingers return to your chastity cage, gripping it tightly while her thumb rubs against your balls. 
-		
-		@@.writer;"It's delicious. Go on."@@ You continue feeding her, very confused about your whole situation.
-		
-		On one hand, the interaction is hot, especially with how erotic she makes it look with her soft moaning and sucking on the spoon. On another you are completely under her control, locked in chastity, pampering her like a slave...
-		
-		<<if playerCode.isMind_0()>>\
-			@@.hero;Why do I keep getting in situations like this?@@
-		<<elseif playerCode.isMind_1()>>\
-			@@.hero;Damn! I think I like this part too...@@
-		<<else>>\
-			@@.hero;Scratch that, I love how bossy she is.@@
-		<<endif>>\
-		
-		You feed her spoonful after spoonful until the plate is clear.
-
-		Relishing every bite, the girl looks down at the plate. She licks her finger and picks at the leftover icing and crumbs. The girl smiles at you and puts her finger to your mouth. At her prompt, you run your tongue along her finger. The girl slowly massages and squeezes your balls as you suck and lick her finger clean.
-		
-		@@.hero;So delicious.@@
-
-		Once you’ve finished, she picks up her book, gives you a quick peck on the cheek and leaves. You noticed she was a bit flustered, and she was breathing a little heavily at the end. You wonder if she was just caught up with how lewd you both looked in your public display, or if she just got very, very horny.
-		
-		<<if playerCode.isMind_0()>>\
-			@@.hero;Huh. Does that count as successfully hitting on a girl?@@
-		<<elseif playerCode.isMind_1()>>\
-			@@.hero;Maybe I should have asked for her phone number?@@
-		<<else>>\
-			@@.hero;If she has a boyfriend, she'll definitely try locking him in chastity now.@@
-		<<endif>>\
-
-		[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
-	<<elseif $tasksTeacher.guideHand.progress eq 2>>\
-		Scared by the girl, you run away. Behind your back you hear surprised exclamations and, after a pause, bursts of loud laughter. The girl must have told everyone about your being a sissy boy.
-		
-		@@.hero;At least I kind of completed $teacher's task.@@
+	Her hand turns the page, leaving the book to pick up her smoothie. After taking a sip, she puts the cup down and you reach for her hand. Surprised, the girl doesn't resist as you drag it between your legs. You hear something between a gasp and a yelp escape her lips, obscured by the chatter of the guys at the other table breaks through. 
 	
-		[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+	She looks like a fish out of water with her eyes large as saucers and her mouth open wide. Unexpectedly, however, her expression soon changes from shocked to mischievous. Having a bad feeling, you change your mind and decide to flee, but her sudden grasp on your caged penis stops you on the spot.
+	
+	She leans in and whispers to you, @@.writer;"You know, I've heard about boys trying weird ways to hit on girls, but nothing like //this//..."@@ She gives your balls gently squeeze, emphasizing her point. @@.writer;"Count me intrigued."@@
+	
+	@@.hero;Oh crap...@@ A little unnerved by a predatory gleam in her eyes, you nervously glance around, looking for a way to escape.
+	
+	The girl notices your squirming and interrupts you by tightening her hold on your private parts. She smirks and mocks you. @@.writer;"Wanna call for help? Try that and I will scream about a pervert trying to molest me. I don't think those guys will listen to your explanations."@@ She glances toward group of guys several tables from you. While the guys don't look overly threatening, the prospect of being exposed as queer to them and accused of molesting a girl horrifies you.
+	
+	Seeing your fallen face, the girl continues. @@.writer;"So, be a good boy and treat a lady. I want a slice of chocolate cake with cream cheese icing."@@ She pauses for a moment, finishing a line from her book before closing it and looking at you expectingly.
+	
+	You pause for a moment, staring wide eyed at her, before your eyes drop compliantly and you get up from your seat to get her order.
+	
+	@@.hero;I hope I have enough money.@@
+	
+	[[Order the cake|Task Guide hand][$scene="Girl_Order";]]
+	[[Run away|Task Guide hand][$scene="Girl_Run";]]
+<<elseif $scene eq "Girl_Order">>\
+	<<if $player.money gte 10>>\
+		<<set $player.money -= 10>>\
+		You order the cake, glancing nervously as the girl’s gaze follows you. The cashier gives you an odd look, but asks no questions. You take a spoon and the slice of cake back to the girl’s table, setting it in front of her.
+	<<else>>\
+		You check your pockets and realize that you don't even have enough money for a slice of a cake. With a sinking feeling, you turn to the girl, trying to pick the right words to explain.
+		
+		Seeing your predicament, the girl lets out disappointed sigh and rolls her eyes. @@.writer;"You are so pathetic. Wait here."@@ She orders the cake and returns to the table with an annoyed look, setting the slice down in front of her.
 	<<endif>>\
+		
+	She pauses for a moment, staring at it before looking up at you impatiently. @@.writer;"That spoon isn’t going to lift itself."@@
+	
+	You hesitantly take the spoon in your hand, gently scrape away at the edge of the cake and raise it to her mouth. Parting her lips, she slides them around the spoon and savors the chocolate cake. Her fingers return to your chastity cage, gripping it tightly while her thumb rubs against your balls. 
+	
+	@@.writer;"It's delicious. Go on."@@ You continue feeding her, very confused about your whole situation.
+	
+	On one hand, the interaction is hot, especially with how erotic she makes it look with her soft moaning and sucking on the spoon. On another you are completely under her control, locked in chastity, pampering her like a slave...
+	
+	<<if $player.feminization lte 40>>\
+		@@.hero;Why do I keep getting in situations like this?@@
+	<<elseif $player.feminization lte 60>>\
+		@@.hero;Damn! I think I like this part too...@@
+	<<else>>\
+		@@.hero;Scratch that, I love how bossy she is.@@
+	<<endif>>\
+	
+	You feed her spoonful after spoonful until the plate is clear.
+
+	Relishing every bite, the girl looks down at the plate. She licks her finger and picks at the leftover icing and crumbs. The girl smiles at you and puts her finger to your mouth. At her prompt, you run your tongue along her finger. The girl slowly massages and squeezes your balls as you suck and lick her finger clean.
+	
+	@@.hero;So delicious.@@
+
+	Once you’ve finished, she picks up her book, gives you a quick peck on the cheek and leaves. You noticed she was a bit flustered, and she was breathing a little heavily at the end. You wonder if she was just caught up with how lewd you both looked in your public display, or if she just got very, very horny.
+	
+	<<if $player.feminization lte 40>>\
+		@@.hero;Huh. Does that count as successfully hitting on a girl?@@
+	<<elseif $player.feminization lte 60>>\
+		@@.hero;Maybe I should have asked for her phone number?@@
+	<<else>>\
+		@@.hero;If she has a boyfriend, she'll definitely try locking him in chastity now.@@
+	<<endif>>\
+
+	[[Why did I let her to command me like that?|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandGirl','min')]]
+	[[It was interesting|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandGirl','mid')]]
+	<<if $player.feminization gte 50>>\
+		[[Oh, it makes me so hot|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandGirl','max')]]
+	<<endif>>\
+<<elseif $scene eq "Girl_Run">>\
+	Scared by the girl, you run away. Behind your back you hear surprised exclamations and, after a pause, bursts of loud laughter. The girl must have told everyone about your being a sissy boy.
+	
+	@@.hero;At least I kind of completed $teacher's task.@@
+
+	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandGirl','min')]]
 <!--</Girl>*********************-->\
 <!--<Woman>*********************-->\
 <<elseif $scene eq "Woman">>\
@@ -141,137 +126,157 @@
 
 	After what seems like hours, her hand finally leaves your caged cock to fold up the paper. She gets up and simply walks away, leaving you slumped down in euphoria from being released.
 	
-	<<if playerCode.isMind_0()>>\
-		@@.hero;Oh, hell. Thank god that's over with.@@
-	<<elseif playerCode.isMind_1()>>\
-		@@.hero;O-oh. Finally I'm free. That was so intense.@@
-	<<else>>\
-		@@.hero;I feel so used up right now. She clearly knows how to handle someone like me.@@
+	[[Oh, hell. Thank god that's over with.|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandWoman','min')]]
+	[[O-oh. Finally I'm free. That was so intense.|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandWoman','mid')]]
+	<<if $player.feminization gte 50>>\
+	[[She clearly knows how to handle someone like me|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandWoman','max')]]
 	<<endif>>\
-
-	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
 <!--</Woman>*********************-->\
 <!--<Man>*********************-->\
 <<elseif $scene eq "Man">>\
-	<<if $tasksTeacher.guideHand.progress eq 0>>\
-		<<set $flags.taskGuideHandWomanMan = true>>\
-		You approach the older but muscular man and take a seat next to him without asking. He looks at you and smiles, asking how your day is going. Blushing, you tell him, @@.heroT;"good,"@@ while grasping his hand and guiding it to your caged cock.
-
-		You can sense his eagerness falter as his fingers touch the hard plastic of your cage. You look away blushing. This isn’t what he was expecting, but to your surprise you feel a finger moving along the tip, pressing against the slit at the head of the cage.
-
-		The man removes his hand and stands up. Placing a hand on your shoulder, he leans down and whispers, @@.coach;"Be a good girl and stay put for me, Princess. I’ll just be a minute."@@ You hear the sound of his footsteps as he turns around and walks away.
-
-		<<if playerCode.isMind_0()>>\
-			@@.hero;Princess? I have a bad feeling about that.@@
-		<<elseif playerCode.isMind_1()>>\
-			@@.hero;Princess?@@
-		<<else>>\
-			@@.hero;Princess? I like that.@@
-		<<endif>>\
+	<<set $flags.taskGuideHandWomanMan = true>>\
+	You nervously approach the older but muscular man and take a seat next to him without asking. He looks at you and smiles, asking how your day is going.\
+	<<if ($player.bisexuality lte 30)>>\
+		Anxious with fear you gulp down, struggling to find words for reply. After several awkward seconds your nervousness reaches limit and you give up on talking. You meekly reach out out to his hand, lowering your eyes. @@.coach;"What? Do you need something?"@@
 		
-		[[Wait for him|Task Guide hand][$scene="Man"; $tasksTeacher.guideHand.progress=1]]
-		[[Run away|Task Guide hand][$scene="Man"; $tasksTeacher.guideHand.progress=2]]
-	<<elseif $tasksTeacher.guideHand.progress eq 1>>\
-		<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-		<<if playerCode.isMind_0()>>\
-			Despite your best judgment, you decide to wait for the man, too afraid to leave against his order.
-		<<elseif playerCode.isMind_1()>>\
-			A bit curious, you decide to wait for the man. It seems bad to leave after he asked you so nicely to stay.
-		<<else>>\
-			Intrigued by his words, you decide to wait for the man. It would've been wrong to disobey him.
-		<<endif>>\
-		
-		Several minutes later, the man returns with a plate of sticky toffee pudding. You look at the plate. It is in reach of you both, but you see only one spoon. He follows your eyes and smiles, shifting his gaze to look at you. @@.coach;"Oh sweetheart, this isn’t for me."@@
-
-		He takes the spoon in his hand and slices into the soft, creamy cake. @@.coach;"Open up darling."@@ 
-		
-		His other hand is tightly grasps your private parts. A firm squeeze lets you know that you have no other options, but to obey.
-		
-		You part your lips to protest, but the cake-filled spoon slides into your mouth, lingering as you clamp your lips down on the cool ice cream and warm caramel sauce. @@.coach;"That’s a good girl. Make sure to clean off the bottom with your tongue."@@
-		
-		<<if playerCode.isMind_0()>>\
-			You glare at him, but with his iron grip on your balls and a juicy bite of cake in your mouth, it's really hard to argue.
-		<<elseif playerCode.isMind_1()>>\
-			You stare at him, shocked by his bold handling of you, but with his iron grip on your balls and a juicy bite of cake in your mouth, it's really hard to argue.
-		<<else>>\
-			It's a bit embarrassing that all this is happening in a fully public space, but you can't help admit that you love his way of handling you. Besides, with his iron grip on your balls and a juicy bite of cake in your mouth, it would be really hard to argue.
-		<<endif>>\
-		You comply, sliding your tongue along the underside of the spoon. To your shame, your cock starts to strain in its cage.
-
-		<<if playerCode.isMind_0()>>\
-			@@.hero;This can't be happening.@@
-		<<elseif playerCode.isMind_1()>>\
-			@@.hero;Why does it feel so pleasant?@@
-		<<else>>\
-			@@.hero;Why am I enjoy this so much?@@
-		<<endif>>\
-
-		The spoon exits your mouth and returns with a larger portion of the cake mixture.\
-		<<if playerCode.isMind_0()>>\
-			Struggling with a flux between revulsion and arousal, you meekly accept it, relishing the soft, smooth texture and sweet taste against your will. It's delicious.
-		<<elseif playerCode.isMind_1()>>\
-			You hesitantly accept it, relishing the soft, smooth texture and sweet taste. It's delicious.
-		<<else>>\
-			You eagerly accept it, relishing the soft, smooth texture and sweet taste. It's delicious.
-		<<endif>>\
-
-		The man continues to spoon-feed you as he begins to sensually rub your back and thighs, his grip growing tighter and hand moving lower.
-		<<if _b>>\
-			It’s not long before you feel his fingers reach the base of your plug. A soft chuckle leaves his lips as he scoops up a large helping of caramel and ice cream onto the spoon. 
-			
-			As you open your lips to accept the cake, you feel a firm tug on your plug. Squealing in surprise, you turn your head and the contents of the spoon rub against the side of your mouth. You stick out your tongue and feel the dessert mixture sticking to your face.
-		<<else>>\
-			It’s not long before you feel his fingers reach your anus. A soft chuckle leaves his lips as he scoops up a large helping of caramel and ice cream onto the spoon. As you open your lips to accept the cake, you feel his finger penetrating you. Squealing in surprise, you turn your head as the contents of the spoon rub against the side of your mouth. You stick out your tongue and feel the dessert mixture sticking to your face.
-		<<endif>>\
-
-		@@.coach;"Look at you, Princess, you’ve made such a mess of yourself."@@ His eyes narrow as his grin grows wider. @@.coach;"Let Daddy help you clean up your pretty face."@@ 
-		
-		You feel him gently run his finger along the side of your mouth, gathering the sticky mixture up. The finger brush across your lips, spreading the caramel sauce along the top half. His finger moves to the entrance of your mouth. @@.coach;"Come on, Princess, help Daddy get you clean."@@
-
-		Almost against your will, you feel your lips closing on the tip of his finger. You feel your cheeks blushing a bright shade of red as you wrap your tongue around the man’s finger and suck it in. He responds with a @@.coach;"good girl,"@@ while slowly pushing his finger in and out of your mouth, drawing a glare from the woman at the family table. Once his finger has been sufficiently cleaned, he removes it, picks up the spoon and feeds you the remainder of the desert.
-
-		You get up to leave when the man clutches your cock cage, dragging you back down. @@.coach;"But Princess, we haven’t finish cleaning off the plate,"@@ he says playfully, gesturing at the pool of melted ice cream and caramel sauce. With two fingers, the man gathers up a sizable amount of the sugary sauce and slides them between your waiting lips. You moan into them, sucking on his fingers and sliding your tongue around them.
-
-		Once the plate is clean, the man stands up, reaches into his back pocket and pulls out his wallet. You can see an obvious and large bulge trying to break through his pants as he slides a $<<print "20">> bill across the table. @@.coach;"Daddy wants to make sure his Sissy Princess treats herself."@@ 
-		
-		You stare down at the bill, not sure if you actually have it in you to take it. The blush on your cheeks deepens as you shamefully take the bill. 
-		
-		@@.coach;"Go buy yourself something nice,"@@ he says with a wink. @@.coach;"Maybe next time, you can wrap those soft, pretty lips around something else."@@ 
-		
-		He replaces the wallet, gives you one last squeeze on your balls and leaves.
-
-		Your mind is a jumble of thoughts and emotions as you watch him walk away. That felt so wrong, but the straining in your cage reminds you how much fun it was. It was nice to be pampered, and the pudding was delicious.\
-		<<if playerCode.isMind_0()>>\
-			Maybe even when you had to lick it off his fingers.
-		<<elseif playerCode.isMind_1()>>\
-			Even when you had to lick it off his fingers.
-		<<else>>\
-			Especially when you had to lick it off his fingers.
-		<<endif>>\
-		
-		The man’s parting words play over and over in your mind as you walk through the mall.\
-		<<if playerCode.isMind_0()>>\
-			Despite your deep humiliation, it is confusingly arousing,\
-			<<if _b>>\
-				and with stimulation from your butt-plug, precum leaks from your cage.
-			<<else>>\
-				and you desperately try to forget how pleasant his touches were.
-			<<endif>>\
-		<<elseif playerCode.isMind_1()>>\
-			Despite your deep humiliation, it was very exciting. To your shame, you discover that precum has leaked from your cage.
-		<<else>>\
-			By the time you’ve left, you’ve begun to think about them hungrily as a thin stream of fluid leaks from your cage, lightly coating your thighs on your walk home.
-		<<endif>>\
-
-		<<set $player.money += 20>>\
-		[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+		There is no backing down. Closing your eyes and holding breath you guide his hand to your caged cock.
+	<<elseif ($player.bisexuality lte 50)>>\
+		Blushing, you tell him, @@.heroT;"good,"@@ while grasping his hand and guiding it to your caged cock.
 	<<else>>\
-		Scared of what being a //'Princess'// to this man may lead to, you quickly scamper away.
-		
-		@@.hero;I hope that will be enough for $teacher's task.@@
-		
-		[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+		Blushing, you tell him, @@.heroT;"good,"@@ while gently grasping his hand and guiding it to your caged cock.
 	<<endif>>\
+
+	You can sense his eagerness falter as his fingers touch the hard plastic of your cage. You look away blushing. This isn’t what he was expecting, but to your surprise you feel a finger moving along the tip, pressing against the slit at the head of the cage.
+
+	The man removes his hand and stands up. Placing a hand on your shoulder, he leans down and whispers, @@.coach;"Be a good girl and stay put for me, Princess. I’ll just be a minute."@@ You hear the sound of his footsteps as he turns around and walks away. It probably should be enough to count the task completed, but he told you to wait for him. Should you go while you still have a chance?
+	
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		@@.hero;Princess? I have a bad feeling about that.@@
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		@@.hero;Princess?@@
+	<<else>>\
+		@@.hero;Princess? I like that.@@
+	<<endif>>\
+	
+	[[Wait for him|Task Guide hand][$scene="Man_Wait";$player.perversion.mmChecks++]]
+	[[Run away|Task Guide hand][$scene="Man_Run";$player.perversion.mmChecks+=2]]
+<<elseif $scene eq "Man_Wait">>\
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		Despite your best judgment, you decide to wait for the man, too afraid to leave against his order.
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		A bit curious, you decide to wait for the man. It seems bad to leave after he asked you so nicely to stay.
+	<<else>>\
+		Intrigued by his words, you decide to wait for the man. It would've been wrong to disobey him.
+	<<endif>>\
+	
+	Several minutes later, the man returns with a plate of sticky toffee pudding. You look at the plate. It is in reach of you both, but you see only one spoon. He follows your eyes and smiles, shifting his gaze to look at you. @@.coach;"Oh sweetheart, this isn’t for me."@@
+
+	He takes the spoon in his hand and slices into the soft, creamy cake. @@.coach;"Open up darling."@@ 
+	
+	His other hand is tightly grasps your private parts. A firm squeeze lets you know that you have no other options, but to obey.
+	
+	You part your lips to protest, but the cake-filled spoon slides into your mouth, lingering as you clamp your lips down on the cool ice cream and warm caramel sauce. @@.coach;"That’s a good girl. Make sure to clean off the bottom with your tongue."@@
+	
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		You glare at him, but with his iron grip on your balls and a juicy bite of cake in your mouth, it's really hard to argue.
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		You stare at him, shocked by his bold handling of you, but with his iron grip on your balls and a juicy bite of cake in your mouth, it's really hard to argue.
+	<<else>>\
+		It's a bit embarrassing that all this is happening in a fully public space, but you can't help admit that you love his way of handling you. Besides, with his iron grip on your balls and a juicy bite of cake in your mouth, it would be really hard to argue.
+	<<endif>>\
+	
+	[[Try to resist|Task Guide hand][$scene="Man_Wait_Resist"; window.events.record('taskGuideHandMan','mid')]]
+	[[Lick the spoon|Task Guide hand][$scene="Man_Wait_Comply"; window.events.record('taskGuideHandMan','max')]]
+<<elseif $scene eq "Man_Wait_Resist" or $scene eq "Man_Wait_Comply">>\
+	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+	<<if $scene eq "Man_Wait_Resist">>\
+		You try to argue and tell him to stop, but the man quickly shuts you up with a firm sqeeze of your private parts. You played along too far and now you are trapped. Cursing your curiosity you comply,\
+	<<else>>\
+		You comply,\
+	<<endif>>\
+	sliding your tongue along the underside of the spoon. To your shame, your cock starts to strain in its cage.
+
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		@@.hero;This can't be happening.@@
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		@@.hero;Why does it feel so pleasant?@@
+	<<else>>\
+		@@.hero;Why am I enjoy this so much?@@
+	<<endif>>\
+
+	The spoon exits your mouth and returns with a larger portion of the cake mixture.\
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		Struggling with a flux between revulsion and arousal, you meekly accept it, relishing the soft, smooth texture and sweet taste against your will. It's delicious.
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		You hesitantly accept it, relishing the soft, smooth texture and sweet taste. It's delicious.
+	<<else>>\
+		You eagerly accept it, relishing the soft, smooth texture and sweet taste. It's delicious.
+	<<endif>>\
+
+	The man continues to spoon-feed you as he begins to sensually rub your back and thighs, his grip growing tighter and hand moving lower.
+	<<if _b>>\
+		It’s not long before you feel his fingers reach the base of your plug. A soft chuckle leaves his lips as he scoops up a large helping of caramel and ice cream onto the spoon. 
+		
+		As you open your lips to accept the cake, you feel a firm tug on your plug. Squealing in surprise, you turn your head and the contents of the spoon rub against the side of your mouth. You stick out your tongue and feel the dessert mixture sticking to your face.
+	<<else>>\
+		It’s not long before you feel his fingers reach your anus. A soft chuckle leaves his lips as he scoops up a large helping of caramel and ice cream onto the spoon. As you open your lips to accept the cake, you feel his finger penetrating you. Squealing in surprise, you turn your head as the contents of the spoon rub against the side of your mouth. You stick out your tongue and feel the dessert mixture sticking to your face.
+	<<endif>>\
+
+	@@.coach;"Look at you, Princess, you’ve made such a mess of yourself."@@ His eyes narrow as his grin grows wider. @@.coach;"Let Daddy help you clean up your pretty face."@@ 
+	
+	You feel him gently run his finger along the side of your mouth, gathering the sticky mixture up. The finger brush across your lips, spreading the caramel sauce along the top half. His finger moves to the entrance of your mouth. @@.coach;"Come on, Princess, help Daddy get you clean."@@
+
+	[[Grudgingly clean it|Task Guide hand][$scene="Man_Wait_Clean"; window.events.record('taskGuideHandMan','mid')]]
+	[[Lick and suck his finger|Task Guide hand][$scene="Man_Wait_Suck"; window.events.record('taskGuideHandMan','max')]]
+<<elseif $scene eq "Man_Wait_Clean" or $scene eq "Man_Wait_Suck">>\
+	<<if $scene eq "Man_Wait_Resist">>\
+		Almost against your will, your lips close on the tip of his finger.\
+	<<else>>\
+		Overcome with arousal, you act instictively, following his command without hesitation. Your lips gently close on the tip of his finger.\
+	<<endif>>\
+	You feel your cheeks blushing a bright shade of red as you wrap your tongue around the man’s finger and suck it in. He responds with a @@.coach;"good girl,"@@ while slowly pushing his finger in and out of your mouth, drawing a glare from the woman at the family table. Once his finger has been sufficiently cleaned, he removes it, picks up the spoon and feeds you the remainder of the desert.
+
+	You get up to leave when the man clutches your cock cage, dragging you back down. @@.coach;"But Princess, we haven’t finish cleaning off the plate,"@@ he says playfully, gesturing at the pool of melted ice cream and caramel sauce. With two fingers, the man gathers up a sizable amount of the sugary sauce and slides them between your waiting lips. You moan into them, sucking on his fingers and sliding your tongue around them.
+
+	Once the plate is clean, the man stands up, reaches into his back pocket and pulls out his wallet. You can see an obvious and large bulge trying to break through his pants as he slides a $<<print "20">> bill across the table. @@.coach;"Daddy wants to make sure his Sissy Princess treats herself."@@ 
+	
+	You stare down at the bill, not sure if you actually have it in you to take it. The blush on your cheeks deepens as you shamefully take the bill. 
+	
+	@@.coach;"Go buy yourself something nice,"@@ he says with a wink. @@.coach;"Maybe next time, you can wrap those soft, pretty lips around something else."@@ 
+	
+	He replaces the wallet, gives you one last squeeze on your balls and leaves.
+
+	Your mind is a jumble of thoughts and emotions as you watch him walk away. That felt so wrong, but the straining in your cage reminds you how much fun it was. It was nice to be pampered, and the pudding was delicious.\
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		Maybe even when you had to lick it off his fingers.
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		Even when you had to lick it off his fingers.
+	<<else>>\
+		Especially when you had to lick it off his fingers.
+	<<endif>>\
+	
+	The man’s parting words play over and over in your mind as you walk through the mall.\
+	<<if ($player.feminization lte 40) or ($player.bisexuality lte 30)>>\
+		Despite your deep humiliation, it is confusingly arousing,\
+		<<if _b>>\
+			and with stimulation from your butt-plug, precum leaks from your cage.
+		<<else>>\
+			and you desperately try to forget how pleasant his touches were.
+		<<endif>>\
+	<<elseif ($player.feminization lte 50) or ($player.bisexuality lte 40)>>\
+		Despite your deep humiliation, it was very exciting. To your shame, you discover that precum has leaked from your cage.
+	<<else>>\
+		By the time you’ve left, you’ve begun to think about them hungrily as a thin stream of fluid leaks from your cage, lightly coating your thighs on your walk home.
+	<<endif>>\
+
+	<<set $player.money += 20>>\
+	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+<<elseif $scene eq "Man_Run">>\
+	Scared of what being a //'Princess'// to this man may lead to, you quickly scamper away.
+	
+	@@.hero;I hope that will be enough for $teacher's task.@@
+	
+	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandMan','min')]]
 <!--</Man>*********************-->\
 <!--<Couple>*********************-->\
 <<elseif $scene eq "Couple">>\
@@ -296,16 +301,62 @@
 
 	As you swallow the last spoonful of the longest, sweetest, and horniest bowl of ice cream in your life, the couple stops their teasing and prepares to leave. They tell you it was a pleasure to meet you and wish you good luck. 
 	
-	@@.hero;That was... really weird.@@
-		
-[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+	[[That was... really weird|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandCouple','min')]]
+	[[That was reather interesting|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandCouple','mid')]]
+	[[I could get used to be 'a third wheel' like that|Go to the mall][$tasksTeacher.guideHand.status=2; window.events.record('taskGuideHandCouple','max')]]
 <!--</Couple>*********************-->\
 <!--<Trap>*********************-->\
 <<elseif $scene eq "Trap">>\
 	<<set $flags.taskGuideHandTrap = true>>\
+	<<set $tasksTeacher.guideHand.status=2>>\
 	You approach the gorgeous woman and ask if you can join her. To your surprise, when you put her hand on your chastity, she does the same to - surprise - her own. You are shocked that such a stunningly beautiful woman is //just like you!//
+	
+	//She// flashes you a smile and continues her meal like nothing special happening.
 
-	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
+	[[This is too awkward, make your retreat|Task Guide hand][$scene="Trap_retreat"; window.events.record('taskGuideHandTrap','min')]]
+	[[Just wait|Task Guide hand][$scene="Trap_wait"; window.events.record('taskGuideHandTrap','mid')]]
+	[[Squeeze her balls a bit|Task Guide hand][$scene="Trap_sqeeze"; window.events.record('taskGuideHandTrap','max')]]
+<<elseif $scene eq "Trap_retreat">>\
+	Weirded out, you make excuses and quickly scamper away.
+
+	[[Return|Go to the mall]]
+<<elseif $scene eq "Trap_wait">>\
+	/* End with a wet sloppy kiss? */\
+	You don't know what to do and awkwardly glance around, as if looking for help. The //woman// seems to enjoy your frusration and starts to gently caress your balls.
+	
+	You have so many questions to her: Who is she, why did she came here, how she deals with the cage... But just can't bring yourself to ask. It's all probably shows on your face because the shemale suddenly leans closer to you and whispers @@.writer;"Don't worry cutie, you will figure it out."@@
+	
+	As you open your mouth, she closes the gap and completely expels all thoughts from your head as her tongue invades your mouth. It lasts quite some time, her possessive and quite dominating kiss.
+	
+	Finally she breaks the kiss, leaving you out of breath, and stands up. Smiling wide she winks to you, enjoying your shocked expression.
+	
+	@@.writer;"See you around, cutie."@@
+	
+	You watch her go and sit there for a while alone, trying to figure out what happened.
+
+	[[Return|Go to the mall]]
+<<elseif $scene eq "Trap_sqeeze">>\
+	Suddenly feeling adventurous you slightly squeeze her balls, curious what kind of reaction it would invoke. A very erotic moan and dreamy expression.
+
+	She leans closer and start whispering in your ear. Your face turns pink and red, as she describes kinky details of all kinky stuff her //owner// does to her. It goes into crazy territorry really quick, making you feel eneasy. You're so not ready for any of this shit. You let go of her private parts and jerk your hand back, like burned, when she asks if you're interested.
+	
+	@@.hero;Not just no, but Hell no!@@
+	
+	Click of camera and burst of laughter breaks you out of stupor.
+	
+	@@.writer;"AHAHAHAHAHA... You should have seen your face. Oh, here, watch."@@
+	
+	Still laughing and shows you a photo of you with utter horror on your face.
+	
+	@@.writer;"It is too funny. I'm so going to tell about this to my girlfriend."@@
+	
+	New kind of horror replaces previous one, now with embarrassement flavour. You meekly ask her to forgive you and to erase the photo.
+	
+	@@.writer;"Nope, no way. That's what you get for getting too //grabby//. But don't worry, I won't spread it... Too much..."@@
+	
+	The trickster in skirt winks to you and goes on her way.
+	
+	[[Return|Go to the mall]]
 <!--</Trap>*********************-->\
 <<else>>\
 	Bug

@@ -245,21 +245,34 @@ window.eventList={
 			oralM:		{ change: 5, max: 30 }
 		},
 	},
-	readPlayGirl : {
-		repeats: -1,
-		stats: {
-			bisexuality:	{ changeMin: 0, change: 1, changeMax: 10, max: 50 },
-			submission:		{ changeMin: 0, change: 3, changeMax: 5, max: 20 },
-			feminization:	{ changeMin: 0, change: 2, changeMax: 10, max: 20 }
-		},
-	},
 	masturbateWithVibratorAnal : {
 		repeats: -1,
 		stats: {
+			analF:	{ change: 5, max: 30 },
 			analT:	{ change: 5, max: 30 }
 		},
 	},
 
+	/* BISEXUAL EVENTS */
+	readPlayGirl : {
+		repeats: -1,
+		stats: {
+			bisexuality:	{ changeMin: 0, change: 1, changeMax: 10, max: 50 },
+			analM:			{ changeMin: 0, change: 1, changeMax: 10, max: 30 },
+			submission:		{ changeMin: 0, change: 3, changeMax: 5, max: 20 },
+			feminization:	{ changeMin: 0, change: 2, changeMax: 10, max: 20 }
+		},
+	},
+	taskGuideHandMan: {
+		repeats: 1,
+		stats: {
+			bisexuality:	{ changeMin: 5, change: 10, changeMax: 15, max: 50 },
+			oralM:			{ changeMin: 0, change: 3, changeMax: 10, max: 30 },
+			submission:		{ changeMin: 0, change: 3, changeMax: 7, max: 50 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
 	/* THERAPIST */
 	firstHypno : {	// fem +5 max40
 		repeats: 0,
@@ -595,7 +608,336 @@ window.eventList={
 		},
 	},
 
+	askAdvice: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	selfieToiletsChastity: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	playButtplug: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	askStranger: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	fakeGirlfriend: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	trainDildoBJ: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	guideHand: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	guideHand: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	taskGuideHandGirl: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	taskGuideHandWoman: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	taskGuideHandCouple: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	taskGuideHandTrap: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	guardianSpank: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	guardianFuck: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	pissDrinking: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	whoring: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	gloryHole: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	schoolPublicToilet: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	penaltyTrials: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	penaltySissyShow: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
 
+	PinkRollers: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamDildoAss: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamDeepthroat: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamMaid: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamTail: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamHorseCock: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	WebcamSelfieChastity: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
+	/* BODYMODS */
+	
+	getHaircut: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	getEarsPierced: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	legHairRemoval: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	hairRemoval: {
+		repeats: 0,
+		special: function() {
+			if(State.active.variables.tasksTeacherBody.hairRemoval.status==1) {
+				hairRemoval.stats.submission.changeMin=3;
+				hairRemoval.stats.submission.change=5;
+				hairRemoval.stats.submission.changeMax=7;
+			}
+		},
+		stats: {
+			submission:		{ changeMin: 0, change: 0, changeMax: 0, max: 50 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	hairLaserRemoval: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	makeup: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	manicure: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
+	breastsIncreaseA: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	breastsIncreaseB: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	breastsIncreaseC: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	breastsIncreaseDD: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
+	lipsIncrease: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	lipsIncreaseXL: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	assIncrease: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	assIncreaseXL: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
+	analSmooth: {
+		repeats: 0,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	piercing: {
+		repeats: 5,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ change: 0, max: 50 }
+		},
+	},
+	tattoo: {
+		repeats: 5,
+		stats: {
+			submission:		{ change: 5, max: 5 },
+			feminization:	{ changeMin: 0, change: 3, changeMax: 5, max: 50 }
+		},
+	},
+	
 	template : {
 		repeats: -1, /* number of repeats, -1=unlimited repeats, 0=once */
 		conditions: function() { return true; }, /* additional conditions to trigger */

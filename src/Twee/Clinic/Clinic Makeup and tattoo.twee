@@ -431,7 +431,15 @@
 		@@.reward;You now have a permanently made-up, trashy, whorish look!@@
 	<<endif>>\
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	<<if (not $events.makeup)>>\
+		[[It would be hard to explain|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('makeup','min')]]
+		[[It is rather confusing|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('makeup','mid')]]
+		<<if $player.feminization gte 35>>\
+			[[It looks great|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('makeup','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	<<endif>>\
 	<!--</Clinic makeup>-->\
 	<!--<Clinic tattoos>-->\
 <<elseif $scene eq "tattooSissy">>\
@@ -464,7 +472,7 @@
 	
 	@@.reward;You now have a 'Sissy' tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','mid')]]
 <<elseif $scene eq "tattooStockings">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooStockings>>\
@@ -487,7 +495,7 @@
 	
 	@@.reward;You now have stockings tattoos!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','mid')]]
 <<elseif $scene eq "tattooStupidWhore">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooStupidWhore>>\
@@ -516,7 +524,7 @@
 
 	@@.reward;You now have a tramp stamp tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','max')]]
 <<elseif $scene eq "tattooSlut">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooSlut>>\
@@ -541,7 +549,7 @@
 	
 	@@.reward;You now have a 'Slut' tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','mid')]]
 <<elseif $scene eq "tattooHeart">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooHeart>>\
@@ -560,7 +568,7 @@
 
 	@@.reward;You now have a heart tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','max')]]
 <<elseif $scene eq "tattooBunny">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooBunny>>\
@@ -589,7 +597,7 @@
 
 	@@.reward;You now have a bunny symbol tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','min')]]
 <<elseif $scene eq "tattooButterfly">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.tattooButterfly>>\
@@ -612,7 +620,7 @@
 
 	@@.reward;You now have a butterfly tattoo!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','mid')]]
 <<elseif $scene eq "beautyMark">>\
 	<<showImage "general" "tattoing.jpg">>\
 	<<set _item=itemsC.beautyMark>>\
@@ -630,7 +638,7 @@
 
 	@@.reward;You now have a beauty mark!@@
 	
-	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
+	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0; window.events.record('tattoo','min')]]
 	<!--</Clinic tattoos>-->\
 <<else>>\
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]

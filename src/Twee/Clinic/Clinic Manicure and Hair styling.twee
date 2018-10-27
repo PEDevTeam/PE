@@ -202,7 +202,15 @@
 	
 	@@.reward;You now have a beautiful French manicure and pedicure!@@
 
-	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	<<if (not $events.manicure)>>\
+		[[This manicure seems unweildy|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','min')]]
+		[[At least it's neat|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','mid')]]
+		<<if $player.feminization gte 35>>\
+			[[It looks super cute|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	<<endif>>\
 \
 <<elseif $scene eq "GarishManicure">>\
 	<<set _previousManicure = $body.manicure>>\
@@ -241,7 +249,7 @@
 	
 	@@.reward;You now have a garish, streetwallker-style manicure and pedicure!@@
 
-	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','mid')]]
 \
 <<elseif $scene eq "PermanentManicure">>\
 	<<set $body.manicure = 1>>\
@@ -397,7 +405,15 @@
 		@@.reward;You now have a medium-length hairstyle, done up in swirly ringlets!@@
 	<<endif>>\
 	
-	[[Return|Clinic Manicure and Hair styling][$scene=""]]
+	<<if (not $events.getHaircut)>>\
+		[[This will draw so much unnecessary attention|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','min')]]
+		[[Huh, it looks really different|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','mid')]]
+		<<if $player.feminization gte 30>>\
+			[[It looks great|Clinic Manicure and Hair styling][$scene=""; $random.stored=0; window.events.record('manicure','max')]]
+		<<endif>>\
+	<<else>>\
+		[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
+	<<endif>>\
 <<elseif $scene eq "Black" or $scene eq "Brown" or $scene eq "Red" or $scene eq "Blonde" or $scene eq "Silver" or $scene eq "Pink">>\
 	<<if $scene eq "Black">>\
 		<<set $body.hairColor = 0>>\

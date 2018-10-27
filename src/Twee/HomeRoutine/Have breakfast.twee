@@ -723,31 +723,44 @@
 			<<elseif _rc lte 5>>@@.guardian;"Oh naughty, naughty!@@\
 			<<elseif _rc lte 6>>@@.guardian;"I think you enjoy the fact that I watch you all sweaty and hot.@@\
 			<<elseif _rc lte 7 and $player.perversion.guardian gte 5>>@@.guardian;"So my lusty maid had some solo fun, huh?@@\
-			<<elseif _rc lte 8 and [9,10,11].includes($player.masturbationType)>>@@.guardian;"Oh, my. You looked so sweet fucking yourself with a dildo.@@\
-			<<elseif _rc lte 9 and [1,3,5,7,9].includes($player.masturbationType)>>@@.guardian;"I'm bet it was an interesting experience for you last night.@@\
+			<<elseif _rc lte 8 and misc.masturbateVibrator()>>@@.guardian;"Oh, my. You looked so sweet fucking yourself with a dildo.@@\
+			<<elseif _rc lte 9 and misc.masturbateChastity()>>@@.guardian;"I'm bet it was an interesting experience for you last night.@@\
 			<<else>>@@.guardian;"You put on such show last night.@@\
 			<<endif>>\
-			<<if $player.masturbationType eq 1>><!--Watch porn in chastity-->\
-				@@.guardian;It was funny to watch you squirming, panting, desperate for release as you watched that porn yesterday.@@\
-				<<if $player.perversion.guardian eq 7>>\
-					@@.guardian;I bet you were envious of that slut being fucked in every hole.@@\
+			<<if [masturbateType.watchPornChastNoCum].includes($player.masturbationType)>>\
+				/* TODO - add different reactions depending on porn type */\
+				<<if $player.masturbationType eq masturbateType.watchPornChastNoCum>>\
+					@@.guardian;It was funny to watch you squirming, panting, desperate for release as you watched that porn yesterday.@@\
+					<<if $player.perversion.guardian eq 7>>\
+						@@.guardian;I bet you were envious of that slut being fucked in every hole.@@\
+					<<endif>>\
+				<<elseif $player.masturbationType eq masturbateType.watchPornCum>><!--Watch porn and wank-->\
+					@@.guardian;After all the kinky stuff you've been up to, I honestly wasn't expecting something as vanilla as jerking off while watching porn.@@\
+				<<elseif $player.masturbationType eq masturbateType.watchPornVibCum>>\
+					@@.guardian;I'm not even sure what was more lewd - the actual porn or the sight of you fucking yourself with a dildo while wanking.@@\
+				<<elseif $player.masturbationType eq masturbateType.watchPornCalm>>\
+					@@.guardian;I'm not even sure what was more lewd - the actual porn or the sight of you teasing yourself.@@\
+				<<elseif $player.masturbationType eq masturbateType.watchPornChastCalm>>\
+					@@.guardian;I'm not even sure what was more lewd - the actual porn or the sight of you fucking yourself with a dildo.@@\
+				<<elseif $player.masturbationType eq masturbateType.watchPornChastCum>>\
+					@@.guardian;I'm not even sure what was more lewd - the actual porn or the sight of you fucking yourself with a dildo.@@\
+				<<elseif $player.masturbationType eq masturbateType.watchPornVibCumNoHands>>\
+					@@.guardian;I'm not even sure what was more lewd - the actual porn or the sight of you fucking yourself with a dildo.@@\
 				<<endif>>\
-			<<elseif $player.masturbationType eq 2>><!--Watch porn and wank-->\
-				@@.guardian;After all the kinky stuff you've been up to, I honestly wasn't expecting something as vanilla as jerking off while watching porn.@@\
-			<<elseif $player.masturbationType eq 3>><!--Spy cam in chastity-->\
+			<<elseif $player.masturbationType eq masturbateType.spyCamChastNoCum>><!--Spy cam in chastity-->\
 				@@.guardian;I don't like you watching me when I, uh... but I'd be a hypocrite to deny you that. I should show you yesterday's video. The look on your face when I came was priceless! I bet you dreamed of being fucked silly last night.@@\
-			<<elseif $player.masturbationType eq 4>><!--Spy cam wank-->\
+			<<elseif $player.masturbationType eq masturbateType.spyCamCum>><!--Spy cam wank-->\
 				@@.guardian;So you like to masturbate watching me undressed and erm...@@ \
 				@@.guardian;Don't worry, I will figure out some way to keep you occupied.@@\
-			<<elseif $player.masturbationType eq 5>><!--Playgirl magazine chastity-->\
+			<<elseif $player.masturbationType eq masturbateType.playgirlChastNoCum>><!--Playgirl magazine chastity-->\
 				@@.guardian;Oh, my... I didn't know you enjoyed that kind of material. You looked so lovely ogling those muscular bulls while helplessly squirming, all locked up down there. I bet you dreamed about being held down and fucked hard last night.@@\
-			<<elseif $player.masturbationType eq 6>><!--Playgirl magazine no chast-->\
+			<<elseif $player.masturbationType eq masturbateType.playgirlCum>><!--Playgirl magazine no chast-->\
 				@@.guardian;Oh my, I didn't know you enjoyed that kind of material. I bet you dreamed about being held down and thoroughly fucked last night.@@\
-			<<elseif $player.masturbationType eq 7>><!--Vibrator on cage-->\
+			<<elseif $player.masturbationType eq masturbateType.vibPenisChastNoCum>><!--Vibrator on cage-->\
 				@@.guardian;It was funny watching you try to get release by using a vibrator on your chastity cage.@@\
-			<<elseif $player.masturbationType eq 8>><!--Vibrator on penis-->\
+			<<elseif $player.masturbationType eq masturbateType.vibPenisCum>><!--Vibrator on penis-->\
 				@@.guardian;It was interesting to watch you using a vibrator to get off that way.@@\
-			<<elseif [9,10,11].includes($player.masturbationType)>><!--Vibrator in ass, chastity=9, cum=10, no chast=11-->\
+			<<elseif misc.masturbateVibrator()>>\
 				<<set _rc = random(7)>>\
 				<<if _rc lte 0>>@@.guardian;I have to admit, the footage was hot!@@\
 					<<if $player.perversion.guardian eq 7>>
@@ -761,37 +774,38 @@
 				<<elseif _rc lte 6>>@@.guardian;I think you gonna need a bigger boat, and when I say boat, I really mean dildo.@@\
 				<<else>>@@.guardian;It was so hot! I wonder if you imagined a hunk guy or a curvy girl with a strap-on when you fucked yourself with that dildo.@@\
 				<<endif>>\
-			<<elseif $player.masturbationType eq 14>><!--Horse dildo-->\
+			<<elseif ($player.masturbationType % 100) eq masturbateType.horseChastNoCum>><!--Horse dildo-->\
 				@@.guardian;Oh, my god, It was incredible you could fit that monstrosity in your ass, but I'd be careful, stretch it too much and the boys won't like your hole anymore.@@\
 			<<endif>>\
 		<<endif>>\
-		<<if [1,3,5,7,9].includes($player.masturbationType)>>\
-			<<set _rc = random(10)>>\
-			<<if _rc lte 0>>@@.guardian;I just love how you kept yourself hot and bothered without achieving release. I bet you had really interesting dreams last night."@@\
-			<<elseif _rc lte 1>>@@.guardian;You tortured yourself nice and good, but nothing to show for it. Oh sweet sissy!"@@\
-			<<elseif _rc lte 2>>@@.guardian;I bet you are still horny, my little pervert."@@\
-			<<elseif _rc lte 3>>@@.guardian;Oh sad little sissy, no release for all that effort. I can feel the heat coming from you. Perhaps you need a cold shower to relax?"@@\
-			<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;So fitting for a little sissy maid to stay horny all the time."@@\
-			<<elseif _rc lte 5>>@@.guardian;I'm sure you love your little chastity cage."@@\
-			<<elseif _rc lte 6 and [5,7].includes($player.perversion.guardian)>>@@.guardian;No release for our sissy maid? I like it."@@\
-			<<elseif _rc lte 7>>@@.guardian;It was so sad, but also very hot to watch so much effort and no release."@@\
-			<<elseif _rc lte 8>>@@.guardian;I bet it's frustrating to be so horny, while wearing chastity. Good for you."@@\
-			<<elseif _rc lte 9 and [5,7].includes($player.perversion.guardian)>>@@.guardian;I think it was a rather fitting night for my sissy maid. Good job on keeping yourself horny and frustrated."@@\
-			<<else>>@@.guardian;I think I like how your chastity cage affect your behavior."@@\
-			<<endif>>\
-		<<elseif [10,11,14].includes($player.masturbationType)>>\
+		<<if misc.between($player.masturbationType, 600, 610) or misc.between($player.masturbationType, 400, 410)>>\
 			<<set _rc = random(3)>>\
 			<<if _rc lte 0>>@@.guardian;You came without touching your penis even once. You've become a complete butt-slut, haven't you?"@@\
 			<<elseif _rc lte 1>>@@.guardian;I noticed how you leaked too! You were really enjoying yourself."@@\
 			<<elseif _rc lte 2>>@@.guardian;Oh and I love how you cum like a girl now."@@\
 			<<else>>@@.guardian;And you even came like a proper sissy."@@\
 			<<endif>>\
-		<<else>>\
+		<<elseif misc.masturbateCum()>>\
 			<<set _rc = random(3)>>\
 			<<if _rc lte 0>>@@.guardian;At least you got your release."@@\
 			<<elseif _rc lte 1>>@@.guardian;You make such funny face when you cum."@@\
 			<<elseif _rc lte 2>>@@.guardian;You're adorable when you slump after cumming."@@\
 			<<else>>@@.guardian;And don't forget to clean up after cumming."@@\
+			<<endif>>\
+		<<else>>\
+			<<set _rc = random(10)>>\
+			<<if _rc lte 0>>@@.guardian;I just love how you kept yourself hot and bothered without achieving release. I bet you had really interesting dreams last night."@@\
+			<<elseif _rc lte 1>>@@.guardian;You tortured yourself nice and good, but nothing to show for it. Oh sweet sissy!"@@\
+			<<elseif _rc lte 2>>@@.guardian;I bet you are still horny, my little pervert."@@\
+			<<elseif _rc lte 3>>@@.guardian;Oh sad little sissy, no release for all that effort. I can feel the heat coming from you. Perhaps you need a cold shower to relax?"@@\
+			<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;So fitting for a little sissy maid to stay horny all the time."@@\
+			<<elseif _rc lte 5 and misc.masturbateChastity()>>@@.guardian;I'm sure you love your little chastity cage."@@\
+			<<elseif _rc lte 6 and [7].includes($player.perversion.guardian)>>@@.guardian;No release for our sissy maid? I like it."@@\
+			<<elseif _rc lte 7>>@@.guardian;It was so sad, but also very hot to watch so much effort and no release."@@\
+			<<elseif _rc lte 8 and misc.masturbateChastity()>>@@.guardian;I bet it's frustrating to be so horny, while wearing chastity. Good for you."@@\
+			<<elseif _rc lte 9 and [7].includes($player.perversion.guardian)>>@@.guardian;I think it was a rather fitting night for my sissy maid. Good job on keeping yourself horny and frustrated."@@\
+			<<elseif _rc lte 9 and misc.masturbateChastity()>>@@.guardian;I think I like how your chastity cage affect your behavior."@@\
+			<<else>>@@.guardian;I think I like how you're constantly horny lately."@@\
 			<<endif>>\
 		<<endif>>\
 	<<set $player.masturbationType = 0>>\

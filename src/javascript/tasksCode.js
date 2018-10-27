@@ -3386,7 +3386,7 @@ window.tasksEmail={
 			perform: "Hello. I would pay $40 for a video of you jumping on a special horsecock dildo. Show me your hungry ass pussy taking it in and money is yours.\n\nThanks",
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.anal == 3));
+			return (State.active.variables.body.anal >= 3);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3402,7 +3402,7 @@ window.tasksEmail={
 		progress: 0,  // for progressing scenes
 		startDay: 0,  // day task was started
 		maxDays: 5,  // number of days allowed before task will fail
-		cooldown: 4,  // number of days before task available again
+		cooldown: 13,  // number of days before task available again
 		rewardMoney: 20,
 		rewardDebt: 0,
 		failPenalty: 1,

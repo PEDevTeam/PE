@@ -40,7 +40,6 @@
 
 	[[Return|Beauty Salon][$scene=""; $random.stored=0]]
 <<else>>\
-	/* WriterEdit - depilatory and waxing swapped places, please check */\
 	<<set _first=true>>\
 	<<if $scene eq "Depilatory">>\
 		<<showImage "general" "hr_depilatory.jpg">>\
@@ -73,7 +72,15 @@
 		<<endif>>\
 		@@.reward;Your legs are now soft and hairless, like a woman's!@@
 		
-		[[Return|Clinic Hair removal][$scene=""; $random.stored=0]]
+		<<if (not $events.legHairRemoval)>>\
+			[[It is just to please teacher|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('legHairRemoval','min')]]
+			[[It gives curious feeling|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('legHairRemoval','mid')]]
+			<<if $player.feminization gte 30>>\
+				[[It's actually kinda cool|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('legHairRemoval','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Hair removal][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<elseif $scene eq "Waxing">>\
 		<<if ($body.bodyhair gte 2)>>\
 			<<set _first=false>>\
@@ -106,7 +113,15 @@
 		
 		@@.reward;Your body is now soft and hairless, like a woman's!@@
 	
-		[[Return|Beauty Salon][$scene=""; $random.stored=0]]
+		<<if (not $events.hairRemoval)>>\
+			[[It feels too weird|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairRemoval','min')]]
+			[[It makes skin so sensitive...|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairRemoval','mid')]]
+			<<if $player.feminization gte 30>>\
+				[[It feels good to be this smooth|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairRemoval','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Hair removal][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<elseif $scene eq "LaserHairRemoval">>\
 		<<if ($body.bodyhair gte 2)>>\
 			<<set _first=false>>\
@@ -140,7 +155,15 @@
 		
 		@@.reward;You are now permanently smooth and hairless, and feeling much more girly!@@
 
-		[[Return|Beauty Salon][$scene=""; $random.stored=0]]
+		<<if (not $events.hairLaserRemoval)>>\
+			[[Damn, now it's permanent...|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairLaserRemoval','min')]]
+			[[It is scary, but also very exciting|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairLaserRemoval','mid')]]
+			<<if $player.feminization gte 40>>\
+				[[Finally, no more body hair|Clinic Hair removal][$scene=""; $random.stored=0; window.events.record('hairLaserRemoval','max')]]
+			<<endif>>\
+		<<else>>\
+			[[Return|Clinic Hair removal][$scene=""; $random.stored=0]]
+		<<endif>>\
 	<<endif>>\
 <<endif>>\
 

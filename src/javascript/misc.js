@@ -22,6 +22,26 @@ window.misc={
 			State.active.variables.Myguardian=State.active.variables.babysitter;
 		}
 	},
+	between: function(stat, min, max) {
+		if ((stat >= min) && (stat <= max)) {return true}
+		return false;
+	},
+	masturbateCum: function() {
+		if (this.between(State.active.variables.player.masturbationType, 500, 610)) {return true}
+		if (this.between(State.active.variables.player.masturbationType, 300, 310)) {return true}
+		return false;
+	},
+	masturbateChastity: function() {
+		if (this.between(State.active.variables.player.masturbationType, 0, 110)) {return true}
+		if (this.between(State.active.variables.player.masturbationType, 400, 410)) {return true}
+		return false;
+	},
+	masturbateVibrator: function() {
+		if ([5,6].includes($player.masturbationType % 100)) {return true}
+		if (this.between(State.active.variables.player.masturbationType, 100, 110)) {return true}
+		if (this.between(State.active.variables.player.masturbationType, 400, 610)) {return true}
+		return false;
+	},
 	mmContent: function(score) {
 		if (State.active.variables.player.perversion.mmChecks > 5) {
 			return (State.active.variables.player.bisexuality + 10) >= score;
@@ -213,35 +233,41 @@ window.masturbateType={
 	watchPornCum:			301,
 	watchPornChastCum:		401,
 	watchPornVibCum:		501,
+	watchPornVibCumNoHands:	601,
 	spyCamChastNoCum:		  2,
 	spyCamChastCalm:		102,
 	spyCamCalm:				202,
 	spyCamCum:				302,
 	spyCamChastCum:			402,
 	spyCamVibCum:			502,
+	spyCamVibCumNoHands:	602,
 	playgirlChastNoCum:		  3,
 	playgirlChastCalm:		103,
 	playgirlCalm:			203,
 	playgirlCum:			303,
 	playgirlChastCum:		403,
 	playgirlVibCum:			503,
-	vibAssChastNoCum:		  4,
-	vibAssChastCalm:		104,
-	vibAssCalm:				204,
-	vibAssCum:				304,
-	vibAssChastCum:			404,
-	vibPenisChastNoCum:		  5,
-	vibPenisChastCalm:		105,
-	vibPenisCalm:			205,
-	vibPenisCum:			305,
-	vibPenisChastCum:		405,
-	vibPenisVibCum:			505,
+	playgirlVibCumNoHands:	602,
+	vibPenisChastNoCum:		  4,
+	vibPenisChastCalm:		104,
+	vibPenisCalm:			204,
+	vibPenisCum:			304,
+	vibPenisChastCum:		404,
+	vibPenisVibCum:			504,
+	vibAssChastNoCum:		  5,
+	vibAssChastCalm:		105,
+	vibAssCalm:				205,
+	vibAssCum:				305,
+	vibAssChastCum:			405,
+	vibAssVibCum:			505,
+	vibAssVibCumNoHands:	605,
 	horseChastNoCum:		  6,
 	horseChastCalm:			106,
 	horseCalm:				206,
 	horseCum:				306,
 	horseChastCum:			406,
 	horseVibCum:			506,
+	horseVibCumNoHands:		606,
 	special:				999
 },
 
