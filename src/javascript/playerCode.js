@@ -575,4 +575,16 @@ window.playerCode={
 			}
 		}
 	},
+	checkGameSkill: function (){
+		var player=State.active.variables.player;
+		var skillLevel = player.gameSkill;
+		return skillLevel;
+	},
+	improveGameSkill: function(){
+		var player=State.active.variables.player;
+		var skillLevel = player.gameSkill;
+		var skillImprove = Math.floor((Math.random() * 3) + 1);
+		player.gameSkill = skillLevel + skillImprove;
+		return skillImprove;
+	},
 }

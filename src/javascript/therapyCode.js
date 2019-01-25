@@ -536,6 +536,7 @@ window.kinks= [
 		name: "Semen consumption",
 		code: "Protein Diet Enrichment",
 		image: "hypno_cum.gif",
+		imagePack: "Hypno Cum",
 		fadeOut: [
 			"Cum",
 			", why are you thinking about cum?",
@@ -581,6 +582,7 @@ window.kinks= [
 		name: "Watersports",
 		code: "Bodily Emissions Management",
 		image: "hypno_piss.gif",
+		imagePack: "Hypno Piss",
 		fadeOut: [
 			"Huh",
 			", why are you thinking about urine",
@@ -622,6 +624,7 @@ window.kinks= [
 		name: "Small penis",
 		code: "Sexual Prowess Hypotherapy",
 		image: "hypno_sph.gif",
+		imagePack: "Hypno SPH",
 		fadeOut: [
 			"Wait a second",
 			", why am I thinking about small penises",
@@ -659,6 +662,7 @@ window.kinks= [
 		name: "BDSM",
 		code: "Relationship Role Definition",
 		image: "hypno_maso.gif",
+		imagePack: "Hypno Maso",
 		fadeOut: [
 			"Wait a second",
 			", why are you thinking about being spanked",
@@ -703,6 +707,7 @@ window.kinks= [
 		name: "Foot fetish",
 		code: "Bodily Extremity Encouragement",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"Feet",
 			", what is so special about it",
@@ -746,6 +751,7 @@ window.kinks= [
 		name: "Sweat and intense body odors",
 		code: "Pheromone Enhancement",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"Sweat",
 			", it is gross",
@@ -791,6 +797,7 @@ window.kinks= [
 		name: "Degradation",
 		code: "Self-Confidence Strengthening",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"What am I doing here?",
 			"I'm not like that",
@@ -842,6 +849,7 @@ window.kinks= [
 		name: "Age play",
 		code: "Regression Therapy",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"What?",
 			"I'm not a baby?",
@@ -881,6 +889,7 @@ window.kinks= [
 		name: "Xtreme body proportions",
 		code: "Body Confidence Enabling",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"Wait a second",
 			", why am I having these fantasies",
@@ -928,6 +937,7 @@ window.kinks= [
 		name: "Clothing",
 		code: "Tactile Sensation Appreciation",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"Wait a second",
 			", why are you touching your clothes?",
@@ -969,6 +979,7 @@ window.kinks= [
 		name: "Gender change",
 		code: "Gender Dysphoria Realignment",
 		image: "hypno_1_1.gif",
+		imagePack: "Hypno",
 		fadeOut: [
 			"I'm a boy",
 			", I'm sure about it",
