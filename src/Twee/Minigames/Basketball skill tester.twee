@@ -1,16 +1,20 @@
 :: Basketball skill tester [pos_2412_2476]
 \
-<<showImage "general" "basketball.jpg">>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Basketball" 350 350>></div>\	
 <<set $player.money-=1>>\
 <<set $time.addMinutes(5)>>\
 You put a dollar into the game and start shooting.
 
-<<set _bst to random(2)>>\
-<<if _bst eq 0>>\
+<<set _bst to $player.gameSkill + random(50)>>\
+<<if _bst lt 15>>\
 Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn't get any prize tickets.
 
-<<elseif _bst eq 1>>\
+Maybe if you were a better <b>gamer</b> you could win more?
+
+<<elseif _bst gte 15 and _bst lt 30>>\
 Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it's only worth a dollar.
+
+Maybe if you were a better <b>gamer</b> you could win more?
 
 @@.reward;You just won $1!@@
 

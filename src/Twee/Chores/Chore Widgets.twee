@@ -1,7 +1,7 @@
 :: Chore Widgets [pos_1896_150 widget]
 \
 <<widget "showChores">>\
-<<showImage "chores" "chores.jpg">>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Chores" 600 600>></div>\
 <<if $flags.maidUniform>>\
 	<<set $flags.maidUniform = false>>\
 	<<wearClothing 'maidOutfit'>>\
@@ -129,8 +129,8 @@ The chores available to you are:
 
 <<widget "performChore">>\
 <<set $player.currentChore=$args[0]>>\
-<<set _image = choresList[$args[0]].image>>\
-<<showImage "chores" _image>>\
+<<set _imagePack = choresList[$args[0]].imagePack>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack _imagePack 400 400>></div>\
 <<set $scene=choresList[$args[0]].name>>\
 \
 <<display [[Chores]]>>\

@@ -12,7 +12,7 @@ window.hypnoCode={
 		for (var j=0; j < ha.length; j++) {
 			tc-=ha[j].chance;
 			if (tc <= 0) {
-				return ha[j].filename;
+				return window.imagePack.RandomImageNameFromPack(ha[j].imagePack);
 			}
 		}
 	}
@@ -21,48 +21,7 @@ window.hypnoCode={
 window.hypnoImages=[
 	{
 		filename: "hypno_1_1.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_2.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_3.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_4.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_5.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_6.gif",
-		chance: 10,
-		kinkActive: function() {
-			return true;
-		}
-	},
-	{
-		filename: "hypno_1_7.gif",
+		imagePack: "Hypno",
 		chance: 10,
 		kinkActive: function() {
 			return true;
@@ -70,6 +29,7 @@ window.hypnoImages=[
 	},
 	{
 		filename: "hypno_cum.gif",
+		imagePack: "Hypno Cum",
 		chance: 10,
 		kinkActive: function() {
 			return State.active.variables.kink.cumEating;
@@ -77,6 +37,7 @@ window.hypnoImages=[
 	},
 	{
 		filename: "hypno_piss.gif",
+		imagePack: "Hypno Piss",
 		chance: 10,
 		kinkActive:  function() {
 			return State.active.variables.kink.watersports;
@@ -84,6 +45,7 @@ window.hypnoImages=[
 	},
 	{
 		filename: "hypno_sph.gif",
+		imagePack: "Hypno SPH",
 		chance: 10,
 		kinkActive: function() {
 			return State.active.variables.kink.sph;
@@ -91,6 +53,7 @@ window.hypnoImages=[
 	},
 	{
 		filename: "hypno_maso.gif",
+		imagePack: "Hypno Maso",
 		chance: 10,
 		kinkActive: function() {
 			return State.active.variables.kink.painPlay;

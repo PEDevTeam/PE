@@ -719,8 +719,7 @@ String.prototype.toProperCase = function () {
 		});
 };
 
-Config.history.controls = false;
-
+Config.history.controls = true;
 
 Macro.add('selectScene', {
 	tags	: ['scene', 'restIsRandom'],
@@ -1095,42 +1094,57 @@ Macro.add('ChatNPCResponse', {
 });
 
 // ordinal macro as requested by Saoirsa, by Andrew Svedby
-ordinals = {
-    fifth: ['zeroth', 'first', 'second', 'third',
-	    'forth', 'fifth', 'sixth', 'seventh',
-	    'eight', 'ninth', 'tenth'],
-    fi5th: ['0th', '1st', '2nd', '3rd'],
+var ordinals = {
+    fifth: ['zeroth', 'first', 'second', 'third', 'forth', 'fifth', 'sixth', 'seventh', 'eight', 'ninth', 'tenth'],
+	fi5th: ['0th', '1st', '2nd', '3rd'],
+	
     ordFun: (macro, arr, casify) => {
-	if (macro.args.lenght  < 1) {
-	    return macro.error('takes at least one argument');
-	}
-	var num;
-	try { num = Scripting.evalJavaScript(macro.args.full); }
-	catch (ex) { return macro.error('error in argument evaluation ' + ex.message); }
-	if (!Number.isInteger(num) || num < 0) {
-	    return macro.error('takes non negative integer as argument');
-	} else if (num >= arr.length) {
-	    num += 'th';
-	} else {
-	    num = arr[num];
-	}
-	if (casify) { num = num.toUpperFirst(); }
-	return jQuery(macro.output).wiki(num);
+		if (macro.args.lenght  < 1) {
+			return macro.error('takes at least one argument');
+		}
+
+		var num;
+
+		try { 
+			num = Scripting.evalJavaScript(macro.args.full); 
+		}
+		catch (ex) { 
+			return macro.error('error in argument evaluation ' + ex.message); 
+		}
+
+		if (!Number.isInteger(num) || num < 0) {
+			return macro.error('takes non negative integer as argument');
+		} 
+		else if (num >= arr.length) {
+			num += 'th';
+		} 
+		else {
+			num = arr[num];
+		}
+		
+		if (casify) { 
+			num = num.toUpperFirst(); 
+		}
+		
+		return jQuery(macro.output).wiki(num);
     }
 };
 Macro.add('ordinal', {
     handler() {
 	return ordinals.ordFun(this, ordinals.fifth, false);
+	//return "";
     }
 });
 Macro.add('Ordinal', {
     handler() {
 	return ordinals.ordFun(this, ordinals.fifth, true);
+	//return "";
     }
 });
 Macro.add('ord1nal', {
     handler() {
 	return ordinals.ordFun(this, ordinals.fi5th, false);
+	//return "";
     }
 });
 
@@ -1182,3 +1196,151 @@ Macro.add('reactOnce', {
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
+
+
+/* ImagePack Macros by Moonhead */
+
+Macro.add('RandomImageFromPack', {
+	handler : function(){
+		console.log("ImagePack Running");
+		if(this.args.length >= 1){
+			if($.isEmptyObject(window.imagePacks)){
+				console.log('setting up image packs');
+				var _this = this;
+				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
+					window.imagePacks = data;
+					loadImage(_this.args, _this.output);
+				});
+			}
+			else{
+				loadImage(this.args, this.output);
+			}
+		}
+
+		function loadImage(args, output){
+			var imagePackName = '';
+            if(typeof args[0] == 'string'){
+				imagePackName = args[0]
+				//console.log(imagePackName);
+			}
+			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
+
+			//console.log(imagePack);
+
+			var imageFileName = "";
+			var imageHeight = 0;
+			var imageWidth = 0;
+			var imgDimensionString = "";
+
+			var imageCount = imagePack.files.length;
+			if(imageCount > 0)
+			{
+				var rndNum = Math.floor(Math.random() * imageCount);
+				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
+				imageHeight = imagePack.files[rndNum].height;
+				imageWidth = imagePack.files[rndNum].width;
+
+				if(args.length > 1){
+					var maxHeight = args[1];
+					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
+					var maxWidth = 0;
+					if(args.length > 2){
+						maxWidth = args[2];
+						imgDimensionString += 'max-width:' + maxWidth + 'px;';
+					}
+					imgDimensionString += '"'; 
+				}
+			}
+			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
+		}
+	}
+});
+
+Macro.add('RandomImageFromPackByPath', {
+	handler : function(){
+		if(this.args.length >= 1){
+			if($.isEmptyObject(window.imagePacks)){
+				console.log('setting up image packs');
+				var _this = this;
+				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
+					console.log(data);
+					window.imagePacks = data;
+					loadImage(_this.args, _this.output);
+				});
+			}
+			else{
+				loadImage(this.args, this.output);
+			}
+		}
+
+		function loadImage(args, output){
+			//console.log(args);
+			//console.log(output);
+			var imagePackName = '';
+            if(typeof args[0] == 'string'){
+                imagePackName = args[0]
+			}
+			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.path === imagePackName})[0];
+
+			var imageFileName = "";
+			var imageHeight = 0;
+			var imageWidth = 0;
+			var imgDimensionString = "";
+
+			var imageCount = imagePack.files.length;
+			if(imageCount > 0)
+			{
+				var rndNum = Math.floor(Math.random() * imageCount);
+				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
+				imageHeight = imagePack.files[rndNum].height;
+				imageWidth = imagePack.files[rndNum].width;
+
+				if(args.length > 1){
+					var maxHeight = args[1];
+					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
+					var maxWidth = 0;
+					if(args.length > 2){
+						maxWidth = args[2];
+						imgDimensionString += 'max-width:' + maxWidth + 'px;';
+					}
+					imgDimensionString += '"'; 
+				}
+			}
+			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
+		}
+	}
+});
+
+window.imagePack = {
+	RandomImageNameFromPack: function(imagePackName) {
+		var imageName = ""
+
+		if($.isEmptyObject(window.imagePacks)){
+			console.log('setting up image packs');
+			$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
+				//console.log(data);
+				window.imagePacks = data;
+				imageName = loadImage(imagePackName);
+			});
+		}
+		else{
+			imageName = loadImage(imagePackName);
+		}
+		return imageName;
+
+		function loadImage(imagePackName){
+			//console.log(imagePackName);
+			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
+
+			var imageFileName = "";
+
+			var imageCount = imagePack.files.length;
+			if(imageCount > 0)
+			{
+				var rndNum = Math.floor(Math.random() * imageCount);
+				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
+			}
+			return imageFileName;
+		}
+	}
+};
