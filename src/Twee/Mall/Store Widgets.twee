@@ -1,8 +1,8 @@
 :: Store Widgets [pos_1712_2264 widget]
 \
 <<widget "itemSelector">>\
-<<print '<<showImageSpecial "general" "' + window.stores[$args[0]].image + '" "mall_image">>'>>\
-<!--<<print '<<showImage "general" "' + window.stores[$args[0]].image + '">>'>>\-->\
+<<set _storeImagePack=window.stores[$args[0]].imagePack>>
+<div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\	
 <<print "''"+window.stores[$args[0]].name+"''">>
 <<display [[Shop events]]>>\
 <<print window.stores[$args[0]].description>> What would you like to buy?
@@ -140,7 +140,7 @@
 <</widget>>\
 
 <<widget "showStores">>\
-<<print '<<showImageSpecial "general" "mall.jpg" "general_image">>'>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Mall Inside" 600 600>></div>\	
 <<if window.timeCode.isMallOpen()>>\
 Which shop would you like to visit?
 <div class="clothesDivider"></div>\

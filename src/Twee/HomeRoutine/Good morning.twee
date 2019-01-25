@@ -16,10 +16,10 @@
 	<<goto [[Endgame truant]]>>
 <<endif>>\
 <<if $flags.sleepGuardianRoom>>\
-	<<showImage "general" "guardian_bedroom.jpg">>\
+	<div><<RandomImageFromPack "Guardian Bedroom" 600 600>></div>\	
 	<<set $flags.sleepGuardianRoom = false>>\
 <<elseif $time.day eq 1>>\
-	<<showImage "general" "sunrise.jpg">>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Sunrise" 600 600>></div>\	
 <<elseif $showimages>>\
 	<<if $flags.roomHelp and random(1) eq 0>>\
 		<<if $player.room.morning eq 0>>\
@@ -29,12 +29,12 @@
 		<<display "Show bedroom">>\
 	<<elseif _c and random(1) eq 0>>\
 		<<if playerCode.isMaid()>>\
-			<<showImage "general" "morning_chastity_maid.jpg">>\
+			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Morning Chastity Maid" 450 450>></div>\
 		<<else>>\
-			<<showImage "general" "morning_chastity.jpg">>\
+			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Morning Chastity" 450 450>></div>\
 		<<endif>>\
 	<<else>>\
-		<<showImage "general" "sunrise.jpg">>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Sunrise" 600 600>></div>\
 	<<endif>>\
 <<endif>>\
 \
