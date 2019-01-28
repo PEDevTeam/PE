@@ -116,4 +116,4 @@ window.locationsJS={
 		active: false,
 		important: false
 	}
-},
+}

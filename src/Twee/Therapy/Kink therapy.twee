@@ -3,7 +3,7 @@
 <<set _k=window.therapyCode.getWatchedKink()>>\
 <<set _k.start()>>\
 <<if $showimages>>\
-<<print '<img src="images/therapist/'+_k.image+'">'>>
+<<print '<img src="' + window.imagePack.RandomImageNameFromPack(_k.imagePack) + '">'>>
 <<endif>>\
 @@.fading_text_long;Something inside of you flinches away, resisting the therapy.@@
 @@.fading_text_long;<<print _k.fadeOut[0]>>@@\

@@ -3413,4 +3413,4 @@ window.tasksEmail={
 			fail: function() { return false; }
 		}
 	}
-},
+}

@@ -1,0 +1,1 @@
+powershell.exe -nologo -executionpolicy bypass -File RebuildImagePack.ps1

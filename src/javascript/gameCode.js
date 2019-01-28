@@ -1,8 +1,8 @@
 window.gameCode={
-	version: 0.7903
+	version: "0.7910"
 }
 
-Config.history.maxStates=1;
+Config.history.maxStates=5;
 
 window.sidebarTabs=[
 	{
@@ -43,4 +43,4 @@ window.sidebar={
 		State.active.variables.sidebarTab=id;
 		this.refresh();
 	}
-},
+}
