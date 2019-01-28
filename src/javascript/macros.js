@@ -358,15 +358,15 @@ macros.showClothingImage = {
 					var si=state.active.variables.itemsSize;
 					for (var i=0;i<wa.length; i++) {
 						if (wt[i]==100) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '" class="clothing_image_' + si + '">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '" class="clothing_image_' + si + '">';
 							continue;
 						}
 						if (wt[i]>9) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_' + si +'">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_' + si +'">';
 							continue;
 						}
 						if (wt[i]<10) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_' + si +'">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_' + si +'">';
 							continue;
 						}
 					}
@@ -391,15 +391,15 @@ macros.showClothingImageSidebar = {
 					var wt=state.active.variables.type;
 					for (var i=0;i<wa.length; i++) {
 						if (wt[i]==100) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '" class="clothing_image_sidebar">';
 							continue;
 						}
 						if (wt[i]>9) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_sidebar">';
 							continue;
 						}
 						if (wt[i]<10) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_sidebar">';
 							continue;
 						}
 					}
@@ -420,12 +420,12 @@ macros.showImageSidebar = {
 				if (params[2]==2) { cl="clothing_image_small_sidebar_top_" }
 			}
 			if (params[1]==100) {
-				new Wikifier(place, '<img src="images/items/' + params[0] +'" class="'+ cl + params[3] +'">');
+				new Wikifier(place, '<img src="Images/items/' + params[0] +'" class="'+ cl + params[3] +'">');
 			} else {
 				if (params[1]>9) {
-					new Wikifier(place, '<img src="images/items/' + params[0] + params[1] +'.jpg" class="'+ cl + params[3] + '">');
+					new Wikifier(place, '<img src="Images/items/' + params[0] + params[1] +'.jpg" class="'+ cl + params[3] + '">');
 				} else {
-					new Wikifier(place, '<img src="images/items/' + params[0] + '0' + params[1] +'.jpg" class="'+ cl + params[3] +'">');
+					new Wikifier(place, '<img src="Images/items/' + params[0] + '0' + params[1] +'.jpg" class="'+ cl + params[3] +'">');
 				}
 			}
 		}
@@ -450,10 +450,10 @@ macros.showRoomImage = {
 					var ri=state.active.variables.roomIm;
 						for (var i=0;i<ri.length; i++) {
 							if (i==0) {
-								cis.innerHTML+='<img src="images/room/' + ri[i] + '" class="room_main_image_' + si + '">';
+								cis.innerHTML+='<img src="Images/room/' + ri[i] + '" class="room_main_image_' + si + '">';
 								continue;
 							}
-							cis.innerHTML+='<img src="images/room/' + ri[i] + '" class="room_image_' + si + '">';
+							cis.innerHTML+='<img src="Images/room/' + ri[i] + '" class="room_image_' + si + '">';
 							continue;
 						}
 				}, 1);
@@ -606,10 +606,10 @@ macros.showAvatarImage = {
 				setTimeout(function() {
 					var strIn = state.active.variables.avatarImageName;
 					
-					str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./images/avatar/torso.png)"></div>';
+					str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/torso.png)"></div>';
 					
 					for (var i=0;i<strIn.length; i++) {
-						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./images/avatar/'+strIn[i]+')"></div>';
+						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/'+strIn[i]+')"></div>';
 					}
 					
 					$('#showClothes').empty();
@@ -628,11 +628,11 @@ macros.showImage = {
 			if (params[2]) {
 				setTimeout(function() {
 					var i=document.getElementById(params[2]);
-					i.setAttribute('src', 'images/' + params[0] + '/' + params[1]);
+					i.setAttribute('src', 'Images/' + params[0] + '/' + params[1]);
 					i.className=params[0]+'_image';
 				}, 1);
 			} else {
-				new Wikifier(place, '<img src="images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_image">');
+				new Wikifier(place, '<img src="Images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_image">');
 			}
 		}
 	}
@@ -641,7 +641,7 @@ macros.showImage = {
 macros.showImageSpecial = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
-			new Wikifier(place, '<img src="images/' + params[0] + '/' + params[1] + '" class="' + params[2] + '">');
+			new Wikifier(place, '<img src="Images/' + params[0] + '/' + params[1] + '" class="' + params[2] + '">');
 		}
 	}
 };
@@ -649,7 +649,7 @@ macros.showImageSpecial = {
 macros.showBanner = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
-			new Wikifier(place, '<img src="images/general/PE_Banner.png" class="banner_image">');
+			new Wikifier(place, '<img src="Images/general/PE_Banner.png" class="banner_image">');
 		}
 	}
 };
@@ -658,9 +658,9 @@ macros.showMultiImage = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
 			if (params[2]) {
-				new Wikifier(place, '<img src="images/' + params[2] + '/' + params[1] + '" class="' + params[0] + '">');
+				new Wikifier(place, '<img src="Images/' + params[2] + '/' + params[1] + '" class="' + params[0] + '">');
 			} else {
-				new Wikifier(place, '<img src="images/avatar/' + params[1] + '" class="' + params[0] + '">');
+				new Wikifier(place, '<img src="Images/avatar/' + params[1] + '" class="' + params[0] + '">');
 			}
 		}
 	}
@@ -672,12 +672,12 @@ macros.showVideo = {
 			if (params[2]) {
 				setTimeout(function() {
 					var i=document.getElementById(params[2]);
-					i.setAttribute('src', 'images/' + params[0] + '/' + params[1]);
+					i.setAttribute('src', 'Images/' + params[0] + '/' + params[1]);
 					i.className=params[0]+'_video';
 					i.setAttribute('autoplay', true);
 				}, 1);
 			} else {
-				new Wikifier(place, '<video src="images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_video" autoplay="true" loop="true"></video>');
+				new Wikifier(place, '<video src="Images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_video" autoplay="true" loop="true"></video>');
 			}
 		}
 	}
