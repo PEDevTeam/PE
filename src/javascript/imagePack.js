@@ -1,8 +1,5 @@
 /* ImagePack Macros by Moonhead */
 
-//Empty object to place the JSON into. Needs to exist before the JSON is read in certain TWINE implementations
-window.imagePacks = {};
-
 window.imagePack = {
     config: {
         basePath: 'Images/ImagePacks'
@@ -10,17 +7,7 @@ window.imagePack = {
 
 	RandomImageNameFromPack: function(imagePackName) {
 		var imageName = ""
-
-		if($.isEmptyObject(window.imagePacks)){
-			console.log('Setting up image packs');
-			$.getJSON(basePath + '/ImagePack.Json', function(data){
-				window.imagePacks = data;
-				imageName = loadImage(imagePackName);
-			});
-		}
-		else{
-			imageName = loadImage(imagePackName);
-		}
+		imageName = loadImage(imagePackName);
 		return imageName;
 
 		function loadImage(imagePackName){
@@ -42,17 +29,7 @@ window.imagePack = {
 Macro.add('RandomImageFromPack', {
 	handler : function(){
 		if(this.args.length >= 1){
-			if($.isEmptyObject(window.imagePacks)){
-				console.log('Setting up image packs');
-				var _this = this;
-				$.getJSON(window.imagePack.config.basePath + '/ImagePack.Json', function(data){
-					window.imagePacks = data;
-					loadImage(_this.args, _this.output, _this);
-				});
-			}
-			else{
-				loadImage(this.args, this.output, this);
-			}
+			loadImage(this.args, this.output, this);
         }
         else
         {
