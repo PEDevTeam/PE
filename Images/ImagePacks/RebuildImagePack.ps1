@@ -59,3 +59,5 @@ Get-ChildItem -Path . -Directory -Recurse |  ForEach-Object {
 }
 
 ConvertTo-Json -InputObject $ImagePacks -Depth 4 | Out-File -filepath .\ImagePack.Json
+
+((Get-Content -path ..\..\src\javascript\imagePacks.jsstub -Raw) -replace '::TEMPLATE::',(Get-Content -path ./ImagePack.Json -Raw)) | Set-Content ..\..\src\javascript\imagePacks.js
