@@ -4,12 +4,12 @@
 <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _p to playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<if ($tasksEmail.PinkRollers.status gte 2)>>\
-<<print '<<showImage "general" "dildo_rollers_'+random(2)+'.gif">>'>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo Rollers" 600 600>></div>\
 You put on pink socks and $guardian 's pink roller skates that were once the source of your embarrassment when you were learning to skate a long time ago.
 <<elseif (not _c)>>\
-<<print '<<showImage "general" "dildo_play_no_chast.gif">>'>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo No Chast" 600 600>></div>\
 <<else>>\
-<<print '<<showImage "general" "dildo_play_'+random(9)+'.gif">>'>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo Play" 600 600>></div>\	
 <<endif>>\
 <<if _b>>\
 	<<removeClothing _b.id>>\

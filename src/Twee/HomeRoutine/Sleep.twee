@@ -99,7 +99,7 @@
 \
 		/* show related or random set of dreams images */\
 		<div class="dream_image">\
-		<img id="dreamImage_1" src="images/dreams/sleepless.gif" class="dream_image">\
+		<img id="dreamImage_1" src="Images/dreams/sleepless.gif" class="dream_image">\
 		<img id="dreamImage_2" src="" class="hidden">\
 		</div>\
 		<img id="dreamShadow" class="dreamShadow">\
@@ -126,10 +126,12 @@
 		<<timed _tf>>/* Time till  */\
 			<<set document.getElementById('sleepAltOptions').className="fading_text_fast">>\
 			<<set _dream = window.dreamsSelector.randomDream(window.dreamsGuardian)>>\
-			<<if _dream.image eq "">>\
-				<<set document.getElementById('dreamImage_2').src="images/dreams/dream_"+random(7)+".gif">>\
+			<<if _dream.imagePack neq "">>\
+				<<set _dreamImage = window.imagePack.RandomImageNameFromPack(_dream.imagePack)>>
+				<<set document.getElementById('dreamImage_2').src=_dreamImage>>\
 			<<else>>\
-				<<set document.getElementById('dreamImage_2').src="images/dreams/"+_dream.image+"">>\
+				<<set _dreamImage = window.imagePack.RandomImageNameFromPack("dream")>>
+				<<set document.getElementById('dreamImage_2').src=_dreamImage>>\
 			<<endif>>\
 			<<set document.getElementById('dreamImage_2').className="dream_image_reveal">>\
 			<<set document.getElementById('dreamImage_1').className="dream_image_fade">>\
@@ -158,20 +160,23 @@
 				<<set document.getElementById('dreamEnd').className="delayed_text_fast">>\
 			<<endif>>\
 		<<next 4s>>\
-			<<if _dream.image eq "">>\
-				<<set document.getElementById('dreamImage_1').src="images/dreams/dream_"+random(7)+".gif">>\
+			<<if _dream.imagePack neq "">>\
+				<<set _dreamImage = window.imagePack.RandomImageNameFromPack(_dream.imagePack)>>
+				<<set document.getElementById('dreamImage_1').src=_dreamImage>>\
 				<<set document.getElementById('dreamImage_1').className="dream_image_reveal">>\
 				<<set document.getElementById('dreamImage_2').className="dream_image_fade">>\
 			<<endif>>\
 		<<next 5s>>\
-			<<if _dream.image eq "">>\
-				<<set document.getElementById('dreamImage_2').src="images/dreams/dream_"+random(7)+".gif">>\
+			<<if _dream.imagePack neq "">>\
+				<<set _dreamImage = window.imagePack.RandomImageNameFromPack(_dream.imagePack)>>
+				<<set document.getElementById('dreamImage_2').src=_dreamImage>>\
 				<<set document.getElementById('dreamImage_2').className="dream_image_reveal">>\
 				<<set document.getElementById('dreamImage_1').className="dream_image_fade">>\
 			<<endif>>\
 		<<next 5s>>\
-			<<if _dream.image eq "">>\
-				<<set document.getElementById('dreamImage_1').src="images/dreams/dream_x_"+random(1)+".gif">>\
+			<<if _dream.imagePack_final neq "">>\
+				<<set _dreamImage = window.imagePack.RandomImageNameFromPack(_dream.imagePack_final)>>
+				<<set document.getElementById('dreamImage_1').src=_dreamImage>>\
 				<<set document.getElementById('dreamImage_1').className="dream_image_reveal">>\
 				<<set document.getElementById('dreamImage_2').className="dream_image_fade">>\
 			<<endif>>\

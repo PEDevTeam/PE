@@ -307,7 +307,8 @@ window.coachgameList=[
 		hintF: "Kiss it, sissy, show my cockhead you love and respect it.",
 		extrahintF: "I should kiss the tip.",
 		optionF: "Kiss the tip of her penis",
-		actionF: "You gently kiss the tip of her penis."
+		actionF: "You gently kiss the tip of her penis.",
+		imagePack: "Coach Minigame Kiss It"
 	},
 	{
 		id: 2,
@@ -325,7 +326,8 @@ window.coachgameList=[
 		hintF: "Lick around the head, slut, clean it up.",
 		extrahintF: "I should lick around the head.",
 		optionF: "Lick around the head of her dick",
-		actionF: "You lick around head of her dick, leaving no spots untouched."
+		actionF: "You lick around head of her dick, leaving no spots untouched.",
+		imagePack: "Coach Minigame Lick It"
 	},
 	{
 		id: 3,
@@ -343,7 +345,8 @@ window.coachgameList=[
 		hintF: "Suck it, faggot, but suck it softly.",
 		extrahintF: "I should suck it softly.",
 		optionF: "Take the head in your mouth and suck softly",
-		actionF: "You place your lips over the head of her dick, slowly sucking it into your mouth and teasing it with your tongue."
+		actionF: "You place your lips over the head of her dick, slowly sucking it into your mouth and teasing it with your tongue.",
+		imagePack: "Coach Minigame Suck It"
 	},
 	{
 		id: 4,
@@ -361,7 +364,8 @@ window.coachgameList=[
 		hintF: "Deepthroat it, cocksucker, as far as you can.",
 		extrahintF: "I should deepthroat it.",
 		optionF: "Suck her down as deep as you can",
-		actionF: "You take a breath before stretching your lips around the enormous dick, squeezing the half-hard penis down your throat until your lips meet her pubic hair."
+		actionF: "You take a breath before stretching your lips around the enormous dick, squeezing the half-hard penis down your throat until your lips meet her pubic hair.",
+		imagePack: "Coach Minigame Deepthroat It"
 	},
 	{
 		id: 5,
@@ -379,7 +383,8 @@ window.coachgameList=[
 		hintF: "Lick it like candy, sissy, the whole thing, balls too.",
 		extrahintF: "I should lick the whole length of her penis and her balls.",
 		optionF: "Lick the length of her penis and her balls",
-		actionF: "You lick the entire length of her shaft, from the head to balls."
+		actionF: "You lick the entire length of her shaft, from the head to balls.",
+		imagePack: "Coach Minigame Candy Lick"
 	},
 	{
 		id: 6,
@@ -397,7 +402,8 @@ window.coachgameList=[
 		hintF: "Play with my balls sissy.",
 		extrahintF: "I should massage her balls.",
 		optionF: "Massage her big balls",
-		actionF: "You reach for Coach's swollen balls and gently massage them with your hands, giving occasional kisses."
+		actionF: "You reach for Coach's swollen balls and gently massage them with your hands, giving occasional kisses.",
+		imagePack: "Coach Minigame Balls"
 	},
 	{
 		id: 7,
@@ -415,7 +421,8 @@ window.coachgameList=[
 		hintF: "Use your hands faggot, touch it, like you wish you could touch yours.",
 		extrahintF: "I should gently rub it.",
 		optionF: "Rub her shaft with your hands",
-		actionF: "You run your hands over Coach's half-hard cock, squeezing gently."
+		actionF: "You run your hands over Coach's half-hard cock, squeezing gently.",
+		imagePack: "Coach Minigame Hand Job"
 	},
 	{
 		id: 8,
@@ -433,7 +440,8 @@ window.coachgameList=[
 		hintF: "Get your pansy-ass over here and rub my cock with it.",
 		extrahintF: "I should rub it with my ass.",
 		optionF: "Turn around and rub her dick between your butt cheeks",
-		actionF: "You turn around and rub her dick with your butt, sliding it between your butt cheeks."
+		actionF: "You turn around and rub her dick with your butt, sliding it between your butt cheeks.",
+		imagePack: "Coach Minigame Ass Job"
 	},
 	{
 		id: 9,
@@ -451,6 +459,7 @@ window.coachgameList=[
 		hintF: "Time to pop your cherry.",
 		extrahintF: "Now she is ready to fuck me, time to present my anus to her.",
 		optionF: "Place your anus against her dick and push",
-		actionF: "You place your anus against her cock and push, trying to take it in."
+		actionF: "You place your anus against her cock and push, trying to take it in.",
+		imagePack: "Coach Minigame Cherry Pop"
 	}
 ];

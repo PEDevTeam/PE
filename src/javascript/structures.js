@@ -701,7 +701,8 @@ window.playerList={
 	bribeDiscount: 0,
 	bribeIncrease: 10,
 	friendLastVisit: 0,
-	clothes: []
+	clothes: [],
+	gameSkill: 0
 },
 
 window.playerAddonsList={
@@ -1338,4 +1339,6 @@ window.quickSlotList={
 	name: "Custom h",
 	extra: true
 	}
-},
+}
+
+

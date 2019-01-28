@@ -1,6 +1,6 @@
 :: Car racing video game [pos_2256_2476]
 \
-<<showImage "general" "car_racing.jpg">>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Car Racing" 350 350>></div>\	
 <<set $time.addMinutes(5)>>\
 <<set $player.money-=1>>\
 You sit down in a multi-player rally car racing game.
@@ -46,13 +46,13 @@ You sit down in a multi-player rally car racing game.
 	<<if ((_sl gte 18) and (_sl lte 19)) or ((_sl gte 27) and (_sl lte 29))>>\
 		<<if $player.blowjobsToday lt $player.maxBlowjobs>>\
 			<<if _crv eq 1>>\
-				<<if random(1) gt 0>>\
+				<<if $player.gameSkill + random(100) lt 50>>\
 					[[Yep, I'm game|Mall blowjob single]]
 				<<else>>\
 					[[Yep, I'm game|Car racing wager single - win]]
 				<<endif>>\
 			<<else>>\
-				<<if random(2) gt 0>>\
+				<<if $player.gameSkill + random(100) lt 70>>\
 					[[Yep, I'm game|Mall blowjob group]]
 				<<else>>\
 					[[Yep, I'm game|Car racing wager group - win]]
@@ -61,13 +61,13 @@ You sit down in a multi-player rally car racing game.
 		<<endif>>\
 	<<else>>\
 		<<if _crv eq 1>>\
-			<<if random(1) gt 0>>\
+			<<if $player.gameSkill + random(100) lt 50>>\
 				[[Yep, I'm game|Car racing wager single - lose]]
 			<<else>>\
 				[[Yep, I'm game|Car racing wager single - win]]
 			<<endif>>\
 		<<else>>\
-			<<if random(2) gt 0>>\
+			<<if $player.gameSkill + random(100) lt 70>>\
 				[[Yep, I'm game|Car racing wager group - lose]]
 			<<else>>\
 				[[Yep, I'm game|Car racing wager group - win]]
