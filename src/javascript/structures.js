@@ -29,7 +29,6 @@ window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
-		console.log("Updating structures");
 		this.setupPlayer();
 		this.setupStandaloneVars();
 		this.setupClothesCheck();
@@ -50,7 +49,6 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
-		this.setupImagePacks();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -644,14 +642,6 @@ window.structures={
 				delete tasksBodyNewTeacher[Object.keys(tasksBodyNewTeacher)[i]];
 			}
 		}
-	},
-
-	setupImagePacks: function(callback){
-		console.log('setting up image packs');
-		$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-			console.log(data);
-			window.imagePacks = data;
-		});
 	},
 },
 

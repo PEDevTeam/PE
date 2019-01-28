@@ -1159,38 +1159,38 @@ Macro.add('reactOnce', {
 	const len = this.payload.length;
 	for (i=0; i<len; i++) {
 	    switch (this.payload[i].name) {
-	    case 'else':
-		if (this.payload[i].args.length > 0) {
-		    return this.error('<<else>> takes no arguments');
-		} else if (i + 1 != len) {
-		    return this.error('<<else>> must be final clause');
-		}
-		break;
-	    default:
-		if (this.payload[i].args.length < 2) {
-		    return this.error('<<reactOnce>> and <<reactOnceMore>> takes a boolean and flags');
-		}
-		break;
+			case 'reactElse':
+				if (this.payload[i].args.length > 0) {
+					return this.error('<<else>> takes no arguments');
+				} else if (i + 1 != len) {
+					return this.error('<<else>> must be final clause');
+				}
+				break;
+			default:
+				if (this.payload[i].args.length < 2) {
+					return this.error('<<reactOnce>> and <<reactOnceMore>> takes a boolean and flags');
+				}
+				break;
 	    }
 	}
 	try {
 	    for (i=0; i<len; i++) {
-		switch (this.payload[i].name) {
-		case 'else':
-		    if (noReaction) {
-			new Wikifier(this.output, this.payload[i].contents)
-		    }
-		    break;
-		default:
-		    let argBool = Scripting.evalJavaScript(this.payload[i].args[0]), argFlag = this.payload[i].args[1];
-		    if (argBool && !flags[argFlag]) {
-			noReaction = false;
-			for (let j = 1; j < this.payload[i].args.length; j++) {
-			    flags[this.payload[i].args[j]] = true;
+			switch (this.payload[i].name) {
+				case 'reactElse':
+					if (noReaction) {
+					new Wikifier(this.output, this.payload[i].contents)
+					}
+					break;
+				default:
+					let argBool = Scripting.evalJavaScript(this.payload[i].args[0]), argFlag = this.payload[i].args[1];
+					if (argBool && !flags[argFlag]) {
+						noReaction = false;
+						for (let j = 1; j < this.payload[i].args.length; j++) {
+							flags[this.payload[i].args[j]] = true;
+						}
+						new Wikifier(this.output, this.payload[i].contents);
+					}
 			}
-			new Wikifier(this.output, this.payload[i].contents);
-		    }
-		}
 	    }
 	}
         catch (ex) { return this.error('unknown error ' + ex.message); }
