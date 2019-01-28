@@ -1,5 +1,4 @@
-window.imagePacks = 
-{
+window.imagePacks = {
     "ImagePacks":  [
                        {
                            "name":  "Chores",
@@ -2022,4 +2021,4 @@ window.imagePacks =
                        }
                    ]
 }
-;
+ ;
