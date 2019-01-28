@@ -1351,4 +1351,4 @@ window.quickSlotList={
 	}
 }
 
-window.imagePacks = {}
+
