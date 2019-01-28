@@ -3986,7 +3986,153 @@ window.hypnoImages=[
 		}
 	},
 ];
-/* twine-user-script #7: "itemsC.js" */
+/* twine-user-script #7: "imagePack.js" */
+/* ImagePack Macros by Moonhead */
+
+//Empty object to place the JSON into. Needs to exist before the JSON is read in certain TWINE implementations
+window.imagePacks = {};
+
+window.imagePack = {
+    config: {
+        basePath: 'Images/ImagePacks'
+    },
+
+	RandomImageNameFromPack: function(imagePackName) {
+		var imageName = ""
+
+		if($.isEmptyObject(window.imagePacks)){
+			console.log('Setting up image packs');
+			$.getJSON(basePath + '/ImagePack.Json', function(data){
+				window.imagePacks = data;
+				imageName = loadImage(imagePackName);
+			});
+		}
+		else{
+			imageName = loadImage(imagePackName);
+		}
+		return imageName;
+
+		function loadImage(imagePackName){
+			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
+
+			var imageFileName = "";
+
+			var imageCount = imagePack.files.length;
+			if(imageCount > 0)
+			{
+				var rndNum = Math.floor(Math.random() * imageCount);
+				imageFileName = window.imagePack.config.basePath + '/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
+			}
+			return imageFileName;
+		}
+    }
+};
+
+Macro.add('RandomImageFromPack', {
+	handler : function(){
+		if(this.args.length >= 1){
+			if($.isEmptyObject(window.imagePacks)){
+				console.log('Setting up image packs');
+				var _this = this;
+				$.getJSON(window.imagePack.config.basePath + '/ImagePack.Json', function(data){
+					window.imagePacks = data;
+					loadImage(_this.args, _this.output, _this);
+				});
+			}
+			else{
+				loadImage(this.args, this.output, this);
+			}
+        }
+        else
+        {
+            return this.error("RandomImageFromPack needs at least one argument");
+        }
+
+        function loadImage(args, output, _this){
+			var imagePackName = '';
+			var imageFileName = "";
+			var imageHeight = 0;
+			var imageWidth = 0;
+            var imgDimensionString = "";
+            var imageCount = 0;
+
+            if(args.length < 1){
+                return _this.error("RandomImageFromPack needs at least one argument");
+            }
+
+            // Argument 1 is the ImagePack Name
+            if(args.length > 0){
+                if(typeof args[0] == 'string'){
+                    imagePackName = args[0]
+                }
+
+                // Argument 5 uses name or path
+                if(args.length > 4){
+                    if(args[4] == 'PathLoad'){
+                        var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.path === imagePackName})[0];
+                    }
+                    else{
+                        var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
+                    }
+                }
+                else{
+                    var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
+                }
+
+                if(imagePack === undefined || imagePack.length == 0){
+                    return _this.error('Could not read ImagePack with name ' + imagePackName);
+                }
+                else{
+                    imageCount = imagePack.files.length;
+                }
+            }
+
+            // Argument 2 is the Max Height
+            if(args.length > 1){
+                var maxHeight = args[1];
+                imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
+            }
+
+            // Argument 3 is the Max Width
+            if(args.length > 2){
+                var maxWidth = args[2];
+                imgDimensionString += 'max-width:' + maxWidth + 'px;';
+            }
+
+            // Argument 4 is the Alignment
+            if(args.length > 3){
+                switch(args[3]){
+                    case 'alignRight':
+                        $(output).css('margin', '10px');
+                        $(output).css('float', 'right');
+                        break;
+                    case 'alignLeft':
+                        $(output).css('margin', '10px');
+                        $(output).css('float', 'left');
+                        break;
+                    case 'alignCentre':
+                    case 'alignCenter':
+                        $(output).css('display', 'table');
+                        $(output).css('margin', '0 auto');
+                        break;
+                }
+            }
+
+
+			if(imageCount > 0){
+				var rndNum = Math.floor(Math.random() * imageCount);
+				imageFileName = window.imagePack.config.basePath + '/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
+				imageHeight = imagePack.files[rndNum].height;
+				imageWidth = imagePack.files[rndNum].width;
+            }
+            var imageElementString = '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '" />';
+			new Wikifier(output, imageElementString);
+		}
+	}
+});
+
+
+/* twine-user-script #8: "itemsC.js" */
 window.itemTypes={
 	NotClothing:   0,
 	Underwear:     1,
@@ -6118,7 +6264,7 @@ window.itemSubTypes=[
 		"UnsortedName"
 	]
 ];
-/* twine-user-script #8: "locations.js" */
+/* twine-user-script #9: "locations.js" */
 window.locationsJS={
 	home: {
 		id: "home",
@@ -6238,7 +6384,7 @@ window.locationsJS={
 		important: false
 	}
 }
-/* twine-user-script #9: "macros.js" */
+/* twine-user-script #10: "macros.js" */
 //:: Story JavaScript [script]
 // Begin Inventory Macros
 // Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
@@ -7437,162 +7583,14 @@ Macro.add('reactOnce', {
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
-
-
-/* ImagePack Macros by Moonhead */
-
-Macro.add('RandomImageFromPack', {
-	handler : function(){
-		console.log("ImagePack Running");
-		if(this.args.length >= 1){
-			if($.isEmptyObject(window.imagePacks)){
-				console.log('setting up image packs');
-				var _this = this;
-				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-					window.imagePacks = data;
-					loadImage(_this.args, _this.output);
-				});
-			}
-			else{
-				loadImage(this.args, this.output);
-			}
-		}
-
-		function loadImage(args, output){
-			var imagePackName = '';
-            if(typeof args[0] == 'string'){
-				imagePackName = args[0]
-				//console.log(imagePackName);
-			}
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
-
-			//console.log(imagePack);
-
-			var imageFileName = "";
-			var imageHeight = 0;
-			var imageWidth = 0;
-			var imgDimensionString = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-				imageHeight = imagePack.files[rndNum].height;
-				imageWidth = imagePack.files[rndNum].width;
-
-				if(args.length > 1){
-					var maxHeight = args[1];
-					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
-					var maxWidth = 0;
-					if(args.length > 2){
-						maxWidth = args[2];
-						imgDimensionString += 'max-width:' + maxWidth + 'px;';
-					}
-					imgDimensionString += '"'; 
-				}
-			}
-			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
-		}
-	}
-});
-
-Macro.add('RandomImageFromPackByPath', {
-	handler : function(){
-		if(this.args.length >= 1){
-			if($.isEmptyObject(window.imagePacks)){
-				console.log('setting up image packs');
-				var _this = this;
-				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-					console.log(data);
-					window.imagePacks = data;
-					loadImage(_this.args, _this.output);
-				});
-			}
-			else{
-				loadImage(this.args, this.output);
-			}
-		}
-
-		function loadImage(args, output){
-			//console.log(args);
-			//console.log(output);
-			var imagePackName = '';
-            if(typeof args[0] == 'string'){
-                imagePackName = args[0]
-			}
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.path === imagePackName})[0];
-
-			var imageFileName = "";
-			var imageHeight = 0;
-			var imageWidth = 0;
-			var imgDimensionString = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-				imageHeight = imagePack.files[rndNum].height;
-				imageWidth = imagePack.files[rndNum].width;
-
-				if(args.length > 1){
-					var maxHeight = args[1];
-					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
-					var maxWidth = 0;
-					if(args.length > 2){
-						maxWidth = args[2];
-						imgDimensionString += 'max-width:' + maxWidth + 'px;';
-					}
-					imgDimensionString += '"'; 
-				}
-			}
-			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
-		}
-	}
-});
-
-window.imagePack = {
-	RandomImageNameFromPack: function(imagePackName) {
-		var imageName = ""
-
-		if($.isEmptyObject(window.imagePacks)){
-			console.log('setting up image packs');
-			$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-				//console.log(data);
-				window.imagePacks = data;
-				imageName = loadImage(imagePackName);
-			});
-		}
-		else{
-			imageName = loadImage(imagePackName);
-		}
-		return imageName;
-
-		function loadImage(imagePackName){
-			//console.log(imagePackName);
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
-
-			var imageFileName = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-			}
-			return imageFileName;
-		}
-	}
-};
-/* twine-user-script #10: "menu.js" */
+/* twine-user-script #11: "menu.js" */
 $('#menu-item-settings a').off().ariaClick(function (ev) {
 	Dialog.setup("Settings");
 	Dialog.wiki(Story.get("Settings").processText());
 	Dialog.open();
 	/*Dialog.open(Dialog.setup("Available only at bedroom",UI.buildSettings))*/
 });
-/* twine-user-script #11: "minigames.js" */
+/* twine-user-script #12: "minigames.js" */
 window.dreamMinigame = {
 	getActionById: function(id) {
 		for (var _i=0; _i < window.dreamgameList.length; _i++) {
@@ -8058,7 +8056,7 @@ window.coachgameList=[
 		imagePack: "Coach Minigame Cherry Pop"
 	}
 ];
-/* twine-user-script #12: "misc.js" */
+/* twine-user-script #13: "misc.js" */
 window.misc={
 	unpostponeClothes: function(type) {
 		var itemsC=window.itemsC;
@@ -8301,7 +8299,7 @@ window.friendRiddles = [
 		answer: "It's not hard!"
 	}
 ];
-/* twine-user-script #13: "playerCode.js" */
+/* twine-user-script #14: "playerCode.js" */
 window.playerCode={
 	activateTherapist: function(numDays) {
 		var player=State.active.variables.player;
@@ -8892,7 +8890,7 @@ window.playerCode={
 		return skillImprove;
 	},
 }
-/* twine-user-script #14: "random.js" */
+/* twine-user-script #15: "random.js" */
 window.randomCode={
 	getIntInclusive: function(min, max) {
 		min = Math.ceil(min);
@@ -8916,7 +8914,7 @@ window.randomCode={
 		}
 	}	
 }
-/* twine-user-script #15: "stores.js" */
+/* twine-user-script #16: "stores.js" */
 window.stores=[
 	{
 		name: "Electronics Store",
@@ -8968,7 +8966,7 @@ window.stores=[
 		daringRequired: 0
 	}
 ];
-/* twine-user-script #16: "structures.js" */
+/* twine-user-script #17: "structures.js" */
 window.rewardMoney={
 	teacherFemaleUnderwear: 10,
 	teacherFemaleClothing: 15,
@@ -10322,8 +10320,8 @@ window.quickSlotList={
 	}
 }
 
-window.imagePacks = {}
-/* twine-user-script #17: "tasksCode.js" */
+
+/* twine-user-script #18: "tasksCode.js" */
 window.tasksFunction = {
 	newTask: function(tasks) {
 		var player=State.active.variables.player;
@@ -13740,7 +13738,7 @@ window.tasksEmail={
 		}
 	}
 }
-/* twine-user-script #18: "teacherCode.js" */
+/* twine-user-script #19: "teacherCode.js" */
 window.teacherCode={
 	selectPunishment: function (penalties, type, bodyMod) {
 		var player=State.active.variables.player;
@@ -14715,7 +14713,7 @@ window.teacherPunishments = {
 		end:		function () {},
 	},
 }
-/* twine-user-script #19: "therapyCode.js" */
+/* twine-user-script #20: "therapyCode.js" */
 window.therapyArrivals= [
 	{
 		text: "You make it to the therapist's office a few minutes early and wait in the foyer for your session time.",
@@ -15809,7 +15807,7 @@ window.therapyCode={
 		return tl;
 	}
 }
-/* twine-user-script #20: "time.js" */
+/* twine-user-script #21: "time.js" */
 window.weekdaysCode=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 window.timeCode={
@@ -16008,7 +16006,7 @@ window.timeCode={
 		}
 	},
 }
-/* twine-user-script #21: "tooltip.js" */
+/* twine-user-script #22: "tooltip.js" */
 window.kinkTooltip={
 	incest: "Toggles your main guardian to be your mother or a family friend, and includes sexual content",
 	futa: "Most essential males will be replaced by shemales",
@@ -16085,7 +16083,7 @@ window.kinkTooltip={
 
 	genderChange: "Arousal stemming from transgender sex transformation/sex organ gender change@@.halftransparent; Not implemented yet, sorry@@"
 }
-/* twine-user-script #22: "wordsCode.js" */
+/* twine-user-script #23: "wordsCode.js" */
 window.wordsCode={
 	setFutaPronouns: function() {
 		if (State.active.variables.kink.futa) {
@@ -45779,7 +45777,8 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&quot;If I was you, I would just, you know... come back sooner rather than later if you want to undo stuff.&quot;@@
 &lt;&lt;scene&gt;&gt;\
 	@@.nurse;&quot;This treatment is semi-permanent. So, it won&#39;t require renewal and it&#39;s super simple to reverse it with a special procedure.&quot;@@
-&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="185" name="Begin" tags="pos_259_2" position="600,2350">&lt;b&gt;A mod of Perverted Education, by Moonhead.
+&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="185" name="Begin" tags="pos_259_2" position="600,2350">&lt;div&gt;&lt;&lt;RandomImageFromPack &quot;School/Outside&quot; 600 600 &quot;alignCentre&quot; &quot;PathLoad&quot;&gt;&gt;&lt;/div&gt;\
+&lt;b&gt;A mod of Perverted Education, by Moonhead.
 
 This is a modified version that is not endorsed, developed or supported by the original authors in any way.
 &lt;/b&gt;
