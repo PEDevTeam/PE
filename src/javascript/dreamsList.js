@@ -181,7 +181,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You're in the cinema, sitting next to $guardian. As the movie begins and the lights go out, she slips out of her chair and nesavailableDreamses between your legs on the floor. She genavailableDreamsy unzips your pants and pulls out your hard penis, sucking it into her mouth. You put your hands on top of her head, pushing her genavailableDreamsy back down each time she bobs up. You can feel your orgasm nearing...",
+		description: "You're in the cinema, sitting next to $guardian. As the movie begins and the lights go out, she slips out of her chair and nesavailableDreamses between your legs on the floor. She gently unzips your pants and pulls out your hard penis, sucking it into her mouth. You put your hands on top of her head, pushing her gently back down each time she bobs up. You can feel your orgasm nearing...",
 		check: function() {
 			return [3,4,5].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -197,7 +197,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You're in the bathroom locked in chastity and sitting next to $guardian, and she's telling you that personal hygiene is important. You feel one of her fingers probing your sphincter genavailableDreamsy. @@.guardiandream;'$player.name,'@@ she sighs. @@.guardiandream;'You really have to take better care of yourself. You have two elbows, two knees, but only one anus.'@@\n	@@.guardiandream;'With your penis locked away, there is only one way to satisfy your needs, right?'@@ she asks with a smile.\n\n @@.heroT;'Yes...'@@ you whisper weakly, your aching dick straining in its cage.\n\n You clench your asshole tighavailableDreamsy around $guardian's genavailableDreamse fingers as she massages your rectum. You can feel your orgasm approaching...",
+		description: "You're in the bathroom locked in chastity and sitting next to $guardian, and she's telling you that personal hygiene is important. You feel one of her fingers probing your sphincter gently. @@.guardiandream;'$player.name,'@@ she sighs. @@.guardiandream;'You really have to take better care of yourself. You have two elbows, two knees, but only one anus.'@@\n	@@.guardiandream;'With your penis locked away, there is only one way to satisfy your needs, right?'@@ she asks with a smile.\n\n @@.heroT;'Yes...'@@ you whisper weakly, your aching dick straining in its cage.\n\n You clench your asshole tighavailableDreamsy around $guardian's genavailableDreamse fingers as she massages your rectum. You can feel your orgasm approaching...",
 		check: function() {
 			return [4,5,6,7].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -360,7 +360,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is sitting behind her desk, looking direcavailableDreamsy into your eyes. She takes one of her ample breasts in hand and genavailableDreamsy but firmly squeezes. Her other hand drops out of sight behind the desk, between her legs. Halfway closing her eyes, she finds the right spot, gazing at you in arousal. She opens her mouth and licks her lips, her eyes pleading...",
+		description: "$teacher is sitting behind her desk, looking direcavailableDreamsy into your eyes. She takes one of her ample breasts in hand and gently but firmly squeezes. Her other hand drops out of sight behind the desk, between her legs. Halfway closing her eyes, she finds the right spot, gazing at you in arousal. She opens her mouth and licks her lips, her eyes pleading...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -376,7 +376,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher idly takes a covered marker and puts one end in her mouth, genavailableDreamsy moving it in and out, then runs her tongue all around it.  She closes her eyes and genavailableDreamsy sucks on it as if it were a real cock, then opens her eyes and looks direcavailableDreamsy into yours, silenavailableDreamsy pleading for you to take its place.  You stand up and walk towards her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
+		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks direcavailableDreamsy into yours, silenavailableDreamsy pleading for you to take its place.  You stand up and walk towards her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -472,7 +472,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them genavailableDreamsy for a moment, before slowly moving them down your chest.  You feel your cock grow hard as she continues moving towards it, then defavailableDreamsy avoiding it as she continues past along your legs.  She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
+		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them gently for a moment, before slowly moving them down your chest.  You feel your cock grow hard as she continues moving towards it, then defavailableDreamsy avoiding it as she continues past along your legs.  She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
