@@ -1,13 +1,6 @@
 :: Friend reaction to transformations [pos_4440_57]
 \
-<<if $flags.salonPenalty and (not $flags.friendNoticeSalonPenalty)>>\
-	<<set $flags.friendNoticeSalonPenalty = true>>\
-	<<set $flags.friendNoticeTattooHeart = true>>\
-	<<set $flags.friendNoticeLipsEnhancingXL = true>>\
-	<<set $flags.friendNoticeManicure = true>>\
-	<<set $flags.friendNoticeMakeup = true>>\
-	<<set $flags.friendNoticeBeautyMark = true>>\
-	<<set $flags.friendNoticeNosePiggy = true>>\
+<<reactOnce $flags.salonPenalty $flags.friendNoticeSalonPenalty friendNoticeSalonPenalty friendNoticeTattooHeart friendNoticeLipsEnhancingXL friendNoticeManicure friendNoticeMakeup friendNoticeBeautyMark friendNoticeNosePiggy>>\
 	$friend's smile falters as $friendG.he_she notices your transformation. @@.friend;"Holy crap, you look... different..."@@ You blush, but $friendG.he_she is quick to reassure you.  @@.friend;"It's a big change.  What made you do all this?"@@ 
 	
 	<<if playerCode.isMind_0()>>\
@@ -19,27 +12,18 @@
 	<<else>>\
 		You shrug, because the developer screwed up and has no idea what you're thinking.
 	<<endif>>\
-<<else>>\
-	<<if $body.earsPierced and (not $flags.friendNoticePiercingEars)>>\
-		<<set $flags.friendNoticePiercingEars = true>>\
+<<reactElse>>\
+	<<reactOnce $body.earsPierced friendNoticePiercingEars>>\
 		$friend reaches forward to your chin, and gently turns your head to the side. @@.friend;"You got your ears pierced!  The young folk of today, eh?  What is the world coming to?"@@ $friendG.He_She grins at you.  @@.friend;"They look good on you $player.name."@@
-	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingNose) and (not $flags.friendNoticePiercingNose)>>\
-		<<set $flags.friendNoticePiercingNose = true>>\
+	<<reactOnceMore playerCode.owns(itemsC.PiercingNose) friendNoticePiercingNose>>\
 		$friend leans in and looks at your nose. @@.friend;"Piercings are cool.  I like it.  I've often thought about getting a piercing."@@
-	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingLips) and (not $flags.friendNoticePiercingLips)>>\
-		<<set $flags.friendNoticePiercingLips = true>>\
+	<<reactOnceMore playerCode.owns(itemsC.PiercingLips) friendNoticePiercingLips>>\
 		$friend sees your lip piercing immediately. @@.friend;"That piercing looks awesome on you $player.name."@@
-	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingTongue) and (not $flags.friendNoticePiercingTongue) and ($random.getIntInclusive(1, 3) eq 1)>>\
-		<<set $flags.friendNoticePiercingTongue = true>>\
+	<<reactOnceMore `playerCode.owns(itemsC.PiercingTongue) and ($random.getIntInclusive(1, 3) eq 1)` friendNoticePiercingTongue>>\
 		$friend's face suddenly lights up. @@.friend;"You've had your tongue pierced!  How long have you had that for?  That's very cool."@@
-	<<endif>>\
-	<<if ($body.hairstyle eq 2) and (not $flags.friendNoticeHairMedium)>>\
-		<<set $flags.friendNoticeHairMedium = true>>\
+	<<reactOnceMore `$body.hairstyle eq 2` friendNoticeHairMedium>>\
 		$friend notices your new hair style. @@.friend;"That's a new look for you. I think it suits you $player.name."@@
-	<<endif>>\
+	<</reactOnce>>\
 	<<if ($body.hairstyle eq 3) and (not $flags.friendNoticeHairLong)>>\
 		<<set $flags.friendNoticeHairLong = true>>\
 		$friend notices your new hair style. @@.friend;"That's a new look for you. I think it suits you $player.name."@@
@@ -111,6 +95,6 @@
 		<<set $flags.friendNoticeManicure = true>>\
 		$friend sees your nails, blinks for a few moments, then looks back at you and smiles, but doesn't say anything.
 	<<endif>>\
-<<endif>>\
+<</reactOnce>>\
 
 

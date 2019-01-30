@@ -2,7 +2,7 @@
 \
 <<set _m=$email.activeMessage()>>\
 <<if _m.image neq "">>\
-    <<print '<<showImage "email" _m.image>>'>>\
+    <div><<RandomImageFromPack _m.imagePack 600 600>></div>\
 <<endif>>\
 <table class="email">
     <tr><th>From:</th><td>_m.sender</td></tr>

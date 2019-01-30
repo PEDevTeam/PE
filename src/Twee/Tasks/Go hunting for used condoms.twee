@@ -1,11 +1,11 @@
 :: Go hunting for used condoms [pos_2596_226]
 \
 <<if $time.hour gt 19>>\
-	<<showImage "chores" "trashbin.jpg">>\
+	<div><<RandomImageFromPack "Condom Hunting Trashbin" 600 600>></div>\	
 <<elseif (($time.day % 7 eq 5) or ($time.day % 7 eq 6)) and ($time.hour gte 18)>>\
-	<<showImage "chores" "dumpster.jpg">>\
+	<div><<RandomImageFromPack "Condom Hunting Dumpster" 600 600>></div>\	
 <<else>>\
-	<<showImage "chores" "used_condom.jpg">>\
+	<div><<RandomImageFromPack "Condom Hunting Used Condoms" 600 600>></div>\	
 <<endif>>\
 \
 <<if $flags.guardianCondomsAsk>>\

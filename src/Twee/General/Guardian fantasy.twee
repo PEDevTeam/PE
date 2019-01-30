@@ -16,18 +16,18 @@
 			<<display "Show bedroom">>\
 		<<elseif _c and random(2) gt 0>>\
 			<<if playerCode.isMaid()>>\
-				<<showImage "general" "morning_chastity_maid.jpg">>\
+				<div><<RandomImageFromPack "Morning Chastity Maid" 600 600>></div>\
 			<<else>>\
-				<<showImage "general" "morning_chastity.jpg">>\
+				<div><<RandomImageFromPack "Morning Chastity" 600 600>></div>\
 			<<endif>>\
 		<<else>>\
-			<<showImage "general" "sunrise.jpg">>\
+			<div><<RandomImageFromPack "Sunrise" 600 600>></div>\
 		<<endif>>\
 	<<elseif _dream.image eq "">>\
-		<<print '<<showImageSpecial "general" "dream_'+random(6)+'.gif" "dream_image">>'>>\
+		<div><<RandomImageFromPack "Dream" 600 600>></div>\
 		<div class="dream_image"></div>\
 	<<else>>\
-		<<print '<<showImage "general" _dream.image>>'>>\
+		<div><<RandomImageFromPack "Dream" 600 600>></div>\
 	<<endif>>\
 <<endif>>\
 <<if _dream.hasPassage>>\
