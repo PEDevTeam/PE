@@ -86,12 +86,6 @@ window.timeCode={
 	isMonday: function() {
 		return (State.active.variables.time.day % 7 == 1);
 	},
-	isTuesday: function() {
-		return (State.active.variables.time.day % 7 == 2);
-	},
-	isWednesday: function() {
-		return (State.active.variables.time.day % 7 == 3);
-	},
 	isThursday: function() {
 		return (State.active.variables.time.day % 7 == 4);
 	},
