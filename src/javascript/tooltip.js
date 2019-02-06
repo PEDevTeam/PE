@@ -54,8 +54,8 @@ window.kinkTooltip={
 
 	agePlay: "Fetish involving the role play of age differences, infantilism, and diaper play@@.halftransparent; Not implemented yet@@",
 	diapering: "Wearing diapers as a punishment, humiliation tactic, medical necessity, or personal desire@@.halftransparent; Not implemented yet@@",
-	adultBaby: "Being treated as a toddler baby by others, including wearing baby clothes, drinking from a bottle, using a pacifier, or sleeping in a crib@@.halftransparent; Not implemented yet@@",
-	ageBehavior: "Being treated as a child by others, including being dressed in clothes associated with children or being expected to participate in childish activities@@.halftransparent; Not implemented yet@@",
+	adultBaby: "Being treated as a toddler or baby by others, including wearing baby clothes, drinking from a bottle, using a pacifier, or sleeping in a crib@@.halftransparent; Not implemented yet@@",
+	ageBehavior: "Being treated as a young child by others, including being dressed in clothes associated with children or being expected to participate in childish activities@@.halftransparent; Not implemented yet@@",
 
 	xBody: "Fetishizing large divergence in anatomy in comparison with average, especially size@@.halftransparent; Not implemented yet@@",
 	bbw: "Big, beautiful women – fetishizing women with extreme body fat and/or weight@@.halftransparent; Not implemented yet@@",
