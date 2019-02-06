@@ -181,8 +181,42 @@
 	When all is said and done, she retrieves a large pitcher full of cool, refreshing water and pours a glass for each of you, and then another when you’ve downed the first. You wonder if there is more to come...
 	
 <!--</Watersports kink dream>-->\
-<<elseif $player.therapistSurvey eq 100>><!--<AgePlay kink dream>-->\
-	Placeholder.
+<<elseif $player.therapistSurvey eq 7>><!--<AgePlay kink dream>-->\
+	<span id="ageDream">\
+	$Guardian bursts into your room, interrupting your latest gaming session.
+ 
+	“$player.name, I told you to clean the house hours ago, and here you are playing video games,” she chides. “You’ve been quite the brat recently, so I’ve come up with a punishment to remind you of the roles in our relationship. Come with me.”
+ 
+	She grabs your arm and pulls you to the guest room. \
+	<<if $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>\
+		You are stunned to find that the room has been redecorated like a\
+		<<if $kinkAllow.adultBaby>>\
+			nursery,\
+		<<else>>\
+		child’s room,\
+		<<endif>>\
+		with age-appropriate furniture and walls painted in
+		<<print '<<click "baby blue">><<set $scene2 = "boy">><<replace "#ageDream">><<include "Age Dream">><</replace>><</click>>'>>
+		<<print '<<click "baby pink">><<set $scene2 = "girl">><<replace "#ageDream">><<include "Age Dream">><</replace>><</click>>'>>
+	<<else>>\
+		$guardian pulls you next to the bed and points to a package sitting on the covers.
+ 
+		“Put it on,” she orders. Her tone makes it clear that she is in no mood for resistance.
+ 
+		You strip and open the package, shocked to find that it contains a disposable diaper.
+	
+		“Do you need help putting the diaper on?” $guardian asks as you stand there, running your thumbs over the crinkly, plastic surface of the diaper in your hands.
+ 
+		You nod apprehensively, and she lowers you to the bed, sliding the puffy undergarment beneath your raised butt. $guardian applies a gentle dusting of powder, and quickly tapes the diaper around your hips. You stand to your feet. With every movement, your penis rubs softly against the diaper’s plush interior, causing it to involuntarily stiffen.
+ 
+		“Now, you are going to stay in this room and be my little diaper boy until I feel your behavior has improved."
+	
+		She gathers your old clothes and kisses you on the forehead. "I'll bring you dinner later tonight. Unitl then, be good."
+	
+		Yes, ma'am," you reply, hugging her close as you feel your mind begin to slip into a place of diapered bliss.
+	<<endif>>\
+	
+	</span>\
 <!--</AgePlay kink dream>-->\
 <<elseif $player.therapistSurvey eq 3>><!--<Degradation kink dream>-->\
 	You sprawl on the concrete floor, the black fatigues and combat boots of your disciplinary trainer looming over you as you await his next cruelty.\
@@ -654,17 +688,15 @@ Yes \
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 <!--</Watersports kink survey>-->\
-<<elseif $player.therapistSurvey eq 100>><!--<AgePlay kink survey DISABLED>-->\
-	<!--<AgePlay kink survey DISABLED>-->\
-<!--
-4) Have you ever found sexual excitement in the idea of being treated like a child or baby?
-
+<<elseif $player.therapistSurvey eq 7>><!--<AgePlay kink survey>-->\
+9) Have you ever found sexual excitement in the idea of being treated like a child or baby?
+	<!--<AgePlay kink survey>-->\
 	
 <<set $scene = window.misc.toggleKink( not $kinkAllow.agePlay )>>\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
 <<set $kinkAllow.agePlay = false>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
-No – Urination is not something I associate with sex.\
+No – I do not find the idea of being treated as a different age exciting.\
 
 <<set $scene = window.misc.toggleKink( $kinkAllow.agePlay )>>\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
@@ -710,8 +742,6 @@ Yes \
 <<endif>>\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
--------------------
--->\
 <!--</AgePlay kink survey>-->\
 <<elseif $player.therapistSurvey eq 3>><!--<Degradation kink survey>-->\
 4) Do you find the idea of having someone acting vocally or physically abusive towards you a turn-on?
@@ -1233,12 +1263,12 @@ Yes – I am turned on by the idea of having my sex organs transformed to the op
 <!--</TG kink survey>-->\
 <<endif>>\
 -------------------
-<<if [0,1,2,4,5,6].includes($player.therapistSurvey) and (not _hideDreamOption)>>\
+<<if [0,1,2,3,4,5,6,7].includes($player.therapistSurvey) and (not _hideDreamOption)>>\
 <div class="dream">\
 [[Imagine how it might feel|TherapistSurvey][$scene="SurveyDreams"]]
 </div>\
 <<endif>>\
-<<if $player.therapistSurvey lte 5>>\
+<<if $player.therapistSurvey lte 6>>\
 	[[Next page|TherapistSurvey][$scene=""; $player.therapistSurvey++]]
 <<else>>\
 	[[Finish the survey|TherapistSurvey][$scene="Therapist survey completed"]]
@@ -1250,5 +1280,4 @@ It's a bug. Please call bugs exterminators.
 [[Return home|Go to bedroom]]
 <<endif>>\
 \
-
 
