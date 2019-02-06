@@ -102,7 +102,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="Perverted Education" startnode="188" creator="Tweego" creator-version="1.3.0" ifid="CB22C9D7-4AE9-43FB-8A89-6C3226DCBE10" zoom="1" format="SugarCube" format-version="2.24.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "Story Stylesheet" */
+	<div id="store-area" hidden><tw-storydata name="Perverted Education" startnode="189" creator="Tweego" creator-version="1.3.0" ifid="CB22C9D7-4AE9-43FB-8A89-6C3226DCBE10" zoom="1" format="SugarCube" format-version="2.24.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "Story Stylesheet" */
 #ui-bar-body>:not(:first-child){margin-top:0em}
 #story-title{margin:0;font-size:132.5%;display: none;}
 #story-author{margin-top:0;margin-bottom:9px;font-weight:700}
@@ -3148,15 +3148,15 @@ window.clothes={
 				State.active.variables.reason.dressedSchool="You need to wear the school uniform";
 				return false;
 			}
-			if (!s.school) {
-				State.active.variables.reason.dressedSchool="You need to wear proper footwear";
-				return false;
-			}
 			if (o.school && !o.female && s.female && s.slutty) {
 				State.active.variables.reason.dressedSchool="It is against rules to wear heels with pants";
 				return false;
 			}
-			if (player.perversion.teacher < 8) {
+			if (player.perversion.teacher < 10) {
+				if (!s.school) {
+					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
+					return false;
+				}
 				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {
@@ -4113,6 +4113,13 @@ Macro.add('RandomImageFromPack', {
 window.imagePacks = {
     "ImagePacks":  [
                        {
+                           "name":  "Cheer",
+                           "path":  "Cheer",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Chores",
                            "path":  "Chores",
                            "files":  [
@@ -4220,6 +4227,22 @@ window.imagePacks = {
                            "path":  "Therapist",
                            "files":  [
 
+                                     ]
+                       },
+                       {
+                           "name":  "Workout Video",
+                           "path":  "Cheer/Workout_Video",
+                           "files":  [
+                                         {
+                                             "fileName":  "talking.gif",
+                                             "height":  338,
+                                             "width":  600
+                                         },
+                                         {
+                                             "fileName":  "tumbling.gif",
+                                             "height":  315,
+                                             "width":  560
+                                         }
                                      ]
                        },
                        {
@@ -7120,8 +7143,8 @@ window.itemsC={
 		cantWearWith: 0,
 		female: true,
 		sleepWear: false,
-		slutty: false,
-		school: false,
+		slutty: true,
+		school: true,
 		store: 6,
 		surgery: false,
 		daringRec: 5,
@@ -10076,8 +10099,7 @@ window.misc={
 			State.active.variables.Guardian="Your mother";
 			State.active.variables.myguardian="my mother";
 			State.active.variables.Myguardian="My mother";
-		}
-		if (!State.active.variables.incest) {
+		} else {
 			State.active.variables.guardian=State.active.variables.babysitter;
 			State.active.variables.Guardian=State.active.variables.babysitter;
 			State.active.variables.myguardian=State.active.variables.babysitter;
@@ -11020,6 +11042,7 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		this.setupCheer();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -11614,6 +11637,19 @@ window.structures={
 			}
 		}
 	},
+	
+	setupCheer: function (){
+		var vars=State.active.variables;
+		var cheerList=window.cheerList;
+		if (vars.cheerleaders == null) {
+			vars.cheerleaders = {};
+		}
+		for (var i=0; i < Object.keys(cheerList).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
+			}
+		}
+	}
 },
 
 window.playerList={
@@ -12138,7 +12174,8 @@ window.flagsList={
 	salonPickNose: false,
 	salonPenalty: false,
 	salonPenaltyPayed: false,
-	salonPiggyCoin: false
+	salonPiggyCoin: false,
+	clothesPurged:false, //new flag
 },
 
 window.kinkList={
@@ -12310,9 +12347,30 @@ window.quickSlotList={
 	name: "Custom h",
 	extra: true
 	}
+},
+
+//variables for cheer arc
+window.cheerList={
+	active: false, //currently cheerleading
+	progress: 0, //completed cheerleading chapters
+	canPractice: true, //can practice cheerleading after school
+	fakeName: "", //fake name PC uses with cheerleaders
+	position: 1, //position in the squad, 1=flyer, 2=base
+	bitchAffinity: 0, //Ashley's attitude towards PC
+	cleanDone: 0, //progress cleaning equipment room
+	
+
+},
+
+window.cheerFriendList={
+	name: "Lauren",
+	progress: 0,
+	affinity: 0,
+	currentSE: 0,
+	attraction: 0,
+	
+
 }
-
-
 /* twine-user-script #19: "tasksCode.js" */
 window.tasksFunction = {
 	newTask: function(tasks) {
@@ -17888,11 +17946,17 @@ window.timeCode={
 	isMonday: function() {
 		return (State.active.variables.time.day % 7 == 1);
 	},
-	isFriday: function() {
-		return (State.active.variables.time.day % 7 == 5);
+	isTuesday: function() {
+		return (State.active.variables.time.day % 7 == 2);
+	},
+	isWednesday: function() {
+		return (State.active.variables.time.day % 7 == 3);
 	},
 	isThursday: function() {
 		return (State.active.variables.time.day % 7 == 4);
+	},
+	isFriday: function() {
+		return (State.active.variables.time.day % 7 == 5);
 	},
 	isSaturday: function() {
 		return (State.active.variables.time.day % 7 == 6);
@@ -28925,6 +28989,7 @@ You feel the sudden call of nature, and excuse yourself to $friend&#39;s en-suit
 	&lt;&lt;set $player.debugN = 0&gt;&gt;\
 	&lt;&lt;display [[Go to your room|Go to bedroom]]&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice = true&gt;&gt;\
 &lt;!--&lt;/Daily reset&gt;--&gt;\</tw-passagedata><tw-passagedata pid="76" name="Guardian fantasy" tags="pos_2545_11" position="725,975">\
 &lt;div class=&quot;dream&quot;&gt;\
 &lt;&lt;set _dream = window.dreamsSelector.randomDream(window.dreamsGuardian)&gt;&gt;\
@@ -34279,7 +34344,66 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 &lt;!--&lt;/buttplug and chastity&gt;--&gt;\
 &lt;div class=&quot;clothesDivider&quot;&gt;&lt;/div&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="94" name="Go to bedroom" tags="pos_1444_816" position="475,1225">\
+\</tw-passagedata><tw-passagedata pid="94" name="Exercise basic" tags="" position="475,1225">\
+&lt;&lt;if $cheerleaders.progress gte 2 and $flags.clothesPurged&gt;&gt;\
+	You quickly change into your\
+	&lt;&lt;if $cheerleaders.progress gte 3&gt;&gt;\
+		uniform,\
+	&lt;&lt;else&gt;&gt;\\
+		practice outfit,\
+	&lt;&lt;endif&gt;&gt;\
+	grab your phone, and run to the backyard.
+	
+&lt;&lt;else&gt;&gt;\
+	You change into a pair of shorts, sneakers, and a t-shirt, grab your phone, and run to the backyard.
+	
+&lt;&lt;endif&gt;&gt;\
+	Once your sneakers hit the soft grass, you run a quick search for\
+&lt;&lt;if $cheerleaders.progress gt 6&gt;&gt;\
+	tumbling\
+&lt;&lt;elseif $cheerleaders.progress gt 3&gt;&gt;\
+	stretching\
+&lt;&lt;else&gt;&gt;\
+	cheerleader conditioning\
+&lt;&lt;endif&gt;&gt;
+on your phone. The thumbnail for the first result shows an awkwardly shot image of a cute, athletic girl a little younger than you wearing a tank top, spandex shorts, and cheer sneakers. The title of the video promises “Cheer tips for beginners from a real cheerleader!” 
+
+You tap the link and the video starts playing, a little louder than you expected. You hurriedly lower the volume as the host begins her speil.
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Workout Video&quot; 600 600&gt;&gt;&lt;/div&gt;
+@@.femvoice5;“Hey, girls! Welcome to the channel! I’m Crystal and today I’m going to show you some hot tips on how to boost your spirit and wow the crowd!”@@
+
+The host continues, walking you through several exercises that you remember from practice. 
+
+&lt;&lt;if $player.fitness lte 4&gt;&gt;\
+	Your lack of practice is plainly apparent as you struggle to keep up with the host’s simplest instructions. Anything complex or strenuous proves to be impossible.
+&lt;&lt;elseif $player.fitness lte 7&gt;&gt;\
+	Your moves are still a little shaky, but you’re able to at least attempt all of the orders the host gives you. They might not be perfect, but even you can tell that you are improving.
+&lt;&lt;else&gt;&gt;\
+	You manage to complete every task Crystal has set out for you today, and even though you can’t see exactly how well you performed, you’re pretty sure your form was passable.
+&lt;&lt;endif&gt;&gt;\
+
+By the time the video finishes, you’re panting for air and your\
+&lt;&lt;if $cheerleaders.progress gte 2 and $flags.clothesPurged&gt;&gt;\
+	&lt;&lt;if $cheerleaders.progress gte 3&gt;&gt;\
+		uniform\
+	&lt;&lt;else&gt;&gt;\
+		tanktop\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+	t-shirt \
+&lt;&lt;endif&gt;&gt;\
+is soaked in sweat. 
+
+@@.hero;Phew. That was hard work, but if it makes me better at cheerleading, it’s worth it.@@
+
+You grab your phone and give your muscles one last stretch before walking inside to get some water and change out of your damp clothes.
+
+@@.reward;Your skill at cheerleading has increased!@@
+
+&lt;&lt;set $player.fitness++&gt;&gt;\
+&lt;&lt;set $time.addMinutes(60)&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice = false&gt;&gt;\
+[[Return to your room|Go to bedroom]]</tw-passagedata><tw-passagedata pid="95" name="Go to bedroom" tags="pos_1444_816" position="600,1225">\
 &lt;span id=&quot;bedroom&quot;&gt;\
 	&lt;!--&lt;Laundry&gt;--&gt;&lt;!-- Laundry Accident --&gt;\
 &lt;&lt;if $flags.laundryAccident and window.timeCode.haveSchool()&gt;&gt;\
@@ -34366,6 +34490,9 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 	&lt;&lt;elseif not $flags.choreLazy&gt;&gt;\
 		[[Ask to return PSBox|Ask to return things][$scene=&quot;psbox&quot;]]
 	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $cheerleaders.progress gt 0 &amp;&amp; $cheerleaders.canPractice&gt;&gt;\
+		[[Practice cheerleading|Exercise basic]]
+	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck&gt;&gt;\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene=&quot;beg&quot;]]
@@ -34380,7 +34507,7 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 \
 &lt;&lt;display &quot;For testing&quot;&gt;&gt;\
 &lt;/span&gt;\
-\</tw-passagedata><tw-passagedata pid="95" name="Good morning" tags="pos_639_373" position="600,1225">\
+\</tw-passagedata><tw-passagedata pid="96" name="Good morning" tags="pos_639_373" position="725,1225">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -35156,7 +35283,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	&lt;&lt;endif&gt;&gt;\
 	&lt;!--&lt;/default morning&gt;--&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;!--&lt;/Waking up&gt;--&gt;\</tw-passagedata><tw-passagedata pid="96" name="Have a nap" tags="pos_1143_214" position="725,1225">\
+&lt;!--&lt;/Waking up&gt;--&gt;\</tw-passagedata><tw-passagedata pid="97" name="Have a nap" tags="pos_1143_214" position="850,1225">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;if _c&gt;&gt;\
@@ -35176,7 +35303,7 @@ You lay down on your bed and rest your eyes. Before long you drift gently into a
 	
 &lt;&lt;endif&gt;&gt;\
 [[Wake up|Go to bedroom]]
-\</tw-passagedata><tw-passagedata pid="97" name="Have breakfast" tags="pos_879_459" position="850,1225">\
+\</tw-passagedata><tw-passagedata pid="98" name="Have breakfast" tags="pos_879_459" position="975,1225">\
 &lt;&lt;if playerCode.isMaid()&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Maid Morning&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;else&gt;&gt;\
@@ -36477,7 +36604,7 @@ You lay down on your bed and rest your eyes. Before long you drift gently into a
 	&lt;&lt;endif&gt;&gt;\
 	
 	[[Go to your room|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="98" name="Rename clothes set" tags="pos_1273_215" position="975,1225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="99" name="Rename clothes set" tags="pos_1273_215" position="1100,1225">\
 &lt;&lt;if (not $renameSetFlag)&gt;&gt;\
 	What&#39;s new name of the set?
 	&lt;&lt;textbox &quot;$scene&quot; &quot;&quot; autofocus&gt;&gt;
@@ -36513,7 +36640,7 @@ You lay down on your bed and rest your eyes. Before long you drift gently into a
 	&lt;&lt;/script&gt;&gt;
 	&lt;&lt;/click&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="99" name="Renaming yourself" tags="pos_409_210" position="1100,1225">\
+\</tw-passagedata><tw-passagedata pid="100" name="Renaming yourself" tags="pos_409_210" position="1225,1225">\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 What&#39;s your new name?
 &lt;&lt;textbox &quot;$player.name&quot; &quot;&quot; autofocus&gt;&gt;
@@ -36530,7 +36657,7 @@ What&#39;s your new name?
 		
 		[[Get up and prepare breakfast|Have breakfast]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="100" name="Show bedroom" tags="pos_1273_215" position="1225,1225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="101" name="Show bedroom" tags="pos_1273_215" position="100,1350">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set $bedroomRender=true&gt;&gt;\
 &lt;&lt;if $player.room.style eq 0&gt;&gt;\
@@ -36660,7 +36787,7 @@ What&#39;s your new name?
 	&lt;&lt;set $flags.roomHelp = true&gt;&gt;\
 	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_0&quot; &quot;arrows_room_help.png&quot; &quot;general&quot;&gt;&gt;&#39;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="101" name="Show drawer" tags="pos_1273_215" position="100,1350">\
+\</tw-passagedata><tw-passagedata pid="102" name="Show drawer" tags="pos_1273_215" position="225,1350">\
 &lt;&lt;set $bedroomRender=true&gt;&gt;\
 &lt;&lt;if $roomSize eq 0&gt;&gt;\
 	&lt;span id=room_images_0&gt;&lt;/span&gt;\
@@ -36751,7 +36878,7 @@ What&#39;s your new name?
 \
 &lt;&lt;showRoomImage &quot;999_private_drawer_front.png&quot;&gt;&gt;\
 \
-\</tw-passagedata><tw-passagedata pid="102" name="Sleep" tags="pos_1410_216" position="225,1350">\
+\</tw-passagedata><tw-passagedata pid="103" name="Sleep" tags="pos_1410_216" position="350,1350">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
 \
@@ -36940,7 +37067,7 @@ What&#39;s your new name?
 		&lt;&lt;set window.timeCode.newDay()&gt;&gt;\
 		&lt;&lt;display [[Good morning]]&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="103" name="Apply nail polish" tags="pos_760_1083" position="350,1350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="104" name="Apply nail polish" tags="pos_760_1083" position="475,1350">\
 &lt;&lt;set $flags.nailGloss = true&gt;&gt;\
 You pull up a video on the Internet hosted by a busty bimbo named Lola. It&#39;s a tutorial on how to &#39;Get Sexy &amp; Shiny Salon-Quality Nails At Home!!&#39;
 
@@ -36967,7 +37094,7 @@ You let the first coat dry for two minutes, then apply a second, carefully repea
 	Just for good measure, you click Lola&#39;s &#39;like&#39; and &#39;follow&#39; buttons. You never know when you might need a good fashion tip.
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="104" name="Ask to return things" tags="pos_366_753" position="475,1350">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="105" name="Ask to return things" tags="pos_366_753" position="600,1350">\
 &lt;&lt;if $scene eq &quot;psbox&quot;&gt;&gt;\
 	&lt;&lt;set $flags.confiscatedPSBox = false&gt;&gt;\
 	You hesitantly knock on $guardian&#39;s bedroom door. As $guardian opens it, you tell her you finished your chores and ask if you could get your PSBox back.
@@ -37051,7 +37178,7 @@ You let the first coat dry for two minutes, then apply a second, carefully repea
 	@@.guardian;&quot;Well, you&#39;ve been a //really// bad boy. It was a false alarm at the clinic, but it looks like I&#39;ve got something I need to take care of here.&quot;@@
 
 	[[Gulp|Special punishments][$scene=&quot;forced vibrator&quot;; $flags.guardianPunishVibrator=true; $time.hour++]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="105" name="Guardian kinky reward" tags="pos_366_753" position="600,1350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="106" name="Guardian kinky reward" tags="pos_366_753" position="725,1350">\
 	&lt;!--&lt;Internet browsing&gt;--&gt;\
 &lt;&lt;if $scene eq &quot;looking up dom dress&quot;&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Guardian Latex Internet&quot; 600 600&gt;&gt;&lt;/div&gt;\
@@ -37620,14 +37747,14 @@ You let the first coat dry for two minutes, then apply a second, carefully repea
 	
 	[[Go to your room|Go to bedroom]]
 	&lt;!--&lt;/talk about boyfriend&gt;--&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="106" name="Install camera in bathroom" tags="pos_1155_14" position="725,1350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="107" name="Install camera in bathroom" tags="pos_1155_14" position="850,1350">\
 You quietly open the bathroom door a crack, reach up and stick the spy camera above the door using its suction cup feet, then gently close the door again.
 
 The noise of the shower abruptly stops, and you hear the shower door open. Your heart sinks as you wait for $guardian to yell out to you, but instead she starts humming to herself and you realize you&#39;re in the clear.  Relief washes over you, as you slink away to the kitchen for breakfast.
 
 &lt;&lt;removeFromInv &#39;spyCamera&#39;&gt;&gt;\
 &lt;&lt;set $flags.cameraBathroom=true&gt;&gt;\ 
-[[Have breakfast]]</tw-passagedata><tw-passagedata pid="107" name="Install camera in bedroom" tags="pos_621_1088" position="850,1350">\
+[[Have breakfast]]</tw-passagedata><tw-passagedata pid="108" name="Install camera in bedroom" tags="pos_621_1088" position="975,1350">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Tapedeck&quot; 600 600&gt;&gt;&lt;/div&gt;\
 Finding a suitable spot for the camera is tricky, as this is the room that $guardian is most familiar with, and will notice anything different.  
 
@@ -37635,7 +37762,7 @@ Your eyes settle on her old tape deck/radio gathering dust on her bookshelf.  Kn
 
 &lt;&lt;removeFromInv &#39;spyCamera&#39;&gt;&gt;\
 &lt;&lt;set $flags.cameraBedroom=true&gt;&gt;\
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="108" name="Masturbate" tags="pos_366_753" position="975,1350">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="109" name="Masturbate" tags="pos_366_753" position="1100,1350">\
 &lt;&lt;if (not $flags.checkingGift) and $flags.choreRewSpinning&gt;&gt;\
 	&lt;&lt;set $flags.checkingGift = true&gt;&gt;\
 	&lt;&lt;set $flags.choreForcedFail = true&gt;&gt;\
@@ -37720,7 +37847,7 @@ Alright! How do you want to do this?
 		[[Remove chastity cage|Masturbate][window.playerCode.removeClothesJS(_c.id)]]
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="109" name="Peep into bathroom" tags="pos_812_234" position="1100,1350">\
+[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="110" name="Peep into bathroom" tags="pos_812_234" position="1225,1350">\
 &lt;&lt;if $scene eq &quot;peep&quot;&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Keyhole&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 	&lt;&lt;set $time.addMinutes(5)&gt;&gt;\
@@ -37782,7 +37909,7 @@ Alright! How do you want to do this?
 Bug!
 	[[Have breakfast]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="110" name="Peep on guardian" tags="pos_1923_314" position="1225,1350">\
+\</tw-passagedata><tw-passagedata pid="111" name="Peep on guardian" tags="pos_1923_314" position="100,1475">\
 	&lt;!--&lt;clothes check for guardian&gt;--&gt;\
 &lt;&lt;if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)&gt;&gt;\
 	&lt;&lt;if $player.perversion.guardian lte 2&gt;&gt;\
@@ -37826,7 +37953,7 @@ You walk as quietly as you can to $guardian&#39;s room and open the door. Her ge
 &lt;&lt;set window.dreamMinigame.reset()&gt;&gt;\
 &lt;&lt;set $minigames.dreamgame.playedToday to true&gt;&gt;\
 &lt;&lt;display [[Dream game]]&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="111" name="Penis shrinking event" tags="pos_1800_2092" position="100,1475">\
+\</tw-passagedata><tw-passagedata pid="112" name="Penis shrinking event" tags="pos_1800_2092" position="225,1475">\
 &lt;&lt;if $flags.penisShrinkSleep and $flags.penisShrinkProgress&gt;&gt;\
 	&lt;&lt;set $flags.penisShrinkSleep = false&gt;&gt;\
 	&lt;&lt;set $therapistTalks.talkPenisShrinkingEnd.start = true&gt;&gt;\
@@ -37860,11 +37987,11 @@ You walk as quietly as you can to $guardian&#39;s room and open the door. Her ge
 	
 	[[Sleep][$flags.restlessSleep = true]]
 &lt;&lt;elseif $scene eq &quot;guardian&quot;&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="112" name="Pick up your wallet" tags="pos_1800_2092" position="225,1475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="113" name="Pick up your wallet" tags="pos_1800_2092" position="350,1475">\
 &lt;&lt;set $flags.walletForgottenEnd = true&gt;&gt;\
 You almost forgot to take your wallet to the school. $teacher would have been furious if you failed to pay.
 	
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="113" name="Play PSBox" tags="pos_358_615" position="350,1475">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="114" name="Play PSBox" tags="pos_358_615" position="475,1475">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;if $flags.choreRewCallOfHonor and (not $flags.newCallOfHonorPlayed)&gt;&gt;\
 	&lt;&lt;set $flags.newCallOfHonorPlayed = true&gt;&gt;\
@@ -37953,7 +38080,7 @@ You almost forgot to take your wallet to the school. $teacher would have been fu
 		@@.reward;Your gaming skills have greatly improved!@@
 		
 &lt;&lt;/switch&gt;&gt;\
-[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="114" name="Read Playgirl magazine" tags="pos_478_935" position="475,1475">\
+[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="115" name="Read Playgirl magazine" tags="pos_478_935" position="600,1475">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 You open &lt;&lt;if $items.playgirlMagazine.stolen&gt;&gt;$guardian&#39;s&lt;&lt;else&gt;&gt;your&lt;&lt;endif&gt;&gt; Playgirl magazine and begin flipping through.
@@ -37992,7 +38119,7 @@ put the magazine away, glad that $guardian didn&#39;t walk in on you.
 		
 	&lt;&lt;endif&gt;&gt;\
 	[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="115" name="Replace batteries" tags="pos_774_1208" position="600,1475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="116" name="Replace batteries" tags="pos_774_1208" position="725,1475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Guardian Bedroom&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $time.addMinutes(5)&gt;&gt;\
 &lt;&lt;set $player.alarmClockGuardian to true&gt;&gt;\
@@ -38019,14 +38146,14 @@ This should stop her from sleeping in.
 &lt;&lt;print &quot;[[Snoop around in &quot; + $guardian + &quot;&#39;s bedroom|Snoop in guardian bedroom]]&quot;&gt;&gt;
 &lt;&lt;if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)&gt;&gt;\
 	[[Install camera in bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="116" name="Retrieve spy camera" tags="pos_1020_17" position="725,1475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="117" name="Retrieve spy camera" tags="pos_1020_17" position="850,1475">\
 You quietly open the bathroom door a crack. You reach up and pull the spy camera from its place above the door. The suction cups come lose with a loud popping sound, and you gently shut the door again.
 
 You hear the shower door open, and you hear the sounds of $guardian looking around the bathroom. You hear her mutter @@.guardian;&quot;What the fuck was that?&quot;@@ and start to worry you&#39;ve been busted. Fortunately, the shower door closes again and she resumes her routine. You slink away to the kitchen for breakfast.
 
 &lt;&lt;addToInv &#39;spyCamera&#39;&gt;&gt;\
 &lt;&lt;set $flags.cameraBathroom=false&gt;&gt;\ 
-[[Have breakfast]]</tw-passagedata><tw-passagedata pid="117" name="Snoop in guardian bedroom" tags="pos_473_1089" position="850,1475">\
+[[Have breakfast]]</tw-passagedata><tw-passagedata pid="118" name="Snoop in guardian bedroom" tags="pos_473_1089" position="975,1475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Guardian Bedroom&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $time.addMinutes(10)&gt;&gt;\
 Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39;re unsure of what you&#39;re hoping to find, and very nervous because you know $guardian could silently pop in at any time, thanks to the house&#39;s plush carpet.
@@ -38105,7 +38232,7 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 		[[Continue snooping|Snoop in guardian bedroom]]
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="118" name="Special dreams" tags="pos_2471_138" position="975,1475">\
+\</tw-passagedata><tw-passagedata pid="119" name="Special dreams" tags="pos_2471_138" position="1100,1475">\
 &lt;&lt;if $scene eq &quot;Dream Panties&quot;&gt;&gt;\
 	&lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 	&lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -38254,7 +38381,7 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 	&lt;&lt;/switch&gt;&gt;\
 	
 &lt;&lt;endif&gt;&gt;\
-&lt;div class=&quot;delayed_text_fast&quot;&gt;[[Sleep|Good morning][window.timeCode.newDay()]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="119" name="Special punishments" tags="pos_2598_360" position="1100,1475">\
+&lt;div class=&quot;delayed_text_fast&quot;&gt;[[Sleep|Good morning][window.timeCode.newDay()]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="120" name="Special punishments" tags="pos_2598_360" position="1225,1475">\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -39296,7 +39423,7 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 	&lt;!--&lt;/forced vibrator&gt;--&gt;\
 \	
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="120" name="Suck off her boyfriend" tags="pos_2598_360" position="1225,1475">\
+\</tw-passagedata><tw-passagedata pid="121" name="Suck off her boyfriend" tags="pos_2598_360" position="100,1600">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Boyfriend Suck&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _choreJS = choresList.suckGuardianBoyfriend&gt;&gt;\
 &lt;&lt;set _choreV = $chores.suckGuardianBoyfriend&gt;&gt;\
@@ -39339,7 +39466,7 @@ She waits while you run your trembling fingers over your face, collecting every 
 &lt;&lt;set _choreV.dayPerformed to $time.day&gt;&gt;\
 
 [[Recover|Go to bedroom]]
-[[Perform other chores|Perform chores]]</tw-passagedata><tw-passagedata pid="121" name="UploadPorn" tags="pos_75_1080" position="100,1600">\
+[[Perform other chores|Perform chores]]</tw-passagedata><tw-passagedata pid="122" name="UploadPorn" tags="pos_75_1080" position="225,1600">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Upload&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set $player.room.laptop=true&gt;&gt;\
 &lt;&lt;if $flags.confiscatedInternet and $player.perversion.upload gt 0&gt;&gt;\
@@ -39428,7 +39555,7 @@ She waits while you run your trembling fingers over your face, collecting every 
 	Soon a confirmation of receiving $&lt;&lt;print tasksEmail.WebcamMaid.rewardMoney&gt;&gt; arrives.
 	
 &lt;&lt;endif&gt;&gt;\
-[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="122" name="Use vibrator ass" tags="pos_54_936" position="225,1600">\
+[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="123" name="Use vibrator ass" tags="pos_54_936" position="350,1600">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
 &lt;&lt;set _p to playerCode.isWearingOn(itemTypes.Stockings)&gt;&gt;\
@@ -39563,7 +39690,7 @@ The vibrations begin sending you into a rhythm of ecstasy, then relaxation - har
 
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-[[Do something else|Go to bedroom]]\</tw-passagedata><tw-passagedata pid="123" name="Use vibrator cage" tags="pos_192_935" position="350,1600">\
+[[Do something else|Go to bedroom]]\</tw-passagedata><tw-passagedata pid="124" name="Use vibrator cage" tags="pos_192_935" position="475,1600">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Vibrator On Cage&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
@@ -39577,7 +39704,7 @@ You take &lt;&lt;if $items.vibrator.stolen&gt;&gt;$guardian&#39;s&lt;&lt;else&gt
 	After some time a familiar *bing* from your computer notifies you of a recording of you trying to use the vibrator on your chastity cage.
 &lt;&lt;endif&gt;&gt;\
 
-[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="124" name="Use vibrator penis" tags="pos_328_929" position="475,1600">\
+[[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="125" name="Use vibrator penis" tags="pos_328_929" position="600,1600">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
 &lt;&lt;set _p to playerCode.isWearingOn(itemTypes.Stockings)&gt;&gt;\
@@ -39593,7 +39720,7 @@ In no time, you feel like you&#39;re about to explode. You whimper, afraid to cr
 	After some time a familiar *bing* from your computer notifies you of a recording of you masturbating using the vibrator on penis.
 	
 &lt;&lt;endif&gt;&gt;\
-[[Do something else|Go to bedroom][playerCode.masturbate.cum()]]</tw-passagedata><tw-passagedata pid="125" name="Watch porn on computer" tags="pos_620_933" position="600,1600">\
+[[Do something else|Go to bedroom][playerCode.masturbate.cum()]]</tw-passagedata><tw-passagedata pid="126" name="Watch porn on computer" tags="pos_620_933" position="725,1600">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 	&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 		&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Porn Mind 0&quot; 400 400&gt;&gt;&lt;/div&gt;\	
@@ -39674,7 +39801,7 @@ In no time, you feel like you&#39;re about to explode. You whimper, afraid to cr
 		&lt;&lt;endif&gt;&gt;\
 		[[Do something else|Go to bedroom]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="126" name="Watch spy camera stream" tags="pos_763_934" position="725,1600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="127" name="Watch spy camera stream" tags="pos_763_934" position="850,1600">\
 &lt;&lt;set _mf to false&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;if ($random.stored eq 0) and $flags.cameraBathroom&gt;&gt;\
@@ -39827,7 +39954,7 @@ In no time, you feel like you&#39;re about to explode. You whimper, afraid to cr
 	&lt;&lt;else&gt;&gt;\
 		[[Do something else|Go to bedroom]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="127" name="Go to mall toilet" tags="pos_1912_2476" position="850,1600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="128" name="Go to mall toilet" tags="pos_1912_2476" position="975,1600">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Mall Toilet&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 It&#39;s empty in the men&#39;s toilets.
 
@@ -39902,8 +40029,8 @@ You check yourself in the mirrors, \
 &lt;&lt;if window.timeCode.isMallOpen()&gt;&gt;\
 	[[Wait for someone to come in|Wait in mall toilet]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="128" name="Go to the mall" tags="pos_1800_2092" position="975,1600">\
-&lt;span id=&quot;mall&quot;&gt;&lt;&lt;CheckUnderwear&gt;&gt;&lt;&lt;showStores&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="129" name="Mall blowjob group" tags="pos_2400_2636" position="1100,1600">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="129" name="Go to the mall" tags="pos_1800_2092" position="1100,1600">\
+&lt;span id=&quot;mall&quot;&gt;&lt;&lt;CheckUnderwear&gt;&gt;&lt;&lt;showStores&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="130" name="Mall blowjob group" tags="pos_2400_2636" position="1225,1600">\
 &lt;&lt;if window.clothes.dressedFemale() or (random(5) eq 0)&gt;&gt;\
 	&lt;&lt;set $player.blowjobsToday=$player.blowjobsToday+3&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(45)&gt;&gt;\
@@ -39931,7 +40058,7 @@ You check yourself in the mirrors, \
 	One of the boys looks interested, but the other two wrinkle their noses and back away from you. You look down to avoid their judging stares and leave quickly. Horny boys and blowjobs... something must be missing.
 	
 	[[Return to the mall|Go to the mall]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="130" name="Mall blowjob single" tags="pos_2400_2320" position="1225,1600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="131" name="Mall blowjob single" tags="pos_2400_2320" position="100,1725">\
 &lt;&lt;if window.clothes.dressedFemale() or (random(5) eq 0)&gt;&gt;\
 	&lt;&lt;set $player.blowjobsToday++&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(15)&gt;&gt;\
@@ -39957,7 +40084,7 @@ You check yourself in the mirrors, \
 	The older guy looks at you with disgust and walks off. You&#39;re pretty sure he called you a faggot under his breath. You slink out of the arcade, embarrassed. Seems like some guys only want a blowjob from a girl.
 	
 	[[Return to the mall|Go to the mall]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="131" name="Shop events" tags="pos_1800_2092" position="100,1725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="132" name="Shop events" tags="pos_1800_2092" position="225,1725">\
 &lt;&lt;set _item = itemsC[$player.bought]&gt;&gt;\
 &lt;&lt;if $scene eq &quot;general&quot;&gt;&gt;\
 	&lt;&lt;if _item&gt;&gt;\
@@ -40132,7 +40259,7 @@ You check yourself in the mirrors, \
 	&lt;&lt;set $scene = &quot;general&quot;&gt;&gt;\
 	&lt;&lt;set $player.bought=&quot;&quot;&gt;&gt;\
 &lt;!--&lt;/Extra items for school dress&gt;--&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="132" name="Steal stungun" tags="pos_1716_2496" position="225,1725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="133" name="Steal stungun" tags="pos_1716_2496" position="350,1725">\
 You enter the general store, wait for the shopkeeper to get distracted and slip a small stun gun into your pocket. Trying to look casual you walk past random customers, then walk out through the entrance of the store and...
 
 and...
@@ -40145,7 +40272,7 @@ Now you can get your revenge on those fuckers. Then, an uneasy feeling creeps ov
 &lt;&lt;addToInv &#39;stunGun&#39;&gt;&gt;\
 &lt;&lt;set $items.stunGun.stolen=true&gt;&gt;\
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="133" name="Store Widgets" tags="pos_1712_2264 widget" position="350,1725">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="134" name="Store Widgets" tags="pos_1712_2264 widget" position="475,1725">\
 &lt;&lt;widget &quot;itemSelector&quot;&gt;&gt;\
 &lt;&lt;set _storeImagePack=window.stores[$args[0]].imagePack&gt;&gt;
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack _storeImagePack 350 350&gt;&gt;&lt;/div&gt;\	
@@ -40379,7 +40506,7 @@ You could try to steal the stun gun if you are desperate.
 &lt;&lt;endif&gt;&gt;\
 [[Go home|Go to bedroom][$time.addMinutes(30)]]\
 */\
-&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="134" name="Wait in mall toilet" tags="pos_1948_2628" position="475,1725">\
+&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="135" name="Wait in mall toilet" tags="pos_1948_2628" position="600,1725">\
 &lt;img id=&quot;mall_toilet&quot;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -40513,7 +40640,7 @@ You wait nervously in the men&#39;s room, and after a while a man comes in.\
 
 &lt;&lt;endif&gt;&gt;\
 [[Return to the mall|Go to the mall]]
-\</tw-passagedata><tw-passagedata pid="135" name="Basketball skill tester" tags="pos_2412_2476" position="600,1725">\
+\</tw-passagedata><tw-passagedata pid="136" name="Basketball skill tester" tags="pos_2412_2476" position="725,1725">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Basketball&quot; 350 350&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $player.money-=1&gt;&gt;\
 &lt;&lt;set $time.addMinutes(5)&gt;&gt;\
@@ -40546,7 +40673,7 @@ What would you like to do now?
 	[[Play again|Basketball skill tester]]
 	[[Car racing video game]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="136" name="Car racing fun" tags="pos_2120_2476" position="725,1725">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="137" name="Car racing fun" tags="pos_2120_2476" position="850,1725">\
 You play by yourself \
 &lt;&lt;set _crf to random(2)&gt;&gt;\
 &lt;&lt;if _crf eq 0&gt;&gt;\
@@ -40570,7 +40697,7 @@ What would you like to do now?
 	[[Play again|Car racing video game]]
 	[[Basketball skill tester]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="137" name="Car racing video game" tags="pos_2256_2476" position="850,1725">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="138" name="Car racing video game" tags="pos_2256_2476" position="975,1725">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Car Racing&quot; 350 350&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $time.addMinutes(5)&gt;&gt;\
 &lt;&lt;set $player.money-=1&gt;&gt;\
@@ -40646,7 +40773,7 @@ You sit down in a multi-player rally car racing game.
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	[[Nah, I&#39;m just here for fun|Car racing fun]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="138" name="Car racing wager group - lose" tags="pos_2244_2636" position="975,1725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="139" name="Car racing wager group - lose" tags="pos_2244_2636" position="1100,1725">\
 The group of boys look at each other, nod and agree, and you all put your money on the console.
 
 Even before you start, it&#39;s obvious these boys have all played this game before, and they quickly leave you behind. After a few minutes of trying to catch up, you cross the finish line in last place, and look over to see the winner scooping up the pile of money with a smile.
@@ -40668,7 +40795,7 @@ What would you like to do now?
 	[[Play again|Car racing video game]]
 	[[Basketball skill tester]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="139" name="Car racing wager group - win" tags="pos_2108_2640" position="1100,1725">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="140" name="Car racing wager group - win" tags="pos_2108_2640" position="1225,1725">\
 The group of boys look at each, nod and agree, and you all put your money on the console.
 
 Even before you start, it&#39;s obvious these boys have all played this game before, and the lead changes many times as you each push hard to overtake.  Two of the boys collide heavily and end off the track, while you trail the leader. As you approach the last corner, you see a shortcut between the trees, navigate the narrow trail and emerge just ahead. With a curse from the leader, you cross the finish line first. As you take the money, they all congratulate you on a good race.  
@@ -40683,7 +40810,7 @@ What would you like to do now?
 	[[Play again|Car racing video game]]
 	[[Basketball skill tester]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="140" name="Car racing wager single - lose" tags="pos_2252_2320" position="1225,1725">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="141" name="Car racing wager single - lose" tags="pos_2252_2320" position="100,1850">\
 The guy agrees, and you both put your money on the console.
 
 As you suspected, this guy has obviously played this game a lot, and leaves you in his dust. After a few minutes of trying to catch up, you cross the finish line in second place, and look over to see him grinning at you while scooping up the money.
@@ -40705,7 +40832,7 @@ What would you like to do now?
 	[[Play again|Car racing video game]]
 	[[Basketball skill tester]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="141" name="Car racing wager single - win" tags="pos_2112_2320" position="100,1850">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="142" name="Car racing wager single - win" tags="pos_2112_2320" position="225,1850">\
 The guy agrees and you both put your money on the console.
 
 As you suspected, this guy has obviously played this game a lot, and it&#39;s neck and neck for the first couple of minutes. As you round the last corner with him slightly in front of you, you execute the perfect PIT maneuver and send his car off the track into a tree. You cross the finish line first and quickly grab the money. The guy seems annoyed that he lost.
@@ -40720,7 +40847,7 @@ What would you like to do now?
 	[[Play again|Car racing video game]]
 	[[Basketball skill tester]]
 &lt;&lt;endif&gt;&gt;\
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="142" name="Coach game" tags="pos_1261_2323" position="225,1850">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="143" name="Coach game" tags="pos_1261_2323" position="350,1850">\
 &lt;&lt;if $player.debugA&gt;&gt;\
 @@.info;\
 Id = &lt;&lt;print window.coachMinigame.getCActionById($minigames.coachgame.lastActionId).id ;&gt;&gt; \
@@ -40936,7 +41063,7 @@ Canwin = &lt;&lt;print window.coachMinigame.canWin() ;&gt;&gt;
 	[[Finish school]]
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;CoachGame&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="143" name="CoachGame Widget" tags="pos_1262_2466 widget" position="350,1850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="144" name="CoachGame Widget" tags="pos_1262_2466 widget" position="475,1850">\
 &lt;&lt;widget &quot;CoachGame&quot;&gt;&gt;\
 	&lt;&lt;if $minigames.coachgame.lastActionId gte 1&gt;&gt;\
 		&lt;&lt;if $minigames.coachgame.lastActionId lte 8&gt;&gt;\
@@ -41029,7 +41156,7 @@ Canwin = &lt;&lt;print window.coachMinigame.canWin() ;&gt;&gt;
 	Coachiness: $minigames.coachgame.coachiness
 	Alertness: $minigames.coachgame.alertness
 	--&gt;
-&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="144" name="Dream game" tags="pos_1908_0" position="475,1850">\
+&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="145" name="Dream game" tags="pos_1908_0" position="600,1850">\
 &lt;&lt;if window.dreamMinigame.isAwake()&gt;&gt;\
 	&lt;&lt;if $player.alarmClockGuardian and ($time.hour gt $time.guardian.wakeHour or ($time.hour eq $time.guardian.wakeHour and $time.minute gte $time.guardian.wakeMinute))&gt;&gt;\
 		A shrill beeping startles you, and you realize $guardian&#39;s alarm clock is going off.  You quickly duck out of the bedroom before she opens her eyes.
@@ -41050,7 +41177,7 @@ Canwin = &lt;&lt;print window.coachMinigame.canWin() ;&gt;&gt;
 	[[Have breakfast][$time.hour=$time.guardian.wakeHour;$time.minute=$time.guardian.wakeMinute]]
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;DreamGame&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="145" name="DreamGame Widget" tags="pos_1907_25 widget" position="600,1850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="146" name="DreamGame Widget" tags="pos_1907_25 widget" position="725,1850">\
 &lt;&lt;widget &quot;DreamGame&quot;&gt;&gt;\
 	&lt;&lt;if $minigames.dreamgame.lastActionId gte 0&gt;&gt;\
 		&lt;&lt;print window.dreamMinigame.getActionById($minigames.dreamgame.lastActionId).action&gt;&gt; \
@@ -41109,7 +41236,7 @@ Canwin = &lt;&lt;print window.coachMinigame.canWin() ;&gt;&gt;
 	Dreaminess: $minigames.dreamgame.dreaminess
 	Alertness: $minigames.dreamgame.alertness
 	--&gt;
-&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="146" name="Play in the arcade" tags="pos_2112_2148" position="725,1850">\
+&lt;&lt;/widget&gt;&gt;\</tw-passagedata><tw-passagedata pid="147" name="Play in the arcade" tags="pos_2112_2148" position="850,1850">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Arcade&quot; 350 350&gt;&gt;&lt;/div&gt;\	
 The arcade is filled with all sorts of video games and skill testers.  A sign out front says:
 
@@ -41126,7 +41253,7 @@ All the games cost $1. \
 	Unfortunately, you&#39;re broke.
 &lt;&lt;endif&gt;&gt;\
 
-[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="147" name="Avatar" tags="pos_1273_215" position="850,1850">\
+[[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="148" name="Avatar" tags="pos_1273_215" position="975,1850">\
 \
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 \
@@ -41502,7 +41629,7 @@ All the games cost $1. \
 @@.avatar_mode_0;&lt;&lt;print &#39;&lt;&lt;click &quot; C &quot;&gt;&gt;&lt;&lt;set $avatar.mode=0&gt;&gt;&lt;&lt;replace &quot;#avatar_window&quot;&gt;&gt;&lt;&lt;display &quot;Avatar&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;@@\
 @@.avatar_mode_1;&lt;&lt;print &#39;&lt;&lt;click &quot; U &quot;&gt;&gt;&lt;&lt;set $avatar.mode=1&gt;&gt;&lt;&lt;replace &quot;#avatar_window&quot;&gt;&gt;&lt;&lt;display &quot;Avatar&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;@@\
 @@.avatar_mode_2;&lt;&lt;print &#39;&lt;&lt;click &quot; N &quot;&gt;&gt;&lt;&lt;set $avatar.mode=2&gt;&gt;&lt;&lt;replace &quot;#avatar_window&quot;&gt;&gt;&lt;&lt;display &quot;Avatar&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;@@\
-\</tw-passagedata><tw-passagedata pid="148" name="Call test" tags="pos_1276_820" position="975,1850">\
+\</tw-passagedata><tw-passagedata pid="149" name="Call test" tags="pos_1276_820" position="1100,1850">\
 &lt;&lt;if $scene eq &quot;header&quot;&gt;&gt;\
 &lt;&lt;set $scene = &quot;call_0&quot;&gt;&gt;\
 @@.call;\
@@ -41536,9 +41663,9 @@ Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. @@
 
 [[Go to your bedroom|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="149" name="Item info" tags="pos_1276_820" position="1100,1850">\
+\</tw-passagedata><tw-passagedata pid="150" name="Item info" tags="pos_1276_820" position="1225,1850">\
 
-\</tw-passagedata><tw-passagedata pid="150" name="Agree to remain in chastity" tags="pos_845_2189" position="1225,1850">\
+\</tw-passagedata><tw-passagedata pid="151" name="Agree to remain in chastity" tags="pos_845_2189" position="100,1975">\
 	You reluctantly agree to remain in chastity.
 \
 	&lt;&lt;if $player.perversion.teacher eq 3&gt;&gt;\
@@ -41553,7 +41680,7 @@ Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. @@
 \
 	&lt;&lt;set $flags.lockedWeekend to true&gt;&gt;\
 
-	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="151" name="Bribe Teacher" tags="pos_277_1587" position="100,1975">\
+	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="152" name="Bribe Teacher" tags="pos_277_1587" position="225,1975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Bribe&quot; 400 400&gt;&gt;&lt;/div&gt;\
 You take out your wallet and show the contents to $teacher, suggesting there might be an alternate arrangement.
 
@@ -41573,7 +41700,7 @@ You hurriedly put your wallet away.
 
 &lt;&lt;set $player.detention=true&gt;&gt;\
 &lt;&lt;Daring 3&gt;&gt;\
-[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="152" name="Bully public toilet" tags="pos_438_2976" position="225,1975">\
+[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="153" name="Bully public toilet" tags="pos_438_2976" position="350,1975">\
 Kissing and squeezing $bully&#39;s boobs you slowly nudge $futa.him_her toward the last stall.
 
 As you requested, $teacher has arranged for the installation of a fetish rig, featuring a big, mean-looking dildo, a hanging ring gag, metal bound cuffs and a collar linked with chains to the walls at one of toilet stalls.
@@ -41598,7 +41725,7 @@ After a few random visitors, a steady stream of guys form a line to $futa.his_he
 
 Finally, you think $futa.he_she has had enough and get $futa.him_her released. $bully washes up, trying to clean $futa.his_her slutty uniform as much as possible, then leaves with $futa.his_her bloated belly full of urine and cum.
 
-[[Finish school]]</tw-passagedata><tw-passagedata pid="153" name="Check on bully" tags="pos_434_2337" position="350,1975">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="154" name="Check on bully" tags="pos_434_2337" position="475,1975">\
 &lt;&lt;if (random(2) eq 0) and ($player.perversion.bullies lte 10)&gt;&gt;\
 You couldn&#39;t find $bully today, oh bugger.
 
@@ -41691,7 +41818,7 @@ You couldn&#39;t find $bully today, oh bugger.
 	
 	&lt;&lt;print &#39;[[Make out with &#39;+$futa.his_her+&#39;|Make out with bully]]&#39;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="154" name="Choose revenge" tags="pos_431_2207" position="475,1975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="155" name="Choose revenge" tags="pos_431_2207" position="600,1975">\
 &lt;&lt;set $player.perversion.teacher = 9&gt;&gt;\
 &lt;&lt;set $player.perversion.teacherCooldown=0&gt;&gt;\
 &lt;&lt;set $player.perversion.bullies = 0&gt;&gt;\
@@ -41709,7 +41836,7 @@ You return to $teacher and tell her that you want to teach $bully a lesson. You 
 
 Some part of you even feels sorry for $bully... a really small part.
 
-[[Finish school]]</tw-passagedata><tw-passagedata pid="155" name="Choose slut" tags="pos_651_2206" position="600,1975">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="156" name="Choose slut" tags="pos_651_2206" position="725,1975">\
 &lt;&lt;set $player.perversion.teacher = 10&gt;&gt;\
 &lt;&lt;set $player.perversion.teacherCooldown=0&gt;&gt;\
 &lt;&lt;if (not playerCode.owns(itemsC.sluttyschoolFemale))&gt;&gt;\
@@ -41742,7 +41869,7 @@ Somehow, you find yourself excited by the mere thought of putting it on and stro
 
 @@.teacher;&quot;From now on, this is your school uniform. Don&#39;t worry about getting in trouble for violating the dress code. I have so much video evidence of your deviancy that I had no trouble getting you diagnosed with &#39;nymphomania.&#39; With that diagnosis, you&#39;ll be exempt from the dress code, and the rules regulating sexual conduct.&quot;@@
 
-[[Finish school]]</tw-passagedata><tw-passagedata pid="156" name="Coach doubleteam" tags="pos_440_2713" position="725,1975">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="157" name="Coach doubleteam" tags="pos_440_2713" position="850,1975">\
 &lt;&lt;set $minigames.coachgame.playedYesterday to true&gt;&gt;\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 &lt;&lt;set $flags.bullyDoubleteam = true&gt;&gt;\
@@ -41795,7 +41922,7 @@ You have $bully lick, suck, and rub Coach&#39;s cock until $futa.he_she is hard 
 	You call out for the softly sobbing $bully, and have $futa.him_her lick Coach&#39;s cum out of your asshole.
 
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="157" name="Detention Punishment" tags="pos_3109_9" position="850,1975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="158" name="Detention Punishment" tags="pos_3109_9" position="975,1975">\
 &lt;&lt;if $player.perversion.teacher eq 0&gt;&gt;\
 	&lt;&lt;set _dp to random(2)&gt;&gt;\
 	&lt;&lt;if _dp eq 0&gt;&gt;\
@@ -41815,19 +41942,19 @@ You have $bully lick, suck, and rub Coach&#39;s cock until $futa.he_she is hard 
 		Write &#39;//I will not get erections in class//&#39; 10 times.\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="158" name="Endgame teacher bribe" tags="pos_53_2005" position="975,1975">\
+\</tw-passagedata><tw-passagedata pid="159" name="Endgame teacher bribe" tags="pos_53_2005" position="1100,1975">\
 Without another word, $teacher walks off briskly in the direction of the principal&#39;s office. Your heart sinks as you realize you will be expelled for your attempt to bribe her.
 
 It&#39;s likely your mother will enroll you in some kind of military boarding school to ensure you get the discipline you need. But that&#39;s another story.
 
 The End.
-\</tw-passagedata><tw-passagedata pid="159" name="Endgame truant" tags="pos_638_172" position="1100,1975">\
+\</tw-passagedata><tw-passagedata pid="160" name="Endgame truant" tags="pos_638_172" position="1225,1975">\
 You&#39;ve skipped too much school, and have been expelled.  
 
 It&#39;s likely your mother will enroll you in some kind of military boarding school to ensure you get the discipline you need.  But that&#39;s another story.
 
 The End.
-\</tw-passagedata><tw-passagedata pid="160" name="Finish school day" tags="pos_438_1883" position="1225,1975">\
+\</tw-passagedata><tw-passagedata pid="161" name="Finish school day" tags="pos_438_1883" position="100,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Finished&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set $flags.pissRecorded to false&gt;&gt;\
@@ -41945,7 +42072,7 @@ And now you have to decide what to tell $teacher. What do you really want after 
 	[[Finish school]]
 &lt;&lt;else&gt;&gt;\
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="161" name="Finish school" tags="pos_607_1884" position="100,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="162" name="Finish school" tags="pos_607_1884" position="225,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Finished&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;if $flags.walletForgottenStart&gt;&gt;\
 	&lt;&lt;set $flags.walletForgottenEnd = true&gt;&gt;\
@@ -42020,7 +42147,7 @@ And now you have to decide what to tell $teacher. What do you really want after 
 	You&#39;re done with school for today. What would you like to do with the rest of the day?
 
 	&lt;&lt;display [[Travel]]&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="162" name="Girls locker room" tags="pos_51_2160" position="225,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="163" name="Girls locker room" tags="pos_51_2160" position="350,2100">\
 &lt;&lt;if $scene eq &quot;Toilets weird noise&quot;&gt;&gt;\
 	You rush to the toilets, but on the way you notice that the door to the girls&#39; locker room is ajar, and you can hear weird noises coming from inside. Sexy noises.
 
@@ -42061,7 +42188,7 @@ And now you have to decide what to tell $teacher. What do you really want after 
 	This is a bug, please call bugs exterminators.
 	
 	[[Return to the hallway near your classroom|Go to hallway]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="163" name="Go to class" tags="pos_90_1753" position="350,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="164" name="Go to class" tags="pos_90_1753" position="475,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Classroom&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set $player.schoolLastDay to $time.day&gt;&gt;\
 &lt;&lt;set $flags.schoolWalk = false&gt;&gt;\
@@ -42265,7 +42392,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 		&lt;&lt;print &quot;[[Go to the hallway with &quot;+$teacher+&quot; but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="164" name="Go to detention" tags="pos_249_2179" position="475,2100">\
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="165" name="Go to detention" tags="pos_249_2179" position="600,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Detention&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 You go to the detention room. $teacher is waiting for you.
 
@@ -42309,7 +42436,7 @@ You go to the detention room. $teacher is waiting for you.
 	@@.teacher;&quot;Ok, $player.name. &lt;&lt;display &quot;Detention Punishment&quot;&gt;&gt;&quot;@@
 
 	[[Do as you&#39;re told|Finish school][$time.addMinutes(30)]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="165" name="Go to hallway" tags="pos_285_1882" position="600,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="166" name="Go to hallway" tags="pos_285_1882" position="725,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Hallway&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -43244,7 +43371,7 @@ You go to the detention room. $teacher is waiting for you.
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="166" name="Go to school toilet" tags="pos_83_1434" position="725,2100">\
+\</tw-passagedata><tw-passagedata pid="167" name="Go to school toilet" tags="pos_83_1434" position="850,2100">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Bully Handjob&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;if $player.perversion.bullies eq 0&gt;&gt;\
 	&lt;!--&lt;first scene bullies&gt;--&gt;\
@@ -43446,7 +43573,7 @@ You go to the detention room. $teacher is waiting for you.
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $player.perversion.bullies ++&gt;&gt;\
 
-[[Go to class]]\</tw-passagedata><tw-passagedata pid="167" name="Go to school" tags="pos_736_1453" position="850,2100">\
+[[Go to class]]\</tw-passagedata><tw-passagedata pid="168" name="Go to school" tags="pos_736_1453" position="975,2100">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Outside&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -44364,7 +44491,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It&#39;s an
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if $time.hour lte 9&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="168" name="Make out with bully" tags="pos_437_2587" position="975,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="169" name="Make out with bully" tags="pos_437_2587" position="1100,2100">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 You grab $futa.his_her hand and drag $futa.him_her to the toilets.
 
@@ -44383,7 +44510,7 @@ Oh, how you enjoy your dominating role.
 &lt;&lt;if $kink.urineDrink&gt;&gt;\
 &lt;&lt;print &#39;[[Trick &#39;+$futa.him_her+&#39; into becoming a public toilet|Bully public toilet]]&#39;&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
-[[Finish school]]</tw-passagedata><tw-passagedata pid="169" name="Naming Bully" tags="pos_445_3109" position="1100,2100">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="170" name="Naming Bully" tags="pos_445_3109" position="1225,2100">\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 What&#39;s bully&#39;s name?
 &lt;&lt;textbox &quot;$bully&quot; &quot;&quot; autofocus&gt;&gt;
@@ -44406,7 +44533,7 @@ What&#39;s bully&#39;s name?
 			[[Finish school]]
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="170" name="No to Coach" tags="pos_1046_2471" position="1225,2100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="171" name="No to Coach" tags="pos_1046_2471" position="100,2225">\
 You refuse to pose for Coach.
 
 &lt;&lt;if random(2) lte $player.perversion.coach&gt;&gt;\
@@ -44422,7 +44549,7 @@ Muttering something about ungrateful youngsters, Coach packs $futa.his_her photo
 [[Finish school]]
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.coachPosing to true&gt;&gt;\
-&lt;&lt;set $flags.coachPosingHappy to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="171" name="Play Bully" tags="pos_433_2462" position="100,2225">\
+&lt;&lt;set $flags.coachPosingHappy to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="172" name="Play Bully" tags="pos_433_2462" position="225,2225">\
 &lt;&lt;if $player.perversion.bullies lte 3&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Bully Photo&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 	You walk up to $bully and quietly tell $futa.him_her that you have a task for $futa.him_her from $teacher. $futa.He_She looks stricken and follows you to the toilets without further questions.
@@ -44495,7 +44622,7 @@ Muttering something about ungrateful youngsters, Coach packs $futa.his_her photo
 	[[Pick classic makeup|Finish school][$player.perversion.bullies=7]]
 	[[Pick bimbo makeup|Finish school][$player.perversion.bullies=8]]
 	[[Pick heavy makeup|Finish school][$player.perversion.bullies=9]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="172" name="Play with Coach" tags="pos_1249_2189" position="225,2225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="173" name="Play with Coach" tags="pos_1249_2189" position="350,2225">\
 		&lt;&lt;if $kink.futa&gt;&gt;\
 			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Coach Dick Futa&quot; 600 600&gt;&gt;&lt;/div&gt;\
 		&lt;&lt;else&gt;&gt;\
@@ -44538,7 +44665,7 @@ You go to Coach, who is already waiting for you.
 	
 &lt;&lt;set window.coachMinigame.reset()&gt;&gt;\
 &lt;&lt;set $minigames.coachgame.playedYesterday to true&gt;&gt;\
-&lt;&lt;display [[Coach game]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="173" name="Pose to Coach" tags="pos_1048_2191" position="350,2225">\
+&lt;&lt;display [[Coach game]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="174" name="Pose to Coach" tags="pos_1048_2191" position="475,2225">\
 &lt;&lt;if $player.perversion.coach eq 0&gt;&gt;\
 	You knock on Coach&#39;s office door and enter.\
 	&lt;&lt;if $kink.futa&gt;&gt;\
@@ -44610,12 +44737,12 @@ You go to Coach, who is already waiting for you.
 	
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;print &#39;[[Pose as &#39;+$futa.he_she+&#39; asks|Yes to Coach]]&#39;&gt;&gt;
-[[Refuse to pose|No to Coach]]</tw-passagedata><tw-passagedata pid="174" name="Refuse to remain in chastity" tags="pos_851_2314" position="475,2225">\
+[[Refuse to pose|No to Coach]]</tw-passagedata><tw-passagedata pid="175" name="Refuse to remain in chastity" tags="pos_851_2314" position="600,2225">\
 	&lt;&lt;set $player.perversion.teacherPermChastity=0&gt;&gt;\
 	&lt;&lt;set $flags.lockedWeekend to false&gt;&gt;\
 	You refuse to remain in chastity.
 
-	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="175" name="School assistant" tags="pos_248_1433" position="600,2225">\
+	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="176" name="School assistant" tags="pos_248_1433" position="725,2225">\
 &lt;&lt;set $flags.assistantSatisfied = true&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
@@ -45118,7 +45245,7 @@ You go to Coach, who is already waiting for you.
 	You clean up as much as possible and try to fix your clothes before going to class.
 	
 	[[Go to class]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="176" name="School public toilets" tags="pos_649_2342" position="725,2225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="177" name="School public toilets" tags="pos_649_2342" position="850,2225">\
 You strut toward the toilets, shaking your hips and licking your lips at anyone who looks your way.
 
 &lt;&lt;if $kink.urineDrink and ($tasksTeacher.schoolPublicToilet.progress eq 1)&gt;&gt;\
@@ -45158,7 +45285,7 @@ You strut toward the toilets, shaking your hips and licking your lips at anyone 
 	&lt;&lt;set $tasksTeacher.schoolPublicToilet.progress = 1&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Go to class]]</tw-passagedata><tw-passagedata pid="177" name="SissyConfession" tags="pos_1800_2092" position="850,2225">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="178" name="SissyConfession" tags="pos_1800_2092" position="975,2225">\
 &lt;&lt;if ($scene eq &quot;ReturnToTeacher&quot;) or ($scene eq &quot;FailToPay&quot;)&gt;&gt;\
 	&lt;&lt;set $flags.sissyConfessionStart = false&gt;&gt;\
 	&lt;&lt;if $scene eq &quot;ReturnToTeacher&quot;&gt;&gt;\
@@ -45384,7 +45511,7 @@ You strut toward the toilets, shaking your hips and licking your lips at anyone 
 	[[Punishment|TeacherPunishment]]
 &lt;&lt;else&gt;&gt;\
 	It is bug, report to devs. Current scene is = &quot;$scene&quot;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="178" name="Stun the bullies" tags="pos_75_1566" position="975,2225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="179" name="Stun the bullies" tags="pos_75_1566" position="1100,2225">\
 &lt;&lt;set $player.daringFlag.refuseBully to true&gt;&gt;\
 You decide to teach the bullies a lesson, and pull out your stun gun. You stick it right against the leader&#39;s chest and pull the trigger.
 
@@ -45393,7 +45520,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 &lt;&lt;set $player.daringFlag.stunBully to true&gt;&gt;\
 &lt;&lt;removeFromInv &#39;stunGun&#39;&gt;&gt;\
 &lt;&lt;set $items.stunGun.disabled=true&gt;&gt;\
-[[Go to class]]</tw-passagedata><tw-passagedata pid="179" name="Talk to bullies" tags="pos_248_1433" position="1100,2225">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="180" name="Talk to bullies" tags="pos_248_1433" position="1225,2225">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;School Outside&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $flags.bullySucked to false&gt;&gt;\
 &lt;&lt;if $player.perversion.teacher gte 7&gt;&gt;\
@@ -45425,7 +45552,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 
 		[[Leave them and go to class|Go to class]] 
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="180" name="Teacher fantasy" tags="pos_1343_16" position="1225,2225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="181" name="Teacher fantasy" tags="pos_1343_16" position="100,2350">\
 &lt;div class=&quot;dream&quot;&gt;\
 &lt;&lt;set _dream = window.dreamsSelector.randomDream(window.dreamsTeacher)&gt;&gt;\
 &lt;&lt;if _dream.hasPassage&gt;&gt;\
@@ -45434,7 +45561,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;print _dream.description&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;/div&gt;\
-\</tw-passagedata><tw-passagedata pid="181" name="TeacherPunishment" tags="pos_1800_2092" position="100,2350">\
+\</tw-passagedata><tw-passagedata pid="182" name="TeacherPunishment" tags="pos_1800_2092" position="225,2350">\
 &lt;&lt;if window.timeCode.isMonday()&gt;&gt;\
 	&lt;&lt;if $bribeAmount-$player.bribeDiscount lte 200&gt;&gt;\
 		&lt;&lt;set teacherCode.addPenalty(2)&gt;&gt;\
@@ -45477,7 +45604,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		&lt;&lt;set $scene=&quot;placeholder&quot;&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;display [[TeacherPunishmentsScenes]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="182" name="TeacherPunishmentsScenes" tags="pos_1800_2092" position="225,2350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="183" name="TeacherPunishmentsScenes" tags="pos_1800_2092" position="350,2350">\
 &lt;&lt;set _defaultPunishmentEnd = true&gt;&gt;\
 &lt;&lt;set $player.punishments.refusedToPay = false&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -47523,7 +47650,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;set $player.punishments.refusedToPay = false&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(30)&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="183" name="Yes to Coach" tags="pos_1047_2331" position="350,2350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="184" name="Yes to Coach" tags="pos_1047_2331" position="475,2350">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;if $player.perversion.coach eq 0&gt;&gt;\
 	&lt;div  style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Photo Studio&quot; 400 400&gt;&gt;&lt;/div&gt;\	
@@ -47732,7 +47859,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.coachPosing to true&gt;&gt;\
 &lt;&lt;set $flags.coachPosingHappy to true&gt;&gt;\
-&lt;&lt;set $flags.coachPosingAngry to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="184" name="semiPermWarning" tags="pos_249_2179" position="475,2350">\
+&lt;&lt;set $flags.coachPosingAngry to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="185" name="semiPermWarning" tags="pos_249_2179" position="600,2350">\
 &lt;&lt;selectScene Teacher_semi_perm_warning_1 SEQ&gt;&gt;\
 &lt;&lt;scene&gt;&gt;\
 	@@.teacher;&quot;Can you make this more lasting? I think he may need more time to adjust.&quot;@@
@@ -47767,7 +47894,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&quot;If I was you, I would just, you know... come back sooner rather than later if you want to undo stuff.&quot;@@
 &lt;&lt;scene&gt;&gt;\
 	@@.nurse;&quot;This treatment is semi-permanent. So, it won&#39;t require renewal and it&#39;s super simple to reverse it with a special procedure.&quot;@@
-&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="185" name="Begin" tags="pos_259_2" position="600,2350">\
+&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="186" name="Begin" tags="pos_259_2" position="725,2350">\
 Before we get started, please provide some information to tailor the game for you.
 
 What&#39;s your name?
@@ -47787,7 +47914,7 @@ Your therapist&#39;s name?
 [[Introduction]]
 
 &lt;&lt;checkbox &quot;$showimages&quot; false true checked&gt;&gt; Show images
-&lt;&lt;checkbox &quot;$kink.futa&quot; false true unchecked&gt;&gt; Shemales mode @@.halftransparent;Work in Progress@@</tw-passagedata><tw-passagedata pid="186" name="Initialise" tags="pos_130_4" position="725,2350">\
+&lt;&lt;checkbox &quot;$kink.futa&quot; false true unchecked&gt;&gt; Shemales mode @@.halftransparent;Work in Progress@@</tw-passagedata><tw-passagedata pid="187" name="Initialise" tags="pos_130_4" position="850,2350">\
 &lt;&lt;addToInv &#39;pyjamasMale&#39;&gt;&gt;\
 &lt;&lt;addToInv &#39;casualMale&#39;&gt;&gt;\
 &lt;&lt;addToInv &#39;schoolMale&#39;&gt;&gt;\
@@ -47814,7 +47941,7 @@ Your therapist&#39;s name?
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;/for&gt;&gt;\
 &lt;&lt;goto [[Begin]]&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="187" name="Introduction" tags="pos_393_4" position="850,2350">\
+\</tw-passagedata><tw-passagedata pid="188" name="Introduction" tags="pos_393_4" position="975,2350">\
 &lt;&lt;if ($player.name.length lt 1) or ($player.name.length gt 20)&gt;&gt;\
 	The name you entered for yourself must be between 2 and 20 characters.  Please try again.
 	
@@ -47850,7 +47977,7 @@ Your therapist&#39;s name?
 		&lt;&lt;set $bully=&quot;Berta&quot;&gt;&gt;\
 		&lt;&lt;set window.wordsCode.setFutaPronouns()&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="188" name="Start" tags="" position="975,2350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="189" name="Start" tags="" position="1100,2350">\
 &lt;&lt;set $gameVersion=7910&gt;&gt;\
 \
 &lt;&lt;set window.structures.updateStructures()&gt;&gt;
@@ -47876,6 +48003,7 @@ Your therapist&#39;s name?
 &lt;&lt;set window.structures.setupPunishments()&gt;&gt;\
 &lt;&lt;set window.structures.setupTasks()&gt;&gt;\
 &lt;&lt;set window.structures.setupImagePacks()&gt;&gt;\
+&lt;&lt;set window.structures.setupCheer()&gt;&gt;\
 &lt;&lt;set $gameVersion = gameCode.version&gt;&gt;\
 */\
 \
@@ -47968,7 +48096,7 @@ Your therapist&#39;s name?
     }
 }&gt;&gt;\
 \
-&lt;&lt;goto [[Initialise]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="189" name="Film playing with butt-plug" tags="pos_167_757" position="1100,2350">\
+&lt;&lt;goto [[Initialise]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="190" name="Film playing with butt-plug" tags="pos_167_757" position="1225,2350">\
 &lt;&lt;if not playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 	You aren&#39;t wearing chastity.
 &lt;&lt;elseif not (playerCode.owns(itemsC.buttPlugHeart) or playerCode.owns(itemsC.buttPlugDildo) or playerCode.owns(itemsC.buttPlugVibro))&gt;&gt;\
@@ -47999,7 +48127,7 @@ Your therapist&#39;s name?
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="190" name="Film practicing with a dildo" tags="pos_216_1085" position="1225,2350">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="191" name="Film practicing with a dildo" tags="pos_216_1085" position="100,2475">\
 &lt;&lt;if not playerCode.owns(itemsC.vibrator)&gt;&gt;\
 	You don&#39;t have any vibrators.
 	
@@ -48044,7 +48172,7 @@ Your therapist&#39;s name?
 		[[Send video|UploadPorn]]
 	&lt;&lt;endif&gt;&gt;\
 	[[Return|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="191" name="Go hunting for used condoms" tags="pos_2596_226" position="100,2475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="192" name="Go hunting for used condoms" tags="pos_2596_226" position="225,2475">\
 &lt;&lt;if $time.hour gt 19&gt;&gt;\
 	&lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Condom Hunting Trashbin&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;elseif (($time.day % 7 eq 5) or ($time.day % 7 eq 6)) and ($time.hour gte 18)&gt;&gt;\
@@ -48077,7 +48205,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 &lt;&lt;set $time.addMinutes(30)&gt;&gt;\
 &lt;&lt;set $flags.guardianCondomsDone = true&gt;&gt;\
 
-[[Go to your bedroom|Go to bedroom]]</tw-passagedata><tw-passagedata pid="192" name="Go shopping" tags="pos_2148_365" position="225,2475">\
+[[Go to your bedroom|Go to bedroom]]</tw-passagedata><tw-passagedata pid="193" name="Go shopping" tags="pos_2148_365" position="350,2475">\
 &lt;&lt;set _choreJS = choresList.goShopping&gt;&gt;\
 &lt;&lt;set _choreV = $chores.goShopping&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -48615,7 +48743,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	[[Perform other chores|Perform chores]]
 	&lt;&lt;endif&gt;&gt;\
 &lt;!--&lt;/General shop&gt;--&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="193" name="Go streetwalking" tags="pos_87_1218" position="350,2475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="194" name="Go streetwalking" tags="pos_87_1218" position="475,2475">\
 &lt;&lt;if $random.stored[0] eq 1&gt;&gt;\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Streetwalking&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;endif&gt;&gt;\
@@ -48733,7 +48861,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	
 &lt;&lt;endif&gt;&gt;\
 [[Go home|Go to bedroom]]
-\</tw-passagedata><tw-passagedata pid="194" name="Jobs adult store" tags="pos_476_1717" position="475,2475">\
+\</tw-passagedata><tw-passagedata pid="195" name="Jobs adult store" tags="pos_476_1717" position="600,2475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -49252,7 +49380,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	&lt;&lt;set $time.hour=16&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(15)&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="195" name="Jobs fastfood finish" tags="pos_476_1717" position="600,2475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="196" name="Jobs fastfood finish" tags="pos_476_1717" position="725,2475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -49599,7 +49727,7 @@ At the end of your shift you count your tips. You received $&lt;&lt;print $playe
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $time.hour=16&gt;&gt;\
 &lt;&lt;set $time.addMinutes(15)&gt;&gt;\
-&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="196" name="Jobs fastfood" tags="pos_476_1717" position="725,2475">\
+&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="197" name="Jobs fastfood" tags="pos_476_1717" position="850,2475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -49950,7 +50078,7 @@ At the end of your shift you count your tips. You received $&lt;&lt;print $playe
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $time.hour=16&gt;&gt;\
 &lt;&lt;set $time.addMinutes(15)&gt;&gt;\
-&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="197" name="Make a kissy selfie at mall" tags="pos_1952_2764" position="850,2475">\
+&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="198" name="Make a kissy selfie at mall" tags="pos_1952_2764" position="975,2475">\
 You take out your phone and make a kissy selfie in the bathroom mirror. As the flash goes off, you hear the door to the mall open and some guy walks in.
 
 	&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
@@ -49966,7 +50094,7 @@ You take out your phone and make a kissy selfie in the bathroom mirror. As the f
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $tasksTeacher.selfieMallToilets.status = 2&gt;&gt;\
 
-[[Exit toilet|Go to the mall]]</tw-passagedata><tw-passagedata pid="198" name="Task Ask advice" tags="pos_3008_2901" position="975,2475">\
+[[Exit toilet|Go to the mall]]</tw-passagedata><tw-passagedata pid="199" name="Task Ask advice" tags="pos_3008_2901" position="1100,2475">\
 &lt;&lt;if $tasksTeacher.askAdvice.status eq 1&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $tasksTeacher.askAdvice.status = 2&gt;&gt;\
@@ -49996,7 +50124,7 @@ You take out your phone and make a kissy selfie in the bathroom mirror. As the f
 	@@.hero;Wow, I learned a lot. That should be helpful...@@
 &lt;&lt;endif&gt;&gt;\
 
-[[Go to class]]</tw-passagedata><tw-passagedata pid="199" name="Task Ask stranger" tags="pos_1827_3027" position="1100,2475">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="200" name="Task Ask stranger" tags="pos_1827_3027" position="1225,2475">\
 &lt;&lt;set $tasksTeacher.askStranger.status = 2&gt;&gt;\
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 	Extremely embarrassed, you meekly ask the man to call you a sissy-slut and write &#39;SISSY&#39; on your back with a marker.
@@ -50012,7 +50140,7 @@ At first he is shocked, but a moment later he decides to roll with it and accept
 
 As he finishes writing on your back, he gives you a sound slap on your butt. Murmuring thanks, you run outside, your cheeks burning bright red.
 
-[[Exit toilets|Go to the mall]]</tw-passagedata><tw-passagedata pid="200" name="Task Ask to be fucked" tags="pos_1802_2902" position="1225,2475">\
+[[Exit toilets|Go to the mall]]</tw-passagedata><tw-passagedata pid="201" name="Task Ask to be fucked" tags="pos_1802_2902" position="100,2600">\
 
 NOT USED
 
@@ -50144,7 +50272,7 @@ Following a strange impulse, you lower yourself onto your knees and kiss the tip
 
 After a brief rest, you help her clean up and awkwardly go back to your room.
 
-[[Go to your room|Go to bedroom]]</tw-passagedata><tw-passagedata pid="201" name="Task Chastity selfie" tags="pos_649_554" position="100,2600">\
+[[Go to your room|Go to bedroom]]</tw-passagedata><tw-passagedata pid="202" name="Task Chastity selfie" tags="pos_649_554" position="225,2600">\
 You undress and take a selfie of yourself locked in a chastity cage.
 
 &lt;&lt;if ($tasksEmail.WebcamSelfieChastity.status gte 2)&gt;&gt;\
@@ -50162,13 +50290,13 @@ After some time the familiar *bing* from your computer notifies you that a new v
 [[Send video|UploadPorn]]
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="202" name="Task Fake girlfriend" tags="pos_2347_2902" position="225,2600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="203" name="Task Fake girlfriend" tags="pos_2347_2902" position="350,2600">\
 &lt;&lt;set $tasksTeacher.fakeGirlfriend.status = 2&gt;&gt;\
 You dress up and contact $teacher&#39;s gay friend.
 
 You meet him and together you go to various public places. You try to act like a girl, but you struggle with keeping up the pose. Despite that, he tells you that you did ok and it was actually fun. He drives you home and promises to call again.
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="203" name="Task Flash chastity" tags="pos_2613_2902" position="350,2600">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="204" name="Task Flash chastity" tags="pos_2613_2902" position="475,2600">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Task Chastity Reveal&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 	&lt;&lt;if ($tasksTeacher.selfieToiletsChastity.progress eq 0)&gt;&gt;\
@@ -50201,7 +50329,7 @@ You meet him and together you go to various public places. You try to act like a
 &lt;&lt;endif&gt;&gt;\
 	The man is shocked by your action, and even more by what&#39;s under your skirt, but before he can say anything you quickly run out of the toilets.
 	
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="204" name="Task Get hit on" tags="pos_1659_2905" position="475,2600">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="205" name="Task Get hit on" tags="pos_1659_2905" position="600,2600">\
 &lt;&lt;set _sl = playerCode.slutScore()&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if ($tasksTeacher.getHitOn.status eq 1)&gt;&gt;\
@@ -50268,7 +50396,7 @@ You find some random guy and ask him to pretend to hit on you.
 		
 		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=2]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="205" name="Task Glory hole" tags="pos_2097_2893" position="600,2600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="206" name="Task Glory hole" tags="pos_2097_2893" position="725,2600">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Gloryhole&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $tasksTeacher.gloryHole.status = 2&gt;&gt;\
 You dress yourself up and go to a local club with a notorious reputation. Once there, you head straight to the toilets.
@@ -50281,7 +50409,7 @@ You wrap your mouth around the cock and start to eagerly lick, suck and massage 
 The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&gt; bill as the voice from the other side compliments you on your work. You grab the money, freshen up and go home.
 &lt;&lt;set $player.money+=5&gt;&gt;\
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="206" name="Task Guide hand" tags="pos_2021_3021" position="725,2600">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="207" name="Task Guide hand" tags="pos_2021_3021" position="850,2600">\
 &lt;&lt;if $scene eq &quot;Caffee&quot;&gt;&gt;\
 	You go to the small cafeteria, hoping to find someone for the task that $teacher gave you.
 
@@ -50594,7 +50722,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 
 	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="207" name="Task Nightwear selfie" tags="pos_649_554" position="850,2600">\
+\</tw-passagedata><tw-passagedata pid="208" name="Task Nightwear selfie" tags="pos_649_554" position="975,2600">\
 &lt;&lt;if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))&gt;&gt;\
 	&lt;&lt;if (not playerCode.isWearingOn(itemTypes.Chastity))&gt;&gt;\
 		&lt;&lt;wearClothing &#39;chastityDevice&#39;&gt;&gt;\
@@ -50640,7 +50768,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 	
 		[[Return|Go to bedroom]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="208" name="Task Sissy Show" tags="pos_2097_2893" position="975,2600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="209" name="Task Sissy Show" tags="pos_2097_2893" position="1100,2600">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _f=playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\
@@ -50809,7 +50937,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 	
 	[[Go home|Go to bedroom][$player.punishments.penaltySissyShow=true;  $tasksTeacher.penaltySissyShow.progress++; $tasksTeacher.penaltySissyShow.step=0]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="209" name="Task Suck popsickle" tags="pos_2755_2904" position="1100,2600">\
+\</tw-passagedata><tw-passagedata pid="210" name="Task Suck popsickle" tags="pos_2755_2904" position="1225,2600">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Task Popsickle&quot; 600 600&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set $tasksTeacher.suckPopsickle.status = 2&gt;&gt;\
 You buy a popsicle and set your phone to record. \
@@ -50825,7 +50953,7 @@ People walking by are baffled by your performance and you can hear some of them 
 
 Finally you finish the popsicle, lick your fingers clean and grab your phone.
 
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="210" name="Task Trial chastity" tags="pos_1952_2896" position="1225,2600">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="211" name="Task Trial chastity" tags="pos_1952_2896" position="100,2725">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;if $tasksTeacher.trialChastity.status eq 1&gt;&gt;\
 	You enter the adult store. After some hesitation, you ask the shopkeeper about the market research opportunity $teacher told you about. She looks a little puzzled.
@@ -51127,7 +51255,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	
 	At last the shopkeeper hands you the key for the chastity cage, grabs your hand and leads you out from the changing cubicle, not giving you time to remove your new accessories. Before letting you go she leans in and whispers that she didn&#39;t have to do all this, but she loves to help people &#39;like yourself&#39; who really, deep down, appreciate the attention and guidance of a stronger minded woman.
 	And then she leans in close against your ear. @@.shopclothes;&quot;Oh, and perhaps you might like to sign up for our special trial, with this new device? It has some new features.&quot;@@ She taps a bright red fingernail against the key that you&#39;re clutching so tightly in your hand. @@.shopclothes;&quot;If you&#39;d like to register online, and enter the code number you&#39;ll see is etched on your key, you&#39;ll be automatically entered into our new Key Holder system, where specially-trained staff will monitor your devices, and choose whether to enable the mechanical lock to function or not. From time to time, your key mistress will assign you special tasks to enable your cage to be unlocked. Normally, that service would cost you $50 per week, but during the trial period, it&#39;s completely free! Or, if you prefer, we can assign the task and unlocking functions to someone who&#39;s a little more... intimately acquainted with you. Your choice: you can provide an email address for another person to take control. But don&#39;t try to fool us - you need to provide credentials to prove that your key holder is someone other than you, Sweetie! The details are all here.&quot;@@ She slips a card into your other hand.
---&gt;\</tw-passagedata><tw-passagedata pid="211" name="Task Trials" tags="pos_2097_2893" position="100,2725">\
+--&gt;\</tw-passagedata><tw-passagedata pid="212" name="Task Trials" tags="pos_2097_2893" position="225,2725">\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 \
@@ -51411,7 +51539,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	After she leaves, you continue resting on the chair, unable to get up, but eventually you manage to stand and head home, hoping your wobbly legs won&#39;t give out.
 
 	[[Go home|Go to bedroom][$tasksTeacher.penaltyTrials.progress=0; $tasksTeacher.penaltyTrials.status=2]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="212" name="Task Trick guy" tags="pos_2486_2904" position="225,2725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="213" name="Task Trick guy" tags="pos_2486_2904" position="350,2725">\
 &lt;&lt;set _sl = playerCode.slutScore()&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
@@ -51446,7 +51574,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	Shrugging off your confusing thoughts, you turn away and retreat before he notices you.
 	
 &lt;&lt;endif&gt;&gt;\
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="213" name="Task Windowshopping" tags="pos_2880_2905" position="350,2725">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="214" name="Task Windowshopping" tags="pos_2880_2905" position="475,2725">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Window Shopping&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $tasksTeacher.windowshopping.status = 2&gt;&gt;\
 As you walk around checking various purses, dresses, and jewelry, you wonder what people would think if they knew about the kinkier accessories you&#39;re wearing.
@@ -51472,7 +51600,7 @@ As you walk around checking various purses, dresses, and jewelry, you wonder wha
 
 You take few more pictures and finally have enough to show $teacher.
 
-[[Take a break|Go to the mall]]</tw-passagedata><tw-passagedata pid="214" name="Task crossdressAroundBlock" tags="pos_2486_2904" position="475,2725">\
+[[Take a break|Go to the mall]]</tw-passagedata><tw-passagedata pid="215" name="Task crossdressAroundBlock" tags="pos_2486_2904" position="600,2725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _f=playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\
 &lt;&lt;if $scene eq &quot;walk around block&quot;&gt;&gt;\
@@ -51589,7 +51717,7 @@ You take few more pictures and finally have enough to show $teacher.
 	[[Go to your bedroom|Go to bedroom]]
 &lt;&lt;else&gt;&gt;\
 	[[Go to your bedroom|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="215" name="Task crossdressAtPark" tags="pos_2486_2904" position="600,2725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="216" name="Task crossdressAtPark" tags="pos_2486_2904" position="725,2725">\
 &lt;&lt;if $scene eq &quot;walk at the park&quot;&gt;&gt;\
 	&lt;&lt;set $tasksTeacher.crossdressAtPark.status = 2&gt;&gt;\
 	&lt;&lt;set $tasksTeacher.crossdressAtPark.progress++&gt;&gt;\
@@ -51679,7 +51807,7 @@ You take few more pictures and finally have enough to show $teacher.
 	&lt;&lt;endif&gt;&gt;\
 	
 	[[Go to your bedroom|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="216" name="Task crossdressOnline" tags="pos_2486_2904" position="725,2725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="217" name="Task crossdressOnline" tags="pos_2486_2904" position="850,2725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -51782,7 +51910,7 @@ You take few more pictures and finally have enough to show $teacher.
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="217" name="Task danceAtHome" tags="pos_2486_2904" position="850,2725">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="218" name="Task danceAtHome" tags="pos_2486_2904" position="975,2725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -51834,7 +51962,7 @@ You take few more pictures and finally have enough to show $teacher.
 	After some time, you manage to calm down and convince yourself that nothing bad is going to happen. The video recording came out better than you expected and you can&#39;t help but admit that dancing was kind of fun.
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="218" name="Task girlyDesert" tags="pos_2486_2904" position="975,2725">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="219" name="Task girlyDesert" tags="pos_2486_2904" position="1100,2725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set $tasksTeacher.girlyDesert.status = 2&gt;&gt;\
@@ -51893,7 +52021,7 @@ You stop, cringing at your traitorous thoughts and and try to hold onto bits of 
 
 Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and go on.
 
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="219" name="Task party maid" tags="pos_476_1717" position="1100,2725">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="220" name="Task party maid" tags="pos_476_1717" position="1225,2725">\
 &lt;&lt;set _pay=50&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -52169,7 +52297,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 
 	&lt;&lt;set playerCode.masturbate.cum()&gt;&gt;\
 	[[Go to your bedroom|Go to bedroom][$flags.partyMaidTask=false; $flags.partyMaidTask=false;]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="220" name="Task posingSeductively" tags="pos_2486_2904" position="1225,2725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="221" name="Task posingSeductively" tags="pos_2486_2904" position="100,2850">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
@@ -52246,7 +52374,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 	You save the //crazy// photo set to your laptop, just for science, and delete it from your phone. You&#39;re still not sure what to think about it, but you&#39;re horny as hell right now. Who knew that shooting dirty selfies could be so simulating?
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="221" name="Task selfieFemaleClothes" tags="pos_2486_2904" position="100,2850">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="222" name="Task selfieFemaleClothes" tags="pos_2486_2904" position="225,2850">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -52293,7 +52421,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="222" name="Task selfieHomeMakeup" tags="pos_2486_2904" position="225,2850">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="223" name="Task selfieHomeMakeup" tags="pos_2486_2904" position="350,2850">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set $tasksTeacher.selfieHomeMakeup.status = 2&gt;&gt;\
@@ -52315,7 +52443,7 @@ Somehow, you manage to look somewhat passable in the end, though your makeup sti
 
 Washing the makeup off isn&#39;t that hard, but it&#39;s disheartening to erase all your hard work... not that you wanted to leave it on.
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="223" name="Task selfiePublicChastity" tags="pos_1827_3027" position="350,2850">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="224" name="Task selfiePublicChastity" tags="pos_1827_3027" position="475,2850">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _b to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
@@ -52369,7 +52497,7 @@ After some time trying to calm yourself down, you at last convince yourself that
 	Finally, preparing for the worst, you lift your eyes again, glance around, and let out sigh in relief. No one is pointing at you, no one is even looking at you. You stand up, check your photos and continue on, wondering if anyone saw you but just kept quiet.
 	
 	[[Return|Go to the mall]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="224" name="Task tryingClothesMall" tags="pos_2880_2905" position="475,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="225" name="Task tryingClothesMall" tags="pos_2880_2905" position="600,2850">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set $tasksTeacher.tryingClothesMall.status = 2&gt;&gt;\
@@ -52462,7 +52590,7 @@ This new perspective makes you wonder what to think about the whole thing. Maybe
 
 Still, your knees are still wobbly from all the adrenaline. You decide to take five minutes and just sit on the bench to calm down your nerves.
 
-[[Rest|Go to the mall][$time.addMinutes(10)]]</tw-passagedata><tw-passagedata pid="225" name="Finish kink therapy" tags="pos_1910_1038" position="600,2850">\
+[[Rest|Go to the mall][$time.addMinutes(10)]]</tw-passagedata><tw-passagedata pid="226" name="Finish kink therapy" tags="pos_1910_1038" position="725,2850">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
 
@@ -52479,7 +52607,7 @@ She winks and hands you an envelope with crisp, new currency inside.
 @@.reward;You earned $&lt;&lt;print rewardMoney.specialHypnosis&gt;&gt;!@@
 
 &lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="226" name="Finish watching" tags="pos_1976_1732" position="725,2850">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="227" name="Finish watching" tags="pos_1976_1732" position="850,2850">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 600 600&gt;&gt;&lt;/div&gt;\	
 The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
 
@@ -52500,7 +52628,7 @@ She winks, handing you an envelope with crisp, new currency in it.
 	[[Go home|Hypnosis aftereffect]]
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="227" name="Hypnosis aftereffect" tags="pos_2292_1732" position="850,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="228" name="Hypnosis aftereffect" tags="pos_2292_1732" position="975,2850">\
 Walking home, you catch yourself ogling a random guy. You wonder how his juicy cock would feel on your tongue...
 
 @@.hero;What the hell!?!@@
@@ -52515,7 +52643,7 @@ You glance at a hot girl passing by and feel relief as you clearly feel an attra
 
 You pick up the pace and rush home, trying not to think about anything lewd at all.
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="228" name="Kink therapy" tags="pos_1914_1288" position="975,2850">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="229" name="Kink therapy" tags="pos_1914_1288" position="1100,2850">\
 &lt;&lt;set _k=window.therapyCode.getWatchedKink()&gt;&gt;\
 &lt;&lt;set _k.start()&gt;&gt;\
 &lt;&lt;if $showimages&gt;&gt;\
@@ -52534,7 +52662,7 @@ You pick up the pace and rush home, trying not to think about anything lewd at a
 @@.delayed_text_long;&lt;&lt;print _k.fadeIn[2]&gt;&gt;@@\
 
 &lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;
-&lt;!--&lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching - (unlocks &#39;+_k.name+&#39; content)|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;--&gt;\</tw-passagedata><tw-passagedata pid="229" name="Stop kink therapy" tags="pos_2067_1294" position="1100,2850">\
+&lt;!--&lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching - (unlocks &#39;+_k.name+&#39; content)|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;--&gt;\</tw-passagedata><tw-passagedata pid="230" name="Stop kink therapy" tags="pos_2067_1294" position="1225,2850">\
 &lt;&lt;set _k=window.therapyCode.getWatchedKink()&gt;&gt;\
 &lt;&lt;set _k.stop()&gt;&gt;\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 600 600&gt;&gt;&lt;/div&gt;\	
@@ -52550,7 +52678,7 @@ You&#39;re unsure, but feel basically ok. You reassure $therapist as she makes s
 
 &lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="230" name="Talk about the butt-plug" tags="pos_4417_317" position="1225,2850">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="231" name="Talk about the butt-plug" tags="pos_4417_317" position="100,2975">\
 You apologize for leaving the butt-plug behind in the rush last time. $friend cuts you off. 
 
 @@.friend;&quot;Hey, don&#39;t worry about it. It was a bit of a shock, though. It didn&#39;t help that I was half asleep at the time. But I don&#39;t care what you do with your body if it makes you happy, $player.name.&quot;@@
@@ -52562,7 +52690,7 @@ $friendG.He_She smiles warmly at you.
 You smile as relief washes over you. You want to ask where the butt-plug is now, but you prefer to just forget about the whole incident.
 
 &lt;&lt;display [[Random stuff with friend]]&gt;&gt;\
-&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;</tw-passagedata><tw-passagedata pid="231" name="Therapist sleep" tags="pos_575_47" position="100,2975">\
+&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;</tw-passagedata><tw-passagedata pid="232" name="Therapist sleep" tags="pos_575_47" position="225,2975">\
 &lt;&lt;if $scene eq &quot;Therapist sleep&quot;&gt;&gt;\
 	You decide to go along with $therapist&#39;s crazy idea.
 	&lt;&lt;display &quot;Watch porn on computer&quot;&gt;&gt;\
@@ -52667,7 +52795,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;set $player.masturbationType = 9&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	[[Sleep|Sleep][$flags.restlessSleep = true; $therapistTalks.talkVibrator.start=true; playerCode.masturbate.lastDay=$time.day-5]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="232" name="Therapist talk topics" tags="pos_128_224" position="225,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="233" name="Therapist talk topics" tags="pos_128_224" position="350,2975">\
 &lt;&lt;set _talklist=window.therapyCode.topicsList()&gt;&gt;\
 &lt;&lt;if _talklist&gt;&gt;\
 	&lt;&lt;for _i to 0; _i lt Object.keys(_talklist).length; _i++&gt;&gt;\
@@ -52675,7 +52803,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;print &#39;[[&#39;+_talk.name+&#39;|Therapist talk][$scene=&quot;&#39;+_talk.passage+&#39;&quot;;$player.therapistTime-=&#39;+_talk.time+&#39;;$time.addMinutes(&#39;+_talk.time+&#39;)]]&#39;&gt;&gt;
 	&lt;&lt;/for&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="233" name="Therapist talk" tags="pos_128_224" position="350,2975">\
+\</tw-passagedata><tw-passagedata pid="234" name="Therapist talk" tags="pos_128_224" position="475,2975">\
 &lt;&lt;set _topics=true&gt;&gt;\
 &lt;&lt;set _return=true&gt;&gt;\
 &lt;&lt;set _home=false&gt;&gt;\
@@ -53964,7 +54092,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 &lt;&lt;if _home&gt;&gt;\
 	[[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="234" name="TherapistSurvey" tags="pos_128_224" position="475,2975">\
+\</tw-passagedata><tw-passagedata pid="235" name="TherapistSurvey" tags="pos_128_224" position="600,2975">\
 &lt;&lt;if $player.perversion.therapist eq 1&gt;&gt;\
 	&lt;&lt;for _i=0; _i lt therapySessions.length; _i++&gt;&gt;\
 		&lt;&lt;if therapySessions[_i].passage eq &quot;TherapistSurvey&quot;&gt;&gt;\
@@ -54057,7 +54185,64 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 	&lt;&lt;endif&gt;&gt;\
 	&lt;!--&lt;/BDSM kink survey dream&gt;--&gt;\
 &lt;&lt;elseif $player.therapistSurvey eq 1&gt;&gt;&lt;!--&lt;Semen kink dream&gt;--&gt;\
-	Placeholder.
+	Reclining on a firm mattress, your body is filled with tingles of pleasure as a blonde woman with looks worthy of a porn star sucks feverishly on your erect penis.\
+	&lt;&lt;if $kinkAllow.creampie or $kinkAllow.cumEating or $kinkAllow.cumSwap&gt;&gt;\
+		Your groans of pleasure are joined by another male voice, as a second man is positioned behind your partner, pumping his cock deep into her moist pussy. His presence puts you on edge for a moment, but the discomfort quickly vanishes thanks to the sensations of blonde’s skilled mouth on your cock. 
+	
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $kinkAllow.bukkake or $kinkAllow.ownCum&gt;&gt;\
+		The woman pulls her lips away from your dick, smiling as she strokes it with her silky fingers. “Does that feel good?” she asks. 
+	
+		You nod, and she gives you a satisfied grin. 
+
+		“You want to give give me all that cum don’t you?” 
+
+		You nod your head again, the pleasure starting to build to a crescendo.
+
+		“Good,” she responds, stroking even faster, your penis right in front of her face. Your muscles tighten and your cock erupts, and she \
+		&lt;&lt;if $kinkAllow.bukkake&gt;&gt;\
+			quickly maneuvers her face into the spray, covering it in your sticky sperm. She smiles as she revels in the feel of your semen dripping down her\
+			&lt;&lt;if $kinkAllow.ownCum&gt;&gt;\
+				face, catching it in her hand as it falls off.
+				
+			&lt;&lt;else&gt;&gt;\
+				face.
+				
+			&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;else&gt;&gt;\
+			swiftly maneuvers her free hand to catch your ejaculation.
+			
+		&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;if $kinkAllow.ownCum&gt;&gt;\
+		She lifts her cum-filled hand to your face and orders, “Open wide.” As you open your mouth to respond, she tilts her hand, filling your mouth with the bitter taste of your own sperm.
+
+		“That’s a good cumslut,” she coos as you reflexively swallow.
+		
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $kinkAllow.creampie&gt;&gt;\
+		The man behind the blonde picks up speed, thrusting vigorously into her cunt. The blonde gasps in pleasure as her own orgasm builds, quivering as the man groans and paints her insides with his sperm. She slides his still-erect cock from her pussy and presents her nether regions to you, allowing you to see the thick strand of white dripping from her folds.
+		
+		&lt;&lt;if $kinkAllow.cumEating&gt;&gt;\
+			“Would you be a dear and clean me out?” she asks, and you practically dive into her crotch, lapping at her pussy in order to savor the taste of the man’s cum mixed with her juices. Your efforts bring her to a second orgasm, her contractions squirting an even larger deposit of blended cum into your mouth before she pulls away.
+			
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $kinkAllow.cumEating or $kinkAllow.cumSwap&gt;&gt;\ 
+		The woman\
+		&lt;&lt;if not $kinkAllow.creampie&gt;&gt;\
+			slides the cock from her still dripping pussy and\
+		&lt;&lt;endif&gt;&gt;\
+		straddles you, guiding you inside her. She faces the man and opens her mouth wide, and he quickly inserts his stiff cock into her willing mouth, allowing her to suck vigorously while bouncing on your own throbbing member.
+
+		Already stimulated from the earlier fucking, it does not take long for him to reach climax, and the woman quickly catches his sperm\
+		&lt;&lt;if $kinkAllow.cumSwap&gt;&gt;\
+			in her mouth. She turns to you and places her hand behind your head, pulling your face towards her. Still stimulating you with the thrusting of her hips, she kisses you deeply. As her tounge parts your lips, the sperm slides from her mouth, filling yours with the man’s seed as you cum.
+		&lt;&lt;else&gt;&gt;\
+			in her hand. She turns to you and moves her hand to your mouth, still stimulating you with the trusting of her hips. You part your lips and she allows the sperm to slide from her hand, your waiting mouth filling with sperm as you cum.
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+
 &lt;!--&lt;/Semen kink dream&gt;--&gt;\
 &lt;&lt;elseif $player.therapistSurvey eq 2&gt;&gt;&lt;!--&lt;Watersports kink dream&gt;--&gt;\
 	You’re in a classical bathhouse, filled with various pools, hot springs, baths and fountains. Intricate mosaic tile covers the floors and walls. A beautiful female attendant is here, wrapped in a breast-exposing, white toga, ready to guide you to the service of your choice. You are clad only in a pair of briefs, but you’re comfortable.
@@ -54120,7 +54305,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;if $kinkAllow.mindControl&gt;&gt;\
-		Your mind cries out inside for you to resist, despite the impossible odds, to do anything to defy your captor. Despite your protest, the brainwashing you’ve been subjected to is impossible to overcome.  A hypnotic fog overtakes... overtakes that part of you, your lips seemingly moving on their own volition.
+		Your mind cries out inside for you to resist, despite the impossible odds, to do anything to defy your captor. Despite your protest, the brainwashing you’ve been subjected to is impossible to overcome. A hypnotic fog overtakes... overtakes that part of you, your lips seemingly moving on their own volition.
 
 		&lt;&lt;if $kinkAllow.whoring&gt;&gt;\
 			“Please... Fuck me. Use my worthless body.\
@@ -54158,76 +54343,103 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 	Placeholder.
 &lt;!--&lt;/Xbody kink dream&gt;--&gt;\
 &lt;&lt;elseif $player.therapistSurvey eq 4&gt;&gt;&lt;!--&lt;Feet and sweat kink dream&gt;--&gt;\
-	You’re lying on your back on a yoga mat, pinned by your personal trainer, an attractive, athletic college girl dressed like someone from an 80’s exercise video: a thong-style leotard, \
+	You are lying on your back on a yoga mat, pinned down by your personal trainer, an attractive, athletic college girl. Amusingly, your trainer prefers to exercise dressed like someone from an 80’s aerobics video: a thong-style leotard\
 	&lt;&lt;if $kinkAllow.hosiery&gt;&gt;tights, slouchy socks &lt;&lt;endif&gt;&gt;\
-	and sneakers.\
-	&lt;&lt;if $kinkAllow.footDisplay or $kinkAllow.FootWorship or $kinkAllow.hosiery or $kinkAllow.shoeBoot or $kinkAllow.odor&gt;&gt;\
-		“Now I’m going to teach you how to properly clean your trainer’s equipment...” she says, “...with your tongue.”
+	and sneakers. Held down so completely, you futilely struggle under her weight, even as the feeling of her body on yours is causing your cock to stiffen.
+	
+	&lt;&lt;if $kinkAllow.footDisplay or $kinkAllow.footWorship or $kinkAllow.hosiery or $kinkAllow.shoeBoot or $kinkAllow.odor&gt;&gt;\
+		&lt;&lt;if $kinkAllow.footWorship or $kinkAllow.hosiery or $kinkAllow.shoeBoot or $kinkAllow.shoeSockOdor&gt;&gt;\
+			“Now, I’m going to teach you how to properly clean your trainer’s equipment after a workout...” she says, “...with your tongue.”
+			
+			&lt;&lt;if $kinkAllow.shoeBoot&gt;&gt;\
+				The weight pressing you to the floor shifts, and soon your trainer’s shoes are in front of your upturned face, hovering expectantly. You hesitantly grab hold of her foot and pull it towards your mouth, extending your tongue to touch the bottom of her sneaker. 
 
-		&lt;&lt;if $kinkAllow.shoeBoot&gt;&gt;\
-			Your trainer places her shoes in front of your upturned face. You gently hold her foot, open your mouth, and begin to lick the sole of her sneaker, ensuring you see only white before moving to the other one. When she is satisfied with your work, she pulls her feet\
-			&lt;&lt;if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor or $kinkAllow.footWorship&gt;&gt;\
-				away and begins removing her shoes.
-			&lt;&lt;else&gt;&gt;\
-				away.
+				“Good boy,” your trainer smiles.
+
+				You lick the sole until all you can see is white rubber, then move to clean the other shoe. When she is satisfied with your work, your trainer pulls her feet\
+				&lt;&lt;if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor or $kinkAllow.footWorship&gt;&gt;\
+					away and begins untying her laces.
+				
+				&lt;&lt;else&gt;&gt;\
+					away.
+					
+				&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor&gt;&gt;\
+			You try to protest, but your trainer swiftly slips off her shoes and stuffs one of her one of her\
+			&lt;&lt;if $kinkAllow.shoeSockOdor&gt;&gt;sweat-soaked&lt;&lt;endif&gt;&gt;\
+			socks in your mouth, silencing you with the wad of cotton.
 			
 		&lt;&lt;endif&gt;&gt;\
-\
-		&lt;&lt;if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor&gt;&gt;\
-			You try to utter protest, but the trainer swiftly slips off\
-			&lt;&lt;if not $kinkAllow.shoeBoot&gt;&gt;her shoes and&lt;&lt;endif&gt;&gt;\
-			one of her\
-			&lt;&lt;if $kinkAllow.shoeSockOdor&gt;&gt;sweat-soaked&lt;&lt;endif&gt;&gt;\
-			socks and shoves it in your mouth.\
-		&lt;&lt;endif&gt;&gt;\
-		&lt;&lt;if $kinkAllow.footDisplay&gt;&gt;\
-			Your trainer’s foot soon fills your vision,&lt;&lt;if $kinkAllow.footOdor&gt;&gt;and the strong scent of her sweat hits you. You instinctively recoil from the smell&lt;&lt;endif&gt;&gt;. “Isn’t it cute?” she asks, wiggling her toes. You nod quickly, trying to appease her.
-
+		&lt;&lt;if $kinkAllow.footDisplay or $kinkAllow.footOdor&gt;&gt;\
+			A naked foot soon fills your\ 
+			&lt;&lt;if $kinkAllow.footOdor&gt;&gt;\
+				vision and the strong scent of her sweat hits you. You instinctively recoil from the smell.
+				
+			&lt;&lt;else&gt;&gt;\
+				vision.
+				
+			&lt;&lt;endif&gt;&gt;\
+			&lt;&lt;if $kinkAllow.footDisplay&gt;&gt;\
+			“Isn’t it cute?”\			
+			&lt;&lt;else&gt;&gt;\
+			&quot;Smells good. Doesn&#39;t it?&quot;\
+			&lt;&lt;endif&gt;&gt;\
+			she asks, wiggling her toes. You nod quickly, trying to appease her.
+			
 		&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;if $kinkAllow.footWorship&gt;&gt;\
 			The trainer\
-			&lt;&lt;if $kinkAllow.hosiery or $kinkAllow.shoeSockOdor&gt;&gt;\
+			&lt;&lt;if $kinkAllow.hosiery&gt;&gt;\
 				removes the sock from your mouth and\
 			&lt;&lt;endif&gt;&gt;\
 			lowers her\
 			&lt;&lt;if $kinkAllow.footOdor&gt;&gt;sweaty,&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;if $kinkAllow.hosiery&gt;&gt;tights-covered&lt;&lt;endif&gt;&gt;\
-			foot to your lips, and your mouth is forcefully invaded by toes.
+			foot to your lips, and soon your mouth is forcefully invaded by toes.
+		
+			&quot;Suck gently,&quot; your trainer orders. 
+			
+			You obey without question, your erection growing ever stronger.
 			
 		&lt;&lt;elseif $kinkAllow.hosiery or $kinkAllow.shoeSockOdor&gt;&gt;\
-			The trainer places the other sock directly over your nose, forcing you to breathe in the\
-			&lt;&lt;if $kinkAllow.shoeSockOdor&gt;&gt;strong&lt;&lt;else&gt;&gt;faint&lt;&lt;endif&gt;&gt;\
-			scent of her pheromones, before finally removing both socks.
+			The trainer places the other sock directly over your nose, forcing you to breathe and taste her\
+			&lt;&lt;if $kinkAllow.shoeSockOdor&gt;&gt;potent\&lt;&lt;endif&gt;&gt;\
+			pheromones. She grinds on your hips, stimulating you as you are overwhelmed by her essence.
 			
 		&lt;&lt;endif&gt;&gt;\
-\
 		&lt;&lt;if $kinkAllow.clothesOdor&gt;&gt;\
-			Next, the trainer brandishes a pair of worn panties, and presses the crotch into your nose and mouth. “Get licking, my little washing machine,” she orders, and you lap at the thin fabric in front of your face until the panties are finally soaked with your saliva.
+			Next, the trainer reaches into her gym bag and brandishes a pair of worn panties, before pressing the crotch into your nose and mouth. 
 			
-			&lt;&lt;if $kinkAllow.armpitOdor&gt;&gt;\
-				Suddenly, you are pulled up by your shirt as your trainer shoves your face into her armpit. You extend your tongue and begin to lick away the salty pearls of sweat in the fold of her arm, after which, she lays you back down on the yoga mat.
+			“Get licking, my little washing machine,” she orders.
+			
+			The smell of her on the panties puts you into autopilot, and you start lapping at the thin fabric in front of your face, relishing her taste until the panties are finally soaked in your saliva.
+			
+		&lt;&lt;endif&gt;&gt;\	
+		&lt;&lt;if $kinkAllow.armpitOdor&gt;&gt;\
+			Your trainer drapes herself across your upper body, shifting until she nestles your face firmly in her armpit. The pungent sense assaults your sense, but a gentle stroking of your cock starts to cloud your mind, inexorably binding the odor with your arousal.
 				
-			&lt;&lt;endif&gt;&gt;\		
-		&lt;&lt;endif&gt;&gt;\
-\
+		&lt;&lt;endif&gt;&gt;\		
 		&lt;&lt;if $kinkAllow.assOdor&gt;&gt;\
-			Your trainer displaces the crotch of her leotard and underwear and presents you her ass. You greedily worship her ass cheeks and crack, eliciting a moan from your trainer before she pulls her ass away.
+			Your trainer displaces the crotch of her leotard and presents you her ass. As she lowers it towards your face, you hear a single word: “worship.” Enveloped by the plush mounds of her supple cheeks, there is nothing you can do but greedily tongue away, desperate for a taste of her. Your trainer grinds and moans as you work, but pulls herself away before getting too lost in the pleasure.
 			
 		&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;if $kinkAllow.genitalOdor&gt;&gt;\
 			With a quick shift of position, the trainer moves her crotch in front of your face&lt;&lt;if not $kinkAllow.assOdor&gt;&gt;, displacing her leotard and underwear&lt;&lt;endif&gt;&gt;.\
-			You raise your head to meet her body and enthusiastically lick her slit, until finally she orgasms hard on your tongue.
+			The smell of her sweat and arousal is intoxicating, and in a trance, you raise your head to meet her body, enthusiastically licking at her moist slit. She rides you until she finally orgasms hard, drenching your face in her juices.
 			
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;if $kinkAllow.footjob&gt;&gt;\
-		“I think you deserve a reward for all your hard work today,” your trainer says as she pulls down your shorts, freeing your semi-erect cock. She lays back, placing her\
-		&lt;&lt;if $kinkAllow.hosiery&gt;&gt;tights-covered&lt;&lt;endif&gt;&gt;\
-		feet on either side of your dick, and starts moving her legs up and down, using her soft soles to stimulate your penis.  You feel the pressure in your dick starting to build, until you cum hard, shooting thick lines of sperm over her feet.
-	&lt;&lt;endif&gt;&gt;\
+		Your trainer smiles. “Mmm. I think you deserve a reward for all your hard work today,” she purrs, pulling down your shorts and freeing your erect cock. 
 
-	“Well, $player.name, I hope you enjoyed your session,” your trainer says with a smile. “Hopefully, you’re looking forward to next time.” You nod enthusiastically, your penis already stiffening as you think about your next training session...
+		She lays back, placing her\
+		&lt;&lt;if $kinkAllow.hosiery&gt;&gt;tights-covered&lt;&lt;endif&gt;&gt;\
+		feet on either side of your dick, and starts moving her legs up and down, using her soft soles to stimulate the sensitive flesh of your rock-hard penis. You feel the pressure inside you building and finally succumb to the ministrations of her feet, coating them in thick lines of sperm.
+		
+	&lt;&lt;endif&gt;&gt;\
+	“Well, $player.name, I hope you enjoyed your session,” your trainer says with a smile. “Hopefully, you’re looking forward to next time.” You nod enthusiastically, already dreaming about your next training session...
 	
 &lt;!--&lt;/Feet and sweat kink survey&gt;--&gt;\
 &lt;&lt;elseif $player.therapistSurvey eq 5&gt;&gt;&lt;!--&lt;Clothes kink dream&gt;--&gt;\
@@ -55114,7 +55326,7 @@ Yes – I am turned on by the idea of having my sex organs transformed to the op
 &lt;!--&lt;/TG kink survey&gt;--&gt;\
 &lt;&lt;endif&gt;&gt;\
 -------------------
-&lt;&lt;if [0,2,4,5,6].includes($player.therapistSurvey) and (not _hideDreamOption)&gt;&gt;\
+&lt;&lt;if [0,1,2,4,5,6].includes($player.therapistSurvey) and (not _hideDreamOption)&gt;&gt;\
 &lt;div class=&quot;dream&quot;&gt;\
 [[Imagine how it might feel|TherapistSurvey][$scene=&quot;SurveyDreams&quot;]]
 &lt;/div&gt;\
@@ -55130,7 +55342,7 @@ It&#39;s a bug. Please call bugs exterminators.
 
 [[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="235" name="Visit therapist" tags="pos_1748_1280" position="600,2975">\
+\</tw-passagedata><tw-passagedata pid="236" name="Visit therapist" tags="pos_1748_1280" position="725,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 350 350&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;CheckUnderwear&gt;&gt;\
 &lt;&lt;set $watchingKink=false&gt;&gt;\
@@ -55181,7 +55393,7 @@ _a.text
 	[[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.therapistTalk=false&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="236" name="Watch hypnotherapy" tags="pos_1914_1163" position="725,2975">\
+\</tw-passagedata><tw-passagedata pid="237" name="Watch hypnotherapy" tags="pos_1914_1163" position="850,2975">\
 &lt;&lt;if $showimages&gt;&gt;\
 &lt;&lt;print &#39;&lt;img src=&quot;&#39; + hypnoCode.getHypnoImage() + &#39;&quot;&gt;&#39;&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
@@ -55200,7 +55412,7 @@ _a.text
 @@.delayed_text_med;, give up@@\
 @@.delayed_text_long;, enjoy@@
 
-&lt;&lt;delayedLink 5 &quot;Finish watching&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="237" name="For testing" tags="pos_649_2342" position="850,2975">\
+&lt;&lt;delayedLink 5 &quot;Finish watching&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="238" name="For testing" tags="pos_649_2342" position="975,2975">\
 \
 &lt;!--
 &lt;&lt;set _chast to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -55468,7 +55680,7 @@ $punishments.punStool.text
 	&lt;&lt;endif&gt;&gt;\
 --&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;!--&lt;/Debug&gt;--&gt;\</tw-passagedata><tw-passagedata pid="238" name="Suck training cock" tags="pos_54_936" position="975,2975">\
+&lt;!--&lt;/Debug&gt;--&gt;\</tw-passagedata><tw-passagedata pid="239" name="Suck training cock" tags="pos_54_936" position="1100,2975">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -55856,7 +56068,7 @@ $punishments.punStool.text
 	It is a BUG.
 
 	[[Do something else|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="239" name="Way to school phone" tags="pos_649_2342" position="1100,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="240" name="Way to school phone" tags="pos_649_2342" position="1225,2975">\
 You are walking to school, when suddenly your phone chimes rapidly. You pull out the phone to see that Lauren has sent you a text message. Your heart goes into overdrive as you swipe open the phone and check your messages.</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
