@@ -49,6 +49,7 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		this.setupCheer();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -643,6 +644,19 @@ window.structures={
 			}
 		}
 	},
+	
+	setupCheer: function (){
+		var vars=State.active.variables;
+		var cheerList=window.cheerList;
+		if (vars.cheerleaders == null) {
+			vars.cheerleaders = {};
+		}
+		for (var i=0; i < Object.keys(cheerList).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
+			}
+		}
+	}
 },
 
 window.playerList={
@@ -1167,7 +1181,8 @@ window.flagsList={
 	salonPickNose: false,
 	salonPenalty: false,
 	salonPenaltyPayed: false,
-	salonPiggyCoin: false
+	salonPiggyCoin: false,
+	clothesPurged:false, //new flag
 },
 
 window.kinkList={
@@ -1339,6 +1354,27 @@ window.quickSlotList={
 	name: "Custom h",
 	extra: true
 	}
+},
+
+//variables for cheer arc
+window.cheerList={
+	active: false, //currently cheerleading
+	progress: 0, //completed cheerleading chapters
+	canPractice: true, //can practice cheerleading after school
+	fakeName: "", //fake name PC uses with cheerleaders
+	position: 1, //position in the squad, 1=flyer, 2=base
+	bitchAffinity: 0, //Ashley's attitude towards PC
+	cleanDone: 0, //progress cleaning equipment room
+	
+
+},
+
+window.cheerFriendList={
+	name: "Lauren",
+	progress: 0,
+	affinity: 0,
+	currentSE: 0,
+	attraction: 0,
+	
+
 }
-
-
