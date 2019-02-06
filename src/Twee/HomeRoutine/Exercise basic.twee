@@ -1,0 +1,61 @@
+:: Exercise basic
+\
+<<if $cheerleaders.progress gte 2 and $flags.clothesPurged>>\
+	You quickly change into your\
+	<<if $cheerleaders.progress gte 3>>\
+		uniform,\
+	<<else>>\\
+		practice outfit,\
+	<<endif>>\
+	grab your phone, and run to the backyard.
+	
+<<else>>\
+	You change into a pair of shorts, sneakers, and a t-shirt, grab your phone, and run to the backyard.
+	
+<<endif>>\
+	Once your sneakers hit the soft grass, you run a quick search for\
+<<if $cheerleaders.progress gt 6>>\
+	tumbling\
+<<elseif $cheerleaders.progress gt 3>>\
+	stretching\
+<<else>>\
+	cheerleader conditioning\
+<<endif>>
+on your phone. The thumbnail for the first result shows an awkwardly shot image of a cute, athletic girl a little younger than you wearing a tank top, spandex shorts, and cheer sneakers. The title of the video promises “Cheer tips for beginners from a real cheerleader!” 
+
+You tap the link and the video starts playing, a little louder than you expected. You hurriedly lower the volume as the host begins her speil.
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Workout Video" 600 600>></div>
+@@.femvoice5;“Hey, girls! Welcome to the channel! I’m Crystal and today I’m going to show you some hot tips on how to boost your spirit and wow the crowd!”@@
+
+The host continues, walking you through several exercises that you remember from practice. 
+
+<<if $player.fitness lte 4>>\
+	Your lack of practice is plainly apparent as you struggle to keep up with the host’s simplest instructions. Anything complex or strenuous proves to be impossible.
+<<elseif $player.fitness lte 7>>\
+	Your moves are still a little shaky, but you’re able to at least attempt all of the orders the host gives you. They might not be perfect, but even you can tell that you are improving.
+<<else>>\
+	You manage to complete every task Crystal has set out for you today, and even though you can’t see exactly how well you performed, you’re pretty sure your form was passable.
+<<endif>>\
+
+By the time the video finishes, you’re panting for air and your\
+<<if $cheerleaders.progress gte 2 and $flags.clothesPurged>>\
+	<<if $cheerleaders.progress gte 3>>\
+		uniform\
+	<<else>>\
+		tanktop\
+	<<endif>>\
+<<else>>\
+	t-shirt \
+<<endif>>\
+is soaked in sweat. 
+
+@@.hero;Phew. That was hard work, but if it makes me better at cheerleading, it’s worth it.@@
+
+You grab your phone and give your muscles one last stretch before walking inside to get some water and change out of your damp clothes.
+
+@@.reward;Your skill at cheerleading has increased!@@
+
+<<set $player.fitness++>>\
+<<set $time.addMinutes(60)>>\
+<<set $cheerleaders.canPractice = false>>\
+[[Return to your room|Go to bedroom]]
