@@ -50,6 +50,7 @@ window.structures={
 		this.setupPunishments();
 		this.setupTasks();
 		this.setupCheer();
+		this.setupCheerFriend();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -656,6 +657,45 @@ window.structures={
 				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
 			}
 		}
+		
+		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
+				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
+				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
+	
+	setupCheerFriend: function (){
+		var vars=State.active.variables;
+		var cheerFriendList=window.cheerFriendList;
+		if (vars.cheerFriend == null) {
+			vars.cheerFriend = {};
+		}
+		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
+				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
+				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
 	}
 },
 
@@ -716,7 +756,8 @@ window.playerList={
 	bribeIncrease: 10,
 	friendLastVisit: 0,
 	clothes: [],
-	gameSkill: 0
+	gameSkill: 0,
+	femaleName: false, //new flag
 },
 
 window.playerAddonsList={
@@ -1359,14 +1400,24 @@ window.quickSlotList={
 //variables for cheer arc
 window.cheerList={
 	active: false, //currently cheerleading
-	progress: 0, //completed cheerleading chapters
+	progress: -1, //completed cheerleading chapters
 	canPractice: true, //can practice cheerleading after school
 	fakeName: "", //fake name PC uses with cheerleaders
 	position: 1, //position in the squad, 1=flyer, 2=base
 	bitchAffinity: 0, //Ashley's attitude towards PC
 	cleanDone: 0, //progress cleaning equipment room
 	
-
+	flags:{
+		grope: false,
+		beg: false,
+		fakeName: false,
+		stoleUniform: false,
+		
+		lateForPractice: false,
+		bullyLeft: false,
+		
+		complain: false,
+	},
 },
 
 window.cheerFriendList={
@@ -1376,5 +1427,7 @@ window.cheerFriendList={
 	currentSE: 0,
 	attraction: 0,
 	
-
+	flags:{
+		acceptInvite: false,
+	},
 }
