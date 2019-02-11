@@ -6,12 +6,12 @@ What name do you choose to call yourself?
 
 [[Confirm name|Cheer rename][$random.stored=1]]
 <<else>>\
-	<<if ($player.name.length lt 1) or ($player.name.length gt 20)>>\
+	<<if ($cheerleaders.fakeName.length lt 1) or ($cheerleaders.fakeName.length gt 20)>>\
 		The name you entered for yourself must be between 2 and 20 characters.  Please try again.
 		
 		[[Try again|Cheer rename][$random.stored=0]]
 	<<else>>\
-		<<set $player.name to $player.name.toProperCase()>>\
+		<<set $cheerleaders.fakeName to $cheerleaders.fakeName.toProperCase()>>\
 		Your new name is $cheerleaders.fakeName.
 		
 		[[Tell Rachel your new girl's name|Cheer Ep0 Sc10]]
