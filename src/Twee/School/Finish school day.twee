@@ -112,6 +112,13 @@ And now you have to decide what to tell $teacher. What do you really want after 
 <<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant lte 2)>>\
 	[[Go to Miss Willow|School assistant][$random.stored=0]]
 	[[Finish school]]
+<<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>
+	<<if $cheerleaders.progress == -1>>\
+		[[Return to teacher|Cheer Ep0 Sc5]]
+	<<else>>\
+		[[Go to Cheerleading Practice]]
+		[[Finish school]]
+	<<endif>>\
 <<elseif $player.perversion.teacher eq 5>>\
 	[[Go to the Coach|Pose to Coach]]
 	[[Finish school]]
