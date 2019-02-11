@@ -616,6 +616,10 @@
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
 <!----><<endif>>\
+<!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
+<!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
+<!--	--><<set teacherCode.addPenalty(1)>>\
+<!----><<endif>>\
 <!----><<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
 <!----><<set $flags.eagerStart = false>>\
 <!----><<endif>>\
@@ -881,6 +885,37 @@
 			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 		<<endif>>\
 	<!--</bribe check>-->\
+	<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
+		
+		
+		@@.teacher;“I also need to speak with you about some distressing news in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
+
+		@@.hero;That bitch!@@
+
+		@@.teacher;“She even sent photographic proof.”@@ $teacher shows you her phone, on which is an image of you in a very compromising position with the red-headed cheerleader.
+
+		@@.heroT;“It.. it was an accident! I tripped and fell!”@@
+
+		@@.teacher;“She also said there were three eyewitnesses.”@@
+
+		@@.heroT;“They’re lying!”@@
+		
+		She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, these perverted acts and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
+
+		@@.heroT;“Wait! Please!”@@
+
+		@@.teacher;“So, you admit that you let your hormones get the better of you and that you’ll do what’s necessary to earn the cheer team’s forgiveness?”@@
+
+		You feel cruelly trapped as there’s nothing you can do to exonerate yourself. Your shoulders drop and your eyes begin to dampen in frustration. You know this isn’t your fault, but against such overwhelming evidence, what choice do you have?
+
+		@@.heroT;“Yes, $teacher,”@@ you reply with a sigh.
+
+		@@.teacher;“Good boy. Now, I’ve spoken with the cheerleading captain, and we have arranged for you to clean the team’s equipment room as an apology. Of course, you will need to apologize personally to the girl you fondled as well. We’ll be meeting with them immediately after school, before cheer practice. Do you understand?”@@
+
+		You nod your head, soundly defeated. @@.heroT;“Yes, $teacher.”@@
+
+		[[Go back to class|Finish school day]]
+		
 	<<else>>\
 	
 		
