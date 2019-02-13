@@ -3135,7 +3135,6 @@ window.clothes={
 			var player=State.active.variables.player;
 			var items=State.active.variables.items;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
-			var u=playerCode.isWearingOn(itemTypes.Underwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			var st=playerCode.isWearingOn(itemTypes.Stockings);
 			var co=playerCode.isWearingOn(itemTypes.Collar);
@@ -3158,7 +3157,7 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
 					return false;
 				}
-				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt) && (items[st.id].curAlt != 43)) {
+				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {
 						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
@@ -3175,20 +3174,6 @@ window.clothes={
 				}
 				if (s && (s.daringRec >= 7)) {
 					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
-					return false;
-				}
-			}
-			if (State.active.variables.cheerleaders.active == true) {
-				if ((o && !o.female) || (s && !s.female)) {
-					State.active.variables.reason.dressedSchool="Rachel has ordered you to wear girl's clothes to school while you are on the cheer squad.";
-					return false;
-				}
-				if ((timeCode.isTuesday() || timeCode.isThursday()) && (!o.cheer || !s.cheer || (st && !st.cheer && (items[st.id].curAlt != 43)) || (hb && !hb.cheer && (items[hb.id].curAlt != 43)) || (window.clothes.checkUnderwear() && !u.cheer))) {
-					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
-					return false;
-				}
-				else if ((o.cheer || s.cheer || (st && st.cheer && (items[st.id].curAlt == 43))) && (!o.cheer || !s.cheer || (st && !st.cheer && (items[st.id].curAlt != 43)) || (hb && !hb.cheer && (items[hb.id].curAlt != 43)) || (u && !u.cheer))) {
-					State.active.variables.reason.dressedSchool="You cannot mix school clothes with cheer clothes";
 					return false;
 				}
 			}
@@ -6269,9 +6254,7 @@ window.quickSlotSets={
 	School: 0,
 	Casual: 3,
 	Slutty: 6,
-	Sleep: 9,
-	Maid: 10,
-	Cheerleader: 11
+	Sleep: 9
 },
 
 window.itemF={
@@ -6377,7 +6360,6 @@ window.itemsC={
 		daringRec: 0,
 		stolen: false,
 		school: false,
-		cheer: false,
 		disabled: false,
 		store: 5,
 		cost: 20,
@@ -6398,7 +6380,6 @@ window.itemsC={
 		female: true,
 		slutty: false,
 		school: false,
-		cheer: false,
 		stolen: false,
 		sleepWear: true,
 		disabled: false,
@@ -6422,7 +6403,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: false,
-		cheer: false,
 		surgery: false,
 		daringRec: 0,
 		stolen: false,
@@ -6447,7 +6427,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: false,
 		surgery: false,
 		daringRec: 0,
 		disabled: false,
@@ -6470,7 +6449,6 @@ window.itemsC={
 		surgery: false,
 		daringRec: 0,
 		school: true,
-		cheer: false,
 		stolen: false,
 		skirt: true,
 		store: 4,
@@ -6496,54 +6474,11 @@ window.itemsC={
 		surgery: false,
 		daringRec: 8,
 		school: true,
-		cheer: false,
 		stolen: false,
 		skirt: true,
 		store: 4,
 		cost: 0,
 		image: "slutty_school_female.jpg"
-	},
-	rookieUniform : {
-		id: "rookieUniform",
-		name: "Cheerleader uniform",
-		clothingType: window.itemTypes.Outerwear,
-		cantWearWith: 0,
-		ward: false,
-		info: true,
-		female: true,
-		sleepWear: false,
-		slutty: false,
-		disabled: true,
-		surgery: false,
-		daringRec: 0,
-		school: true,
-		cheer: true,
-		stolen: false,
-		skirt: false,
-		store: 4,
-		cost: 0,
-		image: "rookie_uniform.jpg"
-	},
-	cheerDress : {
-		id: "cheerDress",
-		name: "Cheerleader uniform",
-		clothingType: window.itemTypes.Outerwear,
-		cantWearWith: 0,
-		ward: false,
-		info: true,
-		female: true,
-		sleepWear: false,
-		slutty: false,
-		disabled: true,
-		surgery: false,
-		daringRec: 0,
-		school: true,
-		cheer: true,
-		stolen: false,
-		skirt: true,
-		store: 4,
-		cost: 0,
-		image: "cheer_dress.jpg"
 	},
 	skirtTop : {
 		id: "skirtTop",
@@ -6555,7 +6490,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: false,
-		cheer: false,
 		store: 4,
 		stolen: false,
 		skirt: true,
@@ -6580,7 +6514,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: false,
-		cheer: false,
 		store: 4,
 		stolen: false,
 		surgery: false,
@@ -6604,7 +6537,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: false,
-		cheer: false,
 		store: 4,
 		stolen: false,
 		surgery: false,
@@ -6629,7 +6561,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: false,
-		cheer: false,
 		store: -1,
 		stolen: false,
 		surgery: false,
@@ -6652,7 +6583,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: false,
 		disabled: false,
 		stolen: false,
 		surgery: false,
@@ -6742,7 +6672,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: false,
 		stolen: false,
 		surgery: false,
 		daringRec: 3,
@@ -6765,7 +6694,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		disabled: false,
 		surgery: false,
 		daringRec: 3,
@@ -6788,7 +6716,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		stolen: false,
 		surgery: false,
 		daringRec: 5,
@@ -6801,24 +6728,6 @@ window.itemsC={
 		storeAlt: [],
 		image: "panties_latex_"
 	},
-	cheerBriefs: {
-		id: "cheerBriefs",
-		name: "Cheer briefs",
-		store: 5,
-		clothingType: window.itemTypes.Underwear,
-		cantWearWith: 0,
-		female: true,
-		sleepWear: false,
-		slutty: false,
-		school: true,
-		cheer: true,
-		stolen: false,
-		surgery: false,
-		daringRec: 0,
-		disabled: true,
-		cost: 0,
-		image: "cheer_briefs.jpg"
-	},
 	socks: {
 		id: "socks",
 		name: "Socks",
@@ -6829,7 +6738,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: true,
 		disabled: false,
 		surgery: false,
 		daringRec: 3,
@@ -6853,7 +6761,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		disabled: false,
 		surgery: false,
 		daringRec: 4,
@@ -6877,7 +6784,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		disabled: false,
 		surgery: false,
 		daringRec: 6,
@@ -6905,7 +6811,6 @@ window.itemsC={
 		daringRec: 6,
 		disabled: false,
 		female: true,
-		cheer: false,
 		schoolAlt: 4,
 		maxAlt: 9,
 		curAlt: 0,
@@ -6928,8 +6833,6 @@ window.itemsC={
 		daringRec: 5,
 		disabled: false,
 		female: true,
-		cheer: true,
-		schoolAlt: 0,
 		maxAlt: 14,
 		curAlt: 0,
 		ownAlt: [],
@@ -7208,7 +7111,6 @@ window.itemsC={
 		slutty: false,
 		stolen: false,
 		school: false,
-		cheer: false,
 		disabled: false,
 		surgery: false,
 		daringRec: 0,
@@ -7229,7 +7131,6 @@ window.itemsC={
 		sleepWear: false,
 		female: false,
 		school: true,
-		cheer: false,
 		stolen: false,
 		slutty: false,
 		surgery: false,
@@ -7253,7 +7154,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: false,
 		store: 6,
 		stolen: false,
 		surgery: false,
@@ -7277,7 +7177,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: false,
-		cheer: false,
 		store: 6,
 		stolen: false,
 		surgery: false,
@@ -7291,24 +7190,6 @@ window.itemsC={
 		storeAlt: [],
 		image: "girlsneakers_"
 	},
-	cheerSneakers: {
-		id: "cheerSneakers",
-		name: "Cheer sneakers",
-		clothingType: window.itemTypes.Shoes,
-		cantWearWith: 0,
-		female: true,
-		sleepWear: false,
-		slutty: false,
-		school: true,
-		cheer: true,
-		store: 6,
-		stolen: false,
-		surgery: false,
-		daringRec: 0,
-		disabled: true,
-		cost: 0,
-		image: "cheer_sneakers.jpg"
-	},
 	boots: {
 		id: "boots",
 		name: "Women's boots",
@@ -7318,7 +7199,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: false,
 		school: true,
-		cheer: false,
 		store: 6,
 		surgery: false,
 		daringRec: 5,
@@ -7342,7 +7222,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		store: 6,
 		surgery: false,
 		daringRec: 5,
@@ -7366,7 +7245,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: false,
-		cheer: false,
 		store: 6,
 		surgery: false,
 		daringRec: 7,
@@ -7389,7 +7267,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: true,
-		cheer: false,
 		store: 6,
 		surgery: false,
 		daringRec: 5,
@@ -7413,7 +7290,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: false,
-		cheer: false,
 		store: 6,
 		surgery: false,
 		daringRec: 7,
@@ -7436,7 +7312,6 @@ window.itemsC={
 		sleepWear: false,
 		slutty: true,
 		school: false,
-		cheer: false,
 		store: -1,
 		surgery: false,
 		daringRec: 13,
@@ -8429,8 +8304,6 @@ window.itemSubTypes=[
 		"schoolMale",
 		"schoolFemale",
 		"sluttyschoolFemale",
-		"rookieUniform",
-		"cheerDress",
 		"skirtTop",
 		"summerDress",
 		"sluttyDress",
@@ -8445,7 +8318,6 @@ window.itemSubTypes=[
 		"pantiesCotton",
 		"pantiesLatex",
 		"gString",
-		"cheerBriefs",
 		"socks",
 		"stockingsLatex",
 		"stockings"
@@ -8456,7 +8328,6 @@ window.itemSubTypes=[
 		"schoolShoes",
 		"flats",
 		"girlsneakers",
-		"cheerSneakers",
 		"boots",
 		"heeledBoots",
 		"highBoots",
@@ -11021,8 +10892,7 @@ window.playerCode={
 	deleteQuickSlot: function(slot) {
 		var quickS=State.active.variables.quickSlot;
 		var max=Object.keys(quickS).length - slot;
-		console.log(Object.keys(quickS));
-		
+
 		for (var i=0; i < max; i++) {
 			var n=slot+i;
 			var n2=slot+i+1;
@@ -12557,10 +12427,6 @@ window.quickSlotList={
 	},
 	Maid: {
 	name: "Maid",
-	extra: false
-	},
-	Cheerleader: {
-	name: "Cheerleader",
 	extra: false
 	},
 	Custom: {
@@ -18621,7 +18487,9 @@ Waiting there for you when you arrive are the redhead from this morning and a ne
 
 @@.teacher;“$player.name, this is Rachel, the cheerleading captain, and Sarah, who I’m sure you remember from this morning. Girls, $player.name has something he’d like to say to you.”@@
 
-@@.heroT;“Sarah, I’m sorry I knocked you over in the hall and grabbed your breast. $teacher has promised to help me to learn proper behavior, and in the future, I hope that I will act in a way that she would approve of, even in such a compromising situation. Until then, I ask that you please forgive me, and I promise that I will do everything I can to earn that forgiveness.”@@
+@@.heroT;“Sarah, I’m sorry I knocked you over in the hall and grabbed your breast. I was treating cheerleaders like objects of perverse male fantasy instead of the strong, beautiful athletes that you are. $teacher has promised to help me to learn respect for women, and in the future, I hope to treat women as they truly deserve. Until then, I ask that you please forgive me for my failings as a sex-obsessed boy, and I promise that I will do everything I can to earn that forgiveness.”@@
+
+You’re thankful to $teacher for helping you prepare an apology on such short notice, but did she have to make it sound so demeaning? This apology makes you sound like you’re apologizing for just being a boy.
 
 The redhead stands across from you with her arms crossed, obviously still angry with you. After a few seconds of silence, the cheer captain speaks up.
 
@@ -18759,12 +18627,6 @@ They’re just a little too far away for you to get a good look at the squad mem
 [[Watch the cheerleaders|Cheer Ep0 Sc9][$version = &quot;watch&quot;]]
 [[Get back to work|Cheer Ep0 Sc9][$version = &quot;work&quot;;$cheerleaders.cleanDone++]]</tw-passagedata><tw-passagedata pid="12" name="Cheer Ep0 Sc9" tags="" position="225,225">\
 &lt;&lt;set _o to playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
-&lt;&lt;addToInv &#39;rookieUniform&#39;&gt;&gt;\
-&lt;&lt;addToInv &#39;cheerDress&#39;&gt;&gt;\
-&lt;&lt;addToInv &#39;cheerBriefs&#39;&gt;&gt;\
-&lt;&lt;addToInv &#39;socks&#39; 43&gt;&gt;\
-&lt;&lt;addToInv &#39;hairbow&#39; 43&gt;&gt;\
-&lt;&lt;addToInv &#39;cheerSneakers&#39;&gt;&gt;\
 &lt;&lt;if $version == &quot;watch&quot;&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;cheerleaders on field&quot; 400 400&gt;&gt;&lt;/div&gt;\
 	You watch the squad for far longer than you should, completely enraptured as they work through their routines.
@@ -18794,7 +18656,7 @@ They’re just a little too far away for you to get a good look at the squad mem
 	@@.heroT;“Uhh. Good. Good,”@@ you lie.
 
 	She peeks her head into the equipment room. @@.cheerCaptain;“You folded up the mats and moved the trampoline five feet. I was hoping for a little more productivity than that.”@@
-&lt;&lt;else&gt;&gt;\
+&lt;&lt;else&gt;&gt;
 	You tear yourself away from the tantalizing image of practicing cheerleaders and get back to work.  You fold and sort the endless mountain of uniforms until you can’t bear it anymore and decide to work on something else.  
 
 	It’s a little hard to move around with the large mats and trampoline scattered across the room, so you decide to deal with them next.  
@@ -31662,7 +31524,7 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 					&lt;&lt;set _quickDressForSchool = true&gt;&gt;\
 				&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
-			&lt;&lt;if $player.perversion.teacher &gt;= 5 and $cheerleaders.progress == -1 and window.timeCode.isTuesday()&gt;&gt;\
+			&lt;&lt;if $player.perversion.teacher &gt;= 5 and $cheerleaders.progress == -1 and timeCode.isTuesday()&gt;&gt;\
 				&lt;&lt;set _destination = &quot;Cheer Ep0 Sc1&quot;&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;endif&gt;&gt;\
@@ -31752,11 +31614,7 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 			&lt;div class=&quot;tooltip&quot;&gt;@@.halftransparent;&lt;&lt;print _description&gt;&gt;@@ &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _reason&gt;&gt;&lt;/span&gt;&lt;/div&gt;\
 		&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;if _quickDressForSchool&gt;&gt;\
-			&lt;&lt;if $cheerleaders.active and (playerCode.owns(itemsC.rookieUniform) or playerCode.owns(itemsC.cheerDress)) and (window.timeCode.isTuesday() or window.timeCode.isThursday())&gt;&gt;\
-				@@.inv_action_faded;-@@ &lt;&lt;print &#39;&lt;&lt;click &quot; Dress for school&quot;&gt;&gt;&gt;&gt;&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)&gt;&gt;&lt;&lt;set $player.quickSet=quickSlotSets.Cheerleader&gt;&gt;&lt;&lt;updateClothes&gt;&gt;&lt;&lt;replace &quot;#clothing_selector&quot;&gt;&gt;&lt;&lt;display &quot;Clothing Selector&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;\
-			&lt;&lt;else&gt;&gt;\
-				@@.inv_action_faded;-@@ &lt;&lt;print &#39;&lt;&lt;click &quot; Dress for school&quot;&gt;&gt;&gt;&gt;&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.School)&gt;&gt;&lt;&lt;set $player.quickSet=quickSlotSets.School&gt;&gt;&lt;&lt;updateClothes&gt;&gt;&lt;&lt;replace &quot;#clothing_selector&quot;&gt;&gt;&lt;&lt;display &quot;Clothing Selector&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;\
-			&lt;&lt;endif&gt;&gt;\
+			@@.inv_action_faded;-@@ &lt;&lt;print &#39;&lt;&lt;click &quot; Dress for school&quot;&gt;&gt;&gt;&gt;&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.School)&gt;&gt;&lt;&lt;set $player.quickSet=quickSlotSets.School&gt;&gt;&lt;&lt;updateClothes&gt;&gt;&lt;&lt;replace &quot;#clothing_selector&quot;&gt;&gt;&lt;&lt;display &quot;Clothing Selector&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;&#39;&gt;&gt;\
 		&lt;&lt;endif&gt;&gt;\
 		
 	&lt;&lt;endif&gt;&gt;\
@@ -34782,7 +34640,6 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 			&lt;&lt;if _quickslot.extra and _ex&gt;&gt;\
 			&lt;&lt;elseif (_quickslot.name eq &quot;Slutty&quot;) and (not playerCode.owns(itemsC.sluttyDress))&gt;&gt;\
 			&lt;&lt;elseif (_quickslot.name eq &quot;Maid&quot;) and (not playerCode.owns(itemsC.maidOutfit))&gt;&gt;\
-			&lt;&lt;elseif (_quickslot.name eq &quot;Cheerleader&quot;) and ((not playerCode.owns(itemsC.rookieUniform)) or (not playerCode.owns(itemsC.cheerDress)))&gt;&gt;\
 			&lt;&lt;else&gt;&gt;\
 				&lt;&lt;set _ex = false&gt;&gt;\
 				&lt;&lt;if _quickslot.clothes.length eq 0&gt;&gt;\
@@ -34898,7 +34755,7 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
             &lt;&lt;if _o.info&gt;&gt;\
                 &lt;&lt;set _in to _in + &quot; &quot;&gt;&gt;\
 				&lt;&lt;if _o.id eq itemsC.schoolMale.id&gt;&gt;\
-					&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \&#39;conservative\&#39; black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \&#39;provactive,\&#39; but other jewelry is not.&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
+					&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \&#39;conservative\&#39; black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \&#39;provactive,\&#39; but other jewelry is not..&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
 				&lt;&lt;elseif (_o.id eq itemsC.schoolFemale.id) or (_o.id eq itemsC.sluttyschoolFemale.id)&gt;&gt;\
 					&lt;&lt;if $player.perversion.teacher lt 8&gt;&gt;\
 						&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;Your school dress code says you have to wear an official school uniform while on campus. Unfortunately, the rule for the school dress says nothing about gender so $teacher //can// make you wear one. The rules say you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \&#39;provactive\&#39;.&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
@@ -34907,10 +34764,6 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 					&lt;&lt;else&gt;&gt;\
 						&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;The normal school dress code no longer applies to you. $teacher gave you a slutty, revealing uniform that lets everyone know what a slut you\&#39;ve become. You can wear any footwear or hosiery that\&#39;s black, red or white.&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
 					&lt;&lt;endif&gt;&gt;\
-				&lt;&lt;elseif (_o.id eq itemsC.cheerDress.id)&gt;&gt;\
-						&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;Being a part of the cheer squad allows you to wear your cheer uniform to school instead of your normal uniform. The uniform consists of the dress, cheer briefs, ankles socks, and cheer sneakers.  On days when you have cheer activities, you must wear your cheer uniform.&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
-				&lt;&lt;elseif (_o.id eq itemsC.rookieUniform.id)&gt;&gt;\
-					&lt;&lt;set _in to _in + &#39;&lt;div class=&quot;tooltip&quot;&gt;@@.on;&amp;#xe80a;@@&lt;span id=&quot;test_info&quot; class=&quot;tooltiptextWide&quot;&gt;Being a part of the cheer squad allows you to wear your cheer uniform to school instead of your normal uniform. The uniform consists of the top and shorts, cheer briefs, ankles socks, and cheer sneakers.  On days when you have cheer activities, you must wear your cheer uniform.&lt;/span&gt;&lt;/div&gt;&#39;&gt;&gt;\
 				&lt;&lt;endif&gt;&gt;\
                 &lt;&lt;set _in to _in + &quot; &quot;&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
@@ -34992,7 +34845,6 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 			&lt;&lt;set _quickslot = $quickSlot[Object.keys($quickSlot)[_i]]&gt;&gt;\
 			&lt;&lt;if (_quickslot.name eq &quot;Slutty&quot;) and (not playerCode.owns(itemsC.sluttyDress))&gt;&gt;\
 			&lt;&lt;elseif (_quickslot.name eq &quot;Maid&quot;) and (not playerCode.owns(itemsC.maidOutfit))&gt;&gt;\
-			&lt;&lt;elseif (_quickslot.name eq &quot;Cheerleader&quot;) and ((not playerCode.owns(itemsC.rookieUniform)) or (not playerCode.owns(itemsC.cheerDress)))&gt;&gt;\
 			&lt;&lt;elseif (_quickslot.clothes.length gt 0) and ((not _quickslot.extra) or (not _ex))&gt;&gt;\
 				&lt;&lt;set _ex=false&gt;&gt;\
 				&lt;&lt;set _toolTip = _quickslot.clothes.join(&#39;, &#39;)&gt;&gt;\
@@ -44153,11 +44005,11 @@ You go to the detention room. $teacher is waiting for you.
 
 		@@.heroT;“They’re lying!”@@
 		
-		She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, groping a cheerleader and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
+		She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, these perverted acts and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
 
 		@@.heroT;“Wait! Please!”@@
 
-		@@.teacher;“So, you agree that you will do what is necessary to earn the cheer team’s forgiveness?”@@
+		@@.teacher;“So, you admit that you let your hormones get the better of you and that you’ll do what’s necessary to earn the cheer team’s forgiveness?”@@
 
 		You feel cruelly trapped as there’s nothing you can do to exonerate yourself. Your shoulders drop and your eyes begin to dampen in frustration. You know this isn’t your fault, but against such overwhelming evidence, what choice do you have?
 
@@ -48789,10 +48641,6 @@ Your therapist&#39;s name?
 	&lt;&lt;if $quickSlot[Object.keys($quickSlot)[_i]].name eq &quot;Maid&quot;&gt;&gt;\
 		&lt;&lt;set $quickSlot[Object.keys($quickSlot)[_i]].clothes=[&#39;maidOutfit&#39;]&gt;&gt;\
 		&lt;&lt;set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $quickSlot[Object.keys($quickSlot)[_i]].name eq &quot;Cheerleader&quot;&gt;&gt;\
-		&lt;&lt;set $quickSlot[Object.keys($quickSlot)[_i]].clothes=[&#39;rookieUniform&#39;, &#39;cheerBriefs&#39;, &#39;cheerSneakers&#39;, &#39;socks&#39;, &#39;hairbow&#39;]&gt;&gt;\
-		&lt;&lt;set $quickSlot[Object.keys($quickSlot)[_i]].types=[0, 0, 0, 43, 43]&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;/for&gt;&gt;\
 &lt;&lt;goto [[Begin]]&gt;&gt;\
