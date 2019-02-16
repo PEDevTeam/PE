@@ -50,7 +50,7 @@
 					<<set _quickDressForSchool = true>>\
 				<<endif>>\
 			<<endif>>\
-			<<if $player.perversion.teacher >= 5 and $cheerleaders.progress == -1 and timeCode.isTuesday()>>\
+			<<if $player.perversion.teacher >= 4 and $cheerleaders.progress == -1 and window.timeCode.isTuesday()>>\
 				<<set _destination = "Cheer Ep0 Sc1">>\
 			<<endif>>\
 		<<endif>>\
@@ -140,7 +140,11 @@
 			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
 		<<endif>>\
 		<<if _quickDressForSchool>>\
-			@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+			<<if $cheerleaders.active and (playerCode.owns(itemsC.rookieUniform) or playerCode.owns(itemsC.cheerDress)) and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>><<set $player.quickSet=quickSlotSets.Cheerleader>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+			<<else>>\
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+			<<endif>>\
 		<<endif>>\
 		
 	<<endif>>\
