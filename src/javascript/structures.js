@@ -14,7 +14,8 @@ window.rewardMoney={
 	uploadDefault: 30,
 	uploadSpecial: 50,
 	hypnosis: 20,
-	specialHypnosis: 50
+	specialHypnosis: 50,
+	cheerPractice: 20
 },
 
 window.versionControl={
@@ -1359,6 +1360,10 @@ window.quickSlotList={
 	name: "Maid",
 	extra: false
 	},
+	Cheerleader: {
+	name: "Cheerleader",
+	extra: false
+	},
 	Custom: {
 	name: "Custom",
 	extra: false
@@ -1408,6 +1413,8 @@ window.cheerList={
 	cleanDone: 0, //progress cleaning equipment room
 	
 	flags:{
+		skippedPractice: false,
+		
 		grope: false,
 		beg: false,
 		fakeName: false,
