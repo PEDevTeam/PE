@@ -17,6 +17,10 @@ You return to $teacher and tell her that you want to teach $bully a lesson. You 
 
 Some part of you even feels sorry for $bully... a really small part.
 
-[[Finish school]]
-
+<<if $cheerleaders.progress == -1>>\
+	[[Return to teacher|Cheer Ep0 Sc5]]
+<<else>>\
+	[[Go to Cheerleading Practice]]
+	[[Finish school][$cheerleaders.flags.skippedPractice = true]]
+<<endif>>\
 
