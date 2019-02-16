@@ -30,7 +30,11 @@ You manage to make it to the final bell without getting into more trouble. Class
 
 	@@.teacher;"Since you apparently like to flaunt your ass, as your sessions with Coach showed, I want you to flirt with the $futa.boy_girl to switch $futa.his_her attention."@@
 
-	@@.teacher;"I also want you to wear high heels to school. It may be hard at first, but you will get used to it in no time and it will help you lure the $futa.boy_girl in question. To thank you, I'll take $<<print rewardMoney.teacherAssistant>> off your weekly payment each morning."@@
+	@@.teacher;"I also want you to wear high heels with your school uniform. It may be hard at first, but you will get used to it in no time and it will help you lure the $futa.boy_girl in question.\
+	<<if $cheerleaders.active == true && $cheerleaders.progress >=3 >>\
+		I am aware that you have to wear your cheer shoes with your cheer uniform, so I will withhold my punishment in that instance.  Besides, I am sure that uniform will be just as enticing to $futa.him_her.\
+	<<endif>>\
+	To thank you, I'll take $<<print rewardMoney.teacherAssistant>> off your weekly payment each morning."@@
 
 	You try to argue, but she immediately shuts you down. @@.teacher;"You've proved that you are no stranger to <<if not $kink.futa>>cock <<endif>>teasing. I will not hear your laughable excuses."@@
 
@@ -65,25 +69,8 @@ You manage to make it to the final bell without getting into more trouble. Class
 <<set $time.minute=30>>\
 <<if $player.detention>>\
 [[Go to detention]]
-<<elseif $player.perversion.teacher eq 10>>\
-[[Go to the Coach|Play with Coach]]
-[[Finish school]]
-<<elseif $player.perversion.teacher eq 9>>\
-	<<if $player.perversion.teacherCooldown gte 3>>\
-
-	[[Check on bully]]
-	<<else>>\
-		<<if $player.perversion.teacherCooldown lte 2>>\
-		$teacher told you that she's already working on the $bully situation, and you just need to wait a few days.
-		<<elseif $player.perversion.teacherCooldown eq 3>>\
-		$teacher told you that she's got $bully on the hook. You don't know what she has on $bully, but it hardly matters, soon you should be able to check on $futa.his_her progress.
-		<<endif>>\
-		
-	[[Go to the Coach|Play with Coach]]	
-	<<endif>>\
-	[[Finish school]]
 <<elseif $player.perversion.teacher eq 8>>\
-And now you have to decide what to tell $teacher. What do you really want after all of this?
+	And now you have to decide what to tell $teacher. What do you really want after all of this?
 	<<if playerCode.isMind_0()>>\
 	It pains you to admit it, but the last few weeks showed you that you can become an eager slut like $teacher seems to want you to be. And it scares you.
 
@@ -106,19 +93,38 @@ And now you have to decide what to tell $teacher. What do you really want after 
 	[[Let go and embrace your inner slut|Choose slut]]
 	<<delayedLink 0 "Revenge on the Bully|Choose revenge">>
 	<<endif>>
+<<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>\
+	<<if $cheerleaders.progress == -1>>\
+		[[Return to teacher|Cheer Ep0 Sc5]]
+	<<else>>\
+		[[Go to Cheerleading Practice]]
+		<<if $cheerleaders.progress gt 0>>\
+			[[Finish school][$cheerleaders.flags.skippedPractice = true]]
+		<<endif>>\
+	<<endif>>\
+<<elseif $player.perversion.teacher eq 10>>\
+[[Go to the Coach|Play with Coach]]
+[[Finish school]]
+<<elseif $player.perversion.teacher eq 9>>\
+	<<if $player.perversion.teacherCooldown gte 3>>\
+
+	[[Check on bully]]
+	<<else>>\
+		<<if $player.perversion.teacherCooldown lte 2>>\
+		$teacher told you that she's already working on the $bully situation, and you just need to wait a few days.
+		<<elseif $player.perversion.teacherCooldown eq 3>>\
+		$teacher told you that she's got $bully on the hook. You don't know what she has on $bully, but it hardly matters, soon you should be able to check on $futa.his_her progress.
+		<<endif>>\
+		
+	[[Go to the Coach|Play with Coach]]	
+	<<endif>>\
+	[[Finish school]]
 <<elseif $player.perversion.teacher eq 7>>\
 	[[Go to the Coach|Play with Coach]]
 	[[Finish school]]
 <<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant lte 2)>>\
 	[[Go to Miss Willow|School assistant][$random.stored=0]]
 	[[Finish school]]
-<<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>
-	<<if $cheerleaders.progress == -1>>\
-		[[Return to teacher|Cheer Ep0 Sc5]]
-	<<else>>\
-		[[Go to Cheerleading Practice]]
-		[[Finish school]]
-	<<endif>>\
 <<elseif $player.perversion.teacher eq 5>>\
 	[[Go to the Coach|Pose to Coach]]
 	[[Finish school]]
