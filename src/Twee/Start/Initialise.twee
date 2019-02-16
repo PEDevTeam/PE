@@ -24,6 +24,10 @@
 		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['maidOutfit']>>\
 		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]>>\
 	<<endif>>\
+	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Cheerleader">>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['rookieUniform', 'cheerBriefs', 'cheerSneakers', 'socks', 'hairbow']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0, 0, 0, 43, 43]>>\
+	<<endif>>\
 <</for>>\
 <<goto [[Begin]]>>\
 \
