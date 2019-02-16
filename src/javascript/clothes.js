@@ -269,6 +269,7 @@ window.clothes={
 			var player=State.active.variables.player;
 			var items=State.active.variables.items;
 			var o=playerCode.isWearingOn(itemTypes.Outerwear);
+			var u=playerCode.isWearingOn(itemTypes.Underwear);
 			var s=playerCode.isWearingOn(itemTypes.Shoes);
 			var st=playerCode.isWearingOn(itemTypes.Stockings);
 			var co=playerCode.isWearingOn(itemTypes.Collar);
@@ -291,7 +292,7 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
 					return false;
 				}
-				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
+				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt) && (items[st.id].curAlt != 43)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {
 						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
@@ -308,6 +309,20 @@ window.clothes={
 				}
 				if (s && (s.daringRec >= 7)) {
 					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
+					return false;
+				}
+			}
+			if (State.active.variables.cheerleaders.active == true) {
+				if ((o && !o.female) || (s && !s.female)) {
+					State.active.variables.reason.dressedSchool="Rachel has ordered you to wear girl's clothes to school while you are on the cheer squad.";
+					return false;
+				}
+				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isTuesday() || timeCode.isThursday()) && (!o.cheer || !s.cheer || (st && !st.cheer && (items[st.id].curAlt != 43)) || (hb && !hb.cheer && (items[hb.id].curAlt != 43)) || (u && !u.cheer))) {
+					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
+					return false;
+				}
+				else if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (o.cheer || s.cheer || (st && st.cheer && (items[st.id].curAlt == 43))) && (!o.cheer || !s.cheer || (st && !st.cheer && (items[st.id].curAlt != 43)) || (hb && !hb.cheer && (items[hb.id].curAlt != 43)) || (u && !u.cheer))) {
+					State.active.variables.reason.dressedSchool="You cannot mix school clothes with cheer clothes";
 					return false;
 				}
 			}
