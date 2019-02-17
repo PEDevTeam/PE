@@ -312,6 +312,12 @@ window.clothes={
 					return false;
 				}
 			}
+			if (State.active.variables.cheerleaders.active == false && (playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress))) {
+				if (o.cheer || s.cheer || (st && st.cheer && (items[st.id].curAlt == 43)) || (u && u.cheer)) {
+					State.active.variables.reason.dressedSchool="You have been removed from the cheer squad and are no longer allowed to wear the cheer uniform to school";
+					return false;
+				}
+			}
 			if (State.active.variables.cheerleaders.active == true) {
 				if ((o && !o.female) || (s && !s.female)) {
 					State.active.variables.reason.dressedSchool="Rachel has ordered you to wear girl's clothes to school while you are on the cheer squad.";
