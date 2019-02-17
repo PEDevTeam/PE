@@ -1225,6 +1225,7 @@ window.flagsList={
 	salonPenaltyPayed: false,
 	salonPiggyCoin: false,
 	clothesPurged:false, //new flag
+	delaySlut: 0,
 },
 
 window.kinkList={
