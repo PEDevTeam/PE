@@ -9,9 +9,14 @@
 <<if $player.perversion.teacherCooldown lt 20>>\
 <<set $player.perversion.teacherCooldown++>>\
 <<endif>>\
+<<if $cheerleaders.active eq false && $flags.delaySlut == 1>>\
+	<<set $flags.delaySlut to 3>>\
+<<endif>>\
 \
-You manage to make it to the final bell without getting into more trouble. Classes finally finish for the day. Hooray!
+<<if $flags.delaySlut != 2>>\
+	You manage to make it to the final bell without getting into more trouble. Classes finally finish for the day. Hooray!
 
+<<endif>>\
 <<if ($player.perversion.teacher eq 6) and (not $flags.assistantTaskGiven)>>\
 	<<set $flags.assistantTaskGiven to true>>\
 	As everyone starts to empty out of the classroom, $teacher calls to you.
@@ -69,7 +74,7 @@ You manage to make it to the final bell without getting into more trouble. Class
 <<set $time.minute=30>>\
 <<if $player.detention>>\
 [[Go to detention]]
-<<elseif $player.perversion.teacher eq 8>>\
+<<elseif $player.perversion.teacher eq 8 && $flags.delaySlut eq 0>>\
 	And now you have to decide what to tell $teacher. What do you really want after all of this?
 	<<if playerCode.isMind_0()>>\
 	It pains you to admit it, but the last few weeks showed you that you can become an eager slut like $teacher seems to want you to be. And it scares you.
@@ -77,29 +82,69 @@ You manage to make it to the final bell without getting into more trouble. Class
 	This could be your last chance to get back some control, stop being such a pushover. But what could you ask for, that $teacher would accept. She won't go easy on you whatever she says and she would only accept to press harder on you or... OHhhhh... That's brilliant, and suddenly you know what you could ask $teacher for.
 
 	[[Revenge on the Bully|Choose revenge]]
-	<<delayedLink 0 "Let go and embrace your inner slut|Choose slut">>
+	<<delayedLink 0 "Let go and embrace your inner slut|Choose slut" "$version = 1">>
 	<<elseif playerCode.isMind_1()>>\
 	It is embarrassing, but you are getting used to the whole 'being a slutty schoolgirl' thing. Sex is great now that you've learned to enjoy it, and it is almost scary how eager everyone are to fuck you. It still feels wrong at some level, though you can't deny how that somehow makes it even hotter.
 
 	A small voice in the back of your head keeps whispering that maybe being a slut is not such a bad thing. On the other hand, this is your opportunity to get back some control in your life, and stop being such a pushover. And you suddenly have an idea, a way to get back at someone that's given you so much trouble, one that you could hold responsible for all of this if you stretch that definition a bit.
 
 	[[Revenge on the Bully|Choose revenge]]
-	[[Let go and embrace your inner slut|Choose slut]]
+	[[Let go and embrace your inner slut|Choose slut][$version = 1]]
 	<<else>>\
 	You can't help but admit that you are getting used to and actually enjoying the whole 'being a slutty schoolgirl' thing. Sex is fantastic and it is so exciting how eager $futa.boys_girls and men are to fuck you.
 	
 	You are almost sure you know what to ask $teacher for.
 
-	[[Let go and embrace your inner slut|Choose slut]]
+	[[Let go and embrace your inner slut|Choose slut][$version = 1]]
 	<<delayedLink 0 "Revenge on the Bully|Choose revenge">>
-	<<endif>>
+	<<endif>>\
+<<elseif $player.perversion.teacher eq 8 && $flags.delaySlut eq 1>>\
+	[[Decide on your reward|Finish school day][$flags.delaySlut = 2]]
+	<<if $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>\
+		[[Go to Cheerleading Practice]]
+		[[Finish school][$cheerleaders.flags.skippedPractice = true; $cheerleaders.active = false]]
+	<<else>>\
+		[[Go to the Coach|Play with Coach]]
+		[[Finish school]]
+	<<endif>>\
+<<elseif $player.perversion.teacher eq 8 && $flags.delaySlut gte 2>>\
+	<<set $flags.delaySlut to 4>>\
+	<<if $flags.delaySlut eq 2>>\
+		You decide it is time to tell $teacher your desired reward.
+		
+	<<else>>\
+		Your time in the cheer squad is over and now you have to tell $teacher what reward you really want.
+		
+	<<endif>>\
+	<<if playerCode.isMind_0()>>\
+	It pains you to admit it, but the last few weeks showed you that you can become an eager slut like $teacher seems to want you to be. And it scares you.
+
+	This could be your last chance to get back some control, stop being such a pushover. But what could you ask for, that $teacher would accept. She won't go easy on you whatever she says and she would only accept to press harder on you or... OHhhhh... That's brilliant, and suddenly you know what you could ask $teacher for.
+
+	[[Revenge on the Bully|Choose revenge]]
+	<<delayedLink 0 "Let go and embrace your inner slut|Choose slut" "$cheerleaders.active = false; $version = 1">>
+	<<elseif playerCode.isMind_1()>>\
+	It is embarrassing, but you are getting used to the whole 'being a slutty schoolgirl' thing. Sex is great now that you've learned to enjoy it, and it is almost scary how eager everyone are to fuck you. It still feels wrong at some level, though you can't deny how that somehow makes it even hotter.
+
+	A small voice in the back of your head keeps whispering that maybe being a slut is not such a bad thing. On the other hand, this is your opportunity to get back some control in your life, and stop being such a pushover. And you suddenly have an idea, a way to get back at someone that's given you so much trouble, one that you could hold responsible for all of this if you stretch that definition a bit.
+
+	[[Revenge on the Bully|Choose revenge]]
+	[[Let go and embrace your inner slut|Choose slut][$cheerleaders.active = false; $version = 1]]
+	<<else>>\
+	You can't help but admit that you are getting used to and actually enjoying the whole 'being a slutty schoolgirl' thing. Sex is fantastic and it is so exciting how eager $futa.boys_girls and men are to fuck you.
+	
+	You are almost sure you know what to ask $teacher for.
+
+	[[Let go and embrace your inner slut|Choose slut][cheerleaders.active = false; $version = 1]]
+	<<delayedLink 0 "Revenge on the Bully|Choose revenge">>
+	<<endif>>\
 <<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>\
 	<<if $cheerleaders.progress == -1>>\
 		[[Return to teacher|Cheer Ep0 Sc5]]
 	<<else>>\
 		[[Go to Cheerleading Practice]]
 		<<if $cheerleaders.progress gt 0>>\
-			[[Finish school][$cheerleaders.flags.skippedPractice = true]]
+			[[Finish school][$cheerleaders.flags.skippedPractice = true; $cheerleaders.active = false]]
 		<<endif>>\
 	<<endif>>\
 <<elseif $player.perversion.teacher eq 10>>\
