@@ -42,6 +42,10 @@
 	<<if (not playerCode.owns(itemsC.sluttyschoolFemale))>>\
 		<<addToInv 'sluttyschoolFemale'>>\
 	<<endif>>\
+	<<if $flags.delaySlut == 0>>\
+		<<addToInv 'sluttyCheer' 0>>\
+		<<addToInv 'heeledCheer'>>\
+	<<endif>>\
 	$teacher hands you a small package, which you open to reveal a fetishized school girl outfit.
 
 	The tip of your chastity cage will be clearly visible under the slutty microskirt, letting everyone know what kind of a perverted sissy you are.
@@ -55,7 +59,11 @@
 	Somehow, you find yourself excited by the mere thought of putting it on and strolling around the school halls, feeling the hot eyes on your flesh and hearing the catcalls of your classmates.
 
 	@@.teacher;"From now on, this is your school uniform. Don't worry about getting in trouble for violating the dress code. I have so much video evidence of your deviancy that I had no trouble getting you diagnosed with 'nymphomania.' With that diagnosis, you'll be exempt from the dress code, and the rules regulating sexual conduct."@@
-
+	
+	<<if $flags.delaySlut == 0>>\
+		@@.teacher;"I know giving up cheerleading was a sacrifice, so I'm going to send you something that will hopefully make things easier.  It should be at your house when you get home, just don't wear it at school. Who knows what Rachel would say."@@
+	<<endif>>\
+	
 	[[Finish school]]
 <<endif>>\
 
