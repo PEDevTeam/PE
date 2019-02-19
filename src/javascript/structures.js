@@ -49,6 +49,8 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		this.setupCheer();
+		this.setupCheerFriend();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -643,6 +645,71 @@ window.structures={
 			}
 		}
 	},
+
+	setupCheer: function (){
+		var vars=State.active.variables;
+		var cheerList=window.cheerList;
+		if (vars.cheerleaders == null) {
+			vars.cheerleaders = {};
+		}
+		for (var i=0; i < Object.keys(cheerList).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
+				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
+				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+
+		for (var i=0; i < Object.keys(cheerList.game).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList.game)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList.game)[i]] = {};
+				var object = vars.cheerleaders[Object.keys(cheerList.game)[i]];
+				var listObject = cheerList.game[Object.keys(cheerList.game)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
+	
+	setupCheerFriend: function (){
+		var vars=State.active.variables;
+		var cheerFriendList=window.cheerFriendList;
+		if (vars.cheerFriend == null) {
+			vars.cheerFriend = {};
+		}
+		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
+				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
+				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	}
 },
 
 window.playerList={
