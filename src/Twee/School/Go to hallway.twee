@@ -89,7 +89,7 @@
 	@@.teacher;"$player.name, time for your inspection,"@@ she says.
 	
 	<<if _o.female>>\
-		You lift up your skirt to expose your\
+		You <<if playerCode.isWearing(itemsC.rookieUniform)>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\
 	<<else>>\
 		You pull down your pants to expose your\
 	<<endif>>\
@@ -117,7 +117,7 @@
 \
 	<!--<perversion progress events2>-->\
 	<<if $player.perversion.teacher eq 4>>\
-		<<if _o.female and (not _u)>>\
+		<<if _o.female and (not _u) and _o.skirt>>\
 			<<set $player.perversion.teacher to 5>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			She looks at you for a moment, smirking. 
@@ -463,8 +463,8 @@
 <!--			--><<set teacherCode.addPenalty(1)>>\
 <!--		--><<endif>>\
 <!--	--><<endif>>\
-<!--	--><<if ($player.perversion.teacher gte 7) and _o.female and _f.female and (not _f.slutty)>>\
-<!--		-->@@.teacher;<<openQuote>>I told you to wear heels. I will not tolerate disobedience.@@
+<!--	--><<if ($player.perversion.teacher gte 7) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
+<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@
 <!--		--><<set teacherCode.addPenalty(1)>>\
 <!--	--><<endif>>\
 <!--	--><<if (not _f.female) and _o.female>>\
@@ -557,27 +557,43 @@
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleClothing>> for wearing a female school uniform.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherFemaleClothing>>\
 <!----><<endif>>\
-<!----><<if $flags.coachPosing>>\
-<!--	--><<if $flags.coachPosingHappy>>\
-<!--		--><<if $kink.futa>>\
-<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for Coach. She tells me you are one exceptional-looking sissy.@@\
-<!--		--><<else>>\
-<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for that dirty old coach. He tells me you are one exceptional-looking sissy.@@\
-<!--		--><<endif>>\
-<!--		--><<set _deduction+=rewardMoney.teacherCoachPosing>>\
+<!----><<if $cheerleaders.active == true && (window.timeCode.isWednesday() || window.timeCode.isFriday())>>\
+<!--	--><<if not $cheerleaders.flags.skippedPractice>>\
+<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.cheerPractice>> for <<if $cheerleaders.progress gt 3>>participating in cheer activities<<else>>helping the cheer squad<<endif>>.@@\
+<!--		--><<set _deduction+=rewardMoney.cheerPractice>>\
 <!--	--><<else>>\
-<!--		--><<if $flags.coachPosingAngry>>\
-<!--			--><<set teacherCode.addPenalty(2)>>\
-<!--			-->@@.teacher;<<openQuote>>Coach said you were very rude and uncooperative - no discount. If you continue like that, I may reconsider releasing you from chastity. Try harder next time.@@\
-<!--		--><<else>>\
-<!--			-->@@.teacher;<<openQuote>>Coach said that your performance was lacking today - no discount. If you refuse to cooperate, I may reconsider releasing you<<if not window.timeCode.isFriday()>>on Friday<<endif>>. Try harder next time.@@\
-<!--		--><<endif>>\
+<!--		-->@@.teacher;<<openQuote>>Rachel was not pleased that you neglected your duties with the cheer squad yesterday.  No deduction.@@\
 <!--	--><<endif>>\
-<!--	--><<set $flags.coachPosing to false>>\
-<!--	--><<set $flags.coachPosingHappy to false>>\
-<!--	--><<set $flags.coachPosingAngry to false>>\
-<!----><<elseif ($player.perversion.teacher eq 5) and ($player.perversion.teacherCooldown neq 0)>>\
-<!--	-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
+<!----><<else>>\
+<!--	--><<if $flags.coachPosing>>\
+<!--		--><<if $flags.coachPosingHappy>>\
+<!--			--><<if $kink.futa>>\
+<!--				-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for Coach. She tells me you are one exceptional-looking sissy.@@\
+<!--			--><<else>>\
+<!--				-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for that dirty old coach. He tells me you are one exceptional-looking sissy.@@\
+<!--			--><<endif>>\
+<!--			--><<set _deduction+=rewardMoney.teacherCoachPosing>>\
+<!--		--><<else>>\
+<!--			--><<if $flags.coachPosingAngry>>\
+<!--				--><<set teacherCode.addPenalty(2)>>\
+<!--				-->@@.teacher;<<openQuote>>Coach said you were very rude and uncooperative - no discount. If you continue like that, I may reconsider releasing you from chastity. Try harder next time.@@\
+<!--			--><<else>>\
+<!--				-->@@.teacher;<<openQuote>>Coach said that your performance was lacking today - no discount. If you refuse to cooperate, I may reconsider releasing you<<if not window.timeCode.isFriday()>>on Friday<<endif>>. Try harder next time.@@\
+<!--			--><<endif>>\
+<!--		--><<endif>>\
+<!--		--><<set $flags.coachPosing to false>>\
+<!--		--><<set $flags.coachPosingHappy to false>>\
+<!--		--><<set $flags.coachPosingAngry to false>>\
+<!--	--><<elseif ($player.perversion.teacher eq 5) and ($player.perversion.teacherCooldown neq 0)>>\
+<!--		-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
+<!--	--><<endif>>\
+<!--	--><<if $minigames.coachgame.playedYesterday>>\
+<!--		--><<set $minigames.coachgame.playedYesterday to false>>\
+<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+<!--		--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--	--><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
+<!--		-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
+<!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if $flags.assistantSatisfied or ($player.perversion.assistant eq 5)>>\
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherAssistant>> for helping out Miss Willow.@@\
@@ -590,13 +606,6 @@
 <!--	-->@@.teacher;<<openQuote>>I have not spoken to Miss Willow yet to see if those $futa.boys_girls have been taken care of, so I cannot very well give you a discount, can I?"@@\
 <!--	-->
 <!--	-->@@.hero;Oh fuck, does that mean all my troubles were for nothing? I should have filmed it on my phone! Next time, I'll make sure I get proof.@@\
-<!----><<endif>>\
-<!----><<if $minigames.coachgame.playedYesterday>>\
-<!--	--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
-<!----><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
-<!--	-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
 <!----><<endif>>\
 <!----><<if $flags.pissRecorded>>\
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherPiss>> for being a urinal at the mall.@@\
@@ -615,6 +624,10 @@
 <!----><<if ($player.perversion.teacher eq 10) and _o.slutty>>\
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!----><<endif>>\
+<!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
+<!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
+<!--	--><<set teacherCode.addPenalty(1)>>\
 <!----><<endif>>\
 <!----><<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
 <!----><<set $flags.eagerStart = false>>\
@@ -881,6 +894,37 @@
 			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 		<<endif>>\
 	<!--</bribe check>-->\
+	<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
+		
+		
+		@@.teacher;“I also need to speak with you about some distressing news I received in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
+
+		@@.hero;That bitch!@@
+
+		@@.teacher;“She even sent photographic proof.”@@ $teacher shows you her phone, on which is an image of you in a very compromising position with the red-headed cheerleader.
+
+		@@.heroT;“It.. it was an accident! I tripped and fell!”@@
+
+		@@.teacher;“She also said there were three eyewitnesses.”@@
+
+		@@.heroT;“They’re lying!”@@
+		
+		She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, these perverted acts and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
+
+		@@.heroT;“Wait! Please!”@@
+
+		@@.teacher;“So, you admit that you let your hormones get the better of you and that you’ll do what’s necessary to earn the cheer team’s forgiveness?”@@
+
+		You feel cruelly trapped as there’s nothing you can do to exonerate yourself. Your shoulders drop and your eyes begin to dampen in frustration. You know this isn’t your fault, but against such overwhelming evidence, what choice do you have?
+
+		@@.heroT;“Yes, $teacher,”@@ you reply with a sigh.
+
+		@@.teacher;“Good boy. Now, I’ve spoken with the cheerleading captain, and we have arranged for you to clean the team’s equipment room as an apology. Of course, you will need to apologize personally to the girl you fondled as well. We’ll be meeting with them immediately after school, before cheer practice. Do you understand?”@@
+
+		You nod your head, soundly defeated. @@.heroT;“Yes, $teacher.”@@
+
+		[[Go back to class|Finish school day]]
+		
 	<<else>>\
 	
 		

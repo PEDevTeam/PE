@@ -14,7 +14,8 @@ window.rewardMoney={
 	uploadDefault: 30,
 	uploadSpecial: 50,
 	hypnosis: 20,
-	specialHypnosis: 50
+	specialHypnosis: 50,
+	cheerPractice: 20
 },
 
 window.versionControl={
@@ -645,7 +646,6 @@ window.structures={
 			}
 		}
 	},
-
 	setupCheer: function (){
 		var vars=State.active.variables;
 		var cheerList=window.cheerList;
@@ -770,7 +770,8 @@ window.playerList={
 	friendLastVisit: 0,
 	clothes: [],
 	gameSkill: 0,
-	athleticism: 0
+	athleticism: 0,
+	femaleName: false, //new flag
 },
 
 window.playerAddonsList={
@@ -1235,7 +1236,9 @@ window.flagsList={
 	salonPickNose: false,
 	salonPenalty: false,
 	salonPenaltyPayed: false,
-	salonPiggyCoin: false
+	salonPiggyCoin: false,
+	clothesPurged:false, //new flag
+	delaySlut: 0,
 },
 
 window.kinkList={
@@ -1371,6 +1374,10 @@ window.quickSlotList={
 	name: "Maid",
 	extra: false
 	},
+	Cheerleader: {
+	name: "Cheerleader",
+	extra: false
+	},
 	Custom: {
 	name: "Custom",
 	extra: false
@@ -1407,7 +1414,7 @@ window.quickSlotList={
 	name: "Custom h",
 	extra: true
 	}
-}
+},
 
 window.cheerleaders={
 	//Main Cheerleader Arc

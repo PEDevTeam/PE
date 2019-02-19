@@ -1,0 +1,24 @@
+::Go to Cheerleading Practice
+\
+<<if $cheerleaders.progress < 0>>\
+	<<set _destination = "Cheer Ep">>\
+	<<set _destination += $cheerleaders.progress+1>>\
+	<<set _destination += " Sc0">>\
+	<<include _destination>>\
+<<else>>\
+	More cheer content coming soon!
+	<<set $cheerleaders.progress++>>\
+	<<if $cheerleaders.progress == 3>>\
+		<<addToInv 'rookieUniform'>>\
+		<<addToInv 'cheerBriefs'>>\
+		<<addToInv 'socks' 43>>\
+		<<addToInv 'hairbow' 43>>\
+		<<addToInv 'cheerSneakers'>>\
+	<<elseif $cheerleaders.progress == 11>>\
+		<<removeFromInv 'rookieUniform'>>\
+		<<addToInv 'cheerDress'>>\
+		<<wearClothing 'cheerDress'>>\
+		<<set playerCode.saveQuickSlot(11)>><<updateClothes>>\
+	<<endif>>\
+	<<display [[Travel]]>>
+<<endif>>\

@@ -292,7 +292,7 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
 					return false;
 				}
-				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
+				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt) && (items[st.id].curAlt != 43)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!stockings.slutty) {
 						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
@@ -309,6 +309,12 @@ window.clothes={
 				}
 				if (shoes && (shoes.daringRec >= 7)) {
 					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
+					return false;
+				}
+			}
+			if (State.active.variables.cheerleaders.active == false && (playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress))) {
+				if (outerwear.cheer || shoes.cheer || (stockings && stockings.cheer && (items[stockings.id].curAlt == 43)) || (underwear && underwear.cheer)) {
+					State.active.variables.reason.dressedSchool="You have been removed from the cheer squad and are no longer allowed to wear the cheer uniform to school";
 					return false;
 				}
 			}
