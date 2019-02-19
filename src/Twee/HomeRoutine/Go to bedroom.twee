@@ -86,6 +86,9 @@
 	<<elseif not $flags.choreLazy>>\
 		[[Ask to return PSBox|Ask to return things][$scene="psbox"]]
 	<<endif>>\
+	<<if $cheerleaders.progress gt 0 && $cheerleaders.canPractice && $cheerleaders.active>>\
+		[[Practice cheerleading|Exercise basic]]
+	<<endif>>\
 <<endif>>\
 <<if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck>>\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene="beg"]]

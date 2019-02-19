@@ -686,7 +686,11 @@ macros.showVideo = {
 macros.delayedLink = {
   handler: function(place, macroName, params, parser) {
 		var id=params[1].replace(/[ ,']/g, '_');
-		new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + ']]</span>');
+		if (params.length < 3){
+			new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + ']]</span>');
+		} else {
+			new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + '][' + params[2] + ']]</span>');
+		}
 		setTimeout(function() {
 				if (id) {
 				var i=document.getElementById(id);
