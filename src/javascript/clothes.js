@@ -282,15 +282,15 @@ window.clothes={
 				State.active.variables.reason.dressedSchool="You need to wear the school uniform";
 				return false;
 			}
-			if (!s.school) {
-				State.active.variables.reason.dressedSchool="You need to wear proper footwear";
-				return false;
-			}
 			if (o.school && !o.female && s.female && s.slutty) {
 				State.active.variables.reason.dressedSchool="It is against rules to wear heels with pants";
 				return false;
 			}
-			if (player.perversion.teacher < 8) {
+			if (player.perversion.teacher < 10) {
+				if (!s.school) {
+					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
+					return false;
+				}
 				if (st && st.schoolAlt && (st.schoolAlt < items[st.id].curAlt)) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
 					if (!st.slutty) {

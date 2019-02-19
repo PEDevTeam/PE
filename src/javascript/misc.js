@@ -15,8 +15,7 @@ window.misc={
 			State.active.variables.Guardian="Your mother";
 			State.active.variables.myguardian="my mother";
 			State.active.variables.Myguardian="My mother";
-		}
-		if (!State.active.variables.incest) {
+		} else {
 			State.active.variables.guardian=State.active.variables.babysitter;
 			State.active.variables.Guardian=State.active.variables.babysitter;
 			State.active.variables.myguardian=State.active.variables.babysitter;
