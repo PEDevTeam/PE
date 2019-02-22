@@ -1423,7 +1423,6 @@ window.cheerleaders={
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
-	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
 
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
 	//variables for scene control over more than one page break or values that may be useful in later episodes
@@ -1496,6 +1495,7 @@ window.cheerFriend={
 	progress: 0,	//current progress in side events, [int]
 	affinity: 0,		//current affinity of cheer friend to PC, [int]
 	currentSE: 0,		//currently available side event
+	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,

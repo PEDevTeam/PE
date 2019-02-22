@@ -1,0 +1,46 @@
+:: Cheer Ep1 Sc6
+
+Rachel looks around the equipment room, obviously \
+<<if $cheerleaders.cleanDone gt 0>>\
+    displeased, even with all the cleaning you’ve already done. \
+<<else>>\
+    displeased. \
+<<endif>>\
+@@.cheerCaptain;“Looks like you’ve still got work to do. I already told you were staying late. You’re not leaving until this room is clean.” @@
+
+You know better than to argue with her, so you sigh and start organizing cheer props. Rachel sticks around to ensure you keep working, barely giving you any time to rest as she forces you to stay focused on cleaning. 
+
+<<if $cheerleaders.cleanDone == 0>>
+    The sun is almost setting by the time you finish. \ 
+<<elseif $cheerleaders.cleanDone == 1>>
+    It takes almost an hour of grueling work to finish. \
+<<else>>
+    With all the work you’ve done, it only takes about another thirty minutes of hard work for you to finish cleaning. \
+<<endif>>
+The room has been scrubbed, swept, and organized, with no pom-pom out of place. 
+
+<<RandomImageFromPack "Cheerleader Clean Equipment Room" 600 600 "alignRight">>
+
+@@.cheerCaptain;“What do you know? Seems you actually can clean if you put your mind to it,”@@ she chuckles. @@.cheerCaptain;“Ever thought about getting a job as a maid?”@@
+
+<<if $player.isMaid()>>
+    @@.hero;You have no idea.@@
+<<else>>
+	<<if $player.isMind() == 0>>
+	    @@.hero;Doing chores for a job? I’ll pass.@@
+	<<elseif $player.isMind() == 1>>
+	    @@.hero;With as many chores as I do at home, I already feel like $myguardian’s maid.@@
+	<<elseif $player.isMind() == 2>>
+	    @@.hero;I wonder how I’d look in one of those frilly French maid uniforms… @@
+	<<end if>>
+<<endif>>
+
+@@.cheerCaptain;“Well, I guess that finishes up your work sentence. You can have your Tuesday and Thursday afternoons back to yourself now.”@@
+
+You’re surprised and a bit confused. You figured Rachel would want to milk the free labor as long as possible, and you were just starting to get to know some of the squad members. You’re half-tempted to ask if there’s anything you can do for Rachel just for a chance to stick around. 
+
+@@.hero;The worst she could do is say no.@@
+
+[[Ask to stay with the squad|Cheer Ep1 Sc7a]]
+
+[[Accept your freedom|Cheer Ep1 Sc7b][$cheerleaders.active = false]]
