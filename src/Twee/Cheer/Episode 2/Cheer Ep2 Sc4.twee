@@ -1,0 +1,33 @@
+::Cheer Ep2 Sc4
+Grabbing the gym bag, you ease open the stall door and quietly sneak towards the door.  However your escape comes to a sudden stop when you catch your reflection in the mirror.
+
+<<if $playerCode.slutScoreBasic() gt 1>>
+    A cute gym bunny stares at you from the other side of the glass. Your cheeks become a bit flushed.
+
+    <<if $playerCode.isMind() == 0>>
+        @@.hero;Am I turning myself on? What is wrong with me?@@
+    <<elseif $playerCode.isMind() == 1>>
+        @@.hero;I guess I don’t look too bad. I might be able to pull this off after all.@@
+    <<elseif $playerCode.isMind() == 2>>
+        @@.hero;I can’t believe how good this looks on me, if a little missized.@@
+    <<endif>>
+<<else>>
+    You look ridiculous. Only the most nearsighted of individuals would ever believe you were a girl. How are you ever going to convince a bunch of cheerleaders?
+<<endif>>
+
+<<if $cheerleaders.flags.bullyLeft>>
+    You finally manage to pull yourself away from the mirror and exit the restroom.  $bully is nowhere to be seen.
+
+    @@.hero;Well, at least that’s one disaster I managed to dodge, now I just have to face Rachel.@@
+<<elseif $cheerleaders.flags.lateForPractice>>
+    You’re awoken from your reverie by the sound of $bully’s voice.
+    @@.bully;“What the fu…”@@
+
+    Running fully on instinct, you bolt through the restroom door, hoping $bully didn’t get a long enough look at you to recognize you.
+
+    <<set $bully.sawWorkout = true>>
+<<else>>
+    Your thoughts are interrupted by a flush coming from the other side of the room. The stall door begins to creak, and you make a mad dash for the door, hoping you made it out before being seen.
+<<endif>>
+
+[[Go to practice|Cheer Ep2 Sc5]]
