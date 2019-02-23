@@ -52,6 +52,7 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
+		this.setupBully();
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -707,6 +708,19 @@ window.structures={
 						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
 					}
 				}
+			}
+		}
+	},
+
+	setupBully: function (){
+		var vars=State.active.variables;
+		var cheerFriendList=window.cheerFriendList;
+		if (vars.cheerFriend == null) {
+			vars.cheerFriend = {};
+		}
+		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
 			}
 		}
 	}
@@ -1507,4 +1521,8 @@ window.cheerFriend={
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
+}
+
+window.bully={
+	sawWorkout=false,
 }
