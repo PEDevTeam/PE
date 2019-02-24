@@ -784,7 +784,7 @@ window.playerList={
 	friendLastVisit: 0,
 	clothes: [],
 	gameSkill: 0,
-	athleticism: 0,
+	fitness: 0,
 	femaleName: false, //new flag
 },
 
