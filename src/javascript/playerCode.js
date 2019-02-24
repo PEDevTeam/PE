@@ -209,6 +209,9 @@ window.playerCode={
 	havePermanentMakeup: function() {
 		return (State.active.variables.body.permMakeup > 0 || State.active.variables.body.semiMakeup > 0);
 	},
+	haveManicure: function(){
+		return (State.active.variables.body.manicure > 0);
+	},
 	haveGirlyFace: function() {
 		return (State.active.variables.body.makeup > 0 || State.active.variables.body.face > 0);
 	},
