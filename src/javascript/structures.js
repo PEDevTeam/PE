@@ -1433,15 +1433,16 @@ window.quickSlotList={
 window.cheerleaders={
 	//Main Cheerleader Arc
 	active: false,		//If the cheerleader arc is active or not [bool]
-	progress: 0,		//Current progress in cheerleader arc [int]
+	progress: -1,		//Current progress in cheerleader arc [int]
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
-
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
 	flags: {
+		skippedPractice: false,	//did not attend practice
 		grope: false,	//groped cheer traitor
 		beg: false,	//begged cheer bitch for mercy
 		fakeName: false,	//used a fake name
