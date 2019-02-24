@@ -714,13 +714,13 @@ window.structures={
 
 	setupBully: function (){
 		var vars=State.active.variables;
-		var cheerFriendList=window.cheerFriendList;
-		if (vars.cheerFriend == null) {
-			vars.cheerFriend = {};
+		var bullyList=window.bullyList;
+		if (vars.bully == null) {
+			vars.bully = {};
 		}
-		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
+		for (var i=0; i < Object.keys(bullyList).length; i++) {
+			if (vars.bully[Object.keys(bullyList)[i]] == null) {
+				vars.bully[Object.keys(bullyList)[i]] = bullyList[Object.keys(bullyList)[i]];
 			}
 		}
 	}
@@ -1432,7 +1432,7 @@ window.quickSlotList={
 
 window.cheerleaders={
 	//Main Cheerleader Arc
-	status: false,		//If the cheerleader arc is active or not [bool]
+	active: false,		//If the cheerleader arc is active or not [bool]
 	progress: 0,		//Current progress in cheerleader arc [int]
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
@@ -1524,5 +1524,5 @@ window.cheerFriend={
 }
 
 window.bully={
-	sawWorkout=false,
+	sawWorkout: false,
 }
