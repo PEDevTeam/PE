@@ -10,6 +10,7 @@ window.locationsJS={
 		active: true,
 		important: true
 	},
+	/*
 	rainymorning: {
 		id: "rainymorning",
 		destination: "Rainy Morning",
@@ -21,7 +22,6 @@ window.locationsJS={
 		active: true,
 		important: true
 	},
-	/*
 	homeOutside: {
 		id: "homeOutside",
 		destination: "Go to bedroom",
