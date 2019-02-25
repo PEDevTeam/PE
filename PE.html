@@ -13230,7 +13230,7 @@ window.cheerList={
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
 	bullySawWorkout: false,
-
+	rainyDay: false,
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
@@ -20393,9 +20393,7 @@ The gates of the school are in sight as you feel the first spit of wetness on yo
 
 You scowl. Nothing you can do about it now. You shift your backpack over head for your protection and dash out into the rain, hoping to make it to your destination as quickly as possible.
 
-[[Go home|Go home]]
-[[Go to the mall|Go to the mall]]
-[[Go to the therapist|Go to the therapist]]</tw-passagedata><tw-passagedata pid="38" name="Cheer Ep3 Pre3" tags="" position="975,475">&lt;&lt;RandomImageFromPack &quot;Cheerleader Rain School&quot; 600 600 &quot;alignRight&quot;&gt;&gt;  
+&lt;&lt;display [[travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Cheer Ep3 Pre3" tags="" position="975,475">&lt;&lt;RandomImageFromPack &quot;Cheerleader Rain School&quot; 600 600 &quot;alignRight&quot;&gt;&gt;  
 
 The rain from yesterday hasn’t let up at all. You trudge through the weather determinedly, thankful that $guardian reminded you about your umbrella before you walked out the door. The droplets beat down on your protective covering, and while it keeps your head and shoulders dry, it does a much worse job of protecting the rest of your body.
 
@@ -20417,7 +20415,7 @@ One of the senior cheerleaders walks over, a tall girl with dark skin. @@.femvoi
 
 @@.cheerCaptain;“The gym is reserved during our practice time,”@@ Rachel adds, clearly having overhead your question. @@.cheerCaptain;“If we are going to train, and we are going to train, we’re going to do it outside.”@@
 
-[[She can’t be serious|Cheer Ep3 Sc1a][$cheerleaders.flag.complain = true]]
+[[She can’t be serious|Cheer Ep3 Sc1a][$cheerleaders.flags.complain = true]]
 [[Oh. Of course, we do…|Cheer Ep3 Sc2]]</tw-passagedata><tw-passagedata pid="40" name="Cheer Ep3 Sc1a" tags="" position="1225,475">@@.heroT;“You mean you actually want to go out there in this storm?” you ask.@@
 
 @@.cheerCaptain;“Sure,”@@ Rachel replies. @@.cheerCaptain;“It builds character.” @@
@@ -20441,13 +20439,13 @@ Your hang your head in defeat.
 The girl furrows her brow as she adjusts her jumps to meet Rachel’s demands. She walks along the lines of girls, studying their form and offering corrections, before returning to the front of the squad and resuming the exercise with ease.
 
 You, on the other hand, continue to struggle. Each jump seems to drive your legs deeper into the soft earth under your feet, and you can feel the wet mud oozing into your sneakers. The effect is unsettling and distracting.\ 
-&lt;&lt;if $playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;
+&lt;&lt;if playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
     Even worse, your butt plug jars with each landing, your sphincter contracting tightly as you to try to hold it in. At least you’re not wearing a skirt.
-&lt;&lt;endif&gt;&gt;
+&lt;&lt;endif&gt;&gt;\
 
 @@.cheerCaptain;“37! 38! 39! 40!”@@ Rachel shouts over the storm. @@.cheerCaptain;“Push-ups, ladies! 1! 2! 3!...”@@
-
-&lt;&lt;RandomImageFromPack &quot;Cheerleader girls exercising in mud&quot; 600 600 &quot;alignRight&quot;&gt;&gt;   
+\
+&lt;&lt;RandomImageFromPack &quot;Cheerleader girls exercising in mud&quot; 600 600 &quot;alignRight&quot;&gt;&gt;\
 
 You quickly drop to the ground and start performing push-ups. The girl in front of you, one of the blonde bitch’s cronies, does the same. Her long, soaking wet hair falls in her face, and she struggles to do push-ups and manage her hair at the same time.
 
@@ -20457,7 +20455,7 @@ You wish you could say the same for yourself. Right now, it feels less like you�
 
 After a few more minutes of straining, you drop to the soaked ground with a splat.
 
-&lt;&lt;if complainFlag&gt;&gt;\
+&lt;&lt;if $cheerleaders.flags.complain&gt;&gt;\
     In seconds, Rachel is next to you, dropping down into push-up position. @@.cheerCaptain;“Come on, $cheerleaders.fakeName!”@@ she says as she adjusts the placement of her hands. @@.cheerCaptain;“If you want a spot on this squad you’ve got to work for it! Follow my form. Set those hands, straighten that back, and push!”@@
 
     Watching Rachel for a moment, you notice that while next to you, she’s doing two push-ups for each one she calls out. @@.cheerCaptain;“Have to make up for lost reps,”@@ she says matter-of-factly when she notices you staring. You find yourself stunned, both at her physical prowess and her dedication.
@@ -20489,8 +20487,8 @@ $cheerFriend.name walks up, breathing heavily, and you get her attention through
 
 $cheerFriend.name groans, bending forward and supporting herself with her hands on her knees. She stops for a second to catch her breath. @@.cheerFriend;“I’m struggling. I worked out a little before joining the squad, but nothing like this. What about you?”@@
 
-[[Try to act strong|Cheer Ep3 Sc4] [$version=strong]]
-[[Admit you’re struggling|Cheer Ep3 Sc4] [$version = struggle; $cheerFriend.affinity++]]</tw-passagedata><tw-passagedata pid="43" name="Cheer Ep3 Sc4" tags="" position="350,600">&lt;&lt;if $version == strong&gt;&gt;\
+[[Try to act strong|Cheer Ep3 Sc4] [$version = &quot;strong&quot;]]
+[[Admit you’re struggling|Cheer Ep3 Sc4] [$version = &quot;struggle&quot;; $cheerFriend.affinity++]]</tw-passagedata><tw-passagedata pid="43" name="Cheer Ep3 Sc4" tags="" position="350,600">&lt;&lt;if $version == &quot;strong&quot;&gt;&gt;\
     You try to put on a brave face. @@.heroT;“No sweat,”@@ you say. @@.heroT;“I eat workouts like this for lunch.”@@
         
     $cheerFriend.name just shakes her head, clearly putting more weight in your pained expression than your hollow words.
@@ -20510,26 +20508,26 @@ $cheerFriend.name groans, bending forward and supporting herself with her hands 
     You also force yourself to stand straight, giving off a pained grunt of your own. @@.heroT;“Same here,”@@ you tell her. @@.heroT;“You can count on me.”@@
 
     $cheerFriend.name wipes the water from her face and glances over at you. To your surprise, she gives you a rare look of vulnerability. @@.cheerFriend;“Promise?”@@
-&lt;&lt;end&gt;&gt;
+&lt;&lt;endif&gt;&gt;
 
 “Twenty reps!” Rachel yells, interrupting your conversation. @@.cheerCaptain;“Let’s go!”@@
 
 $cheerFriend.name sighs, wearily. @@.cheerFriend;“Back to work, I guess. Remember, I’m counting on you.”@@
 
 Rachel blows her whistle, and the squad begins ascending the metal steps. The noise of the cheerleaders’ feet on the stairs is cacophonous, echoing the thunder of the storm.
+\
+&lt;&lt;RandomImageFromPack &quot;Cheerleader skinned knee&quot; 350 350 &quot;alignRight&quot;&gt;&gt;\
 
 The standing water has made the stairs treacherous, and the mud coating your shoes makes every step slip a little. Unfortunately, you don’t have time to tread carefully, just struggling to keep up with the rest of the squad. Each dash up the stairs makes your calves burn, but you’re determined to keep pace, no matter the cost.
 
 As you plant your foot on the next stair, your sneaker slides out from underneath you with a loud squeak. You crash forward, your knee colliding hard with the unyielding, angled edge of metal bleachers. The searing impact makes you crumple instantly.
 
-&lt;&lt;RandomImageFromPack &quot;Cheerleader skinned knee&quot; 600 600 &quot;alignRight&quot;&gt;&gt;    
-
 Clutching your knee, you writhe in agony, feeling the warm stickiness of blood oozing beneath your palm. The squad freezes in place at the sight of your fall, giving an odd quiet to the moment as Rachel hustles to your side.
 
 @@.cheerCaptain;“Can you keep going?”@@ she asks. 
 
-[[“No! I’m bleeding!”|Cheer Sc3 Ep5a][$cheerleaders.flags.complain = true]]
-[[“I’ll can make it.”|Cheer Sc3 Ep5b]]</tw-passagedata><tw-passagedata pid="44" name="Cheer Sc3 Ep5a" tags="" position="475,600">@@.cheerCaptain;“I’ve seen cheerleaders cheer on worse,”@@ Rachel says as she kneels to examine your knee.
+[[“No! I’m bleeding!”|Cheer Ep3 Sc5a][$cheerleaders.flags.complain = true]]
+[[“I’ll can make it.”|Cheer Ep3 Sc5b]]</tw-passagedata><tw-passagedata pid="44" name="Cheer Ep3 Sc5a" tags="" position="475,600">@@.cheerCaptain;“I’ve seen cheerleaders cheer on worse,”@@ Rachel says as she kneels to examine your knee.
 
 She opens the first aid kit in her hand, pulling out wipes and a bandage. The wipes sting as she runs them over the gash on your knee, covering the wound with a bandage. She stands to her feet.
 
@@ -20541,7 +20539,7 @@ You grimace through the pain as you stand to your feet, and give Rachel a look s
 
 Without a response, Rachel turns to the rest of the squad, blowing the whistle between her teeth. @@.cheerCaptain;“Three more reps, ladies. Let’s go!”@@
 
-[[Keep exercising|Cheer Sc3 Ep6]]</tw-passagedata><tw-passagedata pid="45" name="Cheer Ep3 Sc5b" tags="" position="600,600">Rachel examines your knee. @@.cheerCaptain;“Well, you’re bleeding. Hang on.”@@
+[[Keep exercising|Cheer Ep3 Sc6]]</tw-passagedata><tw-passagedata pid="45" name="Cheer Ep3 Sc5b" tags="" position="600,600">Rachel examines your knee. @@.cheerCaptain;“Well, you’re bleeding. Hang on.”@@
 
 Before you can react, Rachel dashes off and returns with a first aid kit. She pulls a disinfecting wipe from the white box and presses it to your knee, causing you to wince as it contacts the gouge in your skin. @@.cheerCaptain;“We need to make sure it doesn’t get infected,”@@ she says.
 
@@ -20553,7 +20551,7 @@ You nod.
 
 @@.cheerCaptain;“Good. I hope it’d take more than that for you to give up.”@@ She places her whistle between her lips and blows loudly as she stands to her feet. @@.cheerCaptain;“Three more reps, ladies! Let’s go!”@@
 
-[[Keep exercising|Cheer Ep3 Sc6]]</tw-passagedata><tw-passagedata pid="46" name="Cheer Sc3 Ep6" tags="" position="725,600">&lt;&lt;RandomImageFromPack &quot;Cheerleader running in mud&quot; 600 600 &quot;alignRight&quot;&gt;&gt;
+[[Keep exercising|Cheer Ep3 Sc6]]</tw-passagedata><tw-passagedata pid="46" name="Cheer Ep3 Sc6" tags="" position="725,600">&lt;&lt;RandomImageFromPack &quot;Cheerleader running in mud&quot; 600 600 &quot;alignRight&quot;&gt;&gt;
 
 Rachel saves the worst exercise for last: a one-mile run. The rain continues to fall in sheets as the squad circles the running track. Even with Rachel at the head, the squad seems to naturally find a unified pace, as if each member instinctively knows exactly what speed all the others were capable of.
 
@@ -20569,7 +20567,7 @@ You pass over the muddy remnants of the lap line, now several seconds behind the
 
 $cheerFriend.name notices your spill and turns to go help you, but Rachel notices her separating from the group. @@.cheerCaptain;“$cheerFriend.name, keep up with the rest of the squad!”@@ she commands as she breaks off from the pack herself. $cheerFriend.name gives you a pained look, then turns back to join the rest of the team.
 
-You soon hear Rachel’s voice from above you. @@.cheerCaptain;“You’re so close,”@@ she says solemnly. @@.cheerCaptain;“You’ve [given me a lot of shit today, but you still ]fought long and hard. Now, you’re stuck face down on the ground, and what I want to know is: are you just going to lie there and give up, or are you going to get up, finish this run, and earn your place on the squad?”@@
+You soon hear Rachel’s voice from above you. @@.cheerCaptain;“You’re so close,”@@ she says solemnly. @@.cheerCaptain;“You’ve given me a lot of shit today, but you still fought long and hard. Now, you’re stuck face down on the ground, and what I want to know is: are you just going to lie there and give up, or are you going to get up, finish this run, and earn your place on the squad?”@@
 
 You wince at Rachel’s words. Does being a cheerleader really mean this much to you? You had originally offered to help the squad just to be close to $cheerFriend.name, but you’re starting to wonder if any cute girl is worth this misery. Making the squad won’t even help you regain any of your lost masculinity. The cheerleaders have made it very clear that they only see you as a girl, and making the squad surely means diving deeper into this world of femininity.
 
@@ -20596,7 +20594,7 @@ Your entire being is consumed with placing one foot in front of the next. So muc
 
 @@.cheerCaptain;“All right. I’m impressed,”@@ Rachel says as she approaches with a welcome smile. @@.cheerCaptain;“You did good. What do you say we get head in the gym and take five?”@@
 
-@@.heroT;Sounds good,”@@ you reply weakly.
+@@.heroT;&quot;Sounds good,”@@ you reply weakly.
 
 [[Head back to the gym|Cheer Ep3 Sc8]]</tw-passagedata><tw-passagedata pid="48" name="Cheer Ep3 Sc7b" tags="" position="975,600">&lt;&lt;RandomImageFromPack &quot;Cheerleader lying in mud&quot; 600 600 &quot;alignRight&quot;&gt;&gt;  
 
@@ -20614,13 +20612,13 @@ Rachel doesn’t even respond, turning her back on you and walking over to the r
 
 $cheerFriend.name looks at your motionless form. @@.cheerFriend;“Is she…”@@
 
-Rachel cuts her off. @@.cheerCaptain;“$cheerFriend.name, hit the showers!”
+Rachel cuts her off. @@.cheerCaptain;“$cheerFriend.name, hit the showers!”@@
 
 $cheerFriend.name gives you one lingering glance, then follows the rest of the team, leaving you lying in the mud.
 
 You feel exhausted, frustrated, and humiliated. You know you let $cheerFriend.name down, but worst of all you’re disappointed in yourself. Something inside you screams that you’ve just given up an opportunity for acceptance due to your own laziness and lack of resolve. You continue to lay in the middle of the track, crying, your tears mixing with the rain running down your face.
 
-[[Go home|Go home]]</tw-passagedata><tw-passagedata pid="49" name="Cheer Ep3 Sc8" tags="" position="1100,600">Your legs have recovered some of their strength by the time you make it back to the gym. The squad quickly rushes to the showers, desperate to wash off the mud covering their bodies. 
+&lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Cheer Ep3 Sc8" tags="" position="1100,600">Your legs have recovered some of their strength by the time you make it back to the gym. The squad quickly rushes to the showers, desperate to wash off the mud covering their bodies. 
 
 Rachel examines you sitting against the wall with a bemused smirk. @@.cheerCaptain;“You’re quite a mess,”@@ she says.
 
@@ -20660,28 +20658,28 @@ The warm water washes away the caked-on grime and soothes your aching muscles. F
 
 You finish rinsing off the last bit of mud and timidly step into the empty locker room. Next to your bag sits a large, white bath towel. You quickly rub yourself dry.
 
-&lt;&lt;If $playerCode.haveMakeup()&gt;&gt;\
+&lt;&lt;if playerCode.haveMakeup()&gt;&gt;\
     Your reflection in a nearby mirror catches your eye, and you notice that your makeup has astonishingly survived the storm in perfect condition. \
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $playerCode.haveManicure()&gt;&gt;\
+&lt;&lt;if playerCode.haveManicure()&gt;&gt;\
     Looking down at your hands, you are amazed to find that your manicure is still intact. \
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $playerCode.haveManicure() or $playerCode.haveMakeup()&gt;&gt;\
+&lt;&lt;if playerCode.haveManicure() or playerCode.haveMakeup()&gt;&gt;\
     @@.hero;What on earth are they using at that beauty salon?@@
 &lt;&lt;endif&gt;&gt;\
 
 You reach into your bag for your uniform. Digging around inside, your hand hits against a thin, plastic wrapper. You don’t remember putting something like that in your gym bag.
 
 Confused, you pull it out to find a small bundle of fabric inside. Your eyes go wide when you realize it’s a uniform. Identical to $cheerFriend.name’s, it consists of a red and white top with “cheer team” written across the front and matching red short shorts with “rookie” printed on the left leg.
-
-&lt;&lt;RandomImageFromPack &quot;Cheerleader trainee uniform&quot; 600 600 &quot;alignCenter&quot;&gt;&gt; 
+\
+&lt;&lt;RandomImageFromPack &quot;Cheerleader trainee uniform&quot; 600 600 &quot;alignRight&quot;&gt;&gt; \
 
 You let out an involuntary, girlish squeal of joy, quickly slapping your hand over your mouth when you realize what you just did. Your face turns red and you shrink in embarrassment. Thankfully, no one was in the room to hear that.
 
 You excitedly put on the uniform and perform a little supermodel twirl as you check yourself in the mirror.
 
 The uniform is surprisingly form-fitting, accentuating your chest and butt. Even though the uniform isn’t quite as elegant as the full cheer uniform,\
-&lt;&lt;if $playerCode.slutScoreBasic() &lt;= 1&gt;&gt;
+&lt;&lt;if playerCode.slutScoreBasic() &lt;= 1&gt;&gt;
     you can’t deny that, even with your boyish features,\
 &lt;&lt;else&gt;&gt;
 	you can’t deny that,\
@@ -20690,7 +20688,7 @@ you look pretty sexy.
 
 Looking through the bag again, you discover two more uniforms still wrapped in plastic, as well as a pair of white sneakers, socks, and a large, red-and-white hairbow - everything a rookie cheerleader needs. You quickly slip on the shoes and socks, grabbing the pink gym bag as you run out of the locker room.
 
-[[Exit the locker room|Cheer Ep3 Sc9]]</tw-passagedata><tw-passagedata pid="50" name="Cheer Ep3 Sc9.twee" tags="" position="1225,600">@@.cheerCaptain;“Ah, good. You found it,”@@ Rachel says when she sees you dressed in uniform. @@.cheerCaptain;“It looks good on you.”@@
+[[Exit the locker room|Cheer Ep3 Sc9]]</tw-passagedata><tw-passagedata pid="50" name="Cheer Ep3 Sc9" tags="" position="1225,600">@@.cheerCaptain;“Ah, good. You found it,”@@ Rachel says when she sees you dressed in uniform. @@.cheerCaptain;“It looks good on you.”@@
 
 @@.heroT;“It... it is mine, right?”@@ you ask.
 
@@ -20708,15 +20706,15 @@ You laugh and take the bag from Rachel, turning towards the gym entrance. As you
 
 The words pour out of $cheerFriend.name’s mouth almost faster than you can register them.
 
-&lt;&lt;if $version == struggle&gt;&gt;
+&lt;&lt;if $version == &quot;struggle&quot;&gt;&gt;\
 @@.heroT;“Thanks,”@ you say with an embarrassed smile. @@.heroT;“I don’t think I could have done it without you. Your encouragement really kept me going.”@@
 
 @@.cheerFriend;“You were there when I needed it too. It meant a lot, knowing that I wasn’t going through all that alone.”@@
 
-&lt;&lt;end&gt;&gt;
+&lt;&lt;endif&gt;&gt;\
 She thinks for a second, then holds out her hand. @@.cheerFriend;“Let me see your phone.”@@
-
-&lt;&lt;RandomImageFromPack &quot;Cheerleader adding number&quot; 600 600 &quot;alignRight&quot;&gt;&gt;  
+\
+&lt;&lt;RandomImageFromPack &quot;Cheerleader adding number&quot; 600 600 &quot;alignRight&quot;&gt;&gt;  \
 
 You pass her your cell phone. She types furiously in it for a few seconds before her own phone starts to ring. Then, she passes the phone back to you.
 
@@ -20732,7 +20730,7 @@ You check your bags, then exit the gym. Thankfully, the rain has stopped, and ra
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
 \
-[[Return home|Go home]]</tw-passagedata><tw-passagedata pid="51" name="Cheer Ep4 Sc1" tags="" position="100,725">\
+&lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Cheer Ep4 Sc1" tags="" position="100,725">\
 You meet Rachel in the gym before practice.
 
 @@.cheerCaptain;“You remembered the uniform, right?”@@ Rachel asks.
@@ -20825,7 +20823,7 @@ $cheerFriend.name glares at you with a look of feigned irritation.
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="Cheer Ep4 Sc2" tags="" position="350,725">\
-&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;cheerleaders exercising&quot; 600 600&gt;&gt;&lt;/div&gt;\
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Exercising&quot; 400 400&gt;&gt;&lt;/div&gt;\
 Today’s conditioning is nowhere near as strenuous as last practice, and though you’re straining and sweaty, you find yourself keeping up with the rest of the squad.
 
 You’re not sure if your newfound energy comes from the two weeks of working out or from the joy of being accepted. Either way, you manage to complete the routine without wishing for death, though you may have wished for unconsciousness once or twice.
@@ -20978,7 +20976,7 @@ Your penis throbs in pain, trying desperately to shatter the walls of its plasti
 
 She grabs $cheerFriend.name by her hair and pulls $cheerFriend.name’s ear close to her mouth. @@.cheerBitch;“And I bet you were so close,”@@ Ashley hisses quietly before releasing $cheerFriend.name.
 \
-&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;hand down shorts&quot; 600 600&gt;&gt;&lt;/div&gt;\
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Hands Down Shorts&quot; 600 600&gt;&gt;&lt;/div&gt;\
 
 Ashley looks at you as you try to recover from your own arousal. She seems confused about something. She slinks up next to you, and using her body to block everyone else’s view, she quickly slips her hand down the front of your shorts. You’re too shocked by the invasion of you most private area to stop her, and you feel her hand hit the plastic tucked between your legs.
 
@@ -21011,7 +21009,7 @@ Ashley pulls you over to behind $cheerFriend.name. @@.cheerBitch;“Time for you
 
 You nod and prepare to jump, but are interrupted by Ashley. @@.cheerBitch;“Hold on just a sec,”@@ she says.
 \
-&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;hand down shorts&quot; 600 600&gt;&gt;&lt;/div&gt;\
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Hands Down Shorts&quot; 600 600&gt;&gt;&lt;/div&gt;\
 
 Suddenly, Ashley reaches down the front of your shorts. She firmly grabs your &lt;&lt;if $kink.sph&gt;&gt;tiny &lt;&lt;endif&gt;&gt;equipment and yanks it up to the front of your crotch, out of the tuck you had been keeping it in. You feel violated by the invasion of your chastity, but you quickly begin to feel your dick begin to stiffen in its plastic cage thanks to the contact of Ashley’s hand.
 
@@ -21103,7 +21101,7 @@ You repeat the motions of the stunt,\
 	jumping onto $cheerFriend.name’s back and posing before dropping back to the ground.
 &lt;&lt;endif&gt;&gt;\
 
-&lt;&lt;RandomImageFromPack &quot;pony sit&quot; 400 600&gt;&gt;
+&lt;&lt;RandomImageFromPack &quot;Cheerleader Pony Sit&quot; 400 400 &quot;alignRight&quot;&gt;&gt;
 
 @@.cheerCaptain;“Not bad,”@@ Rachel says. @@.cheerCaptain;“Keep this up and you might get promoted to the full squad.”@@
 
@@ -21214,7 +21212,7 @@ Your only response is a quiet shiver, too torn between the idea of this cruel bi
 @@.cheerBitch;“Well?”@@ Ashley asks, expecting an answer.
 
 You cower in terror, praying for someone, anyone, to come [[rescue you.|Cheer Ep4 Sc9]]</tw-passagedata><tw-passagedata pid="61" name="Cheer Ep4 Sc9" tags="" position="100,850">\
-&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;friends car&quot; 600 400&gt;&gt;&lt;/div&gt;\
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Friends Car&quot; 400 400&gt;&gt;&lt;/div&gt;\
 Suddenly, an aging sedan with sun-damaged, faded blue paint pulls up behind Ashley. The driver’s side window rolls down, revealing $cheerFriend.name. @@.cheerFriend;“Hey, $cheerleaders.fakeName!”@@ she yells. @@.cheerFriend;“Are these girls bothering you?”@@
 
 Ashley turns to the vehicle as $cheerFriend.name steps out of it. @@.cheerBitch;“Well, look who it is,”@@ Ashley says, tauntingly. @@.cheerBitch;“I figured you would have run home in embarrassment after the show you put on for us today.”@@
@@ -34026,6 +34024,13 @@ Game version: &lt;&lt;print $gameVersion&gt;&gt;\
 			&lt;&lt;if $player.perversion.teacher &gt;= 4 and $cheerleaders.progress == -1 and window.timeCode.isTuesday()&gt;&gt;\
 				&lt;&lt;set _destination = &quot;Cheer Ep0 Sc1&quot;&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
+			&lt;&lt;if $cheerleaders.progress == 2 and (window.timeCode.isMonday() or window.timeCode.isWednesday())&gt;&gt;\
+				&lt;&lt;set _destination = &quot;Cheer Ep3 Pre1&quot;&gt;&gt;\
+				&lt;&lt;set $cheerleaders.rainyDay = true&gt;&gt;\
+			&lt;&lt;endif&gt;&gt;\
+			&lt;&lt;if $cheerleaders.progress == 2 and (window.timeCode.isTuesday() or window.timeCode.isThursday())&gt;&gt;\
+				&lt;&lt;set _destination = &quot;Cheer Ep3 Pre3&quot;&gt;&gt;\
+			&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;endif&gt;&gt;\
 \
 		\&lt;!--  Random Events  --&gt;\
@@ -45335,6 +45340,10 @@ The End.
 	You need to return to $teacher.
 	
 	[[Return to teacher|TeacherPunishment]]
+\ &lt;!-- Cheerleader rainy day wont be hit if we fail to pay teacher on mondays... --&gt; \
+&lt;&lt;elseif $cheerleaders.rainyday and (window.timeCode.isMonday() or window.timeCode.isWednesday())&gt;&gt;\
+	&lt;&lt;set $cheerleaders.rainyday = false&gt;&gt;\
+	&lt;&lt;goto &quot;Cheer Sc3 Pre2&quot;&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;set $player.punishments.penaltySkipped = false&gt;&gt;\
 	You&#39;re done with school for today. What would you like to do with the rest of the day?
