@@ -53,6 +53,7 @@ window.structures={
 		this.setupCheer();
 		this.setupCheerFriend();
 		this.setupBully();
+		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -671,19 +672,6 @@ window.structures={
 				}
 			}
 		}
-
-		for (var i=0; i < Object.keys(cheerList.game).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList.game)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList.game)[i]] = {};
-				var object = vars.cheerleaders[Object.keys(cheerList.game)[i]];
-				var listObject = cheerList.game[Object.keys(cheerList.game)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
 	},
 	
 	setupCheerFriend: function (){
@@ -711,7 +699,6 @@ window.structures={
 			}
 		}
 	},
-
 },
 
 window.playerList={
@@ -772,7 +759,7 @@ window.playerList={
 	friendLastVisit: 0,
 	clothes: [],
 	gameSkill: 0,
-	athleticism: 0,
+	fitness: 0,
 	femaleName: false, //new flag
 },
 
@@ -1427,10 +1414,13 @@ window.cheerList={
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
 	bullySawWorkout: false,
 	rainyDay: false,
+	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
 	flags: {
+		skippedPractice: false,	//did not attend practice
 		grope: false,	//groped cheer traitor
 		beg: false,	//begged cheer bitch for mercy
 		fakeName: false,	//used a fake name
