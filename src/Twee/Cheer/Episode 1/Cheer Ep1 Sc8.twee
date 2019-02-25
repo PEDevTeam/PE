@@ -12,11 +12,11 @@
 <<endif>>
 @@.cheerCaptain;“Good. There are a few other conditions. First, according to school rules, the manager must be a member of the cheerleading team. That includes wearing a cheerleading uniform, exercising with the squad, participating in practices, and going on any trips. I remind you that since this school only has a girls’ team, you will be required to wear a girl’s uniform.”@@
 
-<<if $player.isMind() == 0>>
+<<if playerCode.isMind() == 0>>
 	The picture of you in a cheerleading outfit flashes through your mind and you shudder.
 
     @@.hero;How humiliating! But, if it’s the only way I can stay with the team… 
-<<elseif @player.isMind()==1>>
+<<elseif playerCode.isMind()==1>>
 	You feel your penis mysteriously begin to stiffen.
 
     @@.hero;Why am I getting excited about wearing a cheerleader’s uniform? Get a hold of yourself $player.name!@
@@ -58,7 +58,7 @@ You instinctively blurt out your dress and women’s shoe sizes, and it suddenly
 
 You look down at the laundry bag next to your feet. With a grunt, you sling it over your shoulder and begin the long walk home.
 
-<<set $time.addminutes(90)>>\
-<<set cheerleaders.progress++>>\
+<<set $time.addMinutes(90)>>\
+<<set $cheerleaders.progress++>>\
 <<set $player.fitness += 1>>\
 [[Return home|Go to bedroom]]

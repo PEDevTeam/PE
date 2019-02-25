@@ -41,12 +41,12 @@ The mention of your own uniform and a place on the team steels your resolve. Not
 
 @@.heroT;“I won’t let you down.”@@
 
-@@.cheerCaptain;“Good. Let’s hit the showers.”
-
-<<if NOT cheerleaders.flags.bullyLeft>>\
+@@.cheerCaptain;“Good. Let’s hit the showers.”@@
+\
+<<if (not $cheerleaders.flags.bullyLeft)>>\
     <<set $player.fitness +=1>>\
 <<endif>>\
-<<set cheerleaders.progress = 2>>
+<<set $cheerleaders.progress = 2>>\
 <<set $time.addMinutes(60)>>\
 
-[[Finish practice|Go To Bedroom]]
+<<display [[Travel]]>>

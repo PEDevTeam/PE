@@ -1,6 +1,7 @@
 :: Travel [pos_2705_10]
 \
-<!-- CHECK THE PASSAGE NAME USING passage() METHOD TO SET THE CURRENT LOCATION -->\
+\<!-- CHECK THE PASSAGE NAME USING passage() METHOD TO SET THE CURRENT LOCATION -->\
+
 <<set _from = null>>\
 <<if passage() eq "Go to bedroom">>\
 	<<set _from = locationsJS.home>>\
@@ -24,12 +25,12 @@
 \
 <div class="clothesDivider"></div>\
 \
-<!-- LOOP THROUGH ALL THE LOCATIONS IN locations.js -->\
+\<!-- LOOP THROUGH ALL THE LOCATIONS IN locations.js -->\
 <<for _i to 0; _i lt Object.keys(locationsJS).length; _i++>>\
 	<<set _to = locationsJS[Object.keys(locationsJS)[_i]]>>\
 	<<set _active = $locations[_to.id].active>>\
 	\
-	<!-- ONLY RUN IF LOCAITON IS ACTIVE, AND NOT YOUR CURRENT LOCATION -->\
+	\<!-- ONLY RUN IF LOCAITON IS ACTIVE, AND NOT YOUR CURRENT LOCATION -->\
 	<<if _active and (_from.id neq _to.id)>>\
 		<<set _available = true>>\
 		<<set _quickDressForSchool = false>>\
@@ -60,7 +61,7 @@
 			<<endif>>\
 		<<endif>>\
 \
-		<!--  Random Events  -->
+		\<!--  Random Events  -->\
 		<<if (false)>>\
 			<<set _destination = "random event destination">>\
 			<<set $player.location = locationsJS.tokenPlace.id>>\
@@ -70,8 +71,8 @@
 		<<endif>>\
 \
 \
-		<!-- CHECKS FOR EACH LOCATION -->\
-		<!-- TODO: PUT THESE CHECKS INTO THE JS OBJECTS -->\
+		\<!-- CHECKS FOR EACH LOCATION -->\
+		\<!-- TODO: PUT THESE CHECKS INTO THE JS OBJECTS -->\
 		<<if (_to.id eq locationsJS.mall.id)>>\
 			<<if (not window.timeCode.isMallOpen())>>\
 				<<continue>>\
@@ -132,7 +133,7 @@
 			<<set _reason = "You are too exhausted to do that">>\
 		<<endif>>\
 		\
-		<!-- TIME CALCULATIONS, SET UP TOOLTIP AND DISPLAY DESTINATION -->\
+		\<!-- TIME CALCULATIONS, SET UP TOOLTIP AND DISPLAY DESTINATION -->\
 		<<if _available>>\
 			<<set _time = window.misc.calculateDistance(_from, _to)>>\
 			<<set _timeOnArrivalHour = $time.hour>>\
@@ -156,7 +157,7 @@
 				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<endif>>\
 		<<endif>>\
-		
+
 	<<endif>>\
 <</for>>\
 <div class="clothesDivider"></div>\
