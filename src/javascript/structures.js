@@ -53,6 +53,7 @@ window.structures={
 		this.setupCheer();
 		this.setupCheerFriend();
 		this.setupBully();
+		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -664,19 +665,6 @@ window.structures={
 				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
 				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
 				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
-
-		for (var i=0; i < Object.keys(cheerList.game).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList.game)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList.game)[i]] = {};
-				var object = vars.cheerleaders[Object.keys(cheerList.game)[i]];
-				var listObject = cheerList.game[Object.keys(cheerList.game)[i]];
 				for (var j=0; j < Object.keys(listObject).length; j++) {
 					if (object[Object.keys(listObject)[j]] == null) {
 						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
@@ -1430,10 +1418,11 @@ window.quickSlotList={
 	}
 },
 
-window.cheerleaders={
+window.cheerList={
 	//Main Cheerleader Arc
 	active: false,		//If the cheerleader arc is active or not [bool]
 	progress: -1,		//Current progress in cheerleader arc [int]
+	canPractice: true, 	//can practice cheerleading after school
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
@@ -1506,7 +1495,7 @@ window.cheerleaders={
 	}
 }
 
-window.cheerFriend={
+window.cheerFriendList={
 	progress: 0,	//current progress in side events, [int]
 	affinity: 0,		//current affinity of cheer friend to PC, [int]
 	currentSE: 0,		//currently available side event
