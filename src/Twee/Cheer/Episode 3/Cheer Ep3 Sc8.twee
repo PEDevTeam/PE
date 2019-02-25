@@ -16,6 +16,8 @@ Rachel examines you sitting against the wall with a bemused smirk. @@.cheerCapta
 It takes several minutes for the squad to finish cleaning up, and Rachel ducks inside to ensure the locker room is empty.
 
 She reappears a couple of seconds later. @@.cheerCaptain;“It’s clear. Come on.”@@
+\
+<<RandomImageFromPack "Cheerleader Locker Room Shower" 400 400 "alignRight">>\
 
 You follow Rachel into the girls’ locker room with trepidation. The air is heavy with humidity and the floral smell of women’s bath products, but outside the names on the lockers there’s little different from the boy’s locker room. Just being in the room, it’s impossible to not imagine the squad changing in here just moments before.
 
@@ -53,7 +55,7 @@ You reach into your bag for your uniform. Digging around inside, your hand hits 
 
 Confused, you pull it out to find a small bundle of fabric inside. Your eyes go wide when you realize it’s a uniform. Identical to $cheerFriend.name’s, it consists of a red and white top with “cheer team” written across the front and matching red short shorts with “rookie” printed on the left leg.
 \
-<<RandomImageFromPack "Cheerleader trainee uniform" 600 600 "alignRight">> \
+<<RandomImageFromPack "Cheerleader trainee uniform" 400 400 "alignRight">> \
 
 You let out an involuntary, girlish squeal of joy, quickly slapping your hand over your mouth when you realize what you just did. Your face turns red and you shrink in embarrassment. Thankfully, no one was in the room to hear that.
 
@@ -65,8 +67,15 @@ The uniform is surprisingly form-fitting, accentuating your chest and butt. Even
 <<else>>
 	you can’t deny that,\
 <<endif>>
-you look pretty sexy. 
+you look pretty <<if playerCode.isMind() == 0>>cute<<elseif playerCode.isMind() == 1>>hot<<else>>sexy<<endif>>. 
 
 Looking through the bag again, you discover two more uniforms still wrapped in plastic, as well as a pair of white sneakers, socks, and a large, red-and-white hairbow - everything a rookie cheerleader needs. You quickly slip on the shoes and socks, grabbing the pink gym bag as you run out of the locker room.
 
+<<addToInv 'rookieUniform'>>\
+<<addToInv 'cheerBriefs'>>\
+<<addToInv 'socks' 43>>\
+<<addToInv 'hairbow' 43>>\
+<<addToInv 'cheerSneakers'>>\
+<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>><<set $player.quickSet=quickSlotSets.Cheerleader>><<updateClothes>>\
+<<set $cheerleaders.rainyDay = false>>\
 [[Exit the locker room|Cheer Ep3 Sc9]]
