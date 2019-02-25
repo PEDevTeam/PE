@@ -1,15 +1,16 @@
 ::Cheer Ep2 Sc5
-
-You jog onto the practice field, making your way over to where the cheerleaders stand. Rachel beckons for you to join her at the front of the group. 
+\
+<<set _late = $cheerleaders.flags.lateForPractice>>\
+You jog onto the practice field, making your way over to where the cheerleaders <<if _late>>are exercising.<<else>>stand.<<endif>> Rachel <<if _late>>angrily <<endif>>beckons for you to join her at the front of the <<if _late>>group before she blows her whistle to get the girls’ attentions.<<else>>group.<<endif>>
 
 @@.cheerCaptain;“Girls, we have a new prospective addition to our squad. $cheerleaders.fakeName has agreed to be our manager, pending our approval. So, let’s give her a big Pepperton Academy Cheer Squad welcome."@@
 
 The cheerleaders flatly applaud.
 
-<<if $cheerleaders.flags.lateForPractice>>\
-    @@.cheerCaptain;“Get in line,”@@ Rachel orders sternly.  @@.cheerCaptain;“You’ve practically missed conditioning.  This is your last warning.  Do you understand?”@@
+<<if _late>>\
+	@@.cheerCaptain;“Get in line,”@@ Rachel orders sternly. @@.cheerCaptain;“<<if not $cheerleaders.flags.bullyLeft>>You’re already late for<<else>>You’ve practically missed<<endif>> conditioning.  This is your last warning.  Do you understand?”@@
 <<else>>\
-    @@.cheerCaptain;“You can get in formation now. We’re about to start conditioning.”@@
+	@@.cheerCaptain;“You can get in formation now. We’re about to start conditioning.”@@
 <<endif>>\
 
 @@.heroT;“Yes, ma’am.”@@
@@ -62,4 +63,4 @@ $cheerFriend.name’s hand slips into yours and your heart begins to race.
 
 @@.cheerFriend;“Come on. Let’s practice over here.”@@
 
-[["Follow " + $cheerFriend.name|Cheer Ep2 Sc6]]
+<<print '[[Follow '+$cheerFriend.name+'|Cheer Ep2 Sc7]]'>>
