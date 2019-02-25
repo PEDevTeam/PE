@@ -39,28 +39,28 @@ The warm water washes away the caked-on grime and soothes your aching muscles. F
 
 You finish rinsing off the last bit of mud and timidly step into the empty locker room. Next to your bag sits a large, white bath towel. You quickly rub yourself dry.
 
-<<If $playerCode.haveMakeup()>>\
+<<if playerCode.haveMakeup()>>\
     Your reflection in a nearby mirror catches your eye, and you notice that your makeup has astonishingly survived the storm in perfect condition. \
 <<endif>>\
-<<if $playerCode.haveManicure()>>\
+<<if playerCode.haveManicure()>>\
     Looking down at your hands, you are amazed to find that your manicure is still intact. \
 <<endif>>\
-<<if $playerCode.haveManicure() or $playerCode.haveMakeup()>>\
+<<if playerCode.haveManicure() or playerCode.haveMakeup()>>\
     @@.hero;What on earth are they using at that beauty salon?@@
 <<endif>>\
 
 You reach into your bag for your uniform. Digging around inside, your hand hits against a thin, plastic wrapper. You don’t remember putting something like that in your gym bag.
 
 Confused, you pull it out to find a small bundle of fabric inside. Your eyes go wide when you realize it’s a uniform. Identical to $cheerFriend.name’s, it consists of a red and white top with “cheer team” written across the front and matching red short shorts with “rookie” printed on the left leg.
-
-<<RandomImageFromPack "Cheerleader trainee uniform" 600 600 "alignCenter">> 
+\
+<<RandomImageFromPack "Cheerleader trainee uniform" 600 600 "alignRight">> \
 
 You let out an involuntary, girlish squeal of joy, quickly slapping your hand over your mouth when you realize what you just did. Your face turns red and you shrink in embarrassment. Thankfully, no one was in the room to hear that.
 
 You excitedly put on the uniform and perform a little supermodel twirl as you check yourself in the mirror.
 
 The uniform is surprisingly form-fitting, accentuating your chest and butt. Even though the uniform isn’t quite as elegant as the full cheer uniform,\
-<<if $playerCode.slutScoreBasic() <= 1>>
+<<if playerCode.slutScoreBasic() <= 1>>
     you can’t deny that, even with your boyish features,\
 <<else>>
 	you can’t deny that,\
