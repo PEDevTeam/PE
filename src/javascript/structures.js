@@ -699,19 +699,6 @@ window.structures={
 			}
 		}
 	},
-
-	setupBully: function (){
-		var vars=State.active.variables;
-		var bullyList=window.bullyList;
-		if (vars.bully == null) {
-			vars.bully = {};
-		}
-		for (var i=0; i < Object.keys(bullyList).length; i++) {
-			if (vars.bully[Object.keys(bullyList)[i]] == null) {
-				vars.bully[Object.keys(bullyList)[i]] = bullyList[Object.keys(bullyList)[i]];
-			}
-		}
-	}
 },
 
 window.playerList={
@@ -1422,10 +1409,12 @@ window.cheerList={
 	//Main Cheerleader Arc
 	active: false,		//If the cheerleader arc is active or not [bool]
 	progress: -1,		//Current progress in cheerleader arc [int]
-	canPractice: true, 	//can practice cheerleading after school
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
+	bullySawWorkout: false,
+	rainyDay: false,
+	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
 	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
@@ -1511,8 +1500,4 @@ window.cheerFriendList={
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
-}
-
-window.bully={
-	sawWorkout: false,
 }

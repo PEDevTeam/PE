@@ -1,6 +1,7 @@
 :: Travel [pos_2705_10]
 \
-<!-- CHECK THE PASSAGE NAME USING passage() METHOD TO SET THE CURRENT LOCATION -->\
+\<!-- CHECK THE PASSAGE NAME USING passage() METHOD TO SET THE CURRENT LOCATION -->\
+
 <<set _from = null>>\
 <<if passage() eq "Go to bedroom">>\
 	<<set _from = locationsJS.home>>\
@@ -23,11 +24,13 @@
 <<endif>>\
 \
 <div class="clothesDivider"></div>\
-<!-- LOOP THROUGH ALL THE LOCATIONS IN locations.js -->\
+\
+\<!-- LOOP THROUGH ALL THE LOCATIONS IN locations.js -->\
 <<for _i to 0; _i lt Object.keys(locationsJS).length; _i++>>\
 	<<set _to = locationsJS[Object.keys(locationsJS)[_i]]>>\
 	<<set _active = $locations[_to.id].active>>\
-	<!-- ONLY RUN IF LOCAITON IS ACTIVE, AND NOT YOUR CURRENT LOCATION -->\
+	\
+	\<!-- ONLY RUN IF LOCAITON IS ACTIVE, AND NOT YOUR CURRENT LOCATION -->\
 	<<if _active and (_from.id neq _to.id)>>\
 		<<set _available = true>>\
 		<<set _quickDressForSchool = false>>\
@@ -56,8 +59,16 @@
 			<<if $player.perversion.teacher >= 4 and $cheerleaders.progress == -1 and window.timeCode.isTuesday()>>\
 				<<set _destination = "Cheer Ep0 Sc1">>\
 			<<endif>>\
+			<<if $cheerleaders.progress == 2 and (window.timeCode.isMonday() or window.timeCode.isWednesday())>>\
+				<<set _destination = "Cheer Ep3 Pre1">>\
+				<<set $cheerleaders.rainyDay = true>>\
+			<<endif>>\
+			<<if $cheerleaders.progress == 2 and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
+				<<set _destination = "Cheer Ep3 Pre3">>\
+			<<endif>>\
 		<<endif>>\
-		<!--  Random Events  -->\
+\
+		\<!--  Random Events  -->\
 		<<if (false)>>\
 			<<set _destination = "random event destination">>\
 			<<set $player.location = locationsJS.tokenPlace.id>>\
@@ -65,8 +76,10 @@
 			<<set $player.locationX = (_from.x + _to.x)*0.5>>\
 			<<set $player.locationY = (_from.y + _to.y)*0.5>>\
 		<<endif>>\
-		<!-- CHECKS FOR EACH LOCATION -->\
-		<!-- TODO: PUT THESE CHECKS INTO THE JS OBJECTS -->\
+\
+\
+		\<!-- CHECKS FOR EACH LOCATION -->\
+		\<!-- TODO: PUT THESE CHECKS INTO THE JS OBJECTS -->\
 		<<if (_to.id eq locationsJS.mall.id)>>\
 			<<if (not window.timeCode.isMallOpen())>>\
 				<<continue>>\
@@ -126,7 +139,8 @@
 			<<set _available = false>>\
 			<<set _reason = "You are too exhausted to do that">>\
 		<<endif>>\
-		<!-- TIME CALCULATIONS, SET UP TOOLTIP AND DISPLAY DESTINATION -->\
+		\
+		\<!-- TIME CALCULATIONS, SET UP TOOLTIP AND DISPLAY DESTINATION -->\
 		<<if _available>>\
 			<<set _time = window.misc.calculateDistance(_from, _to)>>\
 			<<set _timeOnArrivalHour = $time.hour>>\
@@ -150,7 +164,7 @@
 				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<endif>>\
 		<<endif>>\
-		
+
 	<<endif>>\
 <</for>>\
 <div class="clothesDivider"></div>\

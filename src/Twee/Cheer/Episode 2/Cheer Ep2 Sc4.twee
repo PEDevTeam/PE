@@ -1,14 +1,15 @@
 ::Cheer Ep2 Sc4
 Grabbing the gym bag, you ease open the stall door and quietly sneak towards the door.  However your escape comes to a sudden stop when you catch your reflection in the mirror.
 
-<<if $playerCode.slutScoreBasic() gt 1>>\
+<<if playerCode.slutScoreBasic() gt 1>>\
     A cute<<if playerCode.slutScoreBasic() < 5>>, if boyish,<<endif>> gym bunny stares at you from the other side of the glass. Your cheeks become a bit flushed when you register that the girl is you.
 
-    <<if $playerCode.isMind_0()>>\
+
+    <<if playerCode.isMind() == 0>>\
         @@.hero;Am I turning myself on? What is wrong with me?@@
-    <<elseif $playerCode.isMind_1()>>\
+    <<elseif playerCode.isMind() == 1>>\
         @@.hero;I guess I don’t look too bad. I might be able to pull this off after all.@@
-    <<elseif $playerCode.isMind_2()>>\
+    <<elseif playerCode.isMind() == 2>>\
         @@.hero;I can’t believe how good this looks on me, if a little missized.@@
     <<endif>>\
 <<else>>\
@@ -25,8 +26,8 @@ Grabbing the gym bag, you ease open the stall door and quietly sneak towards the
     @@.bully;“What the fu…”@@
 
     Running fully on instinct, you bolt through the restroom door, hoping $bully didn’t get a long enough look at you to recognize you.
-    \
-    <<set $bully.sawWorkout = true>>\
+
+    <<set $cheerleaders.flags.bullySawWorkout = true>>\
 <<else>>\
     Your thoughts are interrupted by a flush coming from the other side of the room. The stall door begins to creak, and you make a mad dash for the door, hoping you made it out before being seen.
 <<endif>>\

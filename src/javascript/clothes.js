@@ -283,7 +283,7 @@ window.clothes={
 				State.active.variables.reason.dressedSchool="You need to wear the school uniform";
 				return false;
 			}
-			if (outerwear.school && !outerwear.female && stockings.female && stockings.slutty) {
+			if (outerwear.school && !outerwear.female && shoes.female && shoes.slutty) {
 				State.active.variables.reason.dressedSchool="It is against rules to wear heels with pants";
 				return false;
 			}
