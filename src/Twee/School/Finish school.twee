@@ -69,6 +69,10 @@
 	You need to return to $teacher.
 	
 	[[Return to teacher|TeacherPunishment]]
+\ <!-- Cheerleader rainy day wont be hit if we fail to pay teacher on mondays... --> \
+<<elseif $cheerleaders.rainyDay and (window.timeCode.isMonday() or window.timeCode.isWednesday())>>\
+	<<set $cheerleaders.rainyDay = false>>\
+	<<goto "Cheer Ep3 Pre2">>\
 <<else>>\
 	<<set $player.punishments.penaltySkipped = false>>\
 	You're done with school for today. What would you like to do with the rest of the day?
