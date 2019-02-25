@@ -712,18 +712,6 @@ window.structures={
 		}
 	},
 
-	setupBully: function (){
-		var vars=State.active.variables;
-		var cheerFriendList=window.cheerFriendList;
-		if (vars.cheerFriend == null) {
-			vars.cheerFriend = {};
-		}
-		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
-			}
-		}
-	}
 },
 
 window.playerList={
@@ -1430,14 +1418,15 @@ window.quickSlotList={
 	}
 },
 
-window.cheerleaders={
+window.cheerList={
 	//Main Cheerleader Arc
-	status: false,		//If the cheerleader arc is active or not [bool]
-	progress: 0,		//Current progress in cheerleader arc [int]
+	active: false,		//If the cheerleader arc is active or not [bool]
+	progress: -1,		//Current progress in cheerleader arc [int]
 	fakeName: window.playerList.name,	//Fake name used by player [str]
 	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
 	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
-
+	bullySawWorkout: false,
+	rainyDay: false,
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
@@ -1505,7 +1494,7 @@ window.cheerleaders={
 	}
 }
 
-window.cheerFriend={
+window.cheerFriendList={
 	progress: 0,	//current progress in side events, [int]
 	affinity: 0,		//current affinity of cheer friend to PC, [int]
 	currentSE: 0,		//currently available side event
@@ -1521,8 +1510,4 @@ window.cheerFriend={
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
-}
-
-window.bully={
-	sawWorkout=false,
 }
