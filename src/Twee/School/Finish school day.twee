@@ -141,12 +141,19 @@
 <<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>\
 	<<if $cheerleaders.progress == -1>>\
 		[[Return to teacher|Cheer Ep0 Sc5]]
+	<<elseif $cheerleaders.flags.skippedPractice>>\
+		[[Go to Cheerleading Practice|Makeup Practice]]
 	<<else>>\
 		[[Go to Cheerleading Practice]]
-		<<if $cheerleaders.progress gt 0>>\
-			[[Finish school][$cheerleaders.flags.skippedPractice = true; $cheerleaders.active = false]]
+		<<if $cheerleaders.progress gt 0 and (not $cheerleaders.flags.madeUpPractice)>>\
+			[[Finish school][$cheerleaders.flags.skippedPractice = true]]
 		<<endif>>\
 	<<endif>>\
+<<elseif ($cheerleaders.active and $cheerleaders.flags.skippedPractice) and (timeCode.isFriday() or timeCode.isWednesday())>>\
+	@@.hero;I need to go see Rachel if I want to keep my spot on the cheerleading squad. Of course, I doubt she’s going to be happy to see me after I played hooky yesterday.@@
+
+	[[Go see Rachel|Skipped Practice Afternoon]]
+	[[Finish school][$cheerleaders.active = false; $cheerleaders.skippedPractice = false]]
 <<elseif $player.perversion.teacher eq 10>>\
 [[Go to the Coach|Play with Coach]]
 [[Finish school]]

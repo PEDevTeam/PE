@@ -166,7 +166,30 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 	<<set _ev = random(5)>>\
 	<<if (not $flags.schoolWalk)>>\
 		<<set $flags.schoolWalk = true>>\
-		<<if (_ev lte 1) or ($time.day eq 1)>>\
+		<<if ($cheerleaders.active and $cheerleaders.flags.skippedPractice) and (timeCode.isFriday() or timeCode.isWednesday())>>\
+			You hear $cheerFriend.name call your name as you walk past the practice field and stop mid-stride so she can run up to you.
+
+			@@.cheerFriend;“Hey, $cheerleaders.fakeName, where were you yesterday?”@@ she asks. @@.cheerFriend;“You missed practice. Rachel was pissed.”@@
+
+			@@.heroT;“Oh, I uhh… had some other stuff I need it to do,”@@ you say, not very convincingly.
+
+			@@.cheerFriend;“Is everything, OK? You seem kind of distracted.”@@
+
+			@@.hero;You’ve got no idea.@@
+
+			@@.heroT;“I’m fine, I promise,”@@ you lie.
+
+			@@.cheerFriend;“Ok, well, I talked to Rachel for you and practically begged her to let you stay on the team. She said if you come talk to her at the practice field after school today, she’d consider it. If you don’t go, she’s taking it as a sign of resignation, and I quote: @@@@.cheerCaptain;‘I better never see her on school property in my uniform ever again.’@@
+
+			@@.cheerFriend;"You’re not really going to quit, are you?”@@
+
+			The sadness on $cheerFriend.name’s face makes your chest ache.
+
+			@@.heroT;“I’ll think about it,”@@ you assure her.
+
+			She nods and gives you a faint smile before heading back to the practice field.
+			
+		<<elseif (_ev lte 1) or ($time.day eq 1)>>\
 			<!--				School crowd reaction to player body mods				-->\
 			<<if (not _o.female)>>\
 				<<if _m>>\
@@ -308,7 +331,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<endif>>\
 			
 			<<endif>>\
-		<<elseif _ev lte 3>>\
+		<<elseif _ev lte 3 and (not $cheerleaders.flags.skippedPractice)>>\
 			<<if _o and (not _o.female) and (_slb lte 2)>>\
 				You're walking to school when you see the cheerleading team\
 					<<if random(1) eq 0>>\
