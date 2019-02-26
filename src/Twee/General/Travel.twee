@@ -59,11 +59,11 @@
 			<<if $player.perversion.teacher >= 4 and $cheerleaders.progress == -1 and window.timeCode.isThursday()>>\
 				<<set _destination = "Cheer Ep0 Sc1">>\
 			<<endif>>\
-			<<if $cheerleaders.progress == 2 and (window.timeCode.isMonday() or window.timeCode.isWednesday())>>\
+			<<if $cheerleaders.progress == 2 and window.timeCode.isMonday() and (not $cheerleaders.flags.skippedPractice)>>\
 				<<set _destination = "Cheer Ep3 Pre1">>\
 				<<set $cheerleaders.rainyDay = true>>\
 			<<endif>>\
-			<<if $cheerleaders.progress == 2 and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
+			<<if $cheerleaders.progress == 2 and window.timeCode.isTuesday()>>\
 				<<set _destination = "Cheer Ep3 Pre3">>\
 			<<endif>>\
 		<<endif>>\
