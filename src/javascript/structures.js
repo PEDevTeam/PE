@@ -1421,6 +1421,7 @@ window.cheerList={
 	//all variables are type [bool] unless noted otherwise
 	flags: {
 		skippedPractice: false,	//did not attend practice
+		madeUpPractice: false,	//attended makeup practice after skipping
 		grope: false,	//groped cheer traitor
 		beg: false,	//begged cheer bitch for mercy
 		fakeName: false,	//used a fake name
