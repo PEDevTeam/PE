@@ -69,7 +69,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You walk into the living room to find $guardian lying on her stomach, watching TV. Her short dress has risen up, exposing the lower curves of her bare ass. As you stand there, her thighs part a litavailableDreamse, revealing her g-string. The tiny strip of material sparsely covers her pussy. She begins to spread her legs wider, turning her head to smile at you...",
+		description: "You walk into the living room to find $guardian lying on her stomach, watching TV. Her short dress has risen up, exposing the lower curves of her bare ass. As you stand there, her thighs part a little, revealing her g-string. The tiny strip of material sparsely covers her pussy. She begins to spread her legs wider, turning her head to smile at you...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -85,7 +85,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing.  As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you sofavailableDreamsy approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
+		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing.  As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you softly approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -181,7 +181,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You're in the cinema, sitting next to $guardian. As the movie begins and the lights go out, she slips out of her chair and nesavailableDreamses between your legs on the floor. She gently unzips your pants and pulls out your hard penis, sucking it into her mouth. You put your hands on top of her head, pushing her gently back down each time she bobs up. You can feel your orgasm nearing...",
+		description: "You're in the cinema, sitting next to $guardian. As the movie begins and the lights go out, she slips out of her chair and nestles between your legs on the floor. She gently unzips your pants and pulls out your hard penis, sucking it into her mouth. You put your hands on top of her head, pushing her gently back down each time she bobs up. You can feel your orgasm nearing...",
 		check: function() {
 			return [3,4,5].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -197,7 +197,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You're in the bathroom locked in chastity and sitting next to $guardian, and she's telling you that personal hygiene is important. You feel one of her fingers probing your sphincter gently. @@.guardiandream;'$player.name,'@@ she sighs. @@.guardiandream;'You really have to take better care of yourself. You have two elbows, two knees, but only one anus.'@@\n	@@.guardiandream;'With your penis locked away, there is only one way to satisfy your needs, right?'@@ she asks with a smile.\n\n @@.heroT;'Yes...'@@ you whisper weakly, your aching dick straining in its cage.\n\n You clench your asshole tighavailableDreamsy around $guardian's genavailableDreamse fingers as she massages your rectum. You can feel your orgasm approaching...",
+		description: "You're in the bathroom locked in chastity and sitting next to $guardian, and she's telling you that personal hygiene is important. You feel one of her fingers probing your sphincter gently. @@.guardiandream;'$player.name,'@@ she sighs. @@.guardiandream;'You really have to take better care of yourself. You have two elbows, two knees, but only one anus.'@@\n	@@.guardiandream;'With your penis locked away, there is only one way to satisfy your needs, right?'@@ she asks with a smile.\n\n @@.heroT;'Yes...'@@ you whisper weakly, your aching dick straining in its cage.\n\n You clench your asshole tightly around $guardian's gentle fingers as she massages your rectum. You can feel your orgasm approaching...",
 		check: function() {
 			return [4,5,6,7].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -213,7 +213,7 @@ window.dreamsGuardian={
 		once: true,
 		chance: 10,
 		highestStartPriority: 1,
-		description: "On your way home, you catch sight of a voluptuous young woman, a few years older than yourself. Not exacavailableDreamsy a stunning beauty, still she captivates your attention. Something about her movements, subavailableDreamse and graceful, almost as if she were gliding efforavailableDreamsessly about, strikes you as sublimely sexual. She does not reach up and touch her face, she caresses. She does not walk about, she sashays and struts. She does not smile and laugh, she radiates warmth and affection, and when she looks at you, and into your eyes, you are instanavailableDreamsy seduced, ensnared in her sensuality. With a wicked smile of self-assurance, she turns from you, laughing, and strides away, leaving you feeling empty and lost. As you take a deep breath, your whole body pulses with a need, a desire.\n You want her. You want to be like her. You want to be her...",
+		description: "On your way home, you catch sight of a voluptuous young woman, a few years older than yourself. Not exactly a stunning beauty, still she captivates your attention. Something about her movements, subtle and graceful, almost as if she were gliding effortlessly about, strikes you as sublimely sexual. She does not reach up and touch her face, she caresses. She does not walk about, she sashays and struts. She does not smile and laugh, she radiates warmth and affection, and when she looks at you, and into your eyes, you are instantly seduced, ensnared in her sensuality. With a wicked smile of self-assurance, she turns from you, laughing, and strides away, leaving you feeling empty and lost. As you take a deep breath, your whole body pulses with a need, a desire.\n You want her. You want to be like her. You want to be her...",
 		check: function() {
 			return playerCode.isMind_2();
 		}
@@ -360,7 +360,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is sitting behind her desk, looking direcavailableDreamsy into your eyes. She takes one of her ample breasts in hand and gently but firmly squeezes. Her other hand drops out of sight behind the desk, between her legs. Halfway closing her eyes, she finds the right spot, gazing at you in arousal. She opens her mouth and licks her lips, her eyes pleading...",
+		description: "$teacher is sitting behind her desk, looking directly into your eyes. She takes one of her ample breasts in hand and gently but firmly squeezes. Her other hand drops out of sight behind the desk, between her legs. Halfway closing her eyes, she finds the right spot, gazing at you in arousal. She opens her mouth and licks her lips, her eyes pleading...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -376,7 +376,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks direcavailableDreamsy into yours, silenavailableDreamsy pleading for you to take its place.  You stand up and walk towards her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
+		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks directly into yours, silently pleading for you to take its place.  You stand up and walk towards her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -472,7 +472,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them gently for a moment, before slowly moving them down your chest.  You feel your cock grow hard as she continues moving towards it, then defavailableDreamsy avoiding it as she continues past along your legs.  She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
+		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them gently for a moment, before slowly moving them down your chest.  You feel your cock grow hard as she continues moving towards it, then deftly avoiding it as she continues past along your legs.  She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -488,7 +488,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is sitting at her desk while the class works quieavailableDreamsy on their writing task. You watch her as she takes a sip from a glass of water, but it slips and spills all over her blouse making it instanavailableDreamsy transparent. The cold water makes her nipples hard and firm and she begins unbuttoning her top...",
+		description: "$teacher is sitting at her desk while the class works quietly on their writing task. You watch her as she takes a sip from a glass of water, but it slips and spills all over her blouse making it instantly transparent. The cold water makes her nipples hard and firm and she begins unbuttoning her top...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -648,7 +648,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "It's lunchtime, and the cafeteria is crowded. $teacher pulls you out of the queue and leads you towards a table in the middle of the room. On the table sits a big glass jug filled with sperm, and has a thick tube attached to a dildo and straps coming out the top. You sit, and she quickly forces the dildo gag into your mouth and secures it with the straps behind your head. With a flick of her finger on a switch on top of the jug, you hear it begin to pump the sperm through the dildo into your mouth. You initially refuse to swallow, but the pump is relenavailableDreamsess and forces the cum into your stomach. The other students look over from time to time, but mosavailableDreamsy ignore you and eat their lunch with their friends while the pump works away...",
+		description: "It's lunchtime, and the cafeteria is crowded. $teacher pulls you out of the queue and leads you towards a table in the middle of the room. On the table sits a big glass jug filled with sperm, and has a thick tube attached to a dildo and straps coming out the top. You sit, and she quickly forces the dildo gag into your mouth and secures it with the straps behind your head. With a flick of her finger on a switch on top of the jug, you hear it begin to pump the sperm through the dildo into your mouth. You initially refuse to swallow, but the pump is relentless and forces the cum into your stomach. The other students look over from time to time, but mostly ignore you and eat their lunch with their friends while the pump works away...",
 		check: function() {
 			return State.active.variables.kink.cumEating && State.active.variables.player.perversion.teacher >= 7;
 		}
