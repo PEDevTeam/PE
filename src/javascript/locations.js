@@ -11,6 +11,17 @@ window.locationsJS={
 		important: true
 	},
 	/*
+	rainymorning: {
+		id: "rainymorning",
+		destination: "Rainy Morning",
+		description: "Go to school",
+		x: 15,
+		y: 0,
+		busRange: 10,
+		remote: 0,
+		active: true,
+		important: true
+	},
 	homeOutside: {
 		id: "homeOutside",
 		destination: "Go to bedroom",

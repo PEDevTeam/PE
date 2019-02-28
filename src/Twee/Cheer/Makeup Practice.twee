@@ -1,0 +1,106 @@
+:: Makeup Practice
+Even as you’re walking to the formation with $cheerFriend.name, Rachel’s eyes make it clear that you know what you should be doing instead. You sigh, tell $cheerFriend.name to have a good practice, and begrudgingly head for the running track. 
+\
+<<RandomImageFromPack "Cheerleader Running" 400 400 "alignRight">>\
+
+As promised by Rachel, all you do is run. Occasionally you sneak a peek at the squad practicing stunts and find yourself desperate to do anything that will break up the monotony of placing on foot in front of the other on the white-lined track before you. \
+<<if $cheerleaders.progress < 9>>\
+	You feel even worse when you see $cheerFriend.name off to the side from the rest of the squad, working through cheer motions on her own, your inability to join her feeling like betrayal.
+<<endif>>\
+
+<<if $player.fitness <= 5>>\
+	It only takes minutes for your muscles to start burning as you continue your endless circles around the track. Unfortunately, Rachel always seems to notice as you start to slow, her disapproving glare making clear that she expects you to speed up. 
+
+	By the time Rachel calls an end to practice, you’re not even sure how your legs are still moving nor what would happen if you stopped them. Rachel walks your way and you finally start to slow. Unfortunately, the change in speed allows exhaustion to catch up to your legs, and you’re sent tumbling to the dirt.
+
+	@@.cheerCaptain;“That’s enough,”@@ Rachel says, walking up next to you. @@.cheerCaptain;“I’m impressed. I didn’t really think you’d make it the whole hour.”@@
+
+	@@.heroT;“Thanks… I think…”@@ you manage to get out between gasps for air.
+
+	@@.cheerCaptain;“Letting your team down really sucks, doesn’t it?”@@
+
+	@@.heroT;“Yeah. It does.”@@
+
+	@@.cheerCaptain;“You going to do it again?”@@
+
+	@@.heroT;“Definitely not.”@@
+
+	<<if timeCode.isTuesday()>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Thursday.”@@
+	<<else>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Tuesday.”@@
+	<<endif>>\
+
+	With that, Rachel walks off, leaving you to recover from your grueling exercise.
+<<elseif $player.fitness <= 10>>\
+	You’ve gotten a little more used to working out, but certainly weren’t prepared for an hour of pure running. At about the midpoint of practice, your muscles to start burning as you continue your endless circles around the track. Unfortunately, Rachel always seems to notice as your start slow, her disapproving glare making clear that she expects you to speed up.
+
+	By the time Rachel calls an end to practice, your legs are on fire, and you’re desperate to stop your endless toil. Rachel starts walking your way, and you take it as a sign to finally slow down, nearly doubling over as you try to catch your breath.
+
+	@@.cheerCaptain;“That’s enough,”@@ Rachel says, walking up next to you. @@.cheerCaptain;“I’m impressed. I didn’t really think you’d make it the whole hour.”@@
+
+	@@.heroT;“Thanks… I think…”@@ you manage to get out between gasps for air.
+
+	@@.cheerCaptain;“Letting your team down really sucks, doesn’t it?"@@
+
+	@@.heroT;“Yeah. It does.”@@
+
+	@@.cheerCaptain;“You going to do it again?”@@
+
+	@@.heroT;“Definitely not.”@@
+
+	<<if timeCode.isTuesday()>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Thursday.”@@
+	<<else>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Tuesday.”@@
+	<<endif>>\
+
+	With that, Rachel walks off, leaving you to recover from your grueling exercise.
+<<elseif $player.fitness <= 15>>\
+	The before-practice conditioning is pretty easy for you at this point, but this is on a whole new level. The constant repeated motion gives your leg muscles no chance to rest, but you’re almost certain Rachel would call you out if your pace slowed, so you press past the pain and keep running.
+
+	Exhaustion starts to set in just as you see Rachel call an end to practice. She starts walking your way and you slow to meet her, breathing heavily and soaked in sweat.
+
+	@@.cheerCaptain;“That’s enough,”@@ Rachel says, walking up next to you. @@.cheerCaptain;“I’m impressed. I didn’t really think you’d manage to keep pace it the whole hour.”@@
+
+	@@.heroT;“Thanks… I think…”@@ you reply between deep breaths.
+
+	@@.cheerCaptain;“Letting your team down really sucks, doesn’t it?”@@
+
+	@@.heroT;“Yeah. It does.”@@
+
+	@@.cheerCaptain;“You going to do it again?”@@
+
+	@@.heroT;“Definitely not.”@@
+
+	<<if timeCode.isTuesday()>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Thursday.”@@
+	<<else>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Tuesday.”@@
+	<<endif>>\
+<<else>>\
+	It’s a good thing you’ve been keeping up with your conditioning, otherwise you don’t think you’d ever manage to keep your pace up for an entire hour. By the time practice is finished, your muscles are aching and you’re covered in sweat, but you managed to keep running for the entire hour. You can’t help mentally congratulate yourself on your accomplishment.
+
+	@@.cheerCaptain;“That’s enough,”@@ Rachel says after making her way over to you. @@.cheerCaptain;“I’m impressed. You managed to keep pace the whole hour.”@@
+
+	@@.heroT;“Thanks,”@@ you reply, wiping the sweat from your forehead.
+
+	@@.cheerCaptain;“Letting your team down really sucks, doesn’t it?”@@
+
+	@@.heroT;“Yeah. It does.”@@
+
+	@@.cheerCaptain;“You going to do it again?”@@
+
+	@@.heroT;“Definitely not.”@@
+
+	<<if timeCode.isTuesday()>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Thursday.”@@
+	<<else>>\
+		She smiles, somewhere between a grin and a smirk. @@.cheerCaptain;“Good. I’ll see you again on Tuesday.”@@
+	<<endif>>\
+<<endif>>\
+
+<<set $cheerleaders.flags.skippedPractice = false>>\
+<<set $cheerleaders.flags.madeUpPractice = true>>\
+<<set $time.addMinutes(60)>>\
+<<display [[Travel]]>>

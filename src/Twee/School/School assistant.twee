@@ -4,10 +4,11 @@
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _slb = playerCode.slutScoreBasic()>>\
 <<if $player.perversion.assistant lte 1>>\
 	<<if $player.perversion.assistant eq 0>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Storage Room" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Storage Room" 400 400>></div>\
 		<<set $player.perversion.assistant = 1>>\
 		You walk to Miss Willow's class. There is only Miss Willow herself and her assistant.
 		
@@ -49,7 +50,7 @@
 		<<print '[[Let '+$futa.him_her+' grope you|School assistant][$random.stored=1]]'>>
 		[[Walk away|Finish school][$flags.assistantSatisfied=false]]
 	<<elseif ($random.stored eq 1)>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Bended Over" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Bended Over" 400 400>></div>\
 		<<set $player.perversion.assistant = 2>>\
 		You silently nod and blush heavily as $futa.his_her hold on you gets stronger.\
 		<<if playerCode.haveBoobs()>>\
@@ -108,7 +109,7 @@
 	<<endif>>\
 <<elseif $player.perversion.assistant eq 2>>\
 	<<if ($random.stored eq 0)>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Bended Over" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Bended Over" 400 400>></div>\
 		As usual, you walk to Miss Willow's class. As you work, you nervously glance at her assistant, who winks at you and wiggles $futa.his_her eyebrows exaggeratedly.
 		
 		Finally, Miss Willow sends you to the storage room. Once again, the $futa.boy_girl makes $futa.his_her advances.
@@ -173,9 +174,9 @@
 		<<endif>>\
 	<<elseif ($random.stored eq 1)>>\
 		<<if $kink.futa>>\
-			<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 600 600>></div>\
+			<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 400 400>></div>\
 		<<else>>\
-			<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Storeroom" 600 600>></div>\
+			<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Storeroom" 400 400>></div>\
 		<<endif>>\
 		<<set $player.perversion.assistant = 3>>\
 		As if in a trance, you reach for $futa.his_her penis and gently wrap your fingers around it. It pulses in your hand and you slightly squeeze, making $futa.him_her gasp. Suddenly, you realize you are kneeling in front of the $futa.boy_girl with $futa.his_her penis in your hand. It feels like a bad dream, but it's almost as if something inside you wants to drag you deeper.
@@ -232,9 +233,9 @@
 	<<endif>>\
 <<elseif $player.perversion.assistant eq 3>>\
 	<<if $kink.futa>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 400 400>></div>\
 	<<else>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Toilets" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Toilets" 400 400>></div>\
 	<<endif>>\
 	<<set $player.perversion.assistant = 4>>\
 	You slowly walk up to the assistant $futa.boy_girl. $futa.He_She blushes a bit and silently glances toward the $futa.boys_girls' toilets. $futa.He_She whispers in your ear for you to wait while $futa.he_she checks inside, and goes in.
@@ -301,9 +302,9 @@
 	[[Go to class]]
 <<elseif $player.perversion.assistant eq 4>>\
 	<<if $kink.futa>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Futa" 400 400>></div>\
 	<<else>>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Toilets" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Toilets" 400 400>></div>\
 	<<endif>>\
 	<<set $player.perversion.assistant = 5>>\
 	You slowly walk up to the assistant $futa.boy_girl. $futa.He_She silently glances toward the $futa.boys_girls' toilets, grasps your hand and drags you after $futa.him_her. $futa.He_She whispers for you to wait while $futa.he_she checks inside, and goes in.
@@ -383,7 +384,7 @@
 	
 	[[Go to class]]
 <<else>>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Bully" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Handjob Bully" 400 400>></div>\
 	<<set $player.perversion.assistant = 6>>\
 	<<if $player.perversion.bjFirst eq 0>>\
 		<!-- Bully is the first one to get a bj -->\
@@ -460,24 +461,42 @@
 	
 	@@.assistant;"What? Wait... He???!"@@ The assistant $futa.boy_girl looks flabbergasted.
 	
-	@@.bully;"You didn't know that this pathetic loser here is a crossdresser? Oh, that's hilarious!"@@. $bully suddenly reaches down and lifts the hem of your skirt\
-	<<if _u>>\
-		upwards and pulls down your\
-		<<if _u.female>>\
-			panties, revealing\
+	@@.bully;"You didn't know that this pathetic loser here is a crossdresser? Oh, that's hilarious!"@@. $bully suddenly reaches down and\
+	<<if _o.id=="rookieUniform">>
+			yanks your shorts\
+		<<if _u>>\
+			and panties downwards, revealing your\
 		<<else>>\
-			boxers, revealing\
+			downwards, revealing your\
+		<<endif>>\
+		<<if _b>>\
+			leaking with precum\
+		<<endif>>\
+		<<if _c>>\
+			chastity cage.\
+		<<else>>\
+			penis.\
 		<<endif>>\
 	<<else>>\
-		upwards, revealing
-	<<endif>>\
-	<<if _b>>\
-		leaking with precum\
-	<<endif>>\
-	<<if _c>>\
-		chastity cage.\
-	<<else>>\
-		penis.\
+		lifts the hem of your skirt\
+		<<if _u>>\
+			upwards and pulls down your\
+			<<if _u.female>>\
+				panties, revealing your\
+			<<else>>\
+				boxers, revealing your\
+			<<endif>>\
+		<<else>>\
+			upwards, revealing your\
+		<<endif>>\
+		<<if _b>>\
+			leaking with precum\
+		<<endif>>\
+		<<if _c>>\
+			chastity cage.\
+		<<else>>\
+			penis.\
+		<<endif>>\
 	<<endif>>\
 	<<if _b>>\
 	
