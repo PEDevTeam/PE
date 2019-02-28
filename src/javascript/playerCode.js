@@ -487,6 +487,10 @@ window.playerCode={
 				State.active.variables.items.stockings.curAlt=39;
 				this.wearClothesJS('stockings');
 			}
+
+			if (playerCode.isWearing(window.itemsC.cheerBriefs)) {
+				this.removeClothesJS('cheerBriefs');
+			}
 		}
 	},
 	deleteQuickSlot: function(slot) {
