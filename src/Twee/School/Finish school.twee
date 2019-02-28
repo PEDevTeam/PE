@@ -1,6 +1,6 @@
 :: Finish school [pos_607_1884]
 \
-<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Finished" 600 600>></div>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Finished" 400 400>></div>\
 <<if $flags.walletForgottenStart>>\
 	<<set $flags.walletForgottenEnd = true>>\
 <<endif>>\
@@ -69,6 +69,10 @@
 	You need to return to $teacher.
 	
 	[[Return to teacher|TeacherPunishment]]
+\ <!-- Cheerleader rainy day wont be hit if we fail to pay teacher on mondays... --> \
+<<elseif $cheerleaders.rainyDay and window.timeCode.isMonday()>>\
+	<<set $cheerleaders.rainyDay = false>>\
+	<<goto "Cheer Ep3 Pre2">>\
 <<else>>\
 	<<set $player.punishments.penaltySkipped = false>>\
 	You're done with school for today. What would you like to do with the rest of the day?

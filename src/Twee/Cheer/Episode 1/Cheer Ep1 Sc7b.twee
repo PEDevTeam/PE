@@ -1,0 +1,29 @@
+:: Cheer Ep1 Sc7b
+\
+@@.heroT;“Thanks, Rachel,”@@ you say, rubbing your sore muscles. @@.heroT;”I think I’ve learned my lesson.”@@
+
+@@.cheerCaptain;”I’ll let $teacher know that I’m finished with you. You should check in with her tomorrow. She might have some other task for you.”@@
+
+@@.hero;I’m pretty sure she will.@@
+
+You and Rachel say your goodbyes and you go your separate ways. As you walk back home you can’t help but wonder about\
+<<if playerCode.isMind() == 0>>\
+    what could have happened between you and $cheerFriend.name if you had stayed.
+<<elseif playerCode.isMind() == 1>>\
+    what being a member of the cheer squad would have been like.
+<<else>>\
+    how fuckable you would have looked in that cute uniform.
+<<endif>>\
+\
+<<switch $cheerleaders.cleanDone>>\
+<<case 0>>\
+    <<set $time.addMinutes(180)>>\
+<<case 1>>\
+    <<set $time.addMinutes(120)>>\
+<<case 2>>\
+    <<set $time.addMinutes(90)>>\
+<</switch>>\
+<<set $player.fitness += 1>>\
+<<set $cheerleaders.progress +=1>>\
+
+<<display [[Travel]]>>

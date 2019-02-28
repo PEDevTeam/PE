@@ -147,7 +147,7 @@
 	<<set _previousMakeup = $body.makeup>>\
 \
 	<<if $scene eq "SubtleMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
 		<<set _item=itemsC.SubtleMakeup>>\
 		<<buyItem _item.id>>\
 		<<set $body.makeup = 1>>\
@@ -180,7 +180,7 @@
 			@@.reward;Your subtle, feminine makeup has been renewed.@@
 		<<endif>>\
 	<<elseif $scene eq "NormalMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
 		<<set _item=itemsC.NormalMakeup>>\
 		<<buyItem _item.id>>\
 		<<set $body.makeup = 2>>\
@@ -208,7 +208,7 @@
 			@@.reward;Your makeup has been renewed.@@
 		<<endif>>\
 	<<elseif $scene eq "BimboMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
 		<<set _item=itemsC.BimboMakeup>>\
 		<<buyItem _item.id>>\
 		<<set $body.makeup = 3>>\
@@ -250,7 +250,7 @@
 			@@.reward;Your bimbo makeup has been renewed.@@
 		<<endif>>\
 	<<elseif $scene eq "HeavyMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
 		<<set _item=itemsC.HeavyMakeup>>\
 		<<buyItem _item.id>>\
 		<<set $body.makeup = 4>>\
@@ -292,7 +292,7 @@
 			@@.reward;Your bimbo makeup has been renewed.@@
 		<<endif>>\
 	<<elseif $scene eq "PermanentSubtleMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
 		<<set _item=itemsC.PermanentSubtleMakeup>>\
 		<<set $player.money -= _item.cost>>\
 		<<set $body.permMakeup = 1>>\
@@ -315,7 +315,7 @@
 		
 		@@.reward;You now have permanent, subtle makeup tattooed on your face!@@
 	<<elseif $scene eq "PermanentNormalMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
 		<<set _item=itemsC.PermanentNormalMakeup>>\
 			<<set $player.money -= _item.cost>>\
 		<<set $body.permMakeup = 2>>\
@@ -348,7 +348,7 @@
 		
 		@@.reward;You now have a permanently made-up, sexy, feminine look!@@
 	<<elseif $scene eq "PermanentBimboMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
 		<<set _item=itemsC.PermanentBimboMakeup>>\
 			<<set $player.money -= _item.cost>>\
 		<<set $body.permMakeup = 3>>\
@@ -381,7 +381,7 @@
 
 		@@.reward;You now have permanently made-up face with a sexy, bimbo look!@@
 	<<elseif $scene eq "PermanentHeavyMakeup">>\
-		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 600 600>></div>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
 		<<set _item=itemsC.PermanentHeavyMakeup>>\
 			<<set $player.money -= _item.cost>>\
 		<<set $body.permMakeup = 4>>\
@@ -421,7 +421,7 @@
 	<!--</Clinic makeup>-->\
 	<!--<Clinic tattoos>-->\
 <<elseif $scene eq "tattooSissy">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooSissy>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to have a 'sissy' tattoo,"@@ you whisper to Nancy.
@@ -452,7 +452,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooStockings">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooStockings>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to have the stockings tattoos,"@@ you whisper to Nancy.
@@ -475,7 +475,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooStupidWhore">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooStupidWhore>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to get a lower back tattoo,"@@ you whisper to Nancy.
@@ -504,7 +504,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooSlut">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooSlut>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to have a 'slut' tattoo,"@@ you whisper to Nancy.
@@ -529,7 +529,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooHeart">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooHeart>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to have a heart tattoo,"@@ you tell Nancy.
@@ -548,7 +548,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooBunny">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooBunny>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to get a bunny symbol tattoo,"@@ you tell Nancy.
@@ -577,7 +577,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooButterfly">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.tattooButterfly>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to get a butterfly tattoo,"@@ you tell Nancy.
@@ -600,7 +600,7 @@
 	
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "beautyMark">>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 600 600>></div>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
 	<<set _item=itemsC.beautyMark>>\
 	<<buyItem _item.id>>\
 	@@.heroT;"I'd like to have a beauty mark,"@@ you tell Nancy.

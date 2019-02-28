@@ -1,6 +1,6 @@
 :: Go to school [pos_736_1453]
 \
-<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Outside" 600 600>></div>\	
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Outside" 400 400>></div>\	
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -70,7 +70,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<elseif playerCode.isWearing(itemsC.highHeel3)>>\
 			Still not used to walking in high heels, you stumble and fall, arms flailing, before you face-plant on the road.\
 		<<endif>>\
-		<<if _o.female>>\
+		<<if _o.female && _o.skirt>>\
 			Your skirt drags up, exposing your \
 			<<if _u>>\
 				<<if (not _u.female)>>\
@@ -144,15 +144,15 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 <<endif>>\
 <<if _o.female>>\
 	<<if _c>>\
-		Your penis strains against your chastity device, fortunately hidden beneath your dress.\
-		<<if not _u>>\
+		Your penis strains against your chastity device, fortunately hidden beneath your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>.\
+		<<if not _u and _o.skirt>>\
 			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
 			<<if not $player.daringFlag.noUnderwear>>\
 				<<set $player.daringFlag.noUnderwear=true>>\
 			<<endif>>\
 		<<endif>>\
 	<<elseif playerCode.isHorny()>>\
-		Your erect penis tents your dress, making it obvious to everyone how desperately horny you are.\
+		Your erect penis tents your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\
 	<<endif>>\
 <<endif>>\
 <<if _b || (_o.female and playerCode.isHorny()) || (_o.female and _c)>>\
@@ -166,7 +166,30 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 	<<set _ev = random(5)>>\
 	<<if (not $flags.schoolWalk)>>\
 		<<set $flags.schoolWalk = true>>\
-		<<if (_ev lte 1) or ($time.day eq 1)>>\
+		<<if ($cheerleaders.active and $cheerleaders.flags.skippedPractice) and (timeCode.isFriday() or timeCode.isWednesday())>>\
+			You hear $cheerFriend.name call your name as you walk past the practice field and stop mid-stride so she can run up to you.
+
+			@@.cheerFriend;“Hey, $cheerleaders.fakeName, where were you yesterday?”@@ she asks. @@.cheerFriend;“You missed practice. Rachel was pissed.”@@
+
+			@@.heroT;“Oh, I uhh… had some other stuff I need it to do,”@@ you say, not very convincingly.
+
+			@@.cheerFriend;“Is everything, OK? You seem kind of distracted.”@@
+
+			@@.hero;You’ve got no idea.@@
+
+			@@.heroT;“I’m fine, I promise,”@@ you lie.
+
+			@@.cheerFriend;“Ok, well, I talked to Rachel for you and practically begged her to let you stay on the team. She said if you come talk to her at the practice field after school today, she’d consider it. If you don’t go, she’s taking it as a sign of resignation, and I quote: @@@@.cheerCaptain;‘I better never see her on school property in my uniform ever again.’@@
+
+			@@.cheerFriend;"You’re not really going to quit, are you?”@@
+
+			The sadness on $cheerFriend.name’s face makes your chest ache.
+
+			@@.heroT;“I’ll think about it,”@@ you assure her.
+
+			She nods and gives you a faint smile before heading back to the practice field.
+			
+		<<elseif (_ev lte 1) or ($time.day eq 1)>>\
 			<!--				School crowd reaction to player body mods				-->\
 			<<if (not _o.female)>>\
 				<<if _m>>\
@@ -276,7 +299,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<elseif ($body.ass eq 2)>>\
 					Your bubble butt \
 					<<if playerCode.haveCplus()>>\
-						nicely complements your big boobs, making you look like a porn actress dressed up as a schoolgirl.\
+						nicely complements your big boobs, making you look like a porn actress dressed up as a <<if _o.cheer>>cheerleader<<else>>schoolgirl<<endif>>.\
 					<<else>>\
 						and your lack of comparable boobs give you a very peculiar look. It seems young boys prefer to look at girls with more cleavage, but you've noticed quite a few appreciative glances from older men.\
 					<<endif>>\
@@ -308,7 +331,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<endif>>\
 			
 			<<endif>>\
-		<<elseif _ev lte 3>>\
+		<<elseif _ev lte 3 and (not $cheerleaders.flags.skippedPractice)>>\
 			<<if _o and (not _o.female) and (_slb lte 2)>>\
 				You're walking to school when you see the cheerleading team\
 					<<if random(1) eq 0>>\
@@ -364,7 +387,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					
 				<<endif>>\
 			<<elseif _o and _o.female and (_slb lte 3)>>\
-				You are walking to school in your female uniform. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to identify you as a girl or a boy.\
+				You are walking to school in your <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to identify you as a girl or a boy.\
 					<<if random(1) eq 0>>\
 					As soon as you reach the training field, you feel dozens of eyes following you. The entire cheerleading squad is on the field, their chatter interrupted, to stare at you.\
 					<<else>>\
@@ -377,7 +400,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					Suddenly one of them slaps you on your butt, to the delight of the other girls.\
 						<<if _b>>\
 						The unexpected contact makes you clench your anus around your butt-plug.\
-							<<if _c and playerCode.isHorny()>>\
+							<<if _c and playerCode.isHorny() and _o.skirt>>\
 							You tug the front of your skirt downwards, desperately trying to hide the precum oozing from your chastity cage.\
 							<<endif>>\
 						<<endif>>\
@@ -400,7 +423,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					<<else>>\
 					There are a bunch of cheerleaders clustered around the entrance, idly chatting. As you come closer, they start to stare at you and whisper to each other.\
 					<<endif>>\
-				You fidget and quickly adjust your school uniform, feeling judgmental eyes on you.\
+				You fidget and quickly adjust your <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>, feeling judgmental eyes on you.\
 					<<if random(1) eq 0>>\
 					You can barely make out what they're saying, but you pick up a few scattered words. Your cheeks light up as you hear the words //gay, queer,// and //sissy// among their chatter. You quickly walk away, pelted by laughter behind your back.
 					<<else>>\
@@ -433,7 +456,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					Suddenly, one of them gives you a playful slap you on your butt, to the delight of her teammates. One of them tells you make a very convincing girl.\
 						<<if _b>>\
 						The unexpected contact makes you clench your anus around your butt-plug.\
-							<<if _c and playerCode.isHorny()>>\
+							<<if _c and playerCode.isHorny() and _o.skirt>>\
 							You tug the front of your skirt downwards desperately, trying to hide the precum oozing from your chastity cage.\
 							<<endif>>\
 						<<endif>>\
@@ -484,7 +507,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					<<elseif random(1) eq 0>>\
 					Several cheerleaders are standing around the entrance, idly talking. As you get nearer, they stop their chatter and surround you, curious. They examine your body and poke at your clothes, commenting on how girly you look. It's embarrassing, but you just stand there with your eyes lowered as the girls totally swarm you.
 					
-						<<if random(4) eq 0 and _o and _o.female>>\
+						<<if random(4) eq 0 and _o and _o.female _o.skirt>>\
 						Suddenly one of them takes hold of your skirt and lifts it a bit, trying to peek underneath. You yelp and push your skirt down as they howl in laughter.\
 							<<if _u>>\
 								<<if _u.female>>\
@@ -510,7 +533,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 						Suddenly, one of them gives you a playful slap on your butt, drawing laughter from her teammates, and says you make a fine-looking girl.\
 							<<if _b>>\
 							The unexpected contact makes you clench your anus around your butt-plug.\
-								<<if _c and playerCode.isHorny()>>\
+								<<if _c and playerCode.isHorny()and _o.skirt>>\
 								You tug the front of your skirt downwards desperately, trying to hide the precum you can feel oozing from your chastity cage.\
 								<<endif>>\
 							<<endif>>\
@@ -568,7 +591,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 						<<endif>>\
 					<<elseif random(1) eq 0>>\
 					Some cheerleaders stand around the entrance, idly gossiping. As you come closer, they stop their chatter and surround you. They examine and poke at your clothes, commenting on how slutty you look<<if (_slb eq 9)>> and what a cock-hungry sissy you must be<<endif>>. It's humiliating, but you are totally swarmed, so you just stand there with lowered eyes.\
-						<<if random(4) eq 0 and _o and _o.female>>\
+						<<if random(4) eq 0 and _o and _o.female and _o.skirt>>\
 						Suddenly one of them grabs hold of your skirt and lifts it a bit, trying to peek underneath. You yelp and push it down as the girls howl in laughter.\
 							<<if _u>>\
 								<<if _u.female>>\
@@ -610,7 +633,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 						Suddenly, one of them gives you a sound slap you on your butt, to the delight of the other girls.\
 							<<if _b>>\
 							The unexpected contact makes you clench your anus around your butt-plug.\
-								<<if _c and playerCode.isHorny()>>\
+								<<if _c and playerCode.isHorny() and _o.skirt>>\
 								You tug the front of your skirt downwards, desperately trying to hide the precum oozing from your chastity cage.\
 								<<endif>>\
 							<<endif>>\
@@ -637,7 +660,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 			<<if _o and (not _o.female) and (_slb lte 3)>>\
 				You are walking to school when you see\
 			<<elseif _o and _o.female and (_slb lte 3)>>\
-				You are walking to school in your female uniform. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
+				You are walking to school in your <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
 			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
 				You are walking to school noticing how most of the people you cross stare a bit at you, probably puzzled by your feminine appearance.  You see\
 			<<elseif (_slb lte 7)>>\
@@ -709,7 +732,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<if random(2) eq 0>>\
 					You walk by as fast as you can, but at least one guy still recognizes you and points you out to the others. Soon there's a burst of laughter behind your back, followed by mocking whistles.\
 				<<elseif random(1) eq 0>>\
-					You fidget and quickly adjust your school uniform, feeling their appraising eyes upon you.\
+					You fidget and quickly adjust your <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>>, feeling their appraising eyes upon you.\
 				<<else>>\
 					To your surprise, one of the guys winks at you. What is more embarrassing is that you blush heavily in return.\
 				<<endif>>\
@@ -722,7 +745,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 					<<if random(2) eq 0>>\
 					One guy starts flirting with you, but suddenly stops, realizing you aren't real a girl. You both turn beet red as the other guys laugh themselves silly at you and the unlucky boy.\
 					<<elseif random(1) eq 0>>\
-					You fidget and adjust the school uniform, feeling your chest and butt somehow heating from the focused attention. You lower your eyes and blush as boys wink and wave to you.\
+					You fidget and adjust the <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>>, feeling your chest and butt somehow heating from the focused attention. You lower your eyes and blush as boys wink and wave to you.\
 					<<else>>\
 					There are some bulging eyes and slack jaws as news that you are a boy spreads through the group. Somehow it only intensifies the undressing stares.\
 						<<if random(1) eq 0>>\
@@ -775,7 +798,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				@@.hero;What a creep.@@
 				
 			<<elseif _o and _o.female and (_slb lte 3)>>\
-				You're on your way to school and cross //The Jogger// in the opposite direction. You try to hide your embarrassment at wearing a female uniform, and you see his steps slow more and more. As you pass by you feel his stare upon you, but you don't dare look back. Even worse, although you pass him, you can't hear his footsteps anymore. He's stopped running, and must now be watching you, but you are too shy to look back. The only thing you can think to do is to speed your walk until you reach the school building.
+				You're on your way to school and cross //The Jogger// in the opposite direction. You try to hide your embarrassment at wearing a <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>, and you see his steps slow more and more. As you pass by you feel his stare upon you, but you don't dare look back. Even worse, although you pass him, you can't hear his footsteps anymore. He's stopped running, and must now be watching you, but you are too shy to look back. The only thing you can think to do is to speed your walk until you reach the school building.
 				
 				<<if playerCode.isMind_0()>>\
 					@@.hero;Damn pervert. He was ogling me, wasn't he?@@
@@ -802,11 +825,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<endif>>\
 			<<elseif _o and _o.female and (_slb lte 5)>>\
 				<<if playerCode.isMind_0()>>\
-					You feel unease while walking to school, this school uniform being too tight for your taste.\
+					You feel unease while walking to school, this <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>> being too tight for your taste.\
 				<<elseif playerCode.isMind_1()>>\
-					It is still a novel experience to wear a school dress to school. It's not bad, just a bit weird.\
+					It is still a novel experience to wear a <<if _o.cheer>>cheerleader uniform<<else>>school dress<<endif>> to school. It's not bad, just a bit weird.\
 				<<else>>\
-					You love to wear your school dress, skirts are so much better than pants. You enjoy your walk.\
+					You love to wear your school dress, <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirts<<endif>> are so much better than pants. You enjoy your walk.\
 				<<endif>>\
 				Soon, you notice the familiar sight of //The Jogger// approaching in the opposite direction. As soon as you notice him, you decide to avoid contact and cross the road to continue your walk on the opposite sidewalk. 
 				
@@ -841,7 +864,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 				<<if (_slb eq 8)>>\
 				Your slutty looks draws glances and undressing stares.\
 				<<elseif (_slb eq 9)>>\
-				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a schoolgirl.\
+				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a <<if _o.cheer>>cheerleader<<else>>schoolgirl<<endif>>.\
 				<<endif>>\
 				As usual you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly to you. You're bit overwhelmed by his hungry stare. Before you can react he reaches to you and takes hold of your waist. The smell of sweat fills your nose as he starts compliment your figure and tries to grope you.
 				

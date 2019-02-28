@@ -91,17 +91,20 @@ Macro.add('RandomImageFromPack', {
             if(this.args.length > 3){
                 switch(this.args[3]){
                     case 'alignRight':
-                        $(this.output).css('margin', '10px');
-                        $(this.output).css('float', 'right');
+                        //$(this.output).css('margin', '10px');
+                        //$(this.output).css('float', 'right');
+                        imgDimensionString += 'margin: 10px;float: right;'
                         break;
                     case 'alignLeft':
-                        $(this.output).css('margin', '10px');
-                        $(this.output).css('float', 'left');
+                        //$(this.output).css('margin', '10px');
+                        //$(this.output).css('float', 'left');
+                        imgDimensionString += 'margin: 10px;float: left;'
                         break;
                     case 'alignCentre':
                     case 'alignCenter':
-                        $(this.output).css('display', 'table');
-                        $(this.output).css('margin', '0 auto');
+                        //$(this.output).css('display', 'table');
+                        //$(this.output).css('margin', '0 auto');
+                        imgDimensionString += 'margin: 0 auto;display: table;'
                         break;
                 }
             }

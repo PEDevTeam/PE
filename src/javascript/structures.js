@@ -14,7 +14,8 @@ window.rewardMoney={
 	uploadDefault: 30,
 	uploadSpecial: 50,
 	hypnosis: 20,
-	specialHypnosis: 50
+	specialHypnosis: 50,
+	cheerPractice: 20
 },
 
 window.versionControl={
@@ -49,6 +50,10 @@ window.structures={
 		this.setupTalks();
 		this.setupPunishments();
 		this.setupTasks();
+		this.setupCheer();
+		this.setupCheerFriend();
+		this.setupBully();
+		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
@@ -643,6 +648,57 @@ window.structures={
 			}
 		}
 	},
+	setupCheer: function (){
+		var vars=State.active.variables;
+		var cheerList=window.cheerList;
+		if (vars.cheerleaders == null) {
+			vars.cheerleaders = {};
+		}
+		for (var i=0; i < Object.keys(cheerList).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
+			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
+				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
+				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
+				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
+	
+	setupCheerFriend: function (){
+		var vars=State.active.variables;
+		var cheerFriendList=window.cheerFriendList;
+		if (vars.cheerFriend == null) {
+			vars.cheerFriend = {};
+		}
+		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
+			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
+				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
+				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
+				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
 },
 
 window.playerList={
@@ -702,7 +758,9 @@ window.playerList={
 	bribeIncrease: 10,
 	friendLastVisit: 0,
 	clothes: [],
-	gameSkill: 0
+	gameSkill: 0,
+	fitness: 0,
+	femaleName: false, //new flag
 },
 
 window.playerAddonsList={
@@ -1167,7 +1225,9 @@ window.flagsList={
 	salonPickNose: false,
 	salonPenalty: false,
 	salonPenaltyPayed: false,
-	salonPiggyCoin: false
+	salonPiggyCoin: false,
+	clothesPurged:false, //new flag
+	delaySlut: 0,
 },
 
 window.kinkList={
@@ -1303,6 +1363,10 @@ window.quickSlotList={
 	name: "Maid",
 	extra: false
 	},
+	Cheerleader: {
+	name: "Cheerleader",
+	extra: false
+	},
 	Custom: {
 	name: "Custom",
 	extra: false
@@ -1339,6 +1403,102 @@ window.quickSlotList={
 	name: "Custom h",
 	extra: true
 	}
+},
+
+window.cheerList={
+	//Main Cheerleader Arc
+	active: false,		//If the cheerleader arc is active or not [bool]
+	progress: -1,		//Current progress in cheerleader arc [int]
+	fakeName: window.playerList.name,	//Fake name used by player [str]
+	position: 1,		//player's position in the squad, [int], [1 = base, 2 = flyer]
+	bitchAffinity: 0,		//player's relationship to cheer bitch [int]
+	bullySawWorkout: false,
+	rainyDay: false,
+	canPractice: true, 	//can practice cheerleading after school
+	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	
+	//variables for scene control over more than one page break or values that may be useful in later episodes
+	//all variables are type [bool] unless noted otherwise
+	flags: {
+		skippedPractice: false,	//did not attend practice
+		madeUpPractice: false,	//attended makeup practice after skipping
+		grope: false,	//groped cheer traitor
+		beg: false,	//begged cheer bitch for mercy
+		fakeName: false,	//used a fake name
+		stoleUniform: false,	//stole guardians uniform
+		lateForPractice: false, 	//waited in toilet until late for practice
+		bullyLeft: false, 		//waited in toilet until bully left
+		complain: false,	//complained about practice
+		slutUniform: 1,	//chosen slutty uniform [int], [1 = more modest + plug, 2 = more slutty]
+		sarahTalk: 0,	//talked with cheer friend about Sarah [int], [0 = did not talk, 1 = tell the truth, 2 = lie]
+		metBro: false,	//met Ashley's brother at the library.
+		panties: false,	//PC tries to wear panties to his fake try-out
+		wig: false,		//PC wears a wig to the try-out, worth +1 slut score adjustment
+		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
+		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
+		prankBeg: false,	//PC begs for mercy to end prank
+
+		//notice body mods flags for cheer captain and cheer friend 
+		//in cheer arc, both trigger off the same set of variables
+		//all variables start as false and are type [bool] unless noted otherwise
+		
+		noticeSkin: false,
+		noticeMan: false,
+		noticeManPerm: false,
+		noticeHairS: false,
+		noticeHairM: false,
+		noticeHairL: false,
+		noticeHairPig: false,
+		noticeHairCurl: false,
+		noticeMakeSub: false,
+		noticeMakePro: false,
+		noticeMakeBim: false,
+		noticeMakeHeavy: false,
+		noticeTatHeart: false,
+		noticePierceEar: false,
+		noticePierceLip: false,
+		noticePierceNose: false,
+		noticePierceTongue: false,
+		noticeBreasts: 0, //[int]; [0 = no breasts, 1 = A, 2 = B, 3 = C, 4 = DD]
+		noticeLips: false,
+		noticeLipsXL: false,
+		noticeAss: false,
+		noticeAssXL: false,
+		noticeNoseClass: false,
+		noticeNoseButt: false,
+		noticeNosePig: false,
+		noticeFace: false,
+		noticeFace2: false
+	},
+	game: {
+		athleticism: 0,	//PC's athelticism score portion
+		presentation: 0,	//PC's presentation score.  If uniform 1, score equals 8-abs(6-adjustedSlutScore)
+		execution: 10,	//PC's execution score.  Each mistake deducts one point.
+		finalScore: 0,	//PC's final score.  Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
+		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
+		correctAnswer: false,	//flag for correct answer
+		failChance: 0,	//chance of failure due to slutty uniform
+		ignoreModesty: false,	//flag for reducing fail chance due to slutty uniform
+		failCount: 0,		//the number of times player failed to perform the correct move
+		answer: 1,		//variable to track which answer was given previously
+		failedMove: false	//flag for failing a move due to slutty uniform
+	}
 }
 
+window.cheerFriendList={
+	progress: 0,	//current progress in side events, [int]
+	affinity: 0,		//current affinity of cheer friend to PC, [int]
+	currentSE: 0,		//currently available side event
+	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
+	
+	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
+	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,
+	getAttraction: function(){
+		return this.affinity + ((5-Math.abs(window.playerCode.slutScoreBasic() - 6))+(Math.floor(window.playerCode.slutScore()/10)-2))
+	},
 
+	flags: {
+		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
+		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+	}
+}
