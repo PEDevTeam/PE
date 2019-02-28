@@ -4,7 +4,9 @@
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Chores" 400 400>></div>\
 <<if $flags.maidUniform>>\
 	<<set $flags.maidUniform = false>>\
-	<<wearClothing 'maidOutfit'>>\
+	<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+	<<set window.playerCode.clothesOverride()>>\
+	<<updateClothes>>\
 <<endif>>\
 <<if $flags.heelsOff>>\
 	<<set $flags.heelsOff = false>>\
