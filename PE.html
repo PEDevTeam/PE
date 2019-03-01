@@ -38001,13 +38001,18 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 	grab your phone, and run to the backyard.
 	
 &lt;&lt;else&gt;&gt;\
-	&lt;&lt;removeClothingType 64&gt;&gt;\
-	&lt;&lt;removeClothingType 512&gt;&gt;\
-	&lt;&lt;removeClothingType 1024&gt;&gt;\
-	&lt;&lt;wearClothing &#39;casualMale&#39; 0&gt;&gt;\
-	&lt;&lt;wearClothing &#39;sneakers&#39; 0&gt;&gt;\
-	&lt;&lt;updateClothes&gt;&gt;\
-	You change into your casual boy clothes, grab your phone, and run to the backyard.
+	&lt;&lt;if $flags.clothesPurged&gt;&gt;\
+		&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.Casual)&gt;&gt;&lt;&lt;set $player.quickSet=quickSlotSets.Casual&gt;&gt;&lt;&lt;updateClothes&gt;&gt;\
+		You change into your casual clothes, grab your phone, and run to the backyard.
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;removeClothingType 64&gt;&gt;\
+		&lt;&lt;removeClothingType 512&gt;&gt;\
+		&lt;&lt;removeClothingType 1024&gt;&gt;\
+		&lt;&lt;wearClothing &#39;casualMale&#39; 0&gt;&gt;\
+		&lt;&lt;wearClothing &#39;sneakers&#39; 0&gt;&gt;\
+		&lt;&lt;updateClothes&gt;&gt;\
+		You change into your casual boy clothes, grab your phone, and run to the backyard.
+	&lt;&lt;endif&gt;&gt;\
 	
 &lt;&lt;endif&gt;&gt;\
 	Once your sneakers hit the soft grass, you run a quick search for\
