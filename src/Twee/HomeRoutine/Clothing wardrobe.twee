@@ -279,7 +279,7 @@
 			<<set _quickslot = $quickSlot[Object.keys($quickSlot)[_i]]>>\
 			<<if (_quickslot.name eq "Slutty") and (not playerCode.owns(itemsC.sluttyDress))>>\
 			<<elseif (_quickslot.name eq "Maid") and (not playerCode.owns(itemsC.maidOutfit))>>\
-			<<elseif (_quickslot.name eq "Cheerleader") and ((not playerCode.owns(itemsC.rookieUniform)) or (not playerCode.owns(itemsC.cheerDress)))>>\
+			<<elseif (_quickslot.name eq "Cheerleader") and ((not playerCode.owns(itemsC.rookieUniform)) and (not playerCode.owns(itemsC.cheerDress)))>>\
 			<<elseif (_quickslot.clothes.length gt 0) and ((not _quickslot.extra) or (not _ex))>>\
 				<<set _ex=false>>\
 				<<set _toolTip = _quickslot.clothes.join(', ')>>\
