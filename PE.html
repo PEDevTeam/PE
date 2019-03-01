@@ -19666,7 +19666,7 @@ You wade through the props over to the far corner of the room. You sort clothes 
 
 @@.hero;Great…@@
 
-You add them to the pile on the floor and get to folding. As you begin folding the uniforms, you notice that each of them has a name sewn in to the back tag, both in the top and skirt. You can’t help but read the names out of curiosity. You wonder what the squad must have been like back when Tammy, Crystal, or Emily were on the team, and if they were as attractive the squad members now.
+You add them to the pile on the floor and get to folding. As you begin folding the uniforms, you notice that each of them has a name sewn in to the back tag, both in the top and skirt. You can’t help but read the names out of curiosity. You wonder what the squad must have been like back when Tammy, Crystal, or Emily were on the team, and if they were as attractive as the squad members now.
 
 You read the tag in the next top and can’t believe your eyes. The tag in the uniform \
 &lt;&lt;if $kink.incest&gt;&gt;\
@@ -32344,82 +32344,83 @@ You feel the sudden call of nature, and excuse yourself to $friend&#39;s en-suit
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="139" name="Visit friend" tags="pos_4248_60" position="1100,1725">\
 &lt;&lt;if not $flags.friendNamed&gt;&gt;\
 	&lt;&lt;goto [[Name friend]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $flags.friendNamed and (not $flags.intro)&gt;&gt;\
-	&lt;&lt;set $flags.intro=true&gt;&gt;\
-	You&#39;ve known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn&#39;t hurt your friendship at all. \
-	&lt;&lt;if not $flags.friendIsMale&gt;&gt;\
-		$friend has known from an early age that she prefers girls over guys, so there&#39;s never been any sexual tension between the two of you.\
-	&lt;&lt;endif&gt;&gt;
-	
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;set _t to $flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))&gt;&gt;\
-&lt;&lt;set $player.friendLastVisit to $time.day&gt;&gt;\
-&lt;&lt;if ($player.perversion.friend lt 3) or ($player.perversion.friend gte 4)&gt;&gt;\
-	You arrive at $friend&#39;s house, and $friendG.he_she&#39;s happy to see you.
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;if (not $flags.intro)&gt;&gt;\
+		&lt;&lt;set $flags.intro=true&gt;&gt;\
+		You&#39;ve known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn&#39;t hurt your friendship at all. \
+		&lt;&lt;if not $flags.friendIsMale&gt;&gt;\
+			$friend has known from an early age that she prefers girls over guys, so there&#39;s never been any sexual tension between the two of you.\
+		&lt;&lt;endif&gt;&gt;
+		
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;set _t to $flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))&gt;&gt;\
+	&lt;&lt;set $player.friendLastVisit to $time.day&gt;&gt;\
+	&lt;&lt;if ($player.perversion.friend lt 3) or ($player.perversion.friend gte 4)&gt;&gt;\
+		You arrive at $friend&#39;s house, and $friendG.he_she&#39;s happy to see you.
 
-	&lt;&lt;display [[Friend reaction to transformations]]&gt;&gt;\
-	&lt;&lt;display [[Random stuff with friend]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $player.perversion.friend eq 0&gt;&gt;\
-	&lt;&lt;if _t&gt;&gt;\
+		&lt;&lt;display [[Friend reaction to transformations]]&gt;&gt;\
+		&lt;&lt;display [[Random stuff with friend]]&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $player.perversion.friend eq 0&gt;&gt;\
+		&lt;&lt;if _t&gt;&gt;\
+			&lt;&lt;display [[Friend task links]]&gt;&gt;\
+			[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;elseif $player.perversion.friend eq 1&gt;&gt;\
+		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; about porn|Ask friend about porn]]&#39;&gt;&gt;
 		&lt;&lt;display [[Friend task links]]&gt;&gt;\
-		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;elseif $player.perversion.friend eq 1&gt;&gt;\
-	&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; about porn|Ask friend about porn]]&#39;&gt;&gt;
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
-&lt;&lt;elseif ($player.perversion.friend eq 2)&gt;&gt;\
-	&lt;&lt;if $random.getIntInclusive(1, 4) eq 1&gt;&gt;\
-		&lt;&lt;display [[Visit friend bathroom]]&gt;&gt;
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;elseif ($player.perversion.friend eq 3)&gt;&gt;\
-	&lt;&lt;display [[Visit friend after butt-plug]]&gt;&gt;\
-&lt;&lt;elseif ($player.perversion.friend eq 4)&gt;&gt;\
-	&lt;&lt;if _t&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
+	&lt;&lt;elseif ($player.perversion.friend eq 2)&gt;&gt;\
+		&lt;&lt;if $random.getIntInclusive(1, 4) eq 1&gt;&gt;\
+			&lt;&lt;display [[Visit friend bathroom]]&gt;&gt;
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;elseif ($player.perversion.friend eq 3)&gt;&gt;\
+		&lt;&lt;display [[Visit friend after butt-plug]]&gt;&gt;\
+	&lt;&lt;elseif ($player.perversion.friend eq 4)&gt;&gt;\
+		&lt;&lt;if _t&gt;&gt;\
+			&lt;&lt;display [[Friend task links]]&gt;&gt;\
+			[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;elseif ($player.perversion.friend eq 5)&gt;&gt;\
+		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for a massage]]&#39;&gt;&gt;
 		&lt;&lt;display [[Friend task links]]&gt;&gt;\
-		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;elseif ($player.perversion.friend eq 5)&gt;&gt;\
-	&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for a massage]]&#39;&gt;&gt;
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
-&lt;&lt;elseif ($player.perversion.friend eq 6)&gt;&gt;\
-	&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for a full massage]]&#39;&gt;&gt;
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
-&lt;&lt;elseif ($player.perversion.friend eq 7)&gt;&gt;\
-	&lt;&lt;if playerCode.owns(itemsC.massageOil)&gt;&gt;\
-		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (first)]]&#39;&gt;&gt;
-	&lt;&lt;else&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
+	&lt;&lt;elseif ($player.perversion.friend eq 6)&gt;&gt;\
 		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for a full massage]]&#39;&gt;&gt;
+		&lt;&lt;display [[Friend task links]]&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
+	&lt;&lt;elseif ($player.perversion.friend eq 7)&gt;&gt;\
+		&lt;&lt;if playerCode.owns(itemsC.massageOil)&gt;&gt;\
+			&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (first)]]&#39;&gt;&gt;
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for a full massage]]&#39;&gt;&gt;
+		&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;display [[Friend task links]]&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
+	&lt;&lt;elseif ($player.perversion.friend eq 8) or ($player.perversion.friend eq 9)&gt;&gt;\
+		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (subsequent)]]&#39;&gt;&gt;
+		&lt;&lt;display [[Friend task links]]&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
+	&lt;&lt;elseif ($player.perversion.friend eq 10)&gt;&gt;\
+		&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (subsequent)]]&#39;&gt;&gt;
+		&lt;&lt;if playerCode.owns(itemsC.remotePlugs)&gt;&gt;\
+			[[Suggest a game with the remote butt-plugs]]
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;set $items.remotePlugs.cost = 100&gt;&gt;\
+			&lt;&lt;set $items.remotePlugs.disabled = false&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;display [[Friend task links]]&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
+	&lt;&lt;elseif ($player.perversion.friend gte 11)&gt;&gt;\
+		&lt;&lt;display [[Friend task links]]&gt;&gt;\
+		[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]] 
-&lt;&lt;elseif ($player.perversion.friend eq 8) or ($player.perversion.friend eq 9)&gt;&gt;\
-	&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (subsequent)]]&#39;&gt;&gt;
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
-&lt;&lt;elseif ($player.perversion.friend eq 10)&gt;&gt;\
-	&lt;&lt;print &#39;[[Ask &#39;+$friend+&#39; for a massage|Ask friend for an oil massage (subsequent)]]&#39;&gt;&gt;
-	&lt;&lt;if playerCode.owns(itemsC.remotePlugs)&gt;&gt;\
-		[[Suggest a game with the remote butt-plugs]]
-	&lt;&lt;else&gt;&gt;\
-		&lt;&lt;set $items.remotePlugs.cost = 100&gt;&gt;\
-		&lt;&lt;set $items.remotePlugs.disabled = false&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
-&lt;&lt;elseif ($player.perversion.friend gte 11)&gt;&gt;\
-	&lt;&lt;display [[Friend task links]]&gt;&gt;\
-	[[Return home|Leave friend&#39;s house][$time.addMinutes(10)]]
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="140" name="Daily resets" tags="pos_639_373" position="1225,1725">\
 	&lt;!--&lt;Monday reset&gt;--&gt;\
 &lt;&lt;if window.timeCode.isMonday() or $debugMondayReset&gt;&gt;\
