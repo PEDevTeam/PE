@@ -27,6 +27,22 @@
 <<endif>>\
 \
 <!--<perversion progress events>-->\
+<<if ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
+	<<set $flags.guardianTeacherTalk=true>>\
+	@@.teacher;"As you know, I had a little talk with $guardian, and now I have her utmost support in helping you to 'reform'. Excellent news, is it not?"@@ She grins at you, knowing how her lies must have changed your life at home.
+	
+	@@.teacher;"$Guardian told me some of her plans for you at home, and I bet you will make an excellent little maid for her. It would be a pity to punish you if you disappointed $guardian, so do your best to serve her well."@@
+	
+	@@.hero;Oh, joy. Now I'll have to keep up with the tasks from both $teacher //and// $myguardian if I want to avoid punishment!@@
+		<<if $player.perversion.teacher eq 6>>\
+		@@.teacher;"I did not tell $guardian what an obedient little cocksucker you are, but she knows that you're really popular among the $futa.boys_girls here."@@
+		<<elseif $player.perversion.teacher eq 7>>\
+		@@.teacher;"I did not tell $guardian how you spend time after school on your knees, satisfying Coach's cock with that pretty mouth of yours, but she knows that you fancy someone on the school staff."@@
+		<<elseif $player.perversion.teacher eq 10>>\
+		@@.teacher;"I did not mention to $guardian that you are the most debased and experienced school slut in years, but she knows that you are really popular."@@
+		<<endif>>\
+		
+<<endif>>\
 <<if $player.perversion.teacher eq 6>>\
 	<<if $player.daringFlag.stunBully>>\
 		<<set $player.perversion.teacher to 7>>\
@@ -60,20 +76,6 @@
 		The first thing that comes to mind is getting rid of your chastity cage and being freed from blackmail, but you realize she would never agree to that. But what else do you really want?
 		
 	<<endif>>\
-<<elseif ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
-	<<set $flags.guardianTeacherTalk=true>>\
-	@@.teacher;"As you know, I had a little talk with $guardian, and now I have her utmost support in helping you to 'reform'. Excellent news, is it not?"@@ She grins at you, knowing how her lies must have changed your life at home.
-	
-	@@.teacher;"$Guardian told me some of her plans for you at home, and I bet you will make an excellent little maid for her. It would be a pity to punish you if you disappointed $guardian, so do your best to serve her well."@@
-	
-	@@.hero;Oh, joy. Now I'll have to keep up with the tasks from both $teacher //and// $myguardian if I want to avoid punishment!@@
-		<<if $player.perversion.teacher eq 6>>\
-		@@.teacher;"I did not tell $guardian what an obedient little cocksucker you are, but she knows that you're really popular among the $futa.boys_girls here."@@
-		<<elseif $player.perversion.teacher eq 7>>\
-		@@.teacher;"I did not tell $guardian how you spend time after school on your knees, satisfying Coach's cock with that pretty mouth of yours, but she knows that you fancy someone on the school staff."@@
-		<<elseif $player.perversion.teacher eq 10>>\
-		@@.teacher;"I did not mention to $guardian that you are the most debased and experienced school slut in years, but she knows that you are really popular."@@
-		<<endif>>\
 <<endif>>\
 <!--</perversion progress events>-->\
 \
