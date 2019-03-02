@@ -1,0 +1,10 @@
+/*NabMod: Include weekly income display*/\
+:: Debug Weekly Income
+\
+<div class="topRight"><<click "BACK">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>></div>\
+\
+IncomeThisWeek: <<print $incomeThisWeek>>
+<<for _i = $incomeHistory.length; _i > 0; _i-->>\
+	Week <<print _i-1>>: <<print $incomeHistory[_i-1] + "\n">>
+<</for>>\
+/*NabMod End*/\

@@ -115,5 +115,21 @@
 <<endif>>\
 \
 \
-
-
+/* NabMod: Hijacking StoryCaption to monitor monetary income */\
+<<if ($player.money - $lastMoneyCheck) > 0>>\
+	<<set $incomeThisWeek += ($player.money - $lastMoneyCheck)>>\
+<<endif>>\
+<<set $lastMoneyCheck = $player.money>>\
+\
+<<if (window.timeCode.isMonday())>>\
+	<<if $newMonday>>\
+		/*Log this week's income*/\
+		<<set $incomeHistory.push([$incomeThisWeek, $player.money])>>\
+		<<set $incomeThisWeek = 0>>\
+		<<set $newMonday = false>>\
+	<<endif>>\
+<<else>>\
+	<<set $newMonday = true>>\
+<<endif>>\
+/* NabMod End */\
+\
