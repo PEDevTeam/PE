@@ -358,15 +358,15 @@ macros.showClothingImage = {
 					var si=state.active.variables.itemsSize;
 					for (var i=0;i<wa.length; i++) {
 						if (wt[i]==100) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '" class="clothing_image_' + si + '">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '" class="clothing_image_' + si + '">';
 							continue;
 						}
 						if (wt[i]>9) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_' + si +'">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_' + si +'">';
 							continue;
 						}
 						if (wt[i]<10) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_' + si +'">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_' + si +'">';
 							continue;
 						}
 					}
@@ -391,15 +391,15 @@ macros.showClothingImageSidebar = {
 					var wt=state.active.variables.type;
 					for (var i=0;i<wa.length; i++) {
 						if (wt[i]==100) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '" class="clothing_image_sidebar">';
 							continue;
 						}
 						if (wt[i]>9) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + wt[i] + '.jpg" class="clothing_image_sidebar">';
 							continue;
 						}
 						if (wt[i]<10) {
-							cis.innerHTML+='<img src="images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_sidebar">';
+							cis.innerHTML+='<img src="Images/items/' + wa[i] + '0' + wt[i] + '.jpg" class="clothing_image_sidebar">';
 							continue;
 						}
 					}
@@ -420,12 +420,12 @@ macros.showImageSidebar = {
 				if (params[2]==2) { cl="clothing_image_small_sidebar_top_" }
 			}
 			if (params[1]==100) {
-				new Wikifier(place, '<img src="images/items/' + params[0] +'" class="'+ cl + params[3] +'">');
+				new Wikifier(place, '<img src="Images/items/' + params[0] +'" class="'+ cl + params[3] +'">');
 			} else {
 				if (params[1]>9) {
-					new Wikifier(place, '<img src="images/items/' + params[0] + params[1] +'.jpg" class="'+ cl + params[3] + '">');
+					new Wikifier(place, '<img src="Images/items/' + params[0] + params[1] +'.jpg" class="'+ cl + params[3] + '">');
 				} else {
-					new Wikifier(place, '<img src="images/items/' + params[0] + '0' + params[1] +'.jpg" class="'+ cl + params[3] +'">');
+					new Wikifier(place, '<img src="Images/items/' + params[0] + '0' + params[1] +'.jpg" class="'+ cl + params[3] +'">');
 				}
 			}
 		}
@@ -450,10 +450,10 @@ macros.showRoomImage = {
 					var ri=state.active.variables.roomIm;
 						for (var i=0;i<ri.length; i++) {
 							if (i==0) {
-								cis.innerHTML+='<img src="images/room/' + ri[i] + '" class="room_main_image_' + si + '">';
+								cis.innerHTML+='<img src="Images/room/' + ri[i] + '" class="room_main_image_' + si + '">';
 								continue;
 							}
-							cis.innerHTML+='<img src="images/room/' + ri[i] + '" class="room_image_' + si + '">';
+							cis.innerHTML+='<img src="Images/room/' + ri[i] + '" class="room_image_' + si + '">';
 							continue;
 						}
 				}, 1);
@@ -606,10 +606,10 @@ macros.showAvatarImage = {
 				setTimeout(function() {
 					var strIn = state.active.variables.avatarImageName;
 					
-					str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./images/avatar/torso.png)"></div>';
+					str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/torso.png)"></div>';
 					
 					for (var i=0;i<strIn.length; i++) {
-						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./images/avatar/'+strIn[i]+')"></div>';
+						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/'+strIn[i]+')"></div>';
 					}
 					
 					$('#showClothes').empty();
@@ -628,11 +628,11 @@ macros.showImage = {
 			if (params[2]) {
 				setTimeout(function() {
 					var i=document.getElementById(params[2]);
-					i.setAttribute('src', 'images/' + params[0] + '/' + params[1]);
+					i.setAttribute('src', 'Images/' + params[0] + '/' + params[1]);
 					i.className=params[0]+'_image';
 				}, 1);
 			} else {
-				new Wikifier(place, '<img src="images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_image">');
+				new Wikifier(place, '<img src="Images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_image">');
 			}
 		}
 	}
@@ -641,7 +641,7 @@ macros.showImage = {
 macros.showImageSpecial = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
-			new Wikifier(place, '<img src="images/' + params[0] + '/' + params[1] + '" class="' + params[2] + '">');
+			new Wikifier(place, '<img src="Images/' + params[0] + '/' + params[1] + '" class="' + params[2] + '">');
 		}
 	}
 };
@@ -649,7 +649,7 @@ macros.showImageSpecial = {
 macros.showBanner = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
-			new Wikifier(place, '<img src="images/general/PE_Banner.png" class="banner_image">');
+			new Wikifier(place, '<img src="Images/general/PE_Banner.png" class="banner_image">');
 		}
 	}
 };
@@ -658,9 +658,9 @@ macros.showMultiImage = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.showimages) {
 			if (params[2]) {
-				new Wikifier(place, '<img src="images/' + params[2] + '/' + params[1] + '" class="' + params[0] + '">');
+				new Wikifier(place, '<img src="Images/' + params[2] + '/' + params[1] + '" class="' + params[0] + '">');
 			} else {
-				new Wikifier(place, '<img src="images/avatar/' + params[1] + '" class="' + params[0] + '">');
+				new Wikifier(place, '<img src="Images/avatar/' + params[1] + '" class="' + params[0] + '">');
 			}
 		}
 	}
@@ -672,12 +672,12 @@ macros.showVideo = {
 			if (params[2]) {
 				setTimeout(function() {
 					var i=document.getElementById(params[2]);
-					i.setAttribute('src', 'images/' + params[0] + '/' + params[1]);
+					i.setAttribute('src', 'Images/' + params[0] + '/' + params[1]);
 					i.className=params[0]+'_video';
 					i.setAttribute('autoplay', true);
 				}, 1);
 			} else {
-				new Wikifier(place, '<video src="images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_video" autoplay="true" loop="true"></video>');
+				new Wikifier(place, '<video src="Images/' + params[0] + '/' + params[1] + '" class="' + params[0] + '_video" autoplay="true" loop="true"></video>');
 			}
 		}
 	}
@@ -686,7 +686,11 @@ macros.showVideo = {
 macros.delayedLink = {
   handler: function(place, macroName, params, parser) {
 		var id=params[1].replace(/[ ,']/g, '_');
-		new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + ']]</span>');
+		if (params.length < 3){
+			new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + ']]</span>');
+		} else {
+			new Wikifier(place, '<span id="'+id+'" class="hidden">[[' + params[1] + '][' + params[2] + ']]</span>');
+		}
 		setTimeout(function() {
 				if (id) {
 				var i=document.getElementById(id);
@@ -1159,188 +1163,40 @@ Macro.add('reactOnce', {
 	const len = this.payload.length;
 	for (i=0; i<len; i++) {
 	    switch (this.payload[i].name) {
-	    case 'else':
-		if (this.payload[i].args.length > 0) {
-		    return this.error('<<else>> takes no arguments');
-		} else if (i + 1 != len) {
-		    return this.error('<<else>> must be final clause');
-		}
-		break;
-	    default:
-		if (this.payload[i].args.length < 2) {
-		    return this.error('<<reactOnce>> and <<reactOnceMore>> takes a boolean and flags');
-		}
-		break;
+			case 'reactElse':
+				if (this.payload[i].args.length > 0) {
+					return this.error('<<else>> takes no arguments');
+				} else if (i + 1 != len) {
+					return this.error('<<else>> must be final clause');
+				}
+				break;
+			default:
+				if (this.payload[i].args.length < 2) {
+					return this.error('<<reactOnce>> and <<reactOnceMore>> takes a boolean and flags');
+				}
+				break;
 	    }
 	}
 	try {
 	    for (i=0; i<len; i++) {
-		switch (this.payload[i].name) {
-		case 'else':
-		    if (noReaction) {
-			new Wikifier(this.output, this.payload[i].contents)
-		    }
-		    break;
-		default:
-		    let argBool = Scripting.evalJavaScript(this.payload[i].args[0]), argFlag = this.payload[i].args[1];
-		    if (argBool && !flags[argFlag]) {
-			noReaction = false;
-			for (let j = 1; j < this.payload[i].args.length; j++) {
-			    flags[this.payload[i].args[j]] = true;
+			switch (this.payload[i].name) {
+				case 'reactElse':
+					if (noReaction) {
+					new Wikifier(this.output, this.payload[i].contents)
+					}
+					break;
+				default:
+					let argBool = Scripting.evalJavaScript(this.payload[i].args[0]), argFlag = this.payload[i].args[1];
+					if (argBool && !flags[argFlag]) {
+						noReaction = false;
+						for (let j = 1; j < this.payload[i].args.length; j++) {
+							flags[this.payload[i].args[j]] = true;
+						}
+						new Wikifier(this.output, this.payload[i].contents);
+					}
 			}
-			new Wikifier(this.output, this.payload[i].contents);
-		    }
-		}
 	    }
 	}
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
-
-
-/* ImagePack Macros by Moonhead */
-
-Macro.add('RandomImageFromPack', {
-	handler : function(){
-		console.log("ImagePack Running");
-		if(this.args.length >= 1){
-			if($.isEmptyObject(window.imagePacks)){
-				console.log('setting up image packs');
-				var _this = this;
-				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-					window.imagePacks = data;
-					loadImage(_this.args, _this.output);
-				});
-			}
-			else{
-				loadImage(this.args, this.output);
-			}
-		}
-
-		function loadImage(args, output){
-			var imagePackName = '';
-            if(typeof args[0] == 'string'){
-				imagePackName = args[0]
-				//console.log(imagePackName);
-			}
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
-
-			//console.log(imagePack);
-
-			var imageFileName = "";
-			var imageHeight = 0;
-			var imageWidth = 0;
-			var imgDimensionString = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-				imageHeight = imagePack.files[rndNum].height;
-				imageWidth = imagePack.files[rndNum].width;
-
-				if(args.length > 1){
-					var maxHeight = args[1];
-					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
-					var maxWidth = 0;
-					if(args.length > 2){
-						maxWidth = args[2];
-						imgDimensionString += 'max-width:' + maxWidth + 'px;';
-					}
-					imgDimensionString += '"'; 
-				}
-			}
-			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
-		}
-	}
-});
-
-Macro.add('RandomImageFromPackByPath', {
-	handler : function(){
-		if(this.args.length >= 1){
-			if($.isEmptyObject(window.imagePacks)){
-				console.log('setting up image packs');
-				var _this = this;
-				$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-					console.log(data);
-					window.imagePacks = data;
-					loadImage(_this.args, _this.output);
-				});
-			}
-			else{
-				loadImage(this.args, this.output);
-			}
-		}
-
-		function loadImage(args, output){
-			//console.log(args);
-			//console.log(output);
-			var imagePackName = '';
-            if(typeof args[0] == 'string'){
-                imagePackName = args[0]
-			}
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.path === imagePackName})[0];
-
-			var imageFileName = "";
-			var imageHeight = 0;
-			var imageWidth = 0;
-			var imgDimensionString = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-				imageHeight = imagePack.files[rndNum].height;
-				imageWidth = imagePack.files[rndNum].width;
-
-				if(args.length > 1){
-					var maxHeight = args[1];
-					imgDimensionString = 'style="max-height:' + maxHeight + 'px;';
-					var maxWidth = 0;
-					if(args.length > 2){
-						maxWidth = args[2];
-						imgDimensionString += 'max-width:' + maxWidth + 'px;';
-					}
-					imgDimensionString += '"'; 
-				}
-			}
-			new Wikifier(output, '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '>');
-		}
-	}
-});
-
-window.imagePack = {
-	RandomImageNameFromPack: function(imagePackName) {
-		var imageName = ""
-
-		if($.isEmptyObject(window.imagePacks)){
-			console.log('setting up image packs');
-			$.getJSON('Images/ImagePacks/ImagePack.Json', function(data){
-				//console.log(data);
-				window.imagePacks = data;
-				imageName = loadImage(imagePackName);
-			});
-		}
-		else{
-			imageName = loadImage(imagePackName);
-		}
-		return imageName;
-
-		function loadImage(imagePackName){
-			//console.log(imagePackName);
-			var imagePack = $.grep(window.imagePacks.ImagePacks, function(e) { return e.name === imagePackName})[0];
-
-			var imageFileName = "";
-
-			var imageCount = imagePack.files.length;
-			if(imageCount > 0)
-			{
-				var rndNum = Math.floor(Math.random() * imageCount);
-				imageFileName = 'Images/ImagePacks/' + imagePack.path + '/' + imagePack.files[rndNum].fileName;
-			}
-			return imageFileName;
-		}
-	}
-};

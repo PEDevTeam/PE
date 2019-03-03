@@ -209,6 +209,9 @@ window.playerCode={
 	havePermanentMakeup: function() {
 		return (State.active.variables.body.permMakeup > 0 || State.active.variables.body.semiMakeup > 0);
 	},
+	haveManicure: function(){
+		return (State.active.variables.body.manicure > 0);
+	},
 	haveGirlyFace: function() {
 		return (State.active.variables.body.makeup > 0 || State.active.variables.body.face > 0);
 	},
@@ -483,6 +486,10 @@ window.playerCode={
 			} else {
 				State.active.variables.items.stockings.curAlt=39;
 				this.wearClothesJS('stockings');
+			}
+
+			if (playerCode.isWearing(window.itemsC.cheerBriefs)) {
+				this.removeClothesJS('cheerBriefs');
 			}
 		}
 	},

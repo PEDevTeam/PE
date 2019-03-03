@@ -2,82 +2,83 @@
 \
 <<if not $flags.friendNamed>>\
 	<<goto [[Name friend]]>>\
-<<endif>>\
-<<if $flags.friendNamed and (not $flags.intro)>>\
-	<<set $flags.intro=true>>\
-	You've known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn't hurt your friendship at all. \
-	<<if not $flags.friendIsMale>>\
-		$friend has known from an early age that she prefers girls over guys, so there's never been any sexual tension between the two of you.\
-	<<endif>>
-	
-<<endif>>\
-<<set _t to $flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))>>\
-<<set $player.friendLastVisit to $time.day>>\
-<<if ($player.perversion.friend lt 3) or ($player.perversion.friend gte 4)>>\
-	You arrive at $friend's house, and $friendG.he_she's happy to see you.
+<<else>>\
+	<<if (not $flags.intro)>>\
+		<<set $flags.intro=true>>\
+		You've known $friend since you can remember. $friendG.His_Her family used to live next door to you, but they moved a few blocks away last year. It takes a little longer to visit one another now, but that hasn't hurt your friendship at all. \
+		<<if not $flags.friendIsMale>>\
+			$friend has known from an early age that she prefers girls over guys, so there's never been any sexual tension between the two of you.\
+		<<endif>>
+		
+	<<endif>>\
+	<<set _t to $flags.friendIsMale and (($tasksTeacher.getHitOn.status eq 1))>>\
+	<<set $player.friendLastVisit to $time.day>>\
+	<<if ($player.perversion.friend lt 3) or ($player.perversion.friend gte 4)>>\
+		You arrive at $friend's house, and $friendG.he_she's happy to see you.
 
-	<<display [[Friend reaction to transformations]]>>\
-	<<display [[Random stuff with friend]]>>\
-<<endif>>\
-<<if $player.perversion.friend eq 0>>\
-	<<if _t>>\
+		<<display [[Friend reaction to transformations]]>>\
+		<<display [[Random stuff with friend]]>>\
+	<<endif>>\
+	<<if $player.perversion.friend eq 0>>\
+		<<if _t>>\
+			<<display [[Friend task links]]>>\
+			[[Return home|Leave friend's house][$time.addMinutes(10)]]
+		<<else>>\
+			<<display [[Leave friend's house]]>>\
+		<<endif>>\
+	<<elseif $player.perversion.friend eq 1>>\
+		<<print '[[Ask '+$friend+' about porn|Ask friend about porn]]'>>
 		<<display [[Friend task links]]>>\
-		[[Return home|Leave friend's house][$time.addMinutes(10)]]
-	<<else>>\
-		<<display [[Leave friend's house]]>>\
-	<<endif>>\
-<<elseif $player.perversion.friend eq 1>>\
-	<<print '[[Ask '+$friend+' about porn|Ask friend about porn]]'>>
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]] 
-<<elseif ($player.perversion.friend eq 2)>>\
-	<<if $random.getIntInclusive(1, 4) eq 1>>\
-		<<display [[Visit friend bathroom]]>>
-	<<else>>\
-		<<display [[Leave friend's house]]>>
-	<<endif>>\
-<<elseif ($player.perversion.friend eq 3)>>\
-	<<display [[Visit friend after butt-plug]]>>\
-<<elseif ($player.perversion.friend eq 4)>>\
-	<<if _t>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]] 
+	<<elseif ($player.perversion.friend eq 2)>>\
+		<<if $random.getIntInclusive(1, 4) eq 1>>\
+			<<display [[Visit friend bathroom]]>>
+		<<else>>\
+			<<display [[Leave friend's house]]>>
+		<<endif>>\
+	<<elseif ($player.perversion.friend eq 3)>>\
+		<<display [[Visit friend after butt-plug]]>>\
+	<<elseif ($player.perversion.friend eq 4)>>\
+		<<if _t>>\
+			<<display [[Friend task links]]>>\
+			[[Return home|Leave friend's house][$time.addMinutes(10)]]
+		<<else>>\
+			<<display [[Leave friend's house]]>>\
+		<<endif>>\
+	<<elseif ($player.perversion.friend eq 5)>>\
+		<<print '[[Ask '+$friend+' for a massage|Ask friend for a massage]]'>>
 		<<display [[Friend task links]]>>\
-		[[Return home|Leave friend's house][$time.addMinutes(10)]]
-	<<else>>\
-		<<display [[Leave friend's house]]>>\
-	<<endif>>\
-<<elseif ($player.perversion.friend eq 5)>>\
-	<<print '[[Ask '+$friend+' for a massage|Ask friend for a massage]]'>>
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]] 
-<<elseif ($player.perversion.friend eq 6)>>\
-	<<print '[[Ask '+$friend+' for a massage|Ask friend for a full massage]]'>>
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]] 
-<<elseif ($player.perversion.friend eq 7)>>\
-	<<if playerCode.owns(itemsC.massageOil)>>\
-		<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (first)]]'>>
-	<<else>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]] 
+	<<elseif ($player.perversion.friend eq 6)>>\
 		<<print '[[Ask '+$friend+' for a massage|Ask friend for a full massage]]'>>
+		<<display [[Friend task links]]>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]] 
+	<<elseif ($player.perversion.friend eq 7)>>\
+		<<if playerCode.owns(itemsC.massageOil)>>\
+			<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (first)]]'>>
+		<<else>>\
+			<<print '[[Ask '+$friend+' for a massage|Ask friend for a full massage]]'>>
+		<<endif>>\
+		<<display [[Friend task links]]>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]] 
+	<<elseif ($player.perversion.friend eq 8) or ($player.perversion.friend eq 9)>>\
+		<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (subsequent)]]'>>
+		<<display [[Friend task links]]>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]]
+	<<elseif ($player.perversion.friend eq 10)>>\
+		<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (subsequent)]]'>>
+		<<if playerCode.owns(itemsC.remotePlugs)>>\
+			[[Suggest a game with the remote butt-plugs]]
+		<<else>>\
+			<<set $items.remotePlugs.cost = 100>>\
+			<<set $items.remotePlugs.disabled = false>>\
+		<<endif>>\
+		<<display [[Friend task links]]>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]]
+	<<elseif ($player.perversion.friend gte 11)>>\
+		<<display [[Friend task links]]>>\
+		[[Return home|Leave friend's house][$time.addMinutes(10)]]
 	<<endif>>\
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]] 
-<<elseif ($player.perversion.friend eq 8) or ($player.perversion.friend eq 9)>>\
-	<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (subsequent)]]'>>
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]]
-<<elseif ($player.perversion.friend eq 10)>>\
-	<<print '[[Ask '+$friend+' for a massage|Ask friend for an oil massage (subsequent)]]'>>
-	<<if playerCode.owns(itemsC.remotePlugs)>>\
-		[[Suggest a game with the remote butt-plugs]]
-	<<else>>\
-		<<set $items.remotePlugs.cost = 100>>\
-		<<set $items.remotePlugs.disabled = false>>\
-	<<endif>>\
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]]
-<<elseif ($player.perversion.friend gte 11)>>\
-	<<display [[Friend task links]]>>\
-	[[Return home|Leave friend's house][$time.addMinutes(10)]]
 <<endif>>\
 
 

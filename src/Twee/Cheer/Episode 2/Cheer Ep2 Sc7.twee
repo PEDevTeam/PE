@@ -1,0 +1,54 @@
+::Cheer Ep2 Sc7
+$cheerFriend.name runs you through some basic cheerleading movements. Thankfully, the drills are pretty simple, just different places to hold your arms and what those positions are called. You’re having no trouble keeping up.
+
+@@.cheerFriend;“Remember, keep your movements quick and snappy,”@@ $cheerFriend.name says. @@.cheerFriend;“No spaghetti arms.”@@
+
+@@.heroT;“Got it,”@@ you say, making sure to put even more pop into your moves.
+
+Rachel approaches from the other side of the field. @@.cheerCaptain;“How’s it going?”@@ she asks.
+
+@@.cheerFriend;“Pretty good,”@@ $cheerFriend.name replies. @@.cheerFriend;“I think she’s a natural.”@@
+
+You smile, a bit surprised at how warm the compliment makes you feel.
+
+@@.cheerCaptain;“And you, $cheerleaders.fakeName? What’d you think of your first day?”@@
+
+You think for a moment. For the first time in a while, you’ve felt like people have treated you as just yourself, even if that version of yourself is a fake you. It’s nice to just be treated like another girl, rather than a <<if $player.perversion.guardian <5>>pervert<<else>>slave<<endif>> or a plaything. 
+
+@@.heroT;”I… I had a lot of fun. I still want to join the squad, if you’ll let me.”@@
+
+@@.cheerCaptain;“Well, you did completely neglect your manager duties today.”@@
+\
+<<RandomImageFromPack "Cheerleader Water Cart" 400 400 "alignRight">>\ 
+
+She motions towards a cart back by the rest of the cheerleaders. A large water jug sits on top of the cart next to several stacks of paper cups. On a lower shelf sits a large pile of towels.
+
+@@.heroT;“Oops,”@@ you reply sheepishly.
+
+@@.cheerCaptain;“Just bring it back to the equipment room after practice. That cart is your responsibility, after all.”@@
+
+@@.heroT;“Yes, Captain.”@@
+
+@@.cheerCaptain;“There’s also the issue of your conditioning. You seem to really be struggling out there. I don’t care how good your movements are – if you don’t have the stamina or strength to pull off some of the more advanced stuff, you’re not much good to me.
+
+“You may be manager, but as a part of the squad, I expect you to be able to do everything the squad does. Got it?”@@
+
+@@.heroT;“Got it.”@@
+
+@@.cheerCaptain;”Next practice is a hardcore conditioning session. I want to see you put forth some real effort out there. Make sure you keep training, even when we’re not practicing.
+
+“Impress me, and I’ll consider giving you a chance as a rookie member and a uniform. Fail, and you can go back to sitting on the sideline just like every other student. Understood?”@@
+
+The mention of your own uniform and a place on the team steels your resolve. Nothing will stand in your way.
+
+@@.heroT;“I won’t let you down.”@@
+
+@@.cheerCaptain;“Good. Let’s hit the showers.”@@
+\
+<<if (not $cheerleaders.flags.bullyLeft)>>\
+    <<set $player.fitness +=1>>\
+<<endif>>\
+<<set $cheerleaders.progress = 2>>\
+<<set $time.addMinutes(60)>>\
+
+<<display [[Travel]]>>

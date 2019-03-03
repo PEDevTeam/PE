@@ -1,9 +1,9 @@
 :: Have breakfast [pos_879_459]
 \
 <<if playerCode.isMaid()>>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Maid Morning" 600 600>></div>\	
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Maid Morning" 400 400>></div>\	
 <<else>>\
-	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cereal Milk" 600 600>></div>\	
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cereal Milk" 400 400>></div>\	
 <<endif>>\
 \
 <<set $flags.guardianCondomsDone = false>>\
@@ -14,7 +14,8 @@
 	<<if playerCode.isMaid()>>\
 	<!--<maid start>*********************-->\
 		<<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\
-			<<wearClothing 'maidOutfit'>>\
+			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
 			You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
 			<<endif>>\
@@ -34,6 +35,9 @@
 				<<endif>>\
 			After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
 			<<endif>>\
+			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<<set window.playerCode.clothesOverride()>>\
+			<<updateClothes>>\
 		<<endif>>\
 
 		<<if $player.perversion.guardianCooldown gt 1>>\

@@ -69,6 +69,7 @@
 			<<if _quickslot.extra and _ex>>\
 			<<elseif (_quickslot.name eq "Slutty") and (not playerCode.owns(itemsC.sluttyDress))>>\
 			<<elseif (_quickslot.name eq "Maid") and (not playerCode.owns(itemsC.maidOutfit))>>\
+			<<elseif (_quickslot.name eq "Cheerleader") and (not (playerCode.owns(itemsC.rookieUniform) or playerCode.owns(itemsC.cheerDress)))>>\
 			<<else>>\
 				<<set _ex = false>>\
 				<<if _quickslot.clothes.length eq 0>>\
@@ -171,7 +172,7 @@
 					<<set _itemImage += _oV.curAlt>>\
 					<<set _itemImage += ".jpg">>\
 				<<endif>>\
-				<<set _in to _in + '<span onmouseover="var ip=document.getElementById(\'item_preview_bedroom\');ip.src=\'images/items/' + _itemImage + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_bedroom\').className=\'hidden\';">'>>\
+				<<set _in to _in + '<span onmouseover="var ip=document.getElementById(\'item_preview_bedroom\');ip.src=\'Images/items/' + _itemImage + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_bedroom\').className=\'hidden\';">'>>\
 			<<endif>>\
 			<<if _oV.ward>>\
                 <<set _in to _in + ' <<click @@.on;&#xe811;@@ >><<set $items[Object.keys($items)[' + _i + ']].ward=false>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>> \
@@ -184,7 +185,7 @@
             <<if _o.info>>\
                 <<set _in to _in + " ">>\
 				<<if _o.id eq itemsC.schoolMale.id>>\
-					<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \'conservative\' black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \'provactive,\' but other jewelry is not..</span></div>'>>\
+					<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \'conservative\' black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \'provactive,\' but other jewelry is not.</span></div>'>>\
 				<<elseif (_o.id eq itemsC.schoolFemale.id) or (_o.id eq itemsC.sluttyschoolFemale.id)>>\
 					<<if $player.perversion.teacher lt 8>>\
 						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. Unfortunately, the rule for the school dress says nothing about gender so $teacher //can// make you wear one. The rules say you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \'provactive\'.</span></div>'>>\
@@ -193,6 +194,10 @@
 					<<else>>\
 						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">The normal school dress code no longer applies to you. $teacher gave you a slutty, revealing uniform that lets everyone know what a slut you\'ve become. You can wear any footwear or hosiery that\'s black, red or white.</span></div>'>>\
 					<<endif>>\
+				<<elseif (_o.id eq itemsC.cheerDress.id)>>\
+						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Being a part of the cheer squad allows you to wear your cheer uniform to school instead of your normal uniform. The uniform consists of the dress, cheer briefs, ankles socks, and cheer sneakers.  On days when you have cheer activities, you must wear your cheer uniform.</span></div>'>>\
+				<<elseif (_o.id eq itemsC.rookieUniform.id)>>\
+					<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Being a part of the cheer squad allows you to wear your cheer uniform to school instead of your normal uniform. The uniform consists of the top and shorts, cheer briefs, ankles socks, and cheer sneakers.  On days when you have cheer activities, you must wear your cheer uniform.</span></div>'>>\
 				<<endif>>\
                 <<set _in to _in + " ">>\
 			<<endif>>\
@@ -274,6 +279,7 @@
 			<<set _quickslot = $quickSlot[Object.keys($quickSlot)[_i]]>>\
 			<<if (_quickslot.name eq "Slutty") and (not playerCode.owns(itemsC.sluttyDress))>>\
 			<<elseif (_quickslot.name eq "Maid") and (not playerCode.owns(itemsC.maidOutfit))>>\
+			<<elseif (_quickslot.name eq "Cheerleader") and ((not playerCode.owns(itemsC.rookieUniform)) and (not playerCode.owns(itemsC.cheerDress)))>>\
 			<<elseif (_quickslot.clothes.length gt 0) and ((not _quickslot.extra) or (not _ex))>>\
 				<<set _ex=false>>\
 				<<set _toolTip = _quickslot.clothes.join(', ')>>\
