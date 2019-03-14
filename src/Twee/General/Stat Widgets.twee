@@ -525,6 +525,12 @@
 	<<if $flags.friendNamed>>
 		$friend: $player.perversion.friend<br>
 	<<endif>>
+	<<if $cheerleaders.active>>
+		Cheerleaders: $cheerleaders.progress<br>
+		<<if $cheerFriend.progress > -1>>
+			$cheerFriend.name: $cheerFriend.progress<br>
+		<<endif>>
+	<<endif>>
 	<<if $player.debugA>>
 		Penalty score: $player.punishments.penalty<br>
 		Severity score: $player.punishments.punSeverity<br>
@@ -604,6 +610,21 @@
 	<<if $player.perversion.friend lt 11>>\
 	[[Friend perv +1|Go to bedroom][$player.perversion.friend++]]
 	<<endif>>\
+	<<if $cheerleaders.progress == 2>>\
+		<<set $giveUniform = false>>\
+		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]
+	<<elseif $cheerleaders.progress == 3 && $giveUniform == true>>\
+		<<set $giveUniform = false>>\
+		<<addToInv 'rookieUniform'>>\
+		<<addToInv 'cheerBriefs'>>\
+		<<addToInv 'socks' 43>>\
+		<<addToInv 'hairbow' 43>>\
+		<<addToInv 'cheerSneakers'>>\
+		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++]]
+	<<else>>\
+		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++; $cheerleaders.active=true]]
+	<<endif>>\
+	<<print "[["+$cheerFriend.name+" progress +1|Go to bedroom][$cheerFriend.progress++]]">>
 	
 	<<print '<<click " Cooldowns ">><<set $player.perversion.teacherCooldown=10>><<set $player.perversion.guardianCooldown=10>><<updateDebug>><</click>>'>> Te=$player.perversion.teacherCooldown, Gu=$player.perversion.guardianCooldown\
 	
