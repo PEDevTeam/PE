@@ -111,6 +111,17 @@
 	<<if $player.debugA>>\
 		<<updateDebug>>\
 	<<endif>>\
+	<div id="PhoneMenu" class="">\
+		<<include "Phone Modal">>\
+		<!-- This doesn't really do much as the DOM for the Phone Modal seems to be recreated each naviagation, so we need to set up the phone again every time we navigate...
+		<<if not window.phone._setup>>\
+			<<script>>window.phone.setupPhone();<</script>>\
+		<<endif>>\ 
+		-->
+		<div id="phoneShortcuts" class="">\
+			<<click "Open Phone">><<script>>window.phone.setupPhone();window.phone.openPhoneModal();<</script>><</click>>\
+		</div>\
+	</div>
 	\
 <<endif>>\
 \

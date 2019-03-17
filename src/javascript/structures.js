@@ -52,7 +52,6 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
-		this.setupBully();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -1502,3 +1501,4 @@ window.cheerFriendList={
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
 }
+

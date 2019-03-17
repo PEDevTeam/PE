@@ -102,7 +102,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="Perverted Education" startnode="255" creator="Tweego" creator-version="1.3.0" ifid="CB22C9D7-4AE9-43FB-8A89-6C3226DCBE10" zoom="1" format="SugarCube" format-version="2.24.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "Story Stylesheet" */
+	<div id="store-area" hidden><tw-storydata name="Perverted Education" startnode="259" creator="Tweego" creator-version="1.3.0" ifid="CB22C9D7-4AE9-43FB-8A89-6C3226DCBE10" zoom="1" format="SugarCube" format-version="2.24.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "Story Stylesheet" */
 #ui-bar-body>:not(:first-child){margin-top:0em}
 #story-title{margin:0;font-size:132.5%;display: none;}
 #story-author{margin-top:0;margin-bottom:9px;font-weight:700}
@@ -2452,7 +2452,647 @@ tr.header {
     content: "";
     clear: both;
     display: table;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "choresFunc.js" */
+}
+/* twine-user-stylesheet #2: "phone.css" */
+.phone-modal{
+    font-family: 'Roboto', sans-serif;
+    z-index:500;
+    display:block;
+    position:fixed;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.visible{
+    visibility: visible;
+    opacity: 1;
+}
+.modal-bg{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.5);
+}
+.phone-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.phone{
+    z-index: 501;
+    position: relative;
+    width: 15vw;
+    height: 35vw;
+}
+.screen{
+    width:100%;
+    height:100%;
+}
+.row{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.app{
+    display:grid;
+    width:40%;
+    padding:4%;
+    font-size: 1vw;
+    color: white;
+    text-align: center;
+}
+.app img, .app div {
+    cursor:pointer;
+}
+.phone-clock{
+    text-align: center;
+    font-size: 1vw;
+    color: white;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    cursor:pointer;
+}
+#phoneHomeBtn{
+    cursor:pointer;
+}
+[data-badge]:after {
+    background-image: linear-gradient(0deg, red, lightcoral);
+    border-radius: 1vw;
+    border: 0.2vw solid white;
+    color: #fff;
+    content: attr(data-badge);
+    font-size: 1vw;
+    font-weight: bolder;
+    margin-top: 2%;
+    margin-left: 28%;
+    min-width: 15%;
+    padding: 1%;
+    position: absolute;
+    text-align: center;
+}
+[data-badge="0"]:after {
+    display: none;
+}
+.planner-day {
+    position: absolute;
+    text-align: center;
+    color: #000;
+    font-size: 2vw;
+    font-weight: bolder;
+    margin-top: 13%;
+    margin-left: 4%;
+    padding: 1%;
+}
+.phone-screen{
+    width: 90.6%;
+    height: 75%;
+}
+/*contacts*/
+.content{
+    height: 21.7vw;
+    overflow-y: scroll;
+    background-color: grey;
+}
+.contact-row{
+    background-image: linear-gradient(to top, darkgrey, lightgrey);
+    height: 2.5vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    font-size: .9vw;
+    cursor: pointer;
+}
+.contact-row label {
+    cursor: pointer;
+}
+.contact-img{
+    display: inline-block;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    margin-right: 5%;
+    background-color:pink;
+    object-fit: cover;
+}
+.app-header{
+    display:flex;
+    height: 2.5vw;
+    align-items: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: white;
+}
+.contacts-header{
+    background-image: linear-gradient(to top, red,white);
+}
+.header-icon{
+    width: 2vw;
+    margin: 3%;
+}
+.exit-button{
+    width: 1vw;
+    margin-left: auto;
+    margin-right: -.3%;
+    margin-bottom: 11%;
+    cursor: pointer;
+}
+.sub-exit-button{
+    width: 1vw;
+    margin-left: auto;
+    margin-bottom: 11%;
+    margin-top: -.5%;
+    cursor: pointer;
+}
+
+/*email*/
+.email-summary{
+    flex-direction: column;
+}
+.email-summary img{
+    width: 2vw;
+}
+.email-header{
+    background-image: linear-gradient(to top, dodgerblue,white);
+}
+.email-row{
+    background-image: linear-gradient(to top, darkgrey, lightgrey);
+    height: 2.5vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: .5vw;
+    font-size: .9vw;
+    cursor: pointer;
+}
+.email-body{
+    background-image: linear-gradient(to top, darkgrey, lightgrey);
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    font-size: .7vw;
+}
+.email-row label {
+    cursor: pointer;
+    margin: 0;
+    font-weight: bold;
+    font-size: .9vw;
+}
+.email-row  p {
+    cursor: pointer;
+    margin: 0;
+    font-size: .5vw;
+}
+.email-img{
+    display: inline-block;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    margin-right: 5%;
+    background-color:pink;
+    object-fit: cover;
+}
+/* call */
+.call{
+    background-image: linear-gradient(to top, black,green);
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    color: white;
+    padding-top: 15%;
+    height : 22.2vw
+}
+.call label{
+    font-size: 1vw;
+    text-align: center;
+}
+.call h1{
+    font-size: 2vw;
+}
+.call-row{
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}
+.call-button{
+    padding-top: 35%;
+    margin: 20%;
+    min-width: 4vw;
+    text-align: center;
+}
+.call-button img{
+    cursor: pointer;
+}
+
+/* planner */
+.planner-header{
+    background-image: linear-gradient(to top, darkblue,white);
+}
+.week-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #BABABA;
+    justify-content: space-between;
+}
+.day{
+    width: 1.5vw;
+    height: 1.5vw;
+    font-size: .5vw;
+    font-weight: bold;
+    margin: .2vw;
+    background: linear-gradient(#FFFFFF, #AAAAFF);
+    border-radius: .3vw;
+    color: #000000;
+    box-shadow: 0.1vw 0.1vw 0.2vw grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.badge-row{
+    height: .6vw;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.pointer *{
+    cursor: pointer;
+}
+.selected-day{
+    background: linear-gradient(#DEDE86, #FFFFFF);
+    color: #000000;
+}
+.disabled-day{
+    color: #6E6E6E;
+    background: linear-gradient(#5E5E5E, #C9C9C9);
+    cursor: auto;
+}
+.day-detail{
+    padding: .5vw;
+    background-color: #BABABA;
+}
+.day-detail ul{
+    font-size: .7vw;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.day-detail li{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0.1vw 0.1vw 0.2vw grey;
+    border-radius: .3vw;
+    margin: .2vw;
+    padding: .4vw;
+}
+.day-detail h1{
+    font-size: 1vw;
+    color: #000000;
+    background: linear-gradient(#FFFFFF, #AAAAFF);
+    box-shadow: 0.1vw 0.1vw 0.2vw grey;
+    margin: 0;
+    padding: .3vw;
+    display: flex;
+    justify-content: center;
+    border-radius: .3vw;
+}
+.completed{
+    color : #009933;
+    background: linear-gradient(#FFFFFF, #8CDBA6);
+}
+.failed{
+    color : #B30000;
+    background: linear-gradient(#FFFFFF, #A88A8A);
+}
+.failed-bg{
+    background-color:#B30000;
+}
+.uncompleted-bg{
+    background-color:#E3B300;
+}
+.completed-bg{
+    background-color:#009933;
+}
+.badge{
+    height: .3vw;
+    width: .3vw;
+    border-radius: .3vw;
+}
+.uncompleted{
+    color : black;
+    background: linear-gradient(#FFFFFF, #AAAAFF);
+}
+.day-detail-content{
+    height: 17.9vw;
+    overflow-y: scroll;
+    background-color: grey;
+}
+a.no-style:link {
+    text-decoration: none;
+    color: inherit;
+    cursor: auto;
+}
+
+a.no-style:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: auto;
+}
+.hidden{
+    display: none;
+}
+
+/* snaptext */
+.snaptext-header{
+    background-image: linear-gradient(to top, darkorange,white);
+}
+.snaptext-content{
+    background-color: whitesmoke;
+}
+.snaptext-message{
+    margin: .5vw;
+    text-align: left;
+}
+.snaptext-message img{
+    padding: .5vw;
+    width: 90%;
+    height: auto;
+}
+.snaptext-me{
+    color: darkturquoise;
+    font-size: .6vw;
+    font-weight: 700;
+}
+.snaptext-other{
+    color: lightcoral;
+    font-size: .6vw;
+    font-weight: 700;
+}
+.snaptext-me-message{
+    font-size: .7vw;
+    margin: 0;
+    padding-left: 1vw;
+    border-left: .2vw solid darkturquoise;
+    color: darkslategrey;
+}
+.snaptext-other-message{
+    font-size: .7vw;
+    margin: 0;
+    padding-left: 1vw;
+    border-left: .2vw solid lightcoral;
+    color: darkslategrey;
+}
+.snaptext-choice{
+    padding:.5vw;
+}
+.snaptext-choice > label{
+    background-color: darkturquoise;
+    color: white;
+    padding: .25vw;
+    -webkit-border-radius: .5vw;
+    -moz-border-radius: .5vw;
+    border-radius: .5vw;
+}
+.snaptext-choice > label:hover{
+    background-color: turquoise;
+    color: white;
+    padding: .30vw;
+    -webkit-border-radius: .5vw;
+    -moz-border-radius: .5vw;
+    border-radius: .5vw;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+::-webkit-scrollbar-track {
+    background: #444;
+}
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+/* ellipsis */
+.ellipsis-anim {
+    margin: 0;
+    font-size: 1.5vw;
+    padding-left: 5%;
+    color: darkslategrey;
+}
+.ellipsis-anim span {
+    opacity: 0;
+    -webkit-animation: ellipsis-dot 1s infinite;
+    animation: ellipsis-dot 1s infinite;
+}
+
+.ellipsis-anim span:nth-child(1) {
+    -webkit-animation-delay: 0.0s;
+    animation-delay: 0.0s;
+}
+.ellipsis-anim span:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.ellipsis-anim span:nth-child(3) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes ellipsis-dot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes ellipsis-dot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "complexExample.js" */
+if (typeof window.phoneChatFunctions === "undefined"){
+    window.phoneChatFunctions = {}    
+}
+if (typeof window.phoneChatSetups === "undefined"){
+    window.phoneChatSetups = {}    
+}
+
+Object.assign(window.phoneChatFunctions, {
+    complexChoice1: function(index){
+        phone.toggleSnapTextEllipsis();
+        setTimeout(function(){
+            switch (index) {
+                case 0:
+                    var convoName = "complexExamplePt2A";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+                case 1:
+                    var convoName = "complexExamplePt2B";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+                case 2:
+                    var convoName = "complexExamplePt2C";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+            }
+        }, 750)
+    },
+    complexChoice2: function(index){
+        phone.toggleSnapTextEllipsis();
+        setTimeout(function(){
+            switch (index) {
+                case 0:
+                    var convoName = "complexFucked";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+                case 1:
+                    var convoName = "complexGood";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+            }
+        }, 750)
+    },
+    complexChoice3: function(index){
+        phone.toggleSnapTextEllipsis();
+        setTimeout(function(){
+            switch (index) {
+                case 0:
+                    var convoName = "complexGood";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+                case 1:
+                    var convoName = "complexFucked";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+                case 2:
+                    var convoName = "complexGood";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+            }
+        }, 750)
+    },
+    complexChoice4: function(index){
+        phone.toggleSnapTextEllipsis();
+        setTimeout(function(){
+            switch (index) {
+                case 0:
+                    var convoName = "complexGood";
+                    var convo = window.phoneChats[convoName];
+                    phone.addSnapTextConvo(convo);
+                    phone.toggleSnapTextEllipsis();
+                    break;
+            }
+        }, 750)
+    }
+});
+
+Object.assign(window.phoneChatSetups, {
+    complexExample : [
+        {contact: "Bully", content: "Good day sir. I demand you answer this question!", imagePath: undefined, choiceFunc: undefined},
+        {content: [
+            {text: "Nein! I refuse!"},
+            {text: "Well, if I must."},
+            {text: "Of course, my master"}
+        ], choiceFunc: "complexChoice1"}
+    ],
+    complexExamplePt2A : [
+        {contact: "Bully", content: "Do no be using that tone with me! You'll get a right spankering!", imagePath: undefined, choiceFunc: undefined},
+        {content: [
+            {text: "Screw you hippy!"},
+            {text: "Sorry master, please so not punish me..."}
+        ], choiceFunc: "complexChoice2"}
+    ],
+    complexExamplePt2B : [
+        {contact: "Bully", content: "Cheer up little fella, you'll be in a better place soon!", imagePath: undefined, choiceFunc: undefined},
+        {content: [
+            {text: "Okay..."},
+            {text: "Sniff, sniff"},
+            {text: "😢"}
+        ], choiceFunc: "complexChoice3"}
+    ],
+    complexExamplePt2C : [
+        {contact: "Bully", content: "Very good, my slave", imagePath: undefined, choiceFunc: undefined},
+        {content: [
+            {text: "Thankyou master"}
+        ], choiceFunc: "complexChoice4"}
+    ],
+    complexFucked : [
+        {contact: "Bully", content: "You're fucked!", imagePath: undefined, choiceFunc: undefined},
+        {contact: "Player", content: "Crap"},
+    ],
+    complexGood : [
+        {contact: "Bully", content: "You're going to be fucked!", imagePath: undefined, choiceFunc: undefined},
+        {contact: "Player", content: "Yay!"},
+    ]
+});
+/* twine-user-script #2: "example.js" */
+if (typeof window.phoneChatFunctions === "undefined"){
+    window.phoneChatFunctions = {}    
+}
+if (typeof window.phoneChatSetups === "undefined"){
+    window.phoneChatSetups = {}    
+}
+
+Object.assign(window.phoneChatFunctions, {
+    testChoiceEvent: function(index){
+        switch (index) {
+            case 0:
+                console.log('continue based on choice 1');
+                break;
+            case 1:
+                console.log('continue based on choice 2');
+                break;
+            case 2:
+                console.log('continue based on choice 3');
+                break;
+        }
+    }
+});
+
+Object.assign(window.phoneChatSetups, {
+    example : [
+        {contact: "Bully", content: "hello, this is a test", imagePath: undefined, choiceFunc: undefined},
+        {contact: "Player", content: "hello, this is another test."},
+        {contact: "Bully", content: "hello, this is a test very very very very very very long text very very very very long test.", imagePath: undefined, choiceFunc: undefined},
+        {content: [
+                {text: "Choice A."},
+                {text: "Choice B."},
+                {text: "Choice C."}
+            ], choiceFunc: "testChoiceEvent"}
+    ]
+});
+/* twine-user-script #3: "choresFunc.js" */
 window.choresFunc={
 	choresPercentCalc: function() {
 		var ca=0;
@@ -2513,7 +3153,7 @@ window.choresFunc={
 		return w || d;
 	}
 }
-/* twine-user-script #2: "choresList.js" */
+/* twine-user-script #4: "choresList.js" */
 window.choresList={
 	vacuum1: {
 		//easiest chore, just vacuum the house, no punishments on fail
@@ -2867,7 +3507,7 @@ window.choresList={
 		dayPerformed: -100
 	}
 };
-/* twine-user-script #3: "clothes.js" */
+/* twine-user-script #5: "clothes.js" */
 window.daringValues={
 	daringUnderwearNone: 6,
 	daringUnderwearFemale: 3,
@@ -3244,7 +3884,7 @@ window.clothes={
 		return (!underwear || underwear.female) && outerwear.female && shoes.female;	
 	}
 }
-/* twine-user-script #4: "dreamsList.js" */
+/* twine-user-script #6: "dreamsList.js" */
 window.dreamsSelector={
 	randomDream: function(dreams) {
 		var availableDreams=[];  // list of available dreams
@@ -3901,7 +4541,7 @@ window.dreamsTeacher={
 		}
 	}
 }
-/* twine-user-script #5: "gameCode.js" */
+/* twine-user-script #7: "gameCode.js" */
 window.gameCode={
 	version: "0.8000"
 }
@@ -3948,7 +4588,7 @@ window.sidebar={
 		this.refresh();
 	}
 }
-/* twine-user-script #6: "hypnoCode.js" */
+/* twine-user-script #8: "hypnoCode.js" */
 window.hypnoCode={
 	getHypnoImage: function() {
 		var ha=[];
@@ -4011,7 +4651,7 @@ window.hypnoImages=[
 		}
 	},
 ];
-/* twine-user-script #7: "imagePack.js" */
+/* twine-user-script #9: "imagePack.js" */
 /* ImagePack Macros by Moonhead */
 
 window.imagePack = {
@@ -4137,7 +4777,7 @@ Macro.add('RandomImageFromPack', {
 });
 
 
-/* twine-user-script #8: "imagePacks.js" */
+/* twine-user-script #10: "imagePacks.js" */
 window.imagePacks = {
     "ImagePacks":  [
                        {
@@ -4309,17 +4949,6 @@ window.imagePacks = {
                                              "fileName":  "blurry practice.jpg",
                                              "height":  1572,
                                              "width":  1008
-                                         }
-                                     ]
-                       },
-                       {
-                           "name":  "Cheerleader Boys on Fence",
-                           "path":  "Cheerleader/Boys on Fence",
-                           "files":  [
-                                         {
-                                             "fileName":  "Boys on Fence.jpeg",
-                                             "height":  373,
-                                             "width":  676
                                          }
                                      ]
                        },
@@ -7090,7 +7719,7 @@ window.imagePacks = {
                    ]
 }
  ;
-/* twine-user-script #9: "itemsC.js" */
+/* twine-user-script #11: "itemsC.js" */
 window.itemTypes={
 	NotClothing:   0,
 	Underwear:     1,
@@ -9392,7 +10021,7 @@ window.itemSubTypes=[
 		"UnsortedName"
 	]
 ];
-/* twine-user-script #10: "locations.js" */
+/* twine-user-script #12: "locations.js" */
 window.locationsJS={
 	home: {
 		id: "home",
@@ -9523,7 +10152,7 @@ window.locationsJS={
 		important: false
 	}
 }
-/* twine-user-script #11: "macros.js" */
+/* twine-user-script #13: "macros.js" */
 //:: Story JavaScript [script]
 // Begin Inventory Macros
 // Original macros by F2Andy: http://strugglingwithtwine.blogspot.ca/2014/03/handling-inventory.html
@@ -10726,14 +11355,14 @@ Macro.add('reactOnce', {
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
-/* twine-user-script #12: "menu.js" */
+/* twine-user-script #14: "menu.js" */
 $('#menu-item-settings a').off().ariaClick(function (ev) {
 	Dialog.setup("Settings");
 	Dialog.wiki(Story.get("Settings").processText());
 	Dialog.open();
 	/*Dialog.open(Dialog.setup("Available only at bedroom",UI.buildSettings))*/
 });
-/* twine-user-script #13: "minigames.js" */
+/* twine-user-script #15: "minigames.js" */
 window.dreamMinigame = {
 	getActionById: function(id) {
 		for (var _i=0; _i < window.dreamgameList.length; _i++) {
@@ -11199,7 +11828,7 @@ window.coachgameList=[
 		imagePack: "Coach Minigame Cherry Pop"
 	}
 ];
-/* twine-user-script #14: "misc.js" */
+/* twine-user-script #16: "misc.js" */
 window.misc={
 	unpostponeClothes: function(type) {
 		var itemsC=window.itemsC;
@@ -11441,7 +12070,657 @@ window.friendRiddles = [
 		answer: "It's not hard!"
 	}
 ];
-/* twine-user-script #15: "playerCode.js" */
+/* twine-user-script #17: "phone.js" */
+window.phoneElements={
+    modal: "#phoneModal",
+    modalBg : "#modalBg",
+    homeBtn : "#phoneHomeBtn",
+    contactsContent :"#contactsContent",
+    inboxContent : "#inboxContent",
+    emailContent : "#emailContent",
+    snaptextContent : "#snaptextContent",
+    snaptextConvo : "#snaptextConvo",
+    snaptextEllipsis : "#snaptextEllipsis",
+    callPrompt : "#callPrompt",
+    callName: "#callName",
+    callType: "#callType",
+    callEnded:"#callEnded",
+    callConfirmButton : "#callConfirmBtn",
+    callCancelButton : "#callCancelBtn",
+    callConfirmLabel: "#callConfirmLbl",
+    callCancelLabel: "#callCancelLbl",
+    clock : "#phoneClock",
+    plannerDay : "#plannerDay",
+    plannerWeekOne : "#plannerWeekOne",
+    plannerWeekTwo : "#plannerWeekTwo",
+    plannerDayDetails : "#plannerDayDetails",
+    exitButtons : ".exit-button",
+    subExitButtons : ".sub-exit-button"
+};
+
+window.phoneScreens={
+    home : "#phoneHomeScreen",
+    contacts : "#phoneContactsScreen",
+    call : "#phoneCallScreen",
+    email : "#phoneEmailScreen",
+    planner : "#phonePlannerScreen",
+    snaptext :  "#phoneSnapTextScreen"
+};
+
+window.phoneApps={
+    contacts : "#contactsBtn",
+    planner : "#plannerBtn",
+    email : "#emailBtn",
+    snaptext : "#snapBtn",
+    camera : "#cameraBtn",
+    phone : "#phoneBtn"
+};
+
+window.phoneHomeBgs={
+    blue : "#blueHomeBg"
+};
+
+window.phoneSounds={
+    ringtone : "",
+    calling : "",
+    chime : "",
+    tap : "",
+    end : ""
+};
+
+window.phoneContacts={
+    Player : {name : "Me", image : "Images/phone/contacts/profiles/default-male.svg"},
+    Teacher : {name : "Ms Buxton", image : "Images/phone/contacts/profiles/default-female.svg"},
+    Bully : {name : "Butch", image : "Images/phone/contacts/profiles/default-male.svg"},
+    Anon : {name : "Anonymous", image : "Images/phone/email/email_anonimous.jpg"}
+};
+
+window.phoneChats = {};
+
+window.phone={
+    _currentScreen : "",
+    _clockAmPmMode : true,
+    _activeContacts : [],
+    _answered : false,
+    _unlocked : true,
+    _emailId : 0,
+    _phoneSetup : false,
+
+    setupPhone : function(){
+        phone._currentScreen = phoneScreens.home;
+        phone.hideSnapTextEllipsis();
+
+        //click event bindings
+        $(phoneElements.homeBtn).on("click", function(){
+            phone.navigateTo(phoneScreens.home);
+        });
+        $(phoneElements.modalBg).on("click", function(){
+            phone.closePhoneModal();
+        });
+        $(phoneApps.contacts).on("click", function(){
+            phone.navigateTo(phoneScreens.contacts);
+        });
+        $(phoneElements.clock).on("click", function(){
+            phone._clockAmPmMode = !phone._clockAmPmMode;
+            phone.setPhoneClock();
+        });
+        $(phoneElements.exitButtons).on("click", function(){
+            phone.navigateTo(phoneScreens.home);
+        });
+        $(phoneElements.contactsContent).on("click", '.contact-row', function(){
+            phone.callContact($(this).data("name"));
+        });
+        $(phoneApps.email).on("click", function(){
+            phone.navigateTo(phoneScreens.email);
+        });
+        $(phoneElements.inboxContent).on("click", '.email-row', function(){
+            $(phoneElements.inboxContent).hide();
+            let newEmail = ($(this).data("email-new"))
+            if(newEmail){
+                $(this).data("email-new", false);
+                phone.subtractNotification(phoneApps.email);
+            }
+            phone.openEmail($(this).data("email-id"));
+
+        });
+        $(phoneApps.planner).on("click", function(){
+            phone.clearTasks();
+            phone.setTasks();
+            phone.navigateTo(phoneScreens.planner);
+        });
+        $(phoneApps.snaptext).on("click", function(){
+            phone.navigateTo(phoneScreens.snaptext);
+        });
+        phone.loadSnapConvos();
+        phone._phoneSetup = true;
+    },
+    openPhoneModal : function(){
+        if(phone._unlocked) {
+            $(phoneElements.modal).addClass("visible");
+            phone.setPhoneClock();
+            phone.setPlannerDay();
+            phone.setTasks();
+        }
+    },
+    closePhoneModal : function(){
+        if(phone._unlocked){
+            $(phoneElements.modal).removeClass("visible");
+            setTimeout(function(){
+                phone.navigateTo(phoneScreens.home);
+            }, 500);
+        }
+    },
+    delayClosePhoneModal : function(){
+        setTimeout(function(){
+            phone.closePhoneModal();
+        }, 500);
+    },
+    navigateTo : function(destScreen) {
+        if(phone._unlocked) {
+            $(phone._currentScreen).toggle();
+            $(destScreen).toggle();
+            phone._currentScreen = destScreen;
+        }
+    },
+    setPhoneClock : function() {
+        let currentHrs = "16"; //State.active.variables.time.hour;
+        let currentMin = "26"; //State.active.variables.time.minute;
+        let suffix = "";
+        if(phone._clockAmPmMode){
+            currentHrs = currentHrs > 12 ? currentHrs - 12 : currentHrs;
+            suffix = currentHrs > 12 ? " PM" : " AM";
+        }
+        $(phoneElements.clock).text(currentHrs + ":" + currentMin + suffix);
+    },
+    setPlannerDay : function(){
+        let currentDay = "Wednesday"; //window.timeCode.weekDayText;
+        $(phoneElements.plannerDay).text(currentDay.substring(0,3));
+    },
+    addNotification : function(targetApp){
+        let notifications = $(targetApp).data('badge') + 1;
+        $(targetApp).attr('data-badge', notifications);
+        $(targetApp).data('badge', notifications);
+    },
+    subtractNotification : function(targetApp){
+        let notifications = $(targetApp).data("badge") ===  0 ? 0 :  $(targetApp).data("badge") - 1;
+        $(targetApp).attr('data-badge', notifications);
+        $(targetApp).data('badge', notifications);
+    },
+    removeAllNotifications : function (targetApp){
+        let notifications = 0;
+        $(targetApp).attr('data-badge', notifications);
+        $(targetApp).data('badge', notifications);
+    },
+    addContact : function(contactObj){
+        phone._activeContacts.push(contactObj);
+        let newContact = $('<div class="contact-row" data-name="' + contactObj.name + '">').html('<img class="contact-img" src="' + contactObj.image + '" /><label>' + contactObj.name + '</label>');
+        $(phoneElements.contactsContent).append(newContact);
+    },
+    callContact : function(name){
+        $(phoneElements.callConfirmButton).parent("div").show();
+        $(phoneElements.callCancelButton).parent("div").show();
+        $(phoneElements.callPrompt).html("Do you want to call this contact?");
+        $(phoneElements.callName).html(name);
+        $(phoneElements.callConfirmLabel).html("Call");
+        $(phoneElements.callCancelLabel).html("Cancel");
+        $(phoneElements.callConfirmButton).off( "click" ).on("click", function(){
+            phone.outgoingCall();
+        });
+        $(phoneElements.callCancelButton).off( "click" ).on("click", function() {
+            phone.cancelCall();
+        });
+        phone.navigateTo(phoneScreens.call);
+    },
+    incomingCall : function(contactObj){
+        $(phoneElements.callConfirmButton).parent("div").show();
+        $(phoneElements.callCancelButton).parent("div").show();
+        $(phoneElements.callPrompt).html("Call From");
+        $(phoneElements.callName).html(contactObj.name);
+        $(phoneElements.callConfirmLabel).html("Answer");
+        $(phoneElements.callCancelLabel).html("Decline");
+        $(phoneElements.callConfirmButton).off( "click" ).on("click", function(){
+            phone.acceptCall();
+        });
+        $(phoneElements.callCancelButton).off( "click" ).on("click", function() {
+            phone.declineCall();
+        });
+        phone.navigateTo(phoneScreens.call);
+        phone.openPhoneModal();
+        phone._unlocked = false;
+    },
+    acceptCall : function(){
+        phone._answered = true;
+        phone._unlocked = true;
+        $(phoneElements.callCancelButton).parent("div").hide();
+        $(phoneElements.callConfirmLabel).html("Answered");
+        phone.delayClosePhoneModal();
+    },
+    declineCall : function(){
+        phone._answered = false;
+        phone._unlocked = true;
+        $(phoneElements.callConfirmButton).parent("div").hide();
+        $(phoneElements.callCancelLabel).html("Declined");
+        phone.delayClosePhoneModal();
+    },
+    outgoingCall : function(){
+        //TODO : handle outgoing call as twee page, return using endCall.
+        alert("outgoing unhandled");
+    },
+    cancelCall : function() {
+        phone._answered = false;
+        phone._unlocked = true;
+        $(phoneElements.callConfirmButton).parent("div").hide();
+        $(phoneElements.callCancelLabel).html("Canceled");
+        phone.navigateTo(phoneScreens.contacts);
+    },
+    endCall : function(){
+        phone._answered = false;
+        phone._unlocked = true;
+        $(phoneElements.callConfirmButton).parent("div").hide();
+        $(phoneElements.callCancelLabel).html("Call Ended");
+        phone.delayClosePhoneModal();
+    },
+    toggleSnapTextEllipsis : function(){
+        $(phoneElements.snaptextEllipsis).toggle();
+    },
+    hideSnapTextEllipsis : function(){
+        $(phoneElements.snaptextEllipsis).hide();
+    },
+    showSnapTextEllipsis : function(){
+        $(phoneElements.snaptextEllipsis).show();
+    },
+    addSnapText : function(contactObj, content, imagePath = undefined){
+        let messageType = (contactObj === phoneContacts.Player ? "me" : "other");
+        let messageContainer = $('<div class="snaptext-message">');
+        $(messageContainer).html('<label class="snaptext-' + messageType + '">' + contactObj.name.toUpperCase() + ':</label><p class="snaptext-' + messageType + '-message">' + content + '</p>' + (imagePath === undefined ? '' : '<img src="' + imagePath + '">'));
+        $(phoneElements.snaptextConvo).append(messageContainer);
+        $(phoneElements.snaptextContent).stop().animate({
+            scrollTop: $(phoneElements.snaptextContent)[0].scrollHeight
+        }, 800);
+    },
+    addSnapTextChoice : function(optionArr, optionFunc){
+        $(optionArr).each(function(index,obj){
+            let choiceContainer = $('<div class="snaptext-choice" data-index="' + index + '" >');
+            $(choiceContainer).html('<label>'+ obj.text +'</label>')
+            $(phoneElements.snaptextConvo).append(choiceContainer);
+        });
+        $('.snaptext-choice').on('click', function() {
+            let index = $(this).data('index');
+            let text = $(this).children('label').text();
+            phone.addSnapText( phoneContacts.Player, text);
+            optionFunc(index);
+            $('.snaptext-choice').remove();
+        });
+    },
+    addSnapTextConvo : function(ConvoArr){
+        let delay = 0;
+        phone._unlocked = false;
+        phone.addSnapText(ConvoArr[0].contact, ConvoArr[0].content, ConvoArr[0].imagePath);
+        phone.toggleSnapTextEllipsis();
+        ConvoArr.shift();
+        let count = ConvoArr.length - 1;
+        $(ConvoArr).each(function(index, obj){
+            delay += (obj.content.length * 25);
+            setTimeout(function(){
+                if(obj.choiceFunc != undefined) {
+                    phone.addSnapTextChoice(obj.content, obj.choiceFunc);
+                    phone.toggleSnapTextEllipsis();
+                    phone._unlocked = true;
+                } else {
+                    phone.addSnapText(obj.contact, obj.content, obj.imagePath);
+                    if (index === count) {
+                        phone.toggleSnapTextEllipsis();
+                        phone._unlocked = true;
+                    }
+                }
+            }, delay);
+        });
+    },
+    clearSnapText : function(){
+        $(phoneElements.snaptextConvo).html("");
+    },
+    openEmail : function(emailId){
+        $("#email-id-" + emailId).show();
+        $(phoneElements.emailContent).show();
+    },
+    addEmail : function(emailObj, contactObj = phoneContacts.Anon){
+        phone._emailId += 1;
+        console.log(phone._emailId);
+        let inboxEmailRow = $('<div class="email-row" data-email-id="' + phone._emailId + '" data-email-new="true">').html('<img class="email-img" src="' + contactObj.image + '"><div class="email-summary"><label>' + contactObj.name +'</label><p>' + emailObj.text.given + '</p></div>');
+        let emailContentRow = $('<div id="email-id-' + phone._emailId + '" style="display: none;">').html( '<div class="email-row"><img class="email-img" src="' + contactObj.image + '"><div class="email-summary"><label>' + contactObj.name +'</label><p>' + emailObj.text.given + '</p></div><img class="sub-exit-button" src="svg/phone/exitButton.svg" data-parent-id="#emailContent" data-child-id="#email-id-' + phone._emailId +'" data-target-id="#inboxContent" ></div><div class="email-body"><p>' + emailObj.text.perform + '</p></div>');
+
+        $(phoneElements.inboxContent).append(inboxEmailRow);
+        $(phoneElements.emailContent).append(emailContentRow);
+        $(phoneElements.subExitButtons).on("click", function(){
+            $($(this).data("child-id")).hide();
+            $($(this).data("parent-id")).hide();
+            $($(this).data("target-id")).show();
+        });
+        phone.addNotification(phoneApps.email);
+    },
+    setTasks : function(){
+        let currentDay = 3; //window.timeCode.weekDay;
+        let weekDayCode = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; //window.weekdaysCode
+        $(weekDayCode).each(function(dayIndex, str){
+            let uncompletedBadge = '';
+            let completedBadge = '';
+            let failedBadge = '';
+            let dayDetailDiv = $('<div id="' + str.substring(0, 3) + '" class="day-detail">').html('<h1>' + str + '</h1><ul></ul>');
+            $(window.activeTasks).each(function(index, obj){
+               if(((obj.startDay + obj.maxDays) < 6 ? (obj.startDay + obj.maxDays) : false) == dayIndex) {
+                   let li = '';
+                   switch (obj.status) {
+                       case 1:
+                           li = '<li class="uncompleted">' + obj.text.checkMe.given + '<div>&#x2610;</div></li>';
+                           uncompletedBadge = '<span class="badge uncompleted-bg "></span>';
+                           break;
+                       case 2:
+                           li = '<li class="completed">' + obj.text.checkMe.given + '<div>&#x1F5F9;</div></li>';
+                           completedBadge = '<span class="badge completed-bg "></span>';
+                           break;
+                       case 3:
+                           li = '<li class="failed">' + obj.text.checkMe.given + '<div>&#x1F5F7;</div></li>';
+                           failedBadge = '<span class="badge failed-bg "></span>';
+                           break;
+                   }
+                   console.log(dayDetailDiv);
+                   $(dayDetailDiv).find("ul").append(li);
+               }
+               if(dayIndex >= currentDay)
+                    $(phoneElements.plannerDayDetails).append(dayDetailDiv);
+            });
+            let day = $('<a class="no-style" href="#'+ str.substring(0,3) +'">').html('<div class="day pointer ' + (dayIndex < currentDay ? 'disabled-day' : (dayIndex == currentDay ? 'selected-day' : '')) + '"><label>' + str.substring(0,3) + '</label><div class="badge-row">' +
+                (uncompletedBadge + completedBadge + failedBadge) + '</div></div>');
+            $(phoneElements.plannerWeekOne).append(day);
+        });
+        $(weekDayCode).each(function(dayIndex, str){
+            let uncompletedBadge = '';
+            let completedBadge = '';
+            let failedBadge = '';
+            let dayDetailDiv = $('<div id="' + str.substring(0, 3) + '" class="day-detail">').html('<h1>' + str + '</h1><ul></ul>');
+            $(window.activeTasks).each(function(index, obj){
+                if((obj.startDay + obj.maxDays) == 7) {
+                    let li = '';
+                    switch (obj.status) {
+                        case 1:
+                            li = '<li class="uncompleted">' + obj.text.checkMe.given + '<div>&#x2610;</div></li>';
+                            uncompletedBadge = '<span class="badge uncompleted-bg "></span>';
+                            break;
+                        case 2:
+                            li = '<li class="completed">' + obj.text.checkMe.given + '<div>&#x1F5F9;</div></li>';
+                            completedBadge = '<span class="badge completed-bg "></span>';
+                            break;
+                        case 3:
+                            li = '<li class="failed">' + obj.text.checkMe.given + '<div>&#x1F5F7;</div></li>';
+                            failedBadge = '<span class="badge failed-bg "></span>';
+                            break;
+                    }
+                    console.log(dayDetailDiv);
+                    $(dayDetailDiv).find("ul").append(li);
+                }
+                if(dayIndex == 0)
+                    $(phoneElements.plannerDayDetails).append(dayDetailDiv);
+            });
+            let day = $('<a class="no-style" href="#'+ str.substring(0,3) +'">').html('<div class="day pointer ' + (dayIndex == 0 ? (currentDay == 0 ? 'disabled-day' : ''): 'disabled-day') + '"><label>' + str.substring(0,3) + '</label><div class="badge-row"></div></div>');
+            $(phoneElements.plannerWeekTwo).append(day);
+        });
+    },
+    clearTasks : function() {
+        $(phoneElements.plannerWeekOne).html("");
+        $(phoneElements.plannerWeekTwo).html("");
+        $(phoneElements.plannerDayDetails).html("");
+    },
+    loadSnapConvos : function() {
+        for(var i = 0; i < Object.keys(window.phoneChatSetups).length; i++){
+            var phoneChatSetup = Object.values(window.phoneChatSetups)[i];
+            var localPhoneChats = [];
+            phoneChatSetup.forEach(function(item){
+                var localPhoneChat = {};
+                localPhoneChat.contact = phoneContacts[item.contact];
+                localPhoneChat.content = item.content;
+                localPhoneChat.imagePath = item.imagePath;
+                localPhoneChat.choiceFunc = phoneChatFunctions[item.choiceFunc];
+                localPhoneChats.push(localPhoneChat);
+            });
+            window.phoneChats[Object.keys(window.phoneChatSetups)[i]] = localPhoneChats;
+        }
+    }
+};
+
+//MACROS
+
+macros.ShowChat = {
+    handler: function(place, macroName, params, parser) {
+        if(params.length == 0){
+            return this.error("ShowChat needs at least one argument");
+        }
+        window.phone.setupPhone();
+        window.phone.clearSnapText();
+        var convoName = params[0];
+        console.log(convoName);
+        var convo = window.phoneChats[convoName];
+        console.log(convo);
+        phone.openPhoneModal();
+        phone.navigateTo(phoneScreens.snaptext);
+        phone.addSnapTextConvo(convo);
+    }
+}
+
+macros.IncomingPhoneCall = {
+    handler: function(place, macroName, params, parser){
+        if(params.length == 0){
+            return this.error("ShowChat needs at least one argument");
+        }
+        window.phone.setupPhone();
+        var caller = phoneContacts[params[0]];
+        var answerPassage = params[1];
+        var declinePassage = params[2];
+        var canDecline = params[3];
+
+        phone.incomingCall(caller);
+        
+        if(canDecline){
+            $(phoneElements.callCancelButton).off( "click" ).on("click", function() {
+                phone.declineCall();
+                Engine.play(declinePassage);
+            });
+        }
+        else {
+            $(phoneElements.callCancelButton).off( "click" );
+            $(phoneElements.callCancelButton).parent().addClass("tooltip");
+            $(phoneElements.callCancelButton).parent().append('<span id="test_dcln_phone_btn" class="tooltiptext">Best not decline this call</span>');
+            //<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
+        }
+
+        $(phoneElements.callConfirmButton).off( "click" ).on("click", function(){
+            phone.acceptCall();
+            Engine.play(answerPassage);
+        });
+    }
+}
+
+//FOR TESTING
+// State.active.variables.tasksTeacher
+window.activeTasks = [ {	// perv 2
+        id: "trialChastity",
+        name:"Task Trial chastity",
+        hasPassage: true,
+        text: {
+            given: "I am not unreasonable. The items you will need are not cheap, so I will help you out. One of my friends has informed me there is an adult toy company undertaking some form of market research. You can inquire about it at the local adult store. I will put in a call to my friend for you later, just in case.",
+            perform: "",
+            finish: "$teacher smiles, looking smug, and you blush furiously knowing the reason.\n\n@@.teacher;\"I heard from my friend about your results. It was fascinating to hear just how much my advice helped you.@@",
+            fail: "Hmm. You chose not to participate in the market research? It's your loss alone if you refuse my help. Take a mark.",
+            reminder: "I hope you're going to be very thorough at my tasks.",
+            checkMe: {
+                given: "to check a market research at local adult store.",
+                finish: "You did it.",
+                fail: "",
+                reminder: "You haven't done it yet."
+            }
+        },
+        Conditions: function() {
+            return true;
+        },
+        image: "",
+        startPriority: 2,  // see priority system above
+        canStart: false,  // only if true can this task be picked
+        canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+        perversion: {
+            teacher:	{ min: 2, max: 2 },
+            therapist:	{ min: 0, max: 10 },
+            guardian:	{ min: 0, max: 10 }
+        },
+        chance: 10,
+        status: 1,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+        progress: 0,  // for progressing scenes
+        startDay: 1,  // day task was started
+        maxDays: 4,  // number of days allowed before task will fail
+        cooldown: 1,  // number of days before task available again
+        rewardMoney: 40,
+        rewardDebt: 0,
+        failPenalty: 0,
+        events: {
+            start: function() {},
+            finish: function() { return true; },
+            success: function() {},
+            fail: function() { return false; }
+        }
+    },{	// perv 3-4, cross 0-1
+        id: "selfieNightwear",
+        name:"Task Nightwear selfie",
+        hasPassage: true,
+        text: {
+            given: "I have a special task for you today. Take a selfie while wearing sexy nightwear that shows your chastity cage.",
+            perform: "",
+            finish: "$teacher sends a copy of your sexy-nightwear selfie to her phone.\n\n@@.teacher;\"I think I'll keep this one.@@",
+            fail: "Is it so hard to take a simple selfie? Such a disappointment. Take a mark for your lack of effort.",
+            reminder: "Don't forget to take the selfie I was talking about.",
+            checkMe: {
+                given: "take a selfie while wearing a sexy nightie.",
+                finish: "You did it.",
+                fail: "",
+                reminder: "You haven't done it yet."
+            }
+        },
+        Conditions: function() {
+            return true;
+        },
+        image: "",
+        startPriority: 1,  // see priority system above
+        canStart: true,  // only if true can this task be picked
+        canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+        perversion: {
+            teacher:	{ min: 3, max: 10 },
+            therapist:	{ min: 0, max: 10 },
+            guardian:	{ min: 1, max: 10 }
+        },
+        chance: 20,
+        status: 2,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+        progress: 0,  // for progressing scenes
+        startDay: 1,  // day task was started
+        maxDays: 4,  // number of days allowed before task will fail
+        cooldown: 7,  // number of days before task available again
+        rewardMoney: 0,
+        rewardDebt: 50,
+        failPenalty: 1,
+        events: {
+            start: function() {},
+            finish: function() { return true; },
+            success: function() {},
+            fail: function() { return false; }
+        }
+    }]
+
+// State.active.variables.tasksEmail
+window.tasksEmail= {
+    PinkRollers: {
+        id: "PinkRollers",
+        name: "PinkRollers",
+        sender: "",
+        hasPassage: true,
+        PassageName: "Email links",
+        PassageRepeat: true,
+        AllowInbox: true,
+        text: {
+            given: "Special request",
+            perform: "Hello. I have a special request. If you would send me a video of yourself playing with a dildo wearing pink rollerskates, I'll give you $50.\n\nThanks",
+        },
+        Conditions: function () {
+            return true;
+        },
+        image: "",
+        startPriority: 10,  // see priority system above
+        canStart: true,  // only if true can this task be picked
+        canStartDays: [1, 2, 3, 4, 5, 6, 7],  // weekday array when task can be picked
+        perversion: {
+            teacher: {min: 0, max: 10},
+            therapist: {min: 0, max: 10},
+            guardian: {min: 4, max: 4}
+        },
+        chance: 5,
+        status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
+        progress: 0,  // for progressing scenes
+        startDay: 0,  // day task was started
+        maxDays: 5,  // number of days allowed before task will fail
+        cooldown: 5,  // number of days before task available again
+        rewardMoney: 50,
+        rewardDebt: 0,
+        failPenalty: 1,
+        events: {
+            start: function () {
+            },
+            finish: function () {
+                return true;
+            },
+            success: function () {
+            },
+            fail: function () {
+                return false;
+            }
+        }
+    },
+    WebcamDildoAss: {
+        id: "WebcamDildoAss",
+        name:"WebcamDildoAss",
+        sender: "",
+        hasPassage: true,
+        PassageName: "Email links",
+        PassageRepeat: true,
+        AllowInbox: true,
+        text: {
+            given: "Request for a video of dildo play",
+            perform: "Hello. Show me what a good sissy you are. Film yourself fucking a dildo on camera. Reward will be $10. Oh, and do it while being locked in chastity.\n\nThanks",
+        },
+        Conditions: function() {
+            return true;
+        },
+        image: "",
+        startPriority: 0,  // see priority system above
+        canStart: true,  // only if true can this task be picked
+        canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
+        perversion: {
+            teacher:	{ min: 0, max: 10 },
+            therapist:	{ min: 0, max: 10 },
+            guardian:	{ min: 0, max: 10 }
+        },
+        chance: 10,
+        status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
+        progress: 0,  // for progressing scenes
+        startDay: 0,  // day task was started
+        maxDays: 5,  // number of days allowed before task will fail
+        cooldown: 3,  // number of days before task available again
+        rewardMoney: 10,
+        rewardDebt: 0,
+        failPenalty: 1,
+        events: {
+            start: function() {},
+            finish: function() { return true; },
+            success: function() {},
+            fail: function() { return false; }
+        }
+    }
+};
+/* twine-user-script #18: "playerCode.js" */
 window.playerCode={
 	activateTherapist: function(numDays) {
 		var player=State.active.variables.player;
@@ -12039,7 +13318,7 @@ window.playerCode={
 		return skillImprove;
 	},
 }
-/* twine-user-script #16: "random.js" */
+/* twine-user-script #19: "random.js" */
 window.randomCode={
 	getIntInclusive: function(min, max) {
 		min = Math.ceil(min);
@@ -12063,7 +13342,7 @@ window.randomCode={
 		}
 	}	
 }
-/* twine-user-script #17: "stores.js" */
+/* twine-user-script #20: "stores.js" */
 window.stores=[
 	{
 		name: "Electronics Store",
@@ -12115,7 +13394,7 @@ window.stores=[
 		daringRequired: 0
 	}
 ];
-/* twine-user-script #18: "structures.js" */
+/* twine-user-script #21: "structures.js" */
 window.rewardMoney={
 	teacherFemaleUnderwear: 10,
 	teacherFemaleClothing: 15,
@@ -12170,7 +13449,6 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
-		this.setupBully();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -13620,7 +14898,8 @@ window.cheerFriendList={
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
 }
-/* twine-user-script #19: "tasksCode.js" */
+
+/* twine-user-script #22: "tasksCode.js" */
 window.tasksFunction = {
 	newTask: function(tasks) {
 		var player=State.active.variables.player;
@@ -17037,7 +18316,7 @@ window.tasksEmail={
 		}
 	}
 }
-/* twine-user-script #20: "teacherCode.js" */
+/* twine-user-script #23: "teacherCode.js" */
 window.teacherCode={
 	selectPunishment: function (penalties, type, bodyMod) {
 		var player=State.active.variables.player;
@@ -18012,7 +19291,7 @@ window.teacherPunishments = {
 		end:		function () {},
 	},
 }
-/* twine-user-script #21: "therapyCode.js" */
+/* twine-user-script #24: "therapyCode.js" */
 window.therapyArrivals= [
 	{
 		text: "You make it to the therapist's office a few minutes early and wait in the foyer for your session time.",
@@ -19106,7 +20385,7 @@ window.therapyCode={
 		return tl;
 	}
 }
-/* twine-user-script #22: "time.js" */
+/* twine-user-script #25: "time.js" */
 window.weekdaysCode=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 window.timeCode={
@@ -19311,7 +20590,7 @@ window.timeCode={
 		}
 	},
 }
-/* twine-user-script #23: "tooltip.js" */
+/* twine-user-script #26: "tooltip.js" */
 window.kinkTooltip={
 	incest: "Toggles your main guardian to be your mother or a family friend, and includes sexual content",
 	futa: "Most essential males will be replaced by shemales",
@@ -19388,7 +20667,7 @@ window.kinkTooltip={
 
 	genderChange: "Arousal stemming from transgender sex transformation/sex organ gender change@@.halftransparent; Not implemented yet, sorry@@"
 }
-/* twine-user-script #24: "wordsCode.js" */
+/* twine-user-script #27: "wordsCode.js" */
 window.wordsCode={
 	setFutaPronouns: function() {
 		if (State.active.variables.kink.futa) {
@@ -34500,6 +35779,17 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 	&lt;&lt;if $player.debugA&gt;&gt;\
 		&lt;&lt;updateDebug&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
+	&lt;div id=&quot;PhoneMenu&quot; class=&quot;&quot;&gt;\
+		&lt;&lt;include &quot;Phone Modal&quot;&gt;&gt;\
+		&lt;!-- This doesn&#39;t really do much as the DOM for the Phone Modal seems to be recreated each naviagation, so we need to set up the phone again every time we navigate...
+		&lt;&lt;if not window.phone._setup&gt;&gt;\
+			&lt;&lt;script&gt;&gt;window.phone.setupPhone();&lt;&lt;/script&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\ 
+		--&gt;
+		&lt;div id=&quot;phoneShortcuts&quot; class=&quot;&quot;&gt;\
+			&lt;&lt;click &quot;Open Phone&quot;&gt;&gt;&lt;&lt;script&gt;&gt;window.phone.setupPhone();window.phone.openPhoneModal();&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;\
+		&lt;/div&gt;\
+	&lt;/div&gt;
 	\
 &lt;&lt;endif&gt;&gt;\
 \
@@ -45326,7 +46616,290 @@ Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. @@
 &lt;&lt;endif&gt;&gt;\
 \</tw-passagedata><tw-passagedata pid="216" name="Item info" tags="pos_1276_820" position="725,2725">\
 
-\</tw-passagedata><tw-passagedata pid="217" name="Agree to remain in chastity" tags="pos_845_2189" position="850,2725">\
+\</tw-passagedata><tw-passagedata pid="217" name="Phone Answer Example" tags="" position="850,2725">Congragulations on answering the phone. This is a wonderful first step towards total domination.
+
+[[Back to phone examples|Phone Example]]</tw-passagedata><tw-passagedata pid="218" name="Phone Decline Example" tags="" position="975,2725">You disobediently did not answer the phone. You are going to be throttled so bad.
+
+[[Back to phone examples|Phone Example]]</tw-passagedata><tw-passagedata pid="219" name="Phone Example" tags="" position="1100,2725">This is an example of a &lt;&lt;link &quot;simple chat converastion&quot;&gt;&gt;&lt;&lt;ShowChat &quot;example&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+
+This is an example of a &lt;&lt;link &quot;complex chat converastion&quot;&gt;&gt;&lt;&lt;ShowChat &quot;complexExample&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+
+This is an example of a &lt;&lt;link &quot;phone call that can be declined&quot;&gt;&gt;&lt;&lt;IncomingPhoneCall &quot;Teacher&quot; &quot;Phone Answer Example&quot; &quot;Phone Decline Example&quot; true&gt;&gt;&lt;&lt;/link&gt;&gt;
+
+This is an example of a &lt;&lt;link &quot;phone call that cannot be declined&quot;&gt;&gt;&lt;&lt;IncomingPhoneCall &quot;Bully&quot; &quot;Phone Answer Example&quot; &quot;&quot; false&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="220" name="Phone Modal" tags="" position="1225,2725">&lt;html&gt;
+    &lt;div id=&quot;phoneModal&quot; class=&quot;phone-modal&quot; &gt;
+        &lt;div id=&quot;modalBg&quot; class=&quot;modal-bg&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;phone-container&quot;&gt;
+            &lt;svg class=&quot;phone&quot;&gt;
+                &lt;image id=&quot;blueHomeBg&quot; width=&quot;95%&quot; height=&quot;85%&quot; x=&quot;3%&quot; y=&quot;5%&quot; href=&quot;Images/phone/home/bg.svg&quot;&gt;&lt;/image&gt;
+                &lt;image width=&quot;100%&quot; height=&quot;100%&quot; href=&quot;Images/phone/frame.svg&quot;&gt;&lt;/image&gt;
+                &lt;image id=&quot;phoneHomeBtn&quot; width=&quot;30%&quot; height=&quot;15%&quot; x=&quot;33%&quot; y=&quot;83%&quot; href=&quot;Images/phone/homeButton.svg&quot;&gt;&lt;/image&gt;
+                &lt;foreignObject class=&quot;phone-screen&quot; x=&quot;5%&quot; y=&quot;11%&quot; height=&quot;74.5%&quot; width=&quot;90.6%&quot;&gt;
+                    &lt;div id=&quot;phoneClock&quot; class=&quot;phone-clock&quot; &gt;&lt;/div&gt;
+                    &lt;div id=&quot;phoneHomeScreen&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div id=&quot;contactsBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot;&gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/contactsIcon.svg&quot;&gt;
+                                &lt;label&gt;Contacts&lt;/label&gt;
+                            &lt;/div&gt;
+                            &lt;div id=&quot;plannerBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot;&gt;
+                                &lt;div id=&quot;plannerDay&quot; class=&quot;planner-day&quot;&gt;&lt;/div&gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/plannerIcon.svg&quot;&gt;
+                                &lt;label&gt;Planner&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div id=&quot;emailBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot; &gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/emailIcon.svg&quot;&gt;
+                                &lt;label&gt;Email&lt;/label&gt;
+                            &lt;/div&gt;
+                            &lt;div id=&quot;snapBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot;&gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/snapIcon.svg&quot;&gt;
+                                &lt;label&gt;SnapText&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div id=&quot;cameraBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot;&gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/cameraIcon.svg&quot;&gt;
+                                &lt;label&gt;Camera&lt;/label&gt;
+                            &lt;/div&gt;
+                            &lt;div id=&quot;phoneBtn&quot; class=&quot;app&quot; data-badge=&quot;0&quot;&gt;
+                                &lt;img src=&quot;Images/phone/home/appIcons/phoneIcon.svg&quot;&gt;
+                                &lt;label&gt;Phone&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phoneContactsScreen&quot; class=&quot;screen contacts&quot; style=&quot;display: none;&quot;&gt;
+                        &lt;div class=&quot;app-header contacts-header&quot;&gt;
+                            &lt;img class=&quot;header-icon&quot; src=&quot;Images/phone/contacts/contacts-header-icon.svg&quot;&gt;
+                            &lt;label&gt;Contacts&lt;/label&gt;
+                            &lt;img class=&quot;exit-button&quot; src=&quot;Images/phone/exitButton.svg&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;contactsContent&quot; class=&quot;content&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phoneCallScreen&quot; class=&quot;screen call&quot; style=&quot;display: none;&quot;&gt;
+                        &lt;label id=&quot;callPrompt&quot;&gt;&lt;/label&gt;
+                        &lt;h1 id=&quot;callName&quot;&gt;&lt;/h1&gt;
+                        &lt;label id=&quot;callType&quot;&gt;Mobile&lt;/label&gt;
+                        &lt;h1 id=&quot;callEnded&quot; style=&quot;display: none;&quot;&gt;Call Ended&lt;/h1&gt;
+                        &lt;div class=&quot;call-row&quot;&gt;
+                            &lt;div class=&quot;call-button&quot;&gt;
+                                &lt;img id=&quot;callConfirmBtn&quot; src=&quot;Images/phone/call/answer-button.svg&quot;&gt;
+                                &lt;label id=&quot;callConfirmLbl&quot;&gt;Answer&lt;/label&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;call-button&quot;&gt;
+                                &lt;img id=&quot;callCancelBtn&quot; src=&quot;Images/phone/call/decline-button.svg&quot;&gt;
+                                &lt;label id=&quot;callCancelLbl&quot;&gt;Decline&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phonePlannerScreen&quot; class=&quot;screen planner&quot; style=&quot;display: none;&quot;&gt;
+                        &lt;div class=&quot;app-header planner-header&quot;&gt;
+                            &lt;img class=&quot;header-icon&quot; src=&quot;Images/phone/planner/planner-header-icon.svg&quot;&gt;
+                            &lt;label&gt;Planner&lt;/label&gt;
+                            &lt;img class=&quot;exit-button&quot; src=&quot;Images/phone/exitButton.svg&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;plannerWeekOne&quot; class=&quot;week-row&quot;&gt;
+
+                            &lt;a class=&quot;no-style&quot; href=&quot;#sun&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;SUN&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg &quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg &quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg &quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+
+                            &lt;a class=&quot;no-style&quot; href=&quot;#mon&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;MON&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#tue&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;TUE&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#wed&quot;&gt;
+                                &lt;div class=&quot;day pointer selected-day&quot;&gt;
+                                    &lt;label&gt;WED&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#thu&quot;&gt;
+                                &lt;div class=&quot;day pointer&quot;&gt;
+                                    &lt;label&gt;THU&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#fri&quot;&gt;
+                                &lt;div class=&quot;day pointer&quot;&gt;
+                                    &lt;label&gt;FRI&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#sat&quot;&gt;
+                                &lt;div class=&quot;day pointer&quot;&gt;
+                                    &lt;label&gt;SAT&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;plannerWeekTwo&quot; class=&quot;week-row&quot;&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#sun&quot;&gt;
+                                &lt;div class=&quot;day pointer&quot;&gt;
+                                    &lt;label&gt;SUN&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#mon&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;MON&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#tue&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;TUE&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#wed&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;WED&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#thu&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;THU&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#fri&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;FRI&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                            &lt;a class=&quot;no-style&quot; href=&quot;#sat&quot;&gt;
+                                &lt;div class=&quot;day pointer disabled-day&quot;&gt;
+                                    &lt;label&gt;SAT&lt;/label&gt;
+                                    &lt;div class=&quot;badge-row&quot;&gt;
+                                        &lt;span class=&quot;badge uncompleted-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge completed-bg hidden&quot;&gt;&lt;/span&gt;
+                                        &lt;span class=&quot;badge failed-bg hidden&quot;&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;plannerDayDetails&quot; class=&quot;day-detail-content&quot;&gt;
+                            &lt;div id=&quot;wed&quot; class=&quot;day-detail&quot;&gt;
+                                &lt;h1&gt;Wednesday&lt;/h1&gt;
+                                &lt;ul&gt;
+                                    &lt;li class=&quot;completed&quot;&gt;Event 1&lt;div&gt;&amp;#x1F5F9;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;failed&quot;&gt;Event 2&lt;div&gt;&amp;#x1F5F7;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 3&lt;div&gt;&amp;#x2610;&lt;/div&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div id=&quot;thu&quot; class=&quot;day-detail&quot;&gt;
+                                &lt;h1&gt;Thursday&lt;/h1&gt;
+                                &lt;ul&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 1&lt;/li&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 2&lt;/li&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 3&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div id=&quot;fri&quot; class=&quot;day-detail&quot;&gt;
+                                &lt;h1&gt;Friday&lt;/h1&gt;
+                                &lt;ul&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 1&lt;/li&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 2&lt;/li&gt;
+                                    &lt;li class=&quot;uncompleted&quot;&gt;Event 3&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phoneEmailScreen&quot; class=&quot;screen email&quot; style=&quot;display: none;&quot;&gt;
+                        &lt;div class=&quot;app-header email-header&quot;&gt;
+                            &lt;img class=&quot;header-icon&quot; src=&quot;Images/phone/email/email-header-icon.svg&quot;&gt;
+                            &lt;label&gt;Email&lt;/label&gt;
+                            &lt;img class=&quot;exit-button&quot; src=&quot;Images/phone/exitButton.svg&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;inboxContent&quot; class=&quot;content&quot;&gt;&lt;/div&gt;
+                        &lt;div id=&quot;emailContent&quot; class=&quot;content&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phoneCameraScreen&quot; class=&quot;screen&quot; style=&quot;display: none;&quot;&gt;
+
+                    &lt;/div&gt;
+                    &lt;div id=&quot;phoneSnapTextScreen&quot; class=&quot;screen&quot; style=&quot;display: none;&quot;&gt;
+                        &lt;div class=&quot;app-header snaptext-header&quot;&gt;
+                            &lt;img class=&quot;header-icon&quot; src=&quot;Images/phone/snaptext/snaptext-header-icon.svg&quot;&gt;
+                            &lt;label&gt;SnapText&lt;/label&gt;
+                            &lt;img class=&quot;exit-button&quot; src=&quot;Images/phone/exitButton.svg&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div id=&quot;snaptextContent&quot; class=&quot;content snaptext-content&quot;&gt;
+                            &lt;div id=&quot;snaptextConvo&quot;&gt;&lt;/div&gt;
+                            &lt;h1 id=&quot;snaptextEllipsis&quot; class=&quot;ellipsis-anim&quot;&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;/h1&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/foreignObject&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/html&gt;</tw-passagedata><tw-passagedata pid="221" name="Agree to remain in chastity" tags="pos_845_2189" position="100,2850">\
 	You reluctantly agree to remain in chastity.
 \
 	&lt;&lt;if $player.perversion.teacher eq 3&gt;&gt;\
@@ -45341,7 +46914,7 @@ Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. Lot of text. @@
 \
 	&lt;&lt;set $flags.lockedWeekend to true&gt;&gt;\
 
-	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="218" name="Bribe Teacher" tags="pos_277_1587" position="975,2725">\
+	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="222" name="Bribe Teacher" tags="pos_277_1587" position="225,2850">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Bribe&quot; 400 400&gt;&gt;&lt;/div&gt;\
 You take out your wallet and show the contents to $teacher, suggesting there might be an alternate arrangement.
 
@@ -45361,7 +46934,7 @@ You hurriedly put your wallet away.
 
 &lt;&lt;set $player.detention=true&gt;&gt;\
 &lt;&lt;Daring 3&gt;&gt;\
-[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="219" name="Bully public toilet" tags="pos_438_2976" position="1100,2725">\
+[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="223" name="Bully public toilet" tags="pos_438_2976" position="350,2850">\
 Kissing and squeezing $bully&#39;s boobs you slowly nudge $futa.him_her toward the last stall.
 
 As you requested, $teacher has arranged for the installation of a fetish rig, featuring a big, mean-looking dildo, a hanging ring gag, metal bound cuffs and a collar linked with chains to the walls at one of toilet stalls.
@@ -45386,7 +46959,7 @@ After a few random visitors, a steady stream of guys form a line to $futa.his_he
 
 Finally, you think $futa.he_she has had enough and get $futa.him_her released. $bully washes up, trying to clean $futa.his_her slutty uniform as much as possible, then leaves with $futa.his_her bloated belly full of urine and cum.
 
-[[Finish school]]</tw-passagedata><tw-passagedata pid="220" name="Check on bully" tags="pos_434_2337" position="1225,2725">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="224" name="Check on bully" tags="pos_434_2337" position="475,2850">\
 &lt;&lt;if (random(2) eq 0) and ($player.perversion.bullies lte 10)&gt;&gt;\
 You couldn&#39;t find $bully today, oh bugger.
 
@@ -45479,7 +47052,7 @@ You couldn&#39;t find $bully today, oh bugger.
 	
 	&lt;&lt;print &#39;[[Make out with &#39;+$futa.him_her+&#39;|Make out with bully]]&#39;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="221" name="Choose revenge" tags="pos_431_2207" position="100,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="225" name="Choose revenge" tags="pos_431_2207" position="600,2850">\
 &lt;&lt;set $player.perversion.teacher = 9&gt;&gt;\
 &lt;&lt;set $player.perversion.teacherCooldown=0&gt;&gt;\
 &lt;&lt;set $player.perversion.bullies = 0&gt;&gt;\
@@ -45502,7 +47075,7 @@ Some part of you even feels sorry for $bully... a really small part.
 	[[Finish school][$cheerleaders.flags.skippedPractice = true]]
 &lt;&lt;else&gt;&gt;\
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="222" name="Choose slut" tags="pos_651_2206" position="225,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="226" name="Choose slut" tags="pos_651_2206" position="725,2850">\
 &lt;&lt;if $version==1&gt;&gt;\
 	&lt;&lt;set $items.stilettoHeels.school=true&gt;&gt;\
 		&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
@@ -45568,7 +47141,7 @@ Some part of you even feels sorry for $bully... a really small part.
 	&lt;&lt;endif&gt;&gt;\
 	
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="223" name="Coach doubleteam" tags="pos_440_2713" position="350,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="227" name="Coach doubleteam" tags="pos_440_2713" position="850,2850">\
 &lt;&lt;set $minigames.coachgame.playedYesterday to true&gt;&gt;\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 &lt;&lt;set $flags.bullyDoubleteam = true&gt;&gt;\
@@ -45621,7 +47194,7 @@ You have $bully lick, suck, and rub Coach&#39;s cock until $futa.he_she is hard 
 	You call out for the softly sobbing $bully, and have $futa.him_her lick Coach&#39;s cum out of your asshole.
 
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="224" name="Detention Punishment" tags="pos_3109_9" position="475,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="228" name="Detention Punishment" tags="pos_3109_9" position="975,2850">\
 &lt;&lt;if $player.perversion.teacher eq 0&gt;&gt;\
 	&lt;&lt;set _dp to random(2)&gt;&gt;\
 	&lt;&lt;if _dp eq 0&gt;&gt;\
@@ -45641,19 +47214,19 @@ You have $bully lick, suck, and rub Coach&#39;s cock until $futa.he_she is hard 
 		Write &#39;//I will not get erections in class//&#39; 10 times.\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="225" name="Endgame teacher bribe" tags="pos_53_2005" position="600,2850">\
+\</tw-passagedata><tw-passagedata pid="229" name="Endgame teacher bribe" tags="pos_53_2005" position="1100,2850">\
 Without another word, $teacher walks off briskly in the direction of the principal&#39;s office. Your heart sinks as you realize you will be expelled for your attempt to bribe her.
 
 It&#39;s likely your mother will enroll you in some kind of military boarding school to ensure you get the discipline you need. But that&#39;s another story.
 
 The End.
-\</tw-passagedata><tw-passagedata pid="226" name="Endgame truant" tags="pos_638_172" position="725,2850">\
+\</tw-passagedata><tw-passagedata pid="230" name="Endgame truant" tags="pos_638_172" position="1225,2850">\
 You&#39;ve skipped too much school, and have been expelled.  
 
 It&#39;s likely your mother will enroll you in some kind of military boarding school to ensure you get the discipline you need.  But that&#39;s another story.
 
 The End.
-\</tw-passagedata><tw-passagedata pid="227" name="Finish school day" tags="pos_438_1883" position="850,2850">\
+\</tw-passagedata><tw-passagedata pid="231" name="Finish school day" tags="pos_438_1883" position="100,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Finished&quot; 400 400&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set $flags.pissRecorded to false&gt;&gt;\
@@ -45836,7 +47409,7 @@ The End.
 	[[Finish school]]
 &lt;&lt;else&gt;&gt;\
 	[[Finish school]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="228" name="Finish school" tags="pos_607_1884" position="975,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="232" name="Finish school" tags="pos_607_1884" position="225,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Finished&quot; 400 400&gt;&gt;&lt;/div&gt;\
 &lt;&lt;if $flags.walletForgottenStart&gt;&gt;\
 	&lt;&lt;set $flags.walletForgottenEnd = true&gt;&gt;\
@@ -45915,7 +47488,7 @@ The End.
 	You&#39;re done with school for today. What would you like to do with the rest of the day?
 
 	&lt;&lt;display [[Travel]]&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="229" name="Girls locker room" tags="pos_51_2160" position="1100,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="233" name="Girls locker room" tags="pos_51_2160" position="350,2975">\
 &lt;&lt;if $scene eq &quot;Toilets weird noise&quot;&gt;&gt;\
 	You rush to the toilets, but on the way you notice that the door to the girls&#39; locker room is ajar, and you can hear weird noises coming from inside. Sexy noises.
 
@@ -45956,7 +47529,7 @@ The End.
 	This is a bug, please call bugs exterminators.
 	
 	[[Return to the hallway near your classroom|Go to hallway]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="230" name="Go to class" tags="pos_90_1753" position="1225,2850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="234" name="Go to class" tags="pos_90_1753" position="475,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Classroom&quot; 400 400&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set $player.schoolLastDay to $time.day&gt;&gt;\
 &lt;&lt;set $flags.schoolWalk = false&gt;&gt;\
@@ -46246,7 +47819,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	&lt;&lt;if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2&gt;&gt;\
 		&lt;&lt;print &quot;[[Go to the hallway with &quot;+$teacher+&quot; but refuse to pay her|Go to hallway][$player.punishments.refusedToPay=true]]&quot;&gt;&gt;
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="231" name="Go to detention" tags="pos_249_2179" position="100,2975">\
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="235" name="Go to detention" tags="pos_249_2179" position="600,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Detention&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 You go to the detention room. $teacher is waiting for you.
 
@@ -46290,7 +47863,7 @@ You go to the detention room. $teacher is waiting for you.
 	@@.teacher;&quot;Ok, $player.name. &lt;&lt;display &quot;Detention Punishment&quot;&gt;&gt;&quot;@@
 
 	[[Do as you&#39;re told|Finish school][$time.addMinutes(30)]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="232" name="Go to hallway" tags="pos_285_1882" position="225,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="236" name="Go to hallway" tags="pos_285_1882" position="725,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Hallway&quot; 400 400&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -47269,7 +48842,7 @@ You go to the detention room. $teacher is waiting for you.
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="233" name="Go to school toilet" tags="pos_83_1434" position="350,2975">\
+\</tw-passagedata><tw-passagedata pid="237" name="Go to school toilet" tags="pos_83_1434" position="850,2975">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Bully Handjob&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;if $player.perversion.bullies eq 0&gt;&gt;\
 	&lt;!--&lt;first scene bullies&gt;--&gt;\
@@ -47471,7 +49044,7 @@ You go to the detention room. $teacher is waiting for you.
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $player.perversion.bullies ++&gt;&gt;\
 
-[[Go to class]]\</tw-passagedata><tw-passagedata pid="234" name="Go to school" tags="pos_736_1453" position="475,2975">\
+[[Go to class]]\</tw-passagedata><tw-passagedata pid="238" name="Go to school" tags="pos_736_1453" position="975,2975">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;School Outside&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -48412,7 +49985,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It&#39;s an
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if $time.hour lte 9&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="235" name="Make out with bully" tags="pos_437_2587" position="600,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="239" name="Make out with bully" tags="pos_437_2587" position="1100,2975">\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 You grab $futa.his_her hand and drag $futa.him_her to the toilets.
 
@@ -48431,7 +50004,7 @@ Oh, how you enjoy your dominating role.
 &lt;&lt;if $kink.urineDrink&gt;&gt;\
 &lt;&lt;print &#39;[[Trick &#39;+$futa.him_her+&#39; into becoming a public toilet|Bully public toilet]]&#39;&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
-[[Finish school]]</tw-passagedata><tw-passagedata pid="236" name="Naming Bully" tags="pos_445_3109" position="725,2975">\
+[[Finish school]]</tw-passagedata><tw-passagedata pid="240" name="Naming Bully" tags="pos_445_3109" position="1225,2975">\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 What&#39;s bully&#39;s name?
 &lt;&lt;textbox &quot;$bully&quot; &quot;&quot; autofocus&gt;&gt;
@@ -48454,7 +50027,7 @@ What&#39;s bully&#39;s name?
 			[[Finish school]]
 		&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="237" name="No to Coach" tags="pos_1046_2471" position="850,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="241" name="No to Coach" tags="pos_1046_2471" position="100,3100">\
 You refuse to pose for Coach.
 
 &lt;&lt;if random(2) lte $player.perversion.coach&gt;&gt;\
@@ -48470,7 +50043,7 @@ Muttering something about ungrateful youngsters, Coach packs $futa.his_her photo
 [[Finish school]]
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.coachPosing to true&gt;&gt;\
-&lt;&lt;set $flags.coachPosingHappy to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="238" name="Play Bully" tags="pos_433_2462" position="975,2975">\
+&lt;&lt;set $flags.coachPosingHappy to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="242" name="Play Bully" tags="pos_433_2462" position="225,3100">\
 &lt;&lt;if $player.perversion.bullies lte 3&gt;&gt;\
 	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Bully Photo&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 	You walk up to $bully and quietly tell $futa.him_her that you have a task for $futa.him_her from $teacher. $futa.He_She looks stricken and follows you to the toilets without further questions.
@@ -48543,7 +50116,7 @@ Muttering something about ungrateful youngsters, Coach packs $futa.his_her photo
 	[[Pick classic makeup|Finish school][$player.perversion.bullies=7]]
 	[[Pick bimbo makeup|Finish school][$player.perversion.bullies=8]]
 	[[Pick heavy makeup|Finish school][$player.perversion.bullies=9]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="239" name="Play with Coach" tags="pos_1249_2189" position="1100,2975">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="243" name="Play with Coach" tags="pos_1249_2189" position="350,3100">\
 		&lt;&lt;if $kink.futa&gt;&gt;\
 			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Coach Dick Futa&quot; 400 400&gt;&gt;&lt;/div&gt;\
 		&lt;&lt;else&gt;&gt;\
@@ -48586,7 +50159,7 @@ You go to Coach, who is already waiting for you.
 	
 &lt;&lt;set window.coachMinigame.reset()&gt;&gt;\
 &lt;&lt;set $minigames.coachgame.playedYesterday to true&gt;&gt;\
-&lt;&lt;display [[Coach game]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="240" name="Pose to Coach" tags="pos_1048_2191" position="1225,2975">\
+&lt;&lt;display [[Coach game]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="244" name="Pose to Coach" tags="pos_1048_2191" position="475,3100">\
 &lt;&lt;if $player.perversion.coach eq 0&gt;&gt;\
 	You knock on Coach&#39;s office door and enter.\
 	&lt;&lt;if $kink.futa&gt;&gt;\
@@ -48662,12 +50235,12 @@ You go to Coach, who is already waiting for you.
 	
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;print &#39;[[Pose as &#39;+$futa.he_she+&#39; asks|Yes to Coach]]&#39;&gt;&gt;
-[[Refuse to pose|No to Coach]]</tw-passagedata><tw-passagedata pid="241" name="Refuse to remain in chastity" tags="pos_851_2314" position="100,3100">\
+[[Refuse to pose|No to Coach]]</tw-passagedata><tw-passagedata pid="245" name="Refuse to remain in chastity" tags="pos_851_2314" position="600,3100">\
 	&lt;&lt;set $player.perversion.teacherPermChastity=0&gt;&gt;\
 	&lt;&lt;set $flags.lockedWeekend to false&gt;&gt;\
 	You refuse to remain in chastity.
 
-	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="242" name="School assistant" tags="pos_248_1433" position="225,3100">\
+	[[Go back to class|Finish school day]]</tw-passagedata><tw-passagedata pid="246" name="School assistant" tags="pos_248_1433" position="725,3100">\
 &lt;&lt;set $flags.assistantSatisfied = true&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
@@ -49189,7 +50762,7 @@ You go to Coach, who is already waiting for you.
 	You clean up as much as possible and try to fix your clothes before going to class.
 	
 	[[Go to class]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="243" name="School public toilets" tags="pos_649_2342" position="350,3100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="247" name="School public toilets" tags="pos_649_2342" position="850,3100">\
 You strut toward the toilets, shaking your hips and licking your lips at anyone who looks your way.
 
 &lt;&lt;if $kink.urineDrink and ($tasksTeacher.schoolPublicToilet.progress eq 1)&gt;&gt;\
@@ -49229,7 +50802,7 @@ You strut toward the toilets, shaking your hips and licking your lips at anyone 
 	&lt;&lt;set $tasksTeacher.schoolPublicToilet.progress = 1&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Go to class]]</tw-passagedata><tw-passagedata pid="244" name="SissyConfession" tags="pos_1800_2092" position="475,3100">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="248" name="SissyConfession" tags="pos_1800_2092" position="975,3100">\
 &lt;&lt;if ($scene eq &quot;ReturnToTeacher&quot;) or ($scene eq &quot;FailToPay&quot;)&gt;&gt;\
 	&lt;&lt;set $flags.sissyConfessionStart = false&gt;&gt;\
 	&lt;&lt;if $scene eq &quot;ReturnToTeacher&quot;&gt;&gt;\
@@ -49455,7 +51028,7 @@ You strut toward the toilets, shaking your hips and licking your lips at anyone 
 	[[Punishment|TeacherPunishment]]
 &lt;&lt;else&gt;&gt;\
 	It is bug, report to devs. Current scene is = &quot;$scene&quot;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="245" name="Stun the bullies" tags="pos_75_1566" position="600,3100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="249" name="Stun the bullies" tags="pos_75_1566" position="1100,3100">\
 &lt;&lt;set $player.daringFlag.refuseBully to true&gt;&gt;\
 You decide to teach the bullies a lesson, and pull out your stun gun. You stick it right against the leader&#39;s chest and pull the trigger.
 
@@ -49464,7 +51037,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 &lt;&lt;set $player.daringFlag.stunBully to true&gt;&gt;\
 &lt;&lt;removeFromInv &#39;stunGun&#39;&gt;&gt;\
 &lt;&lt;set $items.stunGun.disabled=true&gt;&gt;\
-[[Go to class]]</tw-passagedata><tw-passagedata pid="246" name="Talk to bullies" tags="pos_248_1433" position="725,3100">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="250" name="Talk to bullies" tags="pos_248_1433" position="1225,3100">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;School Outside&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $flags.bullySucked to false&gt;&gt;\
 &lt;&lt;if $player.perversion.teacher gte 7&gt;&gt;\
@@ -49496,7 +51069,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 
 		[[Leave them and go to class|Go to class]] 
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="247" name="Teacher fantasy" tags="pos_1343_16" position="850,3100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="251" name="Teacher fantasy" tags="pos_1343_16" position="100,3225">\
 &lt;div class=&quot;dream&quot;&gt;\
 &lt;&lt;set _dream = window.dreamsSelector.randomDream(window.dreamsTeacher)&gt;&gt;\
 &lt;&lt;if _dream.hasPassage&gt;&gt;\
@@ -49505,7 +51078,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;print _dream.description&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;/div&gt;\
-\</tw-passagedata><tw-passagedata pid="248" name="TeacherPunishment" tags="pos_1800_2092" position="975,3100">\
+\</tw-passagedata><tw-passagedata pid="252" name="TeacherPunishment" tags="pos_1800_2092" position="225,3225">\
 &lt;&lt;if window.timeCode.isMonday()&gt;&gt;\
 	&lt;&lt;if $bribeAmount-$player.bribeDiscount lte 200&gt;&gt;\
 		&lt;&lt;set teacherCode.addPenalty(2)&gt;&gt;\
@@ -49548,7 +51121,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		&lt;&lt;set $scene=&quot;placeholder&quot;&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	&lt;&lt;display [[TeacherPunishmentsScenes]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="249" name="TeacherPunishmentsScenes" tags="pos_1800_2092" position="1100,3100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="253" name="TeacherPunishmentsScenes" tags="pos_1800_2092" position="350,3225">\
 &lt;&lt;set _defaultPunishmentEnd = true&gt;&gt;\
 &lt;&lt;set $player.punishments.refusedToPay = false&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -51594,7 +53167,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;set $player.punishments.refusedToPay = false&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(30)&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="250" name="Yes to Coach" tags="pos_1047_2331" position="1225,3100">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="254" name="Yes to Coach" tags="pos_1047_2331" position="475,3225">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;if $player.perversion.coach eq 0&gt;&gt;\
@@ -51805,7 +53378,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.coachPosing to true&gt;&gt;\
 &lt;&lt;set $flags.coachPosingHappy to true&gt;&gt;\
-&lt;&lt;set $flags.coachPosingAngry to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="251" name="semiPermWarning" tags="pos_249_2179" position="100,3225">\
+&lt;&lt;set $flags.coachPosingAngry to false&gt;&gt;\</tw-passagedata><tw-passagedata pid="255" name="semiPermWarning" tags="pos_249_2179" position="600,3225">\
 &lt;&lt;selectScene Teacher_semi_perm_warning_1 SEQ&gt;&gt;\
 &lt;&lt;scene&gt;&gt;\
 	@@.teacher;&quot;Can you make this more lasting? I think he may need more time to adjust.&quot;@@
@@ -51840,7 +53413,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&quot;If I was you, I would just, you know... come back sooner rather than later if you want to undo stuff.&quot;@@
 &lt;&lt;scene&gt;&gt;\
 	@@.nurse;&quot;This treatment is semi-permanent. So, it won&#39;t require renewal and it&#39;s super simple to reverse it with a special procedure.&quot;@@
-&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="252" name="Begin" tags="pos_259_2" position="225,3225">\
+&lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="256" name="Begin" tags="pos_259_2" position="725,3225">\
 Before we get started, please provide some information to tailor the game for you.
 
 What&#39;s your name?
@@ -51860,7 +53433,7 @@ Your therapist&#39;s name?
 [[Introduction]]
 
 &lt;&lt;checkbox &quot;$showimages&quot; false true checked&gt;&gt; Show images (Warning: This game contains flashing images.  If you have a sensetivity to such images, please turn images off before playing!)
-&lt;&lt;checkbox &quot;$kink.futa&quot; false true unchecked&gt;&gt; Shemales mode @@.halftransparent;Work in Progress@@</tw-passagedata><tw-passagedata pid="253" name="Initialise" tags="pos_130_4" position="350,3225">\
+&lt;&lt;checkbox &quot;$kink.futa&quot; false true unchecked&gt;&gt; Shemales mode @@.halftransparent;Work in Progress@@</tw-passagedata><tw-passagedata pid="257" name="Initialise" tags="pos_130_4" position="850,3225">\
 &lt;&lt;addToInv &#39;pyjamasMale&#39;&gt;&gt;\
 &lt;&lt;addToInv &#39;casualMale&#39;&gt;&gt;\
 &lt;&lt;addToInv &#39;schoolMale&#39;&gt;&gt;\
@@ -51891,7 +53464,7 @@ Your therapist&#39;s name?
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;/for&gt;&gt;\
 &lt;&lt;goto [[Begin]]&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="254" name="Introduction" tags="pos_393_4" position="475,3225">\
+\</tw-passagedata><tw-passagedata pid="258" name="Introduction" tags="pos_393_4" position="975,3225">\
 &lt;&lt;if ($player.name.length lt 1) or ($player.name.length gt 20)&gt;&gt;\
 	The name you entered for yourself must be between 2 and 20 characters.  Please try again.
 	
@@ -51927,7 +53500,7 @@ Your therapist&#39;s name?
 		&lt;&lt;set $bully=&quot;Berta&quot;&gt;&gt;\
 		&lt;&lt;set window.wordsCode.setFutaPronouns()&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="255" name="Start" tags="" position="600,3225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="259" name="Start" tags="" position="1100,3225">\
 &lt;&lt;set $gameVersion=8000&gt;&gt;\
 \
 &lt;&lt;set window.structures.updateStructures()&gt;&gt;
@@ -52048,7 +53621,7 @@ Your therapist&#39;s name?
     }
 }&gt;&gt;\
 \
-&lt;&lt;goto [[Initialise]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="256" name="Film playing with butt-plug" tags="pos_167_757" position="725,3225">\
+&lt;&lt;goto [[Initialise]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="260" name="Film playing with butt-plug" tags="pos_167_757" position="1225,3225">\
 &lt;&lt;if not playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 	You aren&#39;t wearing chastity.
 &lt;&lt;elseif not (playerCode.owns(itemsC.buttPlugHeart) or playerCode.owns(itemsC.buttPlugDildo) or playerCode.owns(itemsC.buttPlugVibro))&gt;&gt;\
@@ -52079,7 +53652,7 @@ Your therapist&#39;s name?
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="257" name="Film practicing with a dildo" tags="pos_216_1085" position="850,3225">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="261" name="Film practicing with a dildo" tags="pos_216_1085" position="100,3350">\
 &lt;&lt;if not playerCode.owns(itemsC.vibrator)&gt;&gt;\
 	You don&#39;t have any vibrators.
 	
@@ -52124,7 +53697,7 @@ Your therapist&#39;s name?
 		[[Send video|UploadPorn]]
 	&lt;&lt;endif&gt;&gt;\
 	[[Return|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="258" name="Go hunting for used condoms" tags="pos_2596_226" position="975,3225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="262" name="Go hunting for used condoms" tags="pos_2596_226" position="225,3350">\
 &lt;&lt;if $time.hour gt 19&gt;&gt;\
 	&lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Condom Hunting Trashbin&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;elseif (($time.day % 7 eq 5) or ($time.day % 7 eq 6)) and ($time.hour gte 18)&gt;&gt;\
@@ -52157,7 +53730,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 &lt;&lt;set $time.addMinutes(30)&gt;&gt;\
 &lt;&lt;set $flags.guardianCondomsDone = true&gt;&gt;\
 
-[[Go to your bedroom|Go to bedroom]]</tw-passagedata><tw-passagedata pid="259" name="Go shopping" tags="pos_2148_365" position="1100,3225">\
+[[Go to your bedroom|Go to bedroom]]</tw-passagedata><tw-passagedata pid="263" name="Go shopping" tags="pos_2148_365" position="350,3350">\
 &lt;&lt;set _choreJS = choresList.goShopping&gt;&gt;\
 &lt;&lt;set _choreV = $chores.goShopping&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -52695,7 +54268,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	[[Perform other chores|Perform chores]]
 	&lt;&lt;endif&gt;&gt;\
 &lt;!--&lt;/General shop&gt;--&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="260" name="Go streetwalking" tags="pos_87_1218" position="1225,3225">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="264" name="Go streetwalking" tags="pos_87_1218" position="475,3350">\
 &lt;&lt;if $random.stored[0] eq 1&gt;&gt;\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Streetwalking&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;endif&gt;&gt;\
@@ -52813,7 +54386,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	
 &lt;&lt;endif&gt;&gt;\
 [[Go home|Go to bedroom]]
-\</tw-passagedata><tw-passagedata pid="261" name="Jobs adult store" tags="pos_476_1717" position="100,3350">\
+\</tw-passagedata><tw-passagedata pid="265" name="Jobs adult store" tags="pos_476_1717" position="600,3350">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -53332,7 +54905,7 @@ At home, you pick out the freshest looking condoms from your bag and store them 
 	&lt;&lt;set $time.hour=16&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(15)&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="262" name="Jobs fastfood finish" tags="pos_476_1717" position="225,3350">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="266" name="Jobs fastfood finish" tags="pos_476_1717" position="725,3350">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -53679,7 +55252,7 @@ At the end of your shift you count your tips. You received $&lt;&lt;print $playe
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $time.hour=16&gt;&gt;\
 &lt;&lt;set $time.addMinutes(15)&gt;&gt;\
-&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="263" name="Jobs fastfood" tags="pos_476_1717" position="350,3350">\
+&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="267" name="Jobs fastfood" tags="pos_476_1717" position="850,3350">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -54030,7 +55603,7 @@ At the end of your shift you count your tips. You received $&lt;&lt;print $playe
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $time.hour=16&gt;&gt;\
 &lt;&lt;set $time.addMinutes(15)&gt;&gt;\
-&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="264" name="Make a kissy selfie at mall" tags="pos_1952_2764" position="475,3350">\
+&lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="268" name="Make a kissy selfie at mall" tags="pos_1952_2764" position="975,3350">\
 You take out your phone and make a kissy selfie in the bathroom mirror. As the flash goes off, you hear the door to the mall open and some guy walks in.
 
 	&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
@@ -54046,7 +55619,7 @@ You take out your phone and make a kissy selfie in the bathroom mirror. As the f
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $tasksTeacher.selfieMallToilets.status = 2&gt;&gt;\
 
-[[Exit toilet|Go to the mall]]</tw-passagedata><tw-passagedata pid="265" name="Task Ask advice" tags="pos_3008_2901" position="600,3350">\
+[[Exit toilet|Go to the mall]]</tw-passagedata><tw-passagedata pid="269" name="Task Ask advice" tags="pos_3008_2901" position="1100,3350">\
 &lt;&lt;if $tasksTeacher.askAdvice.status eq 1&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $tasksTeacher.askAdvice.status = 2&gt;&gt;\
@@ -54076,7 +55649,7 @@ You take out your phone and make a kissy selfie in the bathroom mirror. As the f
 	@@.hero;Wow, I learned a lot. That should be helpful...@@
 &lt;&lt;endif&gt;&gt;\
 
-[[Go to class]]</tw-passagedata><tw-passagedata pid="266" name="Task Ask stranger" tags="pos_1827_3027" position="725,3350">\
+[[Go to class]]</tw-passagedata><tw-passagedata pid="270" name="Task Ask stranger" tags="pos_1827_3027" position="1225,3350">\
 &lt;&lt;set $tasksTeacher.askStranger.status = 2&gt;&gt;\
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 	Extremely embarrassed, you meekly ask the man to call you a sissy-slut and write &#39;SISSY&#39; on your back with a marker.
@@ -54092,7 +55665,7 @@ At first he is shocked, but a moment later he decides to roll with it and accept
 
 As he finishes writing on your back, he gives you a sound slap on your butt. Murmuring thanks, you run outside, your cheeks burning bright red.
 
-[[Exit toilets|Go to the mall]]</tw-passagedata><tw-passagedata pid="267" name="Task Ask to be fucked" tags="pos_1802_2902" position="850,3350">\
+[[Exit toilets|Go to the mall]]</tw-passagedata><tw-passagedata pid="271" name="Task Ask to be fucked" tags="pos_1802_2902" position="100,3475">\
 
 NOT USED
 
@@ -54224,7 +55797,7 @@ Following a strange impulse, you lower yourself onto your knees and kiss the tip
 
 After a brief rest, you help her clean up and awkwardly go back to your room.
 
-[[Go to your room|Go to bedroom]]</tw-passagedata><tw-passagedata pid="268" name="Task Chastity selfie" tags="pos_649_554" position="975,3350">\
+[[Go to your room|Go to bedroom]]</tw-passagedata><tw-passagedata pid="272" name="Task Chastity selfie" tags="pos_649_554" position="225,3475">\
 You undress and take a selfie of yourself locked in a chastity cage.
 
 &lt;&lt;if ($tasksEmail.WebcamSelfieChastity.status gte 2)&gt;&gt;\
@@ -54242,13 +55815,13 @@ After some time the familiar *bing* from your computer notifies you that a new v
 [[Send video|UploadPorn]]
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="269" name="Task Fake girlfriend" tags="pos_2347_2902" position="1100,3350">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="273" name="Task Fake girlfriend" tags="pos_2347_2902" position="350,3475">\
 &lt;&lt;set $tasksTeacher.fakeGirlfriend.status = 2&gt;&gt;\
 You dress up and contact $teacher&#39;s gay friend.
 
 You meet him and together you go to various public places. You try to act like a girl, but you struggle with keeping up the pose. Despite that, he tells you that you did ok and it was actually fun. He drives you home and promises to call again.
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="270" name="Task Flash chastity" tags="pos_2613_2902" position="1225,3350">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="274" name="Task Flash chastity" tags="pos_2613_2902" position="475,3475">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Task Chastity Reveal&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 	&lt;&lt;if ($tasksTeacher.selfieToiletsChastity.progress eq 0)&gt;&gt;\
@@ -54281,7 +55854,7 @@ You meet him and together you go to various public places. You try to act like a
 &lt;&lt;endif&gt;&gt;\
 	The man is shocked by your action, and even more by what&#39;s under your skirt, but before he can say anything you quickly run out of the toilets.
 	
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="271" name="Task Get hit on" tags="pos_1659_2905" position="100,3475">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="275" name="Task Get hit on" tags="pos_1659_2905" position="600,3475">\
 &lt;&lt;set _sl = playerCode.slutScore()&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if ($tasksTeacher.getHitOn.status eq 1)&gt;&gt;\
@@ -54348,7 +55921,7 @@ You find some random guy and ask him to pretend to hit on you.
 		
 		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=2]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="272" name="Task Glory hole" tags="pos_2097_2893" position="225,3475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="276" name="Task Glory hole" tags="pos_2097_2893" position="725,3475">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Gloryhole&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $tasksTeacher.gloryHole.status = 2&gt;&gt;\
 You dress yourself up and go to a local club with a notorious reputation. Once there, you head straight to the toilets.
@@ -54361,7 +55934,7 @@ You wrap your mouth around the cock and start to eagerly lick, suck and massage 
 The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&gt; bill as the voice from the other side compliments you on your work. You grab the money, freshen up and go home.
 &lt;&lt;set $player.money+=5&gt;&gt;\
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="273" name="Task Guide hand" tags="pos_2021_3021" position="350,3475">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="277" name="Task Guide hand" tags="pos_2021_3021" position="850,3475">\
 &lt;&lt;if $scene eq &quot;Caffee&quot;&gt;&gt;\
 	You go to the small cafeteria, hoping to find someone for the task that $teacher gave you.
 
@@ -54674,7 +56247,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 
 	[[Return|Go to the mall][$tasksTeacher.guideHand.status=2]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="274" name="Task Nightwear selfie" tags="pos_649_554" position="475,3475">\
+\</tw-passagedata><tw-passagedata pid="278" name="Task Nightwear selfie" tags="pos_649_554" position="975,3475">\
 &lt;&lt;if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))&gt;&gt;\
 	&lt;&lt;if (not playerCode.isWearingOn(itemTypes.Chastity))&gt;&gt;\
 		&lt;&lt;wearClothing &#39;chastityDevice&#39;&gt;&gt;\
@@ -54720,7 +56293,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 	
 		[[Return|Go to bedroom]]
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="275" name="Task Sissy Show" tags="pos_2097_2893" position="600,3475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="279" name="Task Sissy Show" tags="pos_2097_2893" position="1100,3475">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _f=playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\
@@ -54889,7 +56462,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 	
 	[[Go home|Go to bedroom][$player.punishments.penaltySissyShow=true;  $tasksTeacher.penaltySissyShow.progress++; $tasksTeacher.penaltySissyShow.step=0]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="276" name="Task Suck popsickle" tags="pos_2755_2904" position="725,3475">\
+\</tw-passagedata><tw-passagedata pid="280" name="Task Suck popsickle" tags="pos_2755_2904" position="1225,3475">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Task Popsickle&quot; 400 400&gt;&gt;&lt;/div&gt;\
 &lt;&lt;set $tasksTeacher.suckPopsickle.status = 2&gt;&gt;\
 You buy a popsicle and set your phone to record. \
@@ -54905,7 +56478,7 @@ People walking by are baffled by your performance and you can hear some of them 
 
 Finally you finish the popsicle, lick your fingers clean and grab your phone.
 
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="277" name="Task Trial chastity" tags="pos_1952_2896" position="850,3475">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="281" name="Task Trial chastity" tags="pos_1952_2896" position="100,3600">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;if $tasksTeacher.trialChastity.status eq 1&gt;&gt;\
 	You enter the adult store. After some hesitation, you ask the shopkeeper about the market research opportunity $teacher told you about. She looks a little puzzled.
@@ -55207,7 +56780,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	
 	At last the shopkeeper hands you the key for the chastity cage, grabs your hand and leads you out from the changing cubicle, not giving you time to remove your new accessories. Before letting you go she leans in and whispers that she didn&#39;t have to do all this, but she loves to help people &#39;like yourself&#39; who really, deep down, appreciate the attention and guidance of a stronger minded woman.
 	And then she leans in close against your ear. @@.shopclothes;&quot;Oh, and perhaps you might like to sign up for our special trial, with this new device? It has some new features.&quot;@@ She taps a bright red fingernail against the key that you&#39;re clutching so tightly in your hand. @@.shopclothes;&quot;If you&#39;d like to register online, and enter the code number you&#39;ll see is etched on your key, you&#39;ll be automatically entered into our new Key Holder system, where specially-trained staff will monitor your devices, and choose whether to enable the mechanical lock to function or not. From time to time, your key mistress will assign you special tasks to enable your cage to be unlocked. Normally, that service would cost you $50 per week, but during the trial period, it&#39;s completely free! Or, if you prefer, we can assign the task and unlocking functions to someone who&#39;s a little more... intimately acquainted with you. Your choice: you can provide an email address for another person to take control. But don&#39;t try to fool us - you need to provide credentials to prove that your key holder is someone other than you, Sweetie! The details are all here.&quot;@@ She slips a card into your other hand.
---&gt;\</tw-passagedata><tw-passagedata pid="278" name="Task Trials" tags="pos_2097_2893" position="975,3475">\
+--&gt;\</tw-passagedata><tw-passagedata pid="282" name="Task Trials" tags="pos_2097_2893" position="225,3600">\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 \
@@ -55491,7 +57064,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	After she leaves, you continue resting on the chair, unable to get up, but eventually you manage to stand and head home, hoping your wobbly legs won&#39;t give out.
 
 	[[Go home|Go to bedroom][$tasksTeacher.penaltyTrials.progress=0; $tasksTeacher.penaltyTrials.status=2]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="279" name="Task Trick guy" tags="pos_2486_2904" position="1100,3475">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="283" name="Task Trick guy" tags="pos_2486_2904" position="350,3600">\
 &lt;&lt;set _sl = playerCode.slutScore()&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if playerCode.isMind_0()&gt;&gt;\
@@ -55526,7 +57099,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 	Shrugging off your confusing thoughts, you turn away and retreat before he notices you.
 	
 &lt;&lt;endif&gt;&gt;\
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="280" name="Task Windowshopping" tags="pos_2880_2905" position="1225,3475">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="284" name="Task Windowshopping" tags="pos_2880_2905" position="475,3600">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Task Window Shopping&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $tasksTeacher.windowshopping.status = 2&gt;&gt;\
 As you walk around checking various purses, dresses, and jewelry, you wonder what people would think if they knew about the kinkier accessories you&#39;re wearing.
@@ -55552,7 +57125,7 @@ As you walk around checking various purses, dresses, and jewelry, you wonder wha
 
 You take few more pictures and finally have enough to show $teacher.
 
-[[Take a break|Go to the mall]]</tw-passagedata><tw-passagedata pid="281" name="Task crossdressAroundBlock" tags="pos_2486_2904" position="100,3600">\
+[[Take a break|Go to the mall]]</tw-passagedata><tw-passagedata pid="285" name="Task crossdressAroundBlock" tags="pos_2486_2904" position="600,3600">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _f=playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\
 &lt;&lt;if $scene eq &quot;walk around block&quot;&gt;&gt;\
@@ -55669,7 +57242,7 @@ You take few more pictures and finally have enough to show $teacher.
 	[[Go to your bedroom|Go to bedroom]]
 &lt;&lt;else&gt;&gt;\
 	[[Go to your bedroom|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="282" name="Task crossdressAtPark" tags="pos_2486_2904" position="225,3600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="286" name="Task crossdressAtPark" tags="pos_2486_2904" position="725,3600">\
 &lt;&lt;if $scene eq &quot;walk at the park&quot;&gt;&gt;\
 	&lt;&lt;set $tasksTeacher.crossdressAtPark.status = 2&gt;&gt;\
 	&lt;&lt;set $tasksTeacher.crossdressAtPark.progress++&gt;&gt;\
@@ -55759,7 +57332,7 @@ You take few more pictures and finally have enough to show $teacher.
 	&lt;&lt;endif&gt;&gt;\
 	
 	[[Go to your bedroom|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="283" name="Task crossdressOnline" tags="pos_2486_2904" position="350,3600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="287" name="Task crossdressOnline" tags="pos_2486_2904" position="850,3600">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -55862,7 +57435,7 @@ You take few more pictures and finally have enough to show $teacher.
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="284" name="Task danceAtHome" tags="pos_2486_2904" position="475,3600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="288" name="Task danceAtHome" tags="pos_2486_2904" position="975,3600">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -55914,7 +57487,7 @@ You take few more pictures and finally have enough to show $teacher.
 	After some time, you manage to calm down and convince yourself that nothing bad is going to happen. The video recording came out better than you expected and you can&#39;t help but admit that dancing was kind of fun.
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="285" name="Task girlyDesert" tags="pos_2486_2904" position="600,3600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="289" name="Task girlyDesert" tags="pos_2486_2904" position="1100,3600">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set $tasksTeacher.girlyDesert.status = 2&gt;&gt;\
@@ -55973,7 +57546,7 @@ You stop, cringing at your traitorous thoughts and and try to hold onto bits of 
 
 Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and go on.
 
-[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="286" name="Task party maid" tags="pos_476_1717" position="725,3600">\
+[[Return|Go to the mall]]</tw-passagedata><tw-passagedata pid="290" name="Task party maid" tags="pos_476_1717" position="1225,3600">\
 &lt;&lt;set _pay=50&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -56249,7 +57822,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 
 	&lt;&lt;set playerCode.masturbate.cum()&gt;&gt;\
 	[[Go to your bedroom|Go to bedroom][$flags.partyMaidTask=false; $flags.partyMaidTask=false;]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="287" name="Task posingSeductively" tags="pos_2486_2904" position="850,3600">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="291" name="Task posingSeductively" tags="pos_2486_2904" position="100,3725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
@@ -56326,7 +57899,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 	You save the //crazy// photo set to your laptop, just for science, and delete it from your phone. You&#39;re still not sure what to think about it, but you&#39;re horny as hell right now. Who knew that shooting dirty selfies could be so simulating?
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="288" name="Task selfieFemaleClothes" tags="pos_2486_2904" position="975,3600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="292" name="Task selfieFemaleClothes" tags="pos_2486_2904" position="225,3725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;if _o and (not _o.female)&gt;&gt;\
@@ -56373,7 +57946,7 @@ Somehow it doesn&#39;t sound convincing even to yourself, so you just sigh and g
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="289" name="Task selfieHomeMakeup" tags="pos_2486_2904" position="1100,3600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="293" name="Task selfieHomeMakeup" tags="pos_2486_2904" position="350,3725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set $tasksTeacher.selfieHomeMakeup.status = 2&gt;&gt;\
@@ -56395,7 +57968,7 @@ Somehow, you manage to look somewhat passable in the end, though your makeup sti
 
 Washing the makeup off isn&#39;t that hard, but it&#39;s disheartening to erase all your hard work... not that you wanted to leave it on.
 
-[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="290" name="Task selfiePublicChastity" tags="pos_1827_3027" position="1225,3600">\
+[[Return|Go to bedroom]]</tw-passagedata><tw-passagedata pid="294" name="Task selfiePublicChastity" tags="pos_1827_3027" position="475,3725">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _b to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
@@ -56449,7 +58022,7 @@ After some time trying to calm yourself down, you at last convince yourself that
 	Finally, preparing for the worst, you lift your eyes again, glance around, and let out sigh in relief. No one is pointing at you, no one is even looking at you. You stand up, check your photos and continue on, wondering if anyone saw you but just kept quiet.
 	
 	[[Return|Go to the mall]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="291" name="Task tryingClothesMall" tags="pos_2880_2905" position="100,3725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="295" name="Task tryingClothesMall" tags="pos_2880_2905" position="600,3725">\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set $tasksTeacher.tryingClothesMall.status = 2&gt;&gt;\
@@ -56542,7 +58115,7 @@ This new perspective makes you wonder what to think about the whole thing. Maybe
 
 Still, your knees are still wobbly from all the adrenaline. You decide to take five minutes and just sit on the bench to calm down your nerves.
 
-[[Rest|Go to the mall][$time.addMinutes(10)]]</tw-passagedata><tw-passagedata pid="292" name="Age Dream" tags="" position="225,3725">$Guardian bursts into your room, interrupting your latest gaming session.
+[[Rest|Go to the mall][$time.addMinutes(10)]]</tw-passagedata><tw-passagedata pid="296" name="Age Dream" tags="" position="725,3725">$Guardian bursts into your room, interrupting your latest gaming session.
  
 	“$player.name, I told you to clean the house hours ago, and here you are playing video games,” she chides. “You’ve been quite the brat recently, so I’ve come up with a punishment to remind you of the roles in our relationship. Come with me.”
  
@@ -56656,7 +58229,7 @@ Still, your knees are still wobbly from all the adrenaline. You decide to take f
 	&lt;&lt;else&gt;&gt;\
 		Nanny,” \
 	&lt;&lt;endif&gt;&gt;\
-	you reply, hugging her close as you feel your mind begin to slip into a place of childish bliss.</tw-passagedata><tw-passagedata pid="293" name="Finish kink therapy" tags="pos_1910_1038" position="350,3725">\
+	you reply, hugging her close as you feel your mind begin to slip into a place of childish bliss.</tw-passagedata><tw-passagedata pid="297" name="Finish kink therapy" tags="pos_1910_1038" position="850,3725">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
 
@@ -56673,7 +58246,7 @@ She winks and hands you an envelope with crisp, new currency inside.
 @@.reward;You earned $&lt;&lt;print rewardMoney.specialHypnosis&gt;&gt;!@@
 
 &lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="294" name="Finish watching" tags="pos_1976_1732" position="475,3725">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="298" name="Finish watching" tags="pos_1976_1732" position="975,3725">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
 
@@ -56694,7 +58267,7 @@ She winks, handing you an envelope with crisp, new currency in it.
 	[[Go home|Hypnosis aftereffect]]
 &lt;&lt;else&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="295" name="Hypnosis aftereffect" tags="pos_2292_1732" position="600,3725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="299" name="Hypnosis aftereffect" tags="pos_2292_1732" position="1100,3725">\
 Walking home, you catch yourself ogling a random guy. You wonder how his juicy cock would feel on your tongue...
 
 @@.hero;What the hell!?!@@
@@ -56709,7 +58282,7 @@ You glance at a hot girl passing by and feel relief as you clearly feel an attra
 
 You pick up the pace and rush home, trying not to think about anything lewd at all.
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="296" name="Kink therapy" tags="pos_1914_1288" position="725,3725">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="300" name="Kink therapy" tags="pos_1914_1288" position="1225,3725">\
 &lt;&lt;set _k=window.therapyCode.getWatchedKink()&gt;&gt;\
 &lt;&lt;set _k.start()&gt;&gt;\
 &lt;&lt;if $showimages&gt;&gt;\
@@ -56728,7 +58301,7 @@ You pick up the pace and rush home, trying not to think about anything lewd at a
 @@.delayed_text_long;&lt;&lt;print _k.fadeIn[2]&gt;&gt;@@\
 
 &lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;
-&lt;!--&lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching - (unlocks &#39;+_k.name+&#39; content)|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;--&gt;\</tw-passagedata><tw-passagedata pid="297" name="Stop kink therapy" tags="pos_2067_1294" position="850,3725">\
+&lt;!--&lt;&lt;print &#39;&lt;&lt;delayedLink 5 &quot;Finish watching - (unlocks &#39;+_k.name+&#39; content)|Finish kink therapy&quot;&gt;&gt;&#39;&gt;&gt;--&gt;\</tw-passagedata><tw-passagedata pid="301" name="Stop kink therapy" tags="pos_2067_1294" position="100,3850">\
 &lt;&lt;set _k=window.therapyCode.getWatchedKink()&gt;&gt;\
 &lt;&lt;set _k.stop()&gt;&gt;\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 400 400&gt;&gt;&lt;/div&gt;\	
@@ -56744,7 +58317,7 @@ You&#39;re unsure, but feel basically ok. You reassure $therapist as she makes s
 
 &lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
 
-[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="298" name="Talk about the butt-plug" tags="pos_4417_317" position="975,3725">\
+[[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="302" name="Talk about the butt-plug" tags="pos_4417_317" position="225,3850">\
 You apologize for leaving the butt-plug behind in the rush last time. $friend cuts you off. 
 
 @@.friend;&quot;Hey, don&#39;t worry about it. It was a bit of a shock, though. It didn&#39;t help that I was half asleep at the time. But I don&#39;t care what you do with your body if it makes you happy, $player.name.&quot;@@
@@ -56756,7 +58329,7 @@ $friendG.He_She smiles warmly at you.
 You smile as relief washes over you. You want to ask where the butt-plug is now, but you prefer to just forget about the whole incident.
 
 &lt;&lt;display [[Random stuff with friend]]&gt;&gt;\
-&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;</tw-passagedata><tw-passagedata pid="299" name="Therapist sleep" tags="pos_575_47" position="1100,3725">\
+&lt;&lt;display [[Leave friend&#39;s house]]&gt;&gt;</tw-passagedata><tw-passagedata pid="303" name="Therapist sleep" tags="pos_575_47" position="350,3850">\
 &lt;&lt;if $scene eq &quot;Therapist sleep&quot;&gt;&gt;\
 	You decide to go along with $therapist&#39;s crazy idea.
 	&lt;&lt;display &quot;Watch porn on computer&quot;&gt;&gt;\
@@ -56861,7 +58434,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;set $player.masturbationType = 9&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 	[[Sleep|Sleep][$flags.restlessSleep = true; $therapistTalks.talkVibrator.start=true; playerCode.masturbate.lastDay=$time.day-5]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="300" name="Therapist talk topics" tags="pos_128_224" position="1225,3725">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="304" name="Therapist talk topics" tags="pos_128_224" position="475,3850">\
 &lt;&lt;set _talklist=window.therapyCode.topicsList()&gt;&gt;\
 &lt;&lt;if _talklist&gt;&gt;\
 	&lt;&lt;for _i to 0; _i lt Object.keys(_talklist).length; _i++&gt;&gt;\
@@ -56869,7 +58442,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 		&lt;&lt;print &#39;[[&#39;+_talk.name+&#39;|Therapist talk][$scene=&quot;&#39;+_talk.passage+&#39;&quot;;$player.therapistTime-=&#39;+_talk.time+&#39;;$time.addMinutes(&#39;+_talk.time+&#39;)]]&#39;&gt;&gt;
 	&lt;&lt;/for&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="301" name="Therapist talk" tags="pos_128_224" position="100,3850">\
+\</tw-passagedata><tw-passagedata pid="305" name="Therapist talk" tags="pos_128_224" position="600,3850">\
 &lt;&lt;set _topics=true&gt;&gt;\
 &lt;&lt;set _return=true&gt;&gt;\
 &lt;&lt;set _home=false&gt;&gt;\
@@ -58158,7 +59731,7 @@ You smile as relief washes over you. You want to ask where the butt-plug is now,
 &lt;&lt;if _home&gt;&gt;\
 	[[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="302" name="TherapistSurvey" tags="pos_128_224" position="225,3850">\
+\</tw-passagedata><tw-passagedata pid="306" name="TherapistSurvey" tags="pos_128_224" position="725,3850">\
 &lt;&lt;if $player.perversion.therapist eq 1&gt;&gt;\
 	&lt;&lt;for _i=0; _i lt therapySessions.length; _i++&gt;&gt;\
 		&lt;&lt;if therapySessions[_i].passage eq &quot;TherapistSurvey&quot;&gt;&gt;\
@@ -59442,7 +61015,7 @@ It&#39;s a bug. Please call bugs exterminators.
 
 [[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="303" name="Visit therapist" tags="pos_1748_1280" position="350,3850">\
+\</tw-passagedata><tw-passagedata pid="307" name="Visit therapist" tags="pos_1748_1280" position="850,3850">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Therapist Office&quot; 350 350&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;CheckUnderwear&gt;&gt;\
 &lt;&lt;set $watchingKink=false&gt;&gt;\
@@ -59493,7 +61066,7 @@ _a.text
 	[[Return home|Go to bedroom]]
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $flags.therapistTalk=false&gt;&gt;\
-\</tw-passagedata><tw-passagedata pid="304" name="Watch hypnotherapy" tags="pos_1914_1163" position="475,3850">\
+\</tw-passagedata><tw-passagedata pid="308" name="Watch hypnotherapy" tags="pos_1914_1163" position="975,3850">\
 &lt;&lt;if $showimages&gt;&gt;\
 &lt;&lt;print &#39;&lt;img src=&quot;&#39; + hypnoCode.getHypnoImage() + &#39;&quot;&gt;&#39;&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
@@ -59512,7 +61085,7 @@ _a.text
 @@.delayed_text_med;, give up@@\
 @@.delayed_text_long;, enjoy@@
 
-&lt;&lt;delayedLink 5 &quot;Finish watching&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="305" name="For testing" tags="pos_649_2342" position="600,3850">\
+&lt;&lt;delayedLink 5 &quot;Finish watching&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="309" name="For testing" tags="pos_649_2342" position="1100,3850">\
 \
 &lt;!--
 &lt;&lt;set _chast to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -59780,7 +61353,7 @@ $punishments.punStool.text
 	&lt;&lt;endif&gt;&gt;\
 --&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;!--&lt;/Debug&gt;--&gt;\</tw-passagedata><tw-passagedata pid="306" name="Suck training cock" tags="pos_54_936" position="725,3850">\
+&lt;!--&lt;/Debug&gt;--&gt;\</tw-passagedata><tw-passagedata pid="310" name="Suck training cock" tags="pos_54_936" position="1225,3850">\
 &lt;&lt;set _o=playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
@@ -60168,7 +61741,7 @@ $punishments.punStool.text
 	It is a BUG.
 
 	[[Do something else|Go to bedroom]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="307" name="Way to school phone" tags="pos_649_2342" position="850,3850">\
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="311" name="Way to school phone" tags="pos_649_2342" position="100,3975">\
 You are walking to school, when suddenly your phone chimes rapidly. You pull out the phone to see that Lauren has sent you a text message. Your heart goes into overdrive as you swipe open the phone and check your messages.</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */

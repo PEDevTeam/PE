@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../src/javascript/phone.js" defer></script>
+        <script id="testing" type="text/javascript">
+        $(function(){
+            phone.setupPhone();
+            $("#btnOpen").on("click", function(){
+                phone.openPhoneModal();
+            });
+            $("#btnAdd").on("click", function(){
+                phone.addNotification(phoneApps.planner);
+            });
+            $("#btnSub").on("click", function(){
+                phone.subtractNotification(phoneApps.planner);
+            });
+            $("#btnAddTeacher").on("click", function(){
+                phone.addContact(phoneContacts.Teacher);
+            });
+            $("#btnAddBully").on("click", function(){
+                phone.addContact(phoneContacts.Bully);
+            });
+            $("#btnTestCall").on("click", function(){
+                phone.incomingCall(phoneContacts.Teacher);
+            });
+            $("#btnTestText").on("click", function(){
+                let convo = [
+                    {contact: phoneContacts.Bully, content: "hello, this is a test", imagePath: undefined, choiceFunc: undefined},
+                    {contact: phoneContacts.Player, content: "hello, this is another test."},
+                    {contact: phoneContacts.Bully, content: "hello, this is a test very very very very very very long text very very very very long test.", imagePath: undefined, choiceFunc: undefined},
+                    {content: [
+                            {text: "Choice A."},
+                            {text: "Choice B."},
+                            {text: "Choice C."}
+                        ], choiceFunc: testChoiceEvent}
+                ];
+                phone.openPhoneModal();
+                phone.navigateTo(phoneScreens.snaptext);
+                phone.addSnapTextConvo(convo);
+            });
+            function testChoiceEvent(index){
+                switch (index) {
+                    case 0:
+                        console.log('continue based on choice 1');
+                        break;
+                    case 1:
+                        console.log('continue based on choice 2');
+                        break;
+                    case 2:
+                        console.log('continue based on choice 3');
+                        break;
+                }
+            }
+            $("#btnClearText").on("click", function(){
+               phone.clearSnapText();
+            });
+            $("#btnTestEmails").on("click", function(){
+                phone.addEmail(tasksEmail.PinkRollers);
+                phone.addEmail(tasksEmail.WebcamDildoAss, phoneContacts.Bully);
+            });
+        });
+        </script>
+        <link rel="stylesheet" type="text/css" href="../src/css/phone.css">
+    </head> 
+    <body>
+        <main>
+            <button id="btnOpen">Open</button>
+            <button id="btnAdd">Add Notification</button>
+            <button id="btnSub">Subtract Notification</button>
+            <button id="btnAddTeacher">Add Teacher</button>
+            <button id="btnAddBully">Add Bully</button>
+            <button id="btnTestCall">Test Call</button>
+            <button id="btnTestText">Test Text</button>
+            <button id="btnClearText">Clear Texts</button>
+            <button id="btnTestEmails">Test Emails</button>
+            <div id="phoneModal" class="phone-modal" >
+                <div id="modalBg" class="modal-bg"></div>
+                <div class="phone-container">
+                    <svg class="phone">
+                        <image id="blueHomeBg" width="95%" height="85%" x="3%" y="5%" href="../Images/phone/home/bg.svg"></image>
+                        <image width="100%" height="100%" href="../Images/phone/frame.svg"></image>
+                        <image id="phoneHomeBtn" width="30%" height="15%" x="33%" y="83%" href="../Images/phone/homeButton.svg"></image>
+                        <foreignObject class="phone-screen" x="5%" y="11%" height="74.5%" width="90.6%">
+                            <div id="phoneClock" class="phone-clock" ></div>
+                            <div id="phoneHomeScreen">
+                                <div class="row">
+                                    <div id="contactsBtn" class="app" data-badge="0">
+                                        <img src="../Images/phone/home/appIcons/contactsIcon.svg">
+                                        <label>Contacts</label>
+                                    </div>
+                                    <div id="plannerBtn" class="app" data-badge="0">
+                                        <div id="plannerDay" class="planner-day"></div>
+                                        <img src="../Images/phone/home/appIcons/plannerIcon.svg">
+                                        <label>Planner</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="emailBtn" class="app" data-badge="0" >
+                                        <img src="../Images/phone/home/appIcons/emailIcon.svg">
+                                        <label>Email</label>
+                                    </div>
+                                    <div id="snapBtn" class="app" data-badge="0">
+                                        <img src="../Images/phone/home/appIcons/snapIcon.svg">
+                                        <label>SnapText</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="cameraBtn" class="app" data-badge="0">
+                                        <img src="../Images/phone/home/appIcons/cameraIcon.svg">
+                                        <label>Camera</label>
+                                    </div>
+                                    <div id="phoneBtn" class="app" data-badge="0">
+                                        <img src="../Images/phone/home/appIcons/phoneIcon.svg">
+                                        <label>Phone</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="phoneContactsScreen" class="screen contacts" style="display: none;">
+                                <div class="app-header contacts-header">
+                                    <img class="header-icon" src="../Images/phone/contacts/contacts-header-icon.svg">
+                                    <label>Contacts</label>
+                                    <img class="exit-button" src="../Images/phone/exitButton.svg">
+                                </div>
+                                <div id="contactsContent" class="content"></div>
+                            </div>
+                            <div id="phoneCallScreen" class="screen call" style="display: none;">
+                                <label id="callPrompt"></label>
+                                <h1 id="callName"></h1>
+                                <label id="callType">Mobile</label>
+                                <h1 id="callEnded" style="display: none;">Call Ended</h1>
+                                <div class="call-row">
+                                    <div class="call-button">
+                                        <img id="callConfirmBtn" src="../Images/phone/call/answer-button.svg">
+                                        <label id="callConfirmLbl">Answer</label>
+                                    </div>
+                                    <div class="call-button">
+                                        <img id="callCancelBtn" src="../Images/phone/call/decline-button.svg">
+                                        <label id="callCancelLbl">Decline</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="phonePlannerScreen" class="screen planner" style="display: none;">
+                                <div class="app-header planner-header">
+                                    <img class="header-icon" src="../Images/phone/planner/planner-header-icon.svg">
+                                    <label>Planner</label>
+                                    <img class="exit-button" src="../Images/phone/exitButton.svg">
+                                </div>
+                                <div id="plannerWeekOne" class="week-row">
+
+                                    <a class="no-style" href="#sun">
+                                        <div class="day pointer disabled-day">
+                                            <label>SUN</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg "></span>
+                                                <span class="badge completed-bg "></span>
+                                                <span class="badge failed-bg "></span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a class="no-style" href="#mon">
+                                        <div class="day pointer disabled-day">
+                                            <label>MON</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#tue">
+                                        <div class="day pointer disabled-day">
+                                            <label>TUE</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#wed">
+                                        <div class="day pointer selected-day">
+                                            <label>WED</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#thu">
+                                        <div class="day pointer">
+                                            <label>THU</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#fri">
+                                        <div class="day pointer">
+                                            <label>FRI</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#sat">
+                                        <div class="day pointer">
+                                            <label>SAT</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="plannerWeekTwo" class="week-row">
+                                    <a class="no-style" href="#sun">
+                                        <div class="day pointer">
+                                            <label>SUN</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#mon">
+                                        <div class="day pointer disabled-day">
+                                            <label>MON</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#tue">
+                                        <div class="day pointer disabled-day">
+                                            <label>TUE</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#wed">
+                                        <div class="day pointer disabled-day">
+                                            <label>WED</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#thu">
+                                        <div class="day pointer disabled-day">
+                                            <label>THU</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#fri">
+                                        <div class="day pointer disabled-day">
+                                            <label>FRI</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="no-style" href="#sat">
+                                        <div class="day pointer disabled-day">
+                                            <label>SAT</label>
+                                            <div class="badge-row">
+                                                <span class="badge uncompleted-bg hidden"></span>
+                                                <span class="badge completed-bg hidden"></span>
+                                                <span class="badge failed-bg hidden"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="plannerDayDetails" class="day-detail-content">
+                                    <div id="wed" class="day-detail">
+                                        <h1>Wednesday</h1>
+                                        <ul>
+                                            <li class="completed">Event 1<div>&#x1F5F9;</div></li>
+                                            <li class="failed">Event 2<div>&#x1F5F7;</div></li>
+                                            <li class="uncompleted">Event 3<div>&#x2610;</div></li>
+                                        </ul>
+                                    </div>
+                                    <div id="thu" class="day-detail">
+                                        <h1>Thursday</h1>
+                                        <ul>
+                                            <li class="uncompleted">Event 1</li>
+                                            <li class="uncompleted">Event 2</li>
+                                            <li class="uncompleted">Event 3</li>
+                                        </ul>
+                                    </div>
+                                    <div id="fri" class="day-detail">
+                                        <h1>Friday</h1>
+                                        <ul>
+                                            <li class="uncompleted">Event 1</li>
+                                            <li class="uncompleted">Event 2</li>
+                                            <li class="uncompleted">Event 3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="phoneEmailScreen" class="screen email" style="display: none;">
+                                <div class="app-header email-header">
+                                    <img class="header-icon" src="../Images/phone/email/email-header-icon.svg">
+                                    <label>Email</label>
+                                    <img class="exit-button" src="../Images/phone/exitButton.svg">
+                                </div>
+                                <div id="inboxContent" class="content"></div>
+                                <div id="emailContent" class="content" style="display: none;"></div>
+                            </div>
+                            <div id="phoneCameraScreen" class="screen" style="display: none;">
+
+                            </div>
+                            <div id="phoneSnapTextScreen" class="screen" style="display: none;">
+                                <div class="app-header snaptext-header">
+                                    <img class="header-icon" src="../Images/phone/snaptext/snaptext-header-icon.svg">
+                                    <label>SnapText</label>
+                                    <img class="exit-button" src="../Images/phone/exitButton.svg">
+                                </div>
+                                <div id="snaptextContent" class="content snaptext-content">
+                                    <div id="snaptextConvo"></div>
+                                    <h1 id="snaptextEllipsis" class="ellipsis-anim"><span>.</span><span>.</span><span>.</span></h1>
+                                </div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
