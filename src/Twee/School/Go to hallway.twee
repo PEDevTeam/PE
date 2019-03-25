@@ -927,6 +927,7 @@
 
 		[[Go back to class|Finish school day]]
 		
+	
 	<<else>>\
 	
 		
@@ -950,7 +951,11 @@
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
-			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+			<<if $cheerFriend.currentSE == 1>>\
+				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
+			<<else>>\
+				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+			<<endif>>\
 		<<endif>>\
 	<<endif>>\
 <<else>>\
