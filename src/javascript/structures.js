@@ -52,7 +52,6 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
-		this.setupBully();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -1228,6 +1227,7 @@ window.flagsList={
 	salonPiggyCoin: false,
 	clothesPurged:false, //new flag
 	delaySlut: 0,
+	canGame: true,
 },
 
 window.kinkList={

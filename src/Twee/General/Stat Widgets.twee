@@ -518,6 +518,7 @@
 	<<endif>>
 	<!-- <b>Sluttiness:</b> <<print playerCode.slutScore()>><br> -->
 	<b>Gamer:</b> $player.gameSkill<br>
+	<b>Fitness:</b> $player.fitness<br>
 	<b>Perversion:</b> <br>
 	<<print $guardian.toProperCase()>>:	$player.perversion.guardian<br>
 	$teacher: $player.perversion.teacher<br>
@@ -612,7 +613,7 @@
 	<<endif>>\
 	<<if $cheerleaders.progress == 2>>\
 		<<set $giveUniform = false>>\
-		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]
+		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]\
 	<<elseif $cheerleaders.progress == 3 && $giveUniform == true>>\
 		<<set $giveUniform = false>>\
 		<<addToInv 'rookieUniform'>>\
@@ -620,11 +621,11 @@
 		<<addToInv 'socks' 43>>\
 		<<addToInv 'hairbow' 43>>\
 		<<addToInv 'cheerSneakers'>>\
-		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++]]
+		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
 	<<else>>\
-		[[Cheer progress +1|Go to bedroom][$cheerleaders.progress++; $cheerleaders.active=true]]
+		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $cheerleaders.active=true]]\
 	<<endif>>\
-	<<print "[["+$cheerFriend.name+" progress +1|Go to bedroom][$cheerFriend.progress++]]">>
+	<<print "[["+$cheerFriend.name+" +1|Go to bedroom][$cheerFriend.progress++]]">>
 	
 	<<print '<<click " Cooldowns ">><<set $player.perversion.teacherCooldown=10>><<set $player.perversion.guardianCooldown=10>><<updateDebug>><</click>>'>> Te=$player.perversion.teacherCooldown, Gu=$player.perversion.guardianCooldown\
 	
