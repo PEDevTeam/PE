@@ -176,6 +176,13 @@ window.playerCode={
 	isHairless: function() {
 		return (State.active.variables.body.bodyhair >= 2);
 	},
+	isInChastity: function() {
+	    return this.isWearingOn(itemTypes.Chatisty);
+	},
+	isLockedInChastity: function() {
+		return (this.isWearingOn(itemTypes.Chatisty) &&
+		        State.active.variables.flags.chastityLocked);
+	},
 	haveHaircut: function() {
 		return (State.active.variables.body.hairstyle > 0);
 	},
@@ -230,6 +237,19 @@ window.playerCode={
 	haveAss: function() {
 		return (State.active.variables.body.ass > 0);
 	},
+	obviousFemaleAppearance: function() {
+		var itemTypes=window.itemTypes;
+		var body=State.active.variables.body;
+		var fo=this.isWearingOn(itemTypes.Outerware).female;
+		var fs=this.isWearingOn(itemTypes.Shoes).slutty;
+		var e=this.isWearingOn(itemTypes.Earrings);
+		var itemTypes=window.itemTypes;
+		var itemTypes=window.itemTypes;
+		if (fo || fs || e || body.makeup>1 || body.hairstyle>1 || body.boobs>1 || body.lips>1 || body.manicure>0) {
+			return true;
+		}
+		return false;
+	},    
 	slutScoreBasic: function() {
 		var score=0;
 		var items=window.itemsC;
