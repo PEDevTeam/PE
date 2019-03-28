@@ -49070,10 +49070,13 @@ You go to the detention room. $teacher is waiting for you.
 &lt;!--			--&gt;&lt;&lt;set teacherCode.addPenalty(1)&gt;&gt;\
 &lt;!--		--&gt;&lt;&lt;endif&gt;&gt;\
 &lt;!--	--&gt;&lt;&lt;endif&gt;&gt;\
-&lt;!--	--&gt;&lt;&lt;if ($player.perversion.teacher gte 7) and _o.female and _f.female and (not (_f.slutty or _f.cheer))&gt;&gt;\
-&lt;!--		--&gt;@@.teacher;&lt;&lt;openQuote&gt;&gt;I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@
+&lt;!--	--&gt;&lt;&lt;if ($cheerleaders.progress &gt;=3) &amp;&amp; ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))&gt;&gt;\
+&lt;!--		--&gt;@@.teacher;&lt;&lt;openQuote&gt;&gt;I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
 &lt;!--		--&gt;&lt;&lt;set teacherCode.addPenalty(1)&gt;&gt;\
 &lt;!--	--&gt;&lt;&lt;endif&gt;&gt;\
+&lt;!--    --&gt;&lt;&lt;if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)&gt;&gt;\
+&lt;!--        --&gt;@@.teacher;&lt;&lt;openQuote&gt;&gt;Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won&#39;t need heels to attract the proper kind of attention.@@\
+&lt;!--    --&gt;&lt;&lt;endif&gt;&gt;\
 &lt;!--	--&gt;&lt;&lt;if (not _f.female) and _o.female&gt;&gt;\
 &lt;!--		--&gt;&lt;&lt;if $player.perversion.teacher gte 5&gt;&gt;\
 &lt;!--		--&gt;@@.teacher;&lt;&lt;openQuote&gt;&gt;These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time.&quot;@@

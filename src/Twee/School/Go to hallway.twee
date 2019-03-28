@@ -465,10 +465,13 @@
 <!--			--><<set teacherCode.addPenalty(1)>>\
 <!--		--><<endif>>\
 <!--	--><<endif>>\
-<!--	--><<if ($player.perversion.teacher gte 7) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
-<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@
+<!--	--><<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
+<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
 <!--		--><<set teacherCode.addPenalty(1)>>\
 <!--	--><<endif>>\
+<!--    --><<if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)>>\
+<!--        -->@@.teacher;<<openQuote>>Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won't need heels to attract the proper kind of attention.@@\
+<!--    --><<endif>>\
 <!--	--><<if (not _f.female) and _o.female>>\
 <!--		--><<if $player.perversion.teacher gte 5>>\
 <!--		-->@@.teacher;<<openQuote>>These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time."@@
