@@ -1,0 +1,36 @@
+:: Friend Chapter 1-3
+\
+<<set $player.clothesTmp to clone($player.clothes)>>\
+<<removeClothingType 4>><<updateClothes>>\
+<<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
+<<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
+<<if $player.daysInPanties eq 0>>\
+	You wander over to $friend’s house in a daze.\
+	<<if playerCode.isWearing(itemsC.schoolMale)>> In fact, you realise you are still wearing your school uniform and didn’t remember to change.
+	<<endif>>\
+ 
+	@@.heroT;Was $teacher serious when she told me to wear panties?@@
+
+<<endif>>\
+$friend opens the door and smiles widely at you before stepping back.
+@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?"@@
+
+$friend returns before you know it and stands in the doorway with a couple of sodas. You have no idea how long $friendG.he_she has been chatting away at you, but your mind is elsewhere. When $friendG.he_she finally pokes you, it catches you by surprise.
+ 
+@@.friend;“Okay $player.name, out with it. I’ve known you long enough to know you’ve got something on your mind."@@ $friendG.he_she smiles at you encouragingly.
+ 
+There is something wrong, very wrong, but there is no way you can tell $friendG.him_her. There’s no way you can tell anyone.
+ 
+@@.hero;“No, it’s nothing, I’m fine.”@@
+ 
+$friend doesn’t seem satisfied with your answer, but thankfully decides not to push for more information.
+
+@@.friend;"Hey, I got in a bag of those new chips you said you wanted to try. Why don’t I go get some of those to go with the drinks?"@@
+ 
+$friendG.He_She smiles at you, concern on $friendG.his_her face as $friendG.he_she leaves. You sit back on the couch and then you have a eureka moment.
+
+@@.heroT;Wait! $friend’s sister - $friendsis - left for college! Maybe she left something behind... Stealing a pair of panties is wrong, but seeing as she won’t be back for months, will she even notice they’re gone?@@
+ 
+<<set $friendG.snoop to 1>>\
+[[Search for panties|Friend Chapter 1-4]]
+<<print '[[Wait for '+$friend+'|Friend Chapter 1-5]]'>>

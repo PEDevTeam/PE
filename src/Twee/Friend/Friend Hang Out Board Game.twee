@@ -1,0 +1,100 @@
+:: Friend Hang Out Board Game
+\
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
+\
+You open up the large unit and look down the array of games. You used to enjoy some of them, especially some of the older ones. Of course, computer games have replaced many of them, but still...
+
+<<if $player.daring lt 5 and $tasksFriend.manga.status eq 0>>\
+	<<RandomImageFromPack 'Friend/GameMarkers' 400 400 alignRight>>\
+	<<selectScene HangOutBoardGames1 RND2RND>>\
+	<<scene>>\
+		$friend suggests you play a board game, and for some reason, you end up playing Game of Alive, driving a little car around a board, getting a family, kids and a job. You wonder just who thought a game like this could be interesting, but $friend seems really into it.\
+		<<if $friendG.gender eq 'F'>>\
+			You have to smile as she is adamant she can be a pink pin and have a wife though!\
+		<<endif>>
+
+		Like all games, it takes forever to get to the\
+		<<if $time.hour gte 18>>end and it’s dark outside when you finish.\
+		<<else>>end.<<endif>>\
+		You lost, badly; a fact that $friend reminds you of, even as you are getting your shoes on to leave.
+	<<scene>>\
+		@@.heroT;Dungeons of Talismania!@@
+
+	<<reactOnce true FriendDOT>>\
+		What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
+
+		@@.friend;”Wow, I forgot this was in here...”@@ $friendG.he_she says, dragging the core box from the cupboard and opening it up reverently. @@.friend;”Come on, let’s play.”@@
+	<</reactOnce>>\
+
+		Initially you feel a little dumb playing this again but it’s very engaging and soon you are moaning at the dice throws, running away from the villains and leaping in celebration when you finally roll the right number. You while away the time playing until it’s hometime.
+	<</selectScene>>\
+<<elseif $tasksFriend.manga.status eq 1>>\
+	@@.heroT;Dungeons of Talismania!@@
+
+	<<reactOnce true FriendDOT>>\
+		What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
+	<</reactOnce>>\
+
+	$friend takes one of the Dungeons of Talismania expansions from the shelf. @@.friend;“Um. You remember those manga I lent you?”@@
+
+	You nod guiltily, having not read them yet. @@.hero;“Sorry, $friend, not had the time.”@@ You make a note to get around to it though. 
+
+	@@.friend;“It’s just… Well I had an idea for this expansion. Oh well, never mind. Another time, maybe?”@@
+
+	If you didn’t know better, you might have thought that $friend was acting a bit weird over it. You must have been mistaken though.
+	
+	Instead of the expansion, $friend gets the original core game out and starts to set it up. You move over to help and you have soon forgotten your tinge of shame. You are soon moaning at the dice throws, running away from the villains and leaping in celebration when you finally roll the right number. You while away the time playing until it’s hometime. 
+
+	As you are getting ready to leave, $friend holds your gaze meaningfully. @@.friend;“Don’t forget my manga!”@@ $friendG.he_she says, punching you on the arm.
+<<else>>\
+	<<RandomImageFromPack 'Friend/GameMarkers' 400 400 alignRight>>\
+	<<selectScene HangOutBoardGame2 RND2RND>>\
+	<<scene>>\
+		$friend suggests you play a board game, and for some reason, you end up playing Game of Alive, driving a little car around a board, getting a family, kids and a job. You wonder just who thought a game like this could be interesting, but $friend seems really into it.\
+		<<if $friendG.gender eq 'F'>>\
+			You have to smile as she is adamant she can be a pink pin and have a wife though!\
+		<<endif>>
+
+		You are not sure that you like being given a pink peg\
+		<<if _outerwear.female>>\
+			though, even if you are dressed like a girl.\
+		<<else>>\
+			though.\
+		<<endif>>\
+		<<if $friendG.gender eq 'F'>>\
+			You are not sure what to think when you get a pink peg for a ‘Wife’ too.\
+		<<else>>\
+			What’s worse is that when you get married half way through, $friend gives you a blue peg for your ‘Husband’.\
+		<<endif>>\
+		Like all games, it takes ages to get to the\
+		<<if $time.hour gte 18>>end and it’s dark outside when you finish.\
+		<<else>>end.<<endif>>\
+		You lost, badly; a fact that $friend reminds you of, even as you are getting your <<if _shoes.heels>>heels<<else>>shoes<<endif>> on to leave.
+	<<scene>>\
+	<<scene>>\
+		@@.heroT;Dungeons of Talismania!@@
+
+	<<reactOnce true FriendDOT>>\
+		What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
+	<</reactOnce>>\
+
+		$friend takes one of the Dungeons of Talismania expansions from the shelf. @@.friend;“This is new, I have never played it before.”@@
+
+		@@.hero;“They still make them?”@@ you ask in surprise.  
+
+		@@.friend;“I guess. This one came from China though,”@@ $friend replies with a shrug. 
+
+		As you set it out, you realise that the expansion is based on a Greek Island somewhere, inhabited solely by women. $friend selects $friendG.his_her token, a soaring\
+		<<if $friendG.gender eq 'F'>>Amazon fighter<<else>>warrior<<endif>>\
+		and then passes another counter to you. Unlike $friend’s yours is a small, barely dressed healer girl. You look up in surprise.
+
+		$friend shrugs again. @@.friend;“It only came with the two figures.”@@
+
+		Realising it would be churlish to argue, you start to play using the maiden character, whiling away your time. Much to your surprise, your feminine charms win the day in the last battle and you defeat $friend. You giggle to yourself as $friend throws the dice down and stalks off to the en-suite. Still on the crest of the wave of victory, you start to pack the game away and notice, there in the box, another four characters, two of whom are male.
+	<</selectScene>>\
+<<endif>>\
+		
