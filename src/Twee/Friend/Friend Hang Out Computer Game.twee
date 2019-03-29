@@ -1,12 +1,12 @@
 :: Friend Hang Out Computer Game
 \
 <<RandomImageFromPack 'Friend/FIFO' 400 400 alignRight>>\
-<<reactOnce true friendIntroFIFO>>\
-	@@.hero;“Do you have FIFO ‘11,”@@ you ask? You’ve longingly looked at the game in the shop but it’s been sold out since it was released. You’re pretty sure that $friend has it; $friendG.he_she loves soccer.
-<<reactElse>>\
-	@@.hero;“How about a game of FIFO ‘11,”@@
-<</reactOnce>>\
 <<if $tasksFriend.manga.status eq 0>>\
+	<<reactOnce true friendIntroFIFO>>\
+		@@.hero;“Do you have FIFO,”@@ you ask? You’ve longingly looked at the game in the shop but it’s been sold out since it was released. You’re pretty sure that $friend has it; $friendG.he_she loves soccer.
+	<<reactElse>>\
+		@@.heroT;“How about a game of FIFO.”@@
+	<</reactOnce>>\
 	<<selectScene HangOutFIFO1 RND2RND>>\
 	<<scene>>\
 	<<reactOnce true friendPlayedFIFO>>\
@@ -22,7 +22,7 @@
 
 		Despite this, you concentrate on the screen and eventually you manage a draw, quickly followed by your first ever win. $friend grumbles next to you but is smiling at your celebration. 
 
-		@@.heroT;Wait, did $friendG.he_she just let me win?@@
+		@@.hero;Wait, did $friendG.he_she just let me win?@@
 
 		You play a couple more times before it’s time to leave, but you don’t hit the heady heights of winning again. You still have a great time though.
 	<</reactOnce>>\
@@ -30,11 +30,11 @@
 	<<reactOnce true friendPlayedQWCoW>>\
 		@@.friend;”I have an even better idea. How about this?”@@ $friendG.he_she asks excitedly, brandishing two copies of Questworld of Doomcraft! 
 
-		@@.hero;“O M F G!”@@ you squeal, @@.hero;”how did you even get that?”@@
+		@@.heroT;“O M F G!”@@ you squeal, @@.heroT;”how did you even get that?”@@
 
 		@@.friend;”I have my methods! Come on let’s play.”@@
 
-		@@.hero;“I didn’t bring my laptop though.”@@
+		@@.heroT;“I didn’t bring my laptop though.”@@
 
 		$friend lifts the covers of $friendG.his_her bed and you can see a new laptop box. $friendG.He_She pulls it out and opens it revealing not one, but two laptops. You take the brand new computer and hold it reverently in your hands. 
 
@@ -75,7 +75,7 @@
 	<<selectScene HangOutFIFO2 RND2RND>>\
 	<<scene>>\
 	<<reactOnce true friendPlayedFIFO>>\
-		@@.friend;”Yeah, do you want to you play with me?”@@
+		@@.friend;@@”Yeah, do you want to you play with me?”@@
 
 		You could have done with practicing first, you are not as good as $friend is, but if it means you can play it… @@.friend;“Of course!”@@ Interestingly, this version has added in women’s teams too. $friend quickly goes through the menus and selects a couple of teams. As the players run onto the field,\
 		<<if $friendG.gender eq 'F' or $friendG.gender eq 'T'>>\
