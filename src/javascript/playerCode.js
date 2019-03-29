@@ -240,7 +240,7 @@ window.playerCode={
 	obviousFemaleAppearance: function() {
 		var itemTypes=window.itemTypes;
 		var body=State.active.variables.body;
-		var fo=this.isWearingOn(itemTypes.Outerware).female;
+		var fo=this.isWearingOn(itemTypes.Outerwear).female;
 		var fs=this.isWearingOn(itemTypes.Shoes).slutty;
 		var e=this.isWearingOn(itemTypes.Earrings);
 		var itemTypes=window.itemTypes;
