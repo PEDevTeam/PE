@@ -1,0 +1,79 @@
+:: Friend Mid Visit
+\
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+\
+<<set $player.clothesTmp to clone($player.clothes)>>\
+<<removeClothingType 4>><<updateClothes>>\
+<<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
+<<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
+<<if _outerwear.female>>\
+	<<selectScene FriendMidVisit1 RND2RND>>\
+	<<scene>>\
+		You amble over to $friend’s house, aware of how you are dressed as the hem of your <<if _outerwear.skirt>>skirt<<else>>dress<<endif>> swishes around your <<if _stockings>>stocking tops<<else>>bare legs<<endif>><<if _shoes.heels>> and the clip clop of your heels on the sidewalk<<endif>>. You have changed so much recently, and you cannot help but be grateful for $friend and $friendG.his_her continued support. You reach $friendG.his_her house and confidently make your way to the front door.
+	<<scene>>\
+		As you wander through $friend’s neighborhood you see someone running in your direction, only on the other side of the street. You realise<<if playerCode.isMind() gt 0>> with a strange stirring<<endif>> that its the jogger who you see outside of the school sometimes.\
+		<<if playerCode.isMind() gt 0>>\
+			Your body reacts with a stirring in your groin and your\
+			<<if $body.penisShrink gt 0>>tiny<<endif>> penis\
+			<<if _chastity>>starts to press against your cage.\
+			<<elseif _underwear>>grows inside the soft material of your panties.\
+			<<else>>threatens to tent the front of your\
+				<<if _outerwear.skirt>>skirt<<else>>dress<<endif>>.\
+			<<endif>>\
+
+			You think that the Jogger hasn’t recognised you, which makes your heart pang for some weird reason, but then he waves at you, smiling broadly before continuing on his way.\
+		<<endif>>\
+		By how fresh he looks, you can only imagine that he lives in one of the massive houses around here.
+	<<scene>>\
+		As you make your way to $friend’s house, you see a small group of girls practicing gymnastics on the front lawn. You don’t recognise any of them and doubt they are from your school. As you pass by you see a shadow moving amongst the bushes and see an outline of what might be a <<if $kink.futa>>woman<<else>>man<<endif>>. You look back again but the figure or the shadow is gone. 
+
+		<<if $player.perversion.teacher gte 6>>\
+			As you continue your walk, you see a car racing passed and notice the unmistakable countenance of coach in $futa.his_her dilapidated Mustang race along the street. 
+
+			@@.hero;Wait, did $futa.he_she just blow me a kiss?@@
+
+		<<else>>\
+			As you continue your walk, a car speeds past you and you see who you think might be the pervy coach from school in $futa.his_her dilapidated Mustang race along the street. 
+
+			@@.hero;Wait, did $futa.he_she just leer at me?@@
+		<<endif>>\ 
+	<<scene>>\
+		Despite how you are dressed, you have a surprisingly uneventful walk to $friend’s house. You do not meet anyone you know nor see anything out of the ordinary. Instead, you are just a girl out for a walk on her own. Perhaps the fact that no one recognises you for who and what you are is reward enough.
+	<</selectScene>>\
+<<else>>\
+	You make your way to $friend’s house in your boy clothes. No one bats an eyelid as you pass, no one comments or whistles or stares. It’s just a normal, boring walk from your house to $friend’s.
+<<endif>>\
+
+<<selectScene FriendMidVisit2 RND2RND>>\
+<<scene>>\
+	$friend opens the door and smiles widely at you before stepping back. You know the way now but let $friendG.him_her lead the way up the stairs. $friendG.His_Her bedroom is as big as you remember. There is a PSBox set up ready to play, a pile of board games on the shelves and a laptop at the desk, which is currently showing some anime screensaver. 
+<<scene>>\
+	$friend takes some time to appear and when $friendG.he_she finally opens the door $friendG.he_she looks flustered and a little dishevelled. Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs. You catch a glimpse of $friend tucking $friendG.him_her <<if $flags.friendIsMale>>shirt<<else>>top<<endif>> inside $friendG.his_her waistband in one of the many mirrors which line the hallway. You reach the top of the stairs and head into the bedroom.
+<<scene>>\
+	$friend looks a little surprised to see you standing on $friendG.his_her doorstep but immediately steps into the role of perfect <<if $friendG.gender eq 'M'>>host<<else>>hostess<<endif>>. Offering to take your coat, which you aren’t wearing despite warnings of the weather, $friend gives you a quick <<if $friendG.gender eq 'M'>>shoulder bump<<else>>hug<<endif>> and beckens you inside. You reach the top of the stairs and head into the bedroom.
+<</selectScene>>\
+
+<<if _outerwear.female>>\
+	@@.friend;“You look pretty good,”@@ $friendG.he_she says grinning.
+<<else>>\
+	@@.friend;“Aww, I was hoping you’d wear something prettier,”@@ $friendG.he_she says, looking slightly saddened.  
+<<endif>>\
+
+@@.heroT;Is $friendG.he_she trying to check out my ass?@@\
+<<if _outerwear.female>> you think, tugging the hem down as you climb the stairs.<<endif>>\
+
+$friendG.His_Her bedroom is as big as you remember from before. There is a PSBox set up ready to play, a pile of board games on the shelves and a laptop at the desk, which is currently showing some anime screensaver. You look closer and see that the drawings are of traps.
+
+@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks, and we can play together. Why don’t you pick something to do?”@@
+
+You kick your <<if _shoes.heels>>heels<<else>>shoes<<endif>> off and make yourself comfortable.
+
+Before you know it, $friend is coming in with a tray of snacks and sodas. 
+
+<<include [[Friend Hang Out]]>>\
