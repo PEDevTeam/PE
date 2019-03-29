@@ -4,13 +4,15 @@
 <<if $tasksFriend.manga.status eq 0>>\
 	<<reactOnce true friendIntroFIFO>>\
 		@@.hero;“Do you have FIFO,”@@ you ask? You’ve longingly looked at the game in the shop but it’s been sold out since it was released. You’re pretty sure that $friend has it; $friendG.he_she loves soccer.
+		
 	<<reactElse>>\
 		@@.heroT;“How about a game of FIFO.”@@
+		
 	<</reactOnce>>\
 	<<selectScene HangOutFIFO1 RND2RND>>\
 	<<scene>>\
 	<<reactOnce true friendPlayedFIFO>>\
-		@@.friend;@@”Yeah, do you want to you play with me?”@@
+		@@.friend;”Yeah, do you want to you play with me?”@@
 
 		You could have done with practicing first, you are not as good as $friend is, but if it means you can play it… @@.friend;“Of course!”@@ Interestingly, this version has added in women’s teams too. Thankfully, you both get to select great teams, and you pick Manchespool Rovers and $friendG.he_she chooses Baying Munich.
 
@@ -75,7 +77,7 @@
 	<<selectScene HangOutFIFO2 RND2RND>>\
 	<<scene>>\
 	<<reactOnce true friendPlayedFIFO>>\
-		@@.friend;@@”Yeah, do you want to you play with me?”@@
+		@@.friend;”Yeah, do you want to you play with me?”@@
 
 		You could have done with practicing first, you are not as good as $friend is, but if it means you can play it… @@.friend;“Of course!”@@ Interestingly, this version has added in women’s teams too. $friend quickly goes through the menus and selects a couple of teams. As the players run onto the field,\
 		<<if $friendG.gender eq 'F' or $friendG.gender eq 'T'>>\
