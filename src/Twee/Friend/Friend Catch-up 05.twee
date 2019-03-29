@@ -1,0 +1,36 @@
+:: Friend Catch-up 05
+\
+<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+<<if not _underwear and not _chastity>><<set _under to 'chastity cage'>>\
+<<elseif not _underwear>><<set _under to 'penis'>>\
+<<elseif not _underwear.female>><<set _under to 'boy pants'>>\
+<<elseif _underwear.slutty>><<set _under to 'sexy pants'>>\
+<<else>><<set _under to 'cotton pants'>><<endif>>\
+\
+<<if $time.hour gte 18>>\
+	<<RandomImageFromPack 'Friend/HouseNight' 400 400 alignRight>>\
+<<else>>\
+	<<RandomImageFromPack 'Friend/HouseDay' 400 400 alignRight>>\
+<<endif>>\
+You make your way through the streets to $friend’s house, the first time you have been since you made more obvious changes. You constantly wonder if this is really such a good idea but $friend really has been so helpful, bordering on flirty at times even.
+
+<<if _outerwear.female>>\
+	You feel the wind sweep up your <<if _outerwear.skirt>>skirt<<else>>dress<<endif>> and caress your <<if _stockings>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by. \
+<<endif>>\
+<<if _heels>>\
+	Your footsteps echo each time you place your heel on the sidewalk, as if tolling like a bell for attention as you walk. Your heart thumps in your chest with each heel click, making you flush in a mixture of daring excitement and fear of being discovered. \
+<<endif>>\
+<<if playerCode.haveBplus()>>\
+	Each step causes your boobs to <<if _bra>>jiggle despite your bra. @@.heroT;Perhaps I bought the wrong size?@@<<else>>jiggle.<<endif>>\
+<<endif>>\
+<<if playerCode.haveAss()>>\
+	Each step causes your butt to wobble, reminding you of the injections you had to make your boring boy-butt into something more curvaceous, something for a boy to grab onto when he… You stumble, and bring your mind back to your current plight.\
+<<endif>>\
+
+You reach $friend’s front door and ring the bell. You tap your <<if _heels>>heel<<else>>foot<<endif>> impatiently on the concrete step, keen to get this moment over with as soon as possible. $friend opens the door and begins to smile, then $friendG.he_she notices ‘the new you’ and freezes for a moment.
+
+[[Go inside|Friend Catch-up 06]]

@@ -143,6 +143,10 @@ window.timeCode={
 		var player=State.active.variables.player;
 		return this.isWeekend() && (time.hour >= 8) && (time.hour < 14) && (time.day > player.workLastDay);
 	},
+	canDoFriendTask: function() {
+		var time=State.active.variables.time;
+		return (this.isWeekend() || (time.hour > 12)) && (time.hour < 23);
+	},
 	isMallOpen: function() {
 		var time=State.active.variables.time;
 		return (time.hour >= 8) && (time.hour <= 18);
