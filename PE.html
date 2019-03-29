@@ -22034,7 +22034,7 @@ She kneads your defenseless balls firmly, causing you to squirm. You’re not ex
 
 	Ashley continues kneading your testicles, and even though you feel very vulnerable, her touch on your poor attention-starved equipment makes your cage ever tighter.
 &lt;&lt;else&gt;&gt;\
-	You shut your eyes and let Ashley have her way with your. The feeling of her hand stroking your testicles fills you with both terror and pleasure.
+	You shut your eyes and let Ashley have her way with you. The feeling of her hand stroking your testicles fills you with both terror and pleasure.
 
 	@@.cheerBitch;“That’s a good boy,”@@ she whispers, far too softly for $cheerFriend.name to hear.
 &lt;&lt;endif&gt;&gt;\
@@ -34912,6 +34912,7 @@ Tricked into tits,
 Sucks on some clits,
 Enjoys his new life in tresses.
 
+v.8100
 There was a young man who wanted to fuck,
 But he got blackmailed like a dumb smuck,
 Now he wears dresses,
@@ -36215,6 +36216,8 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 				&lt;&lt;else&gt;&gt;
 					&lt;&lt;set _feets=&quot;feets_stripper_d.png&quot;&gt;&gt;
 				&lt;&lt;endif&gt;&gt;
+			&lt;&lt;elseif _f.cheer&gt;&gt;
+				&lt;&lt;set _feets=&quot;feets_shoes_socks_cheer.png&quot;&gt;&gt;
 			&lt;&lt;else&gt;&gt;
 				&lt;&lt;if $items[_f.id].curAlt eq 0&gt;&gt;
 					&lt;&lt;set _feets=&quot;feets_heels_a.png&quot;&gt;&gt;
@@ -36443,6 +36446,24 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 			&lt;&lt;set _chest+=_hs&gt;&gt;
 			&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;
 			&lt;&lt;set _arms=&quot;none&quot;&gt;&gt;
+		&lt;&lt;elseif playerCode.isWearing(itemsC.rookieUniform)&gt;&gt;
+			&lt;&lt;set _chest=&quot;clothes_cheer_rookie_br_&quot;&gt;&gt;
+			&lt;&lt;set _chest+=_bs&gt;&gt;
+			&lt;&lt;set _chest+=&quot;_hips_&quot;&gt;&gt;
+			&lt;&lt;set _chest+=_hs&gt;&gt;
+			&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;
+			&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;
+			&lt;&lt;set _groin+=_hs&gt;&gt;
+			&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;
+		&lt;&lt;elseif playerCode.isWearing(itemsC.cheerDress)&gt;&gt;
+			&lt;&lt;set _chest=&quot;clothes_cheer_uniform_br_&quot;&gt;&gt;
+			&lt;&lt;set _chest+=_bs&gt;&gt;
+			&lt;&lt;set _chest+=&quot;_hips_&quot;&gt;&gt;
+			&lt;&lt;set _chest+=_hs&gt;&gt;
+			&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;
+			&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;
+			&lt;&lt;set _groin+=_hs&gt;&gt;
+			&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;
 		&lt;&lt;endif&gt;&gt;
 	&lt;&lt;endif&gt;&gt;
 	
@@ -36459,6 +36480,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 			&lt;&lt;set _groin=&quot;underwear_satin_hips_&quot;&gt;&gt;
 			&lt;&lt;set _groin+=_hs&gt;&gt;
 			&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;
+		&lt;&lt;elseif playerCode.isWearing(itemsC.cheerBriefs)&gt;&gt;
+			&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;
+			&lt;&lt;set _groin+=_hs&gt;&gt;
+			&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;
 		&lt;&lt;elseif playerCode.isWearing(itemsC.gString)&gt;&gt;
 			&lt;&lt;if playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;
 				&lt;&lt;set _groin=&quot;underwear_gstring_chastity_hips_&quot;&gt;&gt;
@@ -36469,6 +36494,26 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 			&lt;&lt;endif&gt;&gt;
 			&lt;&lt;set _groin+=_hs&gt;&gt;
 			&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;
+		&lt;&lt;endif&gt;&gt;
+	&lt;&lt;endif&gt;&gt;
+	
+	&lt;&lt;set _bow = &quot;none&quot;&gt;&gt;
+	&lt;&lt;set _b = playerCode.isWearingOn(itemTypes.Hairband)&gt;&gt;
+	&lt;&lt;if _b.id == &quot;hairbow&quot; &amp;&amp; $items[_b.id].curAlt eq 43&gt;&gt;
+		&lt;&lt;if playerCode.haveHaircut()&gt;&gt;
+			&lt;&lt;if ($body.hairstyle eq 1)&gt;&gt;
+				&lt;&lt;set _bow=&quot;bow_cheer_bow_short.png&quot;&gt;&gt;
+			&lt;&lt;elseif ($body.hairstyle eq 2)&gt;&gt;
+				&lt;&lt;set _bow=&quot;bow_cheer_bow_medium.png&quot;&gt;&gt;
+			&lt;&lt;elseif ($body.hairstyle eq 3)&gt;&gt;
+				&lt;&lt;set _bow=&quot;bow_cheer_bow_long.png&quot;&gt;&gt;
+			&lt;&lt;elseif ($body.hairstyle eq 4)&gt;&gt;
+				&lt;&lt;set _bow=&quot;bow_cheer_bow_tails.png&quot;&gt;&gt;
+			&lt;&lt;elseif ($body.hairstyle eq 5)&gt;&gt;
+				&lt;&lt;set _bow=&quot;bow_cheer_bow_curly.png&quot;&gt;&gt;
+			&lt;&lt;endif&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_default.png&quot;&gt;&gt;
 		&lt;&lt;endif&gt;&gt;
 	&lt;&lt;endif&gt;&gt;
 	
@@ -36522,6 +36567,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 		&lt;&lt;elseif playerCode.isWearing(itemsC.hoopsEarrings)&gt;&gt;
 			&lt;&lt;showAvatarImage &quot;earrings_hoops.png&quot;&gt;&gt;
 		&lt;&lt;endif&gt;&gt;
+	&lt;&lt;endif&gt;&gt;
+	
+	&lt;&lt;if _bow neq &quot;none&quot;&gt;&gt;
+		&lt;&lt;showAvatarImage _bow&gt;&gt;
 	&lt;&lt;endif&gt;&gt;
 	
 &lt;!--&lt;/Avatar window&gt;--&gt;
@@ -47225,7 +47274,6 @@ All the games cost $1. \
 &lt;&lt;endif&gt;&gt;\
 
 [[Return to the mall|Go to the mall]]</tw-passagedata><tw-passagedata pid="251" name="Avatar" tags="pos_1273_215" position="100,3225">\
-\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 \
 &lt;&lt;switch playerCode.isMind()&gt;&gt;\
@@ -47269,6 +47317,8 @@ All the games cost $1. \
 			&lt;&lt;else&gt;&gt;\
 				&lt;&lt;set _feets=&quot;feets_stripper_d.png&quot;&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;elseif _f.cheer&gt;&gt;\
+			&lt;&lt;set _feets=&quot;feets_shoes_socks_cheer.png&quot;&gt;&gt;\
 		&lt;&lt;else&gt;&gt;\
 			&lt;&lt;if $items[_f.id].curAlt eq 0&gt;&gt;\
 				&lt;&lt;set _feets=&quot;feets_heels_a.png&quot;&gt;&gt;\
@@ -47417,7 +47467,6 @@ All the games cost $1. \
 \
 &lt;&lt;set _sk=false&gt;&gt;\
 \
-\
 &lt;&lt;if $avatar.mode eq 0&gt;&gt;\
 	&lt;&lt;if playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop)&gt;&gt;\
 		&lt;&lt;set _chest=&quot;clothes_slutty_top_breasts_&quot;&gt;&gt;\
@@ -47497,6 +47546,26 @@ All the games cost $1. \
 		&lt;&lt;set _chest+=_hs&gt;&gt;\
 		&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;\
 		&lt;&lt;set _arms=&quot;none&quot;&gt;&gt;\
+	&lt;&lt;elseif playerCode.isWearing(itemsC.rookieUniform)&gt;&gt;\
+		&lt;&lt;set _chest=&quot;clothes_cheer_rookie_br_&quot;&gt;&gt;\
+		&lt;&lt;set _chest+=_bs&gt;&gt;\
+		&lt;&lt;set _chest+=&quot;_hips_&quot;&gt;&gt;\
+		&lt;&lt;set _chest+=_hs&gt;&gt;\
+		&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;\
+		&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;\
+		&lt;&lt;set _groin+=_hs&gt;&gt;\
+		&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;\
+		&lt;&lt;set _arms=&quot;arms_spread.png&quot;&gt;&gt;\
+	&lt;&lt;elseif playerCode.isWearing(itemsC.cheerDress)&gt;&gt;\
+		&lt;&lt;set _chest=&quot;clothes_cheer_uniform_br_&quot;&gt;&gt;\
+		&lt;&lt;set _chest+=_bs&gt;&gt;\
+		&lt;&lt;set _chest+=&quot;_hips_&quot;&gt;&gt;\
+		&lt;&lt;set _chest+=_hs&gt;&gt;\
+		&lt;&lt;set _chest+=&quot;.png&quot;&gt;&gt;\
+		&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;\
+		&lt;&lt;set _groin+=_hs&gt;&gt;\
+		&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;\
+		&lt;&lt;set _arms=&quot;arms_spread.png&quot;&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
@@ -47513,6 +47582,10 @@ All the games cost $1. \
 		&lt;&lt;set _groin=&quot;underwear_satin_hips_&quot;&gt;&gt;\
 		&lt;&lt;set _groin+=_hs&gt;&gt;\
 		&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;\
+	&lt;&lt;elseif playerCode.isWearing(itemsC.cheerBriefs)&gt;&gt;\
+		&lt;&lt;set _groin=&quot;underwear_boxers_hips_&quot;&gt;&gt;\
+		&lt;&lt;set _groin+=_hs&gt;&gt;\
+		&lt;&lt;set _groin+=&quot;.png&quot;&gt;&gt;\
 	&lt;&lt;elseif playerCode.isWearing(itemsC.gString)&gt;&gt;\
 		&lt;&lt;if playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 			&lt;&lt;set _groin=&quot;underwear_gstring_chastity_hips_&quot;&gt;&gt;\
@@ -47526,10 +47599,34 @@ All the games cost $1. \
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
+&lt;&lt;set _bow = &quot;none&quot;&gt;&gt;\
+&lt;&lt;set _b = playerCode.isWearingOn(itemTypes.Hairband)&gt;&gt;\
+&lt;&lt;if _b.id == &quot;hairbow&quot; &amp;&amp; $items[_b.id].curAlt eq 43&gt;&gt;\
+	&lt;&lt;if playerCode.haveHaircut()&gt;&gt;\
+		&lt;&lt;if ($body.hairstyle eq 1)&gt;&gt;\
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_short.png&quot;&gt;&gt;\
+		&lt;&lt;elseif ($body.hairstyle eq 2)&gt;&gt;\
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_medium.png&quot;&gt;&gt;\
+		&lt;&lt;elseif ($body.hairstyle eq 3)&gt;&gt;\
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_long.png&quot;&gt;&gt;\
+		&lt;&lt;elseif ($body.hairstyle eq 4)&gt;&gt;\
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_tails.png&quot;&gt;&gt;\
+		&lt;&lt;elseif ($body.hairstyle eq 5)&gt;&gt;\
+			&lt;&lt;set _bow=&quot;bow_cheer_bow_curly.png&quot;&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;set _bow=&quot;bow_cheer_bow_default.png&quot;&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
 &lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; &quot;torso.png&quot;&gt;&gt;&#39;&gt;&gt;\
 \
 &lt;&lt;if _arms neq &quot;none&quot;&gt;&gt;\
 	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; _arms&gt;&gt;&#39;&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0&gt;&gt;\
+	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; &quot;hand_cheer_pompom_handr.png&quot;&gt;&gt;&#39;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
 &lt;&lt;if _hips neq &quot;none&quot;&gt;&gt;\
@@ -47548,6 +47645,10 @@ All the games cost $1. \
 \
 &lt;&lt;if _sk&gt;&gt;\
 	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; _chest2&gt;&gt;&#39;&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0&gt;&gt;\
+	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; &quot;hand_cheer_pompom_handl.png&quot;&gt;&gt;&#39;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
 &lt;&lt;if _face neq &quot;none&quot;&gt;&gt;\
@@ -47574,6 +47675,10 @@ All the games cost $1. \
 	&lt;&lt;elseif playerCode.isWearing(itemsC.hoopsEarrings)&gt;&gt;\
 	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; &quot;earrings_hoops.png&quot;&gt;&gt;&#39;&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if _bow neq &quot;none&quot;&gt;&gt;\
+	&lt;&lt;print &#39;&lt;&lt;showMultiImage &quot;avatar_&#39; + $avatarSize + &#39;&quot; _bow&gt;&gt;&#39;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
 &lt;&lt;if (not $flags.avatarHelp)&gt;&gt;\
