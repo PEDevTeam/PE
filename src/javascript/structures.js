@@ -702,6 +702,7 @@ window.structures={
 
 window.playerList={
 	name: "",
+	maleName: "",
 	debugA: false,
 	debugM: false,
 	debugQ: false,
