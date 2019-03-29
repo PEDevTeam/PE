@@ -1,16 +1,11 @@
 :: Leave friend's house [pos_4208_331]
 \
-You head outside and say goodbye. \
-<<set _rr to window.misc.getRandomRiddle()>>\
-<<if _rr>>\
-	@@.friend;"Hey, I've got a riddle for you,"@@ $friend says. 
-	
-	@@.friend;"_rr.question"@@
-		
-	You think about it for a moment.
-		
-	@@.friend;"_rr.answer"@@ You grin at $friendG.his_her bad joke. \
+<<if $player.clothesTmp>>\
+	<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
+	<<set $player.clothesTmp to null>>\
 <<endif>>\
+You head outside and say goodbye.
+
 @@.friend;"See you next time, $player.name!"@@
 
 <<display [[Travel]]>>

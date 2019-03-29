@@ -646,6 +646,22 @@ window.structures={
 				delete tasksBodyNewTeacher[Object.keys(tasksBodyNewTeacher)[i]];
 			}
 		}
+
+		// Friend tasks
+		var tasksList=window.tasksFriend;
+		if (vars.tasksFriend == null) {
+		    vars.tasksFriend = {};
+		}
+		for (var attribute in tasksList) {
+		    if (!(attribute in vars.tasksFriend)) {
+			vars.tasksFriend[attribute] = tasksList[attribute];
+		    }
+		}
+		for (var attribute in vars.tasksFriend) {
+		    if (!(attribute in tasksList)) {
+			delete vars.tasksFriend[attribute];
+		    }
+		}
 	},
 	setupCheer: function (){
 		var vars=State.active.variables;
@@ -702,7 +718,7 @@ window.structures={
 
 window.playerList={
 	name: "",
-	debugA: false,
+	debugA: true,
 	debugM: false,
 	debugQ: false,
 	debugN: 0,
@@ -757,6 +773,7 @@ window.playerList={
 	bribeIncrease: 10,
 	friendLastVisit: 0,
 	clothes: [],
+	clothesTmp: null,
 	gameSkill: 0,
 	fitness: 0,
 	femaleName: false, //new flag
@@ -892,7 +909,14 @@ window.friendList={
 	his_her: 'his',
 	His_Her: 'His',
 	his_hers: 'his',
-	His_Hers: 'His'
+	His_Hers: 'His',
+	gender: 'M',
+
+	snoop: 0,
+	daysSinceLastVisit: 0,
+	catchUp: 0,
+	admitWhatsWrong: 0,
+	admitLikingTrap: 0,
 },
 
 window.futaList={

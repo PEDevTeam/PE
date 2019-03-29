@@ -3413,4 +3413,14 @@ window.tasksEmail={
 			fail: function() { return false; }
 		}
 	}
-}
+},
+
+window.tasksFriend={
+    manga: {
+	status: 0,
+    },
+    pantieSelfie: {
+	startDay: 0,
+	status: 0,
+    },
+},
