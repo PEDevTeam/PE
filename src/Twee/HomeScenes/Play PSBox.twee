@@ -5,7 +5,9 @@
 	<<set $flags.newCallOfHonorPlayed = true>>\
 	<<set $time.addMinutes(60 - $time.minute)>>\
 	<<set $time.addHours(Math.min(3, 23 - $time.hour))>>\
-	<<set _gr = playerCode.improveGameSkill()>>\
+	<<if $flags.canGame>>\
+		<<set _gr = playerCode.improveGameSkill()>>\
+	<<endif>>\
 	<div><<RandomImageFromPack "Call Of Duty" 400 400>></div>\	
 	You urgently fire up your PSBox. With shaking hands, you tear the shrink wrap from the brand new version of //Call of Honor// that $guardian got you. It's not just any Call of Honor title, either - you have the Ultra-Black Day One Obsessive Completist Edition! You can hardly believe it.
 	
@@ -34,7 +36,9 @@
 	
 	<<set $time.addMinutes(60 - $time.minute)>>\
 	<<set $time.addHours(Math.min(3, 23 - $time.hour))>>\
-	<<set _gr = playerCode.improveGameSkill()>>\
+	<<if $flags.canGame>>\
+		<<set _gr = playerCode.improveGameSkill()>>\
+	<<endif>>\
 	<<selectScene PSBox_Annoyed RND2RND>>\
 	<<scene>>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "RPG" 400 400>></div>\	
@@ -73,21 +77,26 @@
 	<div><<RandomImageFromPack "Call Of Duty" 400 400>></div>\	
 	<<set $time.addMinutes(60 - $time.minute)>>\
 	<<set $time.addHours(Math.min(3, 23 - $time.hour))>>\
-	<<set _gr = playerCode.improveGameSkill()>>\
+	<<if $flags.canGame>>\
+		<<set _gr = playerCode.improveGameSkill()>>\
+	<<endif>>\
 	You play some //Call of Honor// on your PSBox for a while. You're getting pretty good. Maybe you can play this professionally one day?
 	
 <<endif>>\
-<<switch _gr>>\
-	<<case 1>>\
-		@@.reward;Your gaming skills have marginally improved!@@
+<<if $flags.canGame>>\
+	<<switch _gr>>\
+		<<case 1>>\
+			@@.reward;Your gaming skills have marginally improved!@@
 
-	<<case 2>>\
-		@@.reward;Your gaming skills have improved!@@
-		
-	<<case 3>>\
-		@@.reward;Your gaming skills have greatly improved!@@
-		
-<</switch>>\
+		<<case 2>>\
+			@@.reward;Your gaming skills have improved!@@
+			
+		<<case 3>>\
+			@@.reward;Your gaming skills have greatly improved!@@
+			
+	<</switch>>\
+	<<set $flags.canGame = false>>
+<<endif>>\
 [[Do something else|Go to bedroom]]
 
 
