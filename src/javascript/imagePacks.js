@@ -54,6 +54,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend",
+                           "path":  "Friend",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Games",
                            "path":  "Games",
                            "files":  [
@@ -1841,6 +1848,225 @@ window.imagePacks = {
                                              "fileName":  "vibrator_on_cage.gif",
                                              "height":  229,
                                              "width":  255
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/BoyTrapManga",
+                           "path":  "Friend/BoyTrapManga",
+                           "files":  [
+                                         {
+                                             "fileName":  "BoyTrapManga_1.jpg",
+                                             "height":  600,
+                                             "width":  800
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/FemaleBedroom",
+                           "path":  "Friend/FemaleBedroom",
+                           "files":  [
+                                         {
+                                             "fileName":  "FemaleBedroom.png",
+                                             "height":  808,
+                                             "width":  1166
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/FIFO",
+                           "path":  "Friend/FIFO",
+                           "files":  [
+                                         {
+                                             "fileName":  "Football_1.jpeg",
+                                             "height":  450,
+                                             "width":  800
+                                         },
+                                         {
+                                             "fileName":  "Football_2.jpeg",
+                                             "height":  450,
+                                             "width":  800
+                                         },
+                                         {
+                                             "fileName":  "Football_3.jpg",
+                                             "height":  450,
+                                             "width":  800
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/GameMarkers",
+                           "path":  "Friend/GameMarkers",
+                           "files":  [
+                                         {
+                                             "fileName":  "Pink_Life.jpg",
+                                             "height":  333,
+                                             "width":  502
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/GirlTrapManga",
+                           "path":  "Friend/GirlTrapManga",
+                           "files":  [
+                                         {
+                                             "fileName":  "GirlTrapManga_1.jpg",
+                                             "height":  800,
+                                             "width":  640
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Hallway",
+                           "path":  "Friend/Hallway",
+                           "files":  [
+                                         {
+                                             "fileName":  "Hallway_1.png",
+                                             "height":  804,
+                                             "width":  1156
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/HouseDay",
+                           "path":  "Friend/HouseDay",
+                           "files":  [
+                                         {
+                                             "fileName":  "HouseDay_1.jpg",
+                                             "height":  643,
+                                             "width":  964
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/HouseNight",
+                           "path":  "Friend/HouseNight",
+                           "files":  [
+                                         {
+                                             "fileName":  "HouseNight_1.png",
+                                             "height":  558,
+                                             "width":  800
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/IceCream",
+                           "path":  "Friend/IceCream",
+                           "files":  [
+                                         {
+                                             "fileName":  "icecream_1.-jpeg",
+                                             "height":  575,
+                                             "width":  500
+                                         },
+                                         {
+                                             "fileName":  "icecream_2.jpeg",
+                                             "height":  535,
+                                             "width":  400
+                                         },
+                                         {
+                                             "fileName":  "icecream_3.jpeg",
+                                             "height":  535,
+                                             "width":  400
+                                         },
+                                         {
+                                             "fileName":  "icecream_4.jpeg",
+                                             "height":  400,
+                                             "width":  534
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/MaleBedroom",
+                           "path":  "Friend/MaleBedroom",
+                           "files":  [
+                                         {
+                                             "fileName":  "MaleBedroom.png",
+                                             "height":  807,
+                                             "width":  1163
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/MangaCovers",
+                           "path":  "Friend/MangaCovers",
+                           "files":  [
+                                         {
+                                             "fileName":  "MangaCover_1.jpeg",
+                                             "height":  710,
+                                             "width":  474
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_2.jpeg",
+                                             "height":  921,
+                                             "width":  600
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_3.jpeg",
+                                             "height":  1094,
+                                             "width":  730
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_4.jpeg",
+                                             "height":  690,
+                                             "width":  474
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_5.jpeg",
+                                             "height":  632,
+                                             "width":  420
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_6.jpeg",
+                                             "height":  1157,
+                                             "width":  800
+                                         },
+                                         {
+                                             "fileName":  "MangaCover_7.jpeg",
+                                             "height":  1220,
+                                             "width":  809
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Pool",
+                           "path":  "Friend/Pool",
+                           "files":  [
+                                         {
+                                             "fileName":  "Pool_1.png",
+                                             "height":  808,
+                                             "width":  1157
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/SisBedroom",
+                           "path":  "Friend/SisBedroom",
+                           "files":  [
+                                         {
+                                             "fileName":  "SisBedroom_1.png",
+                                             "height":  808,
+                                             "width":  1077
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Snacks",
+                           "path":  "Friend/Snacks",
+                           "files":  [
+                                         {
+                                             "fileName":  "ChipsAndDip.jpeg",
+                                             "height":  316,
+                                             "width":  474
+                                         },
+                                         {
+                                             "fileName":  "Popcorn.jpeg",
+                                             "height":  355,
+                                             "width":  474
+                                         },
+                                         {
+                                             "fileName":  "Pretzels.jpeg",
+                                             "height":  401,
+                                             "width":  600
                                          }
                                      ]
                        },
