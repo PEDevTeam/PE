@@ -11,14 +11,14 @@ window.imagePack = {
         if(typeof window.imagePacks === "undefined"){
             importScripts("./Images/ImagePacks/imagePacks.js").then(
                 function(){
-                    imagename = loadImage(imagePackName);
+                    imageName = loadImage(imagePackName);
                 }
             )
         }
         else{
-            imagename = loadImage(imagePackName);
+            imageName = loadImage(imagePackName);
         }
-        
+
         return imageName;
 
 		function loadImage(imagePackName){
