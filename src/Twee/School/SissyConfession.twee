@@ -203,7 +203,11 @@
 
 	@@.hero;I'm a sissy.@@
 	
-	<<display [[Travel]]>>\
+	<<if $cheerFriend.currentSE > 0>>\
+		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+	<<else>>\
+		<<display [[Travel]]>>\
+	<<endif>>\
 <<elseif $scene eq "SecondVisit">>\
 	<<set $flags.sissyConfessionShown = true>>\
 	You return to $teacher, wondering what she'll come up with this time.

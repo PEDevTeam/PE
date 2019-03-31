@@ -2044,6 +2044,10 @@
 	<<endif>>\
 	<<set $player.punishments.refusedToPay = false>>\
 	<<set $time.addMinutes(30)>>\
-	<<display [[Travel]]>>\
+	<<if $cheerFriend.currentSE > 0>>\
+		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+	<<else>>\
+		<<display [[Travel]]>>\
+	<<endif>>\
 <<endif>>\
 

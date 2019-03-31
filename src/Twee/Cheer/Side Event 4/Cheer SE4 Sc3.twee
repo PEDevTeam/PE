@@ -1,0 +1,25 @@
+:: Cheer SE4 Sc3
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend fountain" 400 400>></div>\
+<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+$cheerFriend.name drags you in front of a massive area of slick marble tile. Installed into the ground are twenty or so water jets squirting in intermittent patterns like a dancing fountain. You don’t remember this installation being here before.
+
+@@.heroT;“When did they add this?”@@ you ask.
+
+@@.cheerFriend;“About a month ago,”@@ $cheerFriend.name replies. @@.cheerFriend;“You’re actually allowed to go run around in it, kind of like a giant lawn sprinkler.”@@
+
+@@.heroT;“And I’m guessing that’s what you want to do.”@@
+
+She smiles at you with a playful grin. @@.cheerFriend;“You got it.”@@
+
+Suddenly, your brain registers $cheerFriend.name’s red and white cheer uniform top. You notice that most of the front of it is white, and a shocking thought occurs to you. You’re wearing\
+<<if (not _uniform.cheer)>>
+	a white blouse, too. \
+<<else>>\
+	your uniform top, too. \
+<<endif>>\
+If you go play in the fountain, you’ll get soaked, inevitably revealing your <<if _bra>>bra<<else>><<if playerCode.haveBoobs()>>naked breasts<<else>>lack of breasts<<endif>><<endif>>. You hurriedly think of what to do.
+
+[[Ignore it and have fun|Cheer SE4 Sc4a][$cheerFriend.affinity +=1]]
+<<print "[[Bring it to "+$cheerFriend.name+"\’s attention|Cheer SE4 Sc4b][$cheerFriend.affinity+=1]]">>
+<<print "[[Tell "+$cheerFriend.name+" you want to sit out|Cheer SE4 Sc4c]]">>
