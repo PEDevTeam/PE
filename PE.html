@@ -16814,6 +16814,51 @@ window.wordsCode={
 &lt;&lt;/selectScene&gt;&gt;\</tw-passagedata><tw-passagedata pid="2" name="Cheer Ep0 Sc1" tags="" position="225,100">\
 &lt;&lt;set $cheerleaders.active = true&gt;&gt;\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Rain School&quot; 400 400&gt;&gt;&lt;/div&gt;\
+&lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
+&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+&lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
+&lt;&lt;if _c&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkChastity.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _b&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkButtplug.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _u and _u.female&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkUnderwear.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;!--&lt;Misc events&gt;--&gt;\
+&lt;&lt;if $flags.chastityKey&gt;&gt;\
+	&lt;&lt;if (not _c)&gt;&gt;\
+		Remembering $teacher&#39;s warning, you return home, put on your chastity device and lock it.
+
+		&lt;&lt;wearClothing &#39;chastityDevice&#39;&gt;&gt;\
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+		&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+	&lt;&lt;elseif not $flags.chastityLocked&gt;&gt;\
+		Remembering $teacher&#39;s warning, you quickly lock your chastity device.
+		
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if window.timeCode.isMonday() and $flags.walletForgottenStart and (not $flags.walletForgottenEnd)&gt;&gt;\
+	Still a bit hazy from your weird dream, you feel like you have forgotten something important.
+	
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if $flags.laundryAccident and _u.female and _u.disabled&gt;&gt;\
+	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
+
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)&gt;&gt;\
+	&lt;&lt;set $player.perversion.therapistCooldown = 1&gt;&gt;\
+	You are relieved that you don&#39;t have those weird fantasies anymore.
+	
+	@@.hero;Thank god that&#39;s over.@@
+	
+	Could it be you ate something that went off? Or was it somehow linked to the experimental therapy?
+	
+&lt;&lt;endif&gt;&gt;\
 You trudge through the rain to school, backpack strapped tightly to your back. This was the wrong day to forget your umbrella. Thankfully, the weatherman said the storm should dissipate before you need to head back home, so you’ll only get soaked once.
 
 As you walk through the school gates, you hear the sound of ripping fabric coming from behind you, and your backpack suddenly feels a lot lighter as the bottom tears out, spilling its contents onto the sidewalk.
@@ -18105,6 +18150,51 @@ The mention of your own uniform and a place on the team steels your resolve. Not
 
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Cheer Ep3 Pre1" tags="" position="975,475">&lt;&lt;RandomImageFromPack &quot;Cheerleader Rain School&quot; 400 400 &quot;alignRight&quot;&gt;&gt;\
 \
+&lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
+&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+&lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
+&lt;&lt;if _c&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkChastity.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _b&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkButtplug.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _u and _u.female&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkUnderwear.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;!--&lt;Misc events&gt;--&gt;\
+&lt;&lt;if $flags.chastityKey&gt;&gt;\
+	&lt;&lt;if (not _c)&gt;&gt;\
+		Remembering $teacher&#39;s warning, you return home, put on your chastity device and lock it.
+
+		&lt;&lt;wearClothing &#39;chastityDevice&#39;&gt;&gt;\
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+		&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+	&lt;&lt;elseif not $flags.chastityLocked&gt;&gt;\
+		Remembering $teacher&#39;s warning, you quickly lock your chastity device.
+		
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if window.timeCode.isMonday() and $flags.walletForgottenStart and (not $flags.walletForgottenEnd)&gt;&gt;\
+	Still a bit hazy from your weird dream, you feel like you have forgotten something important.
+	
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if $flags.laundryAccident and _u.female and _u.disabled&gt;&gt;\
+	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
+
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)&gt;&gt;\
+	&lt;&lt;set $player.perversion.therapistCooldown = 1&gt;&gt;\
+	You are relieved that you don&#39;t have those weird fantasies anymore.
+	
+	@@.hero;Thank god that&#39;s over.@@
+	
+	Could it be you ate something that went off? Or was it somehow linked to the experimental therapy?
+	
+&lt;&lt;endif&gt;&gt;\
 You walk to school under a thick cover of grey clouds. Looks like the weatherman was wrong about it being a beautiful day today. Having left your umbrella at home, you decide to pick up the pace to beat the rain.
 
 The gates of the school are in sight as you feel the first spit of wetness on your face. Dashing for the door, you manage to make it inside just before the rain starts to fall in earnest. You let out a sigh of relief and head for class, reminded about how you really should just keep an umbrella in your backpack.
@@ -18116,6 +18206,51 @@ You scowl. Nothing you can do about it now. You shift your backpack over head fo
 
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Cheer Ep3 Pre3" tags="" position="1225,475">&lt;&lt;RandomImageFromPack &quot;Cheerleader Downpour&quot; 400 400 &quot;alignRight&quot;&gt;&gt;\
 \
+&lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
+&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+&lt;&lt;set _b=playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
+&lt;&lt;if _c&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkChastity.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _b&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkButtplug.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if _u and _u.female&gt;&gt;\
+	&lt;&lt;set $therapistTalks.talkUnderwear.start=true&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;!--&lt;Misc events&gt;--&gt;\
+&lt;&lt;if $flags.chastityKey&gt;&gt;\
+	&lt;&lt;if (not _c)&gt;&gt;\
+		Remembering $teacher&#39;s warning, you return home, put on your chastity device and lock it.
+
+		&lt;&lt;wearClothing &#39;chastityDevice&#39;&gt;&gt;\
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+		&lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+	&lt;&lt;elseif not $flags.chastityLocked&gt;&gt;\
+		Remembering $teacher&#39;s warning, you quickly lock your chastity device.
+		
+		&lt;&lt;set $flags.chastityLocked = true&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if window.timeCode.isMonday() and $flags.walletForgottenStart and (not $flags.walletForgottenEnd)&gt;&gt;\
+	Still a bit hazy from your weird dream, you feel like you have forgotten something important.
+	
+&lt;&lt;endif&gt;&gt;\
+\
+&lt;&lt;if $flags.laundryAccident and _u.female and _u.disabled&gt;&gt;\
+	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
+
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)&gt;&gt;\
+	&lt;&lt;set $player.perversion.therapistCooldown = 1&gt;&gt;\
+	You are relieved that you don&#39;t have those weird fantasies anymore.
+	
+	@@.hero;Thank god that&#39;s over.@@
+	
+	Could it be you ate something that went off? Or was it somehow linked to the experimental therapy?
+	
+&lt;&lt;endif&gt;&gt;\
 The rain from yesterday hasn’t let up at all. You trudge through the weather determinedly, thankful that $guardian reminded you about your umbrella before you walked out the door. The droplets beat down on your protective covering, and while it keeps your head and shoulders dry, it does a much worse job of protecting the rest of your body.
 
 You stop short upon seeing the school gates. A torrent of water, several inches deep, flows across the sidewalk leading to the school grounds. You were unaware that Pepperton Academy had installed a moat. Unfortunately for you, the only way to class is through.
