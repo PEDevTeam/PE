@@ -1,0 +1,79 @@
+:: Cheer SE4 Sc4b1
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend park bathroom" 400 400>></div>\
+<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+You decide to use the men’s restroom.\
+<<if playerCode.slutScoreBasic() lte 4>>\
+	With your boyish features, you figure it’s the safer option.
+<<else>>\
+	It’s a bit of an odd choice considering how girly your looks are, but sometimes it’s hard to deny old habits.
+<<endif>>\
+
+You try to squish the bikini top into as small of a ball as possible as you slowly push open the heavy metal door. Clearly in need of oil, the door gives out a loud squeak and you almost take off in the other direction as you entrance is announced. Thankfully, no one seems to be inside, so you quickly duck into a stall.
+
+You strip off your <<if (not _uniform.cheer)>>school uniform blouse<<elseif _uniform.id == "rookieUniform">>rookie shirt<<else>>cheerleading top<<endif>> and hold up the skimpy piece of swimwear, trying to decide how you’re supposed to put on a piece of clothing that only consists of two triangles of fabric and four straps. After turning it over in your hands for a while, you finally notice that one of the straps is attached to a plastic hook, while another ends in a small loop of fabric.
+
+That must be the back strap.
+
+You stretch the strap around your back, having some trouble getting the fastener to sink into its intended home as the damn fabric loop likes to fold over on itself before you can get the hook in place. Finally, you catch a flash of inspiration and start with the bikini front behind your back, fastening it in front of your chest.
+
+Ha! $player.name: 1, girl clothes: 0.
+
+You spin the strap across your chest and pull up the triangles, tying off the neck straps with far less difficulty. 
+
+You walk out of the stall holding your shirt and check yourself in the mirror. The bikini top is black, covered haphazardly in a print of light blue leaves and pink and yellow flowers. Both sets of straps are thin, barely much more than strings, with the top strap tying off in a halter style behind your neck. The two triangles covering your breasts are joined at the bottom by another thin strap.
+
+<<if playerCode.haveBoobs()>>\
+	<<if playerCode.scoreBoobs() <3>>\
+		This offers you a decent amount of coverage, even if it gives your modest breasts more exposure than you’d like.
+	<<elseif playerCode.scoreBoobs() == 3>>\
+		Even with the top in place, you can’t help but feel overly exposed, as $cheerFriend.name clearly doesn’t need to support as much cleavage as you do.
+	<<else>>\
+		$cheerFriend.name’s bikini top is way too small, and your breasts pillow embarrassingly from the top, sides and bottom of the cups. It’s a struggle just to get the tiny thing to cover your nipples. You finally knot the straps as tightly as you can, but your huge boobs still feel perilously close to flying out at any moment.
+	<<endif>>\
+<<else>>\
+	At first, the bikini top’s cups hang off you loosely, and you have to work on the straps quite a bit to snug it down on your chest. You lack the assets to fill it out as intended, but a modest amount of lining in it keeps you from looking totally flat and ridiculous in it.
+<<endif>>\
+
+<<if playerCode.isMind_0()>>\
+	As you look yourself over, you can’t believe you’re going to go through with wearing this. Now you know why you always hear girls complaining about shopping for these things. It’s even more embarrassing because it doesn’t really go with your\
+<<elseif playerCode.isMind_1()>>\
+	Even though the top is pretty cute, all things considered, you worry what people will think when you go outside with it. It definitely doesn’t match your\
+<<else>>\
+	Looking at yourself in this incredibly girly top makes your heart race a little. As odd as it feels wearing a loaner bikini, you wonder what it would be like to wear the bottom half, too, instead of your\
+<<endif>>\
+<<if not _uniform.cheer>>\
+	tartan school skirt.
+<<else>>\
+	<<if _uniform.id == "rookieUniform">>\
+		red cheer shorts.
+	<<else>>\
+		red-and-white cheer skirt.
+	<<endif>>\
+<<endif>>\
+
+Suddenly, the door gives off a loud squeak as a man walks into the restroom. He appears to be in his mid-twenties, tall, with cropped, brown hair and a faint beard shadow playing across his squared jawline. He seems to be missing a shirt, exposing his tight pecs and six-pack abs. Judging by his gym shorts and sneakers and the way he glistens with sweat, you assume he must have come to the park to exercise or perhaps play sports with some friends.
+
+<<if playerCode.slutScoreBasic() <=4>>\
+	The man seems just as shocked by you as you are of him. You notice him quickly glance over at the urinals before turning his attention back towards you.
+
+	@@.maleVoice1;“I think you might be in the wrong bathroom,”@@ he says, his voice still showing some concern.
+<<else>>\
+	The man seems just as shocked by you as you are of him. You notice him quickly glance over at the urinals before turning his attention back towards you. 
+
+	@@.maleVoice1;“I think you might be in the wrong bathroom,”@@ he says, his voice showing some amusement. @@.maleVoice1;“Unless, of course, you’re not just here to use the toilet.”@@
+
+	Your heart thunders in your chest as he approaches.\ 
+	<<if playerCode.isMind_0()>>\
+		Oh, god. I can’t believe he saw me in here, dressed like this.
+	<<elseif playerCode.isMind_1 == true>>\
+		Your fear at his advance squelches your former arousal.
+	<<else>>\
+		You’re confused as your growing sense of fear is accompanied by arousal, but you’re too intimidated to dwell on it.
+	<<endif>>\
+
+	@@.maleVoice1;“So, girl, are you really lost?”@@
+<<endif>>\
+
+You don’t even take the time to respond as you rush out the door, your face burning red with embarrassment.
+
+<<print "[[Rejoin "+$cheerFriend.name+"|Cheer SE4 Sc5]]">>

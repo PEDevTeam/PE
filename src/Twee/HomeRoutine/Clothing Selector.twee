@@ -155,6 +155,14 @@
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
+<!--Friend tasks-->\
+<<set _friendTask to timeCode.canDoFriendTask()>>\
+<<if _friendTask and $tasksFriend.manga.status eq 1>>\
+	<<print '[[Read manga borrowed from '+$friend+'|Friend Task Manga]]'>>
+<<endif>>\
+<<if _friendTask and $tasksFriend.pantieSelfie.status eq 1>>\
+	<<print '[[Take selfie in '+$friend+"'s panties|Friend Task Pantie Selfie]]">>
+<<endif>>\
 <!--</misc tasks>-- Misc -->\
 \
 
