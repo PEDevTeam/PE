@@ -2137,7 +2137,7 @@ window.tasksTeacherBody={
 		name:"Task Ears pierced",
 		hasPassage: false,
 		text: {
-			given: "I think it is time to get your ears pierced. Next week I want to see you with a lovely earring.",
+			given: "I think it is time to get your ears pierced. Next week I want to see you with a lovely pair of earrings.",
 			perform: "",
 			finish: "$teacher looks at your ears.\n\n@@.teacher;\"I see you pierced your ears, like I asked you to, good.\"@@",
 			fail: "Are you that afraid of a little pain so you ignore my request? Too bad. Take a mark.",
