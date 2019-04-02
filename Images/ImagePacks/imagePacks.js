@@ -1928,6 +1928,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/Himegoto",
+                           "path":  "Friend/Himegoto",
+                           "files":  [
+                                         {
+                                             "fileName":  "1Manga Level 3 Random 3 Female.gif",
+                                             "height":  360,
+                                             "width":  640
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Friend/HouseDay",
                            "path":  "Friend/HouseDay",
                            "files":  [
@@ -1953,6 +1964,11 @@ window.imagePacks = {
                            "name":  "Friend/IceCream",
                            "path":  "Friend/IceCream",
                            "files":  [
+                                         {
+                                             "fileName":  "5Sad Level 3 Random 1 All.gif",
+                                             "height":  270,
+                                             "width":  480
+                                         },
                                          {
                                              "fileName":  "icecream_1.-jpeg",
                                              "height":  575,
@@ -2067,6 +2083,17 @@ window.imagePacks = {
                                              "fileName":  "Pretzels.jpeg",
                                              "height":  401,
                                              "width":  600
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Stop_Hibari-Kun",
+                           "path":  "Friend/Stop_Hibari-Kun",
+                           "files":  [
+                                         {
+                                             "fileName":  "1Manga Level 3 Random 3 Male.gif",
+                                             "height":  374,
+                                             "width":  498
                                          }
                                      ]
                        },

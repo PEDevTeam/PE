@@ -326,7 +326,7 @@ window.playerCode={
 	heelsCheck: function() {
 		var s=this.isWearingOn(window.itemTypes.Shoes);
 		var player=State.active.variables.player;
-		if (s) {
+		if (s && s.heels) {
 			if (s.daringRec > 6) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
@@ -338,7 +338,7 @@ window.playerCode={
 				}
 				return false;
 			}
-			if (s.daringRec > 3) {
+			if (s.daringRec > 4) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;

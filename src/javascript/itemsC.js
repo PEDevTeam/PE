@@ -1100,7 +1100,7 @@ window.itemsC={
 		store: 6,
 		stolen: false,
 		surgery: false,
-		daringRec: 0,
+		daringRec: 7,
 		disabled: true,
 		cost: 0,
 		image: "heeled_cheer_sneakers.jpg"
