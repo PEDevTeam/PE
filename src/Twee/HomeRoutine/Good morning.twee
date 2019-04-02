@@ -374,10 +374,21 @@
 	
 	"Now, be a good boy and make breakfast while I go take a shower.
 	
-	"Oh, and before you go - one more thing: we can start calling you something more suited to your new 'preferences,' if you'd like. I'll tell $teacher and your therapist you've chosen a new name, if that's your decision."@@
-	
-	[[Pick a new name|Renaming yourself][$random.stored=0]]
-	[[Just go prepare breakfast|Have breakfast]]
+	"Oh, and before you go - one more thing:@@\
+	<<if $cheerleaders.active>>\
+		@@.guardian;$teacher told me that you've been going by $cheerleaders.fakeName at school. Since you seem unhappy with your given name, I think we should start calling you $cheerleaders.fakeName at home too."@@
+		
+		You briefly consider making an objection, but ultimately decide to just accept it. <<if $cheerleaders.progress > 3>>You're actually kind of used to it by this point anyways.<<endif>>
+		
+		<<set $player.name to $cheerleaders.fakeName>>\
+		<<set $player.femaleName to true>>\
+		[[Go prepare breakfast|Have breakfast]]
+	<<else>>\
+		@@.guardian;we can start calling you something more suited to your new 'preferences,' if you'd like. I'll tell $teacher and your therapist you've chosen a new name, if that's your decision."@@
+		
+		[[Pick a new name|Renaming yourself][$random.stored=0]]
+		[[Just go prepare breakfast|Have breakfast]]
+	<<endif>>\
 	<!--</morning after strapon scene or upload or DD breasts>-->\
 <<elseif $flags.boyfriendCaught and ($player.perversion.guardian eq 5)>>\
 	<!--<talk about BF>-->\

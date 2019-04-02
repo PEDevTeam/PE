@@ -17270,7 +17270,8 @@ You look at her, confused. Her voice gets deadly serious.
 	Her voice returns to a more chipper tone. @@.cheerCaptain;“Good. I expect to see you next Tuesday. Don’t be late.”@@
 
 	Rachel walks off, leaving you on the ground. Once your muscles finally recover, you go grab your book bag.
-
+	
+	&lt;&lt;set $cheerleaders.fakeName = $player.name&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 	&lt;&lt;set $cheerleaders.progress++&gt;&gt;\
 	&lt;&lt;display [[Travel]]&gt;&gt;
@@ -17413,6 +17414,8 @@ She thrusts out her hand.
 
 [[“My name is…”|Naming CheerFriend][$random.stored = 0]]</tw-passagedata><tw-passagedata pid="17" name="Cheer Ep1 Sc3" tags="" position="850,225">\
 &lt;&lt;RandomImageFromPack &quot;Cheerleader Bench&quot; 400 400 &quot;alignRight&quot;&gt;&gt;\
+@@.heroT;&quot;I&#39;m $cheerleaders.fakeName.&quot;@@
+
 You limply shake her hand, still trying to catch your breath, and she takes the opportunity to plop down next to you.
 
 @@.cheerFriend;“I can’t believe Rachel didn’t tell us we had a new girl on the squad. This is great. It kinda sucks being the only rookie. I feel like I’m like years behind the other girls. They keep making me do like stretches and stuff while they work on really advanced moves. It’s kinda like I’m stuck in a squad all by myself. Of course, now that you’re here we can practice together, which will be waaay better than just doing yoga poses by myself. ”@@
@@ -20088,7 +20091,7 @@ She giggles. @@.cheerFriend;“Well, I’ve got your surprise.”@@ She shrugs e
 
 	@@.cheerFriend;“I saw what &lt;&lt;if $kink.incest&gt;&gt;your mom&lt;&lt;else&gt;&gt;your babysitter&lt;&lt;endif&gt;&gt; put in your lunch the other day, and got inspired. This place’s strawberry cupcakes are like my favorite food ever. I hope you like them too.”@@
 
-	You thank $cheerFriend.name and take the pastel treat, noticing she pulls a matching cupcake from behind her back as she sits down next to you. You sniff at the cupcake, noting that it smells faintly like $yourguardian’s favorite shampoo. Cautiously, you take a bite, and your mouth is filled with an explosion of sweet strawberry flavor. You let out a quiet moan of decadence, enjoying the rich sweetness of the confection.
+	You thank $cheerFriend.name and take the pastel treat, noticing she pulls a matching cupcake from behind her back as she sits down next to you. You sniff at the cupcake, noting that it smells faintly like $guardian’s favorite shampoo. Cautiously, you take a bite, and your mouth is filled with an explosion of sweet strawberry flavor. You let out a quiet moan of decadence, enjoying the rich sweetness of the confection.
 
 	You and $cheerFriend.name both sit quietly for a moment, noshing away while a bright, poppy tune plays through the mall’s sound system. You unconsciously hum along to the earworm, noticing as you look to your right that $cheerFriend.name is quietly singing along to the words.
 
@@ -38939,10 +38942,21 @@ You grab your phone and give your muscles one last stretch before walking inside
 	
 	&quot;Now, be a good boy and make breakfast while I go take a shower.
 	
-	&quot;Oh, and before you go - one more thing: we can start calling you something more suited to your new &#39;preferences,&#39; if you&#39;d like. I&#39;ll tell $teacher and your therapist you&#39;ve chosen a new name, if that&#39;s your decision.&quot;@@
-	
-	[[Pick a new name|Renaming yourself][$random.stored=0]]
-	[[Just go prepare breakfast|Have breakfast]]
+	&quot;Oh, and before you go - one more thing:@@\
+	&lt;&lt;if $cheerleaders.active&gt;&gt;\
+		@@.guardian;$teacher told me that you&#39;ve been going by $cheerleaders.fakeName at school. Since you seem unhappy with your given name, I think we should start calling $cheerleaders.fakeName that at home too.&quot;@@
+		
+		You briefly consider making an objection, but ultimately decide to just accept it. &lt;&lt;if $cheerleaders.progress &gt; 3&gt;&gt;You&#39;re actually kind of used to it by this point anyways.&lt;&lt;endif&gt;&gt;
+		
+		&lt;&lt;set $player.name to $cheerleaders.fakeName&gt;&gt;\
+		&lt;&lt;set $player.femaleName to true&gt;&gt;\
+		[[Go prepare breakfast|Have breakfast]]
+	&lt;&lt;else&gt;&gt;\
+		@@.guardian;we can start calling you something more suited to your new &#39;preferences,&#39; if you&#39;d like. I&#39;ll tell $teacher and your therapist you&#39;ve chosen a new name, if that&#39;s your decision.&quot;@@
+		
+		[[Pick a new name|Renaming yourself][$random.stored=0]]
+		[[Just go prepare breakfast|Have breakfast]]
+	&lt;&lt;endif&gt;&gt;\
 	&lt;!--&lt;/morning after strapon scene or upload or DD breasts&gt;--&gt;\
 &lt;&lt;elseif $flags.boyfriendCaught and ($player.perversion.guardian eq 5)&gt;&gt;\
 	&lt;!--&lt;talk about BF&gt;--&gt;\
@@ -40717,6 +40731,7 @@ What&#39;s your new name?
 		[[Try again|Renaming yourself][$random.stored=0]]
 	&lt;&lt;else&gt;&gt;\
 		&lt;&lt;set $player.name to $player.name.toProperCase()&gt;&gt;\
+		&lt;&lt;set $player.femaleName to true&gt;&gt;\
 		Your new name is $player.name.
 		
 		[[Get up and prepare breakfast|Have breakfast]]
@@ -41019,14 +41034,14 @@ What&#39;s your new name?
 					&lt;&lt;set _tf=5&gt;&gt;\
 					&lt;&lt;set _before to _before + &quot;The chastity cage feels uncomfortable and you find it hard to relax with it on. &quot;&gt;&gt;\
 					&lt;&lt;if _b&gt;&gt;\
-						&lt;&lt;set _before to _before + &quot;Buttplug in your anus only makes things worse, keeping you stimulated as you penis is locked away. &quot;&gt;&gt;\
+						&lt;&lt;set _before to _before + &quot;The buttplug in your anus only makes things worse, keeping you stimulated as you penis is locked away. &quot;&gt;&gt;\
 					&lt;&lt;endif&gt;&gt;\
 				&lt;&lt;elseif $player.exp.chastityExp eq 1&gt;&gt;\
 					&lt;&lt;set _tt=8&gt;&gt;\
 					&lt;&lt;set _tf=5&gt;&gt;\
 					&lt;&lt;set _before to _before + &quot;You just can&#39;t get completely used to the chastity cage, although it does seem a little less troublesome easier tonight. &quot;&gt;&gt;\
 					&lt;&lt;if _b&gt;&gt;\
-						&lt;&lt;set _before to _before + &quot;Buttplug in your anus keeps distracting you, stimulating your insides each time you move. &quot;&gt;&gt;\
+						&lt;&lt;set _before to _before + &quot;The buttplug in your anus keeps distracting you, stimulating your insides each time you move. &quot;&gt;&gt;\
 					&lt;&lt;endif&gt;&gt;\
 				&lt;&lt;elseif $player.exp.chastityExp eq 2&gt;&gt;\
 					&lt;&lt;set _tt=5&gt;&gt;\
