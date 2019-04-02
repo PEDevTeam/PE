@@ -76,7 +76,11 @@
 
 		$friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
 	<<scene>>\
-		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
+		<<if $friendG.gender eq 'F'>>\
+			<<RandomImageFromPack 'Friend/Himegoto' 400 400 alignRight>>\
+		<<else>>\
+			<<RandomImageFromPack 'Friend/Stop_Hibari-Kun' 400 400 alignRight>>\
+		<<endif>>\
 		<<if _outerwear.female>>\
 			You snuggle back on the couch, pulling your legs up to tuck underneath you and arranging your skirt to cover your\
 			<<if _stockings>>stocking tops.<<else>>thighs.<<endif>>
