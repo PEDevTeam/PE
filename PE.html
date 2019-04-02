@@ -5256,7 +5256,7 @@ window.itemsC={
 		store: 6,
 		stolen: false,
 		surgery: false,
-		daringRec: 0,
+		daringRec: 7,
 		disabled: true,
 		cost: 0,
 		image: "heeled_cheer_sneakers.jpg"
@@ -8875,7 +8875,7 @@ window.playerCode={
 	heelsCheck: function() {
 		var s=this.isWearingOn(window.itemTypes.Shoes);
 		var player=State.active.variables.player;
-		if (s) {
+		if (s && s.heels) {
 			if (s.daringRec > 6) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
@@ -8887,7 +8887,7 @@ window.playerCode={
 				}
 				return false;
 			}
-			if (s.daringRec > 3) {
+			if (s.daringRec > 4) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -17414,8 +17414,6 @@ She thrusts out her hand.
 
 [[“My name is…”|Naming CheerFriend][$random.stored = 0]]</tw-passagedata><tw-passagedata pid="17" name="Cheer Ep1 Sc3" tags="" position="850,225">\
 &lt;&lt;RandomImageFromPack &quot;Cheerleader Bench&quot; 400 400 &quot;alignRight&quot;&gt;&gt;\
-@@.heroT;&quot;I&#39;m $cheerleaders.fakeName.&quot;@@
-
 You limply shake her hand, still trying to catch your breath, and she takes the opportunity to plop down next to you.
 
 @@.cheerFriend;“I can’t believe Rachel didn’t tell us we had a new girl on the squad. This is great. It kinda sucks being the only rookie. I feel like I’m like years behind the other girls. They keep making me do like stretches and stuff while they work on really advanced moves. It’s kinda like I’m stuck in a squad all by myself. Of course, now that you’re here we can practice together, which will be waaay better than just doing yoga poses by myself. ”@@
@@ -19248,8 +19246,8 @@ On top of that, Ashley said that I need to “fill the uniform out properly…�
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
-[[Pick bag number one|Cheer Ep5 Sc11][$cheerleaders.flags.slutUniform = 1]]
-[[Pick bag number two|Cheer Ep5 Sc11][$cheerleaders.flags.slutUniform = 2]]</tw-passagedata><tw-passagedata pid="66" name="Cheer Ep5 Sc11" tags="" position="725,850">You grab the bag from &lt;&lt;if $cheerleaders.flags.slutUniform&gt;&gt;Heather’s&lt;&lt;else&gt;&gt;Veronica’s&lt;&lt;endif&gt;&gt; hands and Ashley smiles.
+[[Pick bag number one|Cheer Ep5 Sc11][$cheerleaders.flags.slutUniform = 0]]
+[[Pick bag number two|Cheer Ep5 Sc11][$cheerleaders.flags.slutUniform = 1]]</tw-passagedata><tw-passagedata pid="66" name="Cheer Ep5 Sc11" tags="" position="725,850">You grab the bag from &lt;&lt;if $cheerleaders.flags.slutUniform == 0&gt;&gt;Heather’s&lt;&lt;else&gt;&gt;Veronica’s&lt;&lt;endif&gt;&gt; hands and Ashley smiles.
 
 @@.cheerBitch;“Good choice.
 
@@ -31167,7 +31165,7 @@ You look at $friend and blink. Did $friendG.he_she really just ask me what type�
 
 	@@.friend;&quot;Hi, come in!&quot;@@
 &lt;&lt;scene&gt;&gt;\
-	As you turn the corner, you can see $bully and $friendG.his_her cohorts up the street, much to your annoyance. You act fast and pull out your phone, discovering a side road which will bring you out just the other side of $friend’s mansion. It will take a couple more minutes, but at least you will be safe. With a sigh, you head towards the side road and manage to avoid the bane of your school life.
+	As you turn the corner, you can see $bully and $futa.his_her cohorts up the street, much to your annoyance. You act fast and pull out your phone, discovering a side road which will bring you out just the other side of $friend’s mansion. It will take a couple more minutes, but at least you will be safe. With a sigh, you head towards the side road and manage to avoid the bane of your school life.
 
 	@@.friend;&quot;Hi, come in!&quot;@@
 &lt;&lt;scene&gt;&gt;\
@@ -32027,7 +32025,11 @@ You open up the large unit and look down the array of games. You used to enjoy s
 
 		$friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
 	&lt;&lt;scene&gt;&gt;\
-		&lt;&lt;RandomImageFromPack &#39;Friend/MangaCovers&#39; 400 400 alignRight&gt;&gt;\
+		&lt;&lt;if $friendG.gender eq &#39;F&#39;&gt;&gt;\
+			&lt;&lt;RandomImageFromPack &#39;Friend/Himegoto&#39; 400 400 alignRight&gt;&gt;\
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;RandomImageFromPack &#39;Friend/Stop_Hibari-Kun&#39; 400 400 alignRight&gt;&gt;\
+		&lt;&lt;endif&gt;&gt;\
 		&lt;&lt;if _outerwear.female&gt;&gt;\
 			You snuggle back on the couch, pulling your legs up to tuck underneath you and arranging your skirt to cover your\
 			&lt;&lt;if _stockings&gt;&gt;stocking tops.&lt;&lt;else&gt;&gt;thighs.&lt;&lt;endif&gt;&gt;
@@ -38944,7 +38946,7 @@ You grab your phone and give your muscles one last stretch before walking inside
 	
 	&quot;Oh, and before you go - one more thing:@@\
 	&lt;&lt;if $cheerleaders.active&gt;&gt;\
-		@@.guardian;$teacher told me that you&#39;ve been going by $cheerleaders.fakeName at school. Since you seem unhappy with your given name, I think we should start calling $cheerleaders.fakeName that at home too.&quot;@@
+		@@.guardian;$teacher told me that you&#39;ve been going by $cheerleaders.fakeName at school. Since you seem unhappy with your given name, I think we should start calling you $cheerleaders.fakeName at home too.&quot;@@
 		
 		You briefly consider making an objection, but ultimately decide to just accept it. &lt;&lt;if $cheerleaders.progress &gt; 3&gt;&gt;You&#39;re actually kind of used to it by this point anyways.&lt;&lt;endif&gt;&gt;
 		
@@ -51906,7 +51908,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	@@.hero;What the hell??!!@@
 	&lt;&lt;endif&gt;&gt;\
 		
-	*Click* *Click* @@.coach;&quot;Yeah that’s great!&quot;@@ You gasp in surprise, you weren’t supposed to be photographed in this position! Exposing your ass and underwear! 
+	*Click* *Click* @@.coach;&quot;Yeah that’s great!&quot;@@ You gasp in surprise, you weren’t supposed to be photographed in this position! Exposing your ass&lt;&lt;if _u&gt;&gt; and underwear&lt;&lt;endif&gt;&gt;! 
 	
 	@@.coach;&quot;Oh, sissy,&quot;@@ $futa.he_she continues to say with a much heavier voice, @@.coach;&quot;This shoot is great. Don’t be so damn shy! Smile!&quot;@@
 	
