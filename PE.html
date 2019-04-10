@@ -12064,7 +12064,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.player.punishments.penalty >= 2 || State.active.variables.kink.degradation);
+			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.player.punishments.penalty >= 2 || State.active.variables.kinkAllow.whoring);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -12527,7 +12527,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.kink.urineDrink) && (!State.active.variables.kink.futa);
+			return (State.active.variables.kinkAllow.urineDrink) && (!State.active.variables.kink.futa);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -14416,7 +14416,7 @@ window.teacherPunishments = {
 		priority:	0,
 		baseReq:	{ teacher: [0, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 6] },
 		extraReq:	function () {
-					return State.active.variables.kink.footFetish;
+					return State.active.variables.kinkAllow.footFetish;
 				},
 		cooldown:	1,
 		start:		function () {},
@@ -14434,7 +14434,7 @@ window.teacherPunishments = {
 		priority:	0,
 		baseReq:	{ teacher: [0, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 6] },
 		extraReq:	function () {
-					return State.active.variables.kink.shoeBoot;
+					return State.active.variables.kinkAllow.shoeBoot;
 				},
 		cooldown:	1,
 		start:		function () {},
@@ -14490,7 +14490,7 @@ window.teacherPunishments = {
 		priority:	5,
 		baseReq:	{ teacher: [0, 10], guardian: [0, 10], therapist: [0, 10], penalties: [0, 10] },
 		extraReq:	function () {
-					return State.active.variables.kink.penisShrink && (!(State.active.variables.body.penisShrink == 1));
+					return State.active.variables.kinkAllow.penisShrink && (!(State.active.variables.body.penisShrink == 1));
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14709,7 +14709,7 @@ window.teacherPunishments = {
 		priority:	2,
 		baseReq:	{ teacher: [8, 10], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
 		extraReq:	function () {
-					return State.active.variables.kink.tattoo && (State.active.variables.body.permMakeup <= 3);
+					return State.active.variables.kinkAllow.tattoo && (State.active.variables.body.permMakeup <= 3);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14893,7 +14893,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [0, 6], guardian: [0, 10], therapist: [0, 10], penalties: [2, 6] },
 		extraReq:	function () {
-					return State.active.variables.kink.tattoo && (!playerCode.owns(itemsC.tattooBunny));
+					return State.active.variables.kinkAllow.tattoo && (!playerCode.owns(itemsC.tattooBunny));
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14911,7 +14911,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [3, 7] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooButterfly)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooButterfly)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14929,7 +14929,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [4, 7] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooStockings)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooStockings)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14947,7 +14947,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [6, 10] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooStupidWhore)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooStupidWhore)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14965,7 +14965,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [6, 9] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooSlut)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooSlut)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -14983,7 +14983,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [6, 9] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooSissy)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooSissy)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15001,7 +15001,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [6, 9] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.tattooHeart)) && State.active.variables.kink.tattoo;
+					return (!playerCode.owns(itemsC.tattooHeart)) && State.active.variables.kinkAllow.tattoo;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15020,7 +15020,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [5, 10], guardian: [0, 10], therapist: [0, 10], penalties: [4, 8] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.PiercingTongue)) && State.active.variables.kink.piercing;
+					return (!playerCode.owns(itemsC.PiercingTongue)) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15038,7 +15038,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [5, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.PiercingNipples)) && State.active.variables.kink.piercing;
+					return (!playerCode.owns(itemsC.PiercingNipples)) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15056,7 +15056,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.PiercingLips)) && State.active.variables.kink.piercing;
+					return (!playerCode.owns(itemsC.PiercingLips)) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15074,7 +15074,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.PiercingBelly)) && State.active.variables.kink.piercing;
+					return (!playerCode.owns(itemsC.PiercingBelly)) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15092,7 +15092,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
-					return (!playerCode.owns(itemsC.PiercingNose)) && State.active.variables.kink.piercing;
+					return (!playerCode.owns(itemsC.PiercingNose)) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -15700,7 +15700,7 @@ window.therapistTalks={
 		time: 20,
 		start: false,
 		check: function() {
-			return State.active.variables.kink.penisShrink;
+			return State.active.variables.kinkAllow.penisShrink;
 		}
 	}
 },
@@ -15750,6 +15750,12 @@ window.kinks= [
 			State.active.variables.kink.cumEating = false;
 			State.active.variables.kink.ownCum = false;
 			State.active.variables.kink.cumSwap = false;
+			State.active.variables.kinkAllow.semenConsumption = false;
+			State.active.variables.kinkAllow.creampie = false;
+			State.active.variables.kinkAllow.bukkake = false;
+			State.active.variables.kinkAllow.cumEating = false;
+			State.active.variables.kinkAllow.ownCum = false;
+			State.active.variables.kinkAllow.cumSwap = false;
 			State.active.variables.dreams.CumCake.active=false; 
 		}
 	},
@@ -15792,6 +15798,10 @@ window.kinks= [
 			State.active.variables.kink.wetting = false;
 			State.active.variables.kink.urineDrink = false;
 			State.active.variables.kink.urinePlay = false;
+			State.active.variables.kinkAllow.watersports = false;
+			State.active.variables.kinkAllow.wetting = false;
+			State.active.variables.kinkAllow.urineDrink = false;
+			State.active.variables.kinkAllow.urinePlay = false;
 			State.active.variables.dreams.PissHypno.active=false;
 		}
 	},
@@ -15831,6 +15841,9 @@ window.kinks= [
 			State.active.variables.kink.smallPenis = false;
 			State.active.variables.kink.penisShrink = false;
 			State.active.variables.kink.sph = false;
+			State.active.variables.kinkAllow.smallPenis = false;
+			State.active.variables.kinkAllow.penisShrink = false;
+			State.active.variables.kinkAllow.sph = false;
 		}
 	},
 	{
@@ -15876,6 +15889,12 @@ window.kinks= [
 			State.active.variables.kink.bondage = false;
 			State.active.variables.kink.facesit = false;
 			State.active.variables.kink.trampling = false;
+			State.active.variables.kinkAllow.bdsm = false;
+			State.active.variables.kinkAllow.painPlay = false;
+			State.active.variables.kinkAllow.petPlay = false;
+			State.active.variables.kinkAllow.bondage = false;
+			State.active.variables.kinkAllow.facesit = false;
+			State.active.variables.kinkAllow.trampling = false;
 		}
 	},
 	{
@@ -15920,6 +15939,12 @@ window.kinks= [
 			State.active.variables.kink.hosiery = false;
 			State.active.variables.kink.shoeBoot = false;
 			State.active.variables.kink.footjob = false;
+			State.active.variables.kinkAllow.footFetish = false;
+			State.active.variables.kinkAllow.footDisplay = false;
+			State.active.variables.kinkAllow.footWorship = false;
+			State.active.variables.kinkAllow.hosiery = false;
+			State.active.variables.kinkAllow.shoeBoot = false;
+			State.active.variables.kinkAllow.footjob = false;
 		}
 	},
 	{
@@ -15966,6 +15991,12 @@ window.kinks= [
 			State.active.variables.kink.armpitOdor = false;
 			State.active.variables.kink.assOdor = false;
 			State.active.variables.kink.genitalOdor = false;
+			State.active.variables.kinkAllow.clothesOdor = false;
+			State.active.variables.kinkAllow.shoeSockOdor = false;
+			State.active.variables.kinkAllow.footOdor = false;
+			State.active.variables.kinkAllow.armpitOdor = false;
+			State.active.variables.kinkAllow.assOdor = false;
+			State.active.variables.kinkAllow.genitalOdor = false;
 		}
 	},
 	{
@@ -16018,6 +16049,15 @@ window.kinks= [
 			State.active.variables.kink.questionable = false;
 			State.active.variables.kink.tattoo = false;
 			State.active.variables.kink.piercing = false;
+			State.active.variables.kinkAllow.curse = false;
+			State.active.variables.kinkAllow.whoring = false;
+			State.active.variables.kinkAllow.bimbo = false;
+			State.active.variables.kinkAllow.spitting = false;
+			State.active.variables.kinkAllow.abusive = false;
+			State.active.variables.kinkAllow.mindControl = false;
+			State.active.variables.kinkAllow.questionable = false;
+			State.active.variables.kinkAllow.tattoo = false;
+			State.active.variables.kinkAllow.piercing = false;
 		}
 	},
 	{
@@ -16058,6 +16098,10 @@ window.kinks= [
 			State.active.variables.kink.diapering = false;
 			State.active.variables.kink.adultBaby = false;
 			State.active.variables.kink.ageBehavior = false;
+			State.active.variables.kinkAllow.agePlay = false;
+			State.active.variables.kinkAllow.diapering = false;
+			State.active.variables.kinkAllow.adultBaby = false;
+			State.active.variables.kinkAllow.ageBehavior = false;
 		}
 	},
 	{
@@ -16106,6 +16150,13 @@ window.kinks= [
 			State.active.variables.kink.tall = false;
 			State.active.variables.kink.muscle = false;
 			State.active.variables.kink.expansionWeight = false;
+			State.active.variables.kinkAllow.bbw = false;
+			State.active.variables.kinkAllow.hyperBreasts = false;
+			State.active.variables.kinkAllow.hyperPenis = false;
+			State.active.variables.kinkAllow.dwarf = false;
+			State.active.variables.kinkAllow.tall = false;
+			State.active.variables.kinkAllow.muscle = false;
+			State.active.variables.kinkAllow.expansionWeight = false;
 		}
 	},
 	{
@@ -16148,6 +16199,10 @@ window.kinks= [
 			State.active.variables.kink.leather = false;
 			State.active.variables.kink.nylon = false;
 			State.active.variables.kink.frilly = false;
+			State.active.variables.kinkAllow.latex = false;
+			State.active.variables.kinkAllow.leather = false;
+			State.active.variables.kinkAllow.nylon = false;
+			State.active.variables.kinkAllow.frilly = false;
 		}
 	},
 	{
@@ -17725,6 +17780,7 @@ You and Rachel say your goodbyes and you go your separate ways. As you walk back
 &lt;&lt;/switch&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
 &lt;&lt;set $cheerleaders.progress +=1&gt;&gt;\
+&lt;&lt;set $cheerleaders.active = false&gt;&gt;\
 
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Cheer Ep1 Sc8" tags="" position="475,350">&lt;&lt;if $version == &quot;unhappy&quot;&gt;&gt;\
     @@.heroT;“Don’t you have anything better I can do?”@@ you ask. @@.heroT;“I was hoping for something a little more glamorous than towel girl.”@@
@@ -17797,6 +17853,7 @@ You look down at the laundry bag next to your feet. With a grunt, you sling it o
 &lt;&lt;/switch&gt;&gt;\
 &lt;&lt;set $cheerleaders.progress++&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Naming CheerFriend" tags="" position="600,350">\
 &lt;&lt;if $random.stored eq 0&gt;&gt;\
 What is the cute girl&#39;s name?
@@ -18148,6 +18205,7 @@ The mention of your own uniform and a place on the team steels your resolve. Not
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $cheerleaders.progress = 2&gt;&gt;\
 &lt;&lt;set $time.addMinutes(60)&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Cheer Ep3 Pre1" tags="" position="975,475">&lt;&lt;RandomImageFromPack &quot;Cheerleader Rain School&quot; 400 400 &quot;alignRight&quot;&gt;&gt;\
 \
@@ -18490,6 +18548,7 @@ You feel exhausted, frustrated, and humiliated. You know you let $cheerFriend.na
 &lt;&lt;set $cheerleaders.active = false&gt;&gt;\
 &lt;&lt;set $cheerleaders.progress = 3&gt;&gt;\
 &lt;&lt;set $cheerleaders.rainyDay = false&gt;&gt;\
+&lt;&lt;set $player.fitness+=1&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Cheer Ep3 Sc8" tags="" position="100,725">Your legs have recovered some of their strength by the time you make it back to the gym. The squad quickly rushes to the showers, desperate to wash off the mud covering their bodies. 
 
 Rachel examines you sitting against the wall with a bemused smirk. @@.cheerCaptain;“You’re quite a mess,”@@ she says.
@@ -18610,6 +18669,7 @@ You check your bags, then exit the gym. Thankfully, the rain has stopped, and ra
 &lt;&lt;set $cheerleaders.progress = 3&gt;&gt;\
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 \
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="Cheer Ep4 Sc1" tags="" position="350,725">\
 You meet Rachel in the gym before practice.
@@ -18709,6 +18769,7 @@ $cheerFriend.name glares at you with a look of feigned irritation.
 &lt;&lt;set $cheerleaders.progress = 4&gt;&gt;\
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Cheer Ep4 Sc2" tags="" position="600,725">\
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader Exercising&quot; 400 400&gt;&gt;&lt;/div&gt;\
 Today’s conditioning is nowhere near as strenuous as last practice, and though you’re straining and sweaty, you find yourself keeping up with the rest of the squad.
@@ -19259,9 +19320,9 @@ On top of that, Ashley said that I need to “fill the uniform out properly…�
 
 @@.cheerBitch;“Athleticism is based purely on how strong your moves look and how long your stamina seems to be.”@@ Ashley places extra emphasis on stamina, and you doubt she’s just talking about how long you can run. @@.cheerBitch;“Of course, there’s not much you can do to fix your lazy habits before tomorrow. So, I hope you’ve been keeping up with your conditioning outside of practice.”@@
 
-&lt;&lt;if $player.fitness &lt;= 5&gt;&gt;\
+&lt;&lt;if $player.fitness &lt;= 7&gt;&gt;\
 	@@.hero;Damn it. I knew I should’ve been working out between practices.@@
-&lt;&lt;elseif $player.fitness &lt;= 10&gt;&gt;\
+&lt;&lt;elseif $player.fitness &lt;= 11&gt;&gt;\
 	@@.hero;Well, I’ve been working out a bit between practices. Maybe that’ll count for something.@@
 &lt;&lt;else&gt;&gt;\
 	@@.hero;Good thing I’ve been working out between practices.@@
@@ -19347,6 +19408,7 @@ Sighing, you keep walking to your destination.
 &lt;&lt;set $cheerleaders.progress = 5&gt;&gt;\
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="Cheer Ep5 Sc12b" tags="" position="975,850">You shove the paper into your pocket.  Ashley may want you to learn the cheer, but that doesn’t mean you have to give in to her every demand right away.  Besides, you can always study the cheer later.  
 
 You sigh deeply and start trudging towards your house, already dreading what Ashley has planned for you tomorrow.
@@ -19354,6 +19416,7 @@ You sigh deeply and start trudging towards your house, already dreading what Ash
 &lt;&lt;set $cheerleaders.progress = 5&gt;&gt;\
 &lt;&lt;set $time.addMinutes(75)&gt;&gt;\
 &lt;&lt;set $player.fitness += 1&gt;&gt;\
+&lt;&lt;set $cheerleaders.canPractice to false&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="69" name="Cheer Ep5 Sc2" tags="" position="1100,850">You look over at Lauren, but she just nods her head at you, indicating she’d rather you go first. 
 
 &lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Cheerleader upside down&quot; 400 400&gt;&gt;&lt;/div&gt;\
@@ -19552,7 +19615,7 @@ Even Rachel seems impressed with your progress when she comes over to check on y
 
 @@.cheerFriend;“You idiot,”@@ she says with a chuckle. @@.cheerFriend;“You could have at least told me you were going to grab a mat. I could’ve helped you carry it.”@@
 
-You drop the mat to the &lt;&lt;if $player.fitness &lt;=5&gt;&gt;ground, breathing heavily.&lt;&lt;else&gt;&gt;ground.&lt;&lt;endif&gt;&gt; @@.heroT;“I just thought if things were safer, doing tricks might be easier.&quot;@@
+You drop the mat to the &lt;&lt;if $player.fitness &lt;=7&gt;&gt;ground, breathing heavily.&lt;&lt;else&gt;&gt;ground.&lt;&lt;endif&gt;&gt; @@.heroT;“I just thought if things were safer, doing tricks might be easier.&quot;@@
 
 @@.femvoice9;“Well,”@@ Sally says, @@.femvoice9;“usually stunts this simple don’t require a mat, but I think it might be helpful here. What do you think, Lauren?”@@
 
@@ -23326,10 +23389,8 @@ It is too late to do chores.
 	&lt;&lt;set $items.maidOutfit.ownAlt[1]=true&gt;&gt;\
 	&lt;&lt;addToInv &#39;stockingsLatex&#39; 39&gt;&gt;\
 	&lt;&lt;set $items.stockingsLatex.curAlt=39&gt;&gt;\
-	&lt;&lt;wearClothing &#39;stockingsLatex&#39;&gt;&gt;\
 	&lt;&lt;addToInv &#39;stilettoHeels&#39; 39&gt;&gt;\
 	&lt;&lt;set $items.stilettoHeels.curAlt=39&gt;&gt;\
-	&lt;&lt;wearClothing &#39;stilettoHeels&#39;&gt;&gt;\
 	You accept her suggestion you should wear the latex outfit on an everyday basis.
 	
 	Afterwards, you return to the car and endure a thrashing from the butt-plug as $guardian, hot and bothered, enjoys your squirming while she drives you both home. Finally, she releases you and hands you a few wrinkled bills as a reward.
@@ -23478,7 +23539,6 @@ It is too late to do chores.
 	&lt;&lt;set _re += _bonus&gt;&gt;\
 	&lt;&lt;set $flags.gTrialBalletHeels = true&gt;&gt;\
 	&lt;&lt;addToInv &#39;balletHeels&#39;&gt;&gt;\
-	&lt;&lt;wearClothing &#39;balletHeels&#39;&gt;&gt;\
 	You agree to add ballet heels to your maid uniform.
 	
 	Afterwards you return to the car and endure the torment of your butt-plug. $Guardian, hot and bothered, amuses herself with your squirming while she drives you both home. Finally, she releases you and hands you a small wad of bills as a reward.
@@ -24299,7 +24359,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	She pulls out your butt-plug and puts it on a tray near her.
 	&lt;&lt;endif&gt;&gt;\
 	She retrieves a familiar ball-gag from a case and puts it on you, locking your jaws in an open position.\
-	&lt;&lt;if $kink.painPlay&gt;&gt;\
+	&lt;&lt;if $kinkAllow.painPlay&gt;&gt;\
 		She retrieves a mean-looking riding crop and starts methodically whipping your butt and balls, extracting muffled whimpers.
 
 		@@.nurse;&quot;Oh, be quiet. I know you enjoy it, slut.&quot;@@
@@ -24382,7 +24442,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	&lt;&lt;endif&gt;&gt;\
 
 	She retrieves a familiar ball-gag from a case and puts it on you, locking your jaws in opened an position.\
-	&lt;&lt;if $kink.painPlay&gt;&gt;\
+	&lt;&lt;if $kinkAllow.painPlay&gt;&gt;\
 		She retrieves a mean-looking riding crop and starts methodically whipping your butt and balls, extracting muffled whimpers. @@.nurse;&quot;It is part of the service.&quot;@@ she isn&#39;t even trying to sound convincing this time.
 		
 		You cry in pain, but for some reason it feels appropriate and helps to loosen you up for the procedure.
@@ -24447,7 +24507,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	She pulls out your butt-plug and puts it on a tray near her.
 	&lt;&lt;endif&gt;&gt;\
 	She retrieves a familiar ball-gag from a case and puts it on you, locking your jaws in an open position.\
-	&lt;&lt;if $kink.painPlay&gt;&gt;\
+	&lt;&lt;if $kinkAllow.painPlay&gt;&gt;\
 		She retrieves a mean-looking riding crop and starts methodically whipping your butt and balls, extracting muffled whimpers.
 
 		@@.nurse;&quot;Oh, be quiet. I know you enjoy it, slut.&quot;@@
@@ -25130,7 +25190,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		@@.hero;It is so wrong... But I love it...@@
 	&lt;&lt;endif&gt;&gt;\
 	
-	&lt;&lt;if $kink.penisShrink&gt;&gt;\
+	&lt;&lt;if $kinkAllow.penisShrink&gt;&gt;\
 		@@.nurse;&quot;I bet it would look even better if it was shrunk more, don&#39;t you? Something to think about, I suppose.&quot;@@
 	&lt;&lt;else&gt;&gt;\
 		@@.nurse;&quot;I&#39;m sure that you will get used to it in no time.&quot;@@
@@ -32418,7 +32478,7 @@ Then just as you are about to go, $friendG.he_she pats your arm and says @@.frie
 &lt;&lt;scene&gt;&gt;\
 	$friend takes some time to appear and when $friendG.he_she finally opens the door $friendG.he_she looks flustered and a little dishevelled. Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs. You catch a glimpse of $friend tucking $friendG.him_her &lt;&lt;if $flags.friendIsMale&gt;&gt;shirt&lt;&lt;else&gt;&gt;top&lt;&lt;endif&gt;&gt; inside $friendG.his_her waistband in one of the many mirrors which line the hallway. You reach the top of the stairs and head into the bedroom.
 &lt;&lt;scene&gt;&gt;\
-	$friend looks a little surprised to see you standing on $friendG.his_her doorstep but immediately steps into the role of perfect &lt;&lt;if $friendG.gender eq &#39;M&#39;&gt;&gt;host&lt;&lt;else&gt;&gt;hostess&lt;&lt;endif&gt;&gt;. Offering to take your coat, which you aren’t wearing despite warnings of the weather, $friend gives you a quick &lt;&lt;if $friendG.gender eq &#39;M&#39;&gt;&gt;shoulder bump&lt;&lt;else&gt;&gt;hug&lt;&lt;endif&gt;&gt; and beckens you inside. You reach the top of the stairs and head into the bedroom.
+	$friend looks a little surprised to see you standing on $friendG.his_her doorstep but immediately steps into the role of perfect &lt;&lt;if $flags.friendIsMale&gt;&gt;host&lt;&lt;else&gt;&gt;hostess&lt;&lt;endif&gt;&gt;. Offering to take your coat, which you aren’t wearing despite warnings of the weather, $friend gives you a quick &lt;&lt;if $friendG.gender eq &#39;M&#39;&gt;&gt;shoulder bump&lt;&lt;else&gt;&gt;hug&lt;&lt;endif&gt;&gt; and beckens you inside. You reach the top of the stairs and head into the bedroom.
 &lt;&lt;/selectScene&gt;&gt;\
 
 &lt;&lt;if _outerwear.female&gt;&gt;\
@@ -33351,25 +33411,25 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;Semen consumption:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.semenConsumption&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.semenConsumption )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.semenConsumption )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.semenConsumption = not $kink.semenConsumption&gt;&gt;\
+&lt;&lt;set $kinkAllow.semenConsumption = not $kinkAllow.semenConsumption&gt;&gt;\
 &lt;&lt;set $kinkList = true&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
-&lt;&lt;if not $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;set $kink.creampie = false&gt;&gt;\
-	&lt;&lt;set $kink.bukkake = false&gt;&gt;\
-	&lt;&lt;set $kink.cumEating = false&gt;&gt;\
-	&lt;&lt;set $kink.ownCum = false&gt;&gt;\
-	&lt;&lt;set $kink.cumSwap = false&gt;&gt;\
+&lt;&lt;if not $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;set $kinkAllow.creampie = false&gt;&gt;\
+	&lt;&lt;set $kinkAllow.bukkake = false&gt;&gt;\
+	&lt;&lt;set $kinkAllow.cumEating = false&gt;&gt;\
+	&lt;&lt;set $kinkAllow.ownCum = false&gt;&gt;\
+	&lt;&lt;set $kinkAllow.cumSwap = false&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 
 &lt;&lt;set _kinkDesc = &quot;Creampie&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.creampie&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.creampie )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.creampie )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.creampie&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.creampie&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33377,10 +33437,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Bukkake&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.bukkake&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.bukkake )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.bukkake )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.bukkake&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.bukkake&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33388,10 +33448,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Cum eating&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.cumEating&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.cumEating )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.cumEating )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.cumEating&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.cumEating&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33399,10 +33459,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Own cum swallowing&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.ownCum&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.ownCum )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.ownCum )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.ownCum&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.ownCum&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33410,10 +33470,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Cumswapping&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.cumSwap&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.cumSwap )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.cumSwap )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.semenConsumption&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.cumSwap&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.semenConsumption&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.cumSwap&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33425,21 +33485,21 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame50;\
 &lt;&lt;set _kinkDesc = &quot;Watersports:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.watersports&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.watersports )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.watersports )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.watersports = not $kink.watersports&gt;&gt;\
-&lt;&lt;set $kink.wetting = false&gt;&gt;\
-&lt;&lt;set $kink.urineDrink = false&gt;&gt;\
-&lt;&lt;set $kink.urinePlay = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.watersports = not $kinkAllow.watersports&gt;&gt;\
+&lt;&lt;set $kinkAllow.wetting = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.urineDrink = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.urinePlay = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Wetting&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.wetting&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.wetting )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.wetting )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.watersports&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.wetting&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.watersports&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.wetting&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33447,10 +33507,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Urine drinking&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.urineDrink&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.urineDrink )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.urineDrink )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.watersports&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.urineDrink&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.watersports&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.urineDrink&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33458,10 +33518,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Urine play&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.urinePlay&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.urinePlay )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.urinePlay )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.watersports&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.urinePlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.watersports&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.urinePlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33472,20 +33532,20 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame50;\
 &lt;&lt;set _kinkDesc = &quot;Small penis:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.smallPenis&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.smallPenis )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.smallPenis )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.smallPenis = not $kink.smallPenis&gt;&gt;\
-&lt;&lt;set $kink.penisShrink = false&gt;&gt;\
-&lt;&lt;set $kink.sph = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.smallPenis = not $kinkAllow.smallPenis&gt;&gt;\
+&lt;&lt;set $kinkAllow.penisShrink = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.sph = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext2&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Penis shrinking&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.penisShrink&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.penisShrink )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.penisShrink )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.smallPenis&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.penisShrink&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.smallPenis&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.penisShrink&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33493,10 +33553,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;SPH&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.sph&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.sph )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.sph )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.smallPenis&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.sph&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.smallPenis&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.sph&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33507,24 +33567,24 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;BDSM:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.bdsm&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.bdsm )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.bdsm )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.bdsm = not $kink.bdsm&gt;&gt;\
-&lt;&lt;set $kink.painPlay = false&gt;&gt;\
-&lt;&lt;set $kink.xPain = false&gt;&gt;\
-&lt;&lt;set $kink.petPlay = false&gt;&gt;\
-&lt;&lt;set $kink.bondage = false&gt;&gt;\
-&lt;&lt;set $kink.facesit = false&gt;&gt;\
-&lt;&lt;set $kink.trampling = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.bdsm = not $kinkAllow.bdsm&gt;&gt;\
+&lt;&lt;set $kinkAllow.painPlay = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.xPain = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.petPlay = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.bondage = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.facesit = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.trampling = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Pain play&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.painPlay&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.painPlay )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.painPlay )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.painPlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.painPlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33532,10 +33592,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Extreme pain play&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.xPain&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.xPain )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.xPain )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.xPain&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.xPain&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33543,10 +33603,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Pet play&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.petPlay&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.petPlay )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.petPlay )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.petPlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.petPlay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33554,10 +33614,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Bondage&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.bondage&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.bondage )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.bondage )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.bondage&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.bondage&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33565,10 +33625,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Facesitting&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.facesit&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.facesit )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.facesit )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.facesit&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.facesit&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33576,10 +33636,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Trampling&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.trampling&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.trampling )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.trampling )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.trampling&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.trampling&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33590,23 +33650,23 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;Foot fetish:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.footFetish&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.footFetish )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.footFetish )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.footFetish = not $kink.footFetish&gt;&gt;\
-&lt;&lt;set $kink.footDisplay = false&gt;&gt;\
-&lt;&lt;set $kink.footWorship = false&gt;&gt;\
-&lt;&lt;set $kink.hosiery = false&gt;&gt;\
-&lt;&lt;set $kink.shoeBoot = false&gt;&gt;\
-&lt;&lt;set $kink.footjob = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.footFetish = not $kinkAllow.footFetish&gt;&gt;\
+&lt;&lt;set $kinkAllow.footDisplay = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.footWorship = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.hosiery = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.shoeBoot = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.footjob = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Foot display&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.footDisplay&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.footDisplay )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.footDisplay )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.footFetish&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.footDisplay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.footFetish&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.footDisplay&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33614,10 +33674,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Foot worship&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.footWorship&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.footWorship )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.footWorship )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.footFetish&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.footWorship&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.footFetish&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.footWorship&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33625,10 +33685,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Hosiery fetish&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.hosiery&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.hosiery )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.hosiery )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.footFetish&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.hosiery&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.footFetish&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.hosiery&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33636,10 +33696,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Shoe/boot fetish&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.shoeBoot&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.shoeBoot )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.shoeBoot )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.footFetish&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.shoeBoot&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.footFetish&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.shoeBoot&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33647,10 +33707,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Footjob&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.footjob&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.footjob )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.footjob )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.footFetish&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.footjob&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.footFetish&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.footjob&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33661,24 +33721,24 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;Sweat and intense body odors:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.odor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.odor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.odor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.odor = not $kink.odor&gt;&gt;\
-&lt;&lt;set $kink.clothesOdor = false&gt;&gt;\
-&lt;&lt;set $kink.shoeSockOdor = false&gt;&gt;\
-&lt;&lt;set $kink.footOdor = false&gt;&gt;\
-&lt;&lt;set $kink.armpitOdor = false&gt;&gt;\
-&lt;&lt;set $kink.assOdor = false&gt;&gt;\
-&lt;&lt;set $kink.genitalOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.odor = not $kinkAllow.odor&gt;&gt;\
+&lt;&lt;set $kinkAllow.clothesOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.shoeSockOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.footOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.armpitOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.assOdor = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.genitalOdor = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Clothes&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.clothesOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.clothesOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.clothesOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.clothesOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.clothesOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33686,10 +33746,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Shoes/socks&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.shoeSockOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.shoeSockOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.shoeSockOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.shoeSockOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.shoeSockOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33697,10 +33757,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Feet&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.footOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.footOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.footOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.footOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.footOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33708,10 +33768,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Armpits&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.armpitOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.armpitOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.armpitOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.armpitOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.armpitOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33719,10 +33779,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Ass&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.assOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.assOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.assOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.assOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.assOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33730,10 +33790,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Genitalia&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.genitalOdor&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.genitalOdor )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.genitalOdor )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.odor&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.genitalOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.odor&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.genitalOdor&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33744,27 +33804,27 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;Degradation:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.degradation&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.degradation )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.degradation )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.degradation = not $kink.degradation&gt;&gt;\
-&lt;&lt;set $kink.curse = false&gt;&gt;\
-&lt;&lt;set $kink.whoring = false&gt;&gt;\
-&lt;&lt;set $kink.bimbo = false&gt;&gt;\
-&lt;&lt;set $kink.spitting = false&gt;&gt;\
-&lt;&lt;set $kink.abusive = false&gt;&gt;\
-&lt;&lt;set $kink.mindControl = false&gt;&gt;\
-&lt;&lt;set $kink.questionable = false&gt;&gt;\
-&lt;&lt;set $kink.tattoo = false&gt;&gt;\
-&lt;&lt;set $kink.piercing = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.degradation = not $kinkAllow.degradation&gt;&gt;\
+&lt;&lt;set $kinkAllow.curse = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.whoring = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.bimbo = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.spitting = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.abusive = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.mindControl = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.questionable = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.tattoo = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.piercing = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Cursing&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.curse&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.curse )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.curse )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.curse&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.curse&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33772,10 +33832,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Whoring&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.whoring&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.whoring )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.whoring )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.whoring&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.whoring&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33783,10 +33843,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Bimbo&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.bimbo&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.bimbo )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.bimbo )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.bimbo&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.bimbo&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33794,10 +33854,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Spitting&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.spitting&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.spitting )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.spitting )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.spitting&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.spitting&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33805,10 +33865,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Abusive physical contact&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.abusive&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.abusive )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.abusive )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.abusive&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.abusive&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33816,10 +33876,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 
 &lt;&lt;set _kinkDesc = &quot;Tattoo&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.tattoo&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.tattoo )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.tattoo )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.tattoo&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.tattoo&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33827,10 +33887,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Piercing&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.piercing&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.piercing )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.piercing )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.piercing&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.piercing&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33838,10 +33898,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Mind control&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.mindControl&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.mindControl )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.mindControl )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.mindControl&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.mindControl&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33849,10 +33909,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Questionably consensual sex&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.questionable&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.questionable )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.questionable )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.degradation&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.questionable&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.degradation&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.questionable&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33863,21 +33923,21 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame50;\
 &lt;&lt;set _kinkDesc = &quot;Age play:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.agePlay&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.agePlay )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.agePlay )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.agePlay = not $kink.agePlay&gt;&gt;\
-&lt;&lt;set $kink.diapering = false&gt;&gt;\
-&lt;&lt;set $kink.adultBaby = false&gt;&gt;\
-&lt;&lt;set $kink.ageBehavior = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.agePlay = not $kinkAllow.agePlay&gt;&gt;\
+&lt;&lt;set $kinkAllow.diapering = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.adultBaby = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.ageBehavior = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext3&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Diapering&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.diapering&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.diapering )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.diapering )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.agePlay&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.diapering&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.agePlay&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.diapering&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33885,10 +33945,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Adult baby&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.adultBaby&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.adultBaby )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.adultBaby )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.agePlay&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.adultBaby&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.agePlay&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.adultBaby&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33896,10 +33956,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Age behavior&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.ageBehavior&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.ageBehavior )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.ageBehavior )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.agePlay&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.ageBehavior&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.agePlay&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.ageBehavior&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33910,22 +33970,22 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame50;\
 &lt;&lt;set _kinkDesc = &quot;Clothing:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.clothing&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.clothing )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.clothing )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.clothing = not $kink.clothing&gt;&gt;\
-&lt;&lt;set $kink.latex = false&gt;&gt;\
-&lt;&lt;set $kink.leather = false&gt;&gt;\
-&lt;&lt;set $kink.nylon = false&gt;&gt;\
-&lt;&lt;set $kink.frilly = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.clothing = not $kinkAllow.clothing&gt;&gt;\
+&lt;&lt;set $kinkAllow.latex = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.leather = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.nylon = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.frilly = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext4&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;Latex&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.latex&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.latex )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.latex )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.clothing&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.latex&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.clothing&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.latex&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33933,10 +33993,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Leather&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.leather&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.leather )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.leather )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.clothing&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.leather&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.clothing&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.leather&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33944,10 +34004,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Nylon&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.nylon&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.nylon )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.nylon )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.clothing&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.nylon&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.clothing&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.nylon&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33955,10 +34015,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Frilly&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.frilly&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.frilly )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.frilly )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.clothing&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.frilly&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.clothing&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.frilly&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -33970,25 +34030,25 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 @@.frame100;\
 &lt;&lt;set _kinkDesc = &quot;Xtreme proportions:&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.xBody&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.xBody )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.xBody )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;&lt;&lt;click &#39;&lt;&lt;checkbox &quot;_temp&quot; false true $scene&gt;&gt;&#39;&gt;&gt;&lt;&lt;replace &quot;#settingsList&quot;&gt;&gt;\
-&lt;&lt;set $kink.xBody = not $kink.xBody&gt;&gt;\
-&lt;&lt;set $kink.bbw = false&gt;&gt;\
-&lt;&lt;set $kink.hyperBreasts = false&gt;&gt;\
-&lt;&lt;set $kink.hyperPenis = false&gt;&gt;\
-&lt;&lt;set $kink.dwarf = false&gt;&gt;\
-&lt;&lt;set $kink.tall = false&gt;&gt;\
-&lt;&lt;set $kink.muscle = false&gt;&gt;\
-&lt;&lt;set $kink.expansionWeight = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.xBody = not $kinkAllow.xBody&gt;&gt;\
+&lt;&lt;set $kinkAllow.bbw = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.hyperBreasts = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.hyperPenis = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.dwarf = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.tall = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.muscle = false&gt;&gt;\
+&lt;&lt;set $kinkAllow.expansionWeight = false&gt;&gt;\
 &lt;&lt;set $scene = &quot;kinkList&quot;&gt;&gt;\
 &lt;&lt;display &quot;SettingsKinks&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext3&quot;&gt;&lt;&lt;print _tooltip&gt;&gt;&lt;/span&gt;&lt;/div&gt; \
 
 &lt;&lt;set _kinkDesc = &quot;BBW&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.bbw&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.bbw )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.bbw )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.bbw&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.bbw&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -33996,10 +34056,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Hyper breasts&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.hyperBreasts&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.hyperBreasts )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.hyperBreasts )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.hyperBreasts&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.hyperBreasts&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -34007,10 +34067,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Hyper penis&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.hyperPenis&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.hyperPenis )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.hyperPenis )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.hyperPenis&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.hyperPenis&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -34018,10 +34078,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Dwarfism&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.dwarf&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.dwarf )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.dwarf )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.dwarf&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.dwarf&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -34029,10 +34089,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Tall&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.tall&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.tall )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.tall )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.tall&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.tall&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -34040,10 +34100,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Muscular&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.muscle&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.muscle )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.muscle )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.muscle&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.muscle&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; \
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt; &amp;#9702; @@\
 &lt;&lt;endif&gt;&gt;\
@@ -34051,10 +34111,10 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 \
 &lt;&lt;set _kinkDesc = &quot;Weight gain&quot;&gt;&gt;\
 &lt;&lt;set _tooltip = window.kinkTooltip.expansionWeight&gt;&gt;\
-&lt;&lt;set $scene = window.misc.toggleKink( $kink.expansionWeight )&gt;&gt;\
+&lt;&lt;set $scene = window.misc.toggleKink( $kinkAllow.expansionWeight )&gt;&gt;\
 &lt;div class=&quot;tooltip&quot;&gt;\
-&lt;&lt;if $kink.xBody&gt;&gt;\
-	&lt;&lt;checkbox &quot;$kink.expansionWeight&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
+&lt;&lt;if $kinkAllow.xBody&gt;&gt;\
+	&lt;&lt;checkbox &quot;$kinkAllow.expansionWeight&quot; false true $scene&gt;&gt; &lt;&lt;print _kinkDesc&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 	@@.halftransparent; &amp;#x2610; &lt;&lt;print _kinkDesc&gt;&gt;@@\
 &lt;&lt;endif&gt;&gt;\
@@ -34727,6 +34787,7 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 	&lt;&lt;if $player.perversion.friend lt 11&gt;&gt;\
 	[[Friend perv +1|Go to bedroom][$player.perversion.friend++]]
 	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;print playerCode.owns(&#39;cheerDress&#39;)&gt;&gt;
 	&lt;&lt;if $cheerleaders.progress == 2&gt;&gt;\
 		&lt;&lt;set $giveUniform = false&gt;&gt;\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]\
@@ -34738,7 +34799,8 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 		&lt;&lt;addToInv &#39;hairbow&#39; 43&gt;&gt;\
 		&lt;&lt;addToInv &#39;cheerSneakers&#39;&gt;&gt;\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
-	&lt;&lt;elseif $cheerleaders.progress == 11&gt;&gt;\
+	&lt;&lt;elseif $cheerleaders.progress == 11 &amp;&amp; (not playerCode.owns(itemsC.cheerDress))&gt;&gt;\
+		&lt;&lt;set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)&gt;&gt;\
 		&lt;&lt;removeFromInv &#39;rookieUniform&#39;&gt;&gt;\
 		&lt;&lt;addToInv &#39;cheerDress&#39;&gt;&gt;\
 		&lt;&lt;wearClothing &#39;cheerDress&#39;&gt;&gt;\
@@ -38436,9 +38498,9 @@ You tap the link and the video starts playing, a little louder than you expected
 
 The host continues, walking you through several exercises that you remember from practice. 
 
-&lt;&lt;if $player.fitness lte 4&gt;&gt;\
+&lt;&lt;if $player.fitness lte 5&gt;&gt;\
 	Your lack of practice is plainly apparent as you struggle to keep up with the host’s simplest instructions. Anything complex or strenuous proves to be impossible.
-&lt;&lt;elseif $player.fitness lte 7&gt;&gt;\
+&lt;&lt;elseif $player.fitness lte 10&gt;&gt;\
 	Your moves are still a little shaky, but you’re able to at least attempt all of the orders the host gives you. They might not be perfect, but even you can tell that you are improving.
 &lt;&lt;else&gt;&gt;\
 	You manage to complete every task Crystal has set out for you today, and even though you can’t see exactly how well you performed, you’re pretty sure your form was passable.
@@ -38619,7 +38681,7 @@ You grab your phone and give your muscles one last stretch before walking inside
 	&lt;&lt;set $tasksTeacher.trialChastity.status = 5&gt;&gt;\
 	/*&lt;&lt;set $tasksTeacher.trialChastity.text.checkMe.reminder = &quot;You completed the trial, now you should return the device to the shop.&quot;&gt;&gt;*/\
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $kink.penisShrink and $flags.penisShrinkSleep and ($flags.penisShrinkProgress gte 1) and ($body.penisShrink eq 1) and $time.weekDay() eq 5&gt;&gt;\
+&lt;&lt;if $kinkAllow.penisShrink and $flags.penisShrinkSleep and ($flags.penisShrinkProgress gte 1) and ($body.penisShrink eq 1) and $time.weekDay() eq 5&gt;&gt;\
 	&lt;&lt;set $flags.penisShrinkSleep = false&gt;&gt;\
 	&lt;&lt;set $therapistTalks.talkPenisShrinkingEnd.start = true&gt;&gt;\
 	&lt;&lt;set _tt=10&gt;&gt;\
@@ -39060,7 +39122,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	&lt;&lt;endif&gt;&gt;\
 	[[Go for breakfast|Have breakfast]]
 	&lt;!--&lt;/caught giving BF blowjob&gt;--&gt;\
-&lt;&lt;elseif $kink.cumEating and $flags.mallBlowjob and (not $flags.guardianCumDrink)&gt;&gt;\
+&lt;&lt;elseif $kinkAllow.cumEating and $flags.mallBlowjob and (not $flags.guardianCumDrink)&gt;&gt;\
 	&lt;!--&lt;cum drink activation&gt;--&gt;&lt;!--Cum kink scene--&gt;\
 	&lt;&lt;set $flags.guardianCumDrink = true&gt;&gt;\
 	As you regain consciousness, you find $guardian sternly shaking you out of your sleep.
@@ -39080,7 +39142,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	
 	[[Go for breakfast|Have breakfast]]
 	&lt;!--&lt;/cum drink activation&gt;--&gt;\
-&lt;&lt;elseif $kink.cumEating and $flags.clinicDonorsHelp and (not $flags.guardianCumDrink)&gt;&gt;\
+&lt;&lt;elseif $kinkAllow.cumEating and $flags.clinicDonorsHelp and (not $flags.guardianCumDrink)&gt;&gt;\
 	&lt;!--&lt;cum drink activation2&gt;--&gt;&lt;!--Cum kink scene--&gt;\
 	&lt;&lt;set $flags.guardianCumDrink = true&gt;&gt;\
 	As you regain consciousness, you find $guardian sternly shaking you out of your sleep.
@@ -39091,7 +39153,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	
 	[[Go for breakfast|Have breakfast]]
 	&lt;!--&lt;/cum drink activation2&gt;--&gt;\
-&lt;&lt;elseif $kink.cumEating and ($player.perversion.guardian gte 7) and $flags.guardianCumDrink and (not $flags.guardianCondoms) and (not $flags.guardianCondomsAsk) and (random(9) eq 0)&gt;&gt;\
+&lt;&lt;elseif $kinkAllow.cumEating and ($player.perversion.guardian gte 7) and $flags.guardianCumDrink and (not $flags.guardianCondoms) and (not $flags.guardianCondomsAsk) and (random(9) eq 0)&gt;&gt;\
 	&lt;!--&lt;condoms collecting&gt;--&gt;&lt;!--Cum kink scene--&gt;\
 	&lt;&lt;set $flags.guardianCondomsAsk = true&gt;&gt;\
 	You awaken with a start as $guardian shakes you awake.
@@ -39102,7 +39164,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	
 	[[Go for breakfast|Have breakfast]]
 	&lt;!--&lt;/condoms collecting&gt;--&gt;\
-&lt;&lt;elseif $kink.cumEating and ($player.perversion.guardian gte 7) and $flags.guardianCumDrink and (not $flags.guardianCondoms) and $flags.guardianCondomsDone&gt;&gt;\
+&lt;&lt;elseif $kinkAllow.cumEating and ($player.perversion.guardian gte 7) and $flags.guardianCumDrink and (not $flags.guardianCondoms) and $flags.guardianCondomsDone&gt;&gt;\
 	&lt;!--&lt;condoms collecting2&gt;--&gt;&lt;!--Cum kink scene--&gt;\
 	&lt;&lt;set $flags.guardianCondoms = true&gt;&gt;\
 	&lt;&lt;set $flags.guardianCondomsAsk = false&gt;&gt;\
@@ -40900,7 +40962,7 @@ What&#39;s your new name?
 &lt;&lt;if $flags.arcadeWin&gt;&gt;\
 	&lt;&lt;showRoomImage &quot;03_arcade_ticket.png&quot;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $kink.bdsm&gt;&gt;\
+&lt;&lt;if $kinkAllow.bdsm&gt;&gt;\
 	&lt;&lt;showRoomImage &quot;04_bdsm_paddle.png&quot;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if $flags.catStuff&gt;&gt;\
@@ -40943,7 +41005,7 @@ What&#39;s your new name?
 &lt;&lt;if $flags.WebHorseCock&gt;&gt;\
 	&lt;&lt;showRoomImage &quot;16_horse_dildo.png&quot;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $kink.cumEating and $flags.guardianCumDrink&gt;&gt;\
+&lt;&lt;if $kinkAllow.cumEating and $flags.guardianCumDrink&gt;&gt;\
 	&lt;&lt;showRoomImage &quot;17_specimen_jar.png&quot;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if playerCode.owns(itemsC.buttPlugHeart) and (not playerCode.isWearing(itemsC.buttPlugHeart))&gt;&gt;\
@@ -40976,7 +41038,7 @@ What&#39;s your new name?
 	&lt;&lt;set $flags.guardianPunishDressUp=true&gt;&gt;\
 	&lt;&lt;set $time.hour=23&gt;&gt;\
 	&lt;&lt;goto [[Special punishments]]&gt;&gt;\
-&lt;&lt;elseif $kink.penisShrink and $flags.penisShrinkSleep and $flags.penisShrinkProgress and ($body.penisShrink eq 1) and ($time.weekDay() eq 4)&gt;&gt;\
+&lt;&lt;elseif $kinkAllow.penisShrink and $flags.penisShrinkSleep and $flags.penisShrinkProgress and ($body.penisShrink eq 1) and ($time.weekDay() eq 4)&gt;&gt;\
 	&lt;&lt;goto [[Penis shrinking event]]&gt;&gt;\
 &lt;&lt;elseif false and ($player.chorePunishmentDildoCooldown gt $player.chorePunishmentDildoLimit) and $flags.choreDildoAlarm and not $flags.trainingCockSuck and (not $scene eq &quot;calmSleep&quot;)&gt;&gt;\
 	/* part of planned sequence with training dildo, which will be reworked */\
@@ -44127,7 +44189,7 @@ You check yourself in the mirrors, \
 	They quickly pull their pants up and shove you to the side, running out of the bathroom past the shocked security guard who helps you to your feet. He looks at you in disgust and tells you to get cleaned up, and then leaves. A bunch of guys come in desperate for a piss, and you try to ignore their stares as you wipe the sticky cum off your face and hair.
 
 	Finally, you feel clean enough to exit the bathroom. At least you got your money back.
-	&lt;&lt;if $kink.semenConsumption and (not $flags.guardianCumDrink) and (not $flags.mallBlowjob) and ($player.perversion.guardian gte 5)&gt;&gt;\
+	&lt;&lt;if $kinkAllow.semenConsumption and (not $flags.guardianCumDrink) and (not $flags.mallBlowjob) and ($player.perversion.guardian gte 5)&gt;&gt;\
 		&lt;&lt;set $flags.mallBlowjob = true&gt;&gt;\
 		Outside the bathroom, you find $guardian staring at you in shock. @@.guardian;&quot;That was you in there with those boys? Oh, my god $player.name! You&#39;ve got sperm all in your hair and on your clothes.&quot;@@ She covers her mouth with her hand. @@.guardian;&quot;I&#39;ll see you at home.&quot;@@  She walks off quickly. Oh, no.
 	&lt;&lt;endif&gt;&gt;\
@@ -44153,7 +44215,7 @@ You check yourself in the mirrors, \
 	He fixes his clothes and walks out of the stall, leaving the door open for anyone to see you lying there on the piss-soaked floor.
 
 	After a while, you manage to get to you feet and clean yourself up a bit at the sink. At least you got your money back.
-	&lt;&lt;if $kink.semenConsumption and (not $flags.guardianCumDrink) and (not $flags.mallBlowjob) and ($player.perversion.guardian gte 5)&gt;&gt;\
+	&lt;&lt;if $kinkAllow.semenConsumption and (not $flags.guardianCumDrink) and (not $flags.mallBlowjob) and ($player.perversion.guardian gte 5)&gt;&gt;\
 		&lt;&lt;set $flags.mallBlowjob = true&gt;&gt;\
 		Outside the bathroom, you find $guardian staring at you in shock. @@.guardian;&quot;That was you in there with that guy? Oh, my god $player.name! You&#39;ve got sperm all in your hair and on your clothes.&quot;@@ She covers her mouth with her hand. @@.guardian;&quot;I&#39;ll see you at home.&quot;@@  She walks off quickly. Oh no.
 	&lt;&lt;endif&gt;&gt;\
@@ -44660,7 +44722,7 @@ You wait nervously in the men&#39;s room, and after a while a man comes in.\
 		&lt;&lt;endif&gt;&gt;\
 
 	&lt;&lt;endif&gt;&gt;\
-&lt;&lt;elseif (random(4) eq 0) and $kink.urineDrink and (((_sl gte 18) and (_sl lte 19)) or ((_sl gte 27) and (_sl lte 29)))&gt;&gt;\
+&lt;&lt;elseif (random(4) eq 0) and $kinkAllow.urineDrink and (((_sl gte 18) and (_sl lte 19)) or ((_sl gte 27) and (_sl lte 29)))&gt;&gt;\
 	He walks up to you, grabs your hair and pushes you down on your knees. He unzips his pants and flops out a decently sized penis, aiming at your mouth. You steel yourself, and for a moment nothing happens, but just as you begin having second thoughts he releases a yellow stream of piss directly into your mouth. It has a strong taste, but you keep your mouth open and in position as he empties his bladder.
 	
 		&lt;&lt;if (random(1) eq 0)&gt;&gt;\
@@ -47129,7 +47191,7 @@ You go to the detention room. $teacher is waiting for you.
 			
 		&lt;&lt;endif&gt;&gt;\
 \
-		&lt;&lt;if $kink.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)&gt;&gt;\
+		&lt;&lt;if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)&gt;&gt;\
 			&lt;&lt;set $flags.penisShrinkSleep = true&gt;&gt;\
 			&lt;&lt;set $flags.penisShrinkProgress = true&gt;&gt;\
 			&lt;&lt;set window.clothes.setCage()&gt;&gt;\
@@ -49375,7 +49437,7 @@ You go to Coach, who is already waiting for you.
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="292" name="School public toilets" tags="pos_649_2342" position="225,3725">\
 You strut toward the toilets, shaking your hips and licking your lips at anyone who looks your way.
 
-&lt;&lt;if $kink.urineDrink and ($tasksTeacher.schoolPublicToilet.progress eq 1)&gt;&gt;\
+&lt;&lt;if $kinkAllow.urineDrink and ($tasksTeacher.schoolPublicToilet.progress eq 1)&gt;&gt;\
 	&lt;&lt;set $tasksTeacher.schoolPublicToilet.progress = 2&gt;&gt;\
 	You make your way to the bathroom, only to find that someone has been busy. They installed a complicated rig in one of the toilet stalls. There&#39;s a big, heavy dildo, a hanging ring gag, and a thick metal collar attached to some metal cuffs. All of it is linked by chains to the walls.
 	
@@ -49866,7 +49928,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;if not $flags.dogCollarPunishment&gt;&gt;\
 		&lt;&lt;set $flags.dogCollarPunishment to true&gt;&gt;\
 		She pulls out a collar from her desk drawer and walks up to you. You look at it and see it&#39;s a pink collar\
-		&lt;&lt;if $kink.petPlay&gt;&gt;\
+		&lt;&lt;if $kinkAllow.petPlay&gt;&gt;\
 			- like something you&#39;d put on a puppy, except it&#39;s large enough to fit around your neck.\
 		&lt;&lt;else&gt;&gt;\
 			- it&#39;s large enough to fit around your neck and has small, sparkling letters on it spelling &#39;SISSY.&#39;\
@@ -49878,7 +49940,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		She pulls out the familiar collar from her desk drawer and walks up to you. You put it on. She gives you an evil smile. 
 	&lt;&lt;endif&gt;&gt;\
 
-	&lt;&lt;if $kink.petPlay&gt;&gt;\
+	&lt;&lt;if $kinkAllow.petPlay&gt;&gt;\
 		@@.teacher;&quot;If you are going to behave like an untrained pup, you will be treated like one.&quot;@@
 	&lt;&lt;else&gt;&gt;\
 		@@.teacher;&quot;You are clearly in need of discipline.&quot;@@
@@ -49894,7 +49956,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	@@.hero;Oh, my god, this is so embarrassing. Luckily, the door is locked and no one will see me like this.@@
 
 	She stretches out her black boots and tells you to polish them, @@.teacher;&quot;...with your tongue. I am told these boots are made of a special leather that gets shinier when a\
-		&lt;&lt;if $kink.petPlay&gt;&gt;puppy&lt;&lt;else&gt;&gt;sissy&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;if $kinkAllow.petPlay&gt;&gt;puppy&lt;&lt;else&gt;&gt;sissy&lt;&lt;endif&gt;&gt;\
 	licks them.&quot;@@
 
 	You try to pull the boots near you, but she gives a hard tug on the chain, indicating you can’t use your hands. Defeated, you lean on the boots and start licking them while she holds the chain.
@@ -49907,7 +49969,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		Your cheeks flame up, as you chastize yourself for showing $teacher that you like it, but it is so hard to resist such perfection in front of your eyes.
 		
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $kink.spitting&gt;&gt;\
+	&lt;&lt;if $kinkAllow.spitting&gt;&gt;\
 		After a while you feel a tug on the chain. @@.teacher;&quot;You need a bit of help, I think. Open up,&quot;@@ she says. 
 
 		You immediately understand what she means and try to object, but at the first word from you, she slaps your face so hard it makes you whimper.
@@ -49916,7 +49978,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 
 		@@.teacher;&quot;Good boy!&quot;@@ she says, and spits in your mouth! 
 
-		You taste her spit - it has a strawberry flavor. You feel so degraded, yet so horny.\
+		You taste her spit - it has a strawberry flavor. You feel so degraded&lt;&lt;if $kink.spitting&gt;&gt;, yet so horny&lt;&lt;endif&gt;&gt;.\
 		&lt;&lt;if _c&gt;&gt;Your penis starts to twitch in your chastity cage.&lt;&lt;endif&gt;&gt;\
 		You blush, looking up and meeting her eyes. She knows you&#39;re turned on - anyone would. You look like a bitch in heat, panting like that. She pats your head, telling you what a good sissy you are.
 		
@@ -50209,7 +50271,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 	&lt;&lt;if not $flags.dogCollarPunishment&gt;&gt;\
 		&lt;&lt;set $flags.dogCollarPunishment to true&gt;&gt;\
 		She pulls out a collar from her desk drawer and walks up to you. You look at it and see it&#39;s a pink collar\
-		&lt;&lt;if $kink.petPlay&gt;&gt;\
+		&lt;&lt;if $kinkAllow.petPlay&gt;&gt;\
 			- like something you&#39;d put on a puppy, except it&#39;s large enough to fit around your neck.\
 		&lt;&lt;else&gt;&gt;\
 			- it&#39;s large enough to fit around your neck and has small, sparkling letters on it spelling &#39;SISSY.&#39;\
@@ -50225,7 +50287,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		$teacher orders you to undress and you quickly comply, though you fumble a bit to $teacher&#39;s annoyance.
 	
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $kink.petPlay&gt;&gt;\
+	&lt;&lt;if $kinkAllow.petPlay&gt;&gt;\
 		@@.teacher;&quot;If you are going to behave like an untrained pup, you will be treated like one.&quot;@@
 	&lt;&lt;else&gt;&gt;\
 		@@.teacher;&quot;You are clearly in need of discipline.&quot;@@
@@ -51510,7 +51572,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		
 		&lt;&lt;endif&gt;&gt;\
 		Nancy retrieves a ball-gag from a case and puts it on you, locking your jaws in an opened position.\
-		&lt;&lt;if $kink.painPlay&gt;&gt;\
+		&lt;&lt;if $kinkAllow.painPlay&gt;&gt;\
 			She retrieves a mean-looking riding crop and starts methodically whipping your butt and balls, extracting muffled whimpers until $teacher interrupts her.
 			
 			@@.hero;Oh, thank god! Please stop her,@@ you silently pray, looking at $teacher pleadingly.
@@ -51587,7 +51649,7 @@ The effect is, well, electric, and $futa.he_she lets out a cry and collapses to 
 		
 			&lt;&lt;endif&gt;&gt;\
 			Nancy retrieves a ball-gag from a case and puts it on you, locking your jaws in an open position.\
-			&lt;&lt;if $kink.painPlay&gt;&gt;\
+			&lt;&lt;if $kinkAllow.painPlay&gt;&gt;\
 				She retrieves a mean-looking riding crop and starts methodically whipping your butt and balls, extracting muffled whimpers until $teacher interrupts her.
 				
 				@@.hero;Oh, thank god! Please stop her,@@ you silently pray, looking at $teacher pleadingly.
@@ -55526,7 +55588,7 @@ Finally you finish the popsicle, lick your fingers clean and grab your phone.
 		
 		You lower your head in shame, knowing the precum slowly oozing on your thighs would counter any argument you could make.
 
-		&lt;&lt;if $kink.wetting&gt;&gt;\
+		&lt;&lt;if $kinkAllow.wetting&gt;&gt;\
 		@@.shopclothes;&quot;Actually, step down here, please.&quot;@@ 
 		
 		The shopkeeper unfastens your harness and makes you step from the treadmill to the floor, and leads you to a small, open cubicle with a spotlessly clean ceramic floor and a drain. She steps away and raises the tablet, pushing a button with an extended finger. 
@@ -58270,7 +58332,7 @@ You&#39;re unsure, but feel basically ok. You reassure $therapist as she makes s
 	
 	@@.heroT;&quot;But it&#39;s my... I mean, of course it upsets me!&quot;@@
 	
-	&lt;&lt;if $kink.sph&gt;&gt;\
+	&lt;&lt;if $kinkAllow.sph&gt;&gt;\
 		@@.therapist;If I can be honest, I saw your medical file. There were certain //measurements// in it and, your penis was already pretty small, even before the change, so I thought that you wouldn&#39;t be quite as impacted by the results.
 		
 		&quot;In actuality, your &#39;small&#39; size isn&#39;t a bad thing at all. If you think about it, //half// of all males are smaller than the average, because it&#39;s just an average. People come in lots of shapes and sizes, so it&#39;s completely normal - even those that may, for instance, fill out the lower end of the bell curve.@@

@@ -1291,7 +1291,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.player.punishments.penalty >= 2 || State.active.variables.kink.degradation);
+			return (State.active.variables.player.perversion.club > 0) && (State.active.variables.player.punishments.penalty >= 2 || State.active.variables.kinkAllow.whoring);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1754,7 +1754,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.kink.urineDrink) && (!State.active.variables.kink.futa);
+			return (State.active.variables.kinkAllow.urineDrink) && (!State.active.variables.kink.futa);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
