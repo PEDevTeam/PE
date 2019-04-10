@@ -525,7 +525,7 @@ window.therapistTalks={
 		time: 20,
 		start: false,
 		check: function() {
-			return State.active.variables.kink.penisShrink;
+			return State.active.variables.kinkAllow.penisShrink;
 		}
 	}
 },
@@ -575,6 +575,12 @@ window.kinks= [
 			State.active.variables.kink.cumEating = false;
 			State.active.variables.kink.ownCum = false;
 			State.active.variables.kink.cumSwap = false;
+			State.active.variables.kinkAllow.semenConsumption = false;
+			State.active.variables.kinkAllow.creampie = false;
+			State.active.variables.kinkAllow.bukkake = false;
+			State.active.variables.kinkAllow.cumEating = false;
+			State.active.variables.kinkAllow.ownCum = false;
+			State.active.variables.kinkAllow.cumSwap = false;
 			State.active.variables.dreams.CumCake.active=false; 
 		}
 	},
@@ -617,6 +623,10 @@ window.kinks= [
 			State.active.variables.kink.wetting = false;
 			State.active.variables.kink.urineDrink = false;
 			State.active.variables.kink.urinePlay = false;
+			State.active.variables.kinkAllow.watersports = false;
+			State.active.variables.kinkAllow.wetting = false;
+			State.active.variables.kinkAllow.urineDrink = false;
+			State.active.variables.kinkAllow.urinePlay = false;
 			State.active.variables.dreams.PissHypno.active=false;
 		}
 	},
@@ -656,6 +666,9 @@ window.kinks= [
 			State.active.variables.kink.smallPenis = false;
 			State.active.variables.kink.penisShrink = false;
 			State.active.variables.kink.sph = false;
+			State.active.variables.kinkAllow.smallPenis = false;
+			State.active.variables.kinkAllow.penisShrink = false;
+			State.active.variables.kinkAllow.sph = false;
 		}
 	},
 	{
@@ -701,6 +714,12 @@ window.kinks= [
 			State.active.variables.kink.bondage = false;
 			State.active.variables.kink.facesit = false;
 			State.active.variables.kink.trampling = false;
+			State.active.variables.kinkAllow.bdsm = false;
+			State.active.variables.kinkAllow.painPlay = false;
+			State.active.variables.kinkAllow.petPlay = false;
+			State.active.variables.kinkAllow.bondage = false;
+			State.active.variables.kinkAllow.facesit = false;
+			State.active.variables.kinkAllow.trampling = false;
 		}
 	},
 	{
@@ -745,6 +764,12 @@ window.kinks= [
 			State.active.variables.kink.hosiery = false;
 			State.active.variables.kink.shoeBoot = false;
 			State.active.variables.kink.footjob = false;
+			State.active.variables.kinkAllow.footFetish = false;
+			State.active.variables.kinkAllow.footDisplay = false;
+			State.active.variables.kinkAllow.footWorship = false;
+			State.active.variables.kinkAllow.hosiery = false;
+			State.active.variables.kinkAllow.shoeBoot = false;
+			State.active.variables.kinkAllow.footjob = false;
 		}
 	},
 	{
@@ -791,6 +816,12 @@ window.kinks= [
 			State.active.variables.kink.armpitOdor = false;
 			State.active.variables.kink.assOdor = false;
 			State.active.variables.kink.genitalOdor = false;
+			State.active.variables.kinkAllow.clothesOdor = false;
+			State.active.variables.kinkAllow.shoeSockOdor = false;
+			State.active.variables.kinkAllow.footOdor = false;
+			State.active.variables.kinkAllow.armpitOdor = false;
+			State.active.variables.kinkAllow.assOdor = false;
+			State.active.variables.kinkAllow.genitalOdor = false;
 		}
 	},
 	{
@@ -843,6 +874,15 @@ window.kinks= [
 			State.active.variables.kink.questionable = false;
 			State.active.variables.kink.tattoo = false;
 			State.active.variables.kink.piercing = false;
+			State.active.variables.kinkAllow.curse = false;
+			State.active.variables.kinkAllow.whoring = false;
+			State.active.variables.kinkAllow.bimbo = false;
+			State.active.variables.kinkAllow.spitting = false;
+			State.active.variables.kinkAllow.abusive = false;
+			State.active.variables.kinkAllow.mindControl = false;
+			State.active.variables.kinkAllow.questionable = false;
+			State.active.variables.kinkAllow.tattoo = false;
+			State.active.variables.kinkAllow.piercing = false;
 		}
 	},
 	{
@@ -883,6 +923,10 @@ window.kinks= [
 			State.active.variables.kink.diapering = false;
 			State.active.variables.kink.adultBaby = false;
 			State.active.variables.kink.ageBehavior = false;
+			State.active.variables.kinkAllow.agePlay = false;
+			State.active.variables.kinkAllow.diapering = false;
+			State.active.variables.kinkAllow.adultBaby = false;
+			State.active.variables.kinkAllow.ageBehavior = false;
 		}
 	},
 	{
@@ -931,6 +975,13 @@ window.kinks= [
 			State.active.variables.kink.tall = false;
 			State.active.variables.kink.muscle = false;
 			State.active.variables.kink.expansionWeight = false;
+			State.active.variables.kinkAllow.bbw = false;
+			State.active.variables.kinkAllow.hyperBreasts = false;
+			State.active.variables.kinkAllow.hyperPenis = false;
+			State.active.variables.kinkAllow.dwarf = false;
+			State.active.variables.kinkAllow.tall = false;
+			State.active.variables.kinkAllow.muscle = false;
+			State.active.variables.kinkAllow.expansionWeight = false;
 		}
 	},
 	{
@@ -973,6 +1024,10 @@ window.kinks= [
 			State.active.variables.kink.leather = false;
 			State.active.variables.kink.nylon = false;
 			State.active.variables.kink.frilly = false;
+			State.active.variables.kinkAllow.latex = false;
+			State.active.variables.kinkAllow.leather = false;
+			State.active.variables.kinkAllow.nylon = false;
+			State.active.variables.kinkAllow.frilly = false;
 		}
 	},
 	{

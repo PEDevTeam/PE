@@ -670,7 +670,8 @@
 		<<addToInv 'hairbow' 43>>\
 		<<addToInv 'cheerSneakers'>>\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
-	<<elseif $cheerleaders.progress == 11>>\
+	<<elseif $cheerleaders.progress == 11 && (not playerCode.owns(itemsC.cheerDress))>>\
+		<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>>\
 		<<removeFromInv 'rookieUniform'>>\
 		<<addToInv 'cheerDress'>>\
 		<<wearClothing 'cheerDress'>>\
