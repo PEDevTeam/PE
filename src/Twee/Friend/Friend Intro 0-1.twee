@@ -1,0 +1,40 @@
+:: Friend Intro 0-1
+\
+It’s your first time visiting $friend since $friendG.he_she has moved to a new house. Before moving, $friend lived opposite from you, but with the recent success of $friendG.his_her family’s business, a move to a bigger house was inevitable.
+
+As you follow the map on your phone, you enter a neighborhood you’ve never seen before. You can tell it’s a wealthier area because each house sits far away from the road and has a huge yard. Some have space for several cars in the driveway, and a couple even have four or five shiny vehicles out front to prove it.
+
+<<if $time.hour gte 18>>\
+	<<RandomImageFromPack 'Friend/HouseNight' 600 600 alignRight>>\
+	You eventually arrive at $friend’s new house, and you can barely believe your eyes.
+
+	@@.hero;It’s huge!@@
+
+	You stand on the sidewalk and just look up at $friend’s new house with awe and envy. It glimmers like a crown jewel against the dusky sky. All the lights are on, making the windows look like slabs of gold. $friend should be the only one home, unless they have a maid or butler or something, but you’re guessing they don’t have to worry about paying for utilities anymore.
+<<else>>\
+	<<RandomImageFromPack 'Friend/HouseDay' 600 600 alignRight>>\
+	You eventually arrive at $friend’s new house, and you can barely believe your eyes.
+
+	@@.hero;It’s huge!@@
+
+	You stand on the sidewalk and just look up at $friend’s new house with awe and envy. It dominates the view, standing proud against the skyline, with landscaped gardens and a staircase wide enough to drive a truck up climbing to the front door. You cannot help but wonder why a family of four needs such a large house.
+<<endif>>\
+
+With a sigh, you make your way up the steps and ring the bell. A few moments later, $friend answers and sweeps you into a <<if $flags.friendIsMale>>bear<<else>>huge<<endif>> hug. 
+
+@@.friend;“You came!”@@ $friend says with a large grin on $friendG.his_her face. @@.friend;“Come in and stop gawking. Would you like a tour or should we just go upstairs to my room?”@@
+
+It’s been some time since you last saw $friend and looking at $friendG.him_her now, you realise just how much time has passed. $friendG.He_She has changed so much!\
+<<if $friendG.gender eq 'F'>>\
+	The awkward girl you knew has blossomed into a vision of cuteness. Seeing as she came out to you as being a lesbian not long before you last saw her, you were not sure what to expect when you saw her; possibly some short-haired, dungaree-wearing stereotype. Instead, $friend is wearing trendy, designer jeans, subtle makeup to highlight her delicate features and long hair swept back into a ponytail. She is wearing a tight-fitting t-shirt, and her fingernails are neatly painted and shaped. Her smile is infectious and you cannot help but smile back as you realise how much you have missed her.
+<<else>>\
+	The awkward boy you knew has obviously started to fill out. Where you were always a similar height, $friend is now noticeably taller than you. His body is toned rather than muscular, and his narrow waist is highlighted by his t-shirt tucked into designer jeans. As he gazes at you with the piercing eyes you remember from before, you cannot help but realise that basically any girl you know would think he is cute.
+
+	He has obviously been looking after himself, probably continued with his swimming competitions, which has given him a healthy, fit aura. His smile is infectious and you cannot help but smile back as you realise how much you have missed him.
+<<endif>>\
+
+<<RandomImageFromPack 'Friend/Hallway' 400 400 alignRight>>\
+You are standing inside a vaulted hallway, and everything is cream with the occasional black accent. An impressive staircase sweeps up to the right and doors lead off to rooms on both sides. A garden is visible through the windows at the rear of the house, just on the other side of the grand piano $friendsis used to play.
+
+[[Take the tour|Friend Intro 0-2]] 
+[[Go to the bedroom|Friend Intro 0-3]]
