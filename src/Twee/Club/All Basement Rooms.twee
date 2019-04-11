@@ -1,0 +1,42 @@
+:: All Basement Rooms [basement]
+\
+<<switch $scene>>\
+<<case "Example scene 1">>\
+	<<RandomImageFromPack 'Club/Basement/ExampleScene/Pack1' 600 600 alignLeft>>\
+	Text describing scene 1
+
+	[[Leave the room|All Basement Rooms][$scene="ExitClub"]]
+	[[Get changed|All Basement Rooms][$scene="Example scene 2"]]
+\
+<<case "Example scene 2">>\
+	<<RandomImageFromPack 'Club/Basement/ExampleScene/Pack2' 600 600 alignLeft>>\
+	Text describing scene 2
+	
+	[[Go Home|All Basement Rooms][$scene="Example scene WindDown"]]
+\
+<<case "Example scene WindDown">>\
+	Nun confession wind down
+
+	[[Enter house|All Basement Rooms][$scene="ExitHome"]]
+\
+<<case "PatreonPlug_1">>\
+	Plug for Patreon
+
+	[[Go back to the club|All Basement Rooms][$scene="ExitClub"]]
+\
+<<case "ExitHome">>\
+	<<set document.getElementById("ui-bar").style.display to "block">>\
+	<<set $time.addMinutes(110)>>\
+	<<set UI.unstow()>>\
+	<<goto [[Go to bedroom]]>>\
+\
+<<case "ExitClub">>\
+	<<set document.getElementById("ui-bar").style.display to "block">>\
+	<<set $time.addMinutes(5)>>\
+	<<set UI.unstow()>>\
+	<<goto [[The Club]]>>
+\
+<<default>>\
+	This is an error, there is no such scene as "$scene"
+	[[Go back to the club|All Basement Rooms][$scene="ExitClub"]]
+<</switch>>\
