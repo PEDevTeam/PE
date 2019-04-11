@@ -34787,7 +34787,6 @@ The following themes aren&#39;t present and won&#39;t be ever included:
 	&lt;&lt;if $player.perversion.friend lt 11&gt;&gt;\
 	[[Friend perv +1|Go to bedroom][$player.perversion.friend++]]
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;print playerCode.owns(&#39;cheerDress&#39;)&gt;&gt;
 	&lt;&lt;if $cheerleaders.progress == 2&gt;&gt;\
 		&lt;&lt;set $giveUniform = false&gt;&gt;\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]\
@@ -47494,7 +47493,7 @@ You go to the detention room. $teacher is waiting for you.
 		&lt;&lt;if _taskBody.name neq &quot;No tasks&quot;&gt;&gt;\
 			@@.teacher;&lt;&lt;openQuote&gt;&gt;&lt;&lt;print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, &#39;given&#39;)&gt;&gt;&quot;@@
 			&lt;&lt;set _taskBody.events.start()&gt;&gt;\
-			&lt;&lt;set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_task)&gt;&gt;\
+			&lt;&lt;set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)&gt;&gt;\
 			&lt;&lt;set _t = true&gt;&gt;\
 			
 		&lt;&lt;endif&gt;&gt;\
