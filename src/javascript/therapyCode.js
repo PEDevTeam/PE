@@ -276,7 +276,6 @@ window.therapySessions=[
 	},
 	{	//Routine for perversion 4 (mind_1) - first scene
 		text: "$therapist calls you in, and the two of you pick up from where you'd finished in the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have another hypnosis session?\"@@\n\nYou definitely feel more at ease with all that is happening - sometimes you're even curious about what this new part of your life will bring next. But you're not sure if you should go further with these hypnotherapy sessions. What if you become too accepting? What if you start to enjoy it?",
-		text: "",
 		hasPassage: false,
 		chance: 10,
 		priority: 2,
