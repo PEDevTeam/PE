@@ -30,6 +30,7 @@ window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
+		console.log('In update structures');
 		this.setupPlayer();
 		this.setupStandaloneVars();
 		this.setupClothesCheck();
@@ -57,6 +58,7 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
+		console.log("in setupPlayer");
 		var vars=State.active.variables;
 		var playerList=window.playerList;
 		if (vars.player == null) {

@@ -9273,6 +9273,7 @@ window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
+		console.log('In update structures');
 		this.setupPlayer();
 		this.setupStandaloneVars();
 		this.setupClothesCheck();
@@ -9300,6 +9301,7 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
+		console.log("in setupPlayer");
 		var vars=State.active.variables;
 		var playerList=window.playerList;
 		if (vars.player == null) {
@@ -34842,7 +34844,12 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 
 &lt;&lt;endif&gt;&gt;\
 \</tw-passagedata><tw-passagedata pid="201" name="StoryCaption" tags="pos_2975_12" position="100,2600">\
-&lt;&lt;if ($gameVersion lt gameCode.version)&gt;&gt;\
+&lt;&lt;if $gameVersion &gt; 1000&gt;&gt;\
+	&lt;&lt;set _gameVersion = $gameVersion/10000&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;set _gameVersion = $gameVersion&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if (_gameVersion lt gameCode.version)&gt;&gt;\
 	&lt;&lt;set window.structures.updateStructures()&gt;&gt;\
 	/*&lt;&lt;set window.structures.setupPlayer()&gt;&gt;\
 	&lt;&lt;set window.structures.setupStandaloneVars()&gt;&gt;\
@@ -34866,6 +34873,8 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 	&lt;&lt;set window.structures.setupTasks()&gt;&gt;\
 	&lt;&lt;set window.structures.setupCheer()&gt;&gt;\
 	&lt;&lt;set $gameVersion = gameCode.version&gt;&gt;*/\
+	&lt;&lt;set _passage = passage()&gt;&gt;\
+	&lt;&lt;replace &quot;.passage&quot;&gt;&gt;&lt;&lt;display _passage&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 \
 &lt;span id=&quot;sidebar_time&quot;&gt;&lt;/span&gt;&lt;&lt;updateTime&gt;&gt;
@@ -35026,7 +35035,7 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 					&lt;&lt;set _quickDressForSchool = true&gt;&gt;\
 				&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
-			&lt;&lt;if $player.perversion.teacher &gt;= 4 and $cheerleaders.progress == -1 and window.timeCode.isThursday()&gt;&gt;\
+			&lt;&lt;if $player.perversion.teacher &gt;= 4 and $player.perversion.teacher &lt; 10 and $cheerleaders.progress == -1 and window.timeCode.isThursday()&gt;&gt;\
 				&lt;&lt;set _destination = &quot;Cheer Ep0 Sc1&quot;&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;if $cheerleaders.progress == 2 and window.timeCode.isMonday() and (not $cheerleaders.flags.skippedPractice)&gt;&gt;\
@@ -46081,10 +46090,6 @@ Some part of you even feels sorry for $bully... a really small part.
 	&lt;&lt;if (not playerCode.owns(itemsC.sluttyschoolFemale))&gt;&gt;\
 		&lt;&lt;addToInv &#39;sluttyschoolFemale&#39;&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if $flags.delaySlut == 0&gt;&gt;\
-		&lt;&lt;addToInv &#39;sluttyCheer&#39; $cheerleaders.flags.slutUniform&gt;&gt;\
-		&lt;&lt;addToInv &#39;heeledCheer&#39;&gt;&gt;\
-	&lt;&lt;endif&gt;&gt;\
 	$teacher hands you a small package, which you open to reveal a fetishized school girl outfit.
 
 	The tip of your chastity cage will be clearly visible under the slutty microskirt, letting everyone know what kind of a perverted sissy you are.
@@ -46099,10 +46104,12 @@ Some part of you even feels sorry for $bully... a really small part.
 
 	@@.teacher;&quot;From now on, this is your school uniform. Don&#39;t worry about getting in trouble for violating the dress code. I have so much video evidence of your deviancy that I had no trouble getting you diagnosed with &#39;nymphomania.&#39; With that diagnosis, you&#39;ll be exempt from the dress code, and the rules regulating sexual conduct.&quot;@@
 	
-	&lt;&lt;if $flags.delaySlut == 0&gt;&gt;\
+	&lt;&lt;if $cheerleaders.progress &gt; 0 and $flags.delaySlut == 0&gt;&gt;\
+		&lt;&lt;addToInv &#39;sluttyCheer&#39; $cheerleaders.flags.slutUniform&gt;&gt;\
+		&lt;&lt;addToInv &#39;heeledCheer&#39;&gt;&gt;\
 		@@.teacher;&quot;I know giving up cheerleading was a sacrifice, so I&#39;m going to send you something that will hopefully make things easier.  It should be at your house when you get home, just don&#39;t wear it at school. Who knows what Rachel would say.&quot;@@
-	&lt;&lt;endif&gt;&gt;\
 	
+	&lt;&lt;endif&gt;&gt;\
 	[[Finish school]]
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="272" name="Coach doubleteam" tags="pos_440_2713" position="225,3475">\
 &lt;&lt;set $minigames.coachgame.playedYesterday to true&gt;&gt;\
