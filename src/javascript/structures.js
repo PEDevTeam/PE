@@ -29,7 +29,7 @@ window.versionControl={
 window.structures={
 	updateStructures: function() {
 		// Custom versonControl script
-		// BUG - for some reason setupFriend conflicts with setupQuickSlotzz
+		// BUG - for some reason setupFriend conflicts with setupQuickSlot
 		this.setupPlayer();
 		this.setupStandaloneVars();
 		this.setupClothesCheck();

@@ -2369,19 +2369,26 @@ window.tasksTeacherBody={
 			finish: function() {
 				if ((State.active.variables.body.makeup == 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent. Not flashy, but it really makes you look pretty.\"@@";
-				} else if ((State.active.variables.body.makeup == 2)) {
+				}
+				if ((State.active.variables.body.makeup == 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
-				} else if ((State.active.variables.body.makeup == 3)) {
+				} 
+				if ((State.active.variables.body.makeup == 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
-				} else if ((State.active.variables.body.makeup == 4)) {
+				} 
+				if ((State.active.variables.body.makeup == 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
-				} else if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
+				}
+				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
-				} else if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
+				}
+				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
-				} else if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
+				} 
+				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb horny bimbo! That is so hot, I love it.\"@@";
-				} else if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
+				} 
+				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
 				return (State.active.variables.body.makeup > 0);
