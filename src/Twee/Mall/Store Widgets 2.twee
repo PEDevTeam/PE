@@ -1,0 +1,70 @@
+::Store Widgets 2
+\
+<<widget "showStores2">>\
+    <<if window.timeCode.isMallOpen()>>\
+        <div id="mallStore" class="hidden"></div>\
+        <div id="mallStores">
+            <<showMallStores>>
+        </div>\
+        <<showMallPlaces>>\
+    <<else>>\
+        The mall is closed now.
+
+        <<display [[Travel]]>>\
+    <<endif>>\
+<</widget>>\
+\
+\
+<<widget "showMallPlaces">>\
+\
+    <<set _outerwear=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+    <<set _analPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+    <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+    <<if window.timeCode.isArcadeOpen()>>\
+        [[Play in the arcade][$time.addMinutes(5)]]
+    <<else>>\
+        @@.halftransparent;Play in the arcade - closed@@
+    <<endif>>\
+    [[Go to mall toilet][$time.addMinutes(10);$flags.cameraRecording to false]]
+    <<if (($tasksTeacher.trialChastity.status eq 1) and (not _chastity) and (not _analPlug)) or ($tasksTeacher.trialChastity.status eq 5)>>\
+        [[Ask about the market research opportunity|Task Trial chastity]]
+    <<endif>>\
+    <<if ($tasksTeacher.penaltyTrials.status eq 1) and _chastity>>\
+        [[Ask about the tester job|Task Trials][$tasksTeacher.penaltyTrials.progress=0]]
+    <<endif>>\
+    \
+    <<if ($player.perversion.bullies gte 3) and (not playerCode.owns(itemsC.stunGun)) and ($player.perversion.teacher eq 6) and ($player.money lt itemsC.stunGun.cost)>>\
+        You could try to steal the stun gun if you are desperate. [[Steal stungun]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.suckPopsickle.status eq 1) and _o and _o.female>>\
+        [[Popsicle task|Task Suck popsickle]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.tryingClothesMall.status eq 1)>>\
+        [[Try on some dresses|Task tryingClothesMall]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.girlyDesert.status eq 1) and _outerwear and _outerwear.female>>\
+        [[Order a girly desert at the café|Task girlyDesert]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.windowshopping.status eq 1) and _outerwear and _outerwear.female and _analPlug and _chastity>>\
+        [[Windowshopping task|Task Windowshopping]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.getHitOn.status eq 1)>>\
+        [[Get hit on task|Task Get hit on]]
+    <<endif>>\
+    \
+    <<if ($tasksTeacher.guideHand.status eq 1) and _chastity>>\
+        [[Guide hand task|Task Guide hand][$scene="Caffee"; $random.store(3)]]
+    <<endif>>\
+    <<if ($tasksTeacher.selfiePublicChastity.status eq 1) and _chastity>>\
+        [[Make a risky chastity selfie|Task selfiePublicChastity]]
+    <<endif>>\
+    \
+    <<display [[Travel]]>>\
+<</widget>>\
+
+<<showStores2>>
