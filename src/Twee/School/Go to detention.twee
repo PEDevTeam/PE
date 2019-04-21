@@ -4,8 +4,8 @@
 You go to the detention room. $teacher is waiting for you.
 
 <<if $player.daringFlag.bribe>>\
-	<<set $bribeAmount=50>>\
-	<<set $player.bribeDiscount+=10*$time.weekDay()-10>>\
+	<<set $bribeAmount=50*$flags.bribeFactor>>\
+	<<set $player.bribeDiscount+=(10*$time.weekDay()-10)*$flags.bribeFactor>>\
 	<<set _nb = $bribeAmount-$player.bribeDiscount>>\
 	<<set $player.perversion.teacher=1>>\
 	<<set $player.perversion.teacherCooldown=0>>\

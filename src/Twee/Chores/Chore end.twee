@@ -3,7 +3,7 @@
 <<if $scene eq "reward">>\
 	<<set _cf=window.choresFunc.choresFails()>>\
 	<<set _cn = $player.currentChore>>\
-	<<set _rw = choresList[_cn].reward>>\
+	<<set _rw = Math.ceil(choresList[_cn].reward * $flags.choreFactor)>>\
 	@@.reward;You earned $<<print _rw>>!@@\
 	<<if _rw>>\
 		<<set $player.money+=_rw>>\

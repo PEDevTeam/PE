@@ -1253,6 +1253,9 @@ window.flagsList={
 	clothesPurged:false, //new flag
 	delaySlut: 0,
 	canGame: true,
+	difficulty: 1,
+	choreFactor: 1,
+	bribeFactor: 1,
 },
 
 window.kinkList={
