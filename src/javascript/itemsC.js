@@ -1382,7 +1382,7 @@ window.itemsC={
 		daringRec: 0,
 		stolen: false,
 		image: "spy_camera.jpg",
-		cost: 80
+		cost: 30
 	},
 	camera: {
 		id: "camera",

@@ -2,6 +2,16 @@
 \
 <<widget "showChores">>\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Chores" 400 400>></div>\
+<<switch $flags.difficulty>>\
+<<case 1>>\
+	<<set _choreFactor to 1.5>>\
+<<case 2>>\
+	<<set _choreFactor to 1>>\
+<<case 3>>\
+	<<set _choreFactor to 0.5>>\
+<<default>>\
+	<<set _choreFactor to 1>>\
+<</switch>>\
 <<if $flags.maidUniform>>\
 	<<set $flags.maidUniform = false>>\
 	<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
@@ -54,7 +64,7 @@ The chores available to you are:
 		<<if _choreJS.required or $time.hour lt 20>>\
 			<<if (_choreV.dayPerformed + _choreJS.daysWait lte $time.day) and (not $flags.exhausted)>>\
 				<<if _choreJS.reward gt 0>>\
-					<<set _rw = _choreJS.reward>>\
+					<<set _rw = Math.ceil(_choreJS.reward * $flags.choreFactor)>>\
 					<<set _r to ", $" + _rw>>\
 				<<else>>\
 					<<set _r to "">>\

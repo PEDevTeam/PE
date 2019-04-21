@@ -532,8 +532,10 @@
 			<<if _pay>>\
 				<<set _choreV.dayPerformed = $time.day>>\
 				<<set _choreV.fail = false>>\
-				<<set _rw += _choreJS.reward>>\
-				<<set $player.money += _choreJS.reward>>\
+				<<if $flags.difficulty < 3>>\
+					<<set _rw += ceil(_choreJS.reward*$flags.choreFactor)>>\
+					<<set $player.money += ceil(_choreJS.reward*$flags.choreFactor)>>\
+				<<endif>>\
 			<<endif>>\
 			<<if _choreJS.extra>>\
 				<<set _pay = false>>\
@@ -542,7 +544,7 @@
 			<<set _pay = true>>\
 		<<endif>>\
 	<</for>>\
-	<<if $flags.choreLazy and (window.choresFunc.choresPercentCalc() gte 70)>>\
+	<<if $flags.choreLazy and (window.choresFunc.choresPercentCalc() gte 70) and ($flags.difficulty < 3)>>\
 		<<set $flags.choreLazy = false>>\
 	<<endif>>\
 	<<if _rw gt 0>>\

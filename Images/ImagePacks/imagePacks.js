@@ -1434,6 +1434,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Clean Toilet",
+                           "path":  "Chores/Clean_Toilet",
+                           "files":  [
+                                         {
+                                             "fileName":  "clean_toilet.jpg",
+                                             "height":  1080,
+                                             "width":  1920
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Chores/Condom_Dumpster",
                            "path":  "Chores/Condom_Dumpster",
                            "files":  [
@@ -1680,6 +1691,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Club/Basement",
+                           "path":  "Club/Basement",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Club Under Table",
                            "path":  "Club/Under_Table",
                            "files":  [
@@ -1687,6 +1705,39 @@ window.imagePacks = {
                                              "fileName":  "under_table.gif",
                                              "height":  284,
                                              "width":  262
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/BasementCorridor",
+                           "path":  "Club/Basement/BasementCorridor",
+                           "files":  [
+                                         {
+                                             "fileName":  "BasementCorridor.jpg",
+                                             "height":  675,
+                                             "width":  450
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/CurtainedDoor",
+                           "path":  "Club/Basement/CurtainedDoor",
+                           "files":  [
+                                         {
+                                             "fileName":  "CurtainedDoor.jpg",
+                                             "height":  1133,
+                                             "width":  889
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/LatexSecretary",
+                           "path":  "Club/Basement/LatexSecretary",
+                           "files":  [
+                                         {
+                                             "fileName":  "LatexSecretary.jpg",
+                                             "height":  768,
+                                             "width":  541
                                          }
                                      ]
                        },
