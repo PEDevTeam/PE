@@ -10,7 +10,7 @@
 	
 	@@.guardian;"Oh, you poor baby. Think I'm being too tough on you? You think I'm making you work too hard?"@@ 
 
-	She narrows her eyes. @@.guardian;"Fine. You know what, I could let it go - I'd even pay you for your sloppy work - but I will //teach you a lesson// instead, one a little brat like you deserves. So, what do you say? Would you rather work hard, or do you prefer a little punishment?"@@
+	She narrows her eyes. @@.guardian;"Fine. You know what, <<if $flags.difficulty <3>>I could let it go - I'd even pay you for your sloppy work - but <<endif>>I will //teach you a lesson// instead, one a little brat like you deserves. So, what do you say? Would you rather work hard, or do you prefer a little punishment?"@@
 	
 	$Guardian stares at you and you gulp, trying to figure out what she meant by a 'little' punishment.
 	
@@ -533,8 +533,8 @@
 				<<set _choreV.dayPerformed = $time.day>>\
 				<<set _choreV.fail = false>>\
 				<<if $flags.difficulty < 3>>\
-					<<set _rw += ceil(_choreJS.reward*$flags.choreFactor)>>\
-					<<set $player.money += ceil(_choreJS.reward*$flags.choreFactor)>>\
+					<<set _rw += Math.ceil(_choreJS.reward*$flags.choreFactor)>>\
+					<<set $player.money += Math.ceil(_choreJS.reward*$flags.choreFactor)>>\
 				<<endif>>\
 			<<endif>>\
 			<<if _choreJS.extra>>\
