@@ -327,6 +327,7 @@ window.structures={
 				choreV.id = choreJS.id;
 				if (choreV.active == null) { choreV.active = choreJS.active; }
 				if (choreV.fail == null) { choreV.fail = false; }
+				if (choreV.hardFail == null) { choreV.hardFail = false; }
 				if (choreV.dayPerformed == null) { choreV.dayPerformed = -100; }
 				
 			}

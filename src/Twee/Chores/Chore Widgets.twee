@@ -77,6 +77,7 @@ The chores available to you are:
 						<<set _min to _choreJS.minutes*3>>\
 					<<endif>>\
 				<<elseif $player.choreSpeed neq 0 and (not _choreJS.nontimed)>>\
+					<<set _choreV.hardFail to false>>\
 					<<set _min to _choreJS.minutes*$player.choreSpeed>>\
 				<<endif>>\
 				<<set _r to "(" + _min + " minutes" + _r + ")">>\

@@ -2480,7 +2480,8 @@ window.choresFunc={
 			var choreV = chores[Object.keys(choresList)[i]];
 			if (choreV.active && (choreC.daringRequired <= player.daring) && (choreC.perversionRequired <= player.perversion.guardian) && (choreC.perversionMax >= player.perversion.guardian)) {
 				ca++;
-				if ((choreV.dayPerformed + choreC.daysWait) >= time.day) {
+				console.log(choreV);
+				if ((choreV.dayPerformed + choreC.daysWait) >= time.day && (!choreV.hardFail)) {
 					cd++;
 				}
 			}
@@ -2546,6 +2547,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		extra: false,
@@ -2569,6 +2571,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		extra: true,
@@ -2592,6 +2595,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		extra: true,
@@ -2615,6 +2619,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: true,
 		extra: true,
@@ -2640,6 +2645,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		required: false,
@@ -2662,6 +2668,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		required: false,
@@ -2684,6 +2691,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: true,
 		required: false,
@@ -2706,6 +2714,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: true,
 		required: false,
@@ -2723,6 +2732,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		perversionRequired: 0,
@@ -2745,6 +2755,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		perversionRequired: 1,
@@ -2767,6 +2778,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		perversionRequired: 4,
@@ -2789,6 +2801,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: true,
 		perversionRequired: 5,
@@ -2811,6 +2824,7 @@ window.choresList={
 		outside: true,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: false,
 		perversionRequired: 0,
@@ -2833,6 +2847,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: false,
 		maid: true,
 		perversionRequired: 5,
@@ -2853,6 +2868,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: true,
 		maid: false,
 		perversionRequired: 6,
@@ -2873,6 +2889,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: true,
 		maid: true,
 		perversionRequired: 7,
@@ -2893,6 +2910,7 @@ window.choresList={
 		outside: false,
 		femaleDress: false,
 		fail: false,
+		hardFail: false,
 		nontimed: true,
 		maid: true,
 		perversionRequired: 7,
@@ -9607,6 +9625,7 @@ window.structures={
 				choreV.id = choreJS.id;
 				if (choreV.active == null) { choreV.active = choreJS.active; }
 				if (choreV.fail == null) { choreV.fail = false; }
+				if (choreV.hardFail == null) { choreV.hardFail = false; }
 				if (choreV.dayPerformed == null) { choreV.dayPerformed = -100; }
 				
 			}
@@ -21147,6 +21166,7 @@ The chores available to you are:
 						&lt;&lt;set _min to _choreJS.minutes*3&gt;&gt;\
 					&lt;&lt;endif&gt;&gt;\
 				&lt;&lt;elseif $player.choreSpeed neq 0 and (not _choreJS.nontimed)&gt;&gt;\
+					&lt;&lt;set _choreV.hardFail to false&gt;&gt;\
 					&lt;&lt;set _min to _choreJS.minutes*$player.choreSpeed&gt;&gt;\
 				&lt;&lt;endif&gt;&gt;\
 				&lt;&lt;set _r to &quot;(&quot; + _min + &quot; minutes&quot; + _r + &quot;)&quot;&gt;&gt;\
@@ -21324,6 +21344,9 @@ The chores available to you are:
 	
 	&lt;&lt;if ($player.perversion.guardian gte 3)&gt;&gt;\
 		&lt;&lt;display [[Chores punishments]]&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+	&lt;&lt;if $flags.difficulty == 3&gt;&gt;\
+		&lt;&lt;set $chores[_cn].hardFail = true&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;set $player.choreFailsCurrent = window.choresFunc.choresFails()&gt;&gt;\</tw-passagedata><tw-passagedata pid="105" name="Chores punishments" tags="pos_1896_150" position="600,1350">\
@@ -22544,7 +22567,7 @@ For a few minutes, they keep up a steady rhythm, then $guardian picks up the pac
 
 	@@.guardian;&quot;I&#39;ll give you your $&lt;&lt;print _choreJS.reward&gt;&gt; once we&#39;ve finished here. Now fuck off.&quot;@@ Hooray...
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;set $player.money+=ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
+&lt;&lt;set $player.money+=Math.ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
 &lt;&lt;set $time.addMinutes(_choreJS.minutes)&gt;&gt;\
 &lt;&lt;set _choreV.dayPerformed to $time.day&gt;&gt;\
 
@@ -42780,7 +42803,7 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 	
 	@@.guardian;&quot;Oh, you poor baby. Think I&#39;m being too tough on you? You think I&#39;m making you work too hard?&quot;@@ 
 
-	She narrows her eyes. @@.guardian;&quot;Fine. You know what, I could let it go - I&#39;d even pay you for your sloppy work - but I will //teach you a lesson// instead, one a little brat like you deserves. So, what do you say? Would you rather work hard, or do you prefer a little punishment?&quot;@@
+	She narrows her eyes. @@.guardian;&quot;Fine. You know what, &lt;&lt;if $flags.difficulty &lt;3&gt;&gt;I could let it go - I&#39;d even pay you for your sloppy work - but &lt;&lt;endif&gt;&gt;I will //teach you a lesson// instead, one a little brat like you deserves. So, what do you say? Would you rather work hard, or do you prefer a little punishment?&quot;@@
 	
 	$Guardian stares at you and you gulp, trying to figure out what she meant by a &#39;little&#39; punishment.
 	
@@ -43303,8 +43326,8 @@ Full of curiosity, you quietly snoop around in $guardian&#39;s bedroom.  You&#39
 				&lt;&lt;set _choreV.dayPerformed = $time.day&gt;&gt;\
 				&lt;&lt;set _choreV.fail = false&gt;&gt;\
 				&lt;&lt;if $flags.difficulty &lt; 3&gt;&gt;\
-					&lt;&lt;set _rw += ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
-					&lt;&lt;set $player.money += ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
+					&lt;&lt;set _rw += Math.ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
+					&lt;&lt;set $player.money += Math.ceil(_choreJS.reward*$flags.choreFactor)&gt;&gt;\
 				&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;endif&gt;&gt;\
 			&lt;&lt;if _choreJS.extra&gt;&gt;\
@@ -44871,7 +44894,7 @@ You could try to steal the stun gun if you are desperate.
 &lt;&lt;if ($tasksTeacher.guideHand.status eq 1) and _c&gt;&gt;\
 	[[Guide hand task|Task Guide hand][$scene=&quot;Caffee&quot;; $random.store(3)]]
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;if ($tasksTeacher.selfiePublicChastity.status eq 1) and _c&gt;&gt;\
+&lt;&lt;if ($tasksTeacher.selfiePublicChastity.status eq 1) and _c and _o.skirt&gt;&gt;\
 	[[Make a risky chastity selfie|Task selfiePublicChastity]]
 &lt;&lt;endif&gt;&gt;\
 \
@@ -44981,12 +45004,14 @@ You wait nervously in the men&#39;s room, and after a while a man comes in.\
 	&lt;&lt;endif&gt;&gt;\
 
 	&lt;&lt;if ($tasksTeacher.selfieToiletsChastity.status eq 1) and _o&gt;&gt;\
-		&lt;&lt;if (not _u) and _o.female and _c&gt;&gt;\
+		&lt;&lt;if (not _u) and _o.female and _o.skirt and _c&gt;&gt;\
 			[[Flash him your chastity cage|Task Flash chastity]]
 		&lt;&lt;elseif (not _c)&gt;&gt;\
 			You are not wearing your chastity cage to flash him.
 		&lt;&lt;elseif (not _o.female)&gt;&gt;\
 			You are not wearing female clothes to properly flash him.
+		&lt;&lt;elseif (not _o.skirt)&gt;&gt;\
+			You are not wearing a skirt and can&#39;t properly flash him your chastity cage.
 		&lt;&lt;elseif _u&gt;&gt;\
 			You are wearing underwear and can&#39;t properly flash him your chastity cage.
 		&lt;&lt;endif&gt;&gt;\
@@ -48901,7 +48926,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It&#39;s an
 		&lt;&lt;if ($tasksTeacher.askAdvice.status eq 1)&gt;&gt;\
 			[[Ask a girl for advice|Task Ask advice]]
 		&lt;&lt;endif&gt;&gt;\
-	&lt;&lt;if ((($cheerleaders.progress &gt;= 3) &amp;&amp; window.timeCode.isWednesday()) || (($cheerleaders.progress == 4)&amp;&amp;window.timeCode.isFriday())) &amp;&amp; $cheerleaders.active &amp;&amp; ($cheerFriend.progress &lt; 4)&gt;&gt;\
+	&lt;&lt;if (($cheerleaders.progress &gt;= 3 &amp;&amp; window.timeCode.isWednesday()) || ($cheerleaders.progress == 4&amp;&amp; (window.timeCode.isFriday()|| window.timeCode.isMonday()))) &amp;&amp; $cheerleaders.active &amp;&amp; $cheerFriend.progress &lt; 4&gt;&gt;\
 		You phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out &lt;&lt;if $cheerFriend.progress &lt; 1&gt;&gt;at lunch&lt;&lt;else&gt;&gt;this afternoon&lt;&lt;endif&gt;&gt;.  Without missing a beat, you quickly respond yes and that you can&#39;t wait to see her.
 		
 		&lt;&lt;set $cheerFriend.flags.acceptInvite = true&gt;&gt;\
@@ -54228,7 +54253,7 @@ At the end of your shift you count your tips. You received $&lt;&lt;print $playe
 &lt;&lt;set $time.hour=16&gt;&gt;\
 &lt;&lt;set $time.addMinutes(15)&gt;&gt;\
 &lt;&lt;display [[Travel]]&gt;&gt;\</tw-passagedata><tw-passagedata pid="315" name="Jobs fastfood" tags="pos_476_1717" position="600,3975">\
-&lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Adult Shop&quot; 400 400&gt;&gt;&lt;/div&gt;\	
+&lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Job Fast Food&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _c=playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
@@ -55256,7 +55281,7 @@ The cock retracts into the hole and is replaced by a dirty $&lt;&lt;print 5&gt;&
 			&lt;&lt;if window.clothes.dressedSleep.check()&gt;&gt;\
 				[[Go to sleep|Sleep]]
 			&lt;&lt;endif&gt;&gt;\
-		&lt;&lt;delayedLink 1 &quot;Return|Go to bedroom&quot;&gt;&gt;
+		&lt;&lt;if $flags.difficulty &lt; 3&gt;&gt;&lt;&lt;delayedLink 1 &quot;Return|Go to bedroom&quot;&gt;&gt;&lt;&lt;endif&gt;&gt;
 	&lt;&lt;else&gt;&gt;\
 		&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
 			@@.hero;It feels more comforable than I expected. No wonder girls like these so much.@@
@@ -57405,8 +57430,6 @@ You&#39;re unsure, but feel basically ok. You reassure $therapist as she makes s
 		@@.guardian;&quot;No, I don&#39;t even want to hear about it right now. I... I need to think about it.&quot;@@
 
 		With that, she turns around and carefully closes the door behind her. You don&#39;t even know why she came in to begin with.
-
-		Huh. That went well.
 
 		Despite everything, you feel calmer, almost satisfied, and you suddenly realize that $therapist hasn&#39;t actually lied to you. Tonight you will sleep soundly, with your anus humiliatingly trained by the relentless sex toy.
 		

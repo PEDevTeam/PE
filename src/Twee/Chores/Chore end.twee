@@ -89,6 +89,9 @@
 	<<if ($player.perversion.guardian gte 3)>>\
 		<<display [[Chores punishments]]>>\
 	<<endif>>\
+	<<if $flags.difficulty == 3>>\
+		<<set $chores[_cn].hardFail = true>>\
+	<<endif>>\
 <<endif>>\
 <<set $player.choreFailsCurrent = window.choresFunc.choresFails()>>\
 
