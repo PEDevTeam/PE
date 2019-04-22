@@ -1,6 +1,11 @@
 :: All Basement Rooms [basement]
 \
-<<switch $scene>>\
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\<<switch $scene>>\
+\
 <<case "Example scene 1">>\
 	<<RandomImageFromPack 'Club/Basement/ExampleScene/Pack1' 600 600 alignLeft>>\
 	Text describing scene 1
