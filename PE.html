@@ -4248,6 +4248,76 @@ window.itemFuncs= {
         return notTags;
     },
 
+    getChildItemsForMaster: function(masterItem){
+        var itemChildren = [];
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.masterItem == masterItem){
+                itemChildren.push(item);
+            }
+        }
+        return itemChildren;
+    },
+
+    getItemByVariant: function(itemVariant){
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.variant == itemVariant){
+                return item;
+            }
+        }
+        return false;
+    },
+
+    buyItemVariant: function(itemVariant){
+        console.log("buying item");
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.variant == itemVariant){
+                console.log("found item variant");
+                if(item.price > 0){
+                    //deduct cash
+                    window.itemFuncs.addItemToInventory(item);
+                }
+                break;
+            }
+        }
+    },
+
+    addItemToInventory: function(item){
+        console.log("adding item to inventory");
+        if(!(window.itemFuncs.checkItemInInventory(item))){
+            SugarCube.State.variables.inventory.push(item);
+        }
+    },
+
+    checkItemInInventory: function(item){
+        var itemInInventory = false;
+        for(var inventItemIdx in SugarCube.State.variables.inventory){
+            var inventItem = SugarCube.State.variables.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && inventItem.variant == item.variant){
+                itemInInventory = true;
+            }
+        }
+        console.log(itemInInventory);
+        return itemInInventory;
+    },
+
+    getTagsForItem: function(item){
+        var tags = [];
+        for(var tagName in item.tags){
+            if(item.tags[tagName] && tags.indexOf(tagName) < 0){
+                tags.push(tagName);
+            }
+        }
+        var masterItem = window.items.itemMasters[item.masterItem];
+        for(var tagName in masterItem.tags){
+            if(masterItem.tags[tagName] && tags.indexOf(tagName) < 0 && (item.tags[tagName] === undefined || item.tags[tagName])){
+                tags.push(tagName);
+            }
+        }
+        return tags;
+    },
 }
 
 // NotClothing:   0,
@@ -4265,11 +4335,13 @@ window.itemFuncs= {
 
 //Objects
 window.items={
+    colourTags: ['pink', 'black', 'white', 'blue', 'yellow', 'grey', 'gray', 'orange', 'green', 'red'],
     itemMasters:{
         //Underwear
         boxers:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Boxers",
             daring:0,
             disabled:false,
             hasWorn:false,
@@ -4283,6 +4355,7 @@ window.items={
         plainPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Plain Panties",
             daring:3,
             disabled:false,
             hasWorn:false,
@@ -4296,6 +4369,7 @@ window.items={
         sexyPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Sexy Panties",
             daring:3,
             disabled:false,
             hasWorn:false,
@@ -4309,6 +4383,7 @@ window.items={
         latexPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Latex Panties",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -4324,6 +4399,7 @@ window.items={
         tshirtJeans:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "T-shirt and Jeans",
             daring:0,
             disabled:false,
             hasWorn:false,
@@ -4337,6 +4413,7 @@ window.items={
         skirtTop:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Skirt and Top",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -4350,6 +4427,7 @@ window.items={
         casualDress:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Casual Dress",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -4363,6 +4441,7 @@ window.items={
         sluttyDress:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Slutty Dress",
             daring:7,
             disabled:false,
             hasWorn:false,
@@ -4406,6 +4485,9 @@ window.items={
         }
     },
     itemChildren:{
+        length: function(){
+            return Object.keys(window.items.itemChildren).length;
+        },
         //Boxers
         luckyBoxers0:{
             masterItem:"boxers",
@@ -5966,7 +6048,7 @@ window.items={
             isMale:false,
             isFemale:true,
             tags:{
-                slutty:true,
+                slutty:false,
                 sexy:true,
                 black:true,
             }
@@ -10039,23 +10121,19 @@ Macro.add('reactOnce', {
 /* twine-user-script #12: "mall.js" */
 macros.showMallStores = {
     handler: function(place, macroName, params, parser) {
-        var storesHTML = '<img src="./Images/StoreImages/MallMap.png" usemap="#mall-image-map">'
-        storesHTML += '<map name="mall-image-map">'
-        storesHTML += '<area target="_self" alt="Fashion Central" title="Fashion Central" href="javascript:window.mallFuncs.gotoStore(\'fashionCentral\');" coords="40,227,111,156,153,194,151,213,91,275" shape="poly">'
-        storesHTML += '<area target="_self" alt="Home Empire" title="Home Empire" href="javascript:window.mallFuncs.gotoStore(\'homeEmpire\');" coords="70,75,112,114,111,153,61,202,1,143" shape="poly">'
-        storesHTML += '<area target="_self" alt="Zoom Electronic" title="Zoom Electronic" href="javascript:window.mallFuncs.gotoStore(\'zoomElectronics\');" coords="257,1,322,66,285,103,238,102,211,78,211,49" shape="poly">'
-        storesHTML += '<area target="_self" alt="Klip Klops" title="Klip Klops" href="javascript:window.mallFuncs.gotoStore(\'klipKlops\');" coords="286,123,316,154,283,189,251,157" shape="poly">'
-        storesHTML += '<area target="_self" alt="Frisky Business" title="Frisky Business" href="javascript:window.mallFuncs.gotoStore(\'friskyBusiness\');" coords="247,197,274,224,230,267,205,239" shape="poly">'
-        storesHTML += '<area target="_self" alt="Intimate Apparel" title="Intimate Apparel" href="javascript:window.mallFuncs.gotoStore(\'IntimateApparel\');" coords="301,251,268,286,251,287,252,316,328,318,329,251" shape="poly">'
-        storesHTML += '<area target="_self" alt="Casual Styles" title="Casual Styles" href="javascript:window.mallFuncs.gotoStore(\'urbane\');" coords="468,233,517,281,517,316,473,315,429,270" shape="poly">'
-        storesHTML += '<area target="_self" alt="Berg Jewlers" title="Berg Jewlers" href="javascript:window.mallFuncs.gotoStore(\'BergJewlers\');" coords="345,155,344,201,383,202,406,178,382,155" shape="poly">'
-        storesHTML += '</map>'
+        var storesHTML = '';
+        
         for(var storename in window.mall.stores){
             var store = window.mall.stores[storename];
-            storesHTML += '<div><img src="./Images/StoreImages/' + store.logo + '">Go to <<link "' + store.name + '">><<replace "#mallStore">><<toggleclass "#mallStore" "hidden">><<toggleclass "#mallStores" "hidden">><<showMallStore ' + storename + '>><</replace>><</link>></div>';
+            if(!(store.name == "")){
+                storesHTML += '<div><img src="./Images/StoreImages/' + store.logo + '">Go to <<link "' + store.name + '">><<replace "#mallStore">><<toggleclass "#mallStore" "hidden">><<toggleclass "#mallStores" "hidden">><<showMallStore ' + storename + '>><</replace>><</link>></div>';
+            }
         }
 
-        new Wikifier(place, storesHTML);
+        var mapHTML = window.mallFuncs.getStoreMap();
+        var mallHTML = mapHTML + storesHTML;
+
+        new Wikifier(place, mallHTML);
     }
 }
 
@@ -10078,20 +10156,167 @@ window.mallFuncs={
         $("#mallStore").toggleClass("hidden");
         $("#mallStore").wiki(storeHTML);
     },
+
+    toggleMap: function(){
+        $("#storeMap").toggleClass("hidden");
+        if($("#storeMap").hasClass("hidden")){
+            $("#mapToggle").text("Show Map");
+        }
+        else{
+            $("#mapToggle").text("Hide Map");
+        }
+    },
+
+    getStoreMap: function(){
+        var mapHTML = '<a href="javascript:window.mallFuncs.toggleMap();"><span id="mapToggle">Hide Map</span></a>';
+        mapHTML += '<div id="storeMap"><img src="./Images/StoreImages/MallMap.png" usemap="#mall-image-map">';
+        mapHTML += '<map name="mall-image-map">';
+        
+        for(var storename in window.mall.stores){
+            var store = window.mall.stores[storename];
+            if(!(store.name == "") && !(store.coords == "")){
+                mapHTML += '<area target="_self" alt="' + store.name + '" title="' + store.name + '" href="javascript:window.mallFuncs.gotoStore(\'' + storename + '\');" coords="' + store.coords + '" shape="poly">';
+            }
+        }
+
+        for(var locationname in window.mall.otherLocations){
+            var otherLocation = window.mall.otherLocations[locationname];
+            if(!(otherLocation.name == "") && !(otherLocation.coords == "") && !(otherLocation.passageLink == "") && otherLocation.canVisit()){
+                mapHTML += '<area target="_self" alt="' + otherLocation.name + '" title="' + otherLocation.name + '" href="javascript:SugarCube.Engine.play(\'' + otherLocation.passageLink + '\');" coords="' + otherLocation.coords + '" shape="poly">';
+            }
+        }
+
+        mapHTML += '</map></div>';
+        return mapHTML;
+    },
     
     getStoreItemLinks: function(storeName){
         var storeHTML = "";
+        // storeHTML += '<html>'
         var store = window.mall.stores[storeName];
+
         for(var masterItemIdx in store.masterItems){
-            var masterItem = store.masterItems[masterItemIdx];
+            var storeMasterItem = store.masterItems[masterItemIdx];
+            var masterItem = window.items.itemMasters[storeMasterItem];
+            var childItemHTML = "";
+
             console.log(masterItem);
-            storeHTML += '<div>' + masterItem;
-            ///TODO put item variants here...
+            if(!(window.itemFuncs.getChildItemsForMaster(storeMasterItem)[0] === undefined)){
+                var childItem = window.itemFuncs.getChildItemsForMaster(storeMasterItem)[0];
+                childItemHTML = window.mallFuncs.formatItemForStore(childItem);
+            }
+
+            storeHTML += '<div id="' + storeMasterItem + 'Browser">';
+            storeHTML += '<table style="border: 1px solid grey">';
+            storeHTML += '<tr style="text-align: center"><html><a href="javascript:window.mallFuncs.getPreviousItem(\'' + storeMasterItem + '\')">←</a>  ' + masterItem.name + '  <a href="javascript:window.mallFuncs.getNextItem(\'' + storeMasterItem + '\')">→</a></html></tr>';
+            storeHTML += '<tr style="text-align: center"><div id="' + storeMasterItem + 'StoreItem" data-itemindex=0>';
+            storeHTML += childItemHTML;
+            storeHTML += '</div></tr>';
+            storeHTML += '</table>';
             storeHTML += '</div>';
+            ///TODO put item variants here...
         }
-        storeHTML += '<div><<link "Go back to the Mall">><<replace "#mallStores">><<toggleclass "#mallStore" "hidden">><<toggleclass "#mallStores" "hidden">><<showMallStores>><</replace>><</link>></div>'
+
+        // storeHTML += '</html>'
+        storeHTML += '<div><<link "Go back to the Mall">><<replace "#mallStores">><<toggleclass "#mallStore" "hidden">><<toggleclass "#mallStores" "hidden">><<showMallStores>><</replace>><</link>></div>';
         return storeHTML;
-    }
+    },
+
+    getNextItem: function(storeMasterName){
+        var storeItems =  window.itemFuncs.getChildItemsForMaster(storeMasterName);
+        if(!(storeItems === undefined) && storeItems.length > 0){
+            var storeItemDiv = document.querySelector("#" + storeMasterName + "StoreItem");
+            var currentIndex = storeItemDiv.dataset.itemindex;
+            var newIndex = parseInt(currentIndex) + 1;
+            if(newIndex > storeItems.length - 1){
+                newIndex = 0
+            }
+            console.log(newIndex);
+            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[newIndex]);
+            storeItemDiv.innerHTML = storeItemHTML;
+            storeItemDiv.dataset.itemindex = newIndex;
+        }
+    },
+
+    getPreviousItem: function(storeMasterName){
+        var storeItems =  window.itemFuncs.getChildItemsForMaster(storeMasterName);
+        if(!(storeItems === undefined) && storeItems.length > 0){
+            var storeItemDiv = document.querySelector("#" + storeMasterName + "StoreItem");
+            var currentIndex = storeItemDiv.dataset.itemindex;
+            var newIndex = parseInt(currentIndex) - 1;
+            if(newIndex < 0){
+                newIndex = storeItems.length - 1;
+            }
+            console.log(newIndex);
+            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[newIndex]);
+            $("#" + storeMasterName + "StoreItem").html(storeItemHTML);
+            storeItemDiv.dataset.itemindex = newIndex;
+        }
+    },
+
+    reloadCurrentItem: function(storeMasterName){
+        var storeItems =  window.itemFuncs.getChildItemsForMaster(storeMasterName);
+        if(!(storeItems === undefined) && storeItems.length > 0){
+            var storeItemDiv = document.querySelector("#" + storeMasterName + "StoreItem");
+            var currentIndex = storeItemDiv.dataset.itemindex;
+            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[currentIndex]);
+            $("#" + storeMasterName + "StoreItem").html(storeItemHTML);
+        }
+    },
+
+    formatItemForStore: function(item){
+        var itemHTML = '<table>';
+        itemHTML += '<tr><img src="./Images/items/' + item.variant + '.jpg"></tr>';
+        if(window.itemFuncs.checkItemInInventory(item)){
+            itemHTML += '<tr><span>Already Owned</span></tr>';
+        }
+        else{
+            itemHTML += '<tr><span>$' + item.price + '</span> - <span><a href="javascript:window.itemFuncs.buyItemVariant(\'' + item.variant + '\');window.mallFuncs.reloadCurrentItem(\'' + item.masterItem + '\');">Buy</a></span></tr>';
+        }
+        itemHTML += '<tr>TAGS: ' + window.mallFuncs.formatTags(window.itemFuncs.getTagsForItem(item)) + '</tr>';
+        itemHTML += '</table>';
+        return itemHTML;
+    },
+
+    formatTags: function(itemTagArr){
+        var tagHTML = "";
+        for(var tagIdx in itemTagArr){
+            var itemTag = itemTagArr[tagIdx];
+            if(window.items.colourTags.indexOf(itemTag) > -1){
+                tagHTML += '<span style="background:' + itemTag + '; color:' + invertColorByName(itemTag, true) + '">' + itemTag + '</span>'
+            }
+            else{
+                tagHTML += '<span style="">' + itemTag + '</span>'
+            }
+            tagHTML += ', ';
+        }
+        return tagHTML;
+
+        function invertColorByName(name, bw) {
+            var d = document.createElement("div");
+            d.style.color = name;
+            document.body.appendChild(d);
+            var rgbText = window.getComputedStyle(d).color;
+            document.body.removeChild(d);
+            var rgbArr = rgbText.replace("rgb(", "").replace(")", "").replace(" ", "").replace(" ", "").split(",");
+
+            var r = parseInt(rgbArr[0]),
+                g = parseInt(rgbArr[1]),
+                b = parseInt(rgbArr[2]);
+            if (bw) {
+                // http://stackoverflow.com/a/3943023/112731
+                return (r * 0.299 + g * 0.587 + b * 0.114) > 186
+                    ? '#000000'
+                    : '#FFFFFF';
+            }
+            // invert color components
+            r = (255 - r).toString(16);
+            g = (255 - g).toString(16);
+            b = (255 - b).toString(16);
+            // pad each with zeros and return
+            return "#" + padZero(r) + padZero(g) + padZero(b);
+        }
+    },
 }
 
 window.mall={
@@ -10099,6 +10324,7 @@ window.mall={
         homeEmpire:{
             name:"Home Empire",
             logo:"StoreLogo_HomeEmpire.jpg",
+            coords: "70,75,112,114,111,153,61,202,1,143",
             masterItems:[
 
             ],
@@ -10106,6 +10332,7 @@ window.mall={
         fashionCentral:{
             name:"Fashion Central",
             logo:"StoreLogo_FashionCentral.jpg",
+            coords: "40,227,111,156,153,194,151,213,91,275",
             masterItems:[
                 "skirtTop",
                 "casualDress",
@@ -10115,6 +10342,7 @@ window.mall={
         klipKlops:{
             name:"Klip Klops",
             logo:"StoreLogo_KlipKlops.jpg",
+            coords: "286,123,316,154,283,189,251,157",
             masterItems:[
 
             ],
@@ -10122,6 +10350,7 @@ window.mall={
         zoomElectronics:{
             name:"Zoom Electronics",
             logo:"StoreLogo_ZoomElectronics.jpg",
+            coords: "257,1,322,66,285,103,238,102,211,78,211,49",
             masterItems:[
 
             ],
@@ -10129,46 +10358,89 @@ window.mall={
         friskyBusiness:{
             name:"Frisky Business",
             logo:"StoreLogo_FriskyBusiness.jpg",
+            coords: "247,197,274,224,230,267,205,239",
             masterItems:[
 
             ],
         },
-        // bergAccessories:{
-        //     logo:"",
-        //     masterItems:[
+        bergAccessories:{
+            name: "",
+            logo:"",
+            coords: "345,155,344,201,383,202,406,178,382,155",
+            masterItems:[
 
-        //     ],
-        // },
+            ],
+        },
         rosePetals:{
             name:"Rose Petals",
             logo:"StoreLogo_RosePetals.jpg",
+            coords: "301,251,268,286,251,287,252,316,328,318,329,251",
             masterItems:[
                 "plainPanties",
                 "sexyPanties",
                 "latexPanties"
             ]
         },
-        // kissAndMakeup:{
-        //     logo:"",
-        //     masterItems:[
+        kissAndMakeup:{
+            name: "",
+            logo:"",
+            coords: "",
+            masterItems:[
 
-        //     ],
-        // },
-        // warriorWoman:{
-        //     logo:"",
-        //     masterItems:[
+            ],
+        },
+        warriorWoman:{
+            name: "",
+            logo:"",
+            coords: "",
+            masterItems:[
 
-        //     ],
-        // },
+            ],
+        },
         urbane:{
             name:"Urbane",
             logo:"StoreLogo_Urbane.jpg",
+            coords: "468,233,517,281,517,316,473,315,429,270",
             masterItems:[
                 "boxers",
                 "tshirtJeans"
             ]
         },
 
+    },
+    otherLocations:{
+        toilet:{
+            name:"Toilet",
+            passageLink:"Go to mall toilet",
+            coords:"330,251,330,316,368,318,368,285,350,268,350,252",
+            canVisit: function(){
+                return true;
+            }
+        },
+        cinema:{
+            name:"Cinema",
+            passageLink:"352,242,352,265,370,286,369,332,353,351,353,406,543,405,542,342,515,316,475,317,429,270,420,271,393,242",
+            coords:"",
+            canVisit: function(){
+                return true;
+            }
+        },
+        testLab:{
+            name:"Test Lab",
+            passageLink:"",
+            coords:"186,222,251,286,252,337,148,335,146,264",
+            canVisit: function(){
+                return true;
+            }
+        },
+        arcade:{
+            name:"Arcade",
+            passageLink:"Play in the arcade",
+            coords:"421,82,459,120,460,144,446,158,427,158,404,132,403,100",
+            canVisit: function(){
+                return true;
+            }
+        },
     }
 }
 /* twine-user-script #13: "menu.js" */

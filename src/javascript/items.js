@@ -92,6 +92,76 @@ window.itemFuncs= {
         return notTags;
     },
 
+    getChildItemsForMaster: function(masterItem){
+        var itemChildren = [];
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.masterItem == masterItem){
+                itemChildren.push(item);
+            }
+        }
+        return itemChildren;
+    },
+
+    getItemByVariant: function(itemVariant){
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.variant == itemVariant){
+                return item;
+            }
+        }
+        return false;
+    },
+
+    buyItemVariant: function(itemVariant){
+        console.log("buying item");
+        for(var itemName in window.items.itemChildren){
+            var item = window.items.itemChildren[itemName];
+            if(item.variant == itemVariant){
+                console.log("found item variant");
+                if(item.price > 0){
+                    //deduct cash
+                    window.itemFuncs.addItemToInventory(item);
+                }
+                break;
+            }
+        }
+    },
+
+    addItemToInventory: function(item){
+        console.log("adding item to inventory");
+        if(!(window.itemFuncs.checkItemInInventory(item))){
+            SugarCube.State.variables.inventory.push(item);
+        }
+    },
+
+    checkItemInInventory: function(item){
+        var itemInInventory = false;
+        for(var inventItemIdx in SugarCube.State.variables.inventory){
+            var inventItem = SugarCube.State.variables.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && inventItem.variant == item.variant){
+                itemInInventory = true;
+            }
+        }
+        console.log(itemInInventory);
+        return itemInInventory;
+    },
+
+    getTagsForItem: function(item){
+        var tags = [];
+        for(var tagName in item.tags){
+            if(item.tags[tagName] && tags.indexOf(tagName) < 0){
+                tags.push(tagName);
+            }
+        }
+        var masterItem = window.items.itemMasters[item.masterItem];
+        for(var tagName in masterItem.tags){
+            if(masterItem.tags[tagName] && tags.indexOf(tagName) < 0 && (item.tags[tagName] === undefined || item.tags[tagName])){
+                tags.push(tagName);
+            }
+        }
+        return tags;
+    },
 }
 
 // NotClothing:   0,
@@ -109,11 +179,13 @@ window.itemFuncs= {
 
 //Objects
 window.items={
+    colourTags: ['pink', 'black', 'white', 'blue', 'yellow', 'grey', 'gray', 'orange', 'green', 'red'],
     itemMasters:{
         //Underwear
         boxers:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Boxers",
             daring:0,
             disabled:false,
             hasWorn:false,
@@ -127,6 +199,7 @@ window.items={
         plainPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Plain Panties",
             daring:3,
             disabled:false,
             hasWorn:false,
@@ -140,6 +213,7 @@ window.items={
         sexyPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Sexy Panties",
             daring:3,
             disabled:false,
             hasWorn:false,
@@ -153,6 +227,7 @@ window.items={
         latexPanties:{
             itemType:"underwear",
             clothingSlot:"underwear",
+            name: "Latex Panties",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -168,6 +243,7 @@ window.items={
         tshirtJeans:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "T-shirt and Jeans",
             daring:0,
             disabled:false,
             hasWorn:false,
@@ -181,6 +257,7 @@ window.items={
         skirtTop:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Skirt and Top",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -194,6 +271,7 @@ window.items={
         casualDress:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Casual Dress",
             daring:5,
             disabled:false,
             hasWorn:false,
@@ -207,6 +285,7 @@ window.items={
         sluttyDress:{
             itemType:"outerwear",
             clothingSlot:"outerwear",
+            name: "Slutty Dress",
             daring:7,
             disabled:false,
             hasWorn:false,
@@ -250,6 +329,9 @@ window.items={
         }
     },
     itemChildren:{
+        length: function(){
+            return Object.keys(window.items.itemChildren).length;
+        },
         //Boxers
         luckyBoxers0:{
             masterItem:"boxers",
@@ -1810,7 +1892,7 @@ window.items={
             isMale:false,
             isFemale:true,
             tags:{
-                slutty:true,
+                slutty:false,
                 sexy:true,
                 black:true,
             }
