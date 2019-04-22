@@ -10130,8 +10130,8 @@ macros.showMallStores = {
             }
         }
 
-        var mapHTML = window.mallFuncs.getStoreMap();
-        var mallHTML = mapHTML + storesHTML;
+        var mapHTML = window.mallFuncs.getStoreMapDOM();
+        var mallHTML = mapHTML.innerHTML + storesHTML;
 
         new Wikifier(place, mallHTML);
     }
@@ -10167,27 +10167,81 @@ window.mallFuncs={
         }
     },
 
-    getStoreMap: function(){
-        var mapHTML = '<a href="javascript:window.mallFuncs.toggleMap();"><span id="mapToggle">Hide Map</span></a>';
-        mapHTML += '<div id="storeMap"><img src="./Images/StoreImages/MallMap.png" usemap="#mall-image-map">';
-        mapHTML += '<map name="mall-image-map">';
-        
+    getStoreMapDOM: function(){
+        var outerDiv = document.createElement('div');
+        var toggleMapA = document.createElement('a');
+        var toggleMapSpan = document.createElement('span');
+        var toggleMapSpanText = document.createTextNode('Hide Map');
+
+        toggleMapA.href = 'javascript:window.mallFuncs.toggleMap();';
+        toggleMapSpan.id = 'mapToggle';
+
+        toggleMapSpan.appendChild(toggleMapSpanText);
+        toggleMapA.appendChild(toggleMapSpan);
+        outerDiv.appendChild(toggleMapA);
+
+        var storeMapDiv = document.createElement('div');
+        var storeMapImg = document.createElement('img');
+        storeMapDiv.id = 'storeMap';
+        storeMapImg.src = './Images/StoreImages/MallMap.png';
+        storeMapImg.useMap = '#mall-image-map';
+
+        var mallImageMap = document.createElement('map');
+        mallImageMap.name = 'mall-image-map';
+
         for(var storename in window.mall.stores){
             var store = window.mall.stores[storename];
             if(!(store.name == "") && !(store.coords == "")){
-                mapHTML += '<area target="_self" alt="' + store.name + '" title="' + store.name + '" href="javascript:window.mallFuncs.gotoStore(\'' + storename + '\');" coords="' + store.coords + '" shape="poly">';
+                var areaStore = document.createElement('area');
+                areaStore.target = '_self';
+                areaStore.alt = store.name;
+                areaStore.title = store.name;
+                areaStore.href = 'javascript:window.mallFuncs.gotoStore("' + storename + '");';
+                areaStore.coords = store.coords;
+                areaStore.shape = 'poly';
+                mallImageMap.appendChild(areaStore);
             }
         }
 
         for(var locationname in window.mall.otherLocations){
             var otherLocation = window.mall.otherLocations[locationname];
             if(!(otherLocation.name == "") && !(otherLocation.coords == "") && !(otherLocation.passageLink == "") && otherLocation.canVisit()){
-                mapHTML += '<area target="_self" alt="' + otherLocation.name + '" title="' + otherLocation.name + '" href="javascript:SugarCube.Engine.play(\'' + otherLocation.passageLink + '\');" coords="' + otherLocation.coords + '" shape="poly">';
+                var areaStore = document.createElement('area');
+                areaStore.target = '_self';
+                areaStore.alt = otherLocation.name;
+                areaStore.title = otherLocation.name;
+                areaStore.href = 'javascript:SugarCube.Engine.play("' + otherLocation.passageLink + '");';
+                areaStore.coords = otherLocation.coords;
+                areaStore.shape = 'poly';
+                mallImageMap.appendChild(areaStore);
             }
-        }
+        }        
 
-        mapHTML += '</map></div>';
-        return mapHTML;
+        storeMapDiv.appendChild(storeMapImg);
+        storeMapDiv.appendChild(mallImageMap);
+        outerDiv.appendChild(storeMapDiv);
+        return outerDiv;
+
+        // var mapHTML = '<a href="javascript:window.mallFuncs.toggleMap();"><span id="mapToggle">Hide Map</span></a>';
+        // mapHTML += '<div id="storeMap"><img src="./Images/StoreImages/MallMap.png" usemap="#mall-image-map">';
+        // mapHTML += '<map name="mall-image-map">';
+        
+        // for(var storename in window.mall.stores){
+        //     var store = window.mall.stores[storename];
+        //     if(!(store.name == "") && !(store.coords == "")){
+        //         mapHTML += '<area target="_self" alt="' + store.name + '" title="' + store.name + '" href="javascript:window.mallFuncs.gotoStore(\'' + storename + '\');" coords="' + store.coords + '" shape="poly">';
+        //     }
+        // }
+
+        // for(var locationname in window.mall.otherLocations){
+        //     var otherLocation = window.mall.otherLocations[locationname];
+        //     if(!(otherLocation.name == "") && !(otherLocation.coords == "") && !(otherLocation.passageLink == "") && otherLocation.canVisit()){
+        //         mapHTML += '<area target="_self" alt="' + otherLocation.name + '" title="' + otherLocation.name + '" href="javascript:SugarCube.Engine.play(\'' + otherLocation.passageLink + '\');" coords="' + otherLocation.coords + '" shape="poly">';
+        //     }
+        // }
+
+        // mapHTML += '</map></div>';
+        // return mapHTML;
     },
     
     getStoreItemLinks: function(storeName){
@@ -10203,7 +10257,8 @@ window.mallFuncs={
             console.log(masterItem);
             if(!(window.itemFuncs.getChildItemsForMaster(storeMasterItem)[0] === undefined)){
                 var childItem = window.itemFuncs.getChildItemsForMaster(storeMasterItem)[0];
-                childItemHTML = window.mallFuncs.formatItemForStore(childItem);
+                var childItemDOM = window.mallFuncs.formatItemForStoreDOM(childItem);
+                childItemHTML = childItemDOM.outerHTML;
             }
 
             storeHTML += '<div id="' + storeMasterItem + 'Browser">';
@@ -10232,8 +10287,8 @@ window.mallFuncs={
                 newIndex = 0
             }
             console.log(newIndex);
-            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[newIndex]);
-            storeItemDiv.innerHTML = storeItemHTML;
+            var storeItemDOM = window.mallFuncs.formatItemForStoreDOM(storeItems[newIndex]);
+            storeItemDiv.replaceChild(storeItemDOM, storeItemDiv.firstElementChild);
             storeItemDiv.dataset.itemindex = newIndex;
         }
     },
@@ -10248,8 +10303,8 @@ window.mallFuncs={
                 newIndex = storeItems.length - 1;
             }
             console.log(newIndex);
-            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[newIndex]);
-            $("#" + storeMasterName + "StoreItem").html(storeItemHTML);
+            var storeItemDOM = window.mallFuncs.formatItemForStoreDOM(storeItems[newIndex]);
+            storeItemDiv.replaceChild(storeItemDOM, storeItemDiv.firstElementChild);
             storeItemDiv.dataset.itemindex = newIndex;
         }
     },
@@ -10259,38 +10314,82 @@ window.mallFuncs={
         if(!(storeItems === undefined) && storeItems.length > 0){
             var storeItemDiv = document.querySelector("#" + storeMasterName + "StoreItem");
             var currentIndex = storeItemDiv.dataset.itemindex;
-            var storeItemHTML = window.mallFuncs.formatItemForStore(storeItems[currentIndex]);
-            $("#" + storeMasterName + "StoreItem").html(storeItemHTML);
+            var storeItemDOM = window.mallFuncs.formatItemForStoreDOM(storeItems[currentIndex]);
+            storeItemDiv.replaceChild(storeItemDOM, storeItemDiv.firstElementChild);
         }
     },
 
-    formatItemForStore: function(item){
-        var itemHTML = '<table>';
-        itemHTML += '<tr><img src="./Images/items/' + item.variant + '.jpg"></tr>';
+    formatItemForStoreDOM: function(item){
+        var table = document.createElement('table');
+        var trImage = document.createElement('tr');
+        var itemImage = document.createElement('img');
+        var buyPriceTr = document.createElement('tr');
+        var tagsTr = document.createElement('tr');
+        var tagDiv = window.mallFuncs.formatTagsDOM(window.itemFuncs.getTagsForItem(item));
+
+        itemImage.src = './Images/items/' + item.variant + '.jpg';
+        itemImage.width = 300;
+        itemImage.height = 300;
+        trImage.appendChild(itemImage);
+        table.appendChild(trImage);
+
+        //var itemHTML = '<table>';
+        //itemHTML += '<tr><img src="./Images/items/' + item.variant + '.jpg"></tr>';
         if(window.itemFuncs.checkItemInInventory(item)){
-            itemHTML += '<tr><span>Already Owned</span></tr>';
+            var messageSpan = document.createElement('span');
+            var message = document.createTextNode('Already Owned');
+            messageSpan.appendChild(message);
+            buyPriceTr.appendChild(messageSpan);
+            table.appendChild(buyPriceTr);
+            //itemHTML += '<tr><span>Already Owned</span></tr>';
         }
         else{
-            itemHTML += '<tr><span>$' + item.price + '</span> - <span><a href="javascript:window.itemFuncs.buyItemVariant(\'' + item.variant + '\');window.mallFuncs.reloadCurrentItem(\'' + item.masterItem + '\');">Buy</a></span></tr>';
+            var priceSpan = document.createElement('span');
+            var price = document.createTextNode('$' + item.price);
+            var spliter = document.createTextNode(' - ');
+            var buySpan = document.createElement('span');
+            var buyA = document.createElement('a');
+            var buy = document.createTextNode('Buy');
+
+            buyA.href = 'javascript:window.itemFuncs.buyItemVariant("' + item.variant + '");window.mallFuncs.reloadCurrentItem("' + item.masterItem + '");';
+            buyA.appendChild(buy);
+            buySpan.appendChild(buyA);
+
+            priceSpan.appendChild(price);
+            buyPriceTr.appendChild(priceSpan);
+            buyPriceTr.appendChild(spliter);
+            buyPriceTr.appendChild(buySpan);
+            table.appendChild(buyPriceTr);
+            //itemHTML += '<tr><span>$' + item.price + '</span> - <span><a href="javascript:window.itemFuncs.buyItemVariant(\'' + item.variant + '\');window.mallFuncs.reloadCurrentItem(\'' + item.masterItem + '\');">Buy</a></span></tr>';
         }
-        itemHTML += '<tr>TAGS: ' + window.mallFuncs.formatTags(window.itemFuncs.getTagsForItem(item)) + '</tr>';
-        itemHTML += '</table>';
-        return itemHTML;
+        tagsTr.appendChild(tagDiv);
+        table.appendChild(tagsTr);
+        // itemHTML += '<tr>TAGS: ' + window.mallFuncs.formatTags(window.itemFuncs.getTagsForItem(item)) + '</tr>';
+        // itemHTML += '</table>';
+        // return itemHTML;
+        return table;
     },
 
-    formatTags: function(itemTagArr){
-        var tagHTML = "";
+    formatTagsDOM: function(itemTagArr){
+        var tagsDiv = document.createElement('div');
+
         for(var tagIdx in itemTagArr){
             var itemTag = itemTagArr[tagIdx];
+            var tagSpan = document.createElement('span');
+            var tagText = document.createTextNode(itemTag);
+            var tagSeperator = document.createTextNode(', ');
             if(window.items.colourTags.indexOf(itemTag) > -1){
-                tagHTML += '<span style="background:' + itemTag + '; color:' + invertColorByName(itemTag, true) + '">' + itemTag + '</span>'
+                tagSpan.style.background = itemTag;
+                tagSpan.style.color = invertColorByName(itemTag, true);
             }
-            else{
-                tagHTML += '<span style="">' + itemTag + '</span>'
+            tagSpan.appendChild(tagText);
+            tagsDiv.appendChild(tagSpan);
+            if(tagIdx < itemTagArr.length-1){
+                tagsDiv.appendChild(tagSeperator);
             }
-            tagHTML += ', ';
         }
-        return tagHTML;
+
+        return tagsDiv;
 
         function invertColorByName(name, bw) {
             var d = document.createElement("div");
