@@ -1577,7 +1577,7 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 7 },
+			teacher:	{ min: 5, max: 8 },
 			therapist:	{ min: 0, max: 10 },
 			guardian:	{ min: 0, max: 10 }
 		},
@@ -1622,7 +1622,7 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 7 },
+			teacher:	{ min: 5, max: 8 },
 			therapist:	{ min: 0, max: 10 },
 			guardian:	{ min: 0, max: 10 }
 		},
