@@ -22636,7 +22636,16 @@ For a few minutes, they keep up a steady rhythm, then $guardian picks up the pac
 			
 			@@.guardian;&quot;Hello, Susan. We&#39;re trying out some new styles today. $player.name, say hello to my old friend.&quot;@@
 			
-			@@.heroT;&quot;Hel-hello.&quot;@@ $Guardian triggers a strong jolt via her remote, making you stutter your greeting, and leaving you blushing heavily under Susan&#39;s gaze. @@.hero;Awkward.@@
+			&lt;&lt;if $flags.metClothesClerk&gt;&gt;\
+				@@.shopclothes;&quot;Oh, don&#39;t worry, $player.name and I are great friends! She&#39;s in here all the time buying some cute thing or another, even helped me out with a bit of modelling once!&quot;@@
+
+				$Guardian looks at you with a smile. @@.guardian;&quot;Oh, that is just lovely. I dare say, if you keep developing as you have been, you could be quite the fetching model.&quot;@@
+
+				You just blush, letting out a startled gasp when $guardian chooses that precise moment to trigger a strong jolt via her remote.
+			&lt;&lt;else&gt;&gt;\
+				@@.heroT;&quot;Hel-hello.&quot;@@ $Guardian triggers a strong jolt via her remote, making you stutter your greeting, and leaving you blushing heavily under Susan&#39;s gaze. @@.hero;Awkward.@@
+				&lt;&lt;set $flags.metClothesClerk == true&gt;&gt;\
+			&lt;&lt;endif&gt;&gt;\
 
 			@@.shopclothes;&quot;Oh, she is such a sweetie. Don&#39;t worry my precious, I&#39;ll help you find your look!&quot;@@ Susan turns to $guardian and pouts. @@.shopclothes;&quot;And don&#39;t old-friend me, I&#39;m younger than you.&quot;@@
 
