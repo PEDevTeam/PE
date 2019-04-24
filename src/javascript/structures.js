@@ -1257,6 +1257,7 @@ window.flagsList={
 	difficulty: 1,
 	choreFactor: 1,
 	bribeFactor: 1,
+	metClothesClerk: false,
 },
 
 window.kinkList={

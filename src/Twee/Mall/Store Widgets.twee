@@ -4,6 +4,7 @@
 <<set _storeImagePack=window.stores[$args[0]].imagePack>>
 <div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\	
 <<print "''"+window.stores[$args[0]].name+"''">>
+<<set $curStore = window.stores[$args[0]].name>>\
 <<display [[Shop events]]>>\
 <<print window.stores[$args[0]].description>> What would you like to buy?
 
