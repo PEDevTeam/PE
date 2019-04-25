@@ -10556,6 +10556,8 @@ window.flagsList={
 	choreFactor: 1,
 	bribeFactor: 1,
 	metClothesClerk: false,
+	quizState: "none",
+	quiz: [0,0,0,0,0,0,0,0,0,0],
 },
 
 window.kinkList={
@@ -18068,7 +18070,6 @@ Grabbing the gym bag, you ease open the stall door and quietly sneak towards the
 
 &lt;&lt;if playerCode.slutScoreBasic() gt 1&gt;&gt;\
     A cute&lt;&lt;if playerCode.slutScoreBasic() &lt; 5&gt;&gt;, if boyish,&lt;&lt;endif&gt;&gt; gym bunny stares at you from the other side of the glass. Your cheeks become a bit flushed when you register that the girl is you.
-
 
     &lt;&lt;if playerCode.isMind() == 0&gt;&gt;\
         @@.hero;Am I turning myself on? What is wrong with me?@@
@@ -42782,7 +42783,7 @@ Alright! How do you want to do this?
 	&lt;&lt;if _c and playerCode.masturbate.isTeased() and playerCode.isHorny()&gt;&gt;\
 		&lt;div class=&quot;tooltip&quot;&gt;@@.halftransparent;Read Playgirl magazine@@ &lt;span id=&quot;test_surv&quot; class=&quot;tooltiptext&quot;&gt;You are too horny to do that while being locked in chastity&lt;/span&gt;&lt;/div&gt;
 	&lt;&lt;else&gt;&gt;\
-		[[Read Playgirl magazine]]
+		[[Read Playgirl magazine][$flags.quizState = &quot;none&quot;]]
 	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
 &lt;&lt;if $kink.painPlay and $flags.chorePunKinky&gt;&gt;\
@@ -43045,44 +43046,247 @@ You almost forgot to take your wallet to the school. $teacher would have been fu
 	&lt;&lt;set $flags.canGame = false&gt;&gt;
 &lt;&lt;endif&gt;&gt;\
 [[Do something else|Go to bedroom]]</tw-passagedata><tw-passagedata pid="234" name="Read Playgirl magazine" tags="pos_478_935" position="475,2975">\
-&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
-You open &lt;&lt;if $items.playgirlMagazine.stolen&gt;&gt;$guardian&#39;s&lt;&lt;else&gt;&gt;your&lt;&lt;endif&gt;&gt; Playgirl magazine and begin flipping through.
-
-It&#39;s filled with hot, hunky guys with ridiculously chiseled abs. Some are glistening with oil, and all are sporting big, thick erect cocks.  Their eyes burn into you, demanding you service them, to take them deep down your throat, or let them bend you over and take you as they want.
-
-&lt;&lt;if not _c&gt;&gt;\
-You start idly playing with your own penis, and before long you realize you&#39;re hard. &lt;&lt;endif&gt;&gt;It&#39;s scary to think of being in a room with one of these beefcakes, nobody to see what he does to you, your own little world without other people judging your fantasies.  
-
-What if he was too rough? Would you mind? Would you care if he used you, covered you in his sperm and demanded you clean him up, then left without a care for your own pleasure? Or would you prefer him kissing you, frenching you, then 69ing until you both came together?
-
-What if you seduced him, dressed as a girl, and he didn&#39;t know?  You could slip under the table at a restaurant, open his pants and suck him deep until he put his hands on your head and gently fucked your mouth until he came. 
-
-You could stand up with a mouthful of his cum and swallow as you walked away, knowing he would fantasize about you doing it again.
-
-&lt;&lt;if _c&gt;&gt;\
-	You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+&lt;&lt;if $flags.quizState == &quot;question&quot;&gt;&gt;\
+	&lt;&lt;set $flags.quizState = &quot;answer&quot;&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
-	You come hard, clean up quickly and \
+	&lt;&lt;set $flags.quizState = &#39;none&#39;&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-put the magazine away, glad that $guardian didn&#39;t walk in on you.
+&lt;&lt;if $flags.quizState == &quot;none&quot;&gt;&gt;\
+	You open &lt;&lt;if $items.playgirlMagazine.stolen&gt;&gt;$guardian&#39;s&lt;&lt;else&gt;&gt;your&lt;&lt;endif&gt;&gt; Playgirl magazine and begin flipping through.
 
-&lt;&lt;if _c&gt;&gt;\
-	&lt;&lt;set playerCode.changeArousal(5)&gt;&gt;\
-	&lt;&lt;set playerCode.upArousalTo(50,50)&gt;&gt;\
-	&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
-		&lt;&lt;set $player.masturbationType = 5&gt;&gt;\
-		After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
-		
+	&lt;&lt;if playerCode.isMind_0()&gt;&gt;\
+		&lt;&lt;selectScene playgirl0 SEQ&gt;&gt;\
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl article&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			You hurriedly turn the pages until you find one that isn’t dominated by a naked beefcake, but rather large blocks of text.
+
+			@@.hero;Now I know what they mean by “I read it for the articles…”@@
+			
+			The article, “To Spank or Be Spanked,” seems to be both a primer on femdom and maledom play, and the explicit descriptions of sex contained within make your blood race. You’re so engrossed in the writing, that you almost manage to ignore the image of a woman pulling down her partner’s shorts to display his erect cock.\
+			&lt;&lt;if $kink.bdsm&gt;&gt;\
+
+				@@.hero;This article is pretty hot. I think I might have just found my new favorite *reading material*...@@
+
+			&lt;&lt;endif&gt;&gt;\
+			&lt;&lt;if $player.perversion.teacher &lt; 2&gt;&gt;\
+				Your attention is suddenly drawn to the contraption in the top of the page, a roughly penis-shaped metal cage with a metal ring and padlock.
+
+				@@.hero;What the hell is that thing?@@
+
+			&lt;&lt;endif&gt;&gt;\
+			You continue perusing the magazine, frantically turning past pages with prominent penis, but taking time to enjoy the articles that include recommendations for sex toys, erotic travel tips and sex advice. Even the mundane topics are written with erotic undertones, and with each paragraph, you can feel your arousal growing. 
+
+			Finally, you stumble on the erotic fiction section, and &lt;&lt;if not _c&gt;&gt;you start idly playing with yourself as &lt;&lt;endif&gt;&gt;you allow yourself to get lost in the fantasies.
+			
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl quiz&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			&lt;&lt;set $flags.quizState = &quot;question&quot;&gt;&gt;\	
+			You start from the back of the magazine, as you assume all the articles are after the pictures of naked men, something you could do without seeing. The first page you see is some sort of quiz on whether you’re a sub or dom. You chuckle to yourself about how leading some of the answers are, but decide to take the quiz as honestly as possible, attempting to genderflip the questions when they’re obviously written from a woman’s perspective.
+
+			Q1. In high school, you were voted:
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[0]&quot; 1&gt;&gt;Most bossy&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[0]&quot; 0&gt;&gt;Most friendly&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[0]&quot; -1&gt;&gt;Nothing: Nobody knew who you were in highschool&lt;/label&gt;
+
+			Q2. You’re on a first date with a guy when you find out he’s a cop. What’s the first thing that goes through your mind?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[1]&quot; 1&gt;&gt;“I know how to put those handcuffs to good use!”&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[1]&quot; 0&gt;&gt;“No more parking tickets for me!”&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[1]&quot; -1&gt;&gt;“Authority gets me so hot!”.&lt;/label&gt;
+
+			Q3. A woman cuts in front of you on line at the grocery store. What do you do?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[2]&quot; 1&gt;&gt;LOUDLY tell her to get to the back of the line&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[2]&quot; 0&gt;&gt;Politely explain that you were ther first&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[2]&quot; -1&gt;&gt;Say nothing - you liked the way she shoved you out of the way&lt;/label&gt;
+
+			Q4. What is your LEAST favorite sexual position:
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[3]&quot; 1&gt;&gt;You like any position as long as you’re not gagged&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[3]&quot; 0&gt;&gt;The crazy, back-bending Kama Sutra move that gives you a charley horse&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[3]&quot; -1&gt;&gt;Reverse Cowgirl&lt;/label&gt;
+
+			Q5. You have a secret office crush on:
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[4]&quot; 1&gt;&gt;The shy, virginal mailroom guy&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[4]&quot; 0&gt;&gt;The super competitive co-worker with whom you argue constantly&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[4]&quot; -1&gt;&gt;The brutish CEO who orders you around like a maid&lt;/label&gt;
+
+			Q6. Last Halloween, you went as:
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[5]&quot; 1&gt;&gt;Eve in the Garden of Eden, wearing body paint and a smile&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[5]&quot; 0&gt;&gt;A naughty nurse&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[5]&quot; -1&gt;&gt;A puppy&lt;/label&gt;
+
+			Q7. You catch a sexy guy checking you out at a bar. What do you do?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[6]&quot; 1&gt;&gt;Walk up to him and ask if he wants to see you tie a cherry stem in a knot with your tongue&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[6]&quot; 0&gt;&gt;Grab a girlfriend and hit the dance floor, then wait for him to come to you&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[6]&quot; -1&gt;&gt;Bat your eyelashes like Scarlett O’Hara and pretend you don’t see him looking&lt;/label&gt;
+
+			Q8. Which on-screen sex scene gets you hottest?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[7]&quot; 1&gt;&gt;Sharon Stone and Michael Douglas in *Basic Instinct*&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[7]&quot; 0&gt;&gt;Angelina Jolie and Brad Pitt in *Mr. and Mrs. Smith*&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[7]&quot; -1&gt;&gt;Debra winger and Richard Gere in *An Officer and a Gentleman*&lt;/label&gt;
+
+			Q9. What is the most important thing you look for in a man?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[8]&quot; 1&gt;&gt;A big penis… duh!&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[8]&quot; 0&gt;&gt;Intelligence&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[8]&quot; -1&gt;&gt;Strong Arms&lt;/label&gt;
+
+			Q10. How many times have you faked an orgasm?
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[9]&quot; 1&gt;&gt;Never, I don’t let my man stop until I finish&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[9]&quot; 0&gt;&gt;Once or twice, Sometimes men need a little encouragement&lt;/label&gt;
+			&lt;label&gt;&lt;&lt;radiobutton &quot;$flags.quiz[9]&quot; -1&gt;&gt;Pretty often - when he tells me to come, I try to obey&lt;/label&gt;
+
+			You write down your answer to each question, then check the bottom to [[see your result|Read Playgirl magazine]]
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl mind0&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			You peruse the magazine, frantically turning past pages with prominent penis, but taking time to enjoy the articles that include recommendations for sex toys, erotic travel tips and sex advice. Even the mundane topics are written with erotic undertones, and with each paragraph, you can feel your arousal growing. 
+
+			Finally, you stumble on the erotic fiction section, and &lt;&lt;if not _c&gt;&gt;you start idly playing with yourself as &lt;&lt;endif&gt;&gt;you allow yourself to get lost in the fantasies.
+			
+		&lt;&lt;/selectScene&gt;&gt;\
+	&lt;&lt;elseif playerCode.isMind_1()&gt;&gt;\
+		&lt;&lt;selectScene playgirl1 SEQ&gt;&gt;\
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl army&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			Even though the magazine focuses on the male anatomy, you do find a couple of alluring spreads that feature a man and a woman.  As the issue is femdom-themed, all of the shoots have an undercurrent of domination.  
+
+			The first photo set you find is military-themed, with the female definitely taking a dominant role in the scenario.  In one photo, she’s grabbing his ass and leering at him lasciviously, while in another she has him pinned under her combat boot.  Your mind starts to wander as you &lt;&lt;if _c&gt;&gt;take in the images&lt;&lt;else&gt;&gt;start to play with yourself&lt;&lt;endif&gt;&gt;
+
+			Even with just a set of static images, your mind starts creating the skeleton of a story, inserting yourself into the guy’s role.  Your fantasies are filled with images of this female soldier, being felt up by her like a piece of meat&lt;&lt;if $kink.trampling&gt;&gt; and trampled under her boots&lt;&lt;endif&gt;&gt; before being used as her personal fucktoy. &lt;&lt;if _c&gt;&gt;Your cock strains hard in its &lt;&lt;if $kink.penisShrink || $kink.sph&gt;&gt;tiny &lt;&lt;endif&gt;&gt;plastic prison, frustrating you even as your mind demands you continue the fantasy.&lt;&lt;else&gt;&gt;Your cock throbs as you stroke, lost completely in the daydream of being dominated by this woman.&lt;&lt;endif&gt;&gt;
+
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl tennis&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			You skim through the pages, avoiding the solo male photoshoots, and finally stop when you discover a female/male spread.  The magazine claims its a rerun, something to satisfy fan of CFNM, or clothed female, nude male, as the page explains.
+
+			The sequence is of a man teaching a woman tennis, which quickly devolves into her stripping off his tennis shorts and putting his sizable erection to use.  Every one of her poses is dominant: staring firmly into the man’s eyes, mounted on top of him, or her hand wrapped firmly around his erect cock.
+
+			The images are enough for you to build a sort of mental personality for the woman, Kristen according to the magazine. You can practically hear her self-satisfied voice in your mind as she demands you service her sexually in penance for your poor tennis instruction.  You are soon &lt;&lt;if _c&gt;&gt;rocking your hips back and forth&lt;&lt;else&gt;&gt;stroking your own erection&lt;&lt;endif&gt;&gt; as you visualize yourself dominated by Kristen, laid down naked on the clay court and used for her pleasure.
+
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl mind1&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			You turn to one of the male/female photoshoots and start stroking&lt;&lt;if _c&gt;&gt; against your plastic cage&lt;&lt;endif&gt;&gt;.  Every image is dripping with eroticism, the curves of the female model, the sculpted physique of her male partner, and the visage of pleasure on both their faces as she takes him to the hilt inside of her.
+
+			You &lt;&lt;if _c&gt;&gt;wince in frustration&lt;&lt;else&gt;&gt;jerk faster&lt;&lt;endif&gt;&gt; as you lose yourself in the images, your eyes lingering on the bodies of the men and women pleasuring themselves for you.  Occasionally, your mind slips you into the role of the men in the image&lt;&lt;if _c&gt;&gt;, making your cock long for its next taste of freedom&lt;&lt;endif&gt;&gt;.  Oddly, you almost always see yourself in the images where the women are clearly dominating their partner.  It’d be almost distressing, if it just didn’t make you so goddamn hot.
+
+		&lt;&lt;/selectScene&gt;&gt;\
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;selectScene playgirl2 SEQ&gt;&gt;\
+		&lt;&lt;scene&gt;&gt;
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl centerfold&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			You plan to flip through the magazine, trying to ignore the rampant erections, until an unusual thought pops in your head.
+
+			@@.hero;Centerfolds are like the highlight of porn mags. I should check that out.@@
+
+			&lt;&lt;if $kinkAllow.mindControl&gt;&gt;Almost as if guided by an unseen puppet strings, your&lt;&lt;else&gt;&gt;Your&lt;&lt;endif&gt;&gt; hand turns to the center of the magazine where you find Stefan, a swarthy, sculpted male specimen on full display for you.  Your eyes trail over his body, studying his chiseled jaw, firm chest and six pack abs, slowly leading down to his massive, erect cock.  
+
+			Its size &lt;&lt;if $kink.sph&gt;&gt;dwarfs yours&lt;&lt;else&gt;&gt;is impressive&lt;&lt;endif&gt;&gt;, and you find yourself transfixed as you examine its shape and texture.  A image flickers into your mind of you keening before him, taking his member into your mouth, and you subconsciously lick your lips at the thought.
+
+			The spark of fantasy begins to blaze even brighter as you visualize yourself taking him deep into your throat, bobbing your head back and forth, hungry for his cum.  His fingers wrap themselves around the back of your head, pushing you ever deeper as his erection throbs in your mouth before shuddering and spurting his seed deep in your throat.
+
+			He pushes you off his cock and back onto the floor, moving to between your legs.\
+			&lt;&lt;if $kink.mindControl&gt;&gt;
+
+				You wince.  Something is off, almost as if a small part of you wants out of the daydream, but your mind refuses to let it go.
+
+			&lt;&lt;endif&gt;&gt;
+			He positions yourself at the entrance of your hole and plunges deep inside.  You can practically feel him thrusting back and forth inside of you as he claims your body for his own.  His pace quickens, the noise of his hips slapping against your ass filling the room, before finally he explodes inside you, filling you with his cum.
+
+			&lt;&lt;if _c&gt;&gt;
+				Clear droplets of precum pour from your cock, dampening the seat cushion beneath you, but the chastity cage does it’s job, strangling your erection even against this intensely vivid fantasy.
+
+			&lt;&lt;else&gt;&gt;\
+				The pressure in your cock crets over the breaking point.\
+			&lt;&lt;endif&gt;&gt;\
+		&lt;&lt;scene&gt;&gt;\
+			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl mind2&quot; 400 400&gt;&gt;&lt;/div&gt;\
+			It&#39;s filled with hot, hunky guys with ridiculously chiseled abs. Some are glistening with oil, and all are sporting big, thick erect cocks. Their eyes burn into you, demanding you service them, to take them deep down your throat, or let them bend you over and take you as they want.
+
+			&lt;&lt;if not _c&gt;&gt;\
+			You start idly playing with your own penis, and before long you realize you&#39;re hard. &lt;&lt;endif&gt;&gt;It&#39;s scary to think of being in a room with one of these beefcakes, nobody to see what he does to you, your own little world without other people judging your fantasies.  
+
+			What if he was too rough? Would you mind? Would you care if he used you, covered you in his sperm and demanded you clean him up, then left without a care for your own pleasure? Or would you prefer him kissing you, frenching you, then 69ing until you both came together?
+
+			What if you seduced him, dressed as a girl, and he didn&#39;t know?  You could slip under the table at a restaurant, open his pants and suck him deep until he put his hands on your head and gently fucked your mouth until he came. 
+
+			You could stand up with a mouthful of his cum and swallow as you walked away, knowing he would fantasize about you doing it again.
+
+		&lt;&lt;/selectScene&gt;&gt;\
 	&lt;&lt;endif&gt;&gt;\
-	[[Do something else|Go to bedroom]] 
-&lt;&lt;else&gt;&gt;\
-	&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
-		&lt;&lt;set $player.masturbationType = 6&gt;&gt;\
-		After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
-		
+&lt;&lt;endif&gt;&gt;\
+&lt;&lt;if $flags.quizState == &#39;answer&#39;&gt;&gt;\
+	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl quiz&quot; 400 400&gt;&gt;&lt;/div&gt;\
+	&lt;&lt;set $flags.quizState = &quot;none&quot;&gt;&gt;\
+	&lt;&lt;set _result = 0&gt;&gt;\
+	&lt;&lt;for _i to 0; _i lt $flags.quiz.length; _i++&gt;&gt;\
+		&lt;&lt;set _result = _result + $flags.quiz[_i]&gt;&gt;\
+	&lt;&lt;/for&gt;&gt;\
+	&lt;&lt;if _result &gt; 0&gt;&gt;\
+		“Ma’aam, yes Ma’am!” the quiz says. “You are one dominant damsel. You know what you want and you’re not afraid to ask for it (or demand it). However, since most men don’t like to be dominated all the time, you should try switching it up every once in a while. So loosen the knots, pass the whip, and let him do the spanking tonight. Then, if you’re really upset about missing the opportunity, just punish him twice as much as you normally would the next time you have sex. Happy slapping!”
+
+		@@.hero;Wait, so I should try being more submissive?  I mean, I guess I could give it a shot…@@
+
+	&lt;&lt;elseif _result == 0&gt;&gt;\
+		&quot;You know how to keep it all in balance, babe!&quot; The quiz announces. &quot;Switching up the roles during sex is the best way to keep things fresh and exciting. It’s all about knowing when to take your man down and when to let him take you. Luckily for your boy, you like him to be your equal, in and out of the bedroom. You two have a lot of hot sex and stimulating conversations in your future. Congratulations!&quot;
+
+		@@.hero;Ugh. What a lame result. It makes me sound super boring...@@
+
+	&lt;&lt;else&gt;&gt;\
+		&quot;Well, hello there, little miss submissive!&quot; the quiz says. &quot;You’re the kind of girl who likes to let her man to take charge. And, while there’s nothing wrong with that, taking the proverbial reins every once in a while would be a great way to spice up your sex life. If you’re too shy in bed to ride your man on a regular basis, why not try it on a special occasion, like his birthday? Trust us, he won’t know what hit him!
+
+		@@.hero; I’m a submissive?  &lt;&lt;if $kink.bdsm&gt;&gt;I guess I can see it…&lt;&lt;else&gt;&gt;No way. This test is dumb.&lt;&lt;endif&gt;&gt;
+
 	&lt;&lt;endif&gt;&gt;\
-	[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	You continue perusing the magazine, frantically turning past pages with prominent penis, but taking time to enjoy the articles that include recommendations for sex toys, erotic travel tips and sex advice. Even the mundane topics are written with erotic undertones, and with each paragraph, you can feel your arousal growing. 
+
+	Finally, you stumble on the erotic fiction section, and &lt;&lt;if not _c&gt;&gt;you start idly playing with yourself as &lt;&lt;endif&gt;&gt;you allow yourself to get lost in the fantasies.
+
+	&lt;&lt;if _c&gt;&gt;\
+	You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+	&lt;&lt;else&gt;&gt;\
+		You come hard, clean up quickly and \
+	&lt;&lt;endif&gt;&gt;\
+	put the magazine away, glad that $guardian didn&#39;t walk in on you.
+
+	&lt;&lt;if _c&gt;&gt;\
+		&lt;&lt;set playerCode.changeArousal(5)&gt;&gt;\
+		&lt;&lt;set playerCode.upArousalTo(50,50)&gt;&gt;\
+		&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
+			&lt;&lt;set $player.masturbationType = 5&gt;&gt;\
+			After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
+			
+		&lt;&lt;endif&gt;&gt;\
+		[[Do something else|Go to bedroom]] 
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
+			&lt;&lt;set $player.masturbationType = 6&gt;&gt;\
+			After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
+			
+		&lt;&lt;endif&gt;&gt;\
+		[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;elseif $flags.quizState != &quot;question&quot;&gt;&gt;\
+	&lt;&lt;if _c&gt;&gt;\
+		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+	&lt;&lt;else&gt;&gt;\
+		You come hard, clean up quickly and \
+	&lt;&lt;endif&gt;&gt;\
+	put the magazine away, glad that $guardian didn&#39;t walk in on you.
+
+	&lt;&lt;if _c&gt;&gt;\
+		&lt;&lt;set playerCode.changeArousal(5)&gt;&gt;\
+		&lt;&lt;set playerCode.upArousalTo(50,50)&gt;&gt;\
+		&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
+			&lt;&lt;set $player.masturbationType = 5&gt;&gt;\
+			After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
+			
+		&lt;&lt;endif&gt;&gt;\
+		[[Do something else|Go to bedroom]] 
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;if $player.perversion.guardian gte 4&gt;&gt;\
+			&lt;&lt;set $player.masturbationType = 6&gt;&gt;\
+			After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
+			
+		&lt;&lt;endif&gt;&gt;\
+		[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
+	&lt;&lt;endif&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="235" name="Replace batteries" tags="pos_774_1208" position="600,2975">\
 &lt;div&gt;&lt;&lt;RandomImageFromPack &quot;Guardian Bedroom&quot; 400 400&gt;&gt;&lt;/div&gt;\	
 &lt;&lt;set $time.addMinutes(5)&gt;&gt;\
@@ -44761,6 +44965,7 @@ In no time, you feel like you&#39;re about to explode. You whimper, afraid to cr
 &lt;&lt;set _mf to false&gt;&gt;\
 &lt;&lt;set _c to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;if ($random.stored eq 0) and $flags.cameraBathroom&gt;&gt;\
+	&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Guardian Shower Spycam&quot; 400 400&gt;&gt;&lt;/div&gt;\
 	&lt;&lt;set _mf to true&gt;&gt;\
 	It&#39;s a bit steamy, but you can see $guardian in the shower. She soaps her body up, paying particular attention to her breasts and between her legs, then takes the detachable shower head and runs it all over herself, washing herself clean.
 	

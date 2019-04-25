@@ -1258,6 +1258,8 @@ window.flagsList={
 	choreFactor: 1,
 	bribeFactor: 1,
 	metClothesClerk: false,
+	quizState: "none",
+	quiz: [0,0,0,0,0,0,0,0,0,0],
 },
 
 window.kinkList={
