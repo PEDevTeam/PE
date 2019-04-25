@@ -10217,6 +10217,7 @@ window.friendList={
 	catchUp: 0,
 	admitWhatsWrong: 0,
 	admitLikingTrap: 0,
+	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
 },
 
 window.futaList={
@@ -33109,6 +33110,8 @@ You grab the TV remote and pull up the film menu.
 &lt;&lt;scene&gt;&gt;\
 	&lt;&lt;include [[Friend Hang Out Sad]]&gt;&gt;
 &lt;&lt;/selectScene&gt;&gt;\
+&lt;&lt;if $friendG.leave_message&gt;&gt;&lt;&lt;print $friendG.leave_message&gt;&gt; \
+&lt;&lt;set $friendG.leave_message to &#39;&#39;&gt;&gt;&lt;&lt;endif&gt;&gt;\
 You pull your shoes back on and head out, giving $friend a &lt;&lt;if $flags.friendIsMale&gt;&gt;a sholder bump&lt;&lt;else&gt;&gt;quick hug&lt;&lt;endif&gt;&gt;.
 
 [[Leave friend&#39;s house][$time.addMinutes(90)]]</tw-passagedata><tw-passagedata pid="181" name="Friend Intro 0-1" tags="" position="100,2350">\
@@ -33226,9 +33229,11 @@ You can’t help but smile at the awful joke, but at least $friendG.he_she chang
 
 Of course, talking about cheerleaders leads to talk about cute girls, which leads to who in the world you each might be crushing on. It’s not until you are about to leave that you realize that you feel a little better about life thanks to $friendG.him_her. 
 
-Then just as you are about to go, $friendG.he_she pats your arm and says @@.friend;“$player.name. You know, you can tell me when you feel up to it.”@@
+&lt;&lt;set $friendG.leave_message to &#39;Then just as you are about to go, $friendG.he_she pats your arm and says @@.friend;“$player.name. You know, you can tell me when you feel up to it.”@@&#39;&gt;&gt;\
+\
+[[Hang Out|Friend Hang Out]]
 
-[[Leave friend&#39;s house][$time.addMinutes(90); $tasksFriend.manga.status = 3;]]</tw-passagedata><tw-passagedata pid="185" name="Friend Mid Visit" tags="" position="600,2350">\
+[[Leave friend&#39;s house][$time.addMinutes(15);]]</tw-passagedata><tw-passagedata pid="185" name="Friend Mid Visit" tags="" position="600,2350">\
 &lt;&lt;set _chastity to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
 &lt;&lt;set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
 &lt;&lt;set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
@@ -33549,6 +33554,8 @@ You decide to head home to edit the video, so you say goodbye. \
 	&lt;&lt;set $player.clothes to clone($player.clothesTmp)&gt;&gt;&lt;&lt;updateClothes&gt;&gt;\
 	&lt;&lt;set $player.clothesTmp to null&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
+&lt;&lt;if $friendG.leave_message&gt;&gt;&lt;&lt;print $friendG.leave_message&gt;&gt; \
+&lt;&lt;set $friendG.leave_message to &#39;&#39;&gt;&gt;&lt;&lt;endif&gt;&gt;\
 You head outside and say goodbye.
 
 @@.friend;&quot;See you next time, $player.name!&quot;@@
@@ -33595,7 +33602,7 @@ Your friend also has a sister called &lt;&lt;textbox &quot;$friendsis&quot; &quo
 &lt;&lt;elseif $friendG.snoop gt 0 and $tasksFriend.manga.status eq 0&gt;&gt;\
 	&lt;&lt;goto [[Friend Chapter 1-1]]&gt;&gt;\
 \
-&lt;&lt;elseif $tasksFriend.manga.status eq 2&gt;&gt;\
+&lt;&lt;elseif $tasksFriend.manga.status eq 1 or $tasksFriend.manga.status eq 2&gt;&gt;\
 	&lt;&lt;goto [[Friend Task Manga Cont]]&gt;&gt;\
 \
 &lt;&lt;else&gt;&gt;
@@ -43169,7 +43176,7 @@ You almost forgot to take your wallet to the school. $teacher would have been fu
 		&lt;&lt;/selectScene&gt;&gt;\
 	&lt;&lt;else&gt;&gt;\
 		&lt;&lt;selectScene playgirl2 SEQ&gt;&gt;\
-		&lt;&lt;scene&gt;&gt;
+		&lt;&lt;scene&gt;&gt;\
 			&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Playgirl centerfold&quot; 400 400&gt;&gt;&lt;/div&gt;\
 			You plan to flip through the magazine, trying to ignore the rampant erections, until an unusual thought pops in your head.
 
@@ -43182,14 +43189,14 @@ You almost forgot to take your wallet to the school. $teacher would have been fu
 			The spark of fantasy begins to blaze even brighter as you visualize yourself taking him deep into your throat, bobbing your head back and forth, hungry for his cum.  His fingers wrap themselves around the back of your head, pushing you ever deeper as his erection throbs in your mouth before shuddering and spurting his seed deep in your throat.
 
 			He pushes you off his cock and back onto the floor, moving to between your legs.\
-			&lt;&lt;if $kink.mindControl&gt;&gt;
+			&lt;&lt;if $kink.mindControl&gt;&gt;\
 
-				You wince.  Something is off, almost as if a small part of you wants out of the daydream, but your mind refuses to let it go.
+				You wince.  Something is off, almost as if a small part of you wants out of the daydream, but your mind refuses to release you from the fantasy.
 
-			&lt;&lt;endif&gt;&gt;
-			He positions yourself at the entrance of your hole and plunges deep inside.  You can practically feel him thrusting back and forth inside of you as he claims your body for his own.  His pace quickens, the noise of his hips slapping against your ass filling the room, before finally he explodes inside you, filling you with his cum.
+			&lt;&lt;endif&gt;&gt;\
+			He positions yourself at the entrance of your hole and plunges deep inside.  You can almost feel him thrusting back and forth inside of you as he claims your body for his own.  His pace quickens, the noise of his hips slapping against your ass filling the room before finally he explodes inside you, filling you with his cum.
 
-			&lt;&lt;if _c&gt;&gt;
+			&lt;&lt;if _c&gt;&gt;\
 				Clear droplets of precum pour from your cock, dampening the seat cushion beneath you, but the chastity cage does it’s job, strangling your erection even against this intensely vivid fantasy.
 
 			&lt;&lt;else&gt;&gt;\
@@ -45823,6 +45830,7 @@ Staring down at the new outfit, you are momentarily petrified. Sure, you don&#39
     Placing the uniform aside you pull on the new outfit, the tube top hugging snug around your flat chest.
 &lt;&lt;/if&gt;&gt;\
 
+&lt;div style=&quot;float: right; margin: 10px;&quot;&gt;&lt;&lt;RandomImageFromPack &quot;Mall Laughing Girls&quot; 400 400&gt;&gt;&lt;/div&gt;\
 Stepping back, you find yourself staring at a half dozen grinning girls, plus Susan. Not satisfied for you to stand there, they call out for you to twirl around, walk in a circle and otherwise show off your skimpy outfit. Blushing up a storm, you&#39;re actually relieved when one of the girls hands you another set of clothes, as it gives you the opportunity to quickly dart back behind the partition, grateful for a moments reprieve from the humiliation.
 
 What follows next is a seemingly endless parade of embarassment. Under Susan&#39;s watchful eye, you change into outfit after outfit. No sooner have you stepped out from behind the small privacy screen and shown off one ensemble, when one of the girls hands you a fresh outfit even more scandalous than the last.
