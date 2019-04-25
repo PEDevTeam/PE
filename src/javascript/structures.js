@@ -919,6 +919,7 @@ window.friendList={
 	catchUp: 0,
 	admitWhatsWrong: 0,
 	admitLikingTrap: 0,
+	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
 },
 
 window.futaList={
