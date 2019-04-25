@@ -1742,6 +1742,68 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Club/Basement/Room_23",
+                           "path":  "Club/Basement/Room_23",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/Room_23/BondageBench",
+                           "path":  "Club/Basement/Room_23/BondageBench",
+                           "files":  [
+                                         {
+                                             "fileName":  "bondage_bench.jpg",
+                                             "height":  446,
+                                             "width":  535
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/Room_23/Domina",
+                           "path":  "Club/Basement/Room_23/Domina",
+                           "files":  [
+                                         {
+                                             "fileName":  "domina.gif",
+                                             "height":  700,
+                                             "width":  402
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/Room_23/Mannequin",
+                           "path":  "Club/Basement/Room_23/Mannequin",
+                           "files":  [
+                                         {
+                                             "fileName":  "mannequin.jpg",
+                                             "height":  793,
+                                             "width":  380
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/Room_23/Nun1",
+                           "path":  "Club/Basement/Room_23/Nun1",
+                           "files":  [
+                                         {
+                                             "fileName":  "nun_1.jpg",
+                                             "height":  547,
+                                             "width":  375
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Club/Basement/Room_23/Nun2",
+                           "path":  "Club/Basement/Room_23/Nun2",
+                           "files":  [
+                                         {
+                                             "fileName":  "nun_2.png",
+                                             "height":  797,
+                                             "width":  897
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "dream bubbles",
                            "path":  "Dreams/Bubble_Dream",
                            "files":  [
@@ -2647,6 +2709,17 @@ window.imagePacks = {
                                              "fileName":  "general_store.jpg",
                                              "height":  278,
                                              "width":  400
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Mall Laughing Girls",
+                           "path":  "Mall/Laughing_Girls",
+                           "files":  [
+                                         {
+                                             "fileName":  "teasing_girls.jpg",
+                                             "height":  484,
+                                             "width":  720
                                          }
                                      ]
                        },
