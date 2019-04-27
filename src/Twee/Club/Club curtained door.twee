@@ -1,17 +1,51 @@
 :: Club curtained door
 \
+<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+<<set _password to $player.clubPassword.toLowerCase()>>\
+<<if _password>>\
+	<<set _password to _password.charAt(0).toUpperCase() + _password.slice(1)>>\
+<<endif>>\
 <<RandomImageFromPack 'Club/Basement/CurtainedDoor' 600 600 alignRight>>\
-Walking along one of the corridors you spy a grey curtain which is draped in front of an unremarkable piece of white wall. What further piques your curiosity is the towering man in a black dinner jacket, starched white dress shirt and black bowtie. Intrigued you hang back for a few minutes waiting to see if anything exciting happens. As you watch from along the corridor you notice the top of a stone arch peeking tantalisingly over the top of the curtain.
+<<reactOnce true ClubCurtainedDoor>>\
+	Walking along a corridor close to the restaurant, you spy a grey curtain draped in front of an otherwise unremarkable piece of white wall. A towering man in a suave dinner jacket, and black bowtie stands nearby, his eyes shrouded behind a narrow black facemask. You pause, your curiosity piqued. Intrigued, you hang back for a few minutes waiting to see if anything exciting happens. As you watch from along the corridor, you notice the top of a stone arch peeking tantalisingly over the top of the curtain. 
 
-@@.hero;I wonder if that’s where I should use that word - APPEASEMENT - I found on that bit of paper...@@
+	The corridor itself has a different feel to the rest of the club, detached somehow. It isn’t until you notice a couple of girls amble past in high heels, drunkenly boogying to the club’s pumping music, that you realise the corridor is almost silent. It’s almost as if the corridor is protected in some sort of sonic bubble.
 
-After several boring minutes, with club goers noisily walking passed, clutching drinks, or handbags or each other, you finally give in and approach the bouncer.
+	After a few minutes, a slender woman approaches the bouncer. He bends down, and she whispers something to him. Seemingly without him moving, the curtain swishes back and reveals a blood-red arched door. The door swings back silently and the woman steps through with a furtive glance around. From your poorly-selected spying spot, you cannot see a thing beyond the door. The door swings back into place, and the bouncer resumes his vigil. 
+<<reactElse>>\
+	You make your way to the entrance to Limbo. The familiar blood-red door is guarded by the same bouncer as before, immobile like a statue. You gaze at his chest to see if it  moves when he breathes, but his dinner jacket is cut too well for you to detect any motion.
 
-He watches you approach and you can feel yourself wilting under his gaze/[if heels - , even wobbling nervously on your heels]/. @@.malevoice5;”Password?”@@ He grunts when you get within hearing range.
+	The corridor is deserted apart from the two of you, however he shows no sign of being aware of your presence. You stop just short of arms reach and open your mouth to speak to him. However, before you can utter a word, he turns to look at you with those alien-coloured eyes and you clamp your jaw shut. 
+<</reactOnce>>\
 
-@@.heroT;“Um,”@@ you say eloquently, wondering why you suddenly feel the need to use the restroom. @@.heroT;“Appeasement?”@@ you state hopefully.
-	
-You are rewarded with a deathly star which would rival Darth Vader on a bad hair day, only without the heavy breathing, and then a grunted @@.malevoice5;”Hmph!”@@. The bouncer reaches over and pulls the curtain to one side with the rasp of metal on metal as the rings slide along the bar. You gawp as the motion reveals a blood red door with silver fixtures. 
+<<if $player.clubPassword>>\
+	@@.hero;I wonder if that’s where I should use that word - $player.clubPassword - I found on that bit of paper...@@
+<<else>>\
+	@@.hero;I wonder what’s the other side of that!@@
+<<endif>>\
 
-[[Basement|Club basement][UI.stow(); document.getElementById("ui-bar").style.display = 'none';]]
-[[Back away|The Club]]
+After several boring minutes, you finally give in and approach the bouncer.
+
+He watches you approach and you can feel yourself wilting under his gaze<<if _heels>>, wobbling nervously on your heels<<endif>>. @@.malevoice5;”Password?”@@ He grunts when you get within hearing range.
+
+<<if $player.clubPassword>>\
+	@@.heroT;“Um...”@@ You wonder why you suddenly feel the need to use the restroom. @@.heroT;“_password?”@@ you state hopefully.
+
+	The bouncer looks down at you for several seconds, his expression blank, unreadable. His eyes shine with a ghostly radiance, a light bluey-purple shimmer in the gloom. He reaches over and pulls the curtain to one side with the rasp of metal on metal as the rings slide along the bar. You gawk as the motion reveals a blood red door with silver fixtures. 
+
+	[[Basement|Club basement][UI.stow(); document.getElementById("ui-bar").style.display = 'none';]]
+<<elseif not $player.clubPasswordFailed>>\
+	@@.heroT;“Um,”@@ you say eloquently, wondering why you suddenly feel the need to use the restroom. @@.heroT;“Swordfish?”@@ you guess hopefully.
+
+	You are rewarded with him turning in your direction and slowly lowering himself to your height. His face if so close to yours you could probably count his nostril hairs. His jaw grinds as he prepares to speak. @@.malevoice5;”No admittance.”@@ The bouncer then reaches over, grabs you by the shoulders and turns you around.  You feel a slight shove from behind, signaling you to leave and join the other revelers on the dance floor.
+
+	[[Back away|The Club][$player.clubPasswordFailed = true]]
+<<else>>\
+	You stand before the massive bouncer again, still not quite sure what the password is. You open your mouth to guess again but the bouncer raises a massive finger. He growls, revealing a line of perfectly white teeth... 
+
+	You turn and <<if _heels>>totter hurriedly<<else>>scurry<<endif>> away, determined to find the password.
+
+	It must be here somewhere! you think to yourself as you leave the scary bouncer behind.
+
+	[[Back away|The Club]]
+<<endif>>\
