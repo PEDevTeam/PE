@@ -1,0 +1,44 @@
+:: Agree to extra instruction
+<<set $bribeAmount=50*$flags.bribeFactor>>\
+<<set $player.bribeDiscount=(10*$time.weekDay()-10)*$flags.bribeFactor>>\
+<<set _nb = $bribeAmount-$player.bribeDiscount>>\
+<<set $player.perversion.teacher=1>>\
+<<set $player.perversion.teacherCooldown=0>>\
+<<set $player.daringFlag.bribe=true>>\
+Not having a clue about what she said, you just nod once, your expression sullen and your will defeated.
+
+@@.teacher;“Never let it be said that I am not fair."@@ She looks you up and down. @@.teacher;"My instruction will not be easy, but assuming you learn some humility, I believe you will be a worthwhile investment...”@@
+
+@@.hero;Investment? Is she trying to hint that she wants to be paid for her tutoring? I mean, most people pay for that, right?@@
+
+<<if $player.money>0>>\
+	You reach into your wallet and pull out all the cash inside. @@.heroT;“I, uh, can give you $player.money dollars.”@@
+<<else>>\
+	@@.heroT;“I could pay you, once I make some money, I guess…”@@
+<<endif>>\
+
+She seems almost offended, but you’re unsure if it’s due to the fact that you just offered her money or <<if $player.money >0>>how little you offered<<else>>your current lack of it<<endif>>.
+
+@@.teacher;“$player.name, you know that no amount of money will cause me to look past your misdeed in the hallyway, but I suppose we could come up with some sort of arrangement for my time as a //special// instructor. The rate for my help, as well as my discretion, is $bribeAmount a week. This is to be paid each Monday. \
+<<if $player.bribeDiscount gt 0>>\
+	Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>.
+<<endif>>\
+<<if $flags.bullySteal>>\
+
+	I will also stop those $futa.boy_girl////s from stealing your money in the morning.		
+<<endif>>\
+
+"If these payments are too expensive for you, I will deduct $<<print rewardMoney.teacherFemaleUnderwear>> from the week’s amount for each day you wear female underwear to school.”@@
+
+@@.hero;What? I have to wear panties to school? Is she serious?!@@
+
+@@.teacher;“I don’t care where you obtain them from,”@@ she adds with a dismissive wave of her hand, @@.teacher;“perhaps your mother, a friend or buying your own from the shops if you are feeling brave. Who knows, you might even be able to borrow some from a //girlfriend//...”@@ she adds with a slight smile playing on her lips. @@.teacher;"What's important is that you show some obedience."@@
+
+$teacher pauses for a moment longer, intently watching your expression as the gravity of her offer hit you. 
+
+@@.teacher;“The choice is clear, $player.name. You pay for my services and submit to my instruction, or we can discuss this matter with the principal…”@@
+
+<<set $player.detention=false>>\
+<<set $flags.bribePaid=true>>\
+[[Agree|Finish school][$flags.daring3Add = true]]
+[[I won’t wear panties|I cant]]
