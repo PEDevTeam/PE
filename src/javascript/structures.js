@@ -779,6 +779,8 @@ window.playerList={
 	gameSkill: 0,
 	fitness: 0,
 	femaleName: false, //new flag
+	clubPassword: '',
+	clubPasswordFailed: false,
 },
 
 window.playerAddonsList={
