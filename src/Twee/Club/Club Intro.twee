@@ -1,5 +1,8 @@
 :: Club Intro [pos_216_1085]
 \
+<<set _nails to $body.manicure>>\
+<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+\
 <<if $scene eq "ApproachBouncer">><!--<ApproachBouncer>-->\
 	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
 
@@ -184,6 +187,15 @@
 	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</FlashPanties>-->\
 <<elseif $scene eq "GoInside">><!--<GoInside>-->\
+	<<if $player.clubPassword eq ''>>\ 
+		As you enter the club your <<if _heels>>heel<<else>>shoe<<endif>> kicks a scrunched up piece of paper. You glance down and see some calligraphic letters scrawled onto it. Curious, you bend down and pick the paper up, unfurling it with your<<if _nails>> manicured<<endif>> fingers. The writing is actually a single word…
+
+		APPEASEMENT 
+
+		@@.hero;What the hell is this?@@ you muse.
+
+		<<set $player.clubPassword to 'APPEASEMENT'>>\
+	<<endif>>\
 	You traverse a small foyer and enter a second set of double doors, crossing the threshold into the massive main club.
 
 	On encountering the cavernous main floor for the first time, you’re bedazzled by the sheer volume of stimulation flooding your senses at once. You feel the music reverberating in your very body, while your eyes struggle to keep up with the single most spectacular place you’ve yet witnessed.
