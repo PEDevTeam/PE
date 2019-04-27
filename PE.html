@@ -10077,6 +10077,8 @@ window.playerList={
 	gameSkill: 0,
 	fitness: 0,
 	femaleName: false, //new flag
+	clubPassword: '',
+	clubPasswordFailed: false,
 },
 
 window.playerAddonsList={
@@ -28272,30 +28274,156 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 	&lt;&lt;display [[Travel]]&gt;&gt;
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="125" name="All Basement Rooms" tags="basement" position="600,1600">\
 &lt;&lt;set _chastity to playerCode.isWearingOn(itemTypes.Chastity)&gt;&gt;\
+&lt;&lt;set _small to $body.penisShrink&gt;&gt;\
 &lt;&lt;set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)&gt;&gt;\
-&lt;&lt;set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
-&lt;&lt;set _stockings to playerCode.isWearingOn(itemTypes.Stockings)&gt;&gt;\
-&lt;&lt;set _shoes to playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\&lt;&lt;switch $scene&gt;&gt;\
+&lt;&lt;set _boobs to playerCode.haveBoobs()&gt;&gt;\
+&lt;&lt;set _boobsBplus to playerCode.haveBplus()&gt;&gt;\
+&lt;&lt;set _shoes to playerCode.isWearingOn(itemTypes.Shoes)&gt;&gt;\
+&lt;&lt;set _smooth to $body.bodyhair gt 0&gt;&gt;
+&lt;&lt;set _butt to playerCode.scoreAss()&gt;&gt;
 \
-&lt;&lt;case &quot;Example scene 1&quot;&gt;&gt;\
-	&lt;&lt;RandomImageFromPack &#39;Club/Basement/ExampleScene/Pack1&#39; 600 600 alignLeft&gt;&gt;\
-	Text describing scene 1
+&lt;&lt;switch $scene&gt;&gt;\
+&lt;&lt;case &quot;Room 23&quot;&gt;&gt;\
+	You reach the door and pause outside, listening for any sounds. It’s quiet, eerily so. You turn the handle and open the door. The red light from behind you illuminates the cramped space beyond, revealing a changing room.
+
+	&lt;&lt;RandomImageFromPack &#39;Club/Basement/Room_23/Nun1&#39; 600 600 alignLeft&gt;&gt;\
+	You open the door fully and step inside, spying another door nestled in the opposite wall. It opens and you stop short, gazing in amazement as a nun like no other strides into the small space. You are so stunned that you jump when the door behind you slams itself shut and locks with a chunk. The nun stands motionless, imperiously regarding you. From her crisp, white latex wimple to the heel of her stilettoed boots she is thoroughly imposing. She stands in the concrete space, opens her robe and you feel your knees tremble.
+ 
+	@@.femvoice3;“Now don’t you look heavenly,”@@ announces the nun, striding confidently to you. You try to respond, but all you can do is stand and gawk. @@.femvoice3;“Well, my dear, you are in luck. We have been waiting patiently for a playful angel to darken our doorstep. And now, here you are…”@@
+
+	In a corner of the room you hadn’t previously noticed the nun pulls a blood-red draped sheet to one side, revealing a mannequin wearing a ridiculous wig and lace body-stocking. The body-stocking is missing fabric in very strategic locations, including places that make your cheeks glow pink. 
+
+	@@.femvoice3;“Now, my dear, you get changed into this, and I will be back in a moment.”@@
 
 	[[Leave the room|All Basement Rooms][$scene=&quot;ExitClub&quot;]]
-	[[Get changed|All Basement Rooms][$scene=&quot;Example scene 2&quot;]]
+	[[Get changed|All Basement Rooms][$scene=&quot;Room 23b&quot;]]
 \
-&lt;&lt;case &quot;Example scene 2&quot;&gt;&gt;\
-	&lt;&lt;RandomImageFromPack &#39;Club/Basement/ExampleScene/Pack2&#39; 600 600 alignLeft&gt;&gt;\
-	Text describing scene 2
-	
-	[[Go Home|All Basement Rooms][$scene=&quot;Example scene WindDown&quot;]]
-\
-&lt;&lt;case &quot;Example scene WindDown&quot;&gt;&gt;\
-	Nun confession wind down
+&lt;&lt;case &quot;Room 23b&quot;&gt;&gt;\
+	&lt;&lt;RandomImageFromPack &#39;Club/Basement/Room_23/Mannequin&#39; 600 600 alignLeft&gt;&gt;\
+	She sets a pair of large church candles aflame, pausing just long enough for you to nod with feigned understanding, and retreats through the door. The soft, indistinct murmur of female voices seeps into the changing room before the door closes, cutting off the chatter. 
 
-	[[Enter house|All Basement Rooms][$scene=&quot;ExitHome&quot;]]
+	You run the lacy material between your fingers, which makes your penis twitch &lt;&lt;if _chastity&gt;&gt;pressing against your cage &lt;&lt;endif&gt;&gt;in shameful excitement. You could leave, but part of you is curious to see where all this goes.
+
+	With thoughts of what might happen running through your mind, you slowly strip.\
+	&lt;&lt;if not (_chastity or _plug)&gt;&gt;\
+		When you are naked,\
+	&lt;&lt;elseif (not _plug) and _chastity&gt;&gt;\
+		When you are naked, aside from your &lt;&lt;if $flags.chastityKey&gt;&gt;locked &lt;&lt;endif&gt;&gt;cage,\
+	&lt;&lt;elseif _chastity and _plug&gt;&gt;\
+		When you are naked, aside from your &lt;&lt;if $flags.chastityKey&gt;&gt;locked &lt;&lt;endif&gt;&gt;cage, even removing your buttplug and placing it carefully on a mat,\
+	&lt;&lt;elseif _plug and (not _chastity)&gt;&gt;\
+		When you are naked, even removing your buttplug and placing it carefully on a mat,\
+	&lt;&lt;endif&gt;&gt;\
+	you reverently take the body stocking from the mannequin. The fishnet material glides up your &lt;&lt;if _smooth&gt;&gt;smooth legs, and you sense a burst of pride and admiration at how enticing they look in the delectable fabric &lt;&lt;else&gt;&gt;hairy legs, you sense a pang of guilt at not making them smooth and silky so they would look resplendent in the girly fabric&lt;&lt;endif&gt;&gt;.
+
+	You pull the garment up and over your torso and wriggle until the shoulder straps settle in place.\
+	&lt;&lt;if playerCode.haveBoobs()&gt;&gt;\
+		As you stand your $chest &lt;&lt;if playerCode.haveBplus()&gt;&gt;hang&lt;&lt;else&gt;&gt;poke&lt;&lt;endif&gt;&gt; through the strategically designed holes, the slight chill of the air hardening your nipples.\
+	&lt;&lt;endif&gt;&gt;\
+	Even worse, the crotchless design means your &lt;&lt;if _chastity&gt;&gt;cage is completely unsupported, stimulating your penis through the pull of gravity alone&lt;&lt;else&gt;&gt;semi-erect penis dangles, leaving you ashamedly exposed&lt;&lt;endif&gt;&gt;.
+
+	The door opens the moment you are ready, almost as if you were being watched. The nun reappears&lt;&lt;if _chastity&gt;&gt;, nods once at your compliance&lt;&lt;else&gt;&gt; and shakes her head in disappointment. She reaches into her robe and pulls out a&lt;&lt;if _small&gt;&gt; small&lt;&lt;endif&gt;&gt; chastity cage, bends down and locks you painfully into place. She stands once more&lt;&lt;endif&gt;&gt; and motions for you to follow her into the back room.
+
+	An elegantly-dressed woman stalks to towards you, her spiked stiletto leather boots tolling like a bell on the concrete floor. She lightly clutches a riding crop between her fingers and swishes it back-and-forth distractedly as she moves. Behind her, you notice a couple of other ladies a decade or two your senior lounging on the luxurious leather upholstery.
+
+	@@.femvoice9;“When you first entered the fitting room, we thought that you were a girl,”@@  the approaching woman states, stopping before you. Her melodic voice is seductive and rich like chocolate fondant. She looks you over, from the tip of your toes to the top of your head. Although this woman is around your height, her dominating aura makes her appear far more imposing.
+
+	@@.heroT;“I’m a boy...”@@ you correct her, your voice little more than a whisper. 
+
+	@@.femvoice9;“Are you certain? And you can call me Ma’am or Madame.”@@
+
+	@@.heroT;“Yes, Madame,”@@ you respond with a gulp.
+
+	&lt;&lt;RandomImageFromPack &#39;Club/Basement/Room_23/BondageBench&#39; 600 600 alignRight&gt;&gt;\
+	With a firm grip, she takes you over to a shadowed corner of the room and turns on a focused spotlight, revealing a wooden contraption with a padded seat and more padded rungs on either side.
+
+	@@.femvoice9;“Kneel on these,”@@ she instructs, tapping the lower, larger rungs with her crop. 
+
+	@@.femvoice9;“Now, lean forward and rest your hands on the front ones. Here,”@@ she commands, tapping the front pads with the crop. You dutifully obey, placing your forearms where she indicated.
+
+	You wriggle to get comfortable, your caged penis swinging beneath you. You try not to think about how you must look dressed in the laciest and most feminine of clothing,, let alone in front of a small audience. Your breathing grows shallow and you try to shrink down onto the bench.
+
+	Madame smiles as you squirm and beckons for the nun to approach. They smoothly strap your wrists and your ankles into place. 
+
+	@@.femvoice9;“A boy who comes in here, dressed like a girl… What should we do with him?”@@ taunts the Madame. She sweeps the leather square of the crop tip over your wobbly butt cheeks. @@.femvoice9;“Now, tell me... How you looked when you arrived, how eager you were to slip into the barest of clothing… Don’t you adore being a girl?”@@
+
+	@@.heroT;“No... I don’t...”@@ you whisper. The caress of the leather crop on your bare skin, tracing around the edge of the body stocking, makes you groan, which sounds more like a girlish gasp escaping your pursed lips. Your squeals are interrupted with the swish of the crop slicing through the air the moment before it cracks against your naked bottom, making your &lt;&lt;if _butt gt 2&gt;&gt;huge &lt;&lt;elseif _butt gt 1&gt;&gt;large &lt;&lt;endif&gt;&gt;cheeks wobble. The contact doesn’t hurt but the shock of being struck makes you quiver, and you try to back away.
+
+	@@.femvoice9;“Don’t lie to me. You enjoy it don’t you.”@@
+
+	@@.heroT;“No!”@@ you exclaim. The crop cracks through the air again. You tense a heartbeat before the crop lands in exactly the same place as before. The precise blow stings and makes your breath catch in the back of your throat, like you are swallowing air. @@.heroT;“Please...!”@@
+
+	@@.femvoice9;“If you want me to stop, you need to tell the truth. You need to tell the Sister the truth.”@@
+
+	@@.femvoice3;“You can tell me,”@@ the nun says, her voice earnest and encouraging as she moves into your vision. She kneels and grasps your right hand in hers. @@.femvoice3;“There is no shame. Confess my dear.”@@
+
+	@@.hero;Confess to what?@@
+
+	[[Confess|All Basement Rooms][$scene=&quot;Room 23c&quot;]]
 \
-&lt;&lt;case &quot;PatreonPlug_1&quot;&gt;&gt;\
+&lt;&lt;case &quot;Room 23c&quot;&gt;&gt;\
+	&lt;&lt;RandomImageFromPack &#39;Club/Basement/Room_23/Nun2&#39; 600 600 alignRight&gt;&gt;\
+	The crop swishes through the air almost metronomically. Each time the square of leather connects with your butt cheeks your skin glows with an increased burning heat. Tears begin to form in your eyes and you squeeze them tight. A hand presses against your thigh. The touch is soft, caressing and tantalizing... brushing against your skin through your body stocking. 
+
+	@@.femvoice3;“You enjoy dressing like this, don’t you?”@@ the nun whispers, almost in encouragement, her mouth close enough to your ear that she could kiss your lobe. 
+
+	@@.femvoice9;“He’s just a sissy,”@@ the Madam announces as she lands another blow. @@.femvoice9;“He just dresses because he wants to look pretty. He wants men to find him pretty…”@@ 
+
+	@@.heroT;“No!”@@ you groan. @@.heroT;&quot;It’s not like that…”@@ The Madame’s fingers sweep around until she is cupping your caged penis in her hands. She toys with you, her nail touching your throbbing penis through the slit in the tip of the cage.
+
+	&lt;&lt;RandomImageFromPack &#39;Club/Basement/Room_23/Domina&#39; 600 600 alignLeft&gt;&gt;\
+	@@.femvoice9;“I don’t believe you,”@@ she says, pulling her hand away and tapping the crop against her boot. 
+
+	@@.heroT;“I...”@@
+
+	You hear the Madame snort in derision. She throws the crop to the floor so that it clatters against the bench. @@.femvoice9;“Throw me that paddle,”@@ she says loudly. You hear the creak of leather from across the room and then the sound of the Madame catching something. With a speed you didn’t expect, the paddle comes crashing down across both your cheeks &lt;&lt;if _butt gt 0&gt;&gt;of your ample bottom &lt;&lt;endif&gt;&gt;at once. You yelp in surprise. The nun squeezes your hand in support, but the blows continue to land. For several moments the room is silent but your sobbing and the paddle crashing against your naked bottom. The pain builds, from a slow ache to a burn and you focus your mind on it. For a few glorious moments, you are lost in the sensations.
+
+
+	@@.femvoice3;“Talk to me, dear,”@@ the nun gently prods. @@.femvoice3;“There is no shame here. You love looking pretty, don’t you?”@@
+
+	@@.heroT;“Yes...”@@ you say, your voice barely audible.
+ 
+	@@.femvoice3;“Yes what?”@@ the nun continues. The strikes from the paddle continue, no longer a pain but a soothing, comforting burn.
+
+	@@.heroT;“I… like wearing girls’ clothes.”@@
+
+	@@.femvoice3;“Good, good girl. And what do you like about them?”@@
+
+	@@.heroT;“How soft they are against my skin… And all the colors and styles too,…  I love the sensation of the wind blowing up my skirt and tickling me between my legs. How some clothes are tight against my body but also loose like a skirt or a dress, the hem swishing against my stockings or my bare legs…”@@  You hesitate but cannot resist adding one final note @@.heroT;“And most of all… how pretty they make me look...”@@
+
+	The moment your admission escapes your lips, an intense wave of shame wash over you. You close your eyes and slump down, almost in defeat, and don’t notice that the spanks have ceased.
+
+	@@.femvoice3;“Peace now, little one. There is no shame at all,”@@ the nun confirms. You half-open one eye to see her peering at you, a smile on her perfect red, luscious lips. From somewhere behind you, you detect the rustle of cloth, and the click of a switch followed immediately by a slow hum. You try and turn but you are still bound to the bench. 
+
+	The nun caresses your chin with her hand, grabbing your attention. @@.femvoice3;“You should not be ashamed, you should be proud. Every girl wants to be pretty, but you are cute. Cute as a girly button. And girls who are cute like a button need a man.”@@ 
+
+	You balk at the change of tone, but as she speaks, the humming gets louder, and something slippery presses between your butt-cheeks. Your body tenses momentarily, and then submits as a lubed, gloved finger slides easily into your bottom. You squirm as she teases the sensitive and intimate areas inside your body, her silky finger gliding back and forth. You gasp and clench your fists. You want this to stop, but even as you have the thought, you can feel your own body pushing back, drawing her in deeper. The Madame toys with you for what feels like an eternity and then unceremoniously withdraws her finger with a wet plop.
+
+	You sense the Madame stepping behind you again. She grips your hip with one hand, and something firm, and large, really large, presses against your lubed rosebud. @@.femvoice9;“Don’t fight it, girl. Just relax...”@@
+
+	You squirm but, bound as you are, there is no escape. She pushes her hips slowly forward, increasing the pressure on your bottom. Your rosebud gives way, and the phallus forces its way inside you. You squeal in shock and pain, your eyes rolling back as you see stars. The Madame pauses, stroking your bottom with her free hand as your body pulses around the head of the phallus. Slowly the pain recedes and a different sensation, of being wonderfully filled, begins to build. 
+
+	Sensing your body relax, the Madame pushes the phallus into you until her pelvic bone is pressed against your bottom.  @@.femvoice9;“Imagine this is a man, filling you,”@@ Madame coos as she rocks her phallus inside you. Taking a firm grip of your hips she withdraws slowly before thrusting back inside. You whimper as you take it all. Madame expertly builds up a slow, pulsating rhythm, guiding her phallus over your most sensitive button.  Your eyes squeeze shut, and your Judas body reacts uncontrollably to the forced pleasure.
+
+	@@.femvoice3;“You need that don’t you?”@@ the nun murmurs. @@.femvoice3;“The feel of a man filling you. Using you. His cock inside your body, your delicate, girly body.”@@
+
+	@@.heroT;“no…”@@ you gasp. 
+
+	The Madame drills her phallus deep inside your body, making you squeal and moan like a girl. The invasion by this stranger, your willing submission to her, the heavenly sensations all play on your subconscious with every thrust. The pain, the bench, even the nun and the watching women all fade away. All you can focus on is the phallus filling your body and the mesmerizing grunts of pleasure escaping Madame’s lips. 
+
+	@@.femvoice3;“That’s it, cute girl,”@@ the nun murmurs. @@.femvoice3;“confess to me. Cum as you confess your desire for a man inside you, his cock filling you up. You need it don’t you? Confess, my child, confess…”@@
+
+	@@.heroT;“I… yes… Yes! Fill me with your big cock!”@@ you moan, submitting to your orgasm with the thought of a man inside you firmly in your mind. You are so lost in your own climax that you barely hear the Madame’s own grunted release behind you.
+
+	You lay there on the bench unaware of the Madame climbing from your back and removing the straps. The nun holds you the whole time, her fingers brushing your cheeks in a loving, soothing way, brushing away your tears. Slowly you return to the room and become aware of the nun, the Madame and the two other ladies all close by and watching. You see soft smiles on their faces and the Madame nods to you before returning to the couch in silence.
+
+	The nun leads you back into the changing room and closes the door, leaving the two of you alone. As she gazes at you, you realize what you admitted, the image you just orgasmed to, and you drop your head in shame. She draws you into a warm hug, pressing her latex habit against your lace-covered skin.
+
+	The nun raises your chin with her fingers. @@.femvoice3;“Everyone has fantasies and needs and desires. You did very well, cute girl. But... if that was more than just role-play sweetie… well, maybe, you should see a well-hung priest for your next confession.&quot;@@ She leaves her words hanging in the air and closes the door behind her.
+
+	[[Return to the club|All Basement Rooms][$scene=&quot;ExitClubLong&quot;]]
+\
+&lt;&lt;case &quot;Room 129&quot;&gt;&gt;\
 	Plug for Patreon
 
 	[[Go back to the club|All Basement Rooms][$scene=&quot;ExitClub&quot;]]
@@ -28309,6 +28437,12 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 &lt;&lt;case &quot;ExitClub&quot;&gt;&gt;\
 	&lt;&lt;set document.getElementById(&quot;ui-bar&quot;).style.display to &quot;block&quot;&gt;&gt;\
 	&lt;&lt;set $time.addMinutes(5)&gt;&gt;\
+	&lt;&lt;set UI.unstow()&gt;&gt;\
+	&lt;&lt;goto [[The Club]]&gt;&gt;
+\
+&lt;&lt;case &quot;ExitClubLong&quot;&gt;&gt;\
+	&lt;&lt;set document.getElementById(&quot;ui-bar&quot;).style.display to &quot;block&quot;&gt;&gt;\
+	&lt;&lt;set $time.addMinutes(45)&gt;&gt;\
 	&lt;&lt;set UI.unstow()&gt;&gt;\
 	&lt;&lt;goto [[The Club]]&gt;&gt;
 \
@@ -28748,23 +28882,21 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 	
 	[[You finish your drink|Club bar][$scene=&quot;mainBar&quot;; $time.addMinutes(10); $player.drunk+=15]]
 &lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="128" name="Club basement" tags="basement" position="975,1600">\
+&lt;&lt;set _nails to $body.manicure&gt;&gt;\
+&lt;&lt;set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)&gt;&gt;\
+&lt;&lt;set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels&gt;&gt;\
+\
 &lt;&lt;reactOnce true firstTimeInClubBasement&gt;&gt;\
-	You squeeze passed the mountainous bouncer, grip the silver handle in your trembling [, manicured] fingers and push on the blood red door. It’s heavier than you expected and a grunt of effort escapes your lips as you push all your weight against it /[if high fitness - even using all your new-found fitness from cheer training isn’t enough]/. 
-
-	The bouncer smirks in your direction. @@.malevoice5;“Try pulling on it, girly…”@@, he says suggestively.
-
-	Somewhat abashed, you pull the door towards you, half expecting it to squeak like they do in horror films. The door squeaks and it makes you jump.
-
-	@@.malevoice5;“I told them to get some WD40!”@@
-
-	Determined not to make a further fool of yourself, you step quickly through the door and pull it shut with a clunk. 
+	You squeeze passed the mountainous bouncer, grip the silver handle in your trembling&lt;&lt;if _nails&gt;&gt;, manicured&lt;&lt;endif&gt;&gt; fingers and reach out to blood red door. Before your fingertips can brush the surface, the door swings away from you silently. A soft, cool breeze escapes the space beyond, brushing against your legs and sweeping up &lt;&lt;if _outerwear.skirt&gt;&gt;your skirt&lt;&lt;else&gt;&gt;the skirt of your dress&lt;&lt;endif&gt;&gt;. It’s heavier than you expected, and a grunt of effort escapes your lips as you push all your weight against it.
 
 	&lt;&lt;RandomImageFromPack &#39;Club/Basement/LatexSecretary&#39; 600 600 alignLeft&gt;&gt;\
-	A spiral staircase leans down into the bowels of the building. You step down cautiously/[if heels - , your heels ringing on the bare stone,]/ and emerge into a small office space with a single doorway barring you from moving further. A statuesque blonde, dressed like a secretary - if secretaries only wore leather or latex - glares at you over her spectacles. Your eyes drink in every inch of her, from her luscious blonde hair, perfect, elegant makeup and amazing breasts. 
+	A spiral staircase leads down into the bowels of the building. You step down cautiously&lt;&lt;if _heels&gt;&gt;, your heels ringing on the bare stone,&lt;&lt;endif&gt;&gt; and emerge into a small office space with a single doorway barring you from moving further. A statuesque blonde dressed like a receptionist - if receptionists only wore leather or latex - glares at you over her spectacles. Your eyes drink in every inch of her, her luscious blonde hair, perfect, elegant makeup and amazing breasts. 
 
-	@@.femvoice5;“I’m up here,”@@ she purrs, drawing your gaze back to her face. She purses her red lips at you, then parts them revealing a line of perfect white teeth, like a row of pearls.  @@.femvoice5;“Well, you made it down here, so I am guessing you told Dominic the password.”@@  The latex goddess stands and straightens her skirt, her hands pulling the material down over her latex stockings. She walks beside you, her heels making her several inches taller than you/if heels -, despite  your own heels]/.
+	@@.femvoice5;“I’m up here,”@@ she purrs, drawing your gaze back to her face. She purses her red lips at you, then smiles knowingly at you.   The latex goddess stands and straightens her skirt, her hands pulling the material down over her latex stockings. She walks beside you, her heels making her several inches taller than you/if heels -, despite  your own heels]/. 
 
-	 She steps forward to a curtain and swishes it to one side revealing a list of rooms with nothing but a colour to distinguish them apart. 
+	@@.femvoice5;“Welcome to Limbo. I haven’t see you down here before,”@@ she says, watching your expression. 
+
+	She steps forward to a curtain and swishes it to one side revealing a list of rooms with nothing but a colour and a number to distinguish them apart. 
 
 	@@.femvoice5;“You may choose any you like, aside from the grey ones. Those are already… ahem… occupied.”@@
 
@@ -28772,49 +28904,83 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 
 	@@.femvoice5;“At-at!”@@ she says. @@.femvoice5;“Each room is unique. Pick one.”@@
 
-	@@.heroT;“How m… m… much?”@@
+	@@.heroT;“What’s inside?”@@
 
-	@@.femvoice5;“Tsk!”@@ she says, anger coating her tone. @@.femvoice5;“Nothing. If you paid to get down here, then the rooms are gratis. Now, no more questions. Pick one!”@@
+	@@.femvoice5;“Heaven, Hell, Elysium, Hades, Valhalla...”@@ she says before chuckling to herself, sounding a bit like a cartoon princess. @@.femvoice5;“If you don’t choose you won’t know will you?@@
+
+	A bell rings, filling the small space and making you jump.  
+
+	@@.femvoice5;“Someone approaches. Guests are not allowed to meet before the time is right. No more questions. Choose, and choose quickly. And remember, what happens in Limbo stays in Limbo!”@@
 &lt;&lt;reactElse&gt;&gt;\
-	@@.malevoice5;“You know the drill, girly. Grip it between those slender fingers of yours and tug on it...”@@
+	You know what to expect and wait patiently for the door to slide back. You surreptitiously watch the bouncer to see how he does it, but the mountainous man doesn’t seem to move a muscle. As before, the door glides open silently, like it’s floating through the vacuum of space. 
 
-	Blushing as you catch his meaning, you reach for the door handle, remembering to pull and not push. Unlike before, the door opens silently, gliding open silently like it’s floating in the vacuum of space. 
-
-	The bouncer sneezes loudly, a booming sound which would drown out small cannon. @@.malevoice5;“Sorry, girly…”@@, he says, smirking in your direction.  
-
-	You flash him a look of irritation, one you have seen $teacher use so often, and step quickly through the doorway. The bouncer closes the door behind you with a loud thump which echoes down the spiral staircase. You step down cautiously/[if heels - , your heels ringing on the bare stone,]/ and emerge into the small office space. 
+	You step cautiously down the stone steps as the door closes behind you.  After a few moments, you emerge into the small office space. 
 
 	&lt;&lt;RandomImageFromPack &#39;Club/Basement/LatexSecretary&#39; 400 400 alignLeft&gt;&gt;\
-	The towering blonde secretary from before looks up at you with a knowing smile dancing on her luscious lips. Knowing your lesson from before, you do not openly stare at her amazing breasts and content yourself by stealing surreptitious glances.. 
+	The towering blonde receptionist from before looks up at you with a knowing smile dancing on her luscious lips. Knowing your lesson from before, you do not openly stare at her amazing breasts and content yourself by stealing clandestine glances.
 
-	@@.femvoice5;“You again?”@@ she asks, climbing to her feet and reaching out to move the curtain with her cruelly-shaped talon fingernails. @@.femvoice5;“You must either be rich, or have a wealthy benefactor. Sugar-daddy perhaps, sending you here for lessons?”@@
+	@@.femvoice5;“Back so soon?”@@ she asks, easing herself to her feet.  She reaches out with her cruelly-shaped talon fingernails and draws the curtain to one side. @@.femvoice5;“You must either love the place, or  you have a benefactor, perhaps sending you here for lessons?”@@
 
 	@@.heroT;“Um…”@@
 
-	@@.femvoice5;“How precious! That was of course, rhetorical. I do not care as to the why or who or how. Now, pick one. And avoid the grey ones.@@ 
+	@@.femvoice5;“How precious! That was of course, rhetorical. I do not care as to the why or who or how. Now, pick one. And remember, you may not choose the grey ones.@@
 &lt;&lt;/reactOnce&gt;&gt;\
 
 &lt;&lt;RandomImageFromPack &#39;Club/Basement/BasementCorridor&#39; 500 500 alignRight&gt;&gt;\
-Without a further word the secretary opens the door and reveals a maze of corridors leading left, right and directly in front of you. The plink-plink of water dripping into a puddle echoes gently in the confines of the space. The arched ceiling is lit by red strip lights, the closest of which flickers menacingly. You think you can see someone - a girl maybe - walking in the distance but the flickering light makes it hard to tell. You draw a breath and begin the long walk, your clicking heels making you wobble precariously on the cobbled floor.
+Without a further word the receptionist opens the door and reveals a maze of corridors leading left, right and directly in front of you. The plink-plink of water dripping into a puddle echoes gently in the confines of the space. The arched ceiling is lit by red strip lights, the closest of which flickers menacingly. You think you can see someone - a girl maybe - walking in the distance but the flickering light makes it hard to tell. The figure disappears almost immediately and you wonder if there was ever anyone there. You draw a breath and begin the long walk deeper into Limbo&lt;&lt;if _heels&gt;&gt;, your heels making you wobble precariously on the cobbled floor&lt;&lt;endif&gt;&gt;.
 
-@@.roomBlue;Room@@ [[- 23 -|All Basement Rooms][$scene=&quot;NunConfession_1&quot;]]
+@@.roomBlue;Room@@ [[- 23 -|All Basement Rooms][$scene=&quot;Room 23&quot;]]
 &lt;div class=&quot;tooltip&quot;&gt;@@.roomGrey;Room - 101 -@@&lt;span id=&quot;basement&quot; class=&quot;tooltiptext&quot;&gt;Don’t go to Room 101!&lt;/span&gt;&lt;/div&gt;
-@@.roomPink;Room@@ [[- 129 -|All Basement Rooms][$scene=&quot;Patreon plug_1&quot;]]</tw-passagedata><tw-passagedata pid="129" name="Club curtained door" tags="" position="1100,1600">\
+@@.roomPink;Room@@ [[- 129 -|All Basement Rooms][$scene=&quot;Room 129&quot;]]</tw-passagedata><tw-passagedata pid="129" name="Club curtained door" tags="" position="1100,1600">\
+&lt;&lt;set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels&gt;&gt;\
+&lt;&lt;set _password to $player.clubPassword.toLowerCase()&gt;&gt;\
+&lt;&lt;if _password&gt;&gt;\
+	&lt;&lt;set _password to _password.charAt(0).toUpperCase() + _password.slice(1)&gt;&gt;\
+&lt;&lt;endif&gt;&gt;\
 &lt;&lt;RandomImageFromPack &#39;Club/Basement/CurtainedDoor&#39; 600 600 alignRight&gt;&gt;\
-Walking along one of the corridors you spy a grey curtain which is draped in front of an unremarkable piece of white wall. What further piques your curiosity is the towering man in a black dinner jacket, starched white dress shirt and black bowtie. Intrigued you hang back for a few minutes waiting to see if anything exciting happens. As you watch from along the corridor you notice the top of a stone arch peeking tantalisingly over the top of the curtain.
+&lt;&lt;reactOnce true ClubCurtainedDoor&gt;&gt;\
+	Walking along a corridor close to the restaurant, you spy a grey curtain draped in front of an otherwise unremarkable piece of white wall. A towering man in a suave dinner jacket, and black bowtie stands nearby, his eyes shrouded behind a narrow black facemask. You pause, your curiosity piqued. Intrigued, you hang back for a few minutes waiting to see if anything exciting happens. As you watch from along the corridor, you notice the top of a stone arch peeking tantalisingly over the top of the curtain. 
 
-@@.hero;I wonder if that’s where I should use that word - APPEASEMENT - I found on that bit of paper...@@
+	The corridor itself has a different feel to the rest of the club, detached somehow. It isn’t until you notice a couple of girls amble past in high heels, drunkenly boogying to the club’s pumping music, that you realise the corridor is almost silent. It’s almost as if the corridor is protected in some sort of sonic bubble.
 
-After several boring minutes, with club goers noisily walking passed, clutching drinks, or handbags or each other, you finally give in and approach the bouncer.
+	After a few minutes, a slender woman approaches the bouncer. He bends down, and she whispers something to him. Seemingly without him moving, the curtain swishes back and reveals a blood-red arched door. The door swings back silently and the woman steps through with a furtive glance around. From your poorly-selected spying spot, you cannot see a thing beyond the door. The door swings back into place, and the bouncer resumes his vigil. 
+&lt;&lt;reactElse&gt;&gt;\
+	You make your way to the entrance to Limbo. The familiar blood-red door is guarded by the same bouncer as before, immobile like a statue. You gaze at his chest to see if it  moves when he breathes, but his dinner jacket is cut too well for you to detect any motion.
 
-He watches you approach and you can feel yourself wilting under his gaze/[if heels - , even wobbling nervously on your heels]/. @@.malevoice5;”Password?”@@ He grunts when you get within hearing range.
+	The corridor is deserted apart from the two of you, however he shows no sign of being aware of your presence. You stop just short of arms reach and open your mouth to speak to him. However, before you can utter a word, he turns to look at you with those alien-coloured eyes and you clamp your jaw shut. 
+&lt;&lt;/reactOnce&gt;&gt;\
 
-@@.heroT;“Um,”@@ you say eloquently, wondering why you suddenly feel the need to use the restroom. @@.heroT;“Appeasement?”@@ you state hopefully.
-	
-You are rewarded with a deathly star which would rival Darth Vader on a bad hair day, only without the heavy breathing, and then a grunted @@.malevoice5;”Hmph!”@@. The bouncer reaches over and pulls the curtain to one side with the rasp of metal on metal as the rings slide along the bar. You gawp as the motion reveals a blood red door with silver fixtures. 
+&lt;&lt;if $player.clubPassword&gt;&gt;\
+	@@.hero;I wonder if that’s where I should use that word - $player.clubPassword - I found on that bit of paper...@@
+&lt;&lt;else&gt;&gt;\
+	@@.hero;I wonder what’s the other side of that!@@
+&lt;&lt;endif&gt;&gt;\
 
-[[Basement|Club basement][UI.stow(); document.getElementById(&quot;ui-bar&quot;).style.display = &#39;none&#39;;]]
-[[Back away|The Club]]</tw-passagedata><tw-passagedata pid="130" name="Club dance floor" tags="pos_216_1085" position="1225,1600">&lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
+After several boring minutes, you finally give in and approach the bouncer.
+
+He watches you approach and you can feel yourself wilting under his gaze&lt;&lt;if _heels&gt;&gt;, wobbling nervously on your heels&lt;&lt;endif&gt;&gt;. @@.malevoice5;”Password?”@@ He grunts when you get within hearing range.
+
+&lt;&lt;if $player.clubPassword&gt;&gt;\
+	@@.heroT;“Um...”@@ You wonder why you suddenly feel the need to use the restroom. @@.heroT;“_password?”@@ you state hopefully.
+
+	The bouncer looks down at you for several seconds, his expression blank, unreadable. His eyes shine with a ghostly radiance, a light bluey-purple shimmer in the gloom. He reaches over and pulls the curtain to one side with the rasp of metal on metal as the rings slide along the bar. You gawk as the motion reveals a blood red door with silver fixtures. 
+
+	[[Basement|Club basement][UI.stow(); document.getElementById(&quot;ui-bar&quot;).style.display = &#39;none&#39;;]]
+&lt;&lt;elseif not $player.clubPasswordFailed&gt;&gt;\
+	@@.heroT;“Um,”@@ you say eloquently, wondering why you suddenly feel the need to use the restroom. @@.heroT;“Swordfish?”@@ you guess hopefully.
+
+	You are rewarded with him turning in your direction and slowly lowering himself to your height. His face if so close to yours you could probably count his nostril hairs. His jaw grinds as he prepares to speak. @@.malevoice5;”No admittance.”@@ The bouncer then reaches over, grabs you by the shoulders and turns you around.  You feel a slight shove from behind, signaling you to leave and join the other revelers on the dance floor.
+
+	[[Back away|The Club][$player.clubPasswordFailed = true]]
+&lt;&lt;else&gt;&gt;\
+	You stand before the massive bouncer again, still not quite sure what the password is. You open your mouth to guess again but the bouncer raises a massive finger. He growls, revealing a line of perfectly white teeth... 
+
+	You turn and &lt;&lt;if _heels&gt;&gt;totter hurriedly&lt;&lt;else&gt;&gt;scurry&lt;&lt;endif&gt;&gt; away, determined to find the password.
+
+	It must be here somewhere! you think to yourself as you leave the scary bouncer behind.
+
+	[[Back away|The Club]]
+&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="130" name="Club dance floor" tags="pos_216_1085" position="1225,1600">&lt;&lt;set _slb = playerCode.slutScoreBasic()&gt;&gt;\
 &lt;&lt;set _u=playerCode.isWearingOn(itemTypes.Underwear)&gt;&gt;\
 &lt;&lt;if $player.drunk gte 40&gt;&gt;\
 	&lt;&lt;display &quot;Drunk message&quot;&gt;&gt;\
@@ -47182,8 +47348,6 @@ $teacher pauses for a moment longer, intently watching your expression as the gr
 &lt;&lt;if $player.daring &lt; 3&gt;&gt;\
 	&lt;&lt;Daring 3&gt;&gt;\
 &lt;&lt;endif&gt;&gt;\
-&lt;&lt;set $time.hour=15&gt;&gt;\
-&lt;&lt;set $time.minute=30&gt;&gt;\
 You take out your wallet and show the contents to $teacher, suggesting there might be an alternate arrangement.
 
 She takes a quick glance at how much money you have, but just laughs coldly.
@@ -57873,11 +58037,20 @@ There is something //off// about this session and you feel uncomfortable. You pr
 
 You&#39;re unsure, but feel basically ok. You reassure $therapist as she makes some notes.
 
-@@.therapist;&quot;The therapy course wasn&#39;t finished, but because you participated and I obtained some data, you deserve your participation payment.&quot;@@ She winks and hands you an envelope with crisp, new currency inside.
+&lt;&lt;if $flags.difficulty &lt; 3&gt;&gt;\
+	@@.therapist;&quot;The therapy course wasn&#39;t finished, but because you participated and I obtained some data, you deserve &lt;&lt;if $flags.difficulty ==1&gt;&gt;your participation&lt;&lt;else&gt;&gt;at least partial&lt;&lt;endif&gt;&gt; payment.&quot;@@ She winks and hands you an envelope with crisp, new currency inside.
 
-@@.reward;You earned $&lt;&lt;print rewardMoney.specialHypnosis&gt;&gt;!@@
-
-&lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
+	@@.reward;You earned &lt;&lt;if $flags.difficulty == 1&gt;&gt;$&lt;&lt;print rewardMoney.specialHypnosis&gt;&gt;!&lt;&lt;else&gt;&gt;$&lt;&lt;print rewardMoney.specialHypnosis/2&gt;&gt;!&lt;&lt;endif&gt;&gt;@@
+	&lt;&lt;if $flags.difficulty ==1&gt;&gt;\
+		&lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;set $player.money+=rewardMoney.specialHypnosis&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+	@@.therapist;&quot;Unfortunately, since the therapy course wasn&#39;t finished, the data was unusuable.  Seeing as you had such a strong reaction, I won&#39;t subject you to this session again, but I&#39;m afraid I can only pay you for complete data.&quot;@@
+	
+	You nod, a little disappointed that you&#39;re not being paid.
+&lt;&lt;endif&gt;&gt;\
 
 [[Go home|Go to bedroom]]</tw-passagedata><tw-passagedata pid="360" name="Therapist sleep" tags="pos_575_47" position="1225,4475">\
 &lt;&lt;if $scene eq &quot;Therapist sleep&quot;&gt;&gt;\
