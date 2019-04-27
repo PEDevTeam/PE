@@ -2452,6 +2452,81 @@ tr.header {
     content: "";
     clear: both;
     display: table;
+}
+
+
+/* Styles for new wardrobe */
+.wardrobe-selector-table{
+	table-layout: fixed;
+}
+
+.wardrobe-category-button-selected{
+	background: darkred;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+.wardrobe-category-button-selected:hover{
+	background: firebrick;
+}
+
+.wardrobe-category-button{
+	background: midnightblue;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;
+}
+
+.wardrobe-category-button:hover{
+	background: royalblue;
+}
+
+.wardrobe-category-button-heading{
+	height: 70px;
+	border-bottom: 1pt solid lightgrey;
+}
+
+.wardrobe-master-item-selected{
+	background: sienna;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.wardrobe-master-item-selected:hover{
+	background: saddlebrown;
+}
+
+.wardrobe-master-item{
+	background: darkgreen;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.wardrobe-master-item:hover{
+	background: mediumseagreen;
+}
+
+.wardrobe-master-item-row{
+	height: 60px;
+}
+
+.wardrobe-master-item-list{
+	border-right: 1pt solid lightgrey;
+}
+
+.wardrobe-variant-navigation-span{
+	background: lightgrey;
+	color: black;
+	padding: 10px;
+	margin: 15px;
+	cursor: pointer;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* twine-user-script #1: "choresFunc.js" */
 window.choresFunc={
 	choresPercentCalc: function() {
@@ -10221,32 +10296,10 @@ window.mallFuncs={
         storeMapDiv.appendChild(mallImageMap);
         outerDiv.appendChild(storeMapDiv);
         return outerDiv;
-
-        // var mapHTML = '<a href="javascript:window.mallFuncs.toggleMap();"><span id="mapToggle">Hide Map</span></a>';
-        // mapHTML += '<div id="storeMap"><img src="./Images/StoreImages/MallMap.png" usemap="#mall-image-map">';
-        // mapHTML += '<map name="mall-image-map">';
-        
-        // for(var storename in window.mall.stores){
-        //     var store = window.mall.stores[storename];
-        //     if(!(store.name == "") && !(store.coords == "")){
-        //         mapHTML += '<area target="_self" alt="' + store.name + '" title="' + store.name + '" href="javascript:window.mallFuncs.gotoStore(\'' + storename + '\');" coords="' + store.coords + '" shape="poly">';
-        //     }
-        // }
-
-        // for(var locationname in window.mall.otherLocations){
-        //     var otherLocation = window.mall.otherLocations[locationname];
-        //     if(!(otherLocation.name == "") && !(otherLocation.coords == "") && !(otherLocation.passageLink == "") && otherLocation.canVisit()){
-        //         mapHTML += '<area target="_self" alt="' + otherLocation.name + '" title="' + otherLocation.name + '" href="javascript:SugarCube.Engine.play(\'' + otherLocation.passageLink + '\');" coords="' + otherLocation.coords + '" shape="poly">';
-        //     }
-        // }
-
-        // mapHTML += '</map></div>';
-        // return mapHTML;
     },
     
     getStoreItemLinks: function(storeName){
         var storeHTML = "";
-        // storeHTML += '<html>'
         var store = window.mall.stores[storeName];
 
         for(var masterItemIdx in store.masterItems){
@@ -10261,6 +10314,7 @@ window.mallFuncs={
                 childItemHTML = childItemDOM.outerHTML;
             }
 
+            //These need to be hand coded as when it goes through the wikifier they get a bit mangled
             storeHTML += '<div id="' + storeMasterItem + 'Browser">';
             storeHTML += '<table style="border: 1px solid grey">';
             storeHTML += '<tr style="text-align: center"><html><a href="javascript:window.mallFuncs.getPreviousItem(\'' + storeMasterItem + '\')">←</a>  ' + masterItem.name + '  <a href="javascript:window.mallFuncs.getNextItem(\'' + storeMasterItem + '\')">→</a></html></tr>';
@@ -10269,10 +10323,8 @@ window.mallFuncs={
             storeHTML += '</div></tr>';
             storeHTML += '</table>';
             storeHTML += '</div>';
-            ///TODO put item variants here...
         }
 
-        // storeHTML += '</html>'
         storeHTML += '<div><<link "Go back to the Mall">><<replace "#mallStores">><<toggleclass "#mallStore" "hidden">><<toggleclass "#mallStores" "hidden">><<showMallStores>><</replace>><</link>></div>';
         return storeHTML;
     },
@@ -10333,15 +10385,12 @@ window.mallFuncs={
         trImage.appendChild(itemImage);
         table.appendChild(trImage);
 
-        //var itemHTML = '<table>';
-        //itemHTML += '<tr><img src="./Images/items/' + item.variant + '.jpg"></tr>';
         if(window.itemFuncs.checkItemInInventory(item)){
             var messageSpan = document.createElement('span');
             var message = document.createTextNode('Already Owned');
             messageSpan.appendChild(message);
             buyPriceTr.appendChild(messageSpan);
             table.appendChild(buyPriceTr);
-            //itemHTML += '<tr><span>Already Owned</span></tr>';
         }
         else{
             var priceSpan = document.createElement('span');
@@ -10360,13 +10409,10 @@ window.mallFuncs={
             buyPriceTr.appendChild(spliter);
             buyPriceTr.appendChild(buySpan);
             table.appendChild(buyPriceTr);
-            //itemHTML += '<tr><span>$' + item.price + '</span> - <span><a href="javascript:window.itemFuncs.buyItemVariant(\'' + item.variant + '\');window.mallFuncs.reloadCurrentItem(\'' + item.masterItem + '\');">Buy</a></span></tr>';
         }
         tagsTr.appendChild(tagDiv);
         table.appendChild(tagsTr);
-        // itemHTML += '<tr>TAGS: ' + window.mallFuncs.formatTags(window.itemFuncs.getTagsForItem(item)) + '</tr>';
-        // itemHTML += '</table>';
-        // return itemHTML;
+
         return table;
     },
 
@@ -19263,7 +19309,242 @@ window.kinkTooltip={
 
 	genderChange: "Arousal stemming from transgender sex transformation/sex organ gender change@@.halftransparent; Not implemented yet, sorry@@"
 }
-/* twine-user-script #25: "wordsCode.js" */
+/* twine-user-script #25: "wardrobe.js" */
+//macros.wardrobe = {
+Macro.add('wardrobe', {
+    //handler: function(place, macroName, params, parser) {
+    handler: function() {
+        var wardrobeDiv = document.createElement('div');
+        var wardrobeTable = document.createElement('table');
+        var clothingTypeSelectorTr = document.createElement('tr');
+        var clothingTypeSelectorTd = document.createElement('td');
+        clothingTypeSelectorTd.className = "wardrobe-category-button-heading";
+        var firstCategory = "";
+        var needFirstCategory = true;
+
+        for(var categoryName in window.wardrobe.categories){
+            var category = window.wardrobe.categories[categoryName];
+            var categorySpan = document.createElement('span')
+            var categoryText = document.createTextNode(category.name);
+            categorySpan.appendChild(categoryText);          
+            categorySpan.addEventListener("click", callShowCategory, true);
+            categorySpan.categoryName = categoryName;
+            categorySpan.className = "wardrobe-category-button";
+            if(needFirstCategory){ 
+                firstCategory = categoryName;
+                categorySpan.className = "wardrobe-category-button-selected";
+                needFirstCategory = false;
+            }
+
+            clothingTypeSelectorTd.appendChild(categorySpan);
+        }
+        clothingTypeSelectorTr.appendChild(clothingTypeSelectorTd);
+        wardrobeTable.appendChild(clothingTypeSelectorTr);
+        wardrobeTable.className = "wardrobe-selector-table"
+
+        var clothingListTr = document.createElement('tr');
+        var clothingListTable = document.createElement('table');
+        var clothingListInnerTr = document.createElement('tr');
+        var masterItemListTd = document.createElement('td');
+        var masterItemListDiv = document.createElement('div');
+        var itemVariantSelectorTd = document.createElement('td');
+        var itemVariantSelectorDiv = document.createElement('div');
+        var itemVariantTable = document.createElement('table');
+        var itemVariantTitleTr = document.createElement('tr');
+        var itemVariantTitleTd = document.createElement('td');
+        var itemVariantTitleSpan = document.createElement('span');
+        var itemVariantPictureTr = document.createElement('tr');
+        var itemVariantPictureTd = document.createElement('td');
+        var itemVariantTagsTr = document.createElement('tr');
+        var itemVariantTagsTd = document.createElement('td');
+
+        masterItemListTd.id = "wardrobeMasterItemList";
+        itemVariantSelectorTd.id = "wardrobeVariantSelector";
+        masterItemListTd.className = "wardrobe-master-item-list"
+        masterItemListTd.appendChild(masterItemListDiv);
+
+        itemVariantTitleSpan.id = "itemVariantTitle";
+        itemVariantTitleTd.appendChild(itemVariantTitleSpan)
+        itemVariantTitleTr.appendChild(itemVariantTitleTd);
+        itemVariantPictureTd.id = "itemVariantPictureCell";
+        itemVariantPictureTr.appendChild(itemVariantPictureTd);
+        itemVariantTagsTd.id = "itemVariantTagsCell"
+        itemVariantTagsTr.appendChild(itemVariantTagsTd);
+        itemVariantTable.appendChild(itemVariantTitleTr);
+        itemVariantTable.appendChild(itemVariantPictureTr);
+        itemVariantTable.appendChild(itemVariantTagsTd);
+        itemVariantSelectorDiv.appendChild(itemVariantTable);        
+        itemVariantSelectorTd.appendChild(itemVariantSelectorDiv);
+
+        clothingListInnerTr.appendChild(masterItemListTd);
+        clothingListInnerTr.appendChild(itemVariantSelectorTd);
+        clothingListTable.appendChild(clothingListInnerTr);
+        clothingListTr.appendChild(clothingListTable);
+        wardrobeTable.appendChild(clothingListTr);
+
+        wardrobeDiv.appendChild(wardrobeTable);
+
+        $(this.output).append(wardrobeDiv);
+
+        $(function(){window.wardrobeFuncs.showCategory(firstCategory)});
+
+        function callShowCategory(evt){
+            $(".wardrobe-category-button-selected").addClass("wardrobe-category-button").removeClass("wardrobe-category-button-selected");
+            evt.currentTarget.className = "wardrobe-category-button-selected";
+            window.wardrobeFuncs.showCategory(evt.currentTarget.categoryName);
+        }
+    }
+});
+
+window.wardrobeFuncs = {
+    showCategory: function(categoryName){
+        console.log("showing category");
+        console.log(categoryName);
+        var masterItemListTable = document.createElement('table');
+        var category = window.wardrobe.categories[categoryName];
+        var firstMasterItem = "";
+        var needFirstMasterItem = true;
+
+        for(var masterItemIdx in category.masterItems){
+            var masterItem = window.items.itemMasters[category.masterItems[masterItemIdx]];
+            var masterItemTr = document.createElement('tr');
+            var masterItemTd = document.createElement('td');
+            var masterItemSpan = document.createElement('span');
+            var masterItemNameText = document.createTextNode(masterItem.name);
+
+            masterItemSpan.appendChild(masterItemNameText);
+            masterItemSpan.className = "wardrobe-master-item"
+            masterItemSpan.masterItemName = category.masterItems[masterItemIdx];
+            masterItemSpan.addEventListener("click", callShowVariant, true);
+
+            if(needFirstMasterItem){ 
+                firstMasterItem = category.masterItems[masterItemIdx];
+                masterItemSpan.className = "wardrobe-master-item-selected";
+                needFirstMasterItem = false;
+            }
+            masterItemTd.appendChild(masterItemSpan);
+            masterItemTd.className = "wardrobe-master-item-row"
+            masterItemTr.appendChild(masterItemTd);
+            masterItemListTable.appendChild(masterItemTr);
+        }
+        var wardrobeMasterItemList = document.getElementById("wardrobeMasterItemList");
+        console.log(wardrobeMasterItemList);
+        wardrobeMasterItemList.replaceChild(masterItemListTable, wardrobeMasterItemList.firstElementChild);
+
+        window.wardrobeFuncs.showVariant(firstMasterItem, 0);
+
+        function callShowVariant(evt){
+            $(".wardrobe-master-item-selected").addClass("wardrobe-master-item").removeClass("wardrobe-master-item-selected");
+            evt.currentTarget.className = "wardrobe-master-item-selected";
+            window.wardrobeFuncs.showVariant(evt.currentTarget.masterItemName, 0);
+        }
+    },
+
+    showVariant: function(masterItemName, variantIndex){
+        console.log("showing item variant");
+        console.log(masterItemName + " " + variantIndex);
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
+        if(variantIndex > itemVariants.length - 1){
+            variantIndex = 0;
+        }
+        if(variantIndex < 0){
+            variantIndex = itemVariants.length - 1;
+        }
+        var itemVariant = itemVariants[variantIndex];
+        var masterItem = window.items.itemMasters[masterItemName];
+        console.log(masterItem);
+
+        var itemVariantTitleSpan = document.createElement('span');
+        var itemVariantNavigateBackSpan = document.createElement('span');
+        var itemVariantNavigateForwardSpan = document.createElement('span');
+        var itemVariantWearSpan = document.createElement('span');
+        var itemVariantNavigateBackText = document.createTextNode('←');
+        var itemVariantNavigateForwardText = document.createTextNode('→');
+        var itemVariantWearText = document.createTextNode('Wear');
+        itemVariantNavigateBackSpan.appendChild(itemVariantNavigateBackText);
+        itemVariantNavigateForwardSpan.appendChild(itemVariantNavigateForwardText);
+        itemVariantWearSpan.appendChild(itemVariantWearText);
+        itemVariantNavigateBackSpan.className = "wardrobe-variant-navigation-span";
+        itemVariantNavigateForwardSpan.className = "wardrobe-variant-navigation-span";
+        itemVariantWearSpan.className = "wardrobe-variant-navigation-span";
+        itemVariantNavigateBackSpan.masterItemName = masterItemName;
+        itemVariantNavigateBackSpan.variantIndex = variantIndex - 1;
+        itemVariantNavigateBackSpan.addEventListener('click', callShowVariant, true);
+        itemVariantNavigateForwardSpan.masterItemName = masterItemName;
+        itemVariantNavigateForwardSpan.variantIndex = variantIndex + 1;
+        itemVariantNavigateForwardSpan.addEventListener('click', callShowVariant, true);
+        itemVariantTitleSpan.id = "itemVariantTitle";
+        itemVariantTitleSpan.appendChild(itemVariantNavigateBackSpan);
+        itemVariantTitleSpan.appendChild(itemVariantWearSpan);
+        itemVariantTitleSpan.appendChild(itemVariantNavigateForwardSpan);
+        $("#itemVariantTitle").replaceWith(itemVariantTitleSpan);
+
+        var itemVariantImage = document.createElement('img');
+        itemVariantImage.src = "./Images/items/" + itemVariant.variant + ".jpg";
+        itemVariantImage.width = 300;
+        itemVariantImage.height = 300;
+        var itemVariantPictureTd = document.createElement('td');
+        itemVariantPictureTd.appendChild(itemVariantImage);
+        itemVariantPictureTd.id = "itemVariantPictureCell";
+        $("#itemVariantPictureCell").replaceWith(itemVariantPictureTd);
+
+        function callShowVariant(evt){
+            window.wardrobeFuncs.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex);
+        }
+    },
+}
+
+window.wardrobe = {
+    categories: {
+        underwear: {
+            name: "Underwear",
+            masterItems: [
+                "boxers",
+                "plainPanties",
+                "sexyPanties",
+                "latexPanties",
+                "bras",
+            ]
+        },
+        outerwear: {
+            name: "Outerwear",
+            masterItems: [
+                "tshirtJeans",
+                "skirtTop",
+                "casualDress",
+                "sluttyDress"
+            ]
+        },
+        socks: {
+            name: "Socks",
+            masterItems: [
+                "stockings"
+            ]
+        },
+        footwear: {
+            name: "Footwear",
+            masterItems: [
+                "shoes",
+            ]
+        },
+        accessories: {
+            name: "Accessories",
+            masterItems: [
+                "earrings",
+                "collar",
+                "hairband",
+            ]
+        },
+        toys: {
+            name: "Toys",
+            masterItems: [
+                "chastity",
+                "analplug",
+            ]
+        }
+    }
+}
+/* twine-user-script #26: "wordsCode.js" */
 window.wordsCode={
 	setFutaPronouns: function() {
 		if (State.active.variables.kink.futa) {
@@ -40443,6 +40724,7 @@ Game version: &lt;span class=&quot;hidden_link&quot;&gt;[[$gameVersion|MMMLimeri
 [[Return|Beauty Salon]]
 &lt;&lt;endif&gt;&gt;\
 &lt;/span&gt;\</tw-passagedata><tw-passagedata pid="207" name="Clothing Selector" tags="pos_1276_820" position="850,2600">\
+&lt;&lt;wardrobe&gt;&gt;
 &lt;&lt;display [[Clothing wardrobe]]&gt;&gt;\
 \
 [[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
