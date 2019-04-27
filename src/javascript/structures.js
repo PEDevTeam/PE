@@ -1261,6 +1261,7 @@ window.flagsList={
 	metClothesClerk: false,
 	quizState: "none",
 	quiz: [0,0,0,0,0,0,0,0,0,0],
+	daring3Add: false,
 },
 
 window.kinkList={
