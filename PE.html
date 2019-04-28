@@ -28450,6 +28450,9 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 	This is an error, there is no such scene as &quot;$scene&quot;
 	[[Go back to the club|All Basement Rooms][$scene=&quot;ExitClub&quot;]]
 &lt;&lt;/switch&gt;&gt;\</tw-passagedata><tw-passagedata pid="126" name="Club Intro" tags="pos_216_1085" position="725,1600">\
+&lt;&lt;set _nails to $body.manicure&gt;&gt;\
+&lt;&lt;set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels&gt;&gt;\
+\
 &lt;&lt;if $scene eq &quot;ApproachBouncer&quot;&gt;&gt;&lt;!--&lt;ApproachBouncer&gt;--&gt;\
 	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
 
@@ -28634,6 +28637,15 @@ Your jaw hurts after so much work, and it&#39;s dubious whether this a legitimat
 	[[Go through the doors|Club Intro][$scene=&quot;GoInside&quot;]]
 	&lt;!--&lt;/FlashPanties&gt;--&gt;\
 &lt;&lt;elseif $scene eq &quot;GoInside&quot;&gt;&gt;&lt;!--&lt;GoInside&gt;--&gt;\
+	&lt;&lt;if $player.clubPassword eq &#39;&#39;&gt;&gt;\ 
+		As you enter the club your &lt;&lt;if _heels&gt;&gt;heel&lt;&lt;else&gt;&gt;shoe&lt;&lt;endif&gt;&gt; kicks a scrunched up piece of paper. You glance down and see some calligraphic letters scrawled onto it. Curious, you bend down and pick the paper up, unfurling it with your&lt;&lt;if _nails&gt;&gt; manicured&lt;&lt;endif&gt;&gt; fingers. The writing is actually a single word…
+
+		APPEASEMENT 
+
+		@@.hero;What the hell is this?@@ you muse.
+
+		&lt;&lt;set $player.clubPassword to &#39;APPEASEMENT&#39;&gt;&gt;\
+	&lt;&lt;endif&gt;&gt;\
 	You traverse a small foyer and enter a second set of double doors, crossing the threshold into the massive main club.
 
 	On encountering the cavernous main floor for the first time, you’re bedazzled by the sheer volume of stimulation flooding your senses at once. You feel the music reverberating in your very body, while your eyes struggle to keep up with the single most spectacular place you’ve yet witnessed.
@@ -31673,6 +31685,7 @@ Luckily, the crowd thins down for a moment, mercifully reducing the odds of your
 		[[Go out on the dance floor|Club dance floor][$scene=&quot;danceFloor&quot;]]
 		[[Head over to the bar|Club bar][$scene=&quot;mainBar&quot;]]
 		[[Use the ladies room|Club restroom][$scene=&quot;clubRestroom&quot;]]
+		[[Curtained door|Club curtained door]]
 		[[Go to the club restaurant|Club restaurant][$scene=&quot;mainRestaurant&quot;]]
 		/*[[Go up to the VIP lounge]]*/\
 
@@ -53672,12 +53685,14 @@ Your therapist&#39;s name?
 &lt;&lt;textbox &quot;$therapist&quot; $therapist&gt;&gt;
 
 Your difficulty level? 
-Difficulty level affects the starting debt amount and the rate at which the debt increases.
-When playing on hard, being punished for failing chores will not treat those chores as completed nor will you receive payment for them.
-Additionally, some triggers for advancing the story are more aggressive on hard mode.
+Difficulty level changes the starting debt amount and the rate at which the debt increases. 
+Some progression triggers are more aggressive in Hard mode.
+Your difficulty level cannot be changed later.
 &lt;label&gt;&lt;&lt;radiobutton &quot;$flags.difficulty&quot; 1&gt;&gt;Easy&lt;/label&gt;
 &lt;label&gt;&lt;&lt;radiobutton &quot;$flags.difficulty&quot; 2 checked&gt;&gt;Medium&lt;/label&gt;
 &lt;label&gt;&lt;&lt;radiobutton &quot;$flags.difficulty&quot; 3&gt;&gt;Hard&lt;/label&gt;
+
+Content related to specific fetishes can be set in-game using the therapist&#39;s survey or at any time via the settings menu.
 
 [[Introduction]]
 
