@@ -1749,6 +1749,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Club/Basement/Room_242",
+                           "path":  "Club/Basement/Room_242",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Club/Basement/Room_23/BondageBench",
                            "path":  "Club/Basement/Room_23/BondageBench",
                            "files":  [
@@ -1800,6 +1807,50 @@ window.imagePacks = {
                                              "fileName":  "nun_2.png",
                                              "height":  797,
                                              "width":  897
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 242 Drink",
+                           "path":  "Club/Basement/Room_242/Drink",
+                           "files":  [
+                                         {
+                                             "fileName":  "242 Drink.jpg",
+                                             "height":  300,
+                                             "width":  450
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 242 Master",
+                           "path":  "Club/Basement/Room_242/Master",
+                           "files":  [
+                                         {
+                                             "fileName":  "242 Master.jpg",
+                                             "height":  741,
+                                             "width":  302
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 242 Slave",
+                           "path":  "Club/Basement/Room_242/Slave",
+                           "files":  [
+                                         {
+                                             "fileName":  "242 Slave.jpg",
+                                             "height":  1200,
+                                             "width":  798
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 242 Suck",
+                           "path":  "Club/Basement/Room_242/Suck",
+                           "files":  [
+                                         {
+                                             "fileName":  "242 Suck.gif",
+                                             "height":  278,
+                                             "width":  500
                                          }
                                      ]
                        },
