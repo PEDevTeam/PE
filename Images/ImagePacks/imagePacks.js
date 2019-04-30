@@ -1742,6 +1742,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Club/Basement/Room_111",
+                           "path":  "Club/Basement/Room_111",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Club/Basement/Room_23",
                            "path":  "Club/Basement/Room_23",
                            "files":  [
@@ -1753,6 +1760,72 @@ window.imagePacks = {
                            "path":  "Club/Basement/Room_242",
                            "files":  [
 
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Dress",
+                           "path":  "Club/Basement/Room_111/dress",
+                           "files":  [
+                                         {
+                                             "fileName":  "Dance dress 2.jpg",
+                                             "height":  741,
+                                             "width":  738
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Kiss",
+                           "path":  "Club/Basement/Room_111/kiss",
+                           "files":  [
+                                         {
+                                             "fileName":  "kiss 1.gif",
+                                             "height":  275,
+                                             "width":  500
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Note",
+                           "path":  "Club/Basement/Room_111/note",
+                           "files":  [
+                                         {
+                                             "fileName":  "J Note.jpg",
+                                             "height":  714,
+                                             "width":  636
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Sex1",
+                           "path":  "Club/Basement/Room_111/sex1",
+                           "files":  [
+                                         {
+                                             "fileName":  "Sex 7.gif",
+                                             "height":  267,
+                                             "width":  250
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Sex2",
+                           "path":  "Club/Basement/Room_111/sex2",
+                           "files":  [
+                                         {
+                                             "fileName":  "Sex 8.gif",
+                                             "height":  174,
+                                             "width":  310
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Room 111 Suit",
+                           "path":  "Club/Basement/Room_111/suit",
+                           "files":  [
+                                         {
+                                             "fileName":  "Suit 2.gif",
+                                             "height":  225,
+                                             "width":  400
+                                         }
                                      ]
                        },
                        {

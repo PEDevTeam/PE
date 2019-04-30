@@ -1264,6 +1264,7 @@ window.flagsList={
 	quizState: "none",
 	quiz: [0,0,0,0,0,0,0,0,0,0],
 	daring3Add: false,
+	visited111: false,
 },
 
 window.kinkList={
