@@ -231,6 +231,9 @@ window.playerCode={
 	haveCplus: function() {
 		return (State.active.variables.body.boobs > 2);
 	},
+	haveDplus: function() {
+		return(State.active.variables.body.boobs > 3);
+	},
 	haveLips: function() {
 		return (State.active.variables.body.lips > 0);
 	},
