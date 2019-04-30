@@ -33,7 +33,7 @@
 			<<if window.clothes.dressedSleep.check()>>\
 				[[Go to sleep|Sleep]]
 			<<endif>>\
-		<<delayedLink 1 "Return|Go to bedroom">>
+		<<if $flags.difficulty < 3>><<delayedLink 1 "Return|Go to bedroom">><<endif>>
 	<<else>>\
 		<<if playerCode.isMind_0()>>\
 			@@.hero;It feels more comforable than I expected. No wonder girls like these so much.@@

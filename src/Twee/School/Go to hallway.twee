@@ -359,7 +359,7 @@
 			
 		<<endif>>\
 \
-		<<if $kink.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
+		<<if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
 			<<set $flags.penisShrinkSleep = true>>\
 			<<set $flags.penisShrinkProgress = true>>\
 			<<set window.clothes.setCage()>>\
@@ -662,7 +662,7 @@
 		<<if _taskBody.name neq "No tasks">>\
 			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
 			<<set _taskBody.events.start()>>\
-			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_task)>>\
+			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)>>\
 			<<set _t = true>>\
 			
 		<<endif>>\
@@ -710,7 +710,7 @@
 			<<endif>>\
 		<<elseif ($player.perversion.teacher lte 3)>>\
 			<<switch playerCode.isMind()>>\
-				<<case 0>>to pay for $teacher's silence on your stupid bribe attempt.
+				<<case 0>>to pay for $teacher's silence on your moment of weakness.
 				<<case 1>>to pay for $teacher's silence on your foolish attitude.
 				<<case 2>>to pay for $teacher's silence on your unforgivable behavior.
 			<</switch>>\
@@ -968,7 +968,9 @@
 
 	@@.teacher;"I've had enough of you distracting this class.  I'm giving you detention.  Hopefully, that will teach you to respect your education."@@
 
-	Ugh! Detention blows. She's always picking on you for stuff like this. Perhaps this is your chance to assert yourself?
+	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimdating. 
+	
+	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $guardian first?@@
 
 	<<if not ($flags.femaleSchool) and _o.female>>\
 		<<set $flags.femaleSchool to true>>\
@@ -976,17 +978,6 @@
 		
 	<<endif>>\
 	[[Accept your punishment|Finish school day][$player.detention=true]]
-	<<if ($player.money gt 0)>>\
-		<<if ($player.daring eq 0) or ($player.daring eq 1)>>\
-			<<click "Try to bribe her">><<replace "#bribe_deny">>@@.deny;
-			Ugh, she is just too intimidating. You've always been daunted by strong women. There's no way she'll agree, unless.... 
-
-			You need to find some way to overcome your fear of adult women. Maybe you can experiment on $guardian first?@@
-			<</replace>><</click>> <span id="bribe_deny"></span>
-		<<else>>\
-			[[Try to bribe her|Bribe Teacher][$player.daringFlag.bribe=true]]
-		<<endif>>\
-	<<endif>>\
 <<endif>>\
 \
 

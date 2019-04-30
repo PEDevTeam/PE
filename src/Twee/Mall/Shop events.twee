@@ -173,5 +173,29 @@
 	[[Return|Go to the mall]]
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
-<!--</Extra items for school dress>-->\
+<!--</Extra items for school dress>-->\ 
+<<endif>>\
+<<if $tasksTeacher.wearDressToSchool.status == 1 && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>
+	Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
+
+	You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\
+	<<if $player.money < window.itemF.cost(itemsC.schoolFemale)>>\
+		Finding what you're looking for, you balk at the price - you don't even have that much money!
+
+		@@.hero;$teacher takes almost everything I earn, what am I expected to do now, steal?@@
+	<<else>>\
+		Finding what you're looking for, you wince slightly at the price; you could afford it, but...
+
+		@@.hero;$teacher takes my money every week, and now she demands I spend even more. How's an honest guy supposed to keep up?@@
+	<<endif>>\
+
+	<<if $flags.metClothesClerk == true>>\
+		Looking around you spot $guardian's friend, Susan. Perhaps she could help you out?  Alternatively, you could always opt for the five-finger discount.
+	<<else>>\
+		Looking around you spot one of the clerks, you think you recognize her as one of $guardian's friends. Maybe she could help? Alternatively, you could always opt for the five-finger discount.
+	<<endif>>\
+
+	[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
+	[[See if the clerk can help you out|Uniform Punishment - Help]]
+	
 <<endif>>\
