@@ -3,9 +3,9 @@
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
 <<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
 <<if $friendG.snoop eq 2>>\
-	Your heart is still racing when $friend returns with a tray laden with goodies. $friendG.He_She shows no sign that $friendG.he_she heard you though, and you inwardly cheer as you realise you got away with your crime.
+	Your heart is still racing when $friend returns with a tray laden with goodies. $friendG.He_She shows no sign that $friendG.he_she heard you though, and you inwardly cheer as you realize you got away with your crime.
 <<else>>\
-	By the time $friend returns with a tray laden with goodies, you realise that you missed your opportunity. You had plenty of time to snoop too.
+	By the time $friend returns with a tray laden with goodies, you realize that you missed your opportunity. You had plenty of time to snoop too.
 <<endif>>\
 
 @@.friend;"I thought you needed cheering up,"@@ $friend says putting the tray down on the table.
@@ -18,4 +18,4 @@ It’s not until you put your shoes back on \
 <<endif>>\
 that your mind is brought back to your problems and what might happen tomorrow.
 
-[[Leave friend's house][$time.addMinutes(80)]]
+[[Leave friend's house][$time.addMinutes(80); $player.perversion.level=1;]]

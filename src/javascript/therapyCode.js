@@ -84,7 +84,7 @@ window.therapySessions=[
 		finishHypno: function() {}
 	},
 	{	//Introduction , second scene
-		text: "$therapist calls you in, and she can tell straight away that something new is troubling you.  With a little prodding, you tell her how your teacher $teacher is blackmailing you.  $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her that you foolishly tried to bribe her, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers.  You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print rewardMoney.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
+		text: "$therapist calls you in, and she can tell straight away that something new is troubling you.  With a little prodding, you tell her how your teacher $teacher is blackmailing you.  $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her about the damning choices you made at school, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers.  You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print rewardMoney.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
 		hasPassage: true,
 		passage: "TherapistSurvey",
 		chance: 10,
@@ -276,7 +276,6 @@ window.therapySessions=[
 	},
 	{	//Routine for perversion 4 (mind_1) - first scene
 		text: "$therapist calls you in, and the two of you pick up from where you'd finished in the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have another hypnosis session?\"@@\n\nYou definitely feel more at ease with all that is happening - sometimes you're even curious about what this new part of your life will bring next. But you're not sure if you should go further with these hypnotherapy sessions. What if you become too accepting? What if you start to enjoy it?",
-		text: "",
 		hasPassage: false,
 		chance: 10,
 		priority: 2,
@@ -525,7 +524,7 @@ window.therapistTalks={
 		time: 20,
 		start: false,
 		check: function() {
-			return State.active.variables.kink.penisShrink;
+			return State.active.variables.kinkAllow.penisShrink;
 		}
 	}
 },
@@ -575,6 +574,12 @@ window.kinks= [
 			State.active.variables.kink.cumEating = false;
 			State.active.variables.kink.ownCum = false;
 			State.active.variables.kink.cumSwap = false;
+			State.active.variables.kinkAllow.semenConsumption = false;
+			State.active.variables.kinkAllow.creampie = false;
+			State.active.variables.kinkAllow.bukkake = false;
+			State.active.variables.kinkAllow.cumEating = false;
+			State.active.variables.kinkAllow.ownCum = false;
+			State.active.variables.kinkAllow.cumSwap = false;
 			State.active.variables.dreams.CumCake.active=false; 
 		}
 	},
@@ -617,6 +622,10 @@ window.kinks= [
 			State.active.variables.kink.wetting = false;
 			State.active.variables.kink.urineDrink = false;
 			State.active.variables.kink.urinePlay = false;
+			State.active.variables.kinkAllow.watersports = false;
+			State.active.variables.kinkAllow.wetting = false;
+			State.active.variables.kinkAllow.urineDrink = false;
+			State.active.variables.kinkAllow.urinePlay = false;
 			State.active.variables.dreams.PissHypno.active=false;
 		}
 	},
@@ -656,6 +665,9 @@ window.kinks= [
 			State.active.variables.kink.smallPenis = false;
 			State.active.variables.kink.penisShrink = false;
 			State.active.variables.kink.sph = false;
+			State.active.variables.kinkAllow.smallPenis = false;
+			State.active.variables.kinkAllow.penisShrink = false;
+			State.active.variables.kinkAllow.sph = false;
 		}
 	},
 	{
@@ -701,6 +713,12 @@ window.kinks= [
 			State.active.variables.kink.bondage = false;
 			State.active.variables.kink.facesit = false;
 			State.active.variables.kink.trampling = false;
+			State.active.variables.kinkAllow.bdsm = false;
+			State.active.variables.kinkAllow.painPlay = false;
+			State.active.variables.kinkAllow.petPlay = false;
+			State.active.variables.kinkAllow.bondage = false;
+			State.active.variables.kinkAllow.facesit = false;
+			State.active.variables.kinkAllow.trampling = false;
 		}
 	},
 	{
@@ -745,6 +763,12 @@ window.kinks= [
 			State.active.variables.kink.hosiery = false;
 			State.active.variables.kink.shoeBoot = false;
 			State.active.variables.kink.footjob = false;
+			State.active.variables.kinkAllow.footFetish = false;
+			State.active.variables.kinkAllow.footDisplay = false;
+			State.active.variables.kinkAllow.footWorship = false;
+			State.active.variables.kinkAllow.hosiery = false;
+			State.active.variables.kinkAllow.shoeBoot = false;
+			State.active.variables.kinkAllow.footjob = false;
 		}
 	},
 	{
@@ -791,6 +815,12 @@ window.kinks= [
 			State.active.variables.kink.armpitOdor = false;
 			State.active.variables.kink.assOdor = false;
 			State.active.variables.kink.genitalOdor = false;
+			State.active.variables.kinkAllow.clothesOdor = false;
+			State.active.variables.kinkAllow.shoeSockOdor = false;
+			State.active.variables.kinkAllow.footOdor = false;
+			State.active.variables.kinkAllow.armpitOdor = false;
+			State.active.variables.kinkAllow.assOdor = false;
+			State.active.variables.kinkAllow.genitalOdor = false;
 		}
 	},
 	{
@@ -843,6 +873,15 @@ window.kinks= [
 			State.active.variables.kink.questionable = false;
 			State.active.variables.kink.tattoo = false;
 			State.active.variables.kink.piercing = false;
+			State.active.variables.kinkAllow.curse = false;
+			State.active.variables.kinkAllow.whoring = false;
+			State.active.variables.kinkAllow.bimbo = false;
+			State.active.variables.kinkAllow.spitting = false;
+			State.active.variables.kinkAllow.abusive = false;
+			State.active.variables.kinkAllow.mindControl = false;
+			State.active.variables.kinkAllow.questionable = false;
+			State.active.variables.kinkAllow.tattoo = false;
+			State.active.variables.kinkAllow.piercing = false;
 		}
 	},
 	{
@@ -883,6 +922,10 @@ window.kinks= [
 			State.active.variables.kink.diapering = false;
 			State.active.variables.kink.adultBaby = false;
 			State.active.variables.kink.ageBehavior = false;
+			State.active.variables.kinkAllow.agePlay = false;
+			State.active.variables.kinkAllow.diapering = false;
+			State.active.variables.kinkAllow.adultBaby = false;
+			State.active.variables.kinkAllow.ageBehavior = false;
 		}
 	},
 	{
@@ -931,6 +974,13 @@ window.kinks= [
 			State.active.variables.kink.tall = false;
 			State.active.variables.kink.muscle = false;
 			State.active.variables.kink.expansionWeight = false;
+			State.active.variables.kinkAllow.bbw = false;
+			State.active.variables.kinkAllow.hyperBreasts = false;
+			State.active.variables.kinkAllow.hyperPenis = false;
+			State.active.variables.kinkAllow.dwarf = false;
+			State.active.variables.kinkAllow.tall = false;
+			State.active.variables.kinkAllow.muscle = false;
+			State.active.variables.kinkAllow.expansionWeight = false;
 		}
 	},
 	{
@@ -973,6 +1023,10 @@ window.kinks= [
 			State.active.variables.kink.leather = false;
 			State.active.variables.kink.nylon = false;
 			State.active.variables.kink.frilly = false;
+			State.active.variables.kinkAllow.latex = false;
+			State.active.variables.kinkAllow.leather = false;
+			State.active.variables.kinkAllow.nylon = false;
+			State.active.variables.kinkAllow.frilly = false;
 		}
 	},
 	{
