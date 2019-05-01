@@ -180,7 +180,7 @@ window.therapySessions=[
 			guardian: {min: 0, max: 100},
 			therapist: {min: 2, max: 100},
 			teacher: {min: 3, max: 100},
-			friend: {min: 4, max: 4}
+			friend: {min: 100, max: 100}
 		},
 		allowHypno: function() {
 			return false;
@@ -205,7 +205,7 @@ window.therapySessions=[
 			guardian: {min: 0, max: 100},
 			therapist: {min: 2, max: 100},
 			teacher: {min: 3, max: 100},
-			friend: {min: 9, max: 9}
+			friend: {min: 100, max: 100}
 		},
 		allowHypno: function() {
 			return false;
