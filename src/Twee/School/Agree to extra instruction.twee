@@ -19,7 +19,11 @@ Not having a clue about what she said, you just nod once, your expression sullen
 
 She seems almost offended, but you’re unsure if it’s due to the fact that you just offered her money or <<if $player.money >0>>how little you offered<<else>>your current lack of it<<endif>>.
 
-@@.teacher;“$player.name, you know that no amount of money will cause me to look past your misdeed in the hallyway, but I suppose we could come up with some sort of arrangement for my time as a //special// instructor. The rate for my help, as well as my discretion, is $bribeAmount a week. This is to be paid each Monday. \
+@@.teacher;“$player.name, you know that no amount of money will cause me to look past your misdeed in the hallway, but I suppose we could come up with some sort of arrangement for my time as a //special// instructor. The rate for my help, as well as my discretion, is $bribeAmount a week. This is to be paid each Monday. If you fail to make your payments, then our deal is off and the principal will hear about your actions.  Is that understood?@@
+
+You nod timidly.
+
+@@.teacher;Good. I would hate to see you expelled when you are clearly capable of redemption.
 <<if $player.bribeDiscount gt 0>>\
 	Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>.
 <<endif>>\
