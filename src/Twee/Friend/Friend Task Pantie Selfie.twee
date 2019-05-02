@@ -2,12 +2,14 @@
 \
 <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _friendMale to $flags.friendIsMale>>\
-<<if $friendG.gender eq 'M'>><<wearClothing gString 60>>\
+<<if $friendG.gender eq 'M' or $friendG.gender eq 'T'>><<wearClothing gString 60>>\
 <<else>><<wearClothing gString 61>><<endif>>\
 <<if $tasksFriend.pantieSelfie.startDay eq $time.day>>\
-	Finally alone in your room, you take the panties out of your pocket.\
+	Finally alone in your room, you take the panties out of your\
 	<<if not _friendMale and $kinkAllow.clothesOdor>>\
-		Although they’ve cooled down now you can still faintly smell her scent on them.\
+		Although they’ve cooled down now you can still faintly smell her scent on them.
+	<<else>>\
+		pocket.
 	<<endif>>\
 <<else>>\
 	You remember the panties $friend gave you and your promise to take a selfie in them. Checking to make sure $guardian is not around, you open the drawer that contains your PSBox games take out one of the cases and retrieve the panties from their hiding spot.
@@ -52,11 +54,13 @@ A few moments later, your phone pings and you have a message. It reads: -
 	You look at the message.
 
 	@@.heroT;Can he see my… or is he…@@
+	
 	<<if $friendG.gender eq 'M'>>\
 		A couple of seconds later, another message arrives. You open it up to see a very small pair of briefs and a not very small package struggling to get out of the thin material. What gives it away as being $friend though is the tiny birthmark on the back of his thigh, just below his left butt cheek. You’ve never noticed before how muscular his upper thigh is or that he has a very defined six-pack, especially for a nerd.
 	<<else>>\
 		A couple of seconds later, another message arrives. You open it up to see a very sexy pair of black lacy panties and not very small package struggling to get out of the thin material. What gives it away as being $friend though is the tiny birthmark on the back of his thigh, just below his left butt cheek. You’ve never noticed before how much of a girly butt he has.
 	<<endif>>\
+	
 	@@.hero;Why is he sending me pictures? And like this too.@@
 
 	You look down at the stirring in your loins.
