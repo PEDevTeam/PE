@@ -27,13 +27,19 @@ You hurriedly put your wallet away.
 @@.teacher;"Now, $player.name, I have given a lot of thought to what you tried earlier. I am insulted you think you could buy your way out of trouble with some pocket change."@@
 	
 \
+@@.teacher;"If money is what is important to you, then perhaps I can use it to teach you a lesson. If you wish to prevent me from reporting you to the principal, it will cost you $<<print $bribeAmount>> every Monday.@@"
+
+
 <<if $player.bribeDiscount gt 0>>\
-	@@.teacher;"If money is what is important to you, then perhaps I can use it to teach you a lesson. If you wish to prevent me from reporting you to the principal, it will cost you $<<print $bribeAmount>> every Monday. Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>."@@
+	@@.teacher;"Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>."@@
 	
 <<endif>>\
 <<if $flags.bullySteal>>\
-	@@.teacher;"If money is what is important to you, then perhaps I can use it to teach you a lesson. If you wish to prevent me from reporting you to the principal, it will cost you $<<print $bribeAmount>> every Monday. I will also stop those $futa.boy_girl////s from stealing your money in the morning."@@
-		
+	@@.teacher;"I will also stop those $futa.boy_girl////s from stealing your money in the morning."@@
+
+<<else>>\
+
+
 <<endif>>\
 	
 @@.teacher;"This is non-negotiable. Your only other option here is for me tell the principal about your little bribe attempt. You'll be expelled, of course."@@
