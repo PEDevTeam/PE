@@ -588,7 +588,7 @@ window.playerCode={
 		var itemsC=window.itemsC;
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
 			var o=itemsC[Object.keys(itemsC)[i]];
-			if (o.clothingType != itemTypes.NotClothing && playerCode.owns(o) && !o.female) {
+			if ((o.clothingType != itemTypes.NotClothing && o.clothingType != itemTypes.Extra) && playerCode.owns(o) && !o.female) {
 				State.active.variables.inventory.splice(State.active.variables.inventory.indexOf(o.id), 1);
 			}
 		}
