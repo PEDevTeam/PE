@@ -3,46 +3,8 @@
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Detention" 400 400>></div>\	
 You go to the detention room. $teacher is waiting for you.
 
-<<if $player.daringFlag.bribe>>\
-	<<set $bribeAmount=50>>\
-	<<set $player.bribeDiscount+=10*$time.weekDay()-10>>\
-	<<set _nb = $bribeAmount-$player.bribeDiscount>>\
-	<<set $player.perversion.teacher=1>>\
-	<<set $player.perversion.teacherCooldown=0>>\
-	@@.teacher;"Now, $player.name, I have given a lot of thought to what you tried earlier. I am insulted you think you could buy your way out of trouble with some pocket change. 
-	
-	"If money is what is important to you, then perhaps I can use it to teach you a lesson. If you wish to prevent me from reporting you to the principal, it will cost you $<<print $bribeAmount>> every Monday.\
-	<<if $player.bribeDiscount gt 0>>\
-		Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>.@@
-		
-	<<endif>>\
-	<<if $flags.bullySteal>>\
-		"I will also stop those $futa.boy_girl////s from stealing your money in the morning.@@
-		
-	<<endif>>@@\
-	
-	@@.teacher;"This is non-negotiable. Your only other option here is for me tell the principal about your little bribe attempt. You'll be expelled, of course."@@
+@@.teacher;"Ok, $player.name. <<display "Detention Punishment">>"@@
 
-	You can't risk being expelled - she's got your balls and she knows it.
-	@@.hero;Crap.@@
-
-	@@.teacher;"I suspect you may have some trouble coming up with that much money every week, so I'll reduce it if you show some humility."@@  Sounds worrying...
-
-	@@.teacher;"For every day you wear female underwear to school, I will take $<<print rewardMoney.teacherFemaleUnderwear>> off your week's payment."@@
-
-	@@.hero;What? I have to wear panties to school? Is she serious?!@@
-	
-	You open your mouth to argue, but miffle out under $teacher's hard glare and just nod instead.
-
-	Frustrated and embarrassed for chickening out you try to convince yourself that it's not a big deal. You just hope that noone would find out about it.
-
-	<<set $player.detention=false>>\
-	<<set $flags.bribePaid=true>>\
-	[[Agree|Finish school]]
-<<else>>\
-	@@.teacher;"Ok, $player.name. <<display "Detention Punishment">>"@@
-
-	[[Do as you're told|Finish school][$time.addMinutes(30)]]
-<<endif>>\
+[[Do as you're told|Finish school][$time.addMinutes(30)]]
 
 

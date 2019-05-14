@@ -4,6 +4,10 @@
 <<if $flags.walletForgottenStart>>\
 	<<set $flags.walletForgottenEnd = true>>\
 <<endif>>\
+<<if $flags.daring3Add == true>>\
+	<<Daring 3>>\
+	<<set $flags.daring3Add = false>>\
+<<endif>>\
 <<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey>>\
 	<<if ($player.perversion.teacherPermChastity eq 6)>>\
 		<<set $player.perversion.teacherPermChastity = 7>>\
@@ -77,7 +81,11 @@
 	<<set $player.punishments.penaltySkipped = false>>\
 	You're done with school for today. What would you like to do with the rest of the day?
 
-	<<display [[Travel]]>>
+	<<if $cheerFriend.currentSE > 0>>\
+		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+	<<else>>\
+		<<display [[Travel]]>>\
+	<<endif>>\
 <<endif>>\
 
 

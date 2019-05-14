@@ -327,6 +327,7 @@ window.structures={
 				choreV.id = choreJS.id;
 				if (choreV.active == null) { choreV.active = choreJS.active; }
 				if (choreV.fail == null) { choreV.fail = false; }
+				if (choreV.hardFail == null) { choreV.hardFail = false; }
 				if (choreV.dayPerformed == null) { choreV.dayPerformed = -100; }
 				
 			}
@@ -646,6 +647,22 @@ window.structures={
 				delete tasksBodyNewTeacher[Object.keys(tasksBodyNewTeacher)[i]];
 			}
 		}
+
+		// Friend tasks
+		var tasksList=window.tasksFriend;
+		if (vars.tasksFriend == null) {
+		    vars.tasksFriend = {};
+		}
+		for (var attribute in tasksList) {
+		    if (!(attribute in vars.tasksFriend)) {
+			vars.tasksFriend[attribute] = tasksList[attribute];
+		    }
+		}
+		for (var attribute in vars.tasksFriend) {
+		    if (!(attribute in tasksList)) {
+			delete vars.tasksFriend[attribute];
+		    }
+		}
 	},
 	setupCheer: function (){
 		var vars=State.active.variables;
@@ -702,6 +719,7 @@ window.structures={
 
 window.playerList={
 	name: "",
+	maleName: "",
 	debugA: false,
 	debugM: false,
 	debugQ: false,
@@ -757,9 +775,12 @@ window.playerList={
 	bribeIncrease: 10,
 	friendLastVisit: 0,
 	clothes: [],
+	clothesTmp: null,
 	gameSkill: 0,
 	fitness: 0,
 	femaleName: false, //new flag
+	clubPassword: '',
+	clubPasswordFailed: false,
 },
 
 window.playerAddonsList={
@@ -892,7 +913,15 @@ window.friendList={
 	his_her: 'his',
 	His_Her: 'His',
 	his_hers: 'his',
-	His_Hers: 'His'
+	His_Hers: 'His',
+	gender: 'M',
+
+	snoop: 0,
+	daysSinceLastVisit: 0,
+	catchUp: 0,
+	admitWhatsWrong: 0,
+	admitLikingTrap: 0,
+	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
 },
 
 window.futaList={
@@ -1227,6 +1256,15 @@ window.flagsList={
 	salonPiggyCoin: false,
 	clothesPurged:false, //new flag
 	delaySlut: 0,
+	canGame: true,
+	difficulty: 1,
+	choreFactor: 1,
+	bribeFactor: 1,
+	metClothesClerk: false,
+	quizState: "none",
+	quiz: [0,0,0,0,0,0,0,0,0,0],
+	daring3Add: false,
+	visited111: false,
 },
 
 window.kinkList={

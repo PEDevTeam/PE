@@ -176,6 +176,13 @@ window.playerCode={
 	isHairless: function() {
 		return (State.active.variables.body.bodyhair >= 2);
 	},
+	isInChastity: function() {
+	    return this.isWearingOn(itemTypes.Chatisty);
+	},
+	isLockedInChastity: function() {
+		return (this.isWearingOn(itemTypes.Chatisty) &&
+		        State.active.variables.flags.chastityLocked);
+	},
 	haveHaircut: function() {
 		return (State.active.variables.body.hairstyle > 0);
 	},
@@ -224,12 +231,28 @@ window.playerCode={
 	haveCplus: function() {
 		return (State.active.variables.body.boobs > 2);
 	},
+	haveDplus: function() {
+		return(State.active.variables.body.boobs > 3);
+	},
 	haveLips: function() {
 		return (State.active.variables.body.lips > 0);
 	},
 	haveAss: function() {
 		return (State.active.variables.body.ass > 0);
 	},
+	obviousFemaleAppearance: function() {
+		var itemTypes=window.itemTypes;
+		var body=State.active.variables.body;
+		var fo=this.isWearingOn(itemTypes.Outerwear).female;
+		var fs=this.isWearingOn(itemTypes.Shoes).slutty;
+		var e=this.isWearingOn(itemTypes.Earrings);
+		var itemTypes=window.itemTypes;
+		var itemTypes=window.itemTypes;
+		if (fo || fs || e || body.makeup>1 || body.hairstyle>1 || body.boobs>1 || body.lips>1 || body.manicure>0) {
+			return true;
+		}
+		return false;
+	},    
 	slutScoreBasic: function() {
 		var score=0;
 		var items=window.itemsC;
@@ -306,7 +329,7 @@ window.playerCode={
 	heelsCheck: function() {
 		var s=this.isWearingOn(window.itemTypes.Shoes);
 		var player=State.active.variables.player;
-		if (s) {
+		if (s && s.heels) {
 			if (s.daringRec > 6) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
@@ -318,7 +341,7 @@ window.playerCode={
 				}
 				return false;
 			}
-			if (s.daringRec > 3) {
+			if (s.daringRec > 4) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -357,17 +380,17 @@ window.playerCode={
 	},
 	nextBribeAmount: function() {
 		var player=State.active.variables.player;
-		return Math.min(State.active.variables.bribeAmount + player.bribeIncrease, 200);
+		return Math.min(State.active.variables.bribeAmount + player.bribeIncrease, 200*State.active.variables.flags.bribeFactor);
 	},
 	calculateBribeIncrease: function() {
 		var player=State.active.variables.player;
 		
-		if (player.perversion.teacher < 3) { player.bribeIncrease = 10; return; }
-		if (player.perversion.teacher < 5) { player.bribeIncrease = 15; return; }
+		if (player.perversion.teacher < 3) { player.bribeIncrease = 10*State.active.variables.flags.bribeFactor; return; }
+		if (player.perversion.teacher < 5) { player.bribeIncrease = Math.floor(15*State.active.variables.flags.bribeFactor); return; }
 		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.bribeIncrease = 0; return; }
-		if (player.perversion.teacher < 7) { player.bribeIncrease = 20; return; }
+		if (player.perversion.teacher < 7) { player.bribeIncrease = 20*State.active.variables.flags.bribeFactor; return; }
 		
-		player.bribeIncrease = 30;
+		player.bribeIncrease = 30*State.active.variables.flags.bribeFactor;
 	},
 	owns: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;

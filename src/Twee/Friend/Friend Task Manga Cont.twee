@@ -1,0 +1,57 @@
+:: Friend Task Manga Cont
+\
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set $player.clothesTmp to clone($player.clothes)>>\
+<<removeClothingType 4>><<updateClothes>>\
+\
+<<set _boughtList to []>>\
+<<if playerCode.owns($items.bra)>><<set _boughtList.push("a bra")>><<endif>>\
+<<if playerCode.owns($items.stockings)>><<set _boughtList.push("stockings")>>\
+<<elseif playerCode.owns($items.socks)>><<set _boughtList.push("girls socks")>><<endif>>\
+<<if playerCode.owns($items.gString)>><<set _boughtList.push("lacy panties")>><<endif>>\
+<<if _boughtList.length gt 1>>\
+	<<set _boughtList.push("and " + _boughtList.pop())>>\
+<<endif>>\
+\
+<<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
+<<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
+$friend opens the door and smiles widely at you before stepping back.
+
+@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can play. Why don’t you pick something to do?"@@
+
+@@.friend;“You’re not really here with me are you?”@@ $friend asks from the doorway. You realize that $friendG.he_she hasn’t brought anything up, and by the frustration on $friendG.his_her face has been asking you if you wanted anything in particular.
+
+<<if $player.daring gt 3>>\
+	@@.hero;What am I supposed to say? “My teacher is making me wear panties and a chastity device and a butt plug to\
+	<<if _boughtList.length gt 0>>\
+		school? Oh and I was so upset I bought myself\
+		<<print _boughtList.join(', ')>>\
+		to wear too, even though I didn’t have to."\
+	<<else>>\
+		school?"\
+	<<endif>>\
+	Yeah that’s going to go down well.@@
+<<else>>\
+	You’ve had a lot on your mind. You shrug noncommittally. 
+<<endif>>\
+
+@@.friend;“I know what we need. I won’t be long.”@@
+
+$friend is taking $friendG.his_her time and so you put on FIFO to keep your mind off your issues. You need the practice anyway. You are so distracted that you don’t even realize that you’re playing with a girl’s team, complete with a pink kit, until you hear $friend’s footsteps in the hallway. You urgently back out of the game so $friend doesn’t see. 
+
+The tray $friend is carrying is laden with cookies, candies, pastries and your favourite soda. $friendG.He_She calls it “The Medicinal Selection”. You sit back \
+<<if _chastity or _plug>>still unable to get comfortable<<endif>>\
+and munch on a long, thin red candy that tastes like strawberry. 
+
+@@.friend;“You don’t have to say anything but you know you can tell me anything right?”@@ $friendG.he_she says eventually. @@.friend;”I can see that you are not comfortable. Did you hurt@@\
+<<if $tasksFriend.manga.status eq 1>>\
+	@@.friend;yourself? Why don’t you read that manga I leant you, might cheer you up?”@@ $friend asks hopefully.
+<<else>>\
+	@@.friend;yourself?"@@
+<<endif>>\
+
+<<if $tasksFriend.manga.status eq 2>>\ 	
+	<<print "[[Say that you can't tell " + $friendG.him_her + '|Friend Cant]]'>>
+<<endif>>\
+[[Laugh it off|Friend Laugh Off]]

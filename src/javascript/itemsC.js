@@ -1100,7 +1100,7 @@ window.itemsC={
 		store: 6,
 		stolen: false,
 		surgery: false,
-		daringRec: 0,
+		daringRec: 7,
 		disabled: true,
 		cost: 0,
 		image: "heeled_cheer_sneakers.jpg"
@@ -1382,7 +1382,7 @@ window.itemsC={
 		daringRec: 0,
 		stolen: false,
 		image: "spy_camera.jpg",
-		cost: 80
+		cost: 30
 	},
 	camera: {
 		id: "camera",

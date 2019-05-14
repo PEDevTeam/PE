@@ -1,0 +1,19 @@
+:: Friend Hang Out
+\
+<<selectScene FriendHangOut RND2RND>>\
+<<scene>>\
+	<<include [[Friend Hang Out Manga]]>>
+<<scene>>\
+	<<include [[Friend Hang Out Movie Discussion]]>>
+<<scene>>\
+	<<include [[Friend Hang Out Board Game]]>>
+<<scene>>\
+	<<include [[Friend Hang Out Computer Game]]>>
+<<scene>>\
+	<<include [[Friend Hang Out Sad]]>>
+<</selectScene>>\
+<<if $friendG.leave_message>><<print $friendG.leave_message>> \
+<<set $friendG.leave_message to ''>><<endif>>\
+You pull your shoes back on and head out, giving $friend a <<if $flags.friendIsMale>>a sholder bump<<else>>quick hug<<endif>>.
+
+[[Leave friend's house][$time.addMinutes(90)]]

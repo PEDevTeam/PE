@@ -1,8 +1,9 @@
 :: Car racing video game [pos_2256_2476]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Car Racing" 350 350>></div>\	
-<<set $time.addMinutes(5)>>\
+<<set $time.addMinutes(20)>>\
 <<set $player.money-=1>>\
+<<set _result = "none">>\
 You sit down in a multi-player rally car racing game.
 
 <<set _sl = playerCode.slutScore()>>\
@@ -43,34 +44,64 @@ You sit down in a multi-player rally car racing game.
 	<<endif>>\
 	$<<print $player.wager>> with <<if _crv eq 1>>him<<else>>them<<endif>>?
 
+	<<set _roll to random(100)>>\
+	<<if _roll gt 95>>\
+		<<set _result to "win">>\
+	<<elseif _roll lte 5>>\
+		<<set _result to "lose">>\
+	<<endif>>\
 	<<if ((_sl gte 18) and (_sl lte 19)) or ((_sl gte 27) and (_sl lte 29))>>\
 		<<if $player.blowjobsToday lt $player.maxBlowjobs>>\
 			<<if _crv eq 1>>\
-				<<if $player.gameSkill + random(100) lt 50>>\
+				<<if _result == "lose">>\
 					[[Yep, I'm game|Mall blowjob single]]
-				<<else>>\
+				<<elseif _result == "win">>\
 					[[Yep, I'm game|Car racing wager single - win]]
+				<<else>>\
+					<<if ($player.gameSkill + _roll lte 75)>>\
+						[[Yep, I'm game|Mall blowjob single]]
+					<<elseif ($player.gameSkill + _roll gt 75)>>\
+						[[Yep, I'm game|Car racing wager single - win]]
+					<<endif>>\
 				<<endif>>\
 			<<else>>\
-				<<if $player.gameSkill + random(100) lt 70>>\
+				<<if _result == "lose">>\
 					[[Yep, I'm game|Mall blowjob group]]
-				<<else>>\
+				<<elseif _result == "win">>\
 					[[Yep, I'm game|Car racing wager group - win]]
+				<<else>>\
+					<<if ($player.gameSkill + _roll lte 150)>>\
+						[[Yep, I'm game|Mall blowjob group]]
+					<<elseif ($player.gameSkill + _roll gt 150)>>\
+						[[Yep, I'm game|Car racing wager group - win]]
+					<<endif>>\
 				<<endif>>\
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
 		<<if _crv eq 1>>\
-			<<if $player.gameSkill + random(100) lt 50>>\
+			<<if _result == "lose">>\
 				[[Yep, I'm game|Car racing wager single - lose]]
-			<<else>>\
+			<<elseif _result == "win">>\
 				[[Yep, I'm game|Car racing wager single - win]]
+			<<else>>\
+				<<if ($player.gameSkill + _roll lte 75)>>\
+					[[Yep, I'm game|Car racing wager single - lose]]
+				<<elseif ($player.gameSkill + _roll gt 75)>>\
+					[[Yep, I'm game|Car racing wager single - win]]
+				<<endif>>\
 			<<endif>>\
 		<<else>>\
-			<<if $player.gameSkill + random(100) lt 70>>\
+			<<if _result == "lose">>\
 				[[Yep, I'm game|Car racing wager group - lose]]
-			<<else>>\
+			<<elseif _result == "win">>\
 				[[Yep, I'm game|Car racing wager group - win]]
+			<<else>>\
+				<<if ($player.gameSkill + _roll lte 150)>>\
+					[[Yep, I'm game|Car racing wager group - lose]]
+				<<elseif ($player.gameSkill + _roll gt 150)>>\
+					[[Yep, I'm game|Car racing wager group - win]]
+				<<endif>>\
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\

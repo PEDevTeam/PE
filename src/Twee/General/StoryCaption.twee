@@ -1,6 +1,11 @@
 :: StoryCaption [pos_2975_12]
 \
-<<if ($gameVersion lt gameCode.version)>>\
+<<if $gameVersion > 1000>>\
+	<<set _gameVersion = $gameVersion/10000>>\
+<<else>>\
+	<<set _gameVersion = $gameVersion>>\
+<<endif>>\
+<<if (_gameVersion lt gameCode.version)>>\
 	<<set window.structures.updateStructures()>>\
 	/*<<set window.structures.setupPlayer()>>\
 	<<set window.structures.setupStandaloneVars()>>\
@@ -22,7 +27,10 @@
 	<<set window.structures.setupTalks()>>\
 	<<set window.structures.setupPunishments()>>\
 	<<set window.structures.setupTasks()>>\
+	<<set window.structures.setupCheer()>>\
 	<<set $gameVersion = gameCode.version>>*/\
+	<<set _passage = passage()>>\
+	<<replace ".passage">><<display _passage>><</replace>>\
 <<endif>>\
 \
 <span id="sidebar_time"></span><<updateTime>>

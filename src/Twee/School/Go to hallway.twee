@@ -27,6 +27,22 @@
 <<endif>>\
 \
 <!--<perversion progress events>-->\
+<<if ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
+	<<set $flags.guardianTeacherTalk=true>>\
+	@@.teacher;"As you know, I had a little talk with $guardian, and now I have her utmost support in helping you to 'reform'. Excellent news, is it not?"@@ She grins at you, knowing how her lies must have changed your life at home.
+	
+	@@.teacher;"$Guardian told me some of her plans for you at home, and I bet you will make an excellent little maid for her. It would be a pity to punish you if you disappointed $guardian, so do your best to serve her well."@@
+	
+	@@.hero;Oh, joy. Now I'll have to keep up with the tasks from both $teacher //and// $myguardian if I want to avoid punishment!@@
+		<<if $player.perversion.teacher eq 6>>\
+		@@.teacher;"I did not tell $guardian what an obedient little cocksucker you are, but she knows that you're really popular among the $futa.boys_girls here."@@
+		<<elseif $player.perversion.teacher eq 7>>\
+		@@.teacher;"I did not tell $guardian how you spend time after school on your knees, satisfying Coach's cock with that pretty mouth of yours, but she knows that you fancy someone on the school staff."@@
+		<<elseif $player.perversion.teacher eq 10>>\
+		@@.teacher;"I did not mention to $guardian that you are the most debased and experienced school slut in years, but she knows that you are really popular."@@
+		<<endif>>\
+		
+<<endif>>\
 <<if $player.perversion.teacher eq 6>>\
 	<<if $player.daringFlag.stunBully>>\
 		<<set $player.perversion.teacher to 7>>\
@@ -60,20 +76,6 @@
 		The first thing that comes to mind is getting rid of your chastity cage and being freed from blackmail, but you realize she would never agree to that. But what else do you really want?
 		
 	<<endif>>\
-<<elseif ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
-	<<set $flags.guardianTeacherTalk=true>>\
-	@@.teacher;"As you know, I had a little talk with $guardian, and now I have her utmost support in helping you to 'reform'. Excellent news, is it not?"@@ She grins at you, knowing how her lies must have changed your life at home.
-	
-	@@.teacher;"$Guardian told me some of her plans for you at home, and I bet you will make an excellent little maid for her. It would be a pity to punish you if you disappointed $guardian, so do your best to serve her well."@@
-	
-	@@.hero;Oh, joy. Now I'll have to keep up with the tasks from both $teacher //and// $myguardian if I want to avoid punishment!@@
-		<<if $player.perversion.teacher eq 6>>\
-		@@.teacher;"I did not tell $guardian what an obedient little cocksucker you are, but she knows that you're really popular among the $futa.boys_girls here."@@
-		<<elseif $player.perversion.teacher eq 7>>\
-		@@.teacher;"I did not tell $guardian how you spend time after school on your knees, satisfying Coach's cock with that pretty mouth of yours, but she knows that you fancy someone on the school staff."@@
-		<<elseif $player.perversion.teacher eq 10>>\
-		@@.teacher;"I did not mention to $guardian that you are the most debased and experienced school slut in years, but she knows that you are really popular."@@
-		<<endif>>\
 <<endif>>\
 <!--</perversion progress events>-->\
 \
@@ -357,7 +359,7 @@
 			
 		<<endif>>\
 \
-		<<if $kink.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
+		<<if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
 			<<set $flags.penisShrinkSleep = true>>\
 			<<set $flags.penisShrinkProgress = true>>\
 			<<set window.clothes.setCage()>>\
@@ -463,10 +465,13 @@
 <!--			--><<set teacherCode.addPenalty(1)>>\
 <!--		--><<endif>>\
 <!--	--><<endif>>\
-<!--	--><<if ($player.perversion.teacher gte 7) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
-<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@
+<!--	--><<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
+<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
 <!--		--><<set teacherCode.addPenalty(1)>>\
 <!--	--><<endif>>\
+<!--    --><<if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)>>\
+<!--        -->@@.teacher;<<openQuote>>Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won't need heels to attract the proper kind of attention.@@\
+<!--    --><<endif>>\
 <!--	--><<if (not _f.female) and _o.female>>\
 <!--		--><<if $player.perversion.teacher gte 5>>\
 <!--		-->@@.teacher;<<openQuote>>These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time."@@
@@ -657,7 +662,7 @@
 		<<if _taskBody.name neq "No tasks">>\
 			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
 			<<set _taskBody.events.start()>>\
-			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_task)>>\
+			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)>>\
 			<<set _t = true>>\
 			
 		<<endif>>\
@@ -705,7 +710,7 @@
 			<<endif>>\
 		<<elseif ($player.perversion.teacher lte 3)>>\
 			<<switch playerCode.isMind()>>\
-				<<case 0>>to pay for $teacher's silence on your stupid bribe attempt.
+				<<case 0>>to pay for $teacher's silence on your moment of weakness.
 				<<case 1>>to pay for $teacher's silence on your foolish attitude.
 				<<case 2>>to pay for $teacher's silence on your unforgivable behavior.
 			<</switch>>\
@@ -925,6 +930,7 @@
 
 		[[Go back to class|Finish school day]]
 		
+	
 	<<else>>\
 	
 		
@@ -948,7 +954,11 @@
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
-			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+			<<if $cheerFriend.currentSE == 1>>\
+				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
+			<<else>>\
+				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+			<<endif>>\
 		<<endif>>\
 	<<endif>>\
 <<else>>\
@@ -958,7 +968,9 @@
 
 	@@.teacher;"I've had enough of you distracting this class.  I'm giving you detention.  Hopefully, that will teach you to respect your education."@@
 
-	Ugh! Detention blows. She's always picking on you for stuff like this. Perhaps this is your chance to assert yourself?
+	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimdating. 
+	
+	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $guardian first?@@
 
 	<<if not ($flags.femaleSchool) and _o.female>>\
 		<<set $flags.femaleSchool to true>>\
@@ -966,17 +978,6 @@
 		
 	<<endif>>\
 	[[Accept your punishment|Finish school day][$player.detention=true]]
-	<<if ($player.money gt 0)>>\
-		<<if ($player.daring eq 0) or ($player.daring eq 1)>>\
-			<<click "Try to bribe her">><<replace "#bribe_deny">>@@.deny;
-			Ugh, she is just too intimidating. You've always been daunted by strong women. There's no way she'll agree, unless.... 
-
-			You need to find some way to overcome your fear of adult women. Maybe you can experiment on $guardian first?@@
-			<</replace>><</click>> <span id="bribe_deny"></span>
-		<<else>>\
-			[[Try to bribe her|Bribe Teacher][$player.daringFlag.bribe=true]]
-		<<endif>>\
-	<<endif>>\
 <<endif>>\
 \
 

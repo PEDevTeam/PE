@@ -1,0 +1,67 @@
+Documentation for the reactOnce macro (copyright Andrew Svedby 2018,
+licensed under same license as Perverted Education)
+
+"Real programmers don't comment their code. If it was hard to write, it should be hard to understand." - Anon
+
+It should however not be hard to use :-)
+
+This macro allows you to have something happen only once if a
+condition is true.  Think of teacher, guardian and friend reacting to
+the PC getting a new haircut for example.
+
+<<reactOnce boolean_expression flag>>
+    If boolean_expression is true and State.active.variables.once.flag
+    is false, set flag to true and show this section. It will only be
+    shown once.
+<</reactOnce>>
+
+Example:
+<<reactOnce $body.earsPierced friendNoticePiercingEars>>\
+    $friend reaches forward to your chin, and gently turns your head to the side. @@.friend;"You got your ears pierced!  The young folk of today, eh?  What is the world coming to?"@@ $friendG.He_She grins at you.  @@.friend;"They look good on you $player.name."@@
+<</reactOnce>>
+
+When the boolean expression is not just a test on a boolean variable you have to use back-ticks like this:
+<<reactOnceMore `$body.hairstyle eq 2` friendNoticeHairMedium>>\
+    $friend notices your new hair style. @@.friend;"That's a new look for you. I think it suits you $player.name."@@
+<</reactOnce>>\
+
+`$body.hairstyle eq 2` is evaluated before the parsing of the
+arguments to the macro. The value becomes the first argument to the
+macro.
+
+For certain flags (like friendNoticeBreastsDD) it is implied that
+there will be no reactions to the 'lesser' flags afterwards.  If
+guardian has already reacted to DD-boobs, she will not reacto to
+B-boobs (even if she have never noticed them before).
+
+<<reactOnce `$body.boobs eq 4` friendNoticeBreastsDD friendNoticeBreastsC friendNoticeBreastsB>>
+    This will be shown if $body.boobs is 4 and friendNoticeBreastsDD is not true.
+    friendNoticeBreastsDD, friendNoticeBreastsC, and friendNoticeBreastsB will
+    all be set to true.
+<</reactOnce>>
+
+Usually there is a long sequence of possible reactions (like in Friend
+reaction to transformations.twee) so there is a <<reactOnceMore>> clause.
+
+<<reactOnce boolean_expression flag>>
+    If boolean_expression is true and State.active.variables.once.flag
+    is false, set flag to true and show this text
+<<reactOnceMore boolean_expression flag>>
+    Same as above, all reactOnce and reactOnce more caluses will be tested
+    (and possibly executed).
+<</reactOnce>>
+
+Finally there can be a <<reactElse>> clause.  It is excecuted if none
+of the reactOnce or reactOnceMore clauses have been triggered.
+
+
+So the full form can be
+<<reactOnce boolean_expression flag optional_flags>>
+    ...
+<<reactOnceMore boolean_expression flags optional_flags>>
+    ...
+
+
+<<reactElse>>
+    ...
+<</reactOnce>>

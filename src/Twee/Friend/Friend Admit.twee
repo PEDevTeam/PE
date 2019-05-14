@@ -1,0 +1,83 @@
+:: Friend Admit
+\
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+You bring $friend into a tight hug and think about your situation for a moment. Is it really ok to share this with $friend? $teacher has threatened you with more tasks, which means you are either going to get into more trouble or get caught or… it’s just too much. Still, $friend has always been there for you, even just admitting to you that $friendG.he_she likes traps, and anyway, what’s the worst that can happen? Your mind starts to tell you the answer and you try to ignore it.
+
+@@.heroT;“Where to begin?”@@
+
+$friend takes your hand and squeezes reassuringly. You ponder for a few moments, and there is no real easy way, so you decide to just blurt it out. 
+
+@@.heroT;“Um, I’ve kinda been experimenting.”@@
+
+$friend looks at you briefly trying to process. @@.friend;“With drugs, with girls, with alcohol…?”@@
+
+@@.heroT;“With some, um, wardrobe changes.”@@
+
+@@.friend;“Sorry to shock you, bud, but wearing a different style of clothes is not something to make this much drama out of. Unless you’re going goth on me? I know I said I am open to stuff but goth...”@@ $friend smirks at you, then smiles in encouragement.
+
+@@.hero;Okay here goes…@@ You mentally get ready to run, just in case, planning your route out like something out of The Great Escape.
+
+@@.heroT;“No not goth, but like, well panties and things.”@@
+
+@@.friend;“Cotton ones or, like, lacy g-strings?”@@
+
+You look at $friend and blink. Did $friendG.he_she really just ask me what type…?
+
+@@.heroT;“Some of both.”@@
+
+@@.friend;“Oh that’s… that’s awesome. What’d you think of them?”@@
+
+@@.heroT;“It feels really different, they are softer, but tighter. They take some getting used to.”@@
+
+<img src="Images/items/panties_sexy_60.jpg" style="max-height:200px; max-width:200px; margin: 10px;float: right;">\
+<<if $friendG.gender eq 'F'>>\
+	“This is so cool. Wait I have an idea!” $friend gets up and hurries into her walk-in wardrobe.
+
+	When she returns, it’s hard not to miss the pair of lacy, almost-translucent panties spinning around her finger. What’s more, $friend has a real glint in her eye. @@.friend;“Would you like to wear a pair of mine too?”@@ Her cheeks are flushed and, even through her nervousness, her voice is breathier than you’ve ever heard before.
+
+	She walks over and drops them into your lap. @@.friend;“Um, maybe take a selfie in them when you get home?”@@
+
+	You look down at the thin piece of shocking pink fabric in your lap, a bit shocked.
+
+	@@.hero;Wow, $friend just gave me her panties.@@
+
+	You pick them up, confused.\
+	<<if $kinkAllow.clothesOdor>>\
+		They feel warm, you can smell her faint scent on them too. You realize with a blush that she’s just taken them off.\
+	<<endif>>
+
+	This is a lot to process. Looking at friend again, she is kind of cute, in a nerdy way, but, well, she likes girls. And, as far as you know, you aren’t a girl. 
+
+	@@.hero;But now she likes traps too, I guess?@@
+
+	You fold them up hesitantly, and not quite sure what to say. You slide them into your pocket.
+
+	Seems like she’s cool with this. Weird, but kinda hot.
+
+	It’s soon time to go, and you start to get ready to leave, however you feel much better about yourself than you have in a while. 
+
+	@@.friend;“Don’t forget, you can tell me anything. Got it?”@@ she says at the door. Although she doesn’t open it, she stands there looking at you, biting her bottom lip like she does when she’s thinking. Then she pauses as if she is going to say something, before clamping her jaws shut with a click. She  opens the door, hiding behind it until you step out into the cool air, feeling even more bemused than before.
+	<<addToInv gString 61>>\
+	
+	[[Promise to wear them for her|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
+<<else>>
+	@@.friend;“This is so cool. Wait I have an idea!”@@ $friend gets up and hurries out of his room, returning a few moments later.
+
+	It’s hard not to miss the pair of lacy, almost-translucent panties gripped in his hand. He looks really nervous too. 
+
+	@@.friend;“I… uh... found these.”@@ His cheeks are flushed and his voice is softer than usual, almost breathy in his nervousness. @@.friend;”Would you wear them for me?”@@
+
+	<<if $friendG.snoop>>You can’t help but recognise $friendsis’s panties from when you snooped in her room before. They drew your eye because of their texture, but far too feminine for you to take.
+	<<endif>>\
+
+	You look at the pair of panties half in fear and half in lust. You can picture those panties snug against your ass, holding your\
+	<<if _chastity>>caged <<endif>>penis in place.
+
+	@@.hero;Does he just like looking at traps, or does he want to wear panties too?@@
+
+	@@.friend;”If you take them, you’ll have to send me a selfie though.”@@
+	<<addToInv gString 60>>\
+
+	[[Promise to wear them for him|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
+	[[Promise to wear them for him but he has to wear some for you too|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day; $friendG.gender='T';]]
+<<endif>>\

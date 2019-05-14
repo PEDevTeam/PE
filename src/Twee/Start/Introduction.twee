@@ -17,8 +17,23 @@
 	
 	[[Try again|Begin]]
 <<else>>\
+	<<switch $flags.difficulty>>\
+	<<case 1>>\
+		<<set $flags.choreFactor to 1>>\
+		<<set $flags.bribeFactor to 0.5>>\
+	<<case 2>>\
+		<<set $flags.choreFactor to 1>>\
+		<<set $flags.bribeFactor to 1>>\
+	<<case 3>>\
+		<<set $flags.choreFactor to 1>>\
+		<<set $flags.bribeFactor to 1.5>>\
+	<<default>>\
+		<<set $flags.choreFactor to 1>>\
+		<<set $flags.bribeFactor to 1>>\
+	<</switch>>\
 	<div><<RandomImageFromPack "Splash Screen" 400 400>></div>\
 	<<set $player.name to $player.name.toProperCase()>>\
+	<<set $player.maleName to $player.name>>\
 	<<set $babysitter to $babysitter.toProperCase()>>\
 	<<set $teacher to $teacher.toProperCase()>>\
 	<<set $therapist to $therapist.toProperCase()>>\
