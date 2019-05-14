@@ -105,55 +105,25 @@ window.tasksFunction = {
 		return startPriority;
 	},
 	
-	REST_IS_RANDOM: Symbol('REST_IS_RANDOM'),
-	SEQUENTIAL: Symbol('SEQUENTIAL'),
-	RANDOM: Symbol('RANDOM'),
 	getTaskText: function(taskName, textObj, whichText) {
-		var idx = whichText + '_index';
-		var arrSel = whichText + '_arraySelect';
-		if (!(whichText in textObj)) {
-			return 'ERROR: getTaskText, task ' + taskName + ' does not have a member named ' + whichText;
-		}
-		var textProp = textObj[whichText];
-		if (Array.isArray(textProp)) {
-			var len = textProp.length;
-			if (len < 1) {
-				return 'ERROR: task ' + taskName + ' has empty array for text ' + whichText;
-			}
-			if (!(idx in textObj)) {
-				textObj[idx] = -1;
-			}
-			if (!(arrSel in textObj)) {
-				textObj[arrSel] = this.RANDOM;
-			}
-			if (textObj[arrSel] === this.SEQUENTIAL) {
-				textObj[idx] += 1;	
-				if (textObj[idx] >= len) {
-					return textObj[whichText] = textProp.pop();
-				}
-				if (textProp[textObj[idx]] !== this.REST_IS_RANDOM) {
-					return textProp[textObj[idx]];
-				}
-				textProp = textProp.slice(textObj[idx] + 1);
-				textObj[whichText] = textProp;
-				len = textProp.length;
-				textObj[arrSel] = this.RANDOM;
-				if (len < 1) {
-					return 'ERROR: task '  + taskName + ' has empty array after REST_IS_RANDOM for text ' + whichText;
-				}
-			};
-			var i = Math.floor(Math.random() * len);
-			if (len <= 2) { return textProp[i]; };
-			if (textObj[idx] == i) {
-				i = (i + 1) % len;
-			}
-			textObj[idx] = i;
-			return textProp[i];
-		} else {
-			return textObj[whichText];
-		}
-	}
-},
+        	if (!(whichText in textObj)) {
+            		return 'ERROR: getTaskText, task ' + taskName + ' does not have a member named ' + whichText;
+        	}
+        	var textProp = textObj[whichText];
+        	if (Array.isArray(textProp)) {
+            		var len = textProp.length;
+            		if (len < 1) {
+                		return 'ERROR: task ' + taskName + ' has empty array for text ' + whichText;
+            		}
+            		var i = Math.floor(Math.random() * len);
+            		return textProp[i];
+        	} else if (typeof(textProp) === 'function') {
+            		return textProp.call();
+        	} else {
+            	return textProp;
+        	}
+    	},
+}
 
 window.tasksTeacher={
 	corsetTraining: {
