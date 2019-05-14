@@ -604,7 +604,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
 			[[Ask a girl for advice|Task Ask advice]]
 		<<endif>>\
-	<<if ((($cheerleaders.progress >= 3) && window.timeCode.isWednesday()) || (($cheerleaders.progress == 4)&&window.timeCode.isFriday())) && $cheerleaders.active && ($cheerFriend.progress < 4)>>\
+	<<if (($cheerleaders.progress >= 3 && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4&& (window.timeCode.isFriday()|| window.timeCode.isMonday()))) && $cheerleaders.active && $cheerFriend.progress < 4>>\
 		You phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
 		
 		<<set $cheerFriend.flags.acceptInvite = true>>\

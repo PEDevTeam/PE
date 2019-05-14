@@ -4,6 +4,7 @@
 <<set _storeImagePack=window.stores[$args[0]].imagePack>>
 <div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\	
 <<print "''"+window.stores[$args[0]].name+"''">>
+<<set $curStore = window.stores[$args[0]].name>>\
 <<display [[Shop events]]>>\
 <<print window.stores[$args[0]].description>> What would you like to buy?
 
@@ -218,7 +219,7 @@ You could try to steal the stun gun if you are desperate.
 <<if ($tasksTeacher.guideHand.status eq 1) and _c>>\
 	[[Guide hand task|Task Guide hand][$scene="Caffee"; $random.store(3)]]
 <<endif>>\
-<<if ($tasksTeacher.selfiePublicChastity.status eq 1) and _c>>\
+<<if ($tasksTeacher.selfiePublicChastity.status eq 1) and _c and _o.skirt>>\
 	[[Make a risky chastity selfie|Task selfiePublicChastity]]
 <<endif>>\
 \

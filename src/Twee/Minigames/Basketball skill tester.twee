@@ -5,26 +5,33 @@
 <<set $time.addMinutes(5)>>\
 You put a dollar into the game and start shooting.
 
-<<set _bst to $player.gameSkill + random(50)>>\
-<<if _bst lt 40>>\
-Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn't get any prize tickets.
+<<set _roll to random(50)>>\
+<<set _result to "none">>\
+<<if _roll lte 5>>\
+	<<set _result to "lose">>\
+<<elseif _roll gt 45>>\
+	<<set _result to "win">>\
+<<endif>>\
+<<set _bst to $player.gameSkill + _roll>>\
+<<if _bst lt 40 or _result == "lose">>\
+	Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn't get any prize tickets.
 
-Maybe if you were a better <b>gamer</b> you could win more?
+	Maybe if you were a better <b>gamer</b> you could win more?
 
-<<elseif _bst gte 20 and _bst lt 70>>\
-Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it's only worth a dollar.
+<<elseif _bst gte 70 or _result == "win">>\
+	You're in the zone, and sink almost every basket. After you finish, you turn around to see a few girls watching you, but they smile and walk off before you can say anything. You grab your prize tickets and cash them in.
 
-Maybe if you were a better <b>gamer</b> you could win more?
+	@@.reward;You just won $5!@@
 
-@@.reward;You just won $1!@@
-
-<<set $player.money+=1>>\
+	<<set $player.money+=5>>\
 <<else>>\
-You're in the zone, and sink almost every basket. After you finish, you turn around to see a few girls watching you, but they smile and walk off before you can say anything. You grab your prize tickets and cash them in.
+	Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it's only worth a dollar.
 
-@@.reward;You just won $5!@@
+	Maybe if you were a better <b>gamer</b> you could win more?
 
-<<set $player.money+=5>>\
+	@@.reward;You just won $1!@@
+
+	<<set $player.money+=1>>\
 <<endif>>\
 What would you like to do now?
 

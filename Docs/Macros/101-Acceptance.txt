@@ -1,0 +1,56 @@
+THIS MACRO IS WRITTEN BUT IS NOT IN USE SINCE THE ACCEPTANCE SYSTEM IS NOT USED
+Documentation for the acceptance macro
+
+"Real programmers don't comment their code. If it was hard to write, it should be hard to understand." - Anon
+
+It should however not be hard to use :-)
+
+To be able to easily present different versions of scenes depending on
+various acceptance values you can use the acceptance macro.
+
+<<acceptance acceptance-key>>
+<<between 0 10>> Text and code for values between 0 and 10 inclusive
+<<between 5 25>> Text and code for values between 5 and 25 inclusive
+<<between 20 50>> Text and code for values between 20 and 50 inclusive
+<<defaultAccept>> Text and code for all other acceptance values
+<</acceptance>>
+
+Acceptance-key is any of (real list should be supplied by AprilRyan):
+submission
+exhibition
+crossdressing
+bisexuality
+maleOral
+femaleOral
+maleAnal
+femaleAnal
+selfAnal
+
+If the acceptance-key is not defined (for example is you spell it
+wrong, like mailOral), the macro will print:
+
+mailOral is not an acceptance type
+
+
+
+The <<between>> caluses can be overlapping (as in the example above)
+but they don't have to be.  If they are overlapping, the macro will
+randomly choose from those clauses that match the acceptance value.
+
+If no matching <<between>> clause is found, the text and code of the
+<<defaultAccept>> clause is used.  If there is no <<defaultAccept>>,
+nothing is used.
+
+The clauses can be in any order but for readability, please have them
+in increasing acceptance values.  Place the <<defaultAccept>> clause
+where appripriate, beginning, end, or the middle.
+
+Example where it is appropriate to have it at the beginning:
+
+<<accaptance acceptance-key>>
+<<defaultAccept>> Between clauses only start at 50
+<<between 50 80>> Text and code for values between 50 and 80 inclusive
+<<between 70 100>> Text and code for values between 70 and 100 inclusive
+<</acceptance>>
+
+
