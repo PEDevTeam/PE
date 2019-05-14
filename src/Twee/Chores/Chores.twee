@@ -576,6 +576,73 @@
 	<<endif>>\
 	
 <!--</Clean the kitchen>-->\
+	<!--<Clean the toilet>-->\
+<<elseif $scene eq "Clean the toilet">>\
+	<<if not _choreV.fail>>\
+		<<if ($player.choreFailPercent gt random(100))>>\
+			<<set _rew=false>>\
+			<<set _fail=true>>\
+			<<if $player.choreSpeed eq 0.5>>\
+				You take out a couple of cleaning supplies for the toilet. The stains that gather in the corners of the porcelain fixture make your stomach turn, and resist all but the most determined scrub down. You're definitely not getting on the floor to do that.
+				
+				Revolted by the job, you rush through, only taking care of the most visible dirty spots. You dump some cleaner in the toilet bowl and run the brush over it for a few seconds, leaving the cleaner in it as proof you did something.
+				
+				Unfortunately, $guardian catches you slacking, and soon you're listening to her nag you about the laundry list of problems with your effort.
+			<<elseif $player.choreSpeed eq 1>>\
+				You take out the cleaning supplies and work on the toilet bowl, lifting the lid and using more cleaner there. However, you aren't motivated enough to get down behind the toilet, or to stick your hand in the bowl to use a rag, so you just hit things with the brush, which gets most of it. You put the most effort into anything you would see from a standing position, hoping $guardian won't look too hard at the rest.
+			
+				Unfortunately, $guardian notices right away that you barely wiped the toilet. This prompts a harder examination, and she looks everywhere you hoped she wouldn't. You're busted.
+			<<elseif $player.choreSpeed eq 2>>\
+				You take out the cleaning supplies and look over the toilet. You can't believe how dirty it is, but you shake off your dread and just get started.
+				
+				You're on your hands and knees for a long time, scrubbing away at stubborn, suspicious stains that you don't even want to think about. A few of the spots are particularly resistant, though, so despite your best effort there are a few areas that don't look that great when you decide to just move on.
+				
+				After an eternity you finish, but when $guardian checks your work, she shows an uncanny ability to find every spot you missed. By the time she is done criticizing the job you did, it feels like you did nothing right.
+				
+				The most frustrating thing of all is that despite your sincere effort, it wasn't enough.
+			<<endif>>\
+			
+			@@.guardian;"$player.name, I'm done with your laziness. I want to see the //entire// bathroom spotless - if you want to get paid ever again, you have to fix your mess. Maybe that will teach you to do things properly."@@
+		<<else>>\
+			<<if $player.choreSpeed eq 0.5>>\
+				You take out a couple of cleaning supplies for the toilet. The stains that gather in the corners of the porcelain fixture make your stomach turn, and resist all but the most determined scrub down. You're definitely not getting on the floor to do that.
+				
+				Revolted by the job, you rush through, only taking care of the most visible dirty spots. You dump some extra cleaner in the toilet bowl and run the brush over it for a few seconds, leaving the cleaner in it as proof you did something.
+				
+				Fortunately, $guardian doesn't look that hard. You think maybe the 'cleaner in the toilet bowl' trick worked.
+			<<elseif $player.choreSpeed eq 1>>\
+				You take out the cleaning supplies and work on the toilet bowl, lifting the lid and using more cleaner there. However, you aren't motivated enough to get down behind the toilet, or to stick your hand in the bowl to use a rag, so you just hit things with the brush, which gets most of it. You put the most effort into anything you would see from a standing position, hoping $guardian won't look too hard at the rest.
+				
+				For such a small fixture, you can't believe how much there is to clean, but you think you did a relatively decent job.
+				
+				Fortunately, $guardian doesn't check that hard, and finds your performance satisfactory.
+			<<elseif $player.choreSpeed eq 2>>\
+				You take out the cleaning supplies and look over the toilet. You can't believe how much there is to clean, but you realize it won't happen until you do it, and get going.
+
+				You're on your hands and knees for a long time, scrubbing away at stubborn, suspicious stains that you don't even want to think about. Eventually, you get everything, even around the base of the toilet bowl until the porcelain, tile and grout look their best again.
+				
+				It feels like an eternity, but when you finally finish, the entire toilet is clean. It even smells nice.
+			<<endif>>\
+		<<endif>>\
+	<<else>>\
+		You take out an arsenal of cleaning supplies and look over the bathroom, wondering how such a little room can contain such a large amount of unpleasant chores. Knowing $guardian will be looking at every detail, you steel yourself and just get to the task.
+
+		The tub and toilet need the most attention. You're on your hands and knees for longer than any person should ever be, scrubbing away at stubborn, suspicious stains that you don't even want to think about. You get everything, even around the base of the toilet bowl and the corners of the bathtub, until the porcelain, tile and grout look their best again. You wash the entire shower curtain with some nasty-smelling mildew remover that makes you feel dizzy, then run the shower before drying everything again with a towel.
+				
+		You spray down the mirror with glass cleaner, your rag squeaking away until the glass looks flawless. You empty the cabinets, cleaning every object you take out of it, then wipe clean every shelf, corner and cranny. You even wipe the layer of dust on the sink trap, just in case $guardian looks.
+
+		The sink takes much extra attention due to its constant use. You scrub away dried toothpaste, strands of hair, flecks of cosmetics and god knows what else, until the ceramic is perfectly white. You use metal polish pads to restore all the chrome trim on the mirror and sink, until a flawless shine reveals your face.
+		
+		You clean every speck of dirt from the wall boards, taking a considerable amount of time to clear cobwebs and dust from the door frame and base trim. You spend a good deal more ridding the caulking of grime across the divide between the floor, walls and tub.
+		
+		The floor gets your attention next, and you go through a number of rinses and re-scrubs before some of the harsher stains come out of the seams. Your fingers throb by the time you've cleaned every tile and line of grout in the flooring.
+		
+		At last, you think the bathroom is done. It's sparkling clean and even smells nice. You shake off your soreness, take a breath, and get $guardian to look it over. You're glad you were thorough, because when she can't see anything you've missed, $guardian dares you to lick certain spots to prove they're clean enough.
+		
+		In the end, she's finally satisfied you did what you were supposed to. You are left achy and completely exhausted.
+	<<endif>>\
+	
+<!--</Clean bathroom and toilet>-->\
 	<!--<Clean bathroom and toilet>-->\
 <<elseif $scene eq "Clean bathroom and toilet">>\
 	<<if not _choreV.fail>>\

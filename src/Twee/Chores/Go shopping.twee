@@ -62,7 +62,16 @@
 			
 			@@.guardian;"Hello, Susan. We're trying out some new styles today. $player.name, say hello to my old friend."@@
 			
-			@@.heroT;"Hel-hello."@@ $Guardian triggers a strong jolt via her remote, making you stutter your greeting, and leaving you blushing heavily under Susan's gaze. @@.hero;Awkward.@@
+			<<if $flags.metClothesClerk>>\
+				@@.shopclothes;"Oh, don't worry, $player.name and I are great friends! She's in here all the time buying some cute thing or another, even helped me out with a bit of modelling once!"@@
+
+				$Guardian looks at you with a smile. @@.guardian;"Oh, that is just lovely. I dare say, if you keep developing as you have been, you could be quite the fetching model."@@
+
+				You just blush, letting out a startled gasp when $guardian chooses that precise moment to trigger a strong jolt via her remote.
+			<<else>>\
+				@@.heroT;"Hel-hello."@@ $Guardian triggers a strong jolt via her remote, making you stutter your greeting, and leaving you blushing heavily under Susan's gaze. @@.hero;Awkward.@@
+				<<set $flags.metClothesClerk == true>>\
+			<<endif>>\
 
 			@@.shopclothes;"Oh, she is such a sweetie. Don't worry my precious, I'll help you find your look!"@@ Susan turns to $guardian and pouts. @@.shopclothes;"And don't old-friend me, I'm younger than you."@@
 
@@ -84,7 +93,7 @@
 			
 			That black vinyl belt does look pretty cool on you. It's really wide and kinda half-buckled in the front, so it looks like you haven't bothered getting completely dressed. It gives you a casual look with a little more attitude than usual.
 
-			@@.shopclothes;"Or if you like the white belts, they look awesome too!"@@ Susan holds one around your waist so you can see both oaverage sized breasts.\
+			@@.shopclothes;"Or if you like the white belts, they look awesome too!"@@ Susan holds one around your waist so you can see how both look.\
 			@@.shopclothes;"Wear some white tights or even stockings, maybe. With your legs... wow!"@@
 
 			<<if playerCode.isMind_0()>>\
