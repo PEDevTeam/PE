@@ -140,6 +140,7 @@ window.structures={
 		
 		if (vars.minigames.dreamgame == null) { vars.minigames.dreamgame = {}; }
 		if (vars.minigames.coachgame == null) { vars.minigames.coachgame = {}; }
+		if (vars.minigames.cheerGame == null) { vars.minigames.cheerGame = {}; }
 		
 		if (vars.minigames.dreamgame.alertness == null) { vars.minigames.dreamgame.alertness = 0; }
 		if (vars.minigames.dreamgame.dreaminess == null) { vars.minigames.dreamgame.dreaminess = 0; }
@@ -159,6 +160,15 @@ window.structures={
 		if (vars.minigames.coachgame.win == null) { vars.minigames.coachgame.win = false; }
 		if (vars.minigames.coachgame.playedToday == null) { vars.minigames.coachgame.playedToday = false; }
 		
+		if (vars.minigames.cheerGame.turn == null) { vars.minigames.cheerGame.turn=0; } 
+		if (vars.minigames.cheerGame.failCount == null) { vars.minigames.cheerGame.failCount = 0; }
+		if (vars.minigames.cheerGame.lastActionId == null) { vars.minigames.cheerGame.lastActionId=-1; }
+		if (vars.minigames.cheerGame.ignoreModesty == null) { vars.minigames.cheerGame.ignoreModesty = false; }
+		if (vars.minigames.cheerGame.failedMove == null) { vars.minigames.cheerGame.failedMove = false; }
+		if (vars.minigames.cheerGame.correct == null) { vars.minigames.cheerGame.correct = false; }
+		if (vars.minigames.cheerGame.win == null) { vars.minigames.cheerGame.win = false; }
+		if (vars.minigames.cheerGame.playedToday == null) { vars.minigames.cheerGame.playedToday = false; }
+
 	},
 	setupStatus: function() {
 		var vars=State.active.variables;
@@ -1466,7 +1476,7 @@ window.cheerList={
 		lateForPractice: false, 	//waited in toilet until late for practice
 		bullyLeft: false, 		//waited in toilet until bully left
 		complain: false,	//complained about practice
-		slutUniform: 1,	//chosen slutty uniform [int], [1 = more modest + plug, 2 = more slutty]
+		slutUniform: 0,	//chosen slutty uniform [int], [0 = more modest + plug, 1 = more slutty]
 		sarahTalk: 0,	//talked with cheer friend about Sarah [int], [0 = did not talk, 1 = tell the truth, 2 = lie]
 		metBro: false,	//met Ashley's brother at the library.
 		panties: false,	//PC tries to wear panties to his fake try-out
