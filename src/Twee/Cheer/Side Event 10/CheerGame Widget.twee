@@ -82,9 +82,9 @@
 
 					@@.hero;Fuck… Shit… <<if $kinkAllow.wetting>>Gonna pee…<<else>>Gonna cum…<<endif>> So full, but it feels soooo good! Someone help me. Gonna cum… <<if $kinkAllow.wetting>>Gonna pee…<<else>>Gonna cum…<<endif>>@@
 
-					Ashley looks down at you and scoffs, @@.cheerBitch;“Guess that’s the end of the try out.
+					Ashley looks down at you and scoffs, @@.cheerBitch;“Guess that’s the end of the try out.”@@
 
-					“Time to hear from the judges!”@@ [[Judgement day]]
+					[[“Time to hear from the judges!”|Cheer SE10 Sc10a]]
 				<</switch>>\
 			<<endif>>\
 		<<else>>\
@@ -114,9 +114,13 @@
 				<<checkbox "$minigames.cheerGame.ignoreModesty" false true>> Ignore your modesty and focus on performing the move.
 			<<endif>>\
 		<<else>>\
-		
-			You hear the next set of lyrics:
-			@@.femvoice10;<<print _ds.clue>>@@
+			
+			<<if $minigames.cheerGame.turn < 8>>\
+				You hear the next set of lyrics:
+				@@.femvoice10;<<print _ds.clue>>@@
+			<<else>>\
+				<<print _ds.clue>>
+			<<endif>>\
 			
 			You desperately try to remember the corresponding\
 			<<if $minigames.cheerGame.failCount > 0 && $cheerleaders.flags.slutUniform == 0>>\
@@ -169,7 +173,7 @@
 		
 			@@.hero;I’m not sure how much more of this I can take…@@
 		
-			[[Beg for mercy]]
+			[[Beg for mercy|Cheer SE10 Sc10b][$cheerleaders.flags.prankBeg = true]]
 		<<endif>>\
 	<<elseif $minigames.cheerGame.failCount < 10>>\
 	
@@ -183,7 +187,7 @@
 		<<endif>>\
 		Ashley merely sits behind her table, the smile on her face growing every wider as she enjoys the humiliating show.
 
-		Finally, the music fades out as you’re showing off your final move. You turn to face Ashley and her two minions, holding your breath as you await their judgement. [[Judgement day]]
+		Finally, the music fades out as you’re showing off your final move. You turn to face Ashley and her two minions, holding your breath as you [[await their judgement.|Cheer SE10 Sc10a]]
 	<<endif>>\
 	<<if $player.debugA>>\
 	

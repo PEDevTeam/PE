@@ -954,7 +954,9 @@
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
-			<<if $cheerFriend.currentSE == 1>>\
+			<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isWednesday() && !($cheerleaders.flags.skippedPractice)>>\
+				[[Go back to class|Cheer SE10 Sc1][$flags.chastityAgree = false]]
+			<<elseif $cheerFriend.currentSE == 1>>\
 				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
 			<<else>>\
 				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
