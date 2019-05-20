@@ -1,0 +1,80 @@
+:: Cheer SE10 Sc11
+<<set $cheerleaders.game.execution = 10 - $minigames.cheerGame.failCount>>\
+<<if $cheerleaders.game.execution < 3>>\
+	@@.cheerBitch;“That was one of the worst cheer performances I’ve ever seen.\
+	<<if $minigames.cheerGame.failCount < 10>>\
+		You could barely even remember the moves, and the few you did remember looked like shit: weakly performed, off beat, and just disappointing. 
+
+		@@.cheerBitch;“The one consolation I have is that, with you on the rookie squad, I don’t have to worry about you sucking it up in front of competition judges. Because god help us if we ever had to rely on you to do any real cheerleading. The score I gave you was pathetic, just like you.@@
+	<<else>>\
+		You failed every single move. I didn’t even think that was possible. 
+
+		@@.cheerBitch;“I have no idea what Rachel sees in you, but I hope to god she never takes you off the rookie squad. If you ever manage to get in front of real judges, our squad is fucking doomed.
+
+		“I gave you the lowest possible score I could give, and that’s only because I couldn’t give you negative points.@@
+	<<endif>>\
+<<elseif $cheerleaders.game.execution < 6>>\
+	@@.cheerBitch;“That performance was simply unacceptable. I think you failed more moves than you got right, and the ones that you did get right were weakly performed, off beat, and just disappointing. It hurt me to not deduct you for them. 
+
+	“Personally, I think you have no hope of ever making the competition squad, but you might be a passable water girl. Just don’t expect to ever get in front of the judges. Your score was just like your performance: bad.@@
+<<elseif $cheerleaders.game.execution < 9>>\
+	@@.cheerBitch;“That routine was barely acceptable. You flubbed several moves, but somehow managed to remember most of the routine. Your moves were… adequate. That’s about all I can say about them.
+
+	“If I were in your shoes, I would expect to be on the rookie squad for the rest of your life. You might be able to fill in in a pinch, but basically every other cheerleader worth their pom-poms is going to be better than you. Your performance could have been better, so I’d probably say the same about your score.@@
+<<else>>\
+	@@.cheerBitch;“Well, I never thought I’d say this, but I’m almost impressed.\
+	<<if $cheerleaders.game.failCount > 0>>\
+		You performed nearly every move correctly,\ 
+	<<else>>\
+		You managed to remember every single move,\
+	<<endif>>\
+	and your form was usually acceptable. I don’t really think you’ll ever make it off the rookie squad, seeing as anyone with dance, gymnastics, or cheer experience will always be better than you, but if you bust your ass, you might make a capable alternate. I found <<if $minigames.cheerGame.failCount>>little<<else>>no<<endif>> reason reduce your score, but it doesn’t mean I didn’t want to.@@
+<<endif>>\
+
+<<set $cheerleaders.game.finalScore = Math.floor(($cheerleaders.game.athleticism + $cheerleaders.game.presentation + ($cheerleaders.game.execution*2))/4)>>\
+@@.cheerBitch;“Your final execution score is $cheerleaders.game.execution out of 10. Remember, this score is worth double the other scores. Now, all that’s left is your overall score…”@@
+
+Ashley takes papers from Heather and Veronica, and spreads them in front of her. You unconsciously hold your breath as she reads them over, adding more notes to her own evaluation sheet. When she’s finished with her calculations, Ashley stands to her feet, holding the microphone in her hand.
+
+@@.cheerBitch;“Your final score is…”@@ She pauses for dramatic effect, and you mentally beg for her to get on with it <<if $minigames.cheerGame.failCount == 10 && $cheerleaders.flags.slutUniform == 0>>before you lose control<<endif>>. @@.cheerBitch;“…$cheerleaders.game.finalScore out of 10!”@@
+
+<<if $cheerleaders.game.finalScore < 3>>\
+	<<set $cheerleaders.bitchAffinity -= 2>>\
+	@@.hero;Damn… All that work, and I still scored that low?@@
+
+	@@.cheerBitch;“Why am I not surprised?”@@ Ashley sneers. @@.cheerBitch;“I had you pegged for a worthless waste of space from the moment I saw you. I don’t think it needs to be said, but you failed your tryout miserably. I hope you enjoy just playing pom-pom girl with your bestie because, no matter how hard you try, you’ll never be a real cheerleader.@@
+<<elseif $cheerleaders.game.finalScore < 6>>\
+	<<set $cheerleaders.bitchAffinity -=1>>\
+	@@.cheerBitch;“Looks like you just missed a passing grade. How sad.”@@
+
+	@@.hero;Not like I had a chance. This tryout was probably rigged…@@
+
+	@@.cheerBitch;“I could go on for hours about how big of a failure you are, and the many ways in which you are a failure, but I think it’s enough to say that I don’t think you’ll be keeping your place on the squad for long. You clearly don’t care enough about it to try and keep it.@@
+<<elseif $cheerleaders.game.finalScore < 9>>\
+	Ashley sighs, sounding almost disappointed. @@.cheerBitch;“Looks like you just passed the tryout.”@@
+
+	@@.hero;Wait? I actually had a chance at this thing?@@
+
+	@@.cheerBitch;“Don’t think this means we think you’re a decent cheerleader. Basically none of what you just did translates to actual cheerleading. In fact, all it really means is that we got a decent laugh out of it. Isn’t that right girls?”@@
+
+	Heather and Veronica nod, all three laughing as your surprise melts into disappointment and embarrassment.
+
+	@@.cheerBitch;“So, congratulations, $player.name, we think you’re perfectly adequate as a loser cheer-sissy.”@@
+
+	Their laughter continues, causing your already blushing face to grow even redder.
+<<else>>\
+	<<set $cheerleaders.bitchAffinity +=1>>\
+	@@.hero;Woah! I scored that high? Go me!@@
+
+	Ashley laughs at the amazement on your face.
+
+	@@.cheerBitch;“Congratulations,”@@ she announces. @@.cheerBitch;“You scored top marks on dressing like a slut, dancing like a stripper, and begging to be fucked. A major accomplishment, I must say. If you work really hard, we might even be able to find you a place on the squad as ‘morale booster.’
+
+	“If you put as much work into that as you did this tryout, I’m sure every sports team will be requesting you for a round of ‘special encouragement.’ We might even use your holes to bribe the judges come competition. It’s about the only way you’ll be a worthwhile cheerleader.”@@
+<<endif>>\
+
+@@.cheerBitch;“But enough about what we thought,”@@ Ashley says, swiftly switching gears as she turns towards the house seats.
+
+@@.cheerBitch;“What did you guys think?!”@@
+
+Wait… did she just say, [[“You guys?”|Cheer SE10 Sc12]]

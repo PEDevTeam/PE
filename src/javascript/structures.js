@@ -1523,12 +1523,7 @@ window.cheerList={
 		execution: 10,	//PC's execution score.  Each mistake deducts one point.
 		finalScore: 0,	//PC's final score.  Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
 		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
-		correctAnswer: false,	//flag for correct answer
-		failChance: 0,	//chance of failure due to slutty uniform
-		ignoreModesty: false,	//flag for reducing fail chance due to slutty uniform
-		failCount: 0,		//the number of times player failed to perform the correct move
-		answer: 1,		//variable to track which answer was given previously
-		failedMove: false	//flag for failing a move due to slutty uniform
+		practiced: false, //practiced ashley's cheer before tryout.
 	}
 }
 
