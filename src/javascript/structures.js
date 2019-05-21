@@ -883,6 +883,7 @@ window.playerAddonsList={
 		vibratorFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analSkill: 0
+		schoolSlut: 0,
 	},
 	masturbate: {
 		lastDay: 0,
@@ -1275,6 +1276,7 @@ window.flagsList={
 	quiz: [0,0,0,0,0,0,0,0,0,0],
 	daring3Add: false,
 	visited111: false,
+	slutWork: false, //Performed as school slut
 },
 
 window.kinkList={
