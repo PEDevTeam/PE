@@ -14,7 +14,7 @@
 
 	@@.malevoice1;“Not so fast,”@@ states the first guy, who you conclude is some sort of ringleader for this rag-tag collection of nerds. @@.malevoice1;“If you want to join this club you need to prove that you aren’t some weeb wannabe.”@@
 
-	@@.femvoice6;“Yeah, no fake poser nerd girls here!” a female voice chips in. You hadn’t seen her at first but in response to her outburst the boys around her part to give you a direct view of her in all of her curvy, sexy glory.
+	@@.femvoice6;“Yeah, no fake poseur nerd girls here!”@@ a female voice chips in. You hadn’t seen her at first but in response to her outburst the boys around her part to give you a direct view of her in all of her curvy, sexy glory.
 
 	Well-endowed above and below, she's pretty hot and is clearly showing off with her best features by wearing a too-short, too-tight uniform. She strikes a pose with one hand on her hip to draw further attention to her assets, and you can tell instantly from the way she glares death at you that she doesn’t like the idea of sharing her space with another girl. The members of the club all nervously shift as they look away from you and acknowledge her objection.
 
@@ -24,15 +24,15 @@
 
 	@@.hero;Oh great…@@
 
-	<<print '[[Rely on your experience hanging out with '+$friend+' to see you through|Anime club task][$scene = "quiz auto"]]'>>
-	[[Focus and try to answer yourself|Anime club task][$scene = "quiz 1"]]
-<<elseif scene = "quiz 1">>\
+	<<print "[[Rely on your experience hanging out with "+$friend+" to see you through|Anime club task][$scene = 'quiz auto';$method = 'auto']]">>
+	[[Focus and try to answer yourself|Anime club task][$scene = "quiz 1"; $method = "self"]]
+<<elseif $scene == "quiz 1">>\
 	The ringleader raises an eyebrow, something in your look of determination seeming to surprise him. @@.malevoice1;“Alright, I’ll go first - Which of the 4 is not a firing mode the DOMINATOR in Psycho Pass: Paralyser, Eliminator, Decomposer, Neutraliser?”@@
 
 	<<if $player.perversion.friend >=1>>\
 		@@.hero;Psh, this is easy, there’s no such thing as a Neutraliser mode!@@
 
-	<</if>>\
+	<<endif>>\
 	[[Neutraliser|Anime club task][$answer='correct'; $scene = "quiz 2"]]
 	[[Paralyser|Anime club task][$answer='wrong';$answer_val='Paralyser'; $scene = "quiz 2"]]
 	[[Eliminator|Anime club task][$answer='wrong';$answer_val='Eliminator'; $scene = "quiz 2"]]
@@ -42,13 +42,11 @@
 	<<switch $answer>>\
 	<<case 'correct'>>\
 		<<set $correctAnswers += 1>>\
-
 		You confidently state, @@.heroT;“Neutraliser.”@@
 
 		The guy nods, though you notice the woman’s gaze narrows as she barks her response. @@.femvoice6;“Psh, that was an easy one,"@@ she complains. @@.femvoice6;"Come on, ask her something harder!”@@
 	<<case 'wrong'>>\
 		<<set $wrongAnswers += 1>>\
-
 		@@.heroT;“$answer_val?”@@ you state, only to immediately realize you’re wrong.
 
 		@@.malevoice1;“Come on, that was an easy one!”@@ The ringleader states, shaking his head as other members of the club chuckle and nudge each other.
@@ -63,7 +61,7 @@
 	<<if $player.perversion.friend >=3>>\
 		@@.hero;Hmm, wasn’t that a vase?@@
 
-	<</if>>\
+	<<endif>>\
 	[[A vase|Anime club task][$answer='correct'; $scene = "quiz 3"]]
 	[[A teapot|Anime club task][$answer='wrong'; $scene = "quiz 3"]]
 	[[Say you don’t know|Anime club task][$answer='ignorant'; $scene = "quiz 3"]]
@@ -71,13 +69,11 @@
 	<<switch $answer>>\
 	<<case 'correct'>>\
 		<<set $correctAnswers += 1>>\
-
 		@@.heroT;“A vase,”@@ you state confidently. Your questioner nods in agreement that you have answered correctly, then winces as the queen places him under her disapproving glare.
 
 		@@.femvoice6;“Come on, anyone could have guessed that," she complains. "This club is supposed to have standards!”
 	<<case 'wrong'>>\
 		<<set $wrongAnswers += 1>>\
-
 		@@.heroT;“A teapot”@@ you state only for your questioner to shake his head, the “queen” straightening a bit and smiling at your failure.
 	<<case 'ignorant'>>\
 		You admit that you don’t know. The members of the club shake their heads in disappointment as the questioner sighs. @@.malevoice2;“Not even a guess? sad.”@@
@@ -91,7 +87,7 @@
 		@@.hero;I think this is a trick question… Which means saying Satsuki is probably wrong…@@
 	<<else>>\
 		@@.hero;Hmm, I think this is a trick question…@@
-	<</if>>\
+	<<endif>>\
 
 	[[Clothing|Anime club task][$answer='correct'; $scene = "quiz 4"]]
 	[[Satsuki|Anime club task][$answer='wrong'; $scene = "quiz 4"]]
@@ -129,10 +125,23 @@
 	 
 	Attention turns towards the ringleader to render judgement on your knowledge, though you find yourself instead glancing towards the girl you have come to think of as the club’s queen.
 
-	[[Listen to the results|Anime club task]]
+	[[Listen to the results|Anime club task][$scene = "quiz result"]]
 <<elseif $scene == "quiz result">>\
 	<<set $gag = false>>\
-	<<if $player.perversion.friend <1 || $correctAnswers==0 && $wrongAnswers==0>>\
+	<<if $method == "auto">>\
+		<<if $player.perversion.friend < 1>>\
+			<<set $correctAnswers = 0>>\
+			<<set $wrongAnswers = 0>>\
+		<<elseif $player.perversion.friend < 3>>\
+			<<set $correctAnswers = 0>>\
+			<<set $wrongAnswers = 3>>\
+		<<elseif $player.perversion.friend < 5>>
+			<<set $correctAnswers = 2>>\
+		<<else>>\
+			<<set $correctAnswers = 3>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($correctAnswers==0 && $wrongAnswers==0)>>\
 		@@.malevoice1;“Wow, you literally know nothing about anime!”@@ The ringleader states in disgust.
 
 		@@.malevoice2;“Well, yeah, but she didn’t pretend. Maybe she just wants to learn?”@@ One of the other guys states, rising to your defense.
@@ -141,13 +150,14 @@
 
 		You note a brief glance between the ringleader and the girl that seems to cement who’s //actually// in charge of the club. All eyes are on the girl as all her subjects desperately wait for her to give an answer to the idea of another female member.
 
-		@@.femvoice6;“Fine. The dumb slut can stay, but I don’t want her disrupting anything with any more ignorant comments.” 
+		@@.femvoice6;“Fine. The dumb slut can stay, but I don’t want her disrupting anything with any more ignorant comments.”@@
 		
 		Her face parts in a cruel grin as she digs into a box labeled “cosplay supplies.” You’re pretty sure you see a hentai dvd cover and a few other illicit items inside before she finishes digging and produces a bright red ball gag.
 		
-		“The guys like a little fan service with their cosplay,” she explains, a matter-of-fact response to your stunned expression, before shoving the gag in your mouth and cinching it tightly behind your head.
+		@@.femvoice6;“The guys like a little fan service with their cosplay,”@@ she explains, a matter-of-fact response to your stunned expression, before shoving the gag in your mouth and cinching it tightly behind your head.
+		
 		[[Sit down|Anime club task][$gag=true; $scene = "watch"]]
-	<<if $player.perversion.friend < 3 || $correctAnswers==0 && $wrongAnswers > 0>>\
+	<<elseif ($correctAnswers==0 && $wrongAnswers > 0)>>\
 		@@.malevoice1;“I don’t know whether to pity you or be impressed with your courage. I mean to be THIS wrong, and yet still roll up in here as if you belong…”@@ The ringleader shakes his head.
 
 		@@.malevoice2;“Aww, come on, let her stay. I mean we could use more female members, right?”@@ one of the other guys states, rising to your defense.
@@ -158,12 +168,12 @@
 
 		She walks over to a box labeled “cosplay supplies” and starts rooting around. You’re pretty sure you spy a hentai dvd cover and a few other illicit items inside before she finishes digging and comes up with a shiny red ball-gag. 
 		
-		@@.femvoice6;“What’s cosplay without a little fan service, hmm?”@@ she explains with a smile, a matter-of-fact response to your stunned expression. @@“Now, come on. Open wide!”@@
+		@@.femvoice6;“What’s cosplay without a little fan service, hmm?”@@ she explains with a smile, a matter-of-fact response to your stunned expression. @@.femvoice6;“Now, come on. Open wide!”@@
 
 		Emboldened by their harpy queen, the guys grin and leer as you walk over to accept your gag. The girl cinches it tight, then pats the chair next to her. @@.femvoice6;“Alright, have a seat and get ready to learn.”@@
 
-		[[Sit down|Anime club task][$gag=true; scene = "watch"]]
-	<<elseif $player.perversion.friend < 5 || $correctAnswers==1 || $correctAnswers==2>>\
+		[[Sit down|Anime club task][$gag=true; $scene = "watch"]]
+	<<elseif ($correctAnswers==1 || $correctAnswers==2)>>\
 		@@.malevoice1;“Huh, I guess you know SOMETHING, tho you’re obviously kind of a casual. Alright, you can join the club but try not to bother anyone.”@@
 
 		You mutter your thanks, letting out a held breath as you try to puzzle out why you were so worried about garnering their approval.
@@ -174,9 +184,11 @@
 	<<else>>\
 		The guys appear impressed at your obvious knowledge, but the girl only looks more annoyed, abruptly cutting off the congratulations.
 
-		@@.femvoice6;“Wait. I have a question to REALLY see if she’s a pretender or not…”@@ Rising to her feet she steps towards you, looking into your eyes with a half grin. @@.femvoice6;“Alright, Miss Smarty-pants, tell me how all the characters in Tenchi Muyo are related.”@@
+		@@.femvoice6;“Wait. I have a question to REALLY see if she’s a pretender or not…”@@ Rising to her feet she steps towards you, looking into your eyes with a half grin. 
+		
+		@@.femvoice6;“Alright, Miss Smarty-pants, tell me how all the characters in Tenchi Muyo are related.”@@
 			
-		You roll your eyes and sigh as you snatch the whiteboard marker from her hand and [[start drawing.|Anime club task][$answer="correct"; scene = "question"]]
+		You roll your eyes and sigh as you snatch the whiteboard marker from her hand and [[start drawing.|Anime club task][$answer="correct"; $scene = "question"]]
 	<<endif>>\
 <<elseif $scene == "question">>\
 	Straightening with pride, you stride towards the whiteboard go to work. Working from memory, the overly convoluted family tree of the main character’s family tree takes shape. The tensions in the room rise with each mark of the chalk as your audience closes in around you.
@@ -188,7 +200,7 @@
 	You let out a sigh of relief. You follow the girl and sit beside her as the lights are dimmed and the days video starts up.
 
 	[[Sit back and watch|Anime club task][$gag=false; $scene = "watch"]]
-<<else>>
+<<else>>\
 	With the blinds closed and the room darkened, the day’s episode begins playing.
 
 	<<if $gag>>\

@@ -1,6 +1,6 @@
 :: Anime club task 3
 
-<<if $scene = 'cosplay'>>\
+<<if $scene == 'cosplay'>>\
 	<<if $obedient>>\
 		Dropping to your knees like a good slut, you crawl towards the excited benefactor who provided you with today's outfit.
 
@@ -19,7 +19,7 @@
 		<<else>>\
 			@@.femvoice6;“Bad slut. Show some gratitude, won’t you?”@@ she states before ramming you mouth-first onto your “patron’s” cock.
 				
-			Holding you in place, she whispers in your ear, “Suck or suffocate...” 
+			Holding you in place, she whispers in your ear, @@.femvoice6;“Suck or suffocate...”@@ 
 			
 			You do as commanded, drooling profusely and starting in on a sloppy blowjob as she loosens her grip just enough for you to sneak in the odd breath.
 
@@ -32,23 +32,27 @@
 			Your face is a mess of tears, drool, and cum by the time you finish, and you slump  to the ground as the final satisfied guy takes his seat to enjoy the day’s episode. Sprawled on your back, you look up to find the girl grinning down at you.
 		<<endif>>\
 		
-		Wide-eyed, you don’t even have the energy to move as she hikes up her skirt and squats over you, her extra-thick ass looming large as it steadily fills your vision. Pressed over your face your nose is jammed between her clean cheeks as she shuffles until her dripping cunt is positioned over your gag-spread lips.
+		<<if $kinkAllow.facesit>>\
+			Wide-eyed, you don’t even have the energy to move as she hikes up her skirt and squats over you, her extra-thick ass looming large as it steadily fills your vision. Pressed over your face your nose is jammed between her clean cheeks as she shuffles until her dripping cunt is positioned over your gag-spread lips.
+		<<else>>\
+			She pulls you back on your knees and sits in front of you, guiding your face between her legs until her dripping cunt is positioned in front of your gag-spread lips.
+		<<endif>>\
 
-		@@.femvoice6;“Come on, lick,”@@ she commands as your tired tongue somehow rises into action. Rolling her hips and cooing in pleasure, she grinds against your face for a few minutes before rising up, the pressure holding you in place releasing as she reaches down between her legs to remove your gag.
+		@@.femvoice6;“Come on, lick,”@@ she commands as your tired tongue somehow rises into action. Rolling her hips and cooing in pleasure, she grinds against your face for a few minutes <<if $kinkAllow.facesit>>before rising up, the pressure holding you in place releasing as she reaches down between her legs <<else>>before pushing you back <<endif>>to remove your gag.
 
 		@@.femvoice6;“There, should be a bit easier now; but you better do a good job or I’ll find something far less pleasant to jam down your throat.”@@
 		
-		Spurred on by fear, and more than a little excitement, your tongue and lips burst into motion as she settles her weight back over your face. Without the gag to get in the way, your tongue pierces deeper into her love canal, her juices becoming tastier by the second as you do your best to lap and suck and serve.
+		Spurred on by fear, and more than a little excitement, your tongue and lips burst into motion as she <<if $kinkAllow.facesit>>settles her weight back over your face<<else>>pulls you back underneath her skirt<<endif>>. Without the gag to get in the way, your tongue pierces deeper into her love canal, her juices becoming tastier by the second as you do your best to lap and suck and serve.
 			
 		Purring in approval, she keeps you right on the edge of suffocation, scolding you whenever your tongue slows, as she sits back to watch the day’s episode.
 
 		Trapped between her thighs, you can barely even hear the dialogue, not that you’d understand the Japanese anyway, and are instead given no choice but to lick and suck until she gushes her delicious pleasure all over your mouth and chin.
 
-		Her glorious behind rising off your face as you pant for air, you find yourself staring up at an otherwise empty room. She actually helps you back to your feet, a contented smile on her flush face evidence of your successful time spent under her.
+		<<if $kinkAllow.facesit>>Her glorious behind rising off your face as you pant for air, you find yourself staring up at <<else>>When she finally allows you out from under her skirt, you find yourself in <<endif>>an otherwise empty room. She actually helps you back to your feet, a contented smile on her flush face evidence of your successful time spent <<if $kinkAllow.facesit>>under <<else>>servicing <<endif>>her.
 
 		She hands you back your normal clothes. @@.femvoice6;“Looks like you missed today’s episode, maybe next time you’ll be less of a baka,”@@ she states with a cruel grin, waiting for you to change before removing your gag. You stretch your aching jaw as she gathers up your costume and sends you on your way.
 	<<endif>>\
-<<elseif $scene == 'quiet>>\
+<<elseif $scene == 'quiet'>>\
 	<<switch $action>>\
 	<<case 'suck'>>\
 		Obediently, you lick your lips and lean over, taking $futa.his_her already hard member into your mouth and commencing to suck.
@@ -69,7 +73,7 @@
 			@@.assistant;“Mmm, you’re even better than last time!”@@ $futa.he_she whispers as you continue to pump and stroke.
 		<</if>>\
 
-		Keeping an eye on the screen, you give $futa.him_her a nice, drawn-out handjob, only hastening your pace when you note the episode is reaching its conclusion. Realizing that you probably don’t want to make a mess, you use your other hand to catch $his_her spurting cum as you push $futa.him_her over the edge, the volume of $futa.his_her excitement covering both of your hands as you try to figure out what to do.
+		Keeping an eye on the screen, you give $futa.him_her a nice, drawn-out handjob, only hastening your pace when you note the episode is reaching its conclusion. Realizing that you probably don’t want to make a mess, you use your other hand to catch $futa.his_her spurting cum as you push $futa.him_her over the edge, the volume of $futa.his_her excitement covering both of your hands as you try to figure out what to do.
 
 		With a contented sigh, $futa.he_she leans back in $futa.his_her chair. You realize that your choices are either wipe your hands off on something in reach or lick them clean. <<if $kink.cumEating>>Not seeing any other option, you slurp $futa.his_her thick cum off your fingers, the salty taste one you have become quite accustomed to.<<else>>Suddenly the <<if $kink.futa>>lady<<else>>gentleman<<endif>>, $futa.he_she hands you some napkins and you swiftly clean yourself up.<</if>>
 	<<case 'refuse'>>\
@@ -97,6 +101,7 @@
 
 	Glancing up, you see that the episode is almost over. Embarrassed and humiliated, you hurry out of the room as the credits start to play, thankful that you are able to make your exit in the dark before the rest of the club notices your presence.
 <<endif>>\
+
 <<set $time.addMinutes(60)>>\
 <<if ($tasksTeacher.animeClub.status eq 1)>>\
 	<<set $tasksTeacher.animeClub.status = 2>>\

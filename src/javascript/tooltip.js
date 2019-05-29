@@ -23,7 +23,7 @@ window.kinkTooltip={
 	xPain: "Acts of potentially injurious infliction of pain, such as whipping, caning, or temperature play",
 	petPlay: "Roleplay in which a subordinate is treated as a house pet and acts accordingly",
 	bondage: "Being deprived of movement, speech, or senses by ropes, chains, bindings, hoods, or other implements",
-	facesit: "Female-led sex play in which her sex organs/buttocks are used on her partner’s face to attain sexual pleasure and/or dominate the subordinate@@.halftransparent; Not implemented yet@@",
+	facesit: "Female-led sex play in which her sex organs/buttocks are used on her partner’s face to attain sexual pleasure and/or dominate the subordinate",
 	trampling: "Acts in which the dominant partner walks on, stands on or steps on the submissive partner’s body@@.halftransparent; Not implemented yet@@",
 
 	footFetish: "Fetish involving the sexualization of feet or items typically worn on the feet",
@@ -33,13 +33,13 @@ window.kinkTooltip={
 	shoeBoot: "Deriving sexual excitement from heels, boots, or other types of shoes, either inherently or worn by a partner",
 	footjob: "Having one’s genitalia directly stimulated by feet, either shod or naked",
 
-	odor: "Fetish involving the sexualization of specific body parts when sweaty, smelly, or unclean@@.halftransparent; Not implemented yet@@",
+	odor: "Fetish involving the sexualization of specific body parts when sweaty, smelly, or unclean",
 	clothesOdor: "Smelling or tasting items such as tops, bottoms, or underwear@@.halftransparent; Not implemented yet@@",
-	shoeSockOdor: "Smelling or tasting items such as heels, sneakers, socks, or hose@@.halftransparent; Not implemented yet@@",
-	footOdor: "Smelling or tasting unwashed feet@@.halftransparent; Not implemented yet@@",
+	shoeSockOdor: "Smelling or tasting items such as heels, sneakers, socks, or hose",
+	footOdor: "Smelling or tasting unwashed feet",
 	armpitOdor: "Smelling or tasting unclean armpits@@.halftransparent; Not implemented yet@@",
 	assOdor: "Smelling or tasting sweaty ass cheeks or ass crack@@.halftransparent; Not implemented yet@@",
-	genitalOdor: "Smelling or tasting sweaty crotch or vagina@@.halftransparent; Not implemented yet@@",
+	genitalOdor: "Smelling or tasting sweaty crotch or vagina",
 
 	degradation: "Aggressive or demeaning language or physical acts",
 	curse: "Use of overtly profane language or insults",
@@ -47,13 +47,13 @@ window.kinkTooltip={
 	bimbo: "Conversion to a brainless, sexual playmate, with IQ loss/extreme feminization@@.halftransparent; Not implemented yet@@",
 	spitting: "Physical spitting on a person, as a way to degrade them",
 	abusive: "Acts of force such as slapping, shoving, mouth stretching or choking@@.halftransparent; Not implemented yet@@",
-	mindControl: "Being compelled to say or do things unwillingly by deep hypnosis@@.halftransparent; Not implemented yet@@",
+	mindControl: "Being compelled to say or do things unwillingly by deep hypnosis",
 	questionable: "Sex where consent is ambiguous or leveraged by another@@.halftransparent; Not implemented properly yet@@",
 	tattoo: "Being forced or leveraged to get a tattoo",
 	piercing: "Being forced or leveraged to get a piercing",
 
-	agePlay: "Fetish involving the role play of age differences, infantilism, and diaper play@@.halftransparent; Not implemented yet@@",
-	diapering: "Wearing diapers as a punishment, humiliation tactic, medical necessity, or personal desire@@.halftransparent; Not implemented yet@@",
+	agePlay: "Fetish involving the role play of age differences, infantilism, and diaper play",
+	diapering: "Wearing diapers as a punishment, humiliation tactic, medical necessity, or personal desire",
 	adultBaby: "Being treated as a toddler or baby by others, including wearing baby clothes, drinking from a bottle, using a pacifier, or sleeping in a crib@@.halftransparent; Not implemented yet@@",
 	ageBehavior: "Being treated as a young child by others, including being dressed in clothes associated with children or being expected to participate in childish activities@@.halftransparent; Not implemented yet@@",
 
@@ -70,7 +70,7 @@ window.kinkTooltip={
 	latex: "Arousal from the wearing of latex/PVC rubber by yourself or a partner – aka rubberist fetish@@.halftransparent; Not implemented properly yet@@",
 	leather: "Sexual arousal derived from the wearing of leather by yourself or a partner@@.halftransparent; Not implemented properly yet@@",
 	nylon: "Sexual interest in the wearing of nylon by yourself or a partner@@.halftransparent; Not implemented yet@@",
-	frilly: "Arousal from silk, satin or other soft, feminine materials@@.halftransparent; Not implemented yet@@",
+	frilly: "Arousal from silk, satin or other soft, feminine materials",
 
 	genderChange: "Arousal stemming from transgender sex transformation/sex organ gender change@@.halftransparent; Not implemented yet, sorry@@"
 }

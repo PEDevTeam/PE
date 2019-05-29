@@ -1541,6 +1541,7 @@ window.cheerFriendList={
 	affinity: 0,		//current affinity of cheer friend to PC, [int]
 	currentSE: 0,		//currently available side event
 	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
+	prize: 'money',		//prize offered cheer friend's brother
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,
@@ -1550,6 +1551,7 @@ window.cheerFriendList={
 
 	flags: {
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
-		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		boy: 1,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		force: false,	//took diary by force
 	}
 }

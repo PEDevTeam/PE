@@ -600,7 +600,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<endif>>\
 	<<endif>>\
 	<<if ($tasksTeacher.cleanLounge.status eq 1) or ($tasksTeacher.cleanLounge.progress gte 1)>>\
-		[[Clean the teacher's lounge|Clean lounge task]]
+		[[Clean the teacher's lounge|Teacher's lounge task]]
 	<<endif>>\
 	<<if ($tasksTeacher.principalSecretary.status eq 1) or ($tasksTeacher.principalSecretary.progress gte 1)>>\
 		[[Work as the principal's secretary|Principal secretary task]]
@@ -618,7 +618,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<if $cheerFriend.progress < 1>>\
 			<<set $cheerFriend.currentSE = 1>>\
 		<<elseif $cheerFriend.progress < 4>>\
-			<<selectScene SESelector234 RND2RND>>
+			<<selectScene SESelector234 RND2RND>>\
 			<<scene>>\
 				<<set $cheerFriend.currentSE = 2>>\
 			<<scene>>\
