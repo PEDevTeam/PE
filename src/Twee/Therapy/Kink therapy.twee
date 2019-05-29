@@ -10,8 +10,10 @@
 @@.fading_text_med;<<print _k.fadeOut[1]>>@@\
 @@.fading_text_fast;<<print _k.fadeOut[2]>>@@
 
-@@.fading_text_long;<<print '[[Abort therapy|Stop kink therapy]]'>>@@
-<!--@@.fading_text_long;<<print '[[Stop therapy - (no '+_k.name+' content)|Stop kink therapy]]'>>@@-->
+<<if !($kinkAllow.mindControl)>>\
+	@@.fading_text_long;<<print '[[Abort therapy|Stop kink therapy]]'>>@@
+	<!--@@.fading_text_long;<<print '[[Stop therapy - (no '+_k.name+' content)|Stop kink therapy]]'>>@@-->
+<<endif>>\
 
 @@.delayed_text_fast;<<print _k.fadeIn[0]>>@@\
 @@.delayed_text_med;<<print _k.fadeIn[1]>>@@\

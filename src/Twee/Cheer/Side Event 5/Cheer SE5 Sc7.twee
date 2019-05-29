@@ -1,0 +1,82 @@
+::Cheer SE5 Sc7
+You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ Grooves<<endif>>. @@.heroT;“I’ll play you in this,”@@ you announce.
+
+<<if $version == "shooter">>\
+	@@.malevoice9;“Oh you are so going down,”@@ Andrew threatens.
+
+	He pops the disc into the system and tosses you the controller before setting up a 1v1 deathmatch. After making sure you’re ready, he hits start and the game begins.
+
+	<<if $player.gameSkill <= 70>>\
+		You’ve always felt you were good at Call of Honor, but Andrew is a prodigy. Even with your considerable experience playing the game, you can barely get a hit on Andrew. Even worse, he seems to know exactly where you’re going to be at any given moment, often ambushing you to bloody ends.
+
+		You focus everything you have on the game, but even then it’s still not enough. The final score is 50-6, Andrew crushing you significantly. You sigh in resignation as he turns to you with a self-satisfied smile and says @@.malevoice9;“Time to pay up!”@@
+
+		<<set _gameWin = false>>\
+	<<else>>\
+		You never expected that a ten-year-old could be this skilled at a mature-rated video game. Andrew seems to know every pro strat you can think of. Thankfully, you’ve put in enough time playing CoH that you’ve developed counter-strategies that even he is unaware of.
+
+		The game is heated, but with you playing your best, you manage to edge out a victory, 43-50. @@.malevoice9;“Dang it. Can’t believe I lost to a girl...,”@@ you hear Andrew mutter as he goes to his bed to get your prize.
+
+		<<set _gameWin = true>>\
+	<<endif>>\
+<<else>>\
+	@@.malevoice9;“You’ve gotta be kidding,”@@ Andrew complains.
+
+	@@.heroT;“You said I could choose,”@@ you remind him.
+
+	He rolls his eyes, but sticks the disc in the console and hooks up the plastic dance mats without further protest. You skim through the songs quickly and manage to find one you half-recognize. Andrew says he’s ready, and you mash the start button.
+
+	@@.hero;All right feet, don’t fail me now.@@
+
+	<<if ($player.gameSkill + $player.fitness) > 40>>\
+		You’ve set the difficulty to easy, so the game isn’t too hard. Thankfully, your gaming experience has given you decent hand-eye coordination, and your exercise with the cheer squad keeps your stamina up while dancing. Your score isn’t the best, but you manage to keep a decent combo.
+
+		Andrew, on the other hand, seems to be cursed with two left feet. His steps are slow and deliberate and often a half-beat ahead or behind. By the time the song is finished, his score is far below yours. @@.malevoice9;“Dang it. Can’t believe I lost to a girl...,”@@ you hear Andrew mutter as he goes to his bed to get your prize.
+
+		<<set _gameWin = true>>\
+	<<else>>\
+		Even with the game set to easy, the notes move too quickly for you to keep up with. Your coordination is too slow to react to the notes, and as the song wears on, you start to feel winded from the physical exertion.
+
+		Andrew isn’t doing much better. He seems to be focusing all his effort just on getting a few steps correctly as they stream past. Unfortunately, when the song ends, his score just barely manages to edge out yours. He lets out a sigh of relief and turns to you with a self-satisfied smile. @@.malevoice9;“Time to pay up.”@@
+
+		<<set _gameWin=false>>\
+	<<endif>>\
+<<endif>>\
+<<if _gameWin == true>>\
+	He reluctantly hands over the diary. @@.malevoice9;“Here. You won, fair and square,”@@ he mutters.
+
+	You thank him and take the book.
+
+	<<if $version == "shooter">>\
+		@@.malevoice9;“Hey, maybe next time you come over, you could show me some tips…”@@ he quietly offers.
+
+		@@.heroT;“Sure,”@@ you say with a smile.
+
+	<<endif>>\
+	Your prize secured, you quickly head back to $cheerFriend.name’s room. As you walk down the hallway, you examine the diary and notice the clasp has been unlocked. You run your hand over the book’s cover, hearing a faint call in your mind for you to open it and delve into the secrets contained within.
+
+	[[Read the diary|Cheer SE5 Sc8a][$cheerFriend.affinity -=1]]
+	[[Lock the diary closed|Cheer SE5 Sc8b][$cheerFriend.affinity +=1]]
+<<elseif $cheerFriend.prize == "panties">>\
+	Trying to be as discreet as possible, you reach up under your skirt and slide off your panties.
+
+	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+	<<set playerCode.removeClothesJS(_u.id)>>\
+	<<removeFromInv _u.id>>\
+	@@.malevoice9;“Thank you,”@@ Andrew says as he snatches them from your hand and runs over to the dresser. To your surprise, he returns holding a small wad of soft pink fabric.
+
+	@@.malevoice9;“Here,”@@ he says thrusting the wad into your hand. @@.malevoice9;“You can give these back to my sister. Since I have yours, I don’t need them anymore.”@@
+
+	Upon closer inspection, you discover that he has given you a pair of $cheerFriend.name’s panties. You thank him and leave the room, still lacking the diary, but perhaps holding something even better. You take a moment to examine the underwear, pink and bikini-cut in a soft, cottony material. Your dick drips a drop of precum from beneath your skirt when you realize that you’re handling something that has rested against $cheerFriend.name’s most intimate of places.
+
+	You pause for a moment and think. $cheerFriend.name didn’t mention missing any panties, so it’s unlikely she knows they were taken. You could just take them home without $cheerFriend.name even realizing you had them, a secret souvenir for you to enjoy later.
+
+	[[Take the panties|Cheer SE5 Sc8c][$version = "take"]]
+	<<print '[[Give the panties back to '+$cheerFriend.name+'|Cheer SE5 Sc8c][$version = "give"]]'>>
+<<else>>\
+	You groan and reach for your wallet, pulling out the agreed upon amount. @@.heroT;“Here, you little hustler,”@@ you say as you practically shove it into his hands.
+
+	He takes the wad of cash from you and makes a show of counting it aloud. @@.malevoice9;“Let me know if you ever want to play me again,”@@ he says with a smile as you make your way back out into the hallway.
+
+	<<print "[[Go back to "+$cheerFriend.name+"'s room|Cheer SE5 Sc8d][$player.money -=100]]">>
+<<endif>>\

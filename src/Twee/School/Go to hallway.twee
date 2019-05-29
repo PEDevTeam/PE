@@ -631,8 +631,12 @@
 <!----><<endif>>\
 <!----><<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
 <!--	--><<set $flags.slutWork = false>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!--	--><<if _o.slutty>>\
+<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
+<!--		--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!--	--><<else>>\
+<!--		-->@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.\
+<!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
 <!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\

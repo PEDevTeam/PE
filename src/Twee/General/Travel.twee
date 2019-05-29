@@ -126,6 +126,10 @@
 				<<set _available = false>>\
 				<<set _reason = "You must be dressed like a girl to visit ">>\
 				<<set _reason += $cheerFriend.name>>\
+			<<elseif (not window.clothes.dressedCheerFriend())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be wearing something other than your school or cheerleader uniform to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
 			<<endif>>\
 			<<set _description = "Visit ">>\
 			<<set _description += $cheerFriend.name>>\

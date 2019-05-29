@@ -223,6 +223,9 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 	<<endif>>\
 	<<if ($tasksTeacher.suckCoach.status eq 1)>>\
 		<<set $tasksTeacher.suckCoach.status = 2>>\
+		<<if ($tasksTeacher.suckCoach.progress eq 0)>>\
+			<<set $tasksTeacher.suckCoach.progress = 1>>\
+		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher == 10>>\
 		<<set $flags.slutWork = true>>\
