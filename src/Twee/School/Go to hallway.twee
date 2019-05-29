@@ -8,6 +8,7 @@
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _deduction=0>>\
+<<set _textSwitch = true>>\
 <<if _o.female>>\
 	<<set $player.room.girljacket=1>>\
 	<<if not $items[_o.id].curAlt>><<set $items[_o.id].curAlt=0>><<endif>>\
@@ -593,9 +594,11 @@
 <!--		-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
 <!--	--><<if $minigames.coachgame.playedYesterday>>\
-<!--		--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
-<!--		--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<if !($player.perversion.teacher == 10)>>\
+<!--			--><<set $minigames.coachgame.playedYesterday to false>>\
+<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+<!--			--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<endif>>\
 <!--	--><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
 <!--		-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
@@ -627,6 +630,7 @@
 <!--	-->@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
 <!----><<endif>>\
 <!----><<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
+<!--	--><<set $flags.slutWork = false>>\
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
 <!----><<endif>>\
