@@ -882,8 +882,8 @@ window.playerAddonsList={
 		bjSkill: 0,
 		vibratorFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
-		analSkill: 0
-		schoolSlut: 0,
+		analSkill: 0,
+		schoolSlut: 0
 	},
 	masturbate: {
 		lastDay: 0,
@@ -949,7 +949,9 @@ window.futaList={
 	Boys_Girls: 'Boys',
 	boys_girls: 'boys',
 	Guy_Girl: 'Guy',
-	guy_girl: 'guy'
+	guy_girl: 'guy',
+	team: 'football',
+	Team: 'Football',
 },
 
 window.bodyList={
@@ -1277,6 +1279,11 @@ window.flagsList={
 	daring3Add: false,
 	visited111: false,
 	slutWork: false, //Performed as school slut
+	rewardFirst: true, //first time rewarding team
+	failedReward: false, //did not give team reward in teacher task
+	volleyFirst: true, //first time visiting the volleyball team
+	firstTimeTAAnime: true, //first time meeting the TA in the anime club
+	failedPrincipal: false, //did not work for principal in teacher task
 },
 
 window.kinkList={

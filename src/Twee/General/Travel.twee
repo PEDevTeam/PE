@@ -119,6 +119,18 @@
 			<<set _description = "Visit ">>\
 			<<set _description += $friend>>\
 		<<endif>>\
+		<<if (_to.id eq locationsJS.cheerFriendHouse.id)>>\
+			<<if (not window.timeCode.canVisitCheerFriend())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedFemale())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be dressed like a girl to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
+			<<endif>>\
+			<<set _description = "Visit ">>\
+			<<set _description += $cheerFriend.name>>\
+			<<set _description += "'s house">>\
+		<<endif>>\
 		<<if (_to.id eq locationsJS.therapist.id)>>\
 			<<if (not window.timeCode.needTherapy())>>\
 				<<continue>>\

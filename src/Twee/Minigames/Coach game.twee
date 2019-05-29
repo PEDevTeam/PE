@@ -214,15 +214,18 @@ Canwin = <<print window.coachMinigame.canWin() ;>>
 				
 		Coach takes a few dirty bills and slips them into your pocket.
 		
-		<<if $player.perversion.teacher == 10>>\
-			<<set $flags.slutWork = true>>\
-		<<endif>>\
 		<<set $player.money+=(rewardMoney.teacherCoachWhoring)>>\
 		<<set $player.money+=random(5)>>\
 		<<endif>>\
 		<!-- 
 		Here, go by this address and you'll get enough cock to satisfy your needs. I should warn you though, you will be treated as a fuckhole and nothing else.
 		-->\
+	<<endif>>\
+	<<if ($tasksTeacher.suckCoach.status eq 1)>>\
+		<<set $tasksTeacher.suckCoach.status = 2>>\
+	<<endif>>\
+	<<if $player.perversion.teacher == 10>>\
+		<<set $flags.slutWork = true>>\
 	<<endif>>\
 	[[Finish school]]
 <<else>>\

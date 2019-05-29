@@ -27,6 +27,7 @@ window.tasksFunction = {
 		if (tl.length == 0) {
 			return;
 		}
+
 		var rt=window.randomCode.getIntInclusive(1, ct);
 		for (var i=0; i < tl.length; i++) {
 			rt-=tl[i].chance;
@@ -1846,13 +1847,13 @@ window.tasksTeacher={
 		name:"Task Public toilet",
 		hasPassage: true,
 		text: {
-			given: "Spend the morning as a public toilet here at school.",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.rewardTeam.progress == 0>>As the school slut, your holes should be open to everyone. I want you to spend the morning as a public toilet here at school.<<else>><<if _prompt == 0>>You should spend tomorrow morning fulfilling your school slut duties.<<else>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
 			perform: "",
 			finish: "$teacher smirks at you.\n\n@@.teacher;\"I've heard that the toilets were quite popular today.@@",
-			fail: "No proof - no discount. Take a mark.",
-			reminder: "Don't forget about your assignment in the school toilets.",
+			fail: "It seems you failed to do your duties in the school toilets. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
 			checkMe: {
-				given: "spend the morning as a public toilet at school.",
+				given: "Someone asked you to serve as a school slut.",
 				finish: "Yeah, you did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
@@ -1884,7 +1885,254 @@ window.tasksTeacher={
 				State.active.variables.tasksTeacher.schoolPublicToilet.startPriority = 0;
 			},
 			finish: function() { return true; },
-			success: function() {},
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
+			fail: function() { return false; }
+		}
+	},
+	rewardTeam: {	// perv 10
+		id: "rewardTeam",
+		name:"Task Reward team",
+		hasPassage: true,
+		text: {
+			given: "<<set _prompt to random(2)>><<if $tasksTeacher.rewardTeam.progress == 0>>Coach had a special request for you. $futa.He_She said $futa.he_she promised one of the teams some 'play time' with you if they won their game. Go to the locker room after class, and $futa.he_she will give you more instructions. Oh, and make sure you wear that cute cheerleader outfit I gave you.<<else>><<if _prompt == 0>>Coach said he was looking for you. Go see what $futa.he_she wants.<<elseif _prompt == 1>>Some students said they were looking forward to seeing you after school today.<<elseif _prompt>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
+			perform: "",
+			finish: "$teacher smirks at you.\n\n@@.teacher;\"Coach said that the team was very satisfied with your performance.@@",
+			fail: "Coach said you failed to satisfy the sports team. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
+			checkMe: {
+				given: "Someone asked you to serve as a school slut.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 10, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 15,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.rewardTeam.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
+			fail: function() { return false; }
+		}
+	},
+	suckCoach: {	// perv 10
+		id: "suckCoach",
+		name:"Task Suck coach",
+		hasPassage: true,
+		text: {
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.suckCoach.progress == 0>>Coach is asking for another one of your world-class blowjobs. Go give $futa.him_her one.<<else>><<if _prompt == 0>>Coach said $futa.he_she was looking for you. Go see what $futa.he_she wants.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			perform: "",
+			finish: "@@.teacher;\"Coach was glad to see you yesterday. From what $futa.he_she tells me, you are an exceptional cocksucker.@@",
+			fail: "Coach said you neglected giving him a blowjob. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
+			checkMe: {
+				given: "Someone asked you to serve as a school slut.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 10, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 15,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.suckCoach.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
+			fail: function() { return false; }
+		}
+	},
+	cleanLounge: {	// perv 10
+		id: "cleanLounge",
+		name:"Task Clean lounge",
+		hasPassage: true,
+		text: {
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.cleanLounge.progress == 0>>The teacher's lounge has been a pigsty recently. I want you to go clean it tomorrow morning. If you enounter any other faculty there, I expect you to do anything they ask of you, and I do mean //anything//.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform tomorrow morning.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			perform: "",
+			finish: "@@.teacher;\"The teachers tell me you've been a big help cleaning up the lounge.@@",
+			fail: "The teacher's lounge is still a mess. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
+			checkMe: {
+				given: "Someone asked you to serve as a school slut.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 10, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 15,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.cleanLounge.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
+			fail: function() { return false; }
+		}
+	},
+	animeClub: {	// perv 10
+		id: "animeClub",
+		name:"Task Anime club",
+		hasPassage: true,
+		text: {
+			given: "<<set _prompt to random(2)>><<if $tasksTeacher.cleanLounge.progress == 0>>I think it would be good for school morale if you took part in more student activites. Perhaps find a club or something that can use your kind of special services.<<else>><<if _prompt == 0>>Some students said they were looking forward to seeing you after school today.<<elseif _prompt == 1>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
+			perform: "",
+			finish: "@@.teacher;\"The members of the anime club really enjoyed your visit yesterday.@@",
+			fail: "It seems you've been missing club meetings. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
+			checkMe: {
+				given: "Someone asked you to serve as a school slut.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 10, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 15,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.animeClub.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
+			fail: function() { return false; }
+		}
+	},
+	principalSecretary: {	// perv 10
+		id: "principalSecretary",
+		name:"Task Principal Secretary",
+		hasPassage: true,
+		text: {
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.cleanLounge.progress == 0>>The principal's secretary quit recently, and he's been very stressed dealing with the extra work. Tomorrow morning, go by his office and see if there's anything you can do to help out.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform tomorrow morning.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			perform: "",
+			finish: "@@.teacher;\"The principal said he was quite pleased with your work.@@",
+			fail: "Considering your continued education at this school is based on the principal's opinion of you, I would not be ignoring his requests for your services. Take a mark.",
+			reminder: "Don't forget, someone was requesting your services as school slut.",
+			checkMe: {
+				given: "Someone asked you to serve as a school slut.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 10, max: 10 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 15,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.principalSecretary.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+				State.active.variables.player.perversion.schoolSlut += 1;
+			},
 			fail: function() { return false; }
 		}
 	},

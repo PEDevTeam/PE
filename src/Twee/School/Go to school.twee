@@ -593,17 +593,24 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It's an eas
 		<<endif>>\
 	<<endif>>\
 	<<if ($tasksTeacher.schoolPublicToilet.status eq 1) or ($tasksTeacher.schoolPublicToilet.progress gte 1)>>\
-	[[Give bj at toilets|School public toilets][$random.stored=0]] \
 		<<if ($tasksTeacher.schoolPublicToilet.progress gte 2)>>\
-		or [[Serve as a public toilet|School public toilets][$random.stored=1]]\
+			[[Give bj at toilets|School public toilets][$random.stored=0]] or [[Serve as a public toilet|School public toilets][$random.stored=1]]
+		<<else>>\
+			[[Give bj at toilets|School public toilets][$random.stored=0]]
 		<<endif>>\
 	<<endif>>\
-		<<if $time.day eq 1>>\
-		[[You think the name of the bully is actually ...|Naming Bully][$random.stored=0]]
-		<<endif>>\
-		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
-			[[Ask a girl for advice|Task Ask advice]]
-		<<endif>>\
+	<<if ($tasksTeacher.cleanLounge.status eq 1) or ($tasksTeacher.cleanLounge.progress gte 1)>>\
+		[[Clean the teacher's lounge|Clean lounge task]]
+	<<endif>>\
+	<<if ($tasksTeacher.principalSecretary.status eq 1) or ($tasksTeacher.principalSecretary.progress gte 1)>>\
+		[[Work as the principal's secretary|Principal secretary task]]
+	<<endif>>\
+	<<if $time.day eq 1>>\
+	[[You think the name of the bully is actually ...|Naming Bully][$random.stored=0]]
+	<<endif>>\
+	<<if ($tasksTeacher.askAdvice.status eq 1)>>\
+		[[Ask a girl for advice|Task Ask advice]]
+	<<endif>>\
 	<<if (($cheerleaders.progress >= 3 && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4&& (window.timeCode.isFriday()|| window.timeCode.isMonday()))) && $cheerleaders.active && $cheerFriend.progress < 4>>\
 		You phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
 		
