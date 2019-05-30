@@ -38,17 +38,25 @@ $teacher doesn’t say anything, but the action itself is enough for you to fina
 	<<else>>\
 		@@.teacher;“At least you managed to keep it dry.”@@ In a swift motion, she rips off the tapes and pulls the diaper from under you. The cool air on your exposed skin reminds you of your lack of panties.
 	<<endif>>\
-	<<if $cheerleaders.flags.slutUniform == 1>>\
-
-		@@.teacher;“Now, stand up and bend over,”@@ $teacher orders gently, @@.teacher;“unless you prefer to continue wearing that plug?”@@
-
-		You shake your head and stand to your feet, bending forward and pulling your skirt up to give $teacher access to the plug. She examines it for a moment, then\
-		<<if (cheerleader.game.failCount > 1 || cheerleaders.gameScore < 6)>>\
-			presses a button, and you hear the plug start to deflate. The tension in your ass slowly melts away and $teacher\
-		<<endif>>\
-		pulls the plug out of your hole, cleaning it off with a wipe and stashing it in a drawer before returning to you. 
+	
+<<endif>>\
+<<if $cheerleaders.flags.slutUniform == 0>>\
+	<<set $player.buttplugInflate = 0>>\
+	<<set _u=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+	<<set playerCode.removeClothesJS(_u.id)>>\
+	<<removeFromInv _u.id>>\
+	<<if $removedPlug>>\
+		<<wearClothing $removedPlug>>\
 	<<endif>>\
+	<<updateClothes>>\
+	@@.teacher;“Now, stand up and bend over,”@@ $teacher orders gently, @@.teacher;“unless you prefer to continue wearing that plug?”@@
 
+	You shake your head and stand to your feet, bending forward and pulling your skirt up to give $teacher access to the plug. She examines it for a moment, then\
+	<<if ($minigames.cheerGame.failCount > 1 || $cheerleaders.game.finalScore < 6)>>\
+		presses a button, and you hear the plug start to deflate. The tension in your ass slowly melts away and $teacher\
+	<<endif>>\
+	pulls the plug out of your hole, cleaning it off with a wipe and stashing it in a drawer before returning to you. 
+	
 <<endif>>\
 @@.teacher;“Well, that takes care of that,”@@ she says.
 
@@ -72,7 +80,7 @@ $teacher stands to her feet. @@.teacher;“Speaking of that reputation, there is
 
 @@.hero;Guess she’s not letting me off easy after all.@@
 
-Her tone softens. @@.teacher;“You have been through quite the ordeal already, so I only ask that you help sort out the theater.\
+Her tone softens. @@.teacher;“You have been through quite the ordeal already, so I only ask that you help sort out the theater. \
 <<if ($cheerleaders.flags.wig == true || $cheerleaders.flags.falsies == true || $cheerleaders.flags.makeup == true)>>\
 	You will need to\
 	<<if ($cheerleaders.flags.wig==true || $cheerleaders.flags.falsies == true)>>\
@@ -129,6 +137,24 @@ She walks back to her desk and scribbles on a notepad, handing what she wrote to
 	@@.teacher;“A pity. Given your choice to join the cheerleading squad, some additional feminine touches to your appearance would be appropriate.”@@
 
 <<endif>>\
-You blush and dash out the door to the drama room, hoping nobody sees you on the way.
+You blush and dash out the door to the drama room, hoping nobody sees you on the way. Along the way, you make a mental note to pick up the stuff you left behind before you leave school.
 
+<<wearClothing $removedUni.id $uniAlt>>\
+<<wearClothing $removedShoes.id $shoesAlt>>\
+<<if $removedStock>>\
+	<<wearClothing $removedStock.id $stockAlt>>\
+<<else>>\
+	<<set playerCode.removeClothesJS("socks")>>\
+<<endif>>\
+<<if $removedUnder && (not($cheerleaders.flags.panties) || ($cheerleaders.flags.panties && ($player.daring < 6|| $removedUnder.id == "cheerBriefs")))>>\
+	<<wearClothing $removedUnder.id $underAlt>>\
+<<endif>>\
+<<if $removedHair>>\
+	<<wearClothing $removedHair.id $hairAlt>>\
+<<else>>\
+	<<set playerCode.removeClothesJS("hairbow")>>\
+<<endif>>\
+<<if $removedCollar>>\
+	<<wearClothing $removedCollar.id $collarAlt>>\
+<<endif>>\
 [[Clean the drama room and finish school|Finish school day]]
