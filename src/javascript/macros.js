@@ -95,7 +95,6 @@ macros.removeFromInv = {
 		var type=wV.curAlt;
 		if (window.itemsC[params[0]].maxAlt){
 			wV.ownAlt[type]=null;
-			console.log(wV);
 			for (var i = 0; i < wV.ownAlt.length;i++){
 				if (wV.ownAlt[i] == true){
 					removeItem = false;
@@ -223,7 +222,7 @@ macros.wearClothing = {
 			state.active.variables.player.clothes=state.active.variables.player.clothes.sort();
 		}
 		var type=params[1];
-		if (type) {
+		if (!(isNaN(type))) {
 			var wV=window.itemF.itemTwee(params[0]);
 			if (!wV) {
 					throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");

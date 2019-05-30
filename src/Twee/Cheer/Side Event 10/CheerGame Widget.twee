@@ -13,7 +13,11 @@
 		<<if !$minigames.cheerGame.correct>>\
 			You look at Ashley and she scowls as she writes on a piece of paper, clearly not satisfied with your performance.	
 			<<if $cheerleaders.flags.slutUniform == 0>>\
-			
+				
+				<<set _imageNum = Math.min($minigames.cheerGame.failCount, 5)>>\
+				<<set $player.buttplugInflate = _imageNum>>\
+				<<set _image = "buttplug_inflate_"+_imageNum>>\
+				<div style="float: right; margin: 10px;"><<RandomImageFromPack _image 200 200>></div>\
 				<<switch $minigames.cheerGame.failCount>>\
 				<<case 1>>\
 					Ashley’s hand slides to a remote on the table, and you notice her press a button. Suddenly, you hear the plug in your ass suck in air and your asshole stretches as the butt-plug expands. You grunt at the new pressure in your rear end.
