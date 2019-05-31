@@ -8,6 +8,7 @@
 	
 	[[Finish school]]
 <<else>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Gym" 400 400>></div>\
 	<<if $tasksTeacher.rewardTeam.progress == 0>>\
 		You hurriedly change into your slutty cheerleader uniform and run to the gym to meet Coach.
 
@@ -23,7 +24,7 @@
 
 				@@.hero;Last chance to back out…@@
 
-				[[Nod your head|Reward team task 2]]
+				[[Nod your head|Reward team task 2][$scene = "default"]]
 				[[Tell Coach you’re not ready for this|Reward team task][$flags.failedReward = true; $scene = "rewardLeave"]]
 			<<else>>\
 				Even though you managed to get away without incident last time, you’re pretty sure you won’t be so lucky this time. Of course, you wouldn’t even be here if you weren’t planning on going through with the “reward session.”
