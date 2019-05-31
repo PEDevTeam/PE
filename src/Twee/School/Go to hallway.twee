@@ -8,6 +8,7 @@
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _deduction=0>>\
+<<set _textSwitch = true>>\
 <<if _o.female>>\
 	<<set $player.room.girljacket=1>>\
 	<<if not $items[_o.id].curAlt>><<set $items[_o.id].curAlt=0>><<endif>>\
@@ -119,7 +120,7 @@
 \
 	<!--<perversion progress events2>-->\
 	<<if $player.perversion.teacher eq 4>>\
-		<<if _o.female and (not _u) and _o.skirt>>\
+		<<if _o.female and (not _u) and (not _o.shorts)>>\
 			<<set $player.perversion.teacher to 5>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			She looks at you for a moment, smirking. 
@@ -593,9 +594,11 @@
 <!--		-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
 <!--	--><<if $minigames.coachgame.playedYesterday>>\
-<!--		--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
-<!--		--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<if !($player.perversion.teacher == 10)>>\
+<!--			--><<set $minigames.coachgame.playedYesterday to false>>\
+<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+<!--			--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<endif>>\
 <!--	--><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
 <!--		-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
@@ -626,9 +629,14 @@
 <!----><<elseif $flags.whoreFucked>>\
 <!--	-->@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
 <!----><<endif>>\
-<!----><<if ($player.perversion.teacher eq 10) and _o.slutty>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!----><<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
+<!--	--><<set $flags.slutWork = false>>\
+<!--	--><<if _o.slutty>>\
+<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
+<!--		--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!--	--><<else>>\
+<!--		-->@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.\
+<!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
 <!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
@@ -935,7 +943,7 @@
 	
 		
 		<<if $flags.keyLended and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay()>>\
+			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay())>>\
 				$teacher has your chastity key on a necklace, resting between her breasts. She plays with the chain, looking at you expectantly.
 				
 				@@.teacher;Is there anything else that you want?@@
@@ -954,7 +962,9 @@
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
-			<<if $cheerFriend.currentSE == 1>>\
+			<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isWednesday() && !($cheerleaders.flags.skippedPractice)>>\
+				[[Go back to class|Cheer SE10 Sc1][$flags.chastityAgree = false]]
+			<<elseif $cheerFriend.currentSE == 1>>\
 				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
 			<<else>>\
 				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
@@ -970,7 +980,7 @@
 
 	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimdating. 
 	
-	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $guardian first?@@
+	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $myguardian first?@@
 
 	<<if not ($flags.femaleSchool) and _o.female>>\
 		<<set $flags.femaleSchool to true>>\

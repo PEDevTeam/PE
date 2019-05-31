@@ -89,6 +89,9 @@
 	<<if $cheerleaders.progress gt 0 && $cheerleaders.canPractice && $cheerleaders.active>>\
 		[[Practice cheerleading|Exercise basic]]
 	<<endif>>\
+	<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isTuesday() && !($cheerleaders.flags.skippedPractice) && !($cheerleaders.game.practiced)>>\
+		[[Practice Ashley's Cheer]]
+	<<endif>>\
 <<endif>>\
 <<if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck>>\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene="beg"]]

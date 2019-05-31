@@ -372,5 +372,11 @@ window.clothes={
 		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
 		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
 		return (!underwear || underwear.female) && outerwear.female && shoes.female;	
+	},
+	dressedCheerFriend: function() {
+		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
+		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
+		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
+		return (!underwear || (underwear.female && !underwear.cheer) && (outerwear.female && !(outerwear.school)) && (shoes.female && !(shoes.cheer)));	
 	}
 }

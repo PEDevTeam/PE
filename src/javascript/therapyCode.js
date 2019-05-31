@@ -137,7 +137,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Introduction , start of routine, choice to continue or stop hypno
-		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - you can also stop those at any time during the course if you feel uncomfortable, and it will not affect the basic participation pay in any way. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print rewardMoney.specialHypnosis>> each.\"@@\n\nWell, that last session definitely felt weird. You are honestly scared by how it affected you, but you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?",
+		text: "Concerned about the effects from your last visit, you ask if this therapy could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of therapy, which is interesting. Don't worry - if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the therapy to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\n<<if $kinkAllow.mindControl>>@@.therapist;\"I've looked at your survey and initial readings, and research protocol states that you are required to complete a hypnotherapy session whenever you visit my office. The study sponsors have also recommended that I allow you to participate in supplementary research projects. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print rewardMoney.specialHypnosis>> each.@@<<else>>@@.therapist;\"You can stop the course if you're still concerned about side effects, but I've found several sponsors for short term, supplementary research projects, if you're interested.\"@@\n\n@@.therapist;\"Concerning the supplementary research sessions - you can also stop those at any time during the course if you feel uncomfortable, and it will not affect the basic participation pay in any way. Most of these courses are one-time trials, but the pay if we include them is much bigger - $<<print rewardMoney.specialHypnosis>> each.\"@@<<endif>>\n\nWell, that last session definitely felt weird. You are honestly scared by how the hypnotherapy affected you, but <<if $kinkAllow.mindControl>>it seems like, so long as you are visting $therapist, you have little choice in the matter.<<else>>you take a moment to think about it. Maybe it could make dealing with $teacher's demands easier?<<endif>>",
 		hasPassage: false,
 		chance: 10,
 		priority: 10,
@@ -180,7 +180,7 @@ window.therapySessions=[
 			guardian: {min: 0, max: 100},
 			therapist: {min: 2, max: 100},
 			teacher: {min: 3, max: 100},
-			friend: {min: 4, max: 4}
+			friend: {min: 100, max: 100}
 		},
 		allowHypno: function() {
 			return false;
@@ -205,7 +205,7 @@ window.therapySessions=[
 			guardian: {min: 0, max: 100},
 			therapist: {min: 2, max: 100},
 			teacher: {min: 3, max: 100},
-			friend: {min: 9, max: 9}
+			friend: {min: 100, max: 100}
 		},
 		allowHypno: function() {
 			return false;

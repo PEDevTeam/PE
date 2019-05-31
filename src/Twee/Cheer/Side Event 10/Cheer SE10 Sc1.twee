@@ -1,0 +1,130 @@
+:: Cheer SE10 Sc1
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<if $kinkAllow.wetting>>\
+	The lunch bell rings, and you grab your backpack and rush into the hall, trying to make it to the bathroom as quickly as possible. You haven’t gone since before leaving the house this morning and your bladder is heavy with urine. You know that if you don’t hurry, the line will be out the door and you won’t have time to wait before you have to meet Ashley at the drama room. Unfortunately, $teacher has other ideas.
+
+	@@.teacher;“$player.name, can I see you for a moment?”@@ she asks sternly just as you lay your hand on the door handle.
+
+	You can tell by the firmness of her voice that walking out the door is no longer an option.
+
+	@@.heroT;“Yes, $teacher,”@@ you reply as you walk back to her desk.
+
+	She pulls a paper from one of the various stacks on her desks and presents it to you. The page is covered in red ink. 
+
+	@@.teacher;“I wanted to discuss your performance on your last assignment. I know you’re going through a phase of ‘self-discovery’ at the moment, but that’s no reason for you to be missing this many questions on your homework.”@@
+
+	@@.heroT;“Yes, ma’am. I’ll try to do better,”@@ you quickly rattle off, glancing at the other students walking out the door to lunch.
+
+	Her gaze intensifies. @@.teacher;“I am serious, $player.name. If I do not see significant improvement in your work, we may need to come up with an alternate method to motivate you. Now, we need to go over some of the basic concepts that seem to have slipped your grasp.”@@
+
+	Her tone is clear. Even if you don’t have the time, you will make the time.
+
+	You sigh and nod. @@.heroT;“Yes, ma’am.”@@
+
+	A couple minutes turns out to be almost ten as you dash through the hall. As expected, the line for the restroom is almost ten deep.
+
+	They really need to fix all these busted toilets… or at least get new ones. You let out a snort of frustration and press on. After your delay in the classroom, you definitely don’t have time to wait for a urinal to open up. Ashley’s probably already planning to torture you for being late as is.
+
+	Finally, you stand before the drama room door, your racing mind freezing in dread as you raise your hand to knock. It takes a deep, calming breath to finally muster the courage to rap on the door. It swings abruptly open, revealing Veronica waiting for you.
+<<else>>\
+	The lunch bell rings, and you grab your backpack and timidly creep towards the drama room. Each step makes the pit in your stomach grow ever wider, threatening to swallow you from the inside out.
+
+	Finally, you stand before the drama room door, frozen in dread. It takes a deep, calming breath to finally muster the courage to rap on the door. It swings abruptly open, revealing Veronica waiting for you.
+<<endif>>\
+
+@@.cheerLackey2;“Get in here,”@@ she says, waving you in as she glances around furtively.
+
+You step across the threshold, feeling a finality you suspect prisoners feel right before the firing squad pulls the trigger.
+
+@@.cheerLackey2;“Please tell me you brought the uniform,”@@ she says.
+
+You think you hear an actual note of concern in her voice, but she's pretty nonchalant so it's hard to be sure. Veronica's constant low-key attitude makes her confounding to read, but at least she doesn't seem actively interested in destroying you like her two friends.
+
+You reach into your backpack and pull out the bag you were given yesterday.
+
+<<if $cheerleaders.flags.slutUniform == 0>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader slut uniform 1" 400 400>></div>\
+<<else>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader slut uniform 2" 400 400>></div>\
+<<endif>>\
+
+Veronica sighs. @@.cheerLackey2;“Great. You can change in the costume room. It’s over there.”@@ She points to a nearby door labeled as such with a taped-on sheet of loose-leaf paper.\
+<<if $cheerleaders.flags.slutUniform == 0>>\
+	@@.cheerLackey2;“Don’t put the plug in until Ashley tells you to, got it?”@@
+<<else>>\
+	@@.cheerLackey2;“Hurry it up, ok?”@@
+<<endif>>\
+
+<<if $kinkAllow.wetting>>\
+	Your bladder clenches sharply.
+
+	@@.hero;Shit. Guess I needed to go more than I thought…@@
+
+	@@.heroT;“Umm… Veronica, I really need to pee,”@@ you stammer. @@.heroT;“Do you think I could…”@@
+
+	She cuts you off abruptly. @@.cheerLackey2;“Ashley’s already pissed at how late you are. Don’t you think it’s in your best interest to you just get in there and get changed?”@@
+
+<<endif>>\
+You nod and head through the door she motioned towards. You search for a lock, disappointed to find that the door needs a key on both sides. Having to trust Ashley to give you privacy makes you even more nervous, but after a few seconds without interruption, you reluctantly start pulling off your <<if _b && $cheerleaders.slutUniform == 0>>clothes and remove your butt-plug<<else>>clothes<<endif>>.
+<<if _b && $cheerleaders.slutUniform == 0>>\
+	<<set $removedPlug = _b.id>>\
+	<<set playerCode.removeClothesJS($removedPlug)>>\
+<<endif>>\
+<<set $removedUnder=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<if $removedUnder>>\
+	<<set _under = itemF.itemTwee(state.active.variables.removedUnder.id)>>\
+	<<capture _under>>\
+		<<set $underAlt=_under.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<if $removedUnder>>\
+	<<set playerCode.removeClothesJS($removedUnder.id)>>\
+<<endif>>\
+<<set $removedUni=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<if $removedUni>>\
+	<<set _uni = itemF.itemTwee(state.active.variables.removedUni.id)>>\
+	<<capture _uni>>\
+		<<set $uniAlt=_uni.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<set $removedStock=playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<if $removedStock>>\
+	<<set _stock = itemF.itemTwee(state.active.variables.removedStock.id)>>\
+	<<capture _stock>>\
+		<<set $stockAlt=_stock.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<set $removedShoes=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<if $removedShoes>>\
+	<<set _shoes = itemF.itemTwee(state.active.variables.removedShoes.id)>>\
+	<<capture _shoes>>\
+		<<set $shoesAlt=_shoes.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<set $removedHair=playerCode.isWearingOn(itemTypes.Hairband)>>\
+<<if $removedHair>>\
+	<<set _hair = itemF.itemTwee(state.active.variables.removedHair.id)>>\
+	<<capture _hair>>\
+		<<set $hairAlt=_hair.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<set $removedCollar = playerCode.isWearingOn(itemTypes.Collar)>>\
+<<if $removedCollar>>\
+	<<set _collar = itemF.itemTwee(state.active.variables.removedCollar.id)>>\
+	<<capture _collar>>\
+		<<set $collarAlt=_collar.curAlt>>\
+	<</capture>>\
+<<endif>>\
+<<if $removedCollar>>\
+	<<set playerCode.removeClothesJS($removedCollar.id)>>\
+<<endif>>\
+<<wearClothing "sluttyCheer" $cheerleaders.flags.slutUniform>>\
+<<wearClothing "cheerSneakers">>\
+<<wearClothing "socks" 43>>\
+<<wearClothing "hairbow" 43>>\
+
+<<if $cheerleaders.flags.slutUniform == 0>>\
+	[[Put on your uniform|Cheer SE10 Sc2a]]
+<<else>>\
+	[[Put on your uniform|Cheer SE10 Sc2b]]
+<<endif>>\
