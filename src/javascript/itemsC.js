@@ -267,7 +267,7 @@ window.itemsC={
 		school: true,
 		cheer: true,
 		stolen: false,
-		skirt: false,
+		shorts: true,
 		store: 4,
 		cost: 0,
 		image: "rookie_uniform.jpg"
@@ -288,7 +288,6 @@ window.itemsC={
 		school: true,
 		cheer: true,
 		stolen: false,
-		skirt: true,
 		store: 4,
 		cost: 0,
 		image: "cheer_dress.jpg"

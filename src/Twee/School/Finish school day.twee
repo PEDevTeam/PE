@@ -155,8 +155,18 @@
 	[[Go see Rachel|Skipped Practice Afternoon]]
 	[[Finish school][$cheerleaders.active = false; $cheerleaders.skippedPractice = false]]
 <<elseif $player.perversion.teacher eq 10>>\
-[[Go to the Coach|Play with Coach]]
-[[Finish school]]
+	[[Go to the Coach|Play with Coach]]
+	<<if ($tasksTeacher.rewardTeam.status eq 1) or ($tasksTeacher.rewardTeam.progress gte 1)>>\
+		[[Go reward the team|Reward team task][$scene = "default"]]
+	<<endif>>\
+	<<if ($tasksTeacher.animeClub.status eq 1) or ($tasksTeacher.animeClub.progress gte 1)>>\
+		<<if $tasksTeacher.animeClub.progress == 0>>\
+			[[Go find a club to service|Anime club task][$scene = "default"]]
+		<<else>>\
+			[[Go serve the anime club|Anime club task 2]]
+		<<endif>>\
+	<<endif>>\
+	[[Finish school]]
 <<elseif $player.perversion.teacher eq 9>>\
 	<<if $player.perversion.teacherCooldown gte 3>>\
 
