@@ -85,8 +85,6 @@
 	- .
 	- Ignore - no consequences, boring option.
 	
-	@@.teacher;""@@
-	@@.hero;@@
 <<elseif ($scene eq "wearDressToSchool")>>\
 	<<set $tasksTeacher.wearDressToSchool.canStart = true>>\
 	<<set $tasksTeacher.wearDressToSchool.status = 1>>\
@@ -200,7 +198,7 @@
 	
 	Smirking at your guarded facial expression, she grabs collar of your shirt. She pulls it down, bending you over her knees and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>,\
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>,\
 	<<else>>\
 		yanks your pants down,\
 	<<endif>>\
@@ -538,17 +536,17 @@
 		Her foot finds the base of your butt-plug and touches it a bit, giving you a wonderful sensation. Your penis pulses as if it's gonna break the chastity. \
 	<<endif>>\
 	She slowly starts to move her foot, brushing\
-	<<if _u and _o.skirt>> your panties <<else>> your scrotum <<endif>>\
+	<<if_u and _o.skirt>> your panties <<else>> your scrotum <<endif>>\
 	and touching the tip of your chastity. She keeps moving her foot up, and wipes her wet foot on your body
 	<<if _o and _o.female>>\
-	and your <<if _o.skirt>>skirt<<else>>cheer shorts<<endif>>,\
+	and your <<if _o.shorts>>cheer shorts<<else>>skirt<<endif>>,\
 	<<endif>>\
 	then does the same with her other foot.
 
 	@@.teacher;"I was easy on you this time. Remember - next time, I will not be."@@
 	
 	You get up, she removes the chain and the collar, gives you a slap on your butt and sends you home\
-	<<if _o and _o.female and _o.skirt>>\
+	<<if _o and _o.female and not (_o.shorts)>>\
 		with a stain on your skirt.
 	<<else>>\
 		with a stain on your clothes.
@@ -561,7 +559,7 @@
 	 
 	You decide the best thing to do is just stay silent. She goes to her desk and pulls out the familiar collar. You notice something covered by a cloth, just before before she approaches to give your punishment. Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>, \
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>, \
 	<<else>>\
 		yanks your pants halfway off,\
 	<<endif>>\
@@ -712,7 +710,6 @@
 		
 		Finally $teacher stands up and you almost collapse, as overbearing pressure disappears.\
 
-		She unlocks and takes off the blindfold and the gag,\
 		<<if $flags.teacherPanties>>\
 			She unlocks and takes off the blindfold and the gag, but leaves you her panties as a reminder.\
 		<<else>>\
@@ -793,7 +790,7 @@
 
 	Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>\
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>\
 	<<else>>\
 		yanks your pants down\
 	<<endif>>\
@@ -1056,9 +1053,9 @@
 			<<set _item=itemsC.HairMedium>>\
 			@@.teacher;"I think a fresh hairstyle often leads to a fresh attitude,"@@ $teacher muses. @@.teacher;"I believe $player.name is decidedly in need of both. Nancy, would you be able to help?"@@
 			
-			@@.nurse;"No problem!" the nurse replies.
+			@@.nurse;"No problem!"@@ the nurse replies.
 			
-			@@.teacher;"Not too short, please," $teacher adds.
+			@@.teacher;"Not too short, please,"@@ $teacher adds.
 			
 			Nancy smiles congenially, ushering you over to a purpose-made salon chair before sitting you down in it with a gentle-yet-insistent push. As you watch her in the large, wall-mounted mirror, she fluffs your hair with her fingers, then tilts your head back and forth to examine your bone structure in the light.
 			

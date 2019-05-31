@@ -116,6 +116,16 @@ window.locationsJS={
 		active: false,
 		important: false
 	},
+	cheerFriendHouse: {
+		id: "cheerFriendHouse",
+		destination: "Cheer SE5 Sc1",
+		x: -15,
+		y: 5,
+		busRange: 10,
+		remote: 0,
+		active: true,
+		important: false
+	},
 	tokenPlace: {
 		id: "tokenPlace",
 		destination: "",

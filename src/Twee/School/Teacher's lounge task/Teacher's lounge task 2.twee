@@ -1,0 +1,81 @@
+::Teacher's lounge task 2
+<<if $clean>>\
+	<<if $tasksTeacher.cleanLounge.progress == 0>>\
+    	You figure you should start with the pile of dirty dishes, and you’ve just finished filling the sink with sudsy water when you hear the door behind you open, followed by a shocked gasp.
+
+    	@@.femvoice10;“Wait, you’re a student!”@@ says a surprised female voice. @@.femvoice10;“You shouldn't be in here young lady. What are you doing?”@@
+
+    	Turning around you recognize Ms. Ravensong, Pepperton Academy’s drama teacher.
+
+    	<<if $tasksTeacher.cleanLounge.status == 1>>\
+        	You meekly explain that $teacher instructed you to help clean the lounge,\
+    	<<else>>\
+        	You lie and state that $teacher ordered you to clean the lounge,\
+    	<<endif>>\
+    	motioning around to indicate the obvious desperate need for such.
+
+    	Her shock fading swiftly, Ms. Ravensong nods in understanding. @@.femvoice10;“Oh, well, if you’re here to clean, that is fine then but I’m sure you can see the reason for my confusion.” She gestures towards your slutty school uniform. “Since you are cleaning things up I think  you wear something a bit more appropriate - to prevent further misunderstandings.”@@
+
+    	Knowing better than to disagree with a faculty member, you nod and she smiles.
+
+    	@@.femvoice10;“Very well then. I have something that should be suitable. We used it in last year's production of The Mikado...”@@
+
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Lounge Maid 1" 400 400>></div>\
+    	You never paid much attention to the school’s drama department, so you have no clue what she is talking about, but a couple minutes later she pops back in bearing what is unmistakably a black and white maid’s outfit.
+
+    	@@.femvoice10;“Here we are!”@@ she says simply.
+
+		You stand holding it for a moment before she rolls her eyes. @@.femvoice10;“Come, come, you don’t want to get your school uniform dirty. Hurry up and change.”@@
+
+    	Not seeing a choice, you remove your clothing under her watchful eye and quickly change into the basic maid outfit.
+
+    	@@.femvoice10;“Hmmm,”@@ she states, seeming to undress you with her gaze, admittedly not the hardest of feats given that she just saw you nearly naked. @@.femvoice10;“It does suit you, somewhat, but it could do with some alterations to better fit your figure. Just leave it in the closet and I will sew it up proper before your next visit.”@@
+
+    	You thank her for the outfit and the offer, returning to the dishes as she makes space on the couch opposite to sit and relax. After some time watching you work, she calls out for you to make her a cup of tea. As she sips her tea, she  “supervises” your cleaning up the rest of the lounge.
+
+    	Checking with Ms. Ravensong that things are to her satisfaction, she nods. @@.femvoice10;“I must say, you’ve certainly made the place sparkle. Now give me that ill-fitted outfit so I can take it in before your next cleaning session.”@@
+
+    	You change back into your school clothes, hand over the maid’s uniform and head on your way.
+		
+		<<set $tasksTeacher.cleanLounge.progress ++>>\
+		<<set $time.addMinutes(60)>>\
+		<<if ($tasksTeacher.cleanLounge.status eq 1)>>\
+			<<set $tasksTeacher.cleanLounge.status = 2>>\
+		<<endif>>\
+		<<if ($tasksTeacher.cleanLounge.progress eq 0)>>\
+			<<set $tasksTeacher.cleanLounge.progress = 1>>\
+		<<endif>>\
+		<<if $player.perversion.teacher == 10>>\
+			<<set $flags.slutWork = true>>\
+		<<endif>>\
+    	[[Go to class]]
+	<<else>>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Lounge Maid 2" 400 400>></div>\
+    	Heading straight for the supply closet you\
+    	<<if $tasksTeacher.cleanLounge.progress == 1>>\
+        	find your “altered” maid’s outfit. Apparently Ms. Ravensong’s idea of what sort of thing you should be wearing is not far off from $teacher’s as the once-modest maid costume has been trimmed to the point of scandalousness. Skimpy and tight, its frilled skirt is barely long enough to cover your bum and the off-the-shoulder top leaves your belly, and almost everything else, exposed.
+
+			An interesting inclusion,  which you discover midway through changing, is a pair of knee-pads sewn into the creamy-white stockings. You smile at the thoughtful addition as you crown things off with a cute hairpiece.
+
+        	Letting out a soft sigh, you slip on some gloves and set to work on the dishes.
+			<<set $tasksTeacher.cleanLounge.progress ++>>\
+    	<<else>>\
+        	get changed into the waiting maid’s outfit. Pulling the skimpy outfit into position, you slip on a pair of gloves and start in on the dishes.
+    	<<endif>>\
+	
+		<<set _scene = random (1)>>\
+		<<if $kink.futa>>\
+			<<set _scene = 1>>\
+		<<endif>>\
+    	<<switch _scene>>\
+    	<<case 0>>\
+        	[[Start cleaning|Teacher's lounge task 3][$scene = "janitor"]]
+    	<<case 1>>\
+        	[[Start cleaning|Teacher's lounge task 3][$scene = "teachers"]]
+    	<</switch>>\
+	<<endif>>\
+<<else>>\
+	Changing your mind about trying to clean up the disaster zone that is the faculty lounge, you start to back out of the lounge only to bump into a teacher. You jump in fright as they ask what you think you were doing. Stuttering for a moment in an attempt to come up with an explanation, you instead decide to flee, running up the hallway, so you won’t get in trouble for snooping.
+    
+	[[Go to class]]
+<<endif>>\
