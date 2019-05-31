@@ -1,0 +1,121 @@
+:: Cheer SE10 Sc10a
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader Tryout Table" 400 400>></div>\
+<<set window.cheerMinigame.reset()>>\
+@@.cheerBitch;“Heather, you were the presentation judge,”@@ Ashley announces. @@.cheerBitch;“Why don’t you start with your score?”@@
+
+Heather stands to her feet and makes a show of ordering the stack of papers in front of her, clearly imitating the cheer judges she’s performed before over the years.
+
+<<if $cheerleaders.flags.slutUniform == 0>>\
+	<<switch $cheerleaders.game.adjustedSlutScore>>\
+	<<case 1>>\
+		<<Set $cheerleaders.game.presentation = 2>>\
+	<<case 2>>\
+		<<set $cheerleaders.game.presentation = 4>>\
+	<<case 3>>\
+		<<set $cheerleaders.game.presentation = 5>>\
+	<<case 4>>\
+		<<set $cheerleaders.game.presentation = 6>>\
+	<<case 5>>\
+		<<set $cheerleaders.game.presentation = 7>>\
+	<<case 6>>\
+		<<set $cheerleaders.game.presentation = 8>>\
+	<<default>>\
+		<<set $cheerleaders.game.presentation = 6>>\
+	<</switch>>\
+	<<if ($cheerleaders.flags.wig || $cheerleaders.flags.makeup || $cheerleaders.flags.falsies)>>\
+		<<if playerCode.slutScoreBasic() < 4>>\
+		@@.cheerLackey1;“Well,”@@ Heather says as she motions to her chest, @@.cheerLackey1;“due some… obvious shortcomings, I’d say our cheer prospect has no chance of filling out a uniform like a real girl.\
+			<<if $cheerleaders.game.adjustedSlutScore > 5>>\
+				@@.cheerLackey1;Given his issues, I like that the rookie at least tried to disguise himself to look more like a girl. Maybe, with enough help, this sissy might end up looking like an actual cheerleader one day.@@\
+			<<else>>\
+				@@.cheerLackey1;He seems to have tried his best to overcome his issues, but unfortunately, he still looks like a crossdressing prostitute.@@\
+			<<endif>>\
+		<<else>>\
+			@@.cheerLackey1;“Well,”@@ Heather says, @@.cheerLackey1;“even though she was born with a penis, our cheer prospect almost looks like a real girl. The rookie’s attempts to be more girly are just icing on the slut cake.@@\
+		<<endif>>\
+	<<else>>
+		<<if playerCode.slutScoreBasic() < 4>>\
+			@@.cheerLackey1;“Well,”@@ Heather says as she motions to her chest, @@.cheerBitch;“due to some… obvious shortcomings, I’d say our cheer prospect has no chance of filling out a uniform like a real girl. The fact that he didn’t even try something as simple as makeup to look more like a girl is, honestly, unforgivable.@@\
+		<<else>>\
+			@@.cheerLackey1;“Well,”@@ Heather says, @@.cheerLackey1;“even though she was born with a penis, our cheer prospect seems confident that she looks enough like a real girl to try wearing her slutty uniform without any… extra help.@@\
+		<<endif>>\
+	<<endif>>\
+	<<if $cheerleaders.game.adjustedSlutScore < 7>>\
+		@@.cheerLackey1;The rookie seems to realize just how ‘meh’ <<if playerCode.slutScoreBasic() < 4>>his<<else>>her<<endif>> body is and chose a uniform that at least tries to hide <<if playerCode.slutScoreBasic() < 4>>his<<else>>her<<endif>> shame. The rookie’s score takes into account that <<if playerCode.slutScoreBasic() < 4>>he<<else>>she<<endif>> knows <<if playerCode.slutScoreBasic() < 4>>he’s<<else>>she’s<<endif>> an uggo and acted correctly.@@
+	<<else>>\
+		@@.cheerLackey1;The rookie oozes sex, but refused to slut it up and show off her best assets. Her score reflects this mistake.@@
+	<<endif>>\
+<<else>>\
+	<<switch $cheerleaders.game.adjustedSlutScore>>\
+		<<case 1>>\
+			<<set $cheerleaders.game.presentation = 1>>\
+		<<case 2>>\
+			<<set $cheerleaders.game.presentation = 2>>\
+		<<case 3>>\
+			<<set $cheerleaders.game.presentation = 3>>\
+		<<case 4>>\
+			<<set $cheerleaders.game.presentation = 5>>\
+		<<case 5>>\
+			<<set $cheerleaders.game.presentation = 6>>\
+		<<case 6>>\
+			<<set $cheerleaders.game.presentation = 8>>\
+		<<default>>\
+			<<set $cheerleaders.game.presentation = 10>>\
+	<</switch>>\
+	<<if ($cheerleaders.flags.wig || $cheerleaders.flags.makeup || $cheerleaders.flags.falsies)>>\
+		<<if playerCode.slutScoreBasic() < 4>>\
+			@@.cheerLackey1;“Well,”@@ Heather says as she motions to her chest, @@.cheerLackey1;“due some… obvious shortcomings, I’d say our cheer prospect has no chance of filling out a uniform like a real girl.@@\
+			<<if $cheerleaders.game.adjustedSlutScore > 5>>\
+				@@.cheerLackey1;Given his issues, I like that the rookie at least tried to disguise himself to look more like a girl. Maybe, with enough help, this sissy might end up looking like an actual cheerleader one day.@@\
+			<<else>>\
+				@@.cheerLackey1;The rookie seems to have tried his best to overcome his issues, but unfortunately, he still looks like a crossdressing prostitute.@@\
+			<<endif>>\
+		<<else>>\
+			@@.cheerLackey1;“Well,”@@ Heather says, @@.cheerLackey1;“even though she was born with a penis, our cheer prospect almost looks like a real girl. The rookie’s attempts to be more girly are just icing on the slut cake.@@\
+		<<endif>>\
+	<<else>>\
+		<<if playerCode.slutScoreBasic() < 4>>\
+			@@.cheerLackey1;“Well,”@@ Heather says as she motions to her chest, @@.cheerLackey1;“due some… obvious shortcomings, I’d say our cheer prospect has no chance of filling out a uniform like a real girl. The fact that he didn’t even try something as simple as makeup to look more like a girl is, honestly, unforgivable.@@\
+		<<else>>\
+			@@.cheerLackey1;“Well,”@@ Heather says, @@.cheerLackey1;“even though she was born with a penis, our cheer prospect seems confident that she looks enough like a real girl to try wearing her slutty uniform without any… extra help.@@\
+		<<endif>>\
+	<<endif>>\
+	<<if $cheerleaders.game.adjustedSlutScore < 6>>\
+		@@.cheerLackey1;The rookie tried to slut it up way too much for someone as <<if playerCode.slutScoreBasic() < 4>>boyish<<else>>plain<<endif>>-looking as <<if playerCode.slutScoreBasic() < 4>>he is<<else>>she is<<endif>>. <<if playerCode.slutScoreBasic() < 4>>His<<else>>her<<endif>> score reflects this poor decision.@@
+	<<else>>\
+		@@.cheerLackey1;The rookie’s got sex appeal, and her choice of uniform shows that she knows how to flaunt what she’s got. High marks for knowing how to look good while cheering like a porn star.@@
+	<<endif>>\
+<<endif>>\
+
+@@.cheerLackey1;“I give the rookie a score of $cheerleaders.game.presentation out of 10 for presentation.”@@
+
+<<set _adjFitness to $player.fitness - 6>>\
+<<set $cheerleaders.game.athleticism = Math.max(_adjFitness,0)>>\
+@@.cheerBitch;“Veronica?”@@ Ashley asks, passing the microphone. @@.cheerBitch;“How was her athleticism?”@@
+
+<<if $player.fitness < 10>>\
+	@@.cheerLackey2;“The rookie seems to have made no attempt to exercise outside of cheer practice. Her moves are weak and loose, and she seems to lack the stamina for more… vigorous activities.”@@ Veronica adds rare inflection to ‘vigorous activities,’ making the innuendo clear. @@.cheerLackey2;“She needs to hit the gym, and hard. Low marks from me.@@
+<<elseif $player.fitness <14>>\
+	Veronica shrugs.
+
+	@@.cheerLackey2;“The rookie seems to have hit the gym a little since joining the squad, but I’d say she’s not quite up to cheerleader standards yet. Her moves still seem a little shaky, and it looks like she’s still breathing heavy after such a short cheer.
+
+	“She might be able to fool others into thinking she can handle cheerleading, but I think she’ll crack when she has to pull off more difficult moves. I give her an average score.@@
+<<else>>\
+	@@.cheerLackey2;“Seeing as the rookie was a total weakling when she joined the squad, it seems she might have actually realized just how far behind she was and started putting in time at the gym.”@@
+
+	There is a hint of surprise in Veronica’s voice and you mentally congratulate yourself on how hard you’ve been working out. 
+
+	@@.cheerLackey2;“I wouldn’t call her strength or stamina impressive, but if she keeps busting her ass, she might be able to reach the level of the rest of the team. I actually marked her higher than I anticipated.@@
+<<endif>>\
+
+@@.cheerLackey2;“I give the rookie an athleticism score of $cheerleaders.game.athleticism out of 10.”@@
+
+Veronica hands the mic back to Ashley, who smiles deviously at you.
+
+<<if $minigames.cheerGame.failCount && $cheerleaders.flags.slutUniform == 0>>\
+	The pressure inside you continues to build, causing you to squirm as you try to keep them at bay. @@.hero;Hurry up. I don’t know how much longer I can hold it…@@
+	
+<<endif>>\
+@@.cheerBitch;“And that leaves me,”@@ [[she says into the mic.|Cheer SE10 Sc11]]
+
