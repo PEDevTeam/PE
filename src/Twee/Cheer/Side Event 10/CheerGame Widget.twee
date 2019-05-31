@@ -1,6 +1,11 @@
 :: CheerGame Widget [widget]
 \
 <<widget "CheerGame">>\
+	<<if $kinkAllow.diapering>>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader Tryout Short" 400 400>></div>\
+	<<else>>\
+		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader Tryout" 400 400>></div>\
+	<<endif>>\
 	<<if $minigames.cheerGame.turn gt 0>>\	
 		<<if $minigames.cheerGame.ignoreModesty>>\
 			<<print window.cheerMinigame.getActionById($minigames.cheerGame.lastActionId).actionIgnore>>
