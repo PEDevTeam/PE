@@ -1085,9 +1085,9 @@ window.imagePacks = {
                            "path":  "Cheerleader/Jocks Shorts",
                            "files":  [
                                          {
-                                             "fileName":  "jock rub2.gif",
-                                             "height":  617,
-                                             "width":  349
+                                             "fileName":  "jock_rub.gif",
+                                             "height":  400,
+                                             "width":  226
                                          }
                                      ]
                        },
@@ -1615,9 +1615,9 @@ window.imagePacks = {
                            "path":  "Cheerleader/Tryout",
                            "files":  [
                                          {
-                                             "fileName":  "Cheer gif 4.gif",
-                                             "height":  445,
-                                             "width":  358
+                                             "fileName":  "tryout.gif",
+                                             "height":  400,
+                                             "width":  322
                                          }
                                      ]
                        },
