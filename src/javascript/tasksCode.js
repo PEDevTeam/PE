@@ -1847,7 +1847,7 @@ window.tasksTeacher={
 		name:"Task Public toilet",
 		hasPassage: true,
 		text: {
-			given: "<<set _prompt to random(1)>><<if $tasksTeacher.rewardTeam.progress == 0>>As the school slut, your holes should be open to everyone. I want you to spend the morning as a public toilet here at school.<<else>><<if _prompt == 0>>You should spend tomorrow morning fulfilling your school slut duties.<<else>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.schoolPublicToilet.progress == 0>>As the school slut, your holes should be open to everyone. I want you to spend the morning as a public toilet here at school.<<else>><<if _prompt == 0>>You should spend tomorrow morning fulfilling your school slut duties.<<else>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
 			perform: "",
 			finish: "$teacher smirks at you.\n\n@@.teacher;\"I've heard that the toilets were quite popular today.@@",
 			fail: "It seems you failed to do your duties in the school toilets. Take a mark.",

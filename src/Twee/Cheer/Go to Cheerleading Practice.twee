@@ -1,6 +1,6 @@
 ::Go to Cheerleading Practice
 \
-<<if $cheerleaders.progress < 5>>\
+<<if $cheerleaders.progress < 6>>\
 	<<set _destination = "Cheer Ep">>\
 	<<set _destination += $cheerleaders.progress+1>>\
 	<<set _destination += " Sc1">>\
@@ -14,5 +14,6 @@
 		<<wearClothing 'cheerDress'>>\
 		<<set playerCode.saveQuickSlot(11)>><<updateClothes>>\
 	<<endif>>\
+	If you have loaded a game, you can reset your cheerleader progress by clicking [[here|Reset cheer]]
 	<<display [[Travel]]>>
 <<endif>>\
