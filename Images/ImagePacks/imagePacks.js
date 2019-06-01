@@ -1839,44 +1839,14 @@ window.imagePacks = {
                            "path":  "Chores/Adult_Novel_Writer",
                            "files":  [
                                          {
-                                             "fileName":  "- 00bra2(15).jpg",
-                                             "height":  800,
-                                             "width":  535
-                                         },
-                                         {
                                              "fileName":  "adult_novel_writer.jpg",
                                              "height":  413,
                                              "width":  250
                                          },
                                          {
-                                             "fileName":  "autosex16.jpg",
-                                             "height":  960,
-                                             "width":  1280
-                                         },
-                                         {
                                              "fileName":  "Balkonmaus (11).jpeg",
                                              "height":  1455,
                                              "width":  1000
-                                         },
-                                         {
-                                             "fileName":  "DSC04778.jpg",
-                                             "height":  1875,
-                                             "width":  2500
-                                         },
-                                         {
-                                             "fileName":  "gillian001.jpg",
-                                             "height":  955,
-                                             "width":  1429
-                                         },
-                                         {
-                                             "fileName":  "gillian052.jpg",
-                                             "height":  1427,
-                                             "width":  955
-                                         },
-                                         {
-                                             "fileName":  "yarragirls115.jpg",
-                                             "height":  981,
-                                             "width":  1472
                                          }
                                      ]
                        },
