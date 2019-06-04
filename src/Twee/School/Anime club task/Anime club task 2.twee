@@ -12,6 +12,9 @@
 	<<if $kinkAllow.petplay>>\
 		<<set _outfits.push(5)>>\
 	<<endif>>\
+	<<if $kinkAllow.latex>>\
+		<<set _outfits.push(6)>>\
+	<<if>>\
 	<<set _costume to _outfits.random()>>\
 	<<switch _costume>>\
 	<<case 0>>\
@@ -26,6 +29,8 @@
 		<<set $outfit='maid'>>\
 	<<case 5>>\
 		<<set $outfit='catgirl'>>\
+	<<case 6>>
+		<<set $outfit='plugsuit'>>\
 	<</switch>>\
 	One of the outfits is practically thrust into your hands, and you look around for somewhere to change only to realize you are expected to strip and switch in front of the whole club.
 
@@ -52,6 +57,9 @@
 		Paired with a sailor-style uniform roughly as modest (which is to say, not) as your current uniform, it is the cat-ear headband and soft belled collar that has you feeling like a cute, adventurous cat-girl.
 		
 		@@.hero;Meow!@@
+	<<case "plugsuit">>\
+    	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Anime_Plugsuit" 400 400>></div>\
+    	The tight latex of the plugsuit clings to your body like a second skin. Almost immediately you feel hot and sweaty... in more ways than one!
 	<</switch>>\
 
 	Turning around to face your audience, you are presented with a sea of lusty faces who encourage to walk back and forth and put on a bit of a fashion show. It seems that seeing one of their anime waifu’s come to life has most of the club ''very'' excited.
@@ -68,7 +76,7 @@
 	<<case "princess">>\
 		The outfit covers you far more than you have become accustomed to, and you try to appear regal and innocent, thanking your “subjects” for the lovely gift.
 
-		Someone hands you a royal scepter and you select a random guy, ordering him to kneel before knighting him. He returns to the rest of the club with a wide smile, and a bit of friendly joshing.
+		Someone hands you a royal sceptre and you select a random guy, ordering him to kneel before knighting him. He returns to the rest of the club with a wide smile, and a bit of friendly joshing.
 	<<case "sailor">>\
 		Doing a spin and waving your arms around, you strike a pose to finish off your pretend magical girl transformation...
 		
@@ -95,6 +103,14 @@
 		<<endif>>\
 			
 		With your costume completed, you continue your show, bouncing around and wiggling your tail to the enjoyment of the group, each swing of the tail sending waves of pleasure through your body and causing your heart to race in arousal.
+	<<case "plugsuit">>\
+		Every movement has the latex slide enticingly over your skin and you strike a pose with one hand on your hip.
+
+		@@.heroT;“Is this outfit supposed to be this tight? I thought I was going to learn to pilot a mech and save the world?”@@ You ask innocently.
+		
+		“Save my cock, is more like!” one of the guys jokes.
+
+		@@.heroT;“Oh no, is that what is meant by human instremantality? That I need to play the skin flute?”@@ The guys laugh uproariously at your comment and you give a little spin to show off your sex latex-encased backside.
 	<</switch>>\
 
 	@@.femvoice6;“Lovely,”@@ the girl says with a grin. @@.femvoice6;“I think that could really work for the convention. Why don’t you wear it for the rest of the meeting? But first, well… I think you need to reward the guy who brought it in for you.”@@
@@ -103,6 +119,8 @@
 	
 	<<if !($kink.futa)>>\
 		[[Get down on your knees|Anime club task 3][$obedient=true; $scene = "cosplay"]]
+	<<else>>
+		[[Beg the club’s queen for mercy|Anime club task 3][$scene = "cosplay_alt"]]
 	<<endif>>\
 	[[Refuse|Anime club task 3][$obedient=false; $scene = "cosplay"]]
 <<scene 25>>\
