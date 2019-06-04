@@ -29,11 +29,16 @@ window.misc={
 	getSnoopItems: function() {
 		var ra=[];
 		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
+		var pantiesVar = window.itemF.itemTwee("pantiesCotton");
 		for (var i=0; i < sia.length; i++) {
-			if (!playerCode.owns(sia[i])) {
+			if (sia[i] == itemsC.pantiesCotton && playerCode.owns(sia[i]) && !pantiesVar.ownAlt[40]){
+				ra.push(sia[i]);
+			}
+			else if (!playerCode.owns(sia[i])) {
 				ra.push(sia[i]);
 			}
 		}
+		console.log(ra);
 		return ra;
 	},
 	wager: {

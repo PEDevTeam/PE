@@ -79,7 +79,7 @@ macros.removeFromInv = {
 			throwError(place, "<<" + macroName + ">>: no parameters given");
 			return;
 		}
-		var index = state.active.variables.inventory.indexOf(params[0]);
+		var index = State.active.variables.inventory.indexOf(params[0]);
 		var removeItem = true;
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -91,8 +91,13 @@ macros.removeFromInv = {
 			throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
 			throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
 			return;
-		}	
-		var type=wV.curAlt;
+		}
+		if (params.length == 2){
+			var type = params[1];
+		}
+		else {
+			var type=wV.curAlt;
+		}
 		if (window.itemsC[params[0]].maxAlt){
 			wV.ownAlt[type]=null;
 			for (var i = 0; i < wV.ownAlt.length;i++){
