@@ -3588,7 +3588,7 @@ window.tasksEmail={
 		startDay: 0,  // day task was started
 		maxDays: 5,  // number of days allowed before task will fail
 		cooldown: 4,  // number of days before task available again
-		rewardMoney: 20,
+		rewardMoney: 40,
 		rewardDebt: 0,
 		failPenalty: 1,
 		events: {
