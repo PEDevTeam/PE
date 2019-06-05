@@ -132,8 +132,14 @@ Macro.add('RandomImageFromPack', {
 				imageHeight = imagePack.files[rndNum].height;
 				imageWidth = imagePack.files[rndNum].width;
             }
+            var fileExt = imageFileName.split('.').pop();
+            if (fileExt == 'webm') {
+                var imageElementString = '<<print \'<video ' + imgDimensionString + '" autoplay loop><source src="'+imageFileName+'"></video>\'>>'
+            } else {
             var imageElementString = '<img src="' + imageFileName + '" class="' + imagePackName.replace(" ", "_") + '_image" ' + imgDimensionString + '" />';
-			new Wikifier(_this.output, imageElementString);
+            }
+            new Wikifier(_this.output, imageElementString);
+
 		}
 	}
 });
