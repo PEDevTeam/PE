@@ -1,0 +1,178 @@
+if(typeof window.items == "undefined"){
+    window.items = {};
+}
+
+$.extend(true, window.items, {
+    itemMasters:{
+        //Nightwear
+        pajamas:{
+            itemType:"nightwear",
+            clothingSlot:"nightwear",
+            name: "Comfy Pajamas",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:true,
+            isFemale:false,
+            tags:{
+                school:true,
+                plain:true,
+            }
+        },
+        nightie:{
+            itemType:"nightwear",
+            clothingSlot:"nightwear",
+            name: "Nighties",
+            daring:5,
+            disabled:false,
+            hasWorn:false,
+            isMale:true,
+            isFemale:false,
+            tags:{
+                school:true,
+                plain:true,
+            }
+        },
+    },
+    itemChildren:{
+         //pajamas
+         pajamas0:{
+            masterItem:"pajamas",
+            variant:"pajamas_00",
+            name:"Grey Tartan Pajamas",
+            price:20,
+            daring:0,
+            disabled:false,
+            isMale:true,
+            isFemale:false,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                grey:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        pajamas1:{
+            masterItem:"pajamas",
+            variant:"pajamas_01",
+            name:"Black Pajamas",
+            price:20,
+            daring:0,
+            disabled:false,
+            isMale:true,
+            isFemale:false,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+
+        //nightie
+        nightie0:{
+            masterItem:"nightie",
+            variant:"nightie_00",
+            name:"Black Satin Teddie",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        nightie1:{
+            masterItem:"nightie",
+            variant:"nightie_01",
+            name:"Grey Sheer Satin Nightie",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                grey:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        nightie2:{
+            masterItem:"nightie",
+            variant:"nightie_02",
+            name:"Black Frilly Nightie",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        nightie3:{
+            masterItem:"nightie",
+            variant:"nightie_03",
+            name:"Pink Satin Teddie",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                pink:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        nightie4:{
+            masterItem:"nightie",
+            variant:"nightie_04",
+            name:"Yellow Satin Teddie",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                yellow:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+        nightie5:{
+            masterItem:"nightie",
+            variant:"nightie_00",
+            name:"Black Satin Nightie with Fur",
+            price:65,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                nightwear:true,
+                plain:true,
+            }
+        },
+    }
+});

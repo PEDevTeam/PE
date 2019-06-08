@@ -1,0 +1,160 @@
+if(typeof window.items == "undefined"){
+    window.items = {};
+}
+
+$.extend(true, window.items, {
+    itemMasters:{
+        //Buttplugs
+        buttplugs:{
+            itemType:"bluttplug",
+            clothingSlot:"buttplug",
+            name:"Buttplugs",
+            daring:4,
+            disabled:false,
+            hasWorn:false,
+            isMale:true,
+            isFemale:true,
+            tags:{
+                plain:true,
+            }
+        },
+    },
+    itemChildren:{
+        //buttplugs
+        buttplugs0:{
+            masterItem:"buttplugs",
+            variant:"buttplug_dildo",
+            name:"Black Buttplug Dildo",
+            price:80,
+            daring:6,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs1:{
+            masterItem:"buttplugs",
+            variant:"buttplug_heart",
+            name:"Heart Shapped Buttplug",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs2:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_0",
+            name:"Inflatable Buttplug (1)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs3:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_1",
+            name:"Inflatable Buttplug (2)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs4:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_2",
+            name:"Inflatable Buttplug (3)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs5:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_3",
+            name:"Inflatable Buttplug (4)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs6:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_4",
+            name:"Inflatable Buttplug (5)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs7:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_5",
+            name:"Inflatable Buttplug (6)",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs8:{
+            masterItem:"buttplugs",
+            variant:"buttplug_vibro",
+            name:"Vibrating Buttplug",
+            price:200,
+            daring:10,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+            }
+        },
+    }
+});
