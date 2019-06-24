@@ -123,7 +123,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sneekers:{
+        sneakers:{
             itemType:"shoes",
             clothingSlot:"shoes",
             name:"Sneekers",

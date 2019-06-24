@@ -52,6 +52,8 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
+		this.setupClothingSets();
+		this.setupItemVariantOverrides();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -120,6 +122,8 @@ window.structures={
 		if (vars.reason == null) { vars.reason = {}; }
 
 		if (vars.once == null) { vars.once = {}; } /* For checks that happen only once and never used anywhere else */
+
+		if (vars.newInventory == null) { vars.newInventory = true; } //Use the new inventory system...
 		
 	},
 	setupClothesCheck: function() {
@@ -715,6 +719,24 @@ window.structures={
 			}
 		}
 	},
+
+	setupClothingSets: function (){
+		var vars=State.active.variables;
+		var clothingSets = window.itemNavigator.clothingSets;
+		if(vars.clothingSets == null){
+			vars.clothingSets = [];
+		}
+		for(var clothingSetIdx in clothingSets){
+			vars.clothingSets.push(clothingSets[clothingSetIdx])
+		}
+	},
+
+	setupItemVariantOverrides: function(){
+		var vars=State.active.variables;
+		if(vars.itemVariantsOverrides == null){
+			vars.itemVariantsOverrides = [];
+		}
+	}
 },
 
 window.playerList={
@@ -781,6 +803,7 @@ window.playerList={
 	femaleName: false, //new flag
 	clubPassword: '',
 	clubPasswordFailed: false,
+	tattoos: [],
 },
 
 window.playerAddonsList={
@@ -902,6 +925,20 @@ window.playerAddonsList={
 		vibratorExp: 0,
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analExp: 0
+	},
+	clothingSlots:{
+		bra: null,
+		buttplug: null,
+		chastity: null,
+		earring: null,
+		eyewear: null,
+		headwear: null,
+		hosiery: null,
+		mouth: null,
+		neckwear: null,
+		outerwear: null,
+		shoes: null,
+		underwear: null,
 	},
 },
 
@@ -1539,3 +1576,5 @@ window.cheerFriendList={
 		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 	}
 }
+
+

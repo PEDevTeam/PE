@@ -27,118 +27,121 @@
 
 <<widget "updateClothes">>\
 <<nobr>>\
-<<replace "#sidebar_clothes">>
-<<if $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
-<div class="sidebarImages">
-	<<set _curClothes=[playerCode.isWearingOn(itemTypes.Outerwear),
-							playerCode.isWearingOn(itemTypes.Earrings),
-							playerCode.isWearingOn(itemTypes.Collar),
-							playerCode.isWearingOn(itemTypes.Hairband),
-							playerCode.isWearingOn(itemTypes.Extra),
-							playerCode.isWearingOn(itemTypes.Bras),
-							playerCode.isWearingOn(itemTypes.Chastity),
-							playerCode.isWearingOn(itemTypes.Underwear),
-							playerCode.isWearingOn(itemTypes.AnalPlug),
-							playerCode.isWearingOn(itemTypes.Shoes),
-							playerCode.isWearingOn(itemTypes.Stockings)]>>
-	<<set _curClothesOver=[]>>
+<<if $newInventory and $showimages and (not $avatar.active)>>\
+	<<ClothingSlotSidebar>>\
+<<elseif $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
+	<<replace "#sidebar_clothes">>
+	<div class="sidebarImages">
+		<<set _curClothes=[playerCode.isWearingOn(itemTypes.Outerwear),
+								playerCode.isWearingOn(itemTypes.Earrings),
+								playerCode.isWearingOn(itemTypes.Collar),
+								playerCode.isWearingOn(itemTypes.Hairband),
+								playerCode.isWearingOn(itemTypes.Extra),
+								playerCode.isWearingOn(itemTypes.Bras),
+								playerCode.isWearingOn(itemTypes.Chastity),
+								playerCode.isWearingOn(itemTypes.Underwear),
+								playerCode.isWearingOn(itemTypes.AnalPlug),
+								playerCode.isWearingOn(itemTypes.Shoes),
+								playerCode.isWearingOn(itemTypes.Stockings)]>>
+		<<set _curClothesOver=[]>>
 
-	<<if _curClothes[8] eq 'buttPlugInflate'>>
-		<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
-		<<set _curClothesOver[8] = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
-	<<endif>>
-	
-	<<if _curClothes[0] and (_curClothes[0].id eq 'maidOutfit')>>
-
-		<<if $flags.gTrialLatexMaid>>
-			<<set _curClothesOver[0] = "maid_dress_latex.jpg">>
-		<<else>>
-			<<set _curClothesOver[0] = "maid_dress.jpg">>
+		<<if _curClothes[8] eq 'buttPlugInflate'>>
+			<<set $player.buttplugInflate = Math.min($player.buttplugInflate, 5)>>
+			<<set _curClothesOver[8] = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
 		<<endif>>
 		
-		<<if (not _curClothes[2])>>
+		<<if _curClothes[0] and (_curClothes[0].id eq 'maidOutfit')>>
+
 			<<if $flags.gTrialLatexMaid>>
-				<<set _curClothesOver[2] = "choker_05.jpg">>
+				<<set _curClothesOver[0] = "maid_dress_latex.jpg">>
 			<<else>>
-				<<set _curClothesOver[2] = "choker_00.jpg">>
+				<<set _curClothesOver[0] = "maid_dress.jpg">>
 			<<endif>>
+			
+			<<if (not _curClothes[2])>>
+				<<if $flags.gTrialLatexMaid>>
+					<<set _curClothesOver[2] = "choker_05.jpg">>
+				<<else>>
+					<<set _curClothesOver[2] = "choker_00.jpg">>
+				<<endif>>
+			<<endif>>
+			
+			<<if (not _curClothes[3])>>
+				<<set _curClothesOver[3] = "maid_headband.jpg">>
+			<<endif>>
+			
+			<<if (not _curClothes[4])>>
+				<<set _curClothesOver[4] = "maid_duster.jpg">>
+			<<endif>>
+			
 		<<endif>>
 		
-		<<if (not _curClothes[3])>>
-			<<set _curClothesOver[3] = "maid_headband.jpg">>
-		<<endif>>
+		<<set _combineSlot=0>>
+		<<if _curClothes[1] or _curClothesOver[1]>><<set _combineSlot++>><<endif>>
+		<<if _curClothes[2] or _curClothesOver[2]>><<set _combineSlot++>><<endif>>
+		<<if _curClothes[3] or _curClothesOver[3]>><<set _combineSlot++>><<endif>>
+		<<if _curClothes[4] or _curClothesOver[4]>><<set _combineSlot++>><<endif>>
 		
-		<<if (not _curClothes[4])>>
-			<<set _curClothesOver[4] = "maid_duster.jpg">>
-		<<endif>>
-		
-	<<endif>>
-	
-	<<set _combineSlot=0>>
-	<<if _curClothes[1] or _curClothesOver[1]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[2] or _curClothesOver[2]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[3] or _curClothesOver[3]>><<set _combineSlot++>><<endif>>
-	<<if _curClothes[4] or _curClothesOver[4]>><<set _combineSlot++>><<endif>>
-	
-	<<for _i to 0; _i lt _curClothes.length; _i++>>
+		<<for _i to 0; _i lt _curClothes.length; _i++>>
 
-		<<set _small=false>>
+			<<set _small=false>>
 
-		<<if [5,6].includes(_i) and (not $player.secondInvLine)>>
-			<<continue>>
-		<<endif>>
-
-		<<if (_combineSlot eq 0) and [2,3,4].includes(_i)>>
-			<<continue>>
-		<<elseif (_combineSlot eq 1) and (not _curClothes[_i]) and (not _curClothesOver[_i]) and [1,2,3,4].includes(_i)>>
-			<<continue>>
-		<<elseif (_combineSlot gt 1) and [1,2,3,4].includes(_i)>>
-			<<if [2,4].includes(_i)>>
-				<<set _small=1>>
-			<<else>>
-				<<set _small=2>>
-			<<endif>>
-		<<endif>>
-
-		<<if _curClothes[_i] or _curClothesOver[_i]>>
-
-			<<if _curClothesOver[_i]>>
-				<<set _itemSidebarImage = _curClothesOver[_i]>>
-			<<else>>
-				<<set _itemSidebarImage = window.itemF.image(_curClothes[_i])>>
-			<<endif>>
-			<<if (not _curClothesOver[_i]) and (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
-				<<showImageSidebar _itemSidebarImage $items[_curClothes[_i].id].curAlt _small _i>>
-			<<else>>
-				<<showImageSidebar _itemSidebarImage 100 _small _i>>
+			<<if [5,6].includes(_i) and (not $player.secondInvLine)>>
+				<<continue>>
 			<<endif>>
 
-		<<else>>
+			<<if (_combineSlot eq 0) and [2,3,4].includes(_i)>>
+				<<continue>>
+			<<elseif (_combineSlot eq 1) and (not _curClothes[_i]) and (not _curClothesOver[_i]) and [1,2,3,4].includes(_i)>>
+				<<continue>>
+			<<elseif (_combineSlot gt 1) and [1,2,3,4].includes(_i)>>
+				<<if [2,4].includes(_i)>>
+					<<set _small=1>>
+				<<else>>
+					<<set _small=2>>
+				<<endif>>
+			<<endif>>
 
-			<<showImageSidebar "blank_item.png" 100 _small 11>>
+			<<if _curClothes[_i] or _curClothesOver[_i]>>
 
-		<<endif>>
+				<<if _curClothesOver[_i]>>
+					<<set _itemSidebarImage = _curClothesOver[_i]>>
+				<<else>>
+					<<set _itemSidebarImage = window.itemF.image(_curClothes[_i])>>
+				<<endif>>
+				<<if (not _curClothesOver[_i]) and (_curClothes[_i].maxAlt and _curClothes[_i].maxAlt gt 0)>>
+					<<showImageSidebar _itemSidebarImage $items[_curClothes[_i].id].curAlt _small _i>>
+				<<else>>
+					<<showImageSidebar _itemSidebarImage 100 _small _i>>
+				<<endif>>
 
-		<<if (_combineSlot lte 1) and [1,2,3,4].includes(_i)>>
-			<br>
-			<<continue>>
-		<<endif>>
-		
-		<<if (_combineSlot gt 1) and [4].includes(_i)>>
-			<br>
-			<<continue>>
-		<<endif>>
-		
-		<<if [6,8,10].includes(_i)>>
-			<br>
-			<<continue>>
-		<<endif>>
-		
-	<</for>>
-</div>
+			<<else>>
+
+				<<showImageSidebar "blank_item.png" 100 _small 11>>
+
+			<<endif>>
+
+			<<if (_combineSlot lte 1) and [1,2,3,4].includes(_i)>>
+				<br>
+				<<continue>>
+			<<endif>>
+			
+			<<if (_combineSlot gt 1) and [4].includes(_i)>>
+				<br>
+				<<continue>>
+			<<endif>>
+			
+			<<if [6,8,10].includes(_i)>>
+				<br>
+				<<continue>>
+			<<endif>>
+			
+		<</for>>
+	</div>
+	<</replace>>
 <!--</Clothes mini-images>-->
 <<elseif $showimages and $avatar.active>><!--<Avatar window>-->
-
+	<<replace "#sidebar_clothes">>
 	<<set $avatarRender = true>>
 	
 	<div id="showClothes" class="sideframe_showclothes"></div>
@@ -544,16 +547,19 @@
 	<<if _bow neq "none">>
 		<<showAvatarImage _bow>>
 	<<endif>>
-	
+	<</replace>>
 <!--</Avatar window>-->
 <<elseif $player.clothes.length gt 0>>
+	<<replace "#sidebar_clothes">>
 	<<for _i=0; _i<$player.clothes.length; _i++>>
 		<<print window.itemF.nameById($player.clothes[_i])>><br>
 	<</for>>
+	<</replace>>
 <<else>>
+	<<replace "#sidebar_clothes">>
 	You are naked
+	<</replace>>
 <<endif>>
-<</replace>>
 <</nobr>>\
 <</widget>>\
 

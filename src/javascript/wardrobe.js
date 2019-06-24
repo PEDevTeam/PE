@@ -1,185 +1,108 @@
 //macros.wardrobe = {
 Macro.add('wardrobe', {
-    //handler: function(place, macroName, params, parser) {
     handler: function() {
-        var wardrobeDiv = document.createElement('div');
-        var wardrobeTable = document.createElement('table');
-        var clothingTypeSelectorTr = document.createElement('tr');
-        var clothingTypeSelectorTd = document.createElement('td');
-        clothingTypeSelectorTd.className = "wardrobe-category-button-heading";
-        var firstCategory = "";
-        var needFirstCategory = true;
-
-        for(var categoryName in window.wardrobe.categories){
-            var category = window.wardrobe.categories[categoryName];
-            var categorySpan = document.createElement('span')
-            var categoryText = document.createTextNode(category.name);
-            categorySpan.appendChild(categoryText);          
-            categorySpan.addEventListener("click", callShowCategory, true);
-            categorySpan.categoryName = categoryName;
-            categorySpan.className = "wardrobe-category-button";
-            if(needFirstCategory){ 
-                firstCategory = categoryName;
-                categorySpan.className = "wardrobe-category-button-selected";
-                needFirstCategory = false;
-            }
-
-            clothingTypeSelectorTd.appendChild(categorySpan);
-        }
-        clothingTypeSelectorTr.appendChild(clothingTypeSelectorTd);
-        wardrobeTable.appendChild(clothingTypeSelectorTr);
-        wardrobeTable.className = "wardrobe-selector-table"
-
-        var clothingListTr = document.createElement('tr');
-        var clothingListTable = document.createElement('table');
-        var clothingListInnerTr = document.createElement('tr');
-        var masterItemListTd = document.createElement('td');
-        var masterItemListDiv = document.createElement('div');
-        var itemVariantSelectorTd = document.createElement('td');
-        var itemVariantSelectorDiv = document.createElement('div');
-        var itemVariantTable = document.createElement('table');
-        var itemVariantTitleTr = document.createElement('tr');
-        var itemVariantTitleTd = document.createElement('td');
-        var itemVariantTitleSpan = document.createElement('span');
-        var itemVariantPictureTr = document.createElement('tr');
-        var itemVariantPictureTd = document.createElement('td');
-        var itemVariantTagsTr = document.createElement('tr');
-        var itemVariantTagsTd = document.createElement('td');
-
-        masterItemListTd.id = "wardrobeMasterItemList";
-        itemVariantSelectorTd.id = "wardrobeVariantSelector";
-        masterItemListTd.className = "wardrobe-master-item-list"
-        masterItemListTd.appendChild(masterItemListDiv);
-
-        itemVariantTitleSpan.id = "itemVariantTitle";
-        itemVariantTitleTd.appendChild(itemVariantTitleSpan)
-        itemVariantTitleTr.appendChild(itemVariantTitleTd);
-        itemVariantPictureTd.id = "itemVariantPictureCell";
-        itemVariantPictureTr.appendChild(itemVariantPictureTd);
-        itemVariantTagsTd.id = "itemVariantTagsCell"
-        itemVariantTagsTr.appendChild(itemVariantTagsTd);
-        itemVariantTable.appendChild(itemVariantTitleTr);
-        itemVariantTable.appendChild(itemVariantPictureTr);
-        itemVariantTable.appendChild(itemVariantTagsTd);
-        itemVariantSelectorDiv.appendChild(itemVariantTable);        
-        itemVariantSelectorTd.appendChild(itemVariantSelectorDiv);
-
-        clothingListInnerTr.appendChild(masterItemListTd);
-        clothingListInnerTr.appendChild(itemVariantSelectorTd);
-        clothingListTable.appendChild(clothingListInnerTr);
-        clothingListTr.appendChild(clothingListTable);
-        wardrobeTable.appendChild(clothingListTr);
-
-        wardrobeDiv.appendChild(wardrobeTable);
-
+        var wardrobeDiv = window.itemNavigator.getItemNavigator('wardrobe');
         $(this.output).append(wardrobeDiv);
+        var clothingSetDiv = window.itemNavigator.getClothingSetNavigator();
+        $(this.output).append(clothingSetDiv);
 
-        $(function(){window.wardrobeFuncs.showCategory(firstCategory)});
-
-        function callShowCategory(evt){
-            $(".wardrobe-category-button-selected").addClass("wardrobe-category-button").removeClass("wardrobe-category-button-selected");
-            evt.currentTarget.className = "wardrobe-category-button-selected";
-            window.wardrobeFuncs.showCategory(evt.currentTarget.categoryName);
-        }
+        $(function(){
+            if(wardrobeDiv.firstCategory !== ""){
+                window.itemNavigator.showCategory(wardrobeDiv.firstCategory, 'wardrobe');
+            }
+        });
+    }
+});
+Macro.add('ClothingSlotSidebar',{
+    handler: function(place, macroName, params, parser){
+        window.wardrobeFuncs.updateSidebar();
     }
 });
 
 window.wardrobeFuncs = {
-    showCategory: function(categoryName){
-        console.log("showing category");
-        console.log(categoryName);
-        var masterItemListTable = document.createElement('table');
-        var category = window.wardrobe.categories[categoryName];
-        var firstMasterItem = "";
-        var needFirstMasterItem = true;
+    wearItemVariant: function(itemVariant){
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+        }
+        var masterItem = window.items.itemMasters[itemVariant.masterItem];
+        
+        if(masterItem.clothingSlot == 'nightwear'){
+            window.wardrobeFuncs.removeClothingAndAccessories();
+        }
+        else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
+            SugarCube.State.active.variables.player.clothingSlots['nightwear'] = null;
+        }
 
-        for(var masterItemIdx in category.masterItems){
-            var masterItem = window.items.itemMasters[category.masterItems[masterItemIdx]];
-            var masterItemTr = document.createElement('tr');
-            var masterItemTd = document.createElement('td');
-            var masterItemSpan = document.createElement('span');
-            var masterItemNameText = document.createTextNode(masterItem.name);
+        var itemVariantClothingSlot = masterItem.clothingSlot;
+        SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
+    },
+    removeItemVariant: function(itemVariant){
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+        }
+        var masterItem = window.items.itemMasters[itemVariant.masterItem];
+        var itemVariantClothingSlot = masterItem.clothingSlot;
+        SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot] = null;
+    },
+    removeClothingAndAccessories: function(){
+        window.wardrobeFuncs.removeMainClothing();
+        window.wardrobeFuncs.remoteAccessories();
+    },
+    removeMainClothing: function(){
+        for(var clothingSlotIdx in window.wardrobe.mainClothing){
+            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.mainClothing[clothingSlotIdx]] = null;
+        }
+    },
+    remoteAccessories: function(){
+        for(var clothingSlotIdx in window.wardrobe.accessories){
+            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.accessories[clothingSlotIdx]] = null;
+        }
+    },
+    removeToys: function(){
+        for(var clothingSlotIdx in window.wardrobe.toys){
+            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.toys[clothingSlotIdx]] = null;
+        }
+    },
+    isItemVariantWearing: function(itemVariant){
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+        }
+        var masterItem = window.items.itemMasters[itemVariant.masterItem];
+        var itemVariantClothingSlot = masterItem.clothingSlot;
+        var currentlyWearing = SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot];
+        if(currentlyWearing != null && currentlyWearing.variant == itemVariant.variant){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+    updateSidebar: function(){
+        var currentClothing = State.active.variables.player.clothingSlots;
 
-            masterItemSpan.appendChild(masterItemNameText);
-            masterItemSpan.className = "wardrobe-master-item"
-            masterItemSpan.masterItemName = category.masterItems[masterItemIdx];
-            masterItemSpan.addEventListener("click", callShowVariant, true);
+        var clothingSlotSidebarDiv = document.createElement('div');
+        clothingSlotSidebarDiv.id = 'sidebar_clothes';
+        clothingSlotSidebarDiv.className = 'clothing-slot-sidebar-background-image';
 
-            if(needFirstMasterItem){ 
-                firstMasterItem = category.masterItems[masterItemIdx];
-                masterItemSpan.className = "wardrobe-master-item-selected";
-                needFirstMasterItem = false;
+        for(var clothingIdx in currentClothing){
+            if(currentClothing[clothingIdx]!= null){
+                var currentClothingSlotItem = currentClothing[clothingIdx];
+                var masterItem = window.items.itemMasters[currentClothingSlotItem.masterItem];
+                var currentClothingSlot = masterItem.clothingSlot;
+                console.log(currentClothingSlot);
+                var clothingSlotDiv = document.createElement('div');
+                var clothingSlotImg = document.createElement('img');
+                clothingSlotDiv.id = 'sidebar_' + currentClothingSlot + 'Slot';
+                clothingSlotDiv.className = 'clothing-slot-sidebar-anchor';
+                clothingSlotImg.className = 'clothing-slot-sidebar-' + currentClothingSlot;
+                clothingSlotImg.src = "./Images/items/" + currentClothingSlotItem.variant + ".jpg";
+                clothingSlotDiv.appendChild(clothingSlotImg);
+                clothingSlotSidebarDiv.appendChild(clothingSlotDiv);
             }
-            masterItemTd.appendChild(masterItemSpan);
-            masterItemTd.className = "wardrobe-master-item-row"
-            masterItemTr.appendChild(masterItemTd);
-            masterItemListTable.appendChild(masterItemTr);
         }
-        var wardrobeMasterItemList = document.getElementById("wardrobeMasterItemList");
-        console.log(wardrobeMasterItemList);
-        wardrobeMasterItemList.replaceChild(masterItemListTable, wardrobeMasterItemList.firstElementChild);
 
-        window.wardrobeFuncs.showVariant(firstMasterItem, 0);
-
-        function callShowVariant(evt){
-            $(".wardrobe-master-item-selected").addClass("wardrobe-master-item").removeClass("wardrobe-master-item-selected");
-            evt.currentTarget.className = "wardrobe-master-item-selected";
-            window.wardrobeFuncs.showVariant(evt.currentTarget.masterItemName, 0);
-        }
-    },
-
-    showVariant: function(masterItemName, variantIndex){
-        console.log("showing item variant");
-        console.log(masterItemName + " " + variantIndex);
-        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
-        if(variantIndex > itemVariants.length - 1){
-            variantIndex = 0;
-        }
-        if(variantIndex < 0){
-            variantIndex = itemVariants.length - 1;
-        }
-        var itemVariant = itemVariants[variantIndex];
-        var masterItem = window.items.itemMasters[masterItemName];
-        console.log(masterItem);
-
-        var itemVariantTitleSpan = document.createElement('span');
-        var itemVariantNavigateBackSpan = document.createElement('span');
-        var itemVariantNavigateForwardSpan = document.createElement('span');
-        var itemVariantWearSpan = document.createElement('span');
-        var itemVariantNavigateBackText = document.createTextNode('←');
-        var itemVariantNavigateForwardText = document.createTextNode('→');
-        var itemVariantWearText = document.createTextNode('Wear');
-        itemVariantNavigateBackSpan.appendChild(itemVariantNavigateBackText);
-        itemVariantNavigateForwardSpan.appendChild(itemVariantNavigateForwardText);
-        itemVariantWearSpan.appendChild(itemVariantWearText);
-        itemVariantNavigateBackSpan.className = "wardrobe-variant-navigation-span";
-        itemVariantNavigateForwardSpan.className = "wardrobe-variant-navigation-span";
-        itemVariantWearSpan.className = "wardrobe-variant-navigation-span";
-        itemVariantNavigateBackSpan.masterItemName = masterItemName;
-        itemVariantNavigateBackSpan.variantIndex = variantIndex - 1;
-        itemVariantNavigateBackSpan.addEventListener('click', callShowVariant, true);
-        itemVariantNavigateForwardSpan.masterItemName = masterItemName;
-        itemVariantNavigateForwardSpan.variantIndex = variantIndex + 1;
-        itemVariantNavigateForwardSpan.addEventListener('click', callShowVariant, true);
-        itemVariantTitleSpan.id = "itemVariantTitle";
-        itemVariantTitleSpan.appendChild(itemVariantNavigateBackSpan);
-        itemVariantTitleSpan.appendChild(itemVariantWearSpan);
-        itemVariantTitleSpan.appendChild(itemVariantNavigateForwardSpan);
-        $("#itemVariantTitle").replaceWith(itemVariantTitleSpan);
-
-        var itemVariantImage = document.createElement('img');
-        itemVariantImage.src = "./Images/items/" + itemVariant.variant + ".jpg";
-        itemVariantImage.width = 300;
-        itemVariantImage.height = 300;
-        var itemVariantPictureTd = document.createElement('td');
-        itemVariantPictureTd.appendChild(itemVariantImage);
-        itemVariantPictureTd.id = "itemVariantPictureCell";
-        $("#itemVariantPictureCell").replaceWith(itemVariantPictureTd);
-
-        function callShowVariant(evt){
-            window.wardrobeFuncs.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex);
-        }
-    },
+        $("#sidebar_clothes").replaceWith(clothingSlotSidebarDiv);
+    }
 }
 
 window.wardrobe = {
@@ -192,6 +115,8 @@ window.wardrobe = {
                 "sexyPanties",
                 "latexPanties",
                 "bras",
+                "sexyBras",
+                "latexBras",
             ]
         },
         outerwear: {
@@ -200,35 +125,71 @@ window.wardrobe = {
                 "tshirtJeans",
                 "skirtTop",
                 "casualDress",
-                "sluttyDress"
+                "sluttyDress",
+                "cheerUniform",
+                "schoolUniform",
+                "schoolDress",
+                "sluttySchoolDress",
+                "maidUniform",
             ]
         },
         socks: {
-            name: "Socks",
+            name: "Hosiery",
             masterItems: [
-                "stockings"
+                "stockings",
+                "socks",
+                "latexStockings",
             ]
         },
         footwear: {
             name: "Footwear",
             masterItems: [
-                "shoes",
+                "blackShoes",
+                "boots",
+                "heeledBoots",
+                "highBoots",
+                "flats",
+                "girlSneakers",
+                "heels",
+                "balletHeels",
+                "stripperHeels",
+                "sneakers",
+                "cheerSneakers",
             ]
         },
         accessories: {
             name: "Accessories",
             masterItems: [
-                "earrings",
+                "casualEarrings",
+                "classyEarrings",
+                "flashyEarrings",
+                "plasticEarrings",
+                "chokers",
                 "collar",
-                "hairband",
+                "hairbands",
+                "hairbows",
+                "glasses",
+                "sunglasses",
             ]
         },
         toys: {
             name: "Toys",
             masterItems: [
                 "chastity",
-                "analplug",
+                "buttplugs",
+                "gag",
+                "blindfold",
+            ]
+        },
+        nightwear: {
+            name: "Nightwear",
+            masterItems: [
+                "pyjamas",
+                "nightie",
             ]
         }
-    }
+    },
+    mainClothing:['outerwear', 'underwear', 'shoes', 'hosiery', 'bra'],
+    accessories:['earring','eyewear','headwear','mouth', 'neckwear'],
+    toys:['chastity', 'buttplug']
 }

@@ -76,9 +76,6 @@ $.extend(true, window.items, {
         },
     },
     itemChildren:{
-        length: function(){
-            return Object.keys(window.items.itemChildren).length;
-        },
         //Boxers
         luckyBoxers0:{
             masterItem:"boxers",
@@ -170,7 +167,7 @@ $.extend(true, window.items, {
             variant:"lucky_jocks_05",
             name:"Plain Black Boxers with White Band",
             price:10,
-            daring:0,
+            daring:10,
             disabled:false,
             isMale:true,
             isFemale:false,
@@ -188,7 +185,7 @@ $.extend(true, window.items, {
             name:"Yellow Ducky Boxers",
             price:10,
             daring:0,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:false,
             isItemSet:false,

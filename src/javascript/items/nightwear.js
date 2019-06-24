@@ -5,10 +5,10 @@ if(typeof window.items == "undefined"){
 $.extend(true, window.items, {
     itemMasters:{
         //Nightwear
-        pajamas:{
+        pyjamas:{
             itemType:"nightwear",
             clothingSlot:"nightwear",
-            name: "Comfy Pajamas",
+            name: "Comfy Pyjamas",
             daring:0,
             disabled:false,
             hasWorn:false,
@@ -37,9 +37,9 @@ $.extend(true, window.items, {
     itemChildren:{
          //pajamas
          pajamas0:{
-            masterItem:"pajamas",
-            variant:"pajamas_00",
-            name:"Grey Tartan Pajamas",
+            masterItem:"pyjamas",
+            variant:"male_pyjamas_00",
+            name:"Grey Tartan Pyjamas",
             price:20,
             daring:0,
             disabled:false,
@@ -54,9 +54,9 @@ $.extend(true, window.items, {
             }
         },
         pajamas1:{
-            masterItem:"pajamas",
-            variant:"pajamas_01",
-            name:"Black Pajamas",
+            masterItem:"pyjamas",
+            variant:"male_pyjamas_01",
+            name:"Black Pyjamas",
             price:20,
             daring:0,
             disabled:false,
