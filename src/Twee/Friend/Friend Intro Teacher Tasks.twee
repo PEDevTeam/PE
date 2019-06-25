@@ -1,0 +1,73 @@
+:: Friend Intro Teacher Tasks
+<<set $wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set $wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\
+\
+<<if $wornUnderwear>>\
+    <<set _underwear to itemF.itemTwee($wornUnderwear.id)>>\
+    <<set $underwearAlt to _underwear.curAlt>>\
+<<endif>>\
+\
+<<if _wearingGString>>\
+    <<if $underwearAlt eq 60>>\
+        <<set $friendUnderwear to 1>>\
+    <<elseif $underwearAlt eq 61>>\
+        <<set $friendUnderwear to 2>>\
+    <<endif>>\
+<<endif>>\
+\
+<<if $wornUnderwear.female>>\
+    <<set $friendG.seenPanties to [playerCode.isWearingOn(itemTypes.Underwear).id, $underwearAlt]>>\
+<<endif>>\
+\
+<<set _plugText to "As you walk the buttplug wiggles inside you. Even breathing makes you aware of the device invading your body. You feel on the verge of exploding every time you move to get comfortable<<if _wearingGString>>, the pressure of your thong panties on your plug's base adding to your frustration.<<endif>>">>\
+<<set _chastityText to "The chastity still tugs at you, reminding you of your imprisonment. It is not the physical reminder though which makes you so uncomfortable.<br><br>@@.hero;I cannot believe that $teacher took the key!@@">>\
+\
+<<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
+<<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
+\
+$friend opens the door and smiles widely at you before stepping back.
+
+You stand on the doorstep nervously pondering how to broach the bra dilemma. Things have become worse, not better since your last visit. You smile wistfully as $friendG.he_she steps back and motions for you to climb the stairs.
+
+You follow $friendG.him_her up to $friendG.his_her bedroom, but your heart isn’t in it.
+
+<<if _wearingChastity and not $wearingPlug>>\
+    _chastityText
+<<elseif not _wearingChastity and _wearingPlug>>\
+    @@.hero;At least it’s the weekend, and I got the damned key back! Why did I keep the buttplug in though?@@ you ask yourself. _plugText\
+<<elseif _wearingChastity and _wearingPlug>>\
+    _plugText _chastityText
+<<else>>
+    @@.hero;At least it’s the weekend, and I got the damned key back!@@
+    You wish you could relax and go back to normal, but there are so many conflicting thoughts in your mind.
+<<endif>>
+
+@@.friend;“Something's changed...”@@ $friend says, looking at you with a quizzical expression. @@.friend;“Sit down, and we'll chat...”@@
+
+You flop down on the couch, a forlorn expression etched on your face.\
+<<if $friendUnderwear eq 1>> You are immediately reminded that you are wearing the panties he gave you to wear, a thought that makes your cock twitch, and that you need to secure the bra to match them somehow.\
+<<elseif $friendUnderwear eq 2>>You are immediately reminded that you are wearing $friend’s panties, a thought that makes your cock twitch, and that you need to secure the bra to match them somehow.\
+<<elseif $wornUnderwear.female>>Your panties stretch snugly against your butt cheeks.\
+<<endif>>\
+
+$friend smiles reassuringly. @@.friend;“Is this more... wardrobe related changes?”@@
+
+@@.hero;Don't mention $teacher. Don't mention $teacher. Don't mention $teacher@@
+
+The thought rolls through your mind like a mantra as you deliberate.
+
+@@.hero;Should I try and find them on my own, or just come clean?@@
+
+@@.friend;“Look, I thought we'd gotten over this already. I said I was fine with it, supportive even. I shared some of my secrets with you...”@@
+
+@@.heroT;“No, it's fine...”@@ you stammer.
+
+
+[[Ask for a drink and steal the bra | Friend Teacher Tasks Bra 1]]
+[[Confess and ask for the bra | Friend Teacher Tasks Bra 2]]
+[[Hang out | Friend Hang Out]]
+
+
+
