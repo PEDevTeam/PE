@@ -6,7 +6,9 @@
 <<set _femAppearance to playerCode.obviousFemaleAppearance()>>\
 <<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
 \
-<<if _outerWear.female or $friendG.catchUp eq 1>><<set $friendG.visit.r2 to 2>><<endif>>
+<<if _outerWear.female or $friendG.catchUp eq 1>>\
+    <<set $friendG.visit.r2 to 2>>\
+<<endif>>\
 \
 <<if not $flags.friendNamed>>\
 	<<goto [[Name friend]]>>\
