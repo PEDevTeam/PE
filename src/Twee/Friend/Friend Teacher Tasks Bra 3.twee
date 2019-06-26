@@ -1,4 +1,5 @@
 :: Friend Teacher Tasks Bra 3
+\
 <<if $friendG.gender eq 'F'>>\
     @@.friend;”They look harder to put on than they are. It’s all about technique and deft fingers. Having deft fingers is good for so many other things too!”@@ $friend says with a wink. @@.friend;”Hey, what do they call a lesbian with big hands?”@@
 
@@ -79,8 +80,7 @@
     @@.friend;”Sorry $hero, but you don’t exactly have firm pecs either, do you? Maybe if you exercised more…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. \
     @@.friend;”It’s a push-up bra, so it kind of makes its own clevage. Awesome, right? Now you just adjust the straps and get comfortable.“@@
     \
-    <<addToInv braSexy 61>>\
-    <<wearClothing braSexy 61>>\
+    <<set _braAlt to 61>>
 \
 <<elseif $friendG.gender eq 'T'>>\
     @@.friend;“You know, $hero, I am kind of looking forward to this. Learning together…”@@ $friend lifts his bra and checks the label. @@.friend;“It says mine is a C cup. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?@@
@@ -96,8 +96,8 @@
 
     The thought of trying on a bra in front of him makes your stomach swirl weirdly.
 
-    <<if $wornUnderwear.female>>@@.hero; What if he sees my panties?@@<<endif>>
-
+    <<if $wornUnderwear.female>>@@.hero; What if he sees my panties?@@<<endif>>\
+    \
     However, there is no way you can do this by yourself, so you nod in resignation.
 
     @@.friend;”Oh wait, before we start, did you, you know, wear them today?”@@
@@ -111,12 +111,12 @@
 
         @@.friend;”Oh my God, how awesome. Now you are going to match, just like me!”@@ He pauses for a moment and then shyly reveals the top of his panties, sheer red and lacy and racy.
     \
-    <<elseif $wornUnderwear.female>>
+    <<elseif $wornUnderwear.female>>\
         Unsure of what is making you do it, you pull your trousers waistband down at the side, revealing just a sliver of your panties.
 
         @@.friend; ”Oh my God, you bought some of your own. You’re going to have to start wearing the ones I gave you with the bra though or you won’t match. And you have to match to be cute! Unless you buy the bra to go with them too…”@@ He pauses for a moment and then shyly reveals the top of his panties, sheer, red and lacy.
     \
-    <<else>>
+    <<else>>\
         You shake your head.
 
         @@.friend;”Oh, that sucks,”@@ $friend announces in obvious disappointment. @@.friend;“I mean, why do you want the bra if you aren’t going to wear the panties?”@@
@@ -150,8 +150,7 @@
 
     @@.friend;”Push-up bra. Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<addToInv braSexy 60>>\
-    <<wearClothing braSexy 60>>\
+    <<set _braAlt to 60>>
 \
 <<else>>\
     @@.friend; ”I’m sure we can sort it out for you. I think it looks more complicated than it is,”@@ $friend says more in hope than conviction. @@.friend;“The one you’re holding is a size B. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?”@@
@@ -216,11 +215,16 @@
     @@.friend; ”Sorry, $hero, but you don’t exactly have a six pack either do you? More exercise…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. @@.friend;”Push-up bra. \
     Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<addToInv braSexy 60>>\
-    <<wearClothing braSexy 60>>\
+    <<set _braAlt to 60>>
 \
 <<endif>>\
-
+\
+<<set $player.clothes to clone($player.clothesTmp)>>\
+<<addToInv braSexy _braAlt>>\
+<<wearClothing braSexy _braAlt>>\
+<<set $player.clothesTmp to clone($player.clothes)>>\
+<<removeClothingType 4>><<updateClothes>>\
+\
 You reach for your top, but $friend swipes it away.
 
 @@.friend;”You might need to adjust it or something, and I’m the only one who’s going to see you anyway.” @@
