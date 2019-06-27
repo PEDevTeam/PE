@@ -213,6 +213,8 @@
        <img src="./Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
        You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
        @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
+
+       [[Leave | Go to the mall]]
    \
    <<else>>\
        <<if not $mallLingerieintro>>\
@@ -228,7 +230,7 @@
 
            @@.heroT;“Cotton panties?”
 
-           <<print '<<click "' + "Enter the shop" + '">><<set $something to 0>><<set $somethingelse to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+           <<print '<<click "Enter the shop">><<set $something to 0>><<set $somethingelse to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
            \
        <<else>>\
            <img src="./Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
