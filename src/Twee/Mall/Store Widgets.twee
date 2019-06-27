@@ -2,10 +2,16 @@
 \
 <<widget "itemSelector">>\
 <<set _storeImagePack=window.stores[$args[0]].imagePack>>
-<div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\	
-<<print "''"+window.stores[$args[0]].name+"''">>
+<div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\
+<<if window.stores[$args[0]].logo>>\
+    <<print window.stores[$args[0]].logo>>
+<<else>>\
+    <<print "''"+window.stores[$args[0]].name+"''">>
+<<endif>>\
 <<set $curStore = window.stores[$args[0]].name>>\
+\
 <<display [[Shop events]]>>\
+<<if not $something>>/%a intimate apparel stuff %/
 <<print window.stores[$args[0]].description>> What would you like to buy?
 
 <div class="item_preview_box"><img id="item_preview_mall" class="hidden"></div>\
@@ -135,6 +141,8 @@
 		
 	<<endif>>\
 <</for>>\
+<<endif>>/%a intimate apparel stuff %/
+<<set $something to 1>>
 <<set $restock[$args[0]] = true>>\
 
 <<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
