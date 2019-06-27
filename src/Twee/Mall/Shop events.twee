@@ -199,7 +199,7 @@
 	[[See if the clerk can help you out|Uniform Punishment - Help]]
 	\
 <<endif>>\
-<<if $curStore == "Intimate Apparel" and $something>>\
+<<if $curStore == "Intimate Apparel" and not $somethingelse>>\
    <<set $something to 1>>\
    <<if $player.daring lt 3>>\
        <<set $boybrowse to 1>>\
@@ -228,7 +228,7 @@
 
            @@.heroT;“Cotton panties?”
 
-           <<print '<<click "' + "Enter the shop" + '">><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><<set $something to 0>><</click>>'>>
+           <<print '<<click "' + "Enter the shop" + '">><<set $something to 0>><<set $somethingelse to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
            \
        <<else>>\
            <img src="./Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
