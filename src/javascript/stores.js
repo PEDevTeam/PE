@@ -39,7 +39,8 @@ window.stores=[
 		image: "lingerie_shop.jpg",
 		imagePack: "Intimate Apparel",
 		description: "For everything under your clothes.",
-		daringRequired: 1
+		daringRequired: 1,
+		logo: "<img src=\"./Images/general/Intimate_Apparel.png\" style=\"width: 150px; height: auto; margin-left: 8vw;\">"
 	},
 	{  
 		name: "Klip Klops",
