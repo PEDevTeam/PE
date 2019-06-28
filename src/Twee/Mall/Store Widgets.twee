@@ -12,7 +12,7 @@
 \
 <<display [[Shop events]]>>\
 
-<<if not $something>>/%a intimate apparel stuff %/
+<<if not $toggleStoreMenu>>/%a intimate apparel stuff %/
 
 
 <<print window.stores[$args[0]].description>> What would you like to buy?
@@ -144,7 +144,7 @@
 		
 	<<endif>>\
 <</for>>\
-<<set $something to 0>>\
+<<set $toggleStoreMenu to 0>>\
 <<set $restock[$args[0]] = true>>\
 
 <<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
