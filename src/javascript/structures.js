@@ -3,6 +3,7 @@ window.rewardMoney={
 	teacherFemaleClothing: 15,
 	teacherButtplug: 5,
 	teacherChastity: 10,
+	teacherBra: 10,
 	teacherAssistant: 15,
 	teacherBullySex: 20,
 	teacherPiss: 60,
@@ -1290,6 +1291,8 @@ window.flagsList={
 	nancyChastTalk: false,
 	slutGoodEnd: 0,
 	slutBadEnd: 0,
+	teacherSawPanties: false,
+	friendBraTask: false,
 },
 
 window.kinkList={
