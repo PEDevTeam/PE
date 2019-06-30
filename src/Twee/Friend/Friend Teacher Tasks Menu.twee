@@ -74,14 +74,13 @@
     \
     <<endif>>\
 
-    <img src='./Images/items/dress_casual_62.jpg' style="width: auto; height: 250px;">\
-    <img src='./Images/items/dress_casual_63.jpg'  style="width: auto; height: 250px;">\
-    <img src='./Images/items/dress_casual_64.jpg'  style="width: auto; height: 250px;">
-
-    <<if $kinkAllow.adultBaby>><img src='./Images/items/dress_casual_65.png' style="width: auto; height: 250px;"><<endif>>\
-    <<if $kinkAllow.ageBehavior>><img src='./Images/items/dress_casual_66.jpg' style="width: auto; height: 250px;"><<endif>>\
-    <<if $kink.leather>><img src='./Images/items/dress_casual_67.jpg' style="width: auto; height: 250px;"><<endif>>
-
+    <img src='/Images/items/dress_casual_62.jpg' style="width: auto; height: 250px;">\
+    <img src='/Images/items/dress_casual_63.jpg'  style="width: auto; height: 250px;">\
+    <img src='/Images/items/dress_casual_64.jpg'  style="width: auto; height: 250px;">\
+    <<if $kinkAllow.adultBaby>><img src='/Images/items/dress_casual_65.png' style="width: auto; height: 250px;"><<endif>>\
+    <<if $kinkAllow.ageBehavior>><img src='/Images/items/dress_casual_66.jpg' style="width: auto; height: 250px;"><<endif>>\
+    <<if $kink.leather>><img src='/Images/items/dress_casual_67.jpg' style="width: auto; height: 250px;"><<endif>>
+	
     You nervously look at the choice then reach out and touch the first with shaking hands. The material is soft and comforting in your fingertips.
 
     <<if $friendG.gender eq 'F'>>\
@@ -104,9 +103,8 @@
     \
     <<endif>>\
 
-    @@.friend;“Hurry, I want to see how good you look in one,”@@ $friendG.he_she says, interrupting your thoughts. Forced into a hurried decision, you pick the one you are most drawn to...
+    <span id="Clothes">@@.friend;“Hurry, I want to see how good you look in one,”@@ $friendG.he_she says, interrupting your thoughts. Forced into a hurried decision, you pick the one you are most drawn to...</span>\
 
-    \
     <<if not $hideChoice>>\
         [[Dress 1|Friend Teacher Tasks Menu][$hideChoice = true, $dressChoice = 1]]
         [[Dress 2|Friend Teacher Tasks Menu][$hideChoice = true, $dressChoice = 2]]
@@ -126,14 +124,11 @@
         \
     <<else>>\
         <<ScrollTo "Clothes">>\
-        <span id="Clothes"></span>\
     <<endif>>\
-    \
     <<if $hideChoice>>\
         <<if  $dressChoice eq 4>>\
             <<set $friendDress to 1>>\
             <<set $friendFetishAdultBaby to 1>>\
-
             You hold a frilly pink princess dress in your hands. It is light and floaty and the material is as soft as a peach.
 
             @@.friend;“Are you sure?”@@ $friend asks, a quizzical smile playing on $friendG.his_her lips.
@@ -145,7 +140,6 @@
         <<elseif  $dressChoice eq 5>>\
             <<set $friendDress to 2>>\
             <<set $friendFetishAgeBehavior to 1>>\
-
             You hold a soft, pink garment in your hands. It feels snuggly in your hands and has a matching hood lined with fluffy material. As you hold it out you realise that it’s a hoodie dress, \
             and is very short. But it feels so good in your hands. You actually think you can remember <<if $friendG.gender eq 'F'>>$friend<<else>>$friendsis<<endif>> wearing it when she was younger.
 
@@ -156,10 +150,9 @@
             @@.friend;“It’s just… No, nothing. <<if not $friendG.gender eq 'F'>>I just don’t think $friendsis has worn it in like years<<else>>I haven’t worn it for years<<endif>>. \
             Still, it might suit you..”@@ $friend adds noncommittally.
         \
-        <<elseif  $dressChoice eq 6>>\
+        <<elseif $dressChoice eq 6>>\
             <<set $friendDress to 3>>\
             <<set $friendFetishLeather to 1>>\
-
             You hold the leather dress in your hands. It feels soft and supple and has an enticing smell. The exterior is shiny and sleek, but the inside a little fluffy and warm. \
             You know that it will hug you tightly like, well, like a leather glove.
 
@@ -169,7 +162,7 @@
 
             @@.friend;“It sure will.”@@
         \
-        <<else>>
+        <<else>>\
             <<set $friendDress to 4>>\
             You hold the dress your hands. It feels soft and very girly in your hands, but light and enticing too. And, if you are honest with yourself, you want to see how it feels to wear it.
 
@@ -278,7 +271,6 @@
 
                 @@.heroT;“Thanks,”@@ you hear yourself admit.
 
-            \
             <<elseif $dressChoice eq 5>>\
                 @@.friend;“You look cute, like a little girl in that dress. How does it feel?”@@
 
@@ -287,21 +279,19 @@
                 @@.friend;“You look good though, it suits you.”@@
 
                 @@.heroT;“Thanks,”@@ you hear yourself admit.
-            \
+            
             <<elseif $dressChoice eq 6>>\
                 @@.friend;“Wow, you do look kinda foxy in that dress. You look like you are ready to hit the town and have some fun. How does it feel?”@@ $friend asks.
 
                 @@.heroT;“It feels, surprising. Like, in a sexy way, even though…”@@
-            \
+            
             <<else>>\
                 @@.friend;“That dress really suits you, and it fits perfectly. How does it feel?”@@ $friend asks.
 
                 @@.heroT;“It feels, surprising. Like, not weird, but like okay and comfortable.”@@
-            \
+            
             <<endif>>\
-        \
         <<endif>>\
-        \
         $friend reaches over and grabs $friendG.his_her phone. You are about to object when you remember you are supposed to be doing a task for $teacher. Instead of complaining you let $friendG.him_her \
         take several snaps as you walk up and down, and then take more on your phone too.
 
@@ -309,19 +299,16 @@
         leave. You shrug yourself out of the dress and pass it back to $friendG.him_her.
 
         @@.friend;“On no, keep it. That dress suited you so much, I’d think it was made for you. Maybe you can wear it for me again some time…”@@ $friend says with a wink.
-        \
+
         <<set _dressAlt to $dressChoice + 61>>\
-        \
-        <<addToInv summerDress _dressAlt>>\\
-        \
+        <<addToInv summerDress _dressAlt>>\
+		<<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
+		<<set $tasksTeacher.selfieFemaleClothes.progress++>>\
+		<<if ($player.perversion.crossdressing lte 1)>>\
+			<<set $player.perversion.crossdressing++>>\
+		<<endif>>\
         [[Leave friend's house][$time.addMinutes(90);]]
     \
-    <<endif>>\
-    \
-    <<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
-    <<set $tasksTeacher.selfieFemaleClothes.progress++>>\
-    <<if ($player.perversion.crossdressing lte 1)>>\
-        <<set $player.perversion.crossdressing++>>\
     <<endif>>\
 \
 <<elseif $tasksTeacher.selfieHomeMakeup.status eq 1>>\
@@ -359,8 +346,7 @@
 
         @@.friend;“Let’s do it together,”@@ she says. @@.friend;“Follow what I do, and you will see how easy it is.”@@
 
-        <img src="./Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">
-        \
+        <img src="/Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">
         As $friend gets out a couple of basic makeup sets, you angle the phone so she is not in the picture. She opens a makeup kit in front of you and you can see an array of powers and sticks and pencils \
         and other things spread inside. She has a similar one to you, but more used.
 
@@ -433,7 +419,7 @@
         @@.friend;“Nah, she left all this stuff behind when she went to school, so I don’t think she even wants it anyway. Besides, \
         it’s not like she’s got a registry of all the stuff she abandoned at our house.”@@
 
-        <img src="./Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">\
+        <img src="/Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">\
         \
         You shrug and rip the cellophane, then open the box. Inside is an array of powers and sticks and pencils and other things spread inside. $Friend has a similar one to you, but it’s been opened before. \
         @@.friend;“Oops. I need the tablet.”@@
@@ -520,7 +506,7 @@
 
         @@.friend;“I doubt it. She used to do some Market Research or something. Apparently you can get free stuff that way. Maybe you should try one sometime, you never know what you might get.”@@
 
-        <img src="./Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">\
+        <img src="/Images/general/Normal_Makeup.jpg" style=" width: 200px; height: auto; float: right;">\
         \
         You shrug and rip the cellophane, then open the box. Inside is an array of powers and sticks and pencils and other things spread inside. $Friend has a similar one to you, but it’s been opened before. \
         @@.friend;“Oops. I need the tablet.”@@
@@ -591,7 +577,7 @@
 
     [[Apply lipstick|Friend Teacher Tasks Apply Lipstick]]
 \
-<<elseif $tasksTeacherwearStockingsstatus eq 1>>\
+<<elseif $tasksTeacherwearStockings.status eq 1>>\
     For some reason, the thought of wearing stockings feels like a whole new level compared to just wearing panties. Sure, you can still hide them under pants, \
     but when you handle the ones that $guardian wears when doing the laundry, they definitely feel different to your socks. Sadly, $guardian has too few pairs for you to just swipe some during your chores.
 
@@ -629,12 +615,12 @@
     You follow behind, not quite sure how you feel. $friend’s mom is certainly attractive, and has amazing legs. But to try on her things… your penis twitches at the thought and you realise \
     how much wearing something that belongs to #friendG.his_her mother is extremely arousing.
 
-    <img src="./Images/ImagePacks/Friend/MasterBedroom/Friend House Bedroom - Master.png" style="width: 400px; height: auto; ">
+    <img src="/Images/ImagePacks/Friend/MasterBedroom/Friend House Bedroom - Master.png" style="width: 400px; height: auto; ">
 
     $friendG.His_Her parents’ suite is bigger than the entire ground floor of your house. It’s decadent, with white bedding and red accents, and you feel like you should have a shower before you enter. \
     $friend has no such compunctions and heads directly to the walk-in closet.
 
-    <img src="./Images/ImagePacks/Friend/MasterBedroomDressing/Friend House Bedroom - Master Dressing.png" style="width: 350px; height: auto; ">
+    <img src="/Images/ImagePacks/Friend/MasterBedroomDressing/Friend House Bedroom - Master Dressing.png" style="width: 350px; height: auto; ">
 
     You stand in the doorway as $friend crosses to his mom’s dresser, and begins to open the drawers.
 
@@ -803,14 +789,3 @@
     [[Wear the stockings|Friend Teacher Tasks Wear Stockings]]
 
 <<endif>>\
-
-
-
-
-
-
-
-
-<<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>
-\
-<<endif>>
