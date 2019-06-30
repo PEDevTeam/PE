@@ -2727,6 +2727,28 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/MasterBedroom",
+                           "path":  "Friend/MasterBedroom",
+                           "files":  [
+                                         {
+                                             "fileName":  "Friend House Bedroom - Master.png",
+                                             "height":  811,
+                                             "width":  1161
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/MasterBedroomDressing",
+                           "path":  "Friend/MasterBedroomDressing",
+                           "files":  [
+                                         {
+                                             "fileName":  "Friend House Bedroom - Master Dressing.png",
+                                             "height":  803,
+                                             "width":  1157
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Friend/Pool",
                            "path":  "Friend/Pool",
                            "files":  [
