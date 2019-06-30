@@ -76,10 +76,13 @@ Alright! How do you want to do this?
 <<if $flags.chorePunishmentDildo and not $flags.trainingCockSuck>>\
 	[[Suck training cock][$scene="suck"]]
 <<endif>>\
-
 <<if _c and ((not $flags.chastityKey) or (not $flags.chastityLocked))>>\
 	<<if $flags.chastityLocked>>\
-		[[Unlock chastity cage|Masturbate][$flags.chastityLocked=false]]
+		<<if $flags.endSchoolSlut == 2>>\
+			[[ Unlock chastity cage|Fake Key Scene][$flags.chastityKey = true]]
+		<<else>>\
+			[[Unlock chastity cage|Masturbate][$flags.chastityLocked=false]]
+		<<endif>>\
 	<<else>>\
 		[[Remove chastity cage|Masturbate][window.playerCode.removeClothesJS(_c.id)]]
 	<<endif>>\

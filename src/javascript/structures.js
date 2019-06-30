@@ -883,7 +883,8 @@ window.playerAddonsList={
 		vibratorFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analSkill: 0,
-		schoolSlut: 0
+		schoolSlut: 0,
+		penisFirst: 0, /* "slave girls", "guardian", "femFriend", "cheerCaptain", "cheerBitch", "photoGirl" */
 	},
 	masturbate: {
 		lastDay: 0,
@@ -912,7 +913,8 @@ window.playerAddonsList={
 		vibratorFirst: 0, /* "guardian", "therapist", "shop" */
 		vibratorExp: 0,
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
-		analExp: 0
+		analExp: 0,
+		penisFirst: 0,
 	},
 },
 
@@ -1284,6 +1286,10 @@ window.flagsList={
 	volleyFirst: true, //first time visiting the volleyball team
 	firstTimeTAAnime: true, //first time meeting the TA in the anime club
 	failedPrincipal: false, //did not work for principal in teacher task
+	endSchoolSlut: 0,
+	nancyChastTalk: false,
+	slutGoodEnd: 0,
+	slutBadEnd: 0,
 },
 
 window.kinkList={

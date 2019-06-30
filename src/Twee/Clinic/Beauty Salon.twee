@@ -78,6 +78,10 @@
 	<<if ($kink.penisShrinkProgress eq 1) and (not $player.flags.salonPenisShrinkTalk)>>\
 		[[Talk about your shrunk penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $player.flags.salonPenisShrinkTalk=true]]
 	<<endif>>\
+\
+	<<if $flags.nancyChastTalk>>\
+		[[Talk to Nancy about getting your chastity device off|Nancy Chastity Talk][$flags.nancyChastTalk = false]]
+	<<endif>>\
 
 	[[Check yourself][$player.checkPlace=2]]
 	[[Return to the clinic lobby|Go to clinic]]

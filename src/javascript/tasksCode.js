@@ -1847,7 +1847,7 @@ window.tasksTeacher={
 		name:"Task Public toilet",
 		hasPassage: true,
 		text: {
-			given: "<<set _prompt to random(1)>><<if $tasksTeacher.schoolPublicToilet.progress == 0>>As the school slut, your holes should be open to everyone. I want you to spend the morning as a public toilet here at school.<<else>><<if _prompt == 0>>You should spend tomorrow morning fulfilling your school slut duties.<<else>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.schoolPublicToilet.progress == 0>>As the school slut, your holes should be open to everyone. I want you to spend the morning as a public toilet here at school.<<else>><<if _prompt == 0>>You should spend the next school morning fulfilling your school slut duties.<<else>>I want you to spend some time serving your fellow students.<<endif>><<endif>>",
 			perform: "",
 			finish: "$teacher smirks at you.\n\n@@.teacher;\"I've heard that the toilets were quite popular today.@@",
 			fail: "It seems you failed to do your duties in the school toilets. Take a mark.",
@@ -1945,7 +1945,7 @@ window.tasksTeacher={
 		name:"Task Suck coach",
 		hasPassage: true,
 		text: {
-			given: "<<set _prompt to random(1)>><<if $tasksTeacher.suckCoach.progress == 0>>Coach is asking for another one of your world-class blowjobs. Go give $futa.him_her one.<<else>><<if _prompt == 0>>Coach said $futa.he_she was looking for you. Go see what $futa.he_she wants.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.suckCoach.progress == 0>>Coach is asking for another one of your world-class blowjobs. Go give $futa.him_her one.<<else>><<if _prompt == 0>>Coach said $futa.he_she was looking for you. Go see what $futa.he_she wants.<<else>>Remember, your duties as school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
 			perform: "",
 			finish: "@@.teacher;\"Coach was glad to see you yesterday. From what $futa.he_she tells me, you are an exceptional cocksucker.@@",
 			fail: "Coach said you neglected giving him a blowjob. Take a mark.",
@@ -1994,7 +1994,7 @@ window.tasksTeacher={
 		name:"Task Clean lounge",
 		hasPassage: true,
 		text: {
-			given: "<<set _prompt to random(1)>><<if $tasksTeacher.cleanLounge.progress == 0>>The teacher's lounge has been a pigsty recently. I want you to go clean it tomorrow morning. If you enounter any other faculty there, I expect you to do anything they ask of you, and I do mean //anything//.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform tomorrow morning. Go help them in //any// way they ask of you.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.cleanLounge.progress == 0>>The teacher's lounge has been a pigsty recently. I want you to go clean it next school morning. If you enounter any other faculty there, I expect you to do anything they ask of you, and I do mean //anything//.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform next school morning. Go help them in //any// way they ask of you.<<else>>Remember, your duties as school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
 			perform: "",
 			finish: "@@.teacher;\"The teachers tell me you've been a big help cleaning up the lounge.@@",
 			fail: "The teacher's lounge is still a mess. Take a mark.",
@@ -2092,7 +2092,7 @@ window.tasksTeacher={
 		name:"Task Principal Secretary",
 		hasPassage: true,
 		text: {
-			given: "<<set _prompt to random(1)>><<if $tasksTeacher.principalSecretary.progress == 0>>The principal's secretary quit recently, and he's been very stressed dealing with the extra work. Tomorrow morning, go by his office and see if there's anything you can do to help out.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform tomorrow morning. Go help them in //any// way they ask of you.<<else>>Remember, your duties at school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
+			given: "<<set _prompt to random(1)>><<if $tasksTeacher.principalSecretary.progress == 0>>The principal's secretary quit recently, and he's been very stressed dealing with the extra work. Next school morning, go by his office and see if there's anything you can do to help out.<<else>><<if _prompt == 0>>One of the faculty said they had some menial tasks for you to perform next school morning. Go help them in //any// way they ask of you.<<else>>Remember, your duties as school slut extend beyond your fellow students. I want you to spend some time serving a faculty member.<<endif>><<endif>>",
 			perform: "",
 			finish: "@@.teacher;\"The principal said he was quite pleased with your work.@@",
 			fail: "Considering your continued education at this school is based on the principal's opinion of you, I would not be ignoring his requests for your services. Take a mark.",
@@ -3081,7 +3081,7 @@ window.tasksTeacherBody={
 			given: "I think you need to do something about your figure. I want to see you with a plump little butt next week.",
 			perform: "",
 			finish: "$teacher looks at your plump butt..\n\n@@.teacher;\"Looking good.\"@@",
-			fail: "Was you afraid to not get into your favorite pants? You would have liked to have a plump ass. Mark for disobedience.",
+			fail: "Were you afraid you would no longer fit into your favorite pants? I think you would have liked to have a plump ass. Mark for disobedience.",
 			reminder: "Don't forget about your butt treatment.",
 			checkMe: {
 				given: "make your butt bigger.",
