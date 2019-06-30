@@ -3796,6 +3796,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "School/School Slut Bad End",
+                           "path":  "School/School Slut Bad End",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Storage Room",
                            "path":  "School/Storage_Room",
                            "files":  [
@@ -4423,6 +4430,116 @@ window.imagePacks = {
                                              "fileName":  "sneaker.png",
                                              "height":  720,
                                              "width":  1280
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Collar",
+                           "path":  "School/School Slut Bad End/Collar",
+                           "files":  [
+                                         {
+                                             "fileName":  "il_340x270.1393130598_2hkj.jpg",
+                                             "height":  270,
+                                             "width":  340
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Cuffs",
+                           "path":  "School/School Slut Bad End/Cuffs",
+                           "files":  [
+                                         {
+                                             "fileName":  "il_570xN.1421516448_l48p.jpg",
+                                             "height":  570,
+                                             "width":  570
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Elizabeth",
+                           "path":  "School/School Slut Bad End/Elizabeth",
+                           "files":  [
+                                         {
+                                             "fileName":  "3489674_3_o.jpg",
+                                             "height":  830,
+                                             "width":  553
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Gag",
+                           "path":  "School/School Slut Bad End/Gag",
+                           "files":  [
+                                         {
+                                             "fileName":  "31o3G0PN7+L.jpg",
+                                             "height":  500,
+                                             "width":  500
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Heels",
+                           "path":  "School/School Slut Bad End/Heels",
+                           "files":  [
+                                         {
+                                             "fileName":  "harmony-sandals-giuseppe-zanotti-i700049025-32.jpg",
+                                             "height":  700,
+                                             "width":  700
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Key",
+                           "path":  "School/School Slut Bad End/Key",
+                           "files":  [
+                                         {
+                                             "fileName":  "41ielA7fXLL._SY355_.jpg",
+                                             "height":  355,
+                                             "width":  355
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Movie",
+                           "path":  "School/School Slut Bad End/Movie",
+                           "files":  [
+                                         {
+                                             "fileName":  "134365_edit.jpg",
+                                             "height":  1000,
+                                             "width":  810
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Pegging",
+                           "path":  "School/School Slut Bad End/Pegging",
+                           "files":  [
+                                         {
+                                             "fileName":  "18019142.gif",
+                                             "height":  300,
+                                             "width":  300
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Slave Outfit",
+                           "path":  "School/School Slut Bad End/Slave Outfit",
+                           "files":  [
+                                         {
+                                             "fileName":  "RV_AB7038_WT_whtbck_frt_2018April.jpg",
+                                             "height":  619,
+                                             "width":  344
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "SS Bad End Victoria",
+                           "path":  "School/School Slut Bad End/Victoria",
+                           "files":  [
+                                         {
+                                             "fileName":  "3454172_1_o_crop.jpg",
+                                             "height":  466,
+                                             "width":  502
                                          }
                                      ]
                        },
