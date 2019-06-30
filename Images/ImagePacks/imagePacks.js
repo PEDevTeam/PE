@@ -68,6 +68,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Good School Slut Ending",
+                           "path":  "Good School Slut Ending",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Guardian",
                            "path":  "Guardian",
                            "files":  [
@@ -2818,6 +2825,193 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "good_slut_dessert",
+                           "path":  "Good School Slut Ending/good_slut_dessert",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_dessert.jpg",
+                                             "height":  1177,
+                                             "width":  868
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_bride",
+                           "path":  "Good School Slut Ending/good_slut_fashion_bride",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_bride.png",
+                                             "height":  840,
+                                             "width":  560
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_collar",
+                           "path":  "Good School Slut Ending/good_slut_fashion_collar",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_collar.jpg",
+                                             "height":  188,
+                                             "width":  203
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_formal",
+                           "path":  "Good School Slut Ending/good_slut_fashion_formal",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_formal.jpg",
+                                             "height":  800,
+                                             "width":  600
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_frilly",
+                           "path":  "Good School Slut Ending/good_slut_fashion_frilly",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_frilly.jpg",
+                                             "height":  1000,
+                                             "width":  749
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_latex",
+                           "path":  "Good School Slut Ending/good_slut_fashion_latex",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_latex.png",
+                                             "height":  1024,
+                                             "width":  768
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_lbd",
+                           "path":  "Good School Slut Ending/good_slut_fashion_lbd",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_lbd.jpg",
+                                             "height":  840,
+                                             "width":  560
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_leather",
+                           "path":  "Good School Slut Ending/good_slut_fashion_leather",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_leather.jpg",
+                                             "height":  1600,
+                                             "width":  1200
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_nylon",
+                           "path":  "Good School Slut Ending/good_slut_fashion_nylon",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_nylon.jpg",
+                                             "height":  900,
+                                             "width":  600
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_fashion_sexy",
+                           "path":  "Good School Slut Ending/good_slut_fashion_sexy",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_fashion_sexy.jpg",
+                                             "height":  1680,
+                                             "width":  1160
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_latex_shoes",
+                           "path":  "Good School Slut Ending/good_slut_latex_shoes",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_latex_shoes.jpg",
+                                             "height":  240,
+                                             "width":  240
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_lbd_heels",
+                           "path":  "Good School Slut Ending/good_slut_lbd_heels",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_lbd_heels.jpg",
+                                             "height":  727,
+                                             "width":  474
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_nylon_shoes",
+                           "path":  "Good School Slut Ending/good_slut_nylon_shoes",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_nylon_shoes.jpg",
+                                             "height":  800,
+                                             "width":  800
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "good_slut_sexy_shoes",
+                           "path":  "Good School Slut Ending/good_slut_sexy_shoes",
+                           "files":  [
+                                         {
+                                             "fileName":  "good_slut_sexy_shoes.jpg",
+                                             "height":  250,
+                                             "width":  250
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "spa_attendant",
+                           "path":  "Good School Slut Ending/spa_attendant",
+                           "files":  [
+                                         {
+                                             "fileName":  "spa_attendant.jpg",
+                                             "height":  639,
+                                             "width":  618
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "spa_bath",
+                           "path":  "Good School Slut Ending/spa_bath",
+                           "files":  [
+                                         {
+                                             "fileName":  "spa_bath.jpg",
+                                             "height":  592,
+                                             "width":  1000
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "spa_reception",
+                           "path":  "Good School Slut Ending/spa_reception",
+                           "files":  [
+                                         {
+                                             "fileName":  "spa_reception.jpg",
+                                             "height":  973,
+                                             "width":  1200
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Guardian Dildo Anal",
                            "path":  "Guardian/Dildo_Anal",
                            "files":  [
@@ -4489,8 +4683,8 @@ window.imagePacks = {
                                      ]
                        },
                        {
-                           "name":  "SS Bad End Key",
-                           "path":  "School/School Slut Bad End/Key",
+                           "name":  "SS Bad End Keys",
+                           "path":  "School/School Slut Bad End/Keys",
                            "files":  [
                                          {
                                              "fileName":  "41ielA7fXLL._SY355_.jpg",
