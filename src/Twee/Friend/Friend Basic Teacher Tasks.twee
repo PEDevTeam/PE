@@ -36,24 +36,11 @@ You watch as $friend heads back downstairs, then flop back onto the couch. It’
 
 @@.hero;I wish I could afford one of these!@@ you think to yourself as you kick your shoes off and make yourself comfortable. Left alone in the room, your mind starts to wander.
 \
-<<set $tasksFriend.teacherFriendTask to 0>>
+<<set $tasksFriend.teacherFriendTask to 0>>\
 \
 <<if
 $tasksTeacher.selfieFemaleClothes.status eq 1 or
-$tasksTeacher.selfieHomeMakeup.status eq 1 or
-/%a$tasksTeacher.wearStockings.status eq 1 or%/
-$tasksTeacher.selfieNightwear.status eq 1 or
-$tasksTeacherBody.legHairRemoval.status eq 1 or
-/%a$tasksTeacher.wearGirlFlats.status eq 1 or%/
-$tasksTeacher.tryingClothesMall.status eq 1 or
-$tasksTeacher.posingSeductively.status eq 1 or
-$tasksTeacher.danceAtHome.status eq 1 or
-$tasksTeacherBody.manicure.status eq 1 or
-$tasksTeacherBody.manicure_renewal.status eq 1 or
-$tasksTeacher.crossdressAroundBlock.status eq 1 or
-$tasksTeacher.crossdressAtPark.status eq 1 or
-/%a$tasksTeacher.selfiePracticeHeels.status eq 1 or%/
-$tasksTeacher.selfieFemaleClothes.status eq 1>>\
+$tasksTeacher.selfieHomeMakeup.status eq 1 >>\
 \
     <<set $tasksFriend.teacherFriendTask to 1>>\
 <<endif>>\
@@ -61,10 +48,11 @@ $tasksTeacher.selfieFemaleClothes.status eq 1>>\
 
 <<if $tasksFriend.teacherFriendTask eq 1>>\
     [[Teacher Tasks|Friend Teacher Tasks Menu]]\
+	
 <<else>>\
     <div class="tooltip">@@.halftransparent;Teacher Tasks@@ <span id="test_surv" class="tooltiptext">No active tasks that Friend can assist with</span></div>\
+	
 <<endif>>\
-
 [[Hang Out|Friend Hang Out]]
 [[Go Home|Leave friend's house]]
 
