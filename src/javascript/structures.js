@@ -3,6 +3,7 @@ window.rewardMoney={
 	teacherFemaleClothing: 15,
 	teacherButtplug: 5,
 	teacherChastity: 10,
+	teacherBra: 10,
 	teacherAssistant: 15,
 	teacherBullySex: 20,
 	teacherPiss: 60,
@@ -935,6 +936,12 @@ window.friendList={
 	admitWhatsWrong: 0,
 	admitLikingTrap: 0,
 	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
+	
+	visit: {
+        r2: 0,
+        c3: 0,
+    },
+    seenPanties: [],
 },
 
 window.futaList={
@@ -1290,6 +1297,8 @@ window.flagsList={
 	nancyChastTalk: false,
 	slutGoodEnd: 0,
 	slutBadEnd: 0,
+	teacherSawPanties: false,
+	friendBraTask: false,
 },
 
 window.kinkList={

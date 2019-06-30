@@ -3081,7 +3081,7 @@ window.tasksTeacherBody={
 			given: "I think you need to do something about your figure. I want to see you with a plump little butt next week.",
 			perform: "",
 			finish: "$teacher looks at your plump butt..\n\n@@.teacher;\"Looking good.\"@@",
-			fail: "Were you afraid you would no longer fit into your favorite pants? I think you would have liked to have a plump ass. Mark for disobedience.",
+			fail: "Were you afraid you would no longer fit into your favorite pants? I thought you would have liked to have a plump ass. Mark for disobedience.",
 			reminder: "Don't forget about your butt treatment.",
 			checkMe: {
 				given: "make your butt bigger.",
