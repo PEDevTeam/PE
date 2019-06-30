@@ -1,0 +1,84 @@
+:: School Slut Bad End Sc5
+$teacher leads you out onto a small stage, the most prominent feature of which is a large wooden post, on which are attached several chains. $teacher leads you next to it and clips one of the chains to your collar, leaving you tightly tethered to the post. Although your vision is obscured due to the lights shining down upon you, you can hear the chattering of women emitting from the void beyond the stage, gushing over your slave outfit and giggling at your erect cock.
+
+Secured to the post in front of the crowd, you certainly feel the part of the slave being sold off to frenzied buyers. You’re reminded of an old 1940’s film you saw on TV once where a beautiful woman was being sold in an Arabian market. At the time, you had found the scenario arousing, enjoying it from the perspective of the men bidding. But now, feminized and standing in the woman’s place as the object of desire to be bought and used at your owner’s whim, your pulse races, and you wonder if, deep down, you actually wished you could have been her.
+
+$teacher takes her place behind a podium and taps on the microphone to get everyone’s attention. @@.teacher;“I would like to thank all you ladies for coming here tonight to participate in tonight’s auction,”@@ she says to the crowd of gathered women. @@.teacher;“Just as a reminder of how things work, whoever wins the auction will be given this sissy as a sex slave for the rest of the night in a room provided by Club Limbo. The room will be fully appointed with everything you might need to enjoy <<if $kinkAllow.smallPenis>>yourself, and don’t worry about this <<if $kinkAllow.sph>>sissy’s… less than appealing<<else>>sissy’s diminutive<<endif>> equipment. The nurse at the local reproductive clinic has provided something special to take care of that, if you decide you need it.<<else>>yourself.<<endif>> 
+
+"The only restriction on your night of fun is you are not allowed to fuck this sissy’s greedy asshole unless he begs for it. Of course, it will be up to you if you want to grant his request.
+
+“Now then, let us begin! Do I hear one hundred dollars?”@@
+
+<<set _auctionChance to []>>\
+<<set _auctionBetters to []>>\
+<<set _chance = 0>>\
+<<if $player.perversion.guardian > 4>>\
+	<<set _chance = 50 + (5 * ($player.perversion.guardian - 5))>>\
+	<<set _auctionChance.push(_chance)>>\
+	<<set _auctionBetters.push($guardian)>>\
+	<<set _auctionColor = "@@.guardian;">>\
+<<endif>>\
+<!--
+<<if $cheerleaders.progress > 3>>
+	<<if $cheerleaders.bitchAffinity > 0>>
+		<<set _chance = _chance + $cheerleaders.bitchAffinity *5>>\
+		<<set _auctionChance.push(_chance)>>\
+		<<set _auctionBetters.push("Ashley")>>\
+	<<else>>\
+		<<set _chance = _chance+$cheerleaders.progress * 2>>\
+		<<set _auctionChance.push(_chance)>>\
+		<<set _auctionBetters.push("Rachel")>>\
+	<<endif>>\
+<<endif>>\
+<<if $player.perversion.photogirl > 0>>\
+	<<set _chance = _chance + $player.perversion.photogirl * 5>>\
+	<<set _auctionChance.push(_chance)>>\
+	<<set _auctionBetters.push("Roxy")>>\
+<<endif>>\
+<<if not ($flags.friendIsMale) and $player.perversion.friend > 3>>\ 
+	<<set _chance = _chance + 30>>\
+	<<set _auctionChance.push(_chance)>>\
+	<<set _auctionBetters.push($friend)>>\
+<<endif>>\
+-->\
+<<if _chance > 0>>\
+	<<set _winnerNum = random(0, _chance)>>\
+	<<for _i to 0; _i lt _auctionChance.length; _i++>>\
+		<<if _winnerNum < _auctionChance[_i]>>\
+			<<set $auctionWinner = _auctionBetters[_i]>>\
+			<<break>>\
+		<<endif>>\
+	<</for>>\
+	The response is immediate as the first hand flies into the air: one hundred dollars coming from a frighteningly familiar voice. Another hand shoots up, raising the bid to one hundred twenty. This time, the voice is completely foreign to you, and you writhe in your bonds as you realize three terrifying things. First, the crowd is dotted with women in your life who are eagerly paying for the privilege to <<if $player.perversion.penisFirst == 0>>take your male virginity<<else>>use you as a sex slave<<endif>>, second, you are being exposed as a sissy to many more women, and third, because of the lights and crowd noise, every time you meet a woman, you’ll always wonder if she was here to see <<if $player.perversion.penisFirst == 0>>your virginity<<else>>you<<endif>> being sold off to the highest bidder.
+
+	The bids come quickly, egged on by $teacher describing your beautiful feminine features, natural submissiveness and <<if $player.perversion.penisFirst == 0>>preserved virginity<<else>>need to be punished<<endif>> whenever the bids stall. The price climbs ever higher: two-fifty, three hundred, five hundred dollars. Each increase is dizzying to you, and the fervor at which these women are clamoring to claim you as their own drives home that you are nothing to them but a piece of property.
+
+	Finally, a definitive shout comes from among the crowd. 
+
+	<<print _auctionColor+'“One thousand dollars!”@@'>>
+
+	Quiet gasps fill the room; the new bid is hundreds of dollars larger than the previous highest. The voice is unmistakable to you, and even blinded by the lights, you know $auctionWinner just offered an astonishing amount for you to be her sex slave, a sum that will likely remain unchallenged.
+
+	@@.teacher;“Do I hear eleven hundred?”@@ $teacher asks, but the only response is a low murmur from the crowd, no one daring to bid against someone clearly set of having you for themselves tonight.
+
+	@@.teacher;“One thousand going once… twice… sold! To the lovely <<if not $kink.incest>>young <<endif>>woman with surprisingly deep pockets."@@
+
+	Elizabeth, the slave girl from earlier, reattaches the lead to your neck, and walks you down from the stage to $auctionWinner’s waiting hands.
+
+	She smiles at you as she takes your lead from Elizabeth. <<print _auctionColor+'“Are you ready for a night of fun, slave?”@@ $auctionWinner asks.'>>
+
+	You nod, a shiver running down your spine at the dominance in $auctionWinner’s voice.
+
+	<<print "[[Follow "+ $auctionWinner + " to the prepared room|School Slut Bad End Sc6]]">>
+<<else>>\
+	<<set $auctionWinner = "Victoria">>\
+	The room is filled with quiet murmuring. No one seems willing to offer the first bid. $teacher does her best to whip up the crowd into a frenzy, calling out your feminine features, submissive nature, and slut training, but no one seems to be biting.<<if $player.perversion.penisFirst ==0>> Not even the tantalizing offer of stealing away your virginity is enough to draw a bid.<<endif>>
+
+	$teacher chuckles amusedly, giving you a side-eye glance. @@.teacher;“I did not think you could get even more pathetic,”@@ she says, @@.teacher;“but I expected you to get at least one pity bid. Perhaps these women know what a naughty sissy you’ve been, and suspect your obedience might be all talk once they get you in the bedroom.”@@
+
+	She sighs. @@.teacher;“It seems I will have to oversee your punishment myself.”@@
+
+	She motions to Victoria who frees you from the post and attaches a lead to you before walking you offstage towards another red door.
+
+	[[Follow  Victoria to the next room|School Slut Bad End Sc6]]
+<<endif>>
