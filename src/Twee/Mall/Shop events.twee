@@ -206,6 +206,8 @@
         \
         <<set $mallLingerieIntro to 1>>\
 
+        @@.statUp;You bought your first Pair of Panties.@@
+
         <<display [[Travel]]>>\
     \
     <<else>>\
@@ -220,10 +222,11 @@
         You smile and head to the door, feeling somewhat pleased that your purchase went better than last time. Exalting in your new-found confidence you decide to peruse the mall and not run home like a scared cat.
         \
 
+        @@.statUp;You bought your first Pair of Panties.@@
+
         [[Return to Mall | Go to the mall]]\
     <<endif>>\
-
-    @@.statUp;You bought your first Pair of Panties.@@
+    \
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 \
@@ -240,7 +243,7 @@
        \
        <<set _braImage to "./Images/items/" + _item.image + _braNumber + ".jpg">>\
        \
-       <<if $braTaskTempVariable>> ******************\
+       <<if $braTaskTempVariable>> *\
        \
         You have no idea how to pick a bra, but $teacher told you that you need one. And not any bra, but one with matching panties.
     <<else>>\
@@ -407,6 +410,7 @@
 	<<set $mallLingerieIntro to 1>>\
 \
 <<elseif $scene eq "first buy stockings">>\
+    <<set _stockingsAlt to itemF.itemTwee(_item.id).storeCur>>
     <<if $wearStockingsTaskTemp>>\
         @@.hero;Stockings I can wear with a uniform? What’s wrong with socks?@@ you ponder as you peruse the displays of stockings, tights and other items of hosiery.
     <<else>>\
@@ -438,13 +442,14 @@
     \
         The elegant lady finishes serving the angel and then turns to look at you.
 
-        @@.femvoice4“Great choice!”@@ says the angel with another wink. @@.femvoice4;“Those will suit you.”@@
+        @@.femvoice4;“Great choice!”@@ says the angel with another wink. @@.femvoice4;“Those will suit you.”@@
 
         @@.femvoice7;“Can I help you?”@@ the statuesque assistant asks in a pure English accent.
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>They will also be almost unnoticeable under your outer garments.<<endif>>@@
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        They will also be almost unnoticeable under your outer garments.<<endif>>@@
 
         @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she says, kindly, reaching out her hand and shaking yours. @@.femvoice7;“Feel free to ask for my advice on my products. \
         I am more than happy to help anyone with their needs <<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
@@ -452,9 +457,9 @@
         She pauses as if waiting for you to reply. After a few moments, she sighs. @@.femvoice7;“It is polite, young man, to respond with your name and take their hand when someone introduces themselves to you. \
         Is it not?”@@
 
-        @@.heroT;"Sorry. I’m $playername.”@@
+        @@.heroT;"Sorry. I’m $player.name.”@@
 
-        @@.femvoice7;“Ah, $playername. How sweet.”@@
+        @@.femvoice7;“Ah, $player.name. How sweet.”@@
     \
     <<else>>\
     \
@@ -462,11 +467,12 @@
 
         @@.femvoice4;“Great choice!”@@ says the angel with another wink.  @@.femvoice4;“They will suit you.”@@
 
-        @@.femvoice7;“Ah, $playername, good to see you back.”@@ the statuesque assistant says in her rolling English accent.
+        @@.femvoice7;“Ah, $player.name, good to see you back.”@@ the statuesque assistant says in her rolling English accent.
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>They will also be almost unnoticeable under your outer garments.<<endif>>@@
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        They will also be almost unnoticeable under your outer garments.<<endif>>@@
     \
     <<endif>>\
     \
@@ -489,11 +495,12 @@
 
         Mz. Knight chuckles at your seemingly inspired joke. @@.femvoice7;“Well perhaps a tad, but not really.@@
 
-        @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your [trousers/jeans] are too tight. \
+        @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
+        <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are too tight. \
         @@.femvoice7;“Oh dear. Well, you’ll have to take them off. Don’t balk. You have nothing I have not seen before.”@@
 
         You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
-        inspections… You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>school pants<<endif>> down your \
+        inspections… You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your \
         <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
         Mz. Knight looks at your bare legs and feet.
@@ -555,10 +562,14 @@
         Standing up, you pull the stocking up the rest of the way and then settle the elastic band of the holdup into place. Without prompting, you settle back down and pull on the second stocking. \
         As you stand, your legs brush together and the material rasps, sending more micro-sensations through your body. You stand there and admire them in the mirror, momentarily forgetting the presence of Mz. Knight.
 
-        @@.femvoice7;“Very elegant, $player.name. Now, I must return to the store; please feel free to wear them out.”@@
+        @@.femvoice7;“Very elegant, $player.name. Now, I must return to the store; please feel free to wear them out.”@@*
 
         With a shrug, you decide that it might be better to hide the stockings under your clothing rather than leave the changing rooms with worn stockings in your hands. You hurriedly get dressed, \
         peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new stockings and head back into the mall.
+        \
+        <<print _item.id>>
+        <<print _stockingsAlt>>
+        <<wearClothing _item.id _stockingsAlt>>\
     \
     <<else>>
         Mz. Knight looks at <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>your female clothing<<elseif playerCode.isWearingOn(itemTypes.Stockings)>>your feet, noticing your stockings<<endif>>.
@@ -584,7 +595,7 @@
 <<elseif $scene eq "first buy nightdress">>\
     You scoured the laundry for something of $guardian’s you could wear to complete $teacher’s nightie task but as she sleeps primarily in the nude…
 
-    You have seen programs on the TV and girls you see wear pajamas, often with long trousers or shorts. You’d love to find something like that, and maybe if the shorts are short enough or the top revealing enough, \
+    You have seen programs on the TV and girls you see wear pajamas, often with pants or shorts. You’d love to find something like that, and maybe if the shorts are short enough or the top revealing enough, \
     $teacher will feel they’re sexy enough.. Just so long as it’s not too lacy, or filly or girly or…
 
     You stop in your tracks as you realise that the negligee section of the store contains none of what you’re looking for.
@@ -636,12 +647,14 @@
 
         Without stopping, you zip your bag up, rush outside and quickly leave.
 
+        @@.statUp;You bought your first Nightdress@@
+
         <<display [[Travel]]>>\
         <<set $mallLingerieIntro to 1>>\
      \
     <<else>>\
     \
-        @@.femvoice7;“$playername, why would you complain about the lace. Don’t you find them to have a certain allure?”@@ says Mz. Knight as she arrives at your side.
+        @@.femvoice7;“$player.name, why would you complain about the lace. Don’t you find them to have a certain allure?”@@ says Mz. Knight as she arrives at your side.
 
         She steps back for a moment and looks at you from head to toe, as if examining you. Then, she takes a few items from the racks and holds them out in turn. \
         Thankfully, she doesn’t hold any of them in your direction. The nighties pass by in a whirl of frills and lace, and you are not sure which one to choose.
@@ -655,11 +668,12 @@
         You smile and head to the door, feeling somewhat pleased that your purchase went better than last time. You make it out onto the concourse, your bagged nightdress seemingly calling to you from your bag. \
         Exalting in your new-found confidence, you decide to peruse the mall and not run home like a scared cat.
 
+        @@.statUp;You bought your first Nightdress@@
+
         [[Return to the Mall | Go to the mall]]\
 
     <<endif>>\
-
-    @@.statUp;You bought your first Nightdress@@
+    \
     <<set $scene = "general">>\
     <<set $player.bought="">>\
 \
@@ -731,7 +745,8 @@
            Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
            Two women, both extremely attractive and in their mid-twenties.
 
-           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught [in a school uniform] loitering outside this shop, of all places. \
+           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
+           loitering outside this shop, of all places. \
            You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
 
            The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
