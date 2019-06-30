@@ -7,6 +7,9 @@
 <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _underwearAlt to itemF.itemTwee(playerCode.isWearingOn(itemTypes.Underwear)).curAlt >>\
+<<set _braAlt to itemF.itemTwee(playerCode.isWearingOn(itemTypes.Bras)).curAlt >>\
 <<set _deduction=0>>\
 <<set _textSwitch = true>>\
 <<if _o.female>>\
@@ -205,20 +208,20 @@
 	<<if _c>>\
 		<<if _b>>\
 			$teacher, as well as your caged penis. You then turn around and lean forward so she can see your butt-plug.
-			
 		<<else>>\
-			$teacher, as well as your caged penis.
-			
+			$teacher, as well as your caged penis.	
 		<<endif>>\
 	<<else>>\
 		<<if _b>>\
 			$teacher. You then turn around and touch your toes so she can see your butt-plug.
-			
 		<<else>>\
 			$teacher.
-			
 		<<endif>>\
 	<<endif>>\
+	<<if _bra>>\
+		Finally, you open your shirt to show $teacher your bra.
+	<<endif>>\
+	
 \
 	<!--<perversion progress events2>-->\
 	<<if $player.perversion.teacher eq 4>>\
@@ -315,10 +318,24 @@
 
 			@@.teacher;"That should put an end to your masturbating in school. I hope it also teaches you to control your urges. On that point - I //may// let you out for weekends, but //only// if you have been cooperative and obedient.
 			
-			"I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests or I will have to punish you. I hope I have made myself clear? //Yes?// Good."@@
-
+			"I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests or I will have to punish you. I hope I have made myself clear? //Yes?// Good.
+			
+			"For your first task, I want you to start wearing a bra to school everyday, <<if $flags.teacherSawPanties>>one that matches those cute lacy panties you wore<<else>>as well as a pair of matching lacy panties<<endif>>."@@
+			
+			You nod, already dreading the trip to the lingerie store.
+			<<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\
+				
+				@@.hero;But I got my panties from $friend. Is there even a bra to match?@@
+				\
+			<<else>>\
+				
+				@@.hero;I have to go to the mall and buy a bra to match my panties?@@
+				\
+			<<endif>>\
+			
 			<<set $flags.chastityKey to true>>\
 			<<set $flags.chastityLocked to true>>\
+			<<set $flags.friendBraTask = true>>\
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 1>>\
 		<<if (_u and _u.female and _u.slutty) or _c>>\
@@ -331,6 +348,7 @@
 			<<if _c>>\
 				A chastity cage?\
 			<<elseif _u.id eq itemsC.gString.id>>\
+				<<set $flags.teacherSawPanties = true>>\
 				Lacy panties?\
 			<<else>>\
 				Latex panties?\
@@ -600,6 +618,22 @@
 <!--		-->@@.teacher;<<openQuote>>Why is your underwear wet? Actually, I am quite sure I //do not// want to know. If this happens again, I will consider it intentional misbehavior.@@\
 <!--		--><<set $flags.laundryAccident2 = true>>\
 <!--		--><<endif>>\
+<!--	--><<endif>>\
+<!----><<endif>>\
+<!----><<if ($player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
+<!--	--><<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\
+<!--		--><<if (_underwearAlt == _braAlt)>>\
+<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
+<!--			--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
+<!--		--><<else>>\
+<!--			-->>@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
+<!--		--><<endif>>\
+<!--	--><<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\
+<!--		-->@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
+<!--	--><<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra)>>\
+<!--		-->@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
+<!--	--><<else>>\
+<!--		-->@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
 <!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if _u.female and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
