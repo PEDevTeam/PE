@@ -366,6 +366,51 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
+	wearStockings: {	// perv 3-3, cross 0-1
+		id: "wearStockings",
+		name:"Task wear stockings",
+		hasPassage: true,
+		text: {
+			given: "*",
+			perform: "",
+			finish: "*",
+			fail: "*",
+			reminder: "*",
+			checkMe: {
+				given: "*",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.crossdressing <= 1) && (State.active.variables.tasksTeacher.selfieFemaleClothes.progress == 0);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 3 },
+			therapist:	{ min: 0, max: 10 },
+			guardian:	{ min: 0, max: 10 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 3,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 20,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
 	selfieHomeMakeup: {	// perv 3-3, cross 0-1
 		id: "selfieHomeMakeup",
 		name:"Task Apply makeup",
