@@ -8,8 +8,8 @@
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
-<<set _underwearAlt to itemF.itemTwee(playerCode.isWearingOn(itemTypes.Underwear)).curAlt >>\
-<<set _braAlt to itemF.itemTwee(playerCode.isWearingOn(itemTypes.Bras)).curAlt >>\
+<<set _underwearAlt to $items[_u.id].curAlt >>\
+<<set _braAlt to $items[_bra.id].curAlt >>\
 <<set _deduction=0>>\
 <<set _textSwitch = true>>\
 <<if _o.female>>\
@@ -29,7 +29,6 @@
 	<<set $items.buttPlugHeart.disabled=true>>\
 	<<set $flags.buttplugLost=false>>\
 <<endif>>\
-\
 <!--<perversion progress events>-->\
 <<if ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
 	<<set $flags.guardianTeacherTalk=true>>\
@@ -630,7 +629,7 @@
 <!--		--><<endif>>\
 <!--	--><<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\
 <!--		-->@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
-<!--	--><<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra)>>\
+<!--	--><<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\
 <!--		-->@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
 <!--	--><<else>>\
 <!--		-->@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
