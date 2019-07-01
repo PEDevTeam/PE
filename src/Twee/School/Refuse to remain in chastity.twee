@@ -1,6 +1,8 @@
 :: Refuse to remain in chastity [pos_851_2314]
 \
-	<<set $player.perversion.teacherPermChastity=0>>\
+	<<if $player.perversion.teacherPermChastity < 6>>\
+		<<set $player.perversion.teacherPermChastity=0>>\
+	<<endif>>\
 	<<set $flags.lockedWeekend to false>>\
 	You refuse to remain in chastity.
 

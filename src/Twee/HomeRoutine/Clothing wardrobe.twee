@@ -227,8 +227,14 @@
 					<<if $flags.chastityKey>>\
 						<<set _in to _in + " @@.locked;&#xe80f;@@ //@@.halftransparent;@@//">>\
 					<<else>>\
-						<<set _in to _in + '<<click @@.on;&#xe80f;@@>><<set $flags.chastityLocked=false>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
-						<<set _in to _in + " ">>\
+						<<if $flags.endSchoolSlut == 2>>\
+							<<set _in to _in + '<<click @@.on;&#xe80f;@@ "Fake Key Scene">><<set $flags.chastityLocked=false>><</click>>'>>\
+							<<set _in to _in + " ">>\
+							<<print '<<link [[ Unlock Chastity|Fake Key Scene]]>><<set $flags.chastityKey = true>><</link>>'>>
+						<<else>>\
+							<<set _in to _in + '<<click @@.on;&#xe80f;@@>><<set $flags.chastityLocked=false>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+							<<set _in to _in + " ">>\
+						<<endif>>\
 					<<endif>>\
 				<<else>>\
 					<<if ((_o.clothingType & itemTypes.Chastity) gt 0) and (not $flags.chastityLocked)>>\
@@ -342,7 +348,11 @@
 	<<if playerCode.owns(itemsC.chastityDevice)>>\
 		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
 			<<if $flags.chastityLocked and (not $flags.chastityKey)>>\
-				<<print '<<click " Unlock chastity ">><<set $flags.chastityLocked=false>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+				<<if $flags.endSchoolSlut == 2>>\
+					<<print '<<link [[ Unlock Chastity|Fake Key Scene]]>><<set $flags.chastityKey = true>><</link>>'>>
+				<<else>>\
+					<<print '<<click " Unlock chastity ">><<set $flags.chastityLocked=false>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+				<<endif>>\
 			<<elseif (not $flags.chastityLocked)>>\
 				<<if $flags.chastityKey>>\
 					<<print '<<click " Lock chastity (no key to unlock)">><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
