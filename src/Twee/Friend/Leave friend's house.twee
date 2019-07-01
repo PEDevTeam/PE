@@ -1,5 +1,10 @@
 :: Leave friend's house [pos_4208_331]
 \
+<<unset $wearingChastity>>\
+<<unset $wornUnderwear>>\
+<<unset $underwearAlt>>\
+<<unset $friendUnderwear>>\
+\
 <<if $player.clothesTmp>>\
 	<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
 	<<set $player.clothesTmp to null>>\

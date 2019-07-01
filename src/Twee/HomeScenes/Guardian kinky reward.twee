@@ -315,6 +315,9 @@
 		[[No, please...|Guardian kinky reward][$scene="strapon forced b";$random.stored=2]]
 	<<endif>>\
 <<elseif $scene eq "strapon first b" or $scene eq "strapon forced b">>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 	<<if $scene eq "strapon first b">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Guardian Strapon First" 400 400>></div>\
 	<<elseif $scene eq "strapon forced b">>\
