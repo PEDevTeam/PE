@@ -59,6 +59,11 @@
 \
 <<endif>>\
 <!--</Monday reset>-->\
+<<if window.timeCode.isSunday()
+	<<if $cheerFriend.currentSE == 5>>\
+		<<set $cheerFriend.currentSE = 0>>\
+	<<endif>>\
+<<endif>>\
 	<!--<Daily reset>-->\
 <<set playerCode.changeArousal(10)>>\
 <<if $player.punishments.aphrodisiacDuration gt 0>>\

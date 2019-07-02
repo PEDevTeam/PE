@@ -9,7 +9,9 @@
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
 <<set _underwearAlt to $items[_u.id].curAlt >>\
-<<set _braAlt to $items[_bra.id].curAlt >>\
+<<if _bra>>\
+	<<set _braAlt to $items[_bra.id].curAlt >>\
+<<endif>>\
 <<set _deduction=0>>\
 <<set _textSwitch = true>>\
 <<if _o.female>>\
@@ -619,13 +621,13 @@
 <!--		--><<endif>>\
 <!--	--><<endif>>\
 <!----><<endif>>\
-<!----><<if ($player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
+<!----><<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
 <!--	--><<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\
 <!--		--><<if (_underwearAlt == _braAlt)>>\
 <!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
 <!--			--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 <!--		--><<else>>\
-<!--			-->>@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
+<!--			-->@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
 <!--		--><<endif>>\
 <!--	--><<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\
 <!--		-->@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
