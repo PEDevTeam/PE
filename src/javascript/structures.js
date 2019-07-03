@@ -1279,7 +1279,7 @@ window.flagsList={
 	clothesPurged:false, //new flag
 	delaySlut: 0,
 	canGame: true,
-	difficulty: 1,
+	difficulty: 2,
 	choreFactor: 1,
 	bribeFactor: 1,
 	metClothesClerk: false,
