@@ -372,14 +372,16 @@
     Mz. Knight snips the tag off with a pair of nail scissors. @@.femvoice7;”I have other customers, but I must say it has been a pleasure. I hope you learned something. \
     Oh, please wear it out; just put your clothing over the top. You need to get used to it, after all.”@@
     
-    <<switch _item.id>>
-    <<case "bra">>
-        @@.hero;I have a bra, but $teacher wanted a sexy one. I should see if they have one of those too and some matching panties.@@
-    <<case "braSexy">>
-        <<if not $items.gString.ownAlt[_braAlt]>>@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@<<endif>>
-    <<case "braLatex">>
-        @@.hero;I have a bra, but $teacher wanted one that went with lacy panties. I should see if they have one of those too and some matching panties.@@
-    <</switch>>
+	<<if $player.perversion.teacher == 3>>\
+		<<switch _item.id>>
+		<<case "bra">>
+			@@.hero;I have a bra, but $teacher wanted a sexy one. I should see if they have one of those too and some matching panties.@@
+		<<case "braSexy">>
+			<<if not $items.gString.ownAlt[_braAlt]>>@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@<<endif>>
+		<<case "braLatex">>
+			@@.hero;I have a bra, but $teacher wanted one that went with lacy panties. I should see if they have one of those too and some matching panties.@@
+		<</switch>>
+	<<endif>>\
  
     With a shrug, you decide that it might be better to hide the bra under your clothing rather than take it back out of the changing rooms in your hands. \
     You hurriedly get dressed, peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new bra and head back into the mall.
