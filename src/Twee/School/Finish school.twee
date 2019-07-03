@@ -8,7 +8,7 @@
 	<<Daring 3>>\
 	<<set $flags.daring3Add = false>>\
 <<endif>>\
-<<if window.timeCode.isFriday() && $player.punishments.penalty==0 && $player.perversion.teacher == 10 && $player.perversion.schoolSlut > 10 && $flags.slutGoodEnd == 0 && $flags.slutBadEnd == 0>>\
+<<if window.timeCode.isFriday() && (($player.punishments.penalty == 0 && $flags.difficulty == 3)||($player.punishments.penalty <=3 && $flags.difficulty < 3)) && $player.perversion.teacher == 10 && $player.perversion.schoolSlut > 10 && $flags.slutGoodEnd == 0 && $flags.slutBadEnd == 0>>\
 	<<if $player.perversion.teacherPermChastity < 6>>\
 		You return to $teacher, only to find her hurriedly rushing out of her room. She looks through the bundle of papers in her arms, then sighs, turning back until she spots you from further down the hall.
 
