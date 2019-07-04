@@ -1,0 +1,34 @@
+::Cheer SE5 Sc5a
+<<set _under=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set $cheerFriend.flags.visitedHouse = true>>\
+@@.heroT;“I’ll play you for it,”@@ you offer.
+
+@@.malevoice9;“And what do I get if I win?”@@ he asks.
+
+@@.heroT;“Well, what do you want?”@@
+
+He thinks for a moment. @@.malevoice9;“I want… your panties!”@@
+
+You’re shocked by his rather unconventional request. @@.heroT;“What? My panties?”@@
+
+@@.malevoice9;“Yeah. They feel nice, but $cheerFriend.name gets mad when I take hers. So, if I win, I get to keep yours, fair and square. Either you give me your panties or… a hundred dollars!”@@
+
+@@.hero;A hundred dollars!\
+<<if $player.money <100>>\
+	I don’t have that kind of cash! \
+<<else>>\
+	This kid’s running a racket! \
+<<endif>>\
+Panties would be cheaper to replace... \
+<<if not _under>>\
+	Too bad I didn’t wear any today. \
+<<endif>>\
+Of course, I could save myself a lot of hassle and just take the diary. He’s only ten.@@
+
+<<if _under>>\
+	[[Bet your panties|Cheer SE5 Sc6a][$cheerFriend.prize = "panties"]]
+<<endif>>\
+<<if $player.money > 100>>\
+	[[Bet $100|Cheer SE5 Sc6a][$cheerFriend.prize = "money"]]
+<<endif>>\
+[[Take the diary by force|Cheer SE5 Sc5c][$cheerFriend.flags.force = true; $cheerFriend.affinity -= 1]]

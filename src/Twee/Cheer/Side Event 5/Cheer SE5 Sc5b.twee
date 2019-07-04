@@ -1,0 +1,32 @@
+::Cheer SE5 Sc5b
+<<set _under=playerCode.isWearingOn(itemTypes.Underwear)>>\
+@@.heroT;“Fine. If I give you $<<if $player.money > 20>>20<<else>>$player.money<<endif>>, will you give me the diary?”@@
+
+@@.malevoice9;“Fifty,”@@ Andrew demands.
+
+@@.hero;Fifty dollars!@@\
+<<if $player.money <50>>\
+	@@.hero;I don’t have that kind of cash!@@
+<<else>>\
+	@@.hero;This kid’s running a racket!@@
+<<endif>>\
+
+@@.malevoice9;“Or,”@@ Andrew continues, @@.malevoice9;“you can give me your panites.”@@
+
+You’re shocked by his rather unconventional request. @@.heroT;“What? My panties?”@@
+
+@@.malevoice9;“Yeah. They feel nice, but $cheerFriend.name gets mad when I take hers. If you give me yours, I’ll give you the diary back.”@@
+
+@@.hero;Panties would be cheaper to replace...\
+<<if not _under>>\
+	Too bad I didn’t wear any today. \
+<<endif>>\
+Of course, I could save myself a lot of hassle and just take the diary. He’s only ten.@@
+
+<<if _under>>\
+	[[Give him your panties|Cheer SE5 Sc6b][$cheerFriend.prize = "panties"]]
+<<endif>>\
+<<if $player.money > 50>>\
+	[[Pay him $50|Cheer SE5 Sc6b][$cheerFriend.prize = "money"; $player.money -= 50]]
+<<endif>>\
+[[Take the diary by force|Cheer SE5 Sc5c][$cheerFriend.flags.force = true; $cheerFriend.affinity -= 1]]

@@ -3,6 +3,7 @@ window.rewardMoney={
 	teacherFemaleClothing: 15,
 	teacherButtplug: 5,
 	teacherChastity: 10,
+	teacherBra: 10,
 	teacherAssistant: 15,
 	teacherBullySex: 20,
 	teacherPiss: 60,
@@ -140,6 +141,7 @@ window.structures={
 		
 		if (vars.minigames.dreamgame == null) { vars.minigames.dreamgame = {}; }
 		if (vars.minigames.coachgame == null) { vars.minigames.coachgame = {}; }
+		if (vars.minigames.cheerGame == null) { vars.minigames.cheerGame = {}; }
 		
 		if (vars.minigames.dreamgame.alertness == null) { vars.minigames.dreamgame.alertness = 0; }
 		if (vars.minigames.dreamgame.dreaminess == null) { vars.minigames.dreamgame.dreaminess = 0; }
@@ -159,6 +161,15 @@ window.structures={
 		if (vars.minigames.coachgame.win == null) { vars.minigames.coachgame.win = false; }
 		if (vars.minigames.coachgame.playedToday == null) { vars.minigames.coachgame.playedToday = false; }
 		
+		if (vars.minigames.cheerGame.turn == null) { vars.minigames.cheerGame.turn=0; } 
+		if (vars.minigames.cheerGame.failCount == null) { vars.minigames.cheerGame.failCount = 0; }
+		if (vars.minigames.cheerGame.lastActionId == null) { vars.minigames.cheerGame.lastActionId=-1; }
+		if (vars.minigames.cheerGame.ignoreModesty == null) { vars.minigames.cheerGame.ignoreModesty = false; }
+		if (vars.minigames.cheerGame.failedMove == null) { vars.minigames.cheerGame.failedMove = false; }
+		if (vars.minigames.cheerGame.correct == null) { vars.minigames.cheerGame.correct = false; }
+		if (vars.minigames.cheerGame.win == null) { vars.minigames.cheerGame.win = false; }
+		if (vars.minigames.cheerGame.playedToday == null) { vars.minigames.cheerGame.playedToday = false; }
+
 	},
 	setupStatus: function() {
 		var vars=State.active.variables;
@@ -872,7 +883,9 @@ window.playerAddonsList={
 		bjSkill: 0,
 		vibratorFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
-		analSkill: 0
+		analSkill: 0,
+		schoolSlut: 0,
+		penisFirst: 0, /* "slave girls", "guardian", "femFriend", "cheerCaptain", "cheerBitch", "photoGirl" */
 	},
 	masturbate: {
 		lastDay: 0,
@@ -901,7 +914,8 @@ window.playerAddonsList={
 		vibratorFirst: 0, /* "guardian", "therapist", "shop" */
 		vibratorExp: 0,
 		analFirst: 0, /* "guardian", "photoGirl", "coach", "badBoyfriend" */
-		analExp: 0
+		analExp: 0,
+		penisFirst: 0,
 	},
 },
 
@@ -922,6 +936,12 @@ window.friendList={
 	admitWhatsWrong: 0,
 	admitLikingTrap: 0,
 	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
+	
+	visit: {
+        r2: 0,
+        c3: 0,
+    },
+    seenPanties: [],
 },
 
 window.futaList={
@@ -938,7 +958,9 @@ window.futaList={
 	Boys_Girls: 'Boys',
 	boys_girls: 'boys',
 	Guy_Girl: 'Guy',
-	guy_girl: 'guy'
+	guy_girl: 'guy',
+	team: 'football',
+	Team: 'Football',
 },
 
 window.bodyList={
@@ -1257,7 +1279,7 @@ window.flagsList={
 	clothesPurged:false, //new flag
 	delaySlut: 0,
 	canGame: true,
-	difficulty: 1,
+	difficulty: 2,
 	choreFactor: 1,
 	bribeFactor: 1,
 	metClothesClerk: false,
@@ -1265,6 +1287,18 @@ window.flagsList={
 	quiz: [0,0,0,0,0,0,0,0,0,0],
 	daring3Add: false,
 	visited111: false,
+	slutWork: false, //Performed as school slut
+	rewardFirst: true, //first time rewarding team
+	failedReward: false, //did not give team reward in teacher task
+	volleyFirst: true, //first time visiting the volleyball team
+	firstTimeTAAnime: true, //first time meeting the TA in the anime club
+	failedPrincipal: false, //did not work for principal in teacher task
+	endSchoolSlut: 0,
+	nancyChastTalk: false,
+	slutGoodEnd: 0,
+	slutBadEnd: 0,
+	teacherSawPanties: false,
+	friendBraTask: false,
 },
 
 window.kinkList={
@@ -1466,7 +1500,7 @@ window.cheerList={
 		lateForPractice: false, 	//waited in toilet until late for practice
 		bullyLeft: false, 		//waited in toilet until bully left
 		complain: false,	//complained about practice
-		slutUniform: 1,	//chosen slutty uniform [int], [1 = more modest + plug, 2 = more slutty]
+		slutUniform: 0,	//chosen slutty uniform [int], [0 = more modest + plug, 1 = more slutty]
 		sarahTalk: 0,	//talked with cheer friend about Sarah [int], [0 = did not talk, 1 = tell the truth, 2 = lie]
 		metBro: false,	//met Ashley's brother at the library.
 		panties: false,	//PC tries to wear panties to his fake try-out
@@ -1513,12 +1547,7 @@ window.cheerList={
 		execution: 10,	//PC's execution score.  Each mistake deducts one point.
 		finalScore: 0,	//PC's final score.  Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
 		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
-		correctAnswer: false,	//flag for correct answer
-		failChance: 0,	//chance of failure due to slutty uniform
-		ignoreModesty: false,	//flag for reducing fail chance due to slutty uniform
-		failCount: 0,		//the number of times player failed to perform the correct move
-		answer: 1,		//variable to track which answer was given previously
-		failedMove: false	//flag for failing a move due to slutty uniform
+		practiced: false, //practiced ashley's cheer before tryout.
 	}
 }
 
@@ -1527,6 +1556,7 @@ window.cheerFriendList={
 	affinity: 0,		//current affinity of cheer friend to PC, [int]
 	currentSE: 0,		//currently available side event
 	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
+	prize: 'money',		//prize offered cheer friend's brother
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,
@@ -1536,6 +1566,9 @@ window.cheerFriendList={
 
 	flags: {
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
-		boy: 1		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		boy: 1,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		force: false,	//took diary by force
+		visitedHouse: false, //visited house in SE 5
+		genderPref: "", //stated preferred gender
 	}
 }

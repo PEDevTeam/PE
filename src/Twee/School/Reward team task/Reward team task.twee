@@ -1,0 +1,76 @@
+::Reward team task
+<<if $kink.futa>>\
+	<<set $futa.team = 'soccer'>>\
+	<<set $futa.Team = 'Soccer'>>\
+<<endif>>\
+<<if $scene == "rewardLeave">>\
+	You tell coach you're not comfortable to fulfill his request, and while $futa.he_she gives a grunt of irritation, $futa.he_she lets you leave without further issue.
+	
+	[[Finish school]]
+<<else>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Gym" 400 400>></div>\
+	<<if $tasksTeacher.rewardTeam.progress == 0>>\
+		You hurriedly change into your slutty cheerleader uniform and run to the gym to meet Coach.
+
+		@@.coach;“Bout time,”@@ $futa.he_she growls. @@.coach;“The $futa.boys_girls are waiting.”@@
+
+		$futa.He_She takes your arm and leads you into the $futa.team team’s locker room. Dressed in your scanty outfit, you are immediately noticed by a player standing near the entrance, a mountain of a $futa.boy_girl wearing nothing but a towel. @@.malevoice8;“Well, look who it is... Finally decided to come do your cheerleader duty?”@@ $futa.he_she asks with a grin as $futa.he_she drops the towel to reveal <<if $kink.futa>>her erect girlcock<<else>>his erect penis<<endif>>. @@.malevoice8;“I knew you’d be begging for our dicks sooner or later.”@@
+
+		@@.coach;“That’s right,”@@ Coach says, reaching down to give your ass a firm squeeze as the other players start to gather around you. <<if $failedReward == true>>@@.coach;”She finally decided to stop being a little cocktease and give you all what you deserve,”@@<<else>>@@.coach;“I promised you $futa.boys_girls a little 'motivation' if you won the last game. Well, here she is,”@@<<endif>> $futa.he_she gives you butt a firm swat. @@.coach;“Isn’t that right $player.name?”@@
+
+		<<if playerCode.isMind_0()>>\
+			<<if $flags.failedReward == false>>\
+				You gulp. It’s not like you didn’t know this was coming when you agreed to coach’s request, but the prospect is a little overwhelming now that you find yourself surrounded by an entire team of $futa.team players, their cocks rapidly growing erect as they ogle you in your stripperific outfit.
+
+				@@.hero;Last chance to back out…@@
+
+				[[Nod your head|Reward team task 2][$scene = "default"]]
+				[[Tell Coach you’re not ready for this|Reward team task][$flags.failedReward = true; $scene = "rewardLeave"]]
+			<<else>>\
+				Even though you managed to get away without incident last time, you’re pretty sure you won’t be so lucky this time. Of course, you wouldn’t even be here if you weren’t planning on going through with the “reward session.”
+
+				You look up at Coach and nod, signalling you’re [[ready to begin|Reward team task 2][$scene = "default"]]
+			<<endif>>\
+		<<elseif playerCode.isMind_1()>>\
+			You hesitate. It’s a bit overwhelming being surrounded by an entire team of $futa.team players, all practically licking their lips at the chance for you to “reward” them.
+
+			@@.hero;Well, it’s not like I didn’t know this was coming when I agreed to come here…@@
+
+			You look up at Coach and nod, signalling you’re [[ready to begin|Reward team task 2][$scene = "default"]]
+		<<else>>\
+			You nod. This is why you came here after all. And now, you find yourself practically relishing how small and vulnerable you feel surrounded by an entire team of $futa.team players, not to mention the ache of emptiness that builds as your eyes wander over their [[quickly stiffening cocks.|Reward team task 2][$scene = "default"]]
+		<<endif>>\
+	<<else>>\
+		Coach chuckles as you walk up, already wearing your slutty cheerleader uniform. @@.coach;“Ready to do your part for school spirit?”@@ $futa.he_she asks. You nod, and he leads you to the\
+		<<set _sceneArr = [0]>>\
+		<<if $kinkAllow.footWorship>>\
+			<<set _sceneArr.push(1)>>\
+		<<endif>>\
+		<<if $kinkAllow.bukkake>>\
+			<<set _sceneArr.push(2)>>\
+		<<endif>>\
+		<<if $kinkAllow.urinePlay>>\
+			<<set _sceneArr.push(3)>>\
+		<<endif>>\
+		<<if $kinkAllow.bondage>>\
+			<<set _sceneArr.push(4)>>\
+		<<endif>>\
+		<<set _scene = _sceneArr.random()>>\
+		<<switch _scene>>\
+		<<case 0>>\
+			<<if $kink.futa>>\
+				[[soccer team’s locker room|Reward team task 2][$scene = "default"]]
+			<<else>>\
+				[[football team’s locker room|Reward team task 2][$scene = "default"]]
+			<<endif>>\
+		<<case 1>>\
+			[[volleyball team’s locker room|Reward team task 2][$scene = "feet"]]
+		<<case 2>>\
+			[[cross-country team’s locker room|Reward team task 2][$scene = "bukkake"]]
+		<<case 3>>\
+			[[swimming team’s locker room|Reward team task 2][$scene = "watersports"]]
+		<<case 4>>\
+			[[gymnastics team’s locker room|Reward team task 2][$scene = "bondage"]]
+		<</switch>>
+	<<endif>>\
+<<endif>>\
