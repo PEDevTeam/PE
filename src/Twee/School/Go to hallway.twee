@@ -7,7 +7,13 @@
 <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _underwearAlt to $items[_u.id].curAlt >>\
+<<if _bra>>\
+	<<set _braAlt to $items[_bra.id].curAlt >>\
+<<endif>>\
 <<set _deduction=0>>\
+<<set _textSwitch = true>>\
 <<if _o.female>>\
 	<<set $player.room.girljacket=1>>\
 	<<if not $items[_o.id].curAlt>><<set $items[_o.id].curAlt=0>><<endif>>\
@@ -25,7 +31,6 @@
 	<<set $items.buttPlugHeart.disabled=true>>\
 	<<set $flags.buttplugLost=false>>\
 <<endif>>\
-\
 <!--<perversion progress events>-->\
 <<if ($player.perversion.guardian gte 5) and (not $flags.guardianTeacherTalk)>>\
 	<<set $flags.guardianTeacherTalk=true>>\
@@ -34,6 +39,7 @@
 	@@.teacher;"$Guardian told me some of her plans for you at home, and I bet you will make an excellent little maid for her. It would be a pity to punish you if you disappointed $guardian, so do your best to serve her well."@@
 	
 	@@.hero;Oh, joy. Now I'll have to keep up with the tasks from both $teacher //and// $myguardian if I want to avoid punishment!@@
+	
 		<<if $player.perversion.teacher eq 6>>\
 		@@.teacher;"I did not tell $guardian what an obedient little cocksucker you are, but she knows that you're really popular among the $futa.boys_girls here."@@
 		<<elseif $player.perversion.teacher eq 7>>\
@@ -76,6 +82,107 @@
 		The first thing that comes to mind is getting rid of your chastity cage and being freed from blackmail, but you realize she would never agree to that. But what else do you really want?
 		
 	<<endif>>\
+<<elseif $player.perversion.teacher eq 10 && ($flags.slutGoodEnd == 0 && $flags.slutGoodEnd == 0) && ($flags.endSchoolSlut > 0 || $flags.nancyChastTalk)>>\
+	<<switch $flags.endSchoolSlut>>\
+	<<case 1>>\
+		<<set $flags.slutGoodEnd = 1>>\
+		$teacher looks at you for a few seconds. @@.teacher;“$player.name, I have something important I need to discuss with you.”@@
+
+		You gulp, remembering the key you found in the drawer on Friday.
+
+		@@.teacher;“I am aware that you discovered your chastity key in my desk drawer on Friday. In fact, I deliberately left it there for you to find.”@@
+
+		@@.hero;Wait? What?@@
+
+		@@.teacher;“I wanted to see how you would act when offered a chance to free yourself against my wishes, and I am very pleased by how you behaved, given the situation. Even when faced with given the opportunity to remove your cage, or God forbid, steal your keys, you decided to respect the training I have given you.
+
+		In fact, I have decided to reward you for your good behavior.”@@ She hands you a small business card. 
+
+		@@.teacher;“You will go to this address on Friday evening, time is on the back, and we shall go from there. I will be very disappointed if you stand me up, $player.name, but I will refrain from punishing you for it. Forgoing this reward will be punishment enough, I assure you.
+
+		“Now, I am also in the process of preparing for the next step of your training, but it will likely have to wait until next week. Until then, I recommend you keep up your duties as school slut, unless of course, you’d like to be punished before your reward on Friday.”@@
+
+		You emphatically shake your head, and $teacher laughs.
+
+		@@.teacher;“I thought not. Now, let us continue with your inspection."@@
+	<<case 2>>\
+	<<set $flags.slutBadEnd = 1>>\
+		$teacher glares at you for a few seconds. @@.teacher;“I noticed something was missing from my desk on Friday afternoon,”@@ she says with a disappointed tone. @@.teacher;“I believe you have some explaining to do.”@@
+
+		You start to stammer out an excuse, but $teacher cuts you off.
+
+		@@.teacher;“Save your excuses. I cannot believe you would actually try to steal your chastity keys after all the time we have spent on your instruction. You have made so much progress, but still, when given the opportunity to give in to your base desires, you could not help but take it.
+
+		“Of course, I am sure you discovered that those were not //actually// your keys. I merely placed similar, but non-functioning, copies there to test your resolve, a test you certainly failed. Such a grievous transgression will require a special kind of punishment. Friday evening you will come to the basement of the club. If you have not been before, worry not, the bouncer will see you to the right place.
+
+		“Once you have performed your penance, I will consider the matter settled, and we will discuss the final step of your training. Fail to show, and your punishment will be much more final, do you understand?”@@
+
+		You nod, terrified by $teacher’s intensity.
+
+		@@.teacher;“Good. Until Friday, I expect you to keep up your work as the school slut, unless you would like to incur further punishment at the end of the week in addition to what I have planned for you.”@@
+
+		You emphatically shake your head, and teacher harrumphs at your sudden turn towards submission.
+
+		@@.teacher;“I thought not. Now, let’s continue with your inspection."@@
+	<<case 3>>\
+		<<set $flags.slutBadEnd = 1>>\
+		$teacher glares at you for a few seconds. @@.teacher;“We need to discuss your activities over the weekend.”@@
+
+		The tone in her voice makes it clear that she’s referencing your unauthorized release.
+
+		@@.teacher;“I am very disappointed you asked Nancy to release you from your cage. I know being stuck in chastity was very stressful for you, but when I discovered you had overheard my conversation, I had hoped you would trust my judgement in the matter. You have made so much progress, and yet, when given the opportunity to give in to your base desires, you can’t help but take it.
+
+		“Such a grievous transgression will require a special kind of punishment. Friday evening you will come to the basement of the club. If you have not been before, worry not, the bouncer will see you to the right place.
+
+		“Once you have performed your penance, I will consider the matter settled, and we will discuss the final step of your training. Fail to show, and your punishment will be much more final, do you understand?”@@
+
+		You nod, terrified by $teacher’s intensity.
+
+		@@.teacher;“Good. Until Friday, I expect you to keep up your work as the school slut, unless you would like to incur further punishment at the end of the week in addition to what I have planned for you.”@@
+
+		You emphatically shake your head, and teacher harrumphs at your sudden turn towards submission.
+
+		@@.teacher;“I thought not. Now, let us continue with your inspection.@@
+	<<case 4>>\
+		<<set $flags.slutGoodEnd = 1>>\
+		$teacher looks at you for a few seconds. @@.teacher;“We need to discuss your activities over the weekend.”@@
+
+		The tone in her voice makes it clear that she’s referencing your unauthorized release.
+
+		@@.teacher;“I am very disappointed you asked Nancy to release you from your cage. I know being stuck in chastity was very stressful for you, but when I discovered you had overheard my conversation, I had hoped you would trust my judgement in the matter. Still, I am pleased that, in the end, you decide to make the right choice and leave the determination of your release in my hands. I think, finally, your training is starting to sink in.
+
+		“Because of your wise decision, I have decided you deserve a special reward.”@@ She hands you a small business card. 
+
+		@@.teacher;“You will go to this address on Friday evening, time is on the back, and we shall go from there. I will be very disappointed if you stand me up, $player.name, but I will refrain from punishing you for it. Forgoing this reward will be punishment enough, I assure you.
+
+		“Now, I am also in the process of preparing for the next step of your training, but it will likely have to wait until next week. Until then, I recommend you keep up your duties as school slut, unless of course you’d like to be punished before your reward on Friday.”@@
+
+		You emphatically shake your head, and $teacher laughs.
+
+		@@.teacher;“I thought not. Now, let us continue with your inspection."@@
+	<</switch>>\
+	<<if $flags.nancyChastTalk == true>>\
+		<<set $flags.slutGoodEnd = 1>>\
+		<<set $flags.nancyChastTalk = false>>\
+		$teacher looks at you for a few seconds. @@.teacher;“$player.name, I believe there is something we need to discuss.”@@
+
+		You tense a bit, not entirely sure what she’s referencing, but her serious demeanor is enough to put you on edge.
+
+		@@.teacher;“I know you overheard my phone conversation with the clinic nurse on Friday. I will be honest, I half expected you to run immediately to the clinic to have your cage removed, but it seems you showed admirable restraint. I want you to know that if I feel your permanent chastity is truly becoming an issue for you, I will ask Nancy to address the problem, but I want you to leave that decision to me. Do you understand?”@@
+
+		You hesitate for a moment, but eventually nod in agreement. Even with all you’ve been through, a part of you can tell $teacher is being honest about this matter.
+
+		@@.teacher;“Good. As I said, I was impressed you did not run off and try to immediately have your chastity removed, and because you showed proper discretion, I feel a reward is in order.”@@ She hands you a small business card. 
+
+		@@.teacher;“You will go to this address on Friday evening, time is on the back, and we shall go from there. I will be very disappointed if you stand me up, $player.name, but I will refrain from punishing you for it. Forgoing this reward will be punishment enough, I assure you.
+
+		“Now, I am also in the process of preparing for the next step of your training, but it will likely have to wait until next week. Until then, I recommend you keep up your duties as school slut, unless of course you’d like to be punished before your reward on Friday.”@@
+
+		You emphatically shake your head, and $teacher laughs.
+
+		@@.teacher;“I thought not. Now, let us continue with your inspection."@@
+	<<endif>>\
+	<<set $flags.endSchoolSlut = 0>>\
 <<endif>>\
 <!--</perversion progress events>-->\
 \
@@ -102,24 +209,24 @@
 	<<if _c>>\
 		<<if _b>>\
 			$teacher, as well as your caged penis. You then turn around and lean forward so she can see your butt-plug.
-			
 		<<else>>\
-			$teacher, as well as your caged penis.
-			
+			$teacher, as well as your caged penis.	
 		<<endif>>\
 	<<else>>\
 		<<if _b>>\
 			$teacher. You then turn around and touch your toes so she can see your butt-plug.
-			
 		<<else>>\
 			$teacher.
-			
 		<<endif>>\
 	<<endif>>\
+	<<if _bra>>\
+		Finally, you open your shirt to show $teacher your bra.
+	<<endif>>\
+	
 \
 	<!--<perversion progress events2>-->\
 	<<if $player.perversion.teacher eq 4>>\
-		<<if _o.female and (not _u) and _o.skirt>>\
+		<<if _o.female and (not _u)>>\
 			<<set $player.perversion.teacher to 5>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			She looks at you for a moment, smirking. 
@@ -212,10 +319,24 @@
 
 			@@.teacher;"That should put an end to your masturbating in school. I hope it also teaches you to control your urges. On that point - I //may// let you out for weekends, but //only// if you have been cooperative and obedient.
 			
-			"I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests or I will have to punish you. I hope I have made myself clear? //Yes?// Good."@@
-
+			"I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests or I will have to punish you. I hope I have made myself clear? //Yes?// Good.
+			
+			"For your first task, I want you to start wearing a bra to school everyday, <<if $flags.teacherSawPanties>>one that matches those cute lacy panties you wore<<else>>as well as a pair of matching lacy panties<<endif>>."@@
+			
+			You nod, already dreading the trip to the lingerie store.
+			<<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\
+				
+				@@.hero;But I got my panties from $friend. Is there even a bra to match?@@
+				\
+			<<else>>\
+				
+				@@.hero;I have to go to the mall and buy a bra to match my panties?@@
+				\
+			<<endif>>\
+			
 			<<set $flags.chastityKey to true>>\
 			<<set $flags.chastityLocked to true>>\
+			<<set $flags.friendBraTask = true>>\
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 1>>\
 		<<if (_u and _u.female and _u.slutty) or _c>>\
@@ -228,6 +349,7 @@
 			<<if _c>>\
 				A chastity cage?\
 			<<elseif _u.id eq itemsC.gString.id>>\
+				<<set $flags.teacherSawPanties = true>>\
 				Lacy panties?\
 			<<else>>\
 				Latex panties?\
@@ -499,6 +621,22 @@
 <!--		--><<endif>>\
 <!--	--><<endif>>\
 <!----><<endif>>\
+<!----><<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
+<!--	--><<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\
+<!--		--><<if (_underwearAlt == _braAlt)>>\
+<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
+<!--			--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
+<!--		--><<else>>\
+<!--			-->@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
+<!--		--><<endif>>\
+<!--	--><<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\
+<!--		-->@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
+<!--	--><<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\
+<!--		-->@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
+<!--	--><<else>>\
+<!--		-->@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
+<!--	--><<endif>>\
+<!----><<endif>>\
 <!----><<if _u.female and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
 <!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleUnderwear>> for wearing female underwear.@@\
 <!--	--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
@@ -593,9 +731,11 @@
 <!--		-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
 <!--	--><<if $minigames.coachgame.playedYesterday>>\
-<!--		--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
-<!--		--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<if !($player.perversion.teacher == 10)>>\
+<!--			--><<set $minigames.coachgame.playedYesterday to false>>\
+<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+<!--			--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
+<!--		--><<endif>>\
 <!--	--><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
 <!--		-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
 <!--	--><<endif>>\
@@ -626,9 +766,14 @@
 <!----><<elseif $flags.whoreFucked>>\
 <!--	-->@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
 <!----><<endif>>\
-<!----><<if ($player.perversion.teacher eq 10) and _o.slutty>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!----><<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
+<!--	--><<set $flags.slutWork = false>>\
+<!--	--><<if _o.slutty>>\
+<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
+<!--		--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
+<!--	--><<else>>\
+<!--		-->@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
+<!--	--><<endif>>\
 <!----><<endif>>\
 <!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
 <!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
@@ -685,12 +830,22 @@
 			<<set $locations.jobFastfood.active = true>>\
 		<<endif>>\
 	<<endif>>\
+	
+	<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
+		<<if $flags.slutGoodEnd > 0>>\
+		
+			$teacher smiles at you warmly. @@.teacher;"Do not forget about your reward tonight.  The address is on the card I gave you.@@
+		<<elseif $flags.slutBadEnd > 0>>\
+		
+			$teacher looks at you sternly. @@.teacher;"For your own sake, I suggest you make it to the club tonight for your punishment.@@
+		<<endif>>\
+	<<endif>>\
+	
 <!--</tasks giving>-->\
 	<<set $player.bribeDiscount+=_deduction>>\
 	<<if timeCode.isMonday()>>\
 		<!--<bribe check>-->\
-		
-		
+			
 		Today is Monday, which means it's time\
 		<<if ($player.bribeDiscount gte $bribeAmount)>>\
 			<<if ($player.perversion.teacher lte 3)>>\
@@ -805,8 +960,6 @@
 			
 		[[Go back to class|Finish school day]]
 	<<elseif window.timeCode.isFriday() and ($player.perversion.teacher gte 3)>>\
-		
-	
 		<<if $bribeAmount-$player.bribeDiscount gte 2000>>\
 			@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your confession will go public and I will have a chat with the principal."@@
 			
@@ -901,7 +1054,6 @@
 	<!--</bribe check>-->\
 	<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
 		
-		
 		@@.teacher;“I also need to speak with you about some distressing news I received in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
 
 		@@.hero;That bitch!@@
@@ -930,12 +1082,10 @@
 
 		[[Go back to class|Finish school day]]
 		
-	
 	<<else>>\
 	
-		
 		<<if $flags.keyLended and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay()>>\
+			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay())>>\
 				$teacher has your chastity key on a necklace, resting between her breasts. She plays with the chain, looking at you expectantly.
 				
 				@@.teacher;Is there anything else that you want?@@
@@ -954,7 +1104,9 @@
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
-			<<if $cheerFriend.currentSE == 1>>\
+			<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isWednesday() && !($cheerleaders.flags.skippedPractice)>>\
+				[[Go back to class|Cheer SE10 Sc1][$flags.chastityAgree = false]]
+			<<elseif $cheerFriend.currentSE == 1>>\
 				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
 			<<else>>\
 				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
@@ -970,7 +1122,7 @@
 
 	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimdating. 
 	
-	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $guardian first?@@
+	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $myguardian first?@@
 
 	<<if not ($flags.femaleSchool) and _o.female>>\
 		<<set $flags.femaleSchool to true>>\

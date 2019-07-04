@@ -57,7 +57,7 @@
 	<<if $scene eq "ReturnToTeacher">>\
 		[[Refuse to confess|SissyConfession][$scene="TryToRefuse"]]
 	<<elseif $scene eq "FailToPay">>\
-		[[Refuse to confess|Endgame teacher bribe]]
+		[[Refuse to confess|Still refuse][$scene="confess"]]
 	<<endif>>\
 <<elseif $scene eq "TryToRefuse">>\
 	You tell $teacher, that you are not a sissy and you won't ever agree to read that.
@@ -203,7 +203,7 @@
 
 	@@.hero;I'm a sissy.@@
 	
-	<<if $cheerFriend.currentSE > 0>>\
+	<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE != 9>>\
 		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
 	<<else>>\
 		<<display [[Travel]]>>\

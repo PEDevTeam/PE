@@ -28,12 +28,7 @@
 			<<endif>>\
 		<<endif>>\
 		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
-			<<if (not $flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
-				<<set $flags.firstBuyDress = true>>\
-				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
-				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
+			<<if (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
 				<<set $flags.firstBuyShoes = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
@@ -41,16 +36,26 @@
 			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
 				<<set $flags.firstBuyPanties = true>>\
 				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
+				<<set $scene = "first buy panties">>\
 				<<set _repeat=true>>\
 			<<elseif (not $flags.firstBuyBras) and (_item.clothingType eq itemTypes.Bras)>>\
 				<<set $flags.firstBuyBras = true>>\
 				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
+				<<set $scene = "first buy bra">>\
 				<<set _repeat=true>>\
 			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyStockings = true>>\
+				<<set $scene = "first buy stockings">>\
+				<<set _repeat=true>>\
+			<<elseif (not $flags.firstBuyNightdress) and (_item.clothingType eq itemTypes.Outerwear) and (_item.id eq itemsC.silkyTeddy.id)>>\
+				<<set $player.perversion.mall++>>\
+				<<set $flags.firstBuyNightdress = true>>\
+				<<set $scene = "first buy nightdress">>\
+				<<set _repeat=true>>\
+			<<elseif (not $flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
+				<<set $flags.firstBuyDress = true>>\
+				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
 			<<endif>>\
@@ -113,7 +118,8 @@
 		
 		A chuckle from the checkout clerk confirms you failed to fool anyone else, either. She presents your newly-purchased <<print _item.name.toLowerCase()>> to you with a cheerful invitation to come back anytime.
 		
-		Turning away from the counter, you look around to find all the other customers looking at you in amusement. They're staring at the <<print _item.name.toLowerCase()>> dangling from your fingers, and you just stand there, paralyzed by fear. One guy reaches for his cellphone. You dart for the exit in panic, while mocking catcalls follow you out.
+		Turning away from the counter, you look around to find all the other customers looking at you in amusement. They're staring at the <<print _item.name.toLowerCase()>> dangling from your fingers, \
+		and you just stand there, paralyzed by fear. One guy reaches for his cellphone. You dart for the exit in panic, while mocking catcalls follow you out.
 		
 		@@.hero;That was humiliating. Why couldn't I think of a better excuse?@@
 		
@@ -122,7 +128,8 @@
 		[[Go home|Go to bedroom][$time.addMinutes(30)]]
 	<<elseif _item>>\
 		<<set $flags.secondBuyFemale = true>>\
-		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. The cashier courteously invites you to enjoy it and come back again soon.
+		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. \
+		The cashier courteously invites you to enjoy it and come back again soon.
 		
 		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.
 		
@@ -147,12 +154,484 @@
 			<<endif>>\
 		<<endif>>\
 		@@
-		
+
 		[[Return to the mall|Go to the mall]]
 	<<endif>>\
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 <!--</First buy events>-->\
+<<elseif $scene eq "first buy panties">>\
+    Clutching the panties in your hands, you timidly approach <<if $mallLingerieIntro>>Mz. Knight<<endif>> the tall, imposing shopkeeper and put them in a scrunched bundle on the counter.
+
+    @@.hero;“They're, um, for... my sister?”@@
+
+    <<if not $mallLingerieIntro>>\
+        Hearing your voice, you cringe inwardly. It sounds unconvincing and pitiful, even to you.
+
+        The elegant lady does not say anything for a moment. Instead, she serves the woman behind you in line, who pays for a bra, and then waits until the two of you are alone.
+
+        @@.femvoice7;“Aren’t you the sweet little rose? Willing to enter such a store on a valiant quest to purchase intimates for your sister. And knowing her size as well?”@@
+
+        She reaches out her hand and takes the bills from your sweating palm. Then, with a deliberation you could only describe as painful, she carefully takes the scrunched material, \
+        folds the panties neatly and hands them back in a paper bag, Intimate Apparel emblazoned on the front. You take it and shove it into your bag before anyone can see. \
+        A pair of newly-arrived ladies watch you with curiosity.
+
+        Before you can leave, the lady leans forward and whispers to you,
+
+        @@.femvoice7;“If those are for your sister, I will not comment further. But…“@@
+
+        You gulp. @@.hero;Does she know?@@
+
+        @@.femvoice7;“...if those are not for your sister, <<if $intimateBoyBrowse or $intimateFirstTime>> and I have seen you in here before,<<endif>> then next time try to be a little less deceitful, \
+        or at least be proud of the choices you make.@@
+
+        Lecture over, she smiles and holds out her hand. @@.femvoice7;“My name is Zara Knight, Mz. Knight. Feel free to ask for my advice on my products. \
+        I am more than happy to help anyone with their needs<<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
+
+        She pauses as if waiting for you to reply. After a few moments, she sighs. @@.femvoice7;“It is polite, young man, to respond with your name and take their hand when someone introduces themselves to you. \
+        Is it not?”@@
+
+        @@.heroT;“Sorry. I’m $player.name.”@@
+
+        @@.femvoice7;“Ah, $player.name,”@@ she says, shaking your hand.  @@.femvoice7;“Let me process the purchase of your panties for you.”@@
+
+        A chuckle from the two arrivals to the shops confirms you failed to fool anyone else, either. Turning away from the counter, you look around to find the shop is busier than when you entered, \
+        and all the other customers are looking at you in amusement, staring at the Intimate Apparel bag poking out the top of your school bag. You stand there, paralyzed by fear until one guy, standing with his wife, \
+        reaches for his cellphone. You dart for the exit in panic, sure that mocking catcalls are following you out.
+
+        @@.hero;Well, that was humiliating. Why couldn't I think of a better excuse?@@
+
+        Without stopping, you zip your bag up, rush outside and quickly leave.
+        
+        <<set $mallLingerieIntro to 1>>\
+        @@.statUp;You bought your first Pair of Panties.@@
+
+        <<display [[Travel]]>>\
+    <<else>>\
+        @@.femvoice7;“$player.name, good to see you again. Now, we know it is not seemly to be deceitful, do we not?”@@ says Mz. Knight, pausing a moment and arching her eyebrow.
+
+        @@.femvoice7;“What can I help you with this time? Ah, panties.”@@ She leans forward and adds, in a sultry, English whisper,  @@.femvoice7;“They will suit you, I am sure.”@@
+
+        She wraps your panties in a small bag, with a discrete Intimate Apparel label emblazoned printed on the front. You take it and place it inside your bag before anyone can see.
+
+         @@.femvoice7;“See, this was much easier, was it not? Thank you for your custom,”@@ Mz. Knight says in her normal voice.
+
+        You smile and head to the door, feeling somewhat pleased that your purchase went better than last time. Exalting in your new-found confidence you decide to peruse the mall and not run home like a scared cat.
+
+        @@.statUp;You bought your first Pair of Panties.@@
+
+        [[Return to Mall | Go to the mall]]
+    <<endif>>\
+	<<set $scene = "general">>\
+	<<set $player.bought="">>\
+<<elseif $scene eq "first buy bra">>\
+    <<set _braAlt to itemF.itemTwee(_item.id).storeCur>>\
+    <<switch _braAlt>>\
+       <<case 0 1 2 3 4 5 6 7 8 9>>\
+           <<set _braNumber to "0" + _braAlt>>\
+       <<default>>\
+            <<set _braNumber to _braAlt>>\
+       <</switch>>\
+    <<set _braImage to "Images/items/" + _item.image + _braNumber + ".jpg">>\
+    <<if $flags.friendBraTask>>\
+		You have no idea how to pick a bra, but $teacher told you that you need one. And not any bra, but one with matching panties.
+		<<set $flags.friendBraTask = false>>\
+    <<else>>\
+        <<if $body.boobs>>\
+            Even as you stand in the shop, your pronounced boobs pull at your chest.
+
+            @@.hero;I suppose I do need a bra,@@ you admit to yourself.
+        <<else>>\
+            Even though you do not need a bra, you find yourself drawn to the racks of boob-holsters within the shop.
+        <<endif>>\
+    <<endif>>\
+
+    You peruse the displays of bras until you find one you like and take it, clutching it in your palm as you creep to the counter.
+	
+    <<if not $mallLingerieIntro>>\
+        The woman at the register raises her eyebrow as you place it in front of her.
+
+        @@.heroT;"It’s… it’s for my sister?"@@
+
+        Hearing your voice, you cringe inwardly. It sounds unconvincing and pitiful, even to you.
+
+        The elegant woman does not say anything for a moment. Instead, she serves the woman behind you in line, who buys several pairs of stockings and pantyhose, and then waits until the two of you are alone.
+
+        @@.femvoice7;“Aren’t you the sweet little rose? Buying such pretty garments for your sister. And knowing her size as well?”@@
+
+        She smiles at you, her eyes full of understanding.
+
+        You gulp. @@.hero;Does she know?@@
+
+        She smiles and holds out her hand. @@.femvoice7;“My name is Zara Knight, Mz. Knight. Feel free to ask for my advice on my products. \
+        I am more than happy to help anyone with their needs<<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
+
+        Mz. Knight steps out from behind the counter and stands beside you. Even without her soaring black stiletto heels, she would tower above you. \
+        @@.femvoice7;“Now, please do me the courtesy of being honest,@@ she says quietly enough that only you can hear. @@.femvoice7;“This is for you, correct?”@@
+
+        You feel the need to run and hide, to avoid the shame, but that will not help you at the next inspection. So you swallow your fear and nod solemnly, unable to look Mz. Knight in the eye.
+    <<else>>\
+        @@.femvoice7;“$player.name, how wonderful to see you. What can I help you with this time?”@@
+
+        @@.heroT;“Um, a bra?”@@ you reply, with a garment clutched between your fingers.
+
+        @@.femvoice7;“Interesting choice.”@@ Mz. Knight leans forward and adds, @@.femvoice7;“It will suit you, I am sure. Make sure you have matching panties to go with though. \
+        Any lady would be horrified to be seen in anything but.@@
+    <<endif>>\
+    
+    @@.femvoice7;“Follow me,”@@ Mz. Knight instructs, taking a measuring tape from beside the till and heading towards a curtained area at the rear of the shop. You are hesitant at first, \
+    but then realise you are standing in a women’s underwear store, holding a bra, and the only assistant you could see just disappeared from view. You consider making a break for it, \
+    but when you look out onto the concourse, you spy $bully outside drinking a soda and looking around for someone to harass. So instead, you turn and race after Mz. Knight.
+
+    Thankfully, the area beyond the curtain is currently vacant. Mz. Knight is waiting for you patiently in one of the smaller booths, and you let the curtain drop behind you and follow her inside.
+
+    @@.heroT;“Um, why am I here?”@@
+
+    @@.femvoice7;“What an existentialist question…”@@ Mz. Knight says laughing, a light sound like soft blossoms landing on freshly mown grass, only louder and more musical. \
+    She stops when she sees your blank expression. @@.femvoice7;“We need to fit your bra, $player.name.”@@\
+    
+    <<print '<img src = '+_braImage+' style="width: 180px; height: auto; float: right; margin-top: 2em;">'>>\
+    @@.heroT;“Couldn’t I just take this one?”@@
+
+    @@.femvoice7;“Good grief, no. There are so many different cuts and fits, not to mention size. No, you must be measured. Now, top off.”@@ Mz. Knight says.
+
+    @@.heroT;“But...”@@
+
+    @@.femvoice7;“There is nothing to be ashamed of. After all, I have seen it all before. I have a daughter your age,”@@ Mz. Knight says pointedly, \
+    @@.femvoice7;“and a son. Don’t forget, I do sell brassieres for a living. Now, top off. Chop, chop.”@@
+
+    Faced with a choice between raising the ire of the towering British lady or potentially facing $bully as you leave a women’s wear shop, you feel your shoulders slump in submission. \
+    You remove your top and stand before her, your hands trying to cover up your <<if playerCode.isWearingOn(itemTypes.Bra)>>bra<<elseif $body.boobs>>breasts<<else>>flat chest<<endif>>.
+
+    Mz. Knight looks at you with an expression of calm acceptance, as if she has seen boys coming for bra fittings every day. Her demeanour puts you at ease.
+    
+    <<if playerCode.isWearingOn(itemTypes.Bra)>>\
+        @@.femvoice7;“I see you already have one. It is not fitted correctly, though. You have made the mistakes that so many girls your age do. No matter, this can be easily rectified. Please remove it.”@@
+		
+    <<endif>>\
+    <<if $body.boobs>>\
+        @@.femvoice7;“How delightful, you already have some growth. Your mother must be so proud. And you should be too, coming to terms with yourself. \
+        Well, if I am to measure you, you will need to move your hands.”@@
+    <<else>>\
+        @@.femvoice7;“Please, there is nothing there yet to hide; now, move your hands.” @@
+    <<endif>>\
+
+    Mz. Knight wields her tape and measures the area immediately below <<if $body.boobs>>your breasts<<else>>where your breasts would be, if you had any<<endif>>. \
+    @@.femvoice7;“$player.name, this is the strap size, it relates to the first measurement on a brassiere’s sizing label. \For example, the one you picked yourself is a 40, or 40 inches. \
+    You, my dear, are a 34, which is perfect for any young lady, erm person, your age. Remember that number.”@@
+
+    @@.femvoice7;“Now, the fun bit.”@@ Hefting the measure once more, Mz. Knight wields her tape measure and wraps it around your chest\
+    <<if $body.boobs>>, making your sensitive, girly nipples tingle<<else>>, covering your nipples <<endif>>. @@.femvoice7;“You need to keep the tape parallel to the ground. \
+    We are looking for the largest measurement.”@@ She moves the measure above and below your nipples, checking the size.
+
+    @@.femvoice7;“Okay, so that measurement is @@ \
+    <<switch $body.boobs>>\
+    <<case 0>>\
+        @@.femvoice7;34 too. Still, we have trainer bras which are cute and have padded cups.”@@
+
+        @@.hero;Of course, it’s 34. I’m a boy! What does she mean by padding?@@
+    <<case 1>>\
+        @@.femvoice7;35, so an A cup, which is a good start, but a bit of padding will help.”@@
+
+        @@.hero;Why did I get them enlarged? What does she mean by padding?@@
+    <<case 2>>\
+        @@.femvoice7;36, so a wonderful B cup.”@@
+
+        @@.hero;Wonderful B cup? They are lovely, but boys aren’t supposed to have any!@@
+    <<case 3>>\
+        @@.femvoice7;37, so an ample C cup.”@@
+
+        @@.hero;Ample,@@ you muse, cupping them in your hands. @@.hero;They are a handful.@@
+    <<case 4>>\
+        @@.femvoice7;38, so a large DD cup.”@@
+
+        @@.hero;Large. Did she mean too large?.@@
+    <<default>>
+        @@.femvoice7;39, so a very impressive E cup!@@
+
+        @@.hero;Impressive? Did she sound jealous?@@
+    <</switch>>\
+
+    You stand there, naked from the waist up, in a female lingerie shop, waiting for Mz. Knight to return with a bra. You brace yourself because you know that, given your luck, \
+    $friend or $teacher or $guardian or someone else you know will walk in at any time. The curtain twitches, and you let out a sigh of relief as Mz. Knight returns with the same bra you chose, \
+    only in a different size.
+
+    @@.femvoice7;“Hold the bra in front of you like so… Good. Now, put your arms through these two straps here. Yes, that’s right. \
+    Okay, splendid. Now, slide the bra down your arms until the cups are against your skin. Good. Now the hard part. Reach behind you, \
+    take hold of the two ends of the main strap and focus on getting the top of the two clasps hooked.”@@
+
+    <img src="Images/general/bra_1.gif" style="width: 200px; height: auto; float: left; padding-right: 1em;">\
+    You follow her instructions, failing three times before growling in an unladylike manner. You manage on the fifth attempt and pump your fist the air with a @@.heroT;“Yes!”@@ in relief. \
+    @@.heroT;“It’s tight, though,”@@ you say, wriggling in an attempt to get comfortable. It feels like you’ve been strapped into a car seat belt too tightly.
+
+    @@.femvoice7;”It is a brassiere; it is supposed to be tight. It is for the support of your bosoms, young lady!”@@ The change in her tone catches you off guard, then she chuckles. \
+    @@.femvoice7;”You will get used to it, I am sure. And you can get very pretty ones, as you know, to attract young men to your… assets.”@@
+
+    You cannot help but look at your silhouette in the mirror. Your torso, thanks to the fitted bra and <<if $body.boobs>>your boobs<<else>>its padded cups<<endif>> give you a decidedly feminine outline.
+
+    Mz. Knight snips the tag off with a pair of nail scissors. @@.femvoice7;”I have other customers, but I must say it has been a pleasure. I hope you learned something. \
+    Oh, please wear it out; just put your clothing over the top. You need to get used to it, after all.”@@
+    
+	<<if $player.perversion.teacher == 3>>\
+		<<switch _item.id>>
+		<<case "bra">>
+			@@.hero;I have a bra, but $teacher wanted a sexy one. I should see if they have one of those too and some matching panties.@@
+		<<case "braSexy">>
+			<<if not $items.gString.ownAlt[_braAlt]>>@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@<<endif>>
+		<<case "braLatex">>
+			@@.hero;I have a bra, but $teacher wanted one that went with lacy panties. I should see if they have one of those too and some matching panties.@@
+		<</switch>>
+	<<endif>>\
+ 
+    With a shrug, you decide that it might be better to hide the bra under your clothing rather than take it back out of the changing rooms in your hands. \
+    You hurriedly get dressed, peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new bra and head back into the mall.
+
+    @@.statUp;You bought your first Bra@@
+
+    [[Return to Mall|Go to the mall]]
+	<<set $scene = "general">>\
+	<<set $player.bought="">>\
+	<<wearClothing _item.id _braAlt>>\
+	<<set $mallLingerieIntro to 1>>\
+<<elseif $scene eq "first buy stockings">>\
+    <<set _stockingsAlt to itemF.itemTwee(_item.id).storeCur>>\
+    <<if $wearStockingsTaskTemp>>\
+        @@.hero;Stockings I can wear with a uniform? What’s wrong with socks?@@ you ponder as you peruse the displays of stockings, tights and other items of hosiery.
+    <<else>>\
+        @@.hero;Stockings, and so many different types and colours. Perhaps I could...@@
+    <<endif>>\
+    
+    @@.heroT;"Why do they make so many different ones?"@@
+
+    @@.femvoice4;“Silly. Because tights and stockings have so many different uses,”@@ a female voice replies.
+
+    <img src="Images/general/Stocking_Rack.jpg" style="width: 225px; height: auto; float: right; padding-left: 1em;">\
+    Did I say that out loud? You turn and see a vision of loveliness, like an angel who’s shed her wings and has landed beside you. \
+    She is holding a pair of sheer stockings in her hands, the almost translucent black material giving her delicate skin an enticing shimmer. \
+    You shuffle as you realise you are chatting about stockings with this vision of divinity in a women’s underwear store.
+
+    Perhaps seeing your discomfort, the girl continues with enthusiasm, emphasising each use of the word different. @@.femvoice4;“Different thicknesses for different weather conditions. \
+    And of course, you need different colours and styles because each outfit requires different choices. It is very important to make sure you have the correct pair. \
+    And then there are different situations, for example to a party you would wear something like these,”@@ she continues, showing you the pair in her hand, rubbing the sheer material between her fingers.
+
+    @@.femvoice4;“Usually hold-up stockings, or pantyhose if you have a short skirt. Pantyhose, unless you are feeling a bit slutty of course. \
+    Something more reserved for work, and these for college, these for slouching around the house…” @@
+
+    She leans forward and whispers conspiratorially in your ear, @@.femvoice4;“For the bedroom, it’s stockings, and a garter belt, with or without panties. It works every time, on every man. \
+    Or girl, if that’s your thing. Try it and see!”@@ She winks at you, her long lashes fluttering in mischief and then she skips over to the counter with her purchases.
+
+    Bewildered, you grab a pair she pointed to when she mentioned college and hurry over to the counter.
+
+    <<if not $mallLingerieIntro>>\
+        The elegant lady finishes serving the angel and then turns to look at you.
+
+        @@.femvoice4;“Great choice!”@@ says the angel with another wink. @@.femvoice4;“Those will suit you.”@@
+
+        @@.femvoice7;“Can I help you?”@@ the statuesque assistant asks in a pure English accent.
+
+        She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
+
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        They will also be almost unnoticeable under your outer garments.<<endif>>@@
+
+        @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she says, kindly, reaching out her hand and shaking yours. @@.femvoice7;“Feel free to ask for my advice on my products. \
+        I am more than happy to help anyone with their needs <<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
+
+        She pauses as if waiting for you to reply. After a few moments, she sighs. @@.femvoice7;“It is polite, young man, to respond with your name and take their hand when someone introduces themselves to you. \
+        Is it not?”@@
+
+        @@.heroT;"Sorry. I’m $player.name.”@@
+
+        @@.femvoice7;“Ah, $player.name. How sweet.”@@
+    <<else>>\
+        Mz. Knight finishes serving the angel and then turns to look at you.
+
+        @@.femvoice4;“Great choice!”@@ says the angel with another wink.  @@.femvoice4;“They will suit you.”@@
+
+        @@.femvoice7;“Ah, $player.name, good to see you back.”@@ the statuesque assistant says in her rolling English accent.
+
+        She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
+
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        They will also be almost unnoticeable under your outer garments.<<endif>>@@
+    <<endif>>\
+    <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female and not playerCode.isWearingOn(itemTypes.Stockings)>>\
+        Mz. Knight glances around the store, which is empty for the moment. @@.femvoice7;“I wonder, have you ever worn them before?”@@
+
+        @@.heroT; "Not like these, no…”@@ you admit.
+
+        @@.femvoice7;“The store is quiet for the moment. Follow me.”@@
+
+        Unsure what she has in mind, but feeling dutifully bound to follow her, you head to the curtained changing area at the back, stockings clutched in your hands.
+
+        @@.femvoice7;“They are very delicate, you see, and as you have seen, not at all cheap. As such, you will want to ensure that you look after your hosiery. \
+        You must put them on carefully and wash them in their own little bag, too.”@@
+
+        @@.hero;Their own bag? Maybe that’s why $guardian keeps complaining when I do the laundry.@@
+
+        @@.heroT;“I thought it would be like putting on socks only longer?”@@
+
+        Mz. Knight chuckles at your seemingly inspired joke. @@.femvoice7;“Well perhaps a tad, but not really.@@
+
+        @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
+        <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are too tight. \
+        @@.femvoice7;“Oh dear. Well, you’ll have to take them off. Don’t balk. You have nothing I have not seen before.”@@
+
+        You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
+        inspections… You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your \
+        <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
+
+        Mz. Knight looks at your bare legs and feet.
+
+        <<if playerCode.isWearingOn(itemTypes.Underwear).female>>\
+            <<if not $items.pantiesCotton.ownAlt[40] and not $items.gString.ownAlt[40] and not $items.gString.ownAlt[41] and not $items.gString.ownAlt[60] and not $items.gString.ownAlt[61] and not not $items.pantiesLatex.ownAlt[40]>>\
+                @@.femvoice7;You are wearing our panties, I see. They do suit you.@@
+            <<else>>\
+                @@.femvoice7;I see you have some panties of your own. Very pretty.@@
+            <<endif>>\
+        <<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
+            @@.femvoice7;Oh, boxer shorts! Well, I am not sure they will go with stockings. Your choice, I suppose.@@
+        <<else>>\
+            @@.femvoice7;Oh my! You don’t wear… Oh dear.@@
+        <<endif>>\
+        
+        <<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+            @@.femvoice7;Aww, a little cage, how quaint.@@
+        
+        <<endif>>\
+        <<if $body.bodyhair>>\
+            @@.femvoice7;I see you have resolved the ghastly leg hair that boys have. Your legs will look wonderfully elegant in stockings; I can see why you wanted some.@@
+        <<else>>\
+            @@.femvoice7;You should perhaps investigate some form of hair removal. It will greatly improve both the look and the feel of your stockings. @@
+        <<endif>>\
+        
+        Her little examination over, you rip open the packet and let the stockings unfurl in your hand. The material is soft and enticing, unlike like the thicker, coarser material of socks.
+
+        Mz. Knight takes an old stocking from her pocket, one with a massive run in the side, and then grips the top with both hands. \
+        @@.femvoice7;“Place your thumbs inside at the top and then slowly scrunch the stocking up with your fingers. You need to keep rolling in this way until you have all bar the foot of the stocking gathered up.”@@
+
+        Her explanation is very easy to follow, and you have soon prepared your first stocking.
+
+        @@.femvoice7;“Good, now sit on the bench there… that’s it. Lift your leg up, point your toes like a dancer, and then ease the stocking over your toes. \
+        Now pull the stocking so that it covers your entire foot, then gently unfurl the stocking up your leg, keeping it even as you do so. @@
+
+        The stocking material grips your foot like a nylon glove, caressing your toes and then the sole of your foot. You wiggle your toes and feel the material swishing against your skin.
+
+        @@.hero;Ohh. It’s so different from socks.@@
+
+        @@.femvoice7;“Enjoying the sensation? There is something delicious about hosiery. Your feet would look even prettier with painted nails. \
+        Now the rest, remember to keep your hands parallel for an even fit and less chance of a ladder. And stand when you need to.”@@
+
+        <img src="Images/general/stockings_2.gif" style="width: 500px; height: auto; padding-bottom: 1em;">\
+        You ease the stocking over your knee.<<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+        and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
+        making your legs look quite unladylike despite the stocking encasing it.<<endif>>
+
+        Standing up, you pull the stocking up the rest of the way and then settle the elastic band of the holdup into place. Without prompting, you settle back down and pull on the second stocking. \
+        As you stand, your legs brush together and the material rasps, sending more micro-sensations through your body. You stand there and admire them in the mirror, momentarily forgetting the presence of Mz. Knight.
+
+        @@.femvoice7;“Very elegant, $player.name. Now, I must return to the store; please feel free to wear them out.”@@
+
+        With a shrug, you decide that it might be better to hide the stockings under your clothing rather than leave the changing rooms with worn stockings in your hands. You hurriedly get dressed, \
+        peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new stockings and head back into the mall.
+        <<wearClothing _item.id _stockingsAlt>>\
+    <<else>>
+        Mz. Knight looks at <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>your female clothing<<elseif playerCode.isWearingOn(itemTypes.Stockings)>>your feet, noticing your stockings<<endif>>.
+
+        @@.femvoice7;“How wonderful, it seems that wearing such elegant hosiery is not a new experience for you. I do hope you enjoy wearing them. ”@@
+
+        She wraps your stockings in a small bag, with a discrete Intimate Apparel label emblazoned printed on the front. You take it and place it inside your bag before anyone can see.
+
+        @@.femvoice7;“Thank you for your custom,” Mz. Knight says. @@
+
+        You smile and head to the door, feeling somewhat pleased that your purchase went better than last time. You make it out onto the concourse, your bagged stockings seemingly calling to you from your bag. \
+        Exalting in your new-found confidence, you decide to peruse the mall and not run home like a scared cat.
+    <<endif>>\
+
+    @@.statUp;You bought your first stockings@@
+
+    [[Return to Mall|Go to the mall]]
+    <<set $scene = "general">>\
+    <<set $player.bought="">>\
+    <<set $mallLingerieIntro to 1>>\
+<<elseif $scene eq "first buy nightdress">>\
+    You scoured the laundry for something of $guardian’s you could wear to complete $teacher’s nightie task but as she sleeps primarily in the nude…
+
+    You have seen programs on the TV and girls you see wear pajamas, often with pants or shorts. You’d love to find something like that, and maybe if the shorts are short enough or the top revealing enough, \
+    $teacher will feel they’re sexy enough.. Just so long as it’s not too lacy, or filly or girly or…
+
+    You stop in your tracks as you realise that the negligee section of the store contains none of what you’re looking for.
+
+    <img src="Images/general/Night_Rack.jpg" style="width: 350px; height: auto;">\
+    You examine the length of some of the silk garments and wonder how it would be possible to sleep with such a thing wrapping around your legs. It does feel soft in your hands though, and surprisingly cool.
+
+    @@.heroT;"Why is everything so lacy?"@@
+    <<if not $mallLingerieIntro>>\
+        You slap your hand over your mouth, realising too late that you spoke out loud.
+
+        @@.hero;So much for keeping a low profile.@@
+
+        The elegant lady, who was standing behind the counter only moments before, appears beside you.
+
+        @@.femvoice7;“Why would they not be lacy, or pretty or sophisticated?”@@ she says in a posh English accent.
+
+        @@.heroT;"Um, I guess, I was just hoping for something simple..."@@
+
+        She steps back for a moment and looks at you from head to toe. Then, she takes a few items from the racks and holds them out in turn. Thankfully, she doesn’t hold any of them in your direction. \
+        The nighties pass by in a whirl of frills and lace that leaves you unable to concentrate.
+
+        @@.heroT;"I’ll take that one,"@@ you explain, picking one quick and scurrying off to the till with it, only to find it abandoned. \
+        You glance around and see that the lady is returning the other nightdresses to the rack and appears to be in no hurry. You nervously shift from foot to foot, eager to pay and leave.
+
+        With the shopkeeper showing no signs of helping you hatch a plan of escape, you drop the nightdress on the counter, cringing as the hanger clatters on the glass. \
+        You manage to make one step away before the lady turns to you and smiles.
+
+        @@.femvoice7;“I hope you have had sufficient time to peruse the store, my dear,”@@ she says, smiling as she approaches.
+
+        @@.hero;Eh? Why would I do that?@@
+
+        @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she states, offering her hand.  @@.femvoice7;“Feel free to ask for my advice on my products. I am more than happy to help anyone with their needs\
+        <<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
+
+        She pauses as if waiting for you to reply. After a few moments, she sighs. @@.femvoice7;“It is polite, is it not, to respond with your name and take their hand when someone introduces themselves to you.
+        Is it not?”@@
+
+        @@.heroT;"Sorry. I’m $player.name."@@
+
+        @@.femvoice7;“Ah, $player.name,”@@ she says, shaking your hand. @@.femvoice7;“Let me process the purchase of your lovely nightie for you.”@@
+
+        She emphasises that it is your nightie, but there is no one else in the shop. She wraps the nightdress in a large Intimate Apparel bag, which you cram into your school bag. Before you can leave, \
+        she looks you in the eye and smiles warmly. @@.femvoice7;“You are welcome any time, $player.name,”@@ she says, @@.femvoice7;“I am here to help, after all.”@@
+
+        @@.hero;I don’t want anything else, but at least she was nice about it.@@
+
+        Without stopping, you zip your bag up, rush outside and quickly leave.
+
+        @@.statUp;You bought your first Nightdress@@
+
+        <<display [[Travel]]>>\
+        <<set $mallLingerieIntro to 1>>\
+    <<else>>\
+        @@.femvoice7;“$player.name, why would you complain about the lace. Don’t you find them to have a certain allure?”@@ says Mz. Knight as she arrives at your side.
+
+        She steps back for a moment and looks at you from head to toe, as if examining you. Then, she takes a few items from the racks and holds them out in turn. \
+        Thankfully, she doesn’t hold any of them in your direction. The nighties pass by in a whirl of frills and lace, and you are not sure which one to choose.
+
+        @@.femvoice7;“These will fit,”@@ she announces, @@.femvoice7;“Please take your pick. They will suit you. I am sure.”@@
+
+        You pick the one you want and dig out the money while she wraps your nightie in a large Intimate Apparel bag. You take it and cram it inside your school bag before anyone can see.
+
+        @@.femvoice7;“Thank you for your custom. Please come again soon,”@@ Mz. Knight says in her normal voice.
+
+        You smile and head to the door, feeling somewhat pleased that your purchase went better than last time. You make it out onto the concourse, your bagged nightdress seemingly calling to you from your bag. \
+        Exalting in your new-found confidence, you decide to peruse the mall and not run home like a scared cat.
+
+        @@.statUp;You bought your first Nightdress@@
+
+        [[Return to the Mall | Go to the mall]]
+    <<endif>>\
+    <<set $scene = "general">>\
+    <<set $player.bought="">>\
 <<elseif $scene eq "female Uniform">><!--<Extra items for school dress>-->\
 	Psyching yourself up you buy female school uniform.
 	
@@ -197,5 +676,42 @@
 
 	[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
 	[[See if the clerk can help you out|Uniform Punishment - Help]]
-	
+<<endif>>\
+<<if $curStore == "Intimate Apparel" and not $shoppedBefore>>\
+   <<set $toggleStoreMenu to 1>>\
+   <<if $player.daring lt 3>>\
+       <<set $intimateBoyBrowse to 1>>\
+       You meander your way aimlessly through the mall, your mind drifting around how you can spend the <<print '$'+$player.money>> you have.\
+       You look up and realise that you have almost wandered into the wrong shop and this one is full of…
+
+       @@.hero;Panties?! @@
+
+       <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+       You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
+       @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
+
+       [[Leave | Go to the mall][$toggleStoreMenu = false]]
+   <<else>>\
+       <<if not $mallLingerieIntro>>\
+           You spend several minutes in deliberation, walking up to, and then past the store, and then back again. \
+           Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
+           Two women, both extremely attractive and in their mid-twenties.
+
+           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
+           loitering outside this shop, of all places. \
+           You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
+
+           The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
+           With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
+
+           @@.heroT;“Cotton panties?”
+
+           <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+
+           [[Return to the mall | Go to the mall][$toggleStoreMenu = false]]
+       <<else>>\
+           <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
+           @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
+       <<endif>>\
+   <<endif>>\
 <<endif>>\

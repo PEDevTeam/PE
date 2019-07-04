@@ -182,6 +182,7 @@ window.teacherPunishments = {
 		extraReq:	function () {
 					return true;
 				},
+		progress: 	0,
 		cooldown:	1,
 		start:		function () {},
 		end:		function () {},

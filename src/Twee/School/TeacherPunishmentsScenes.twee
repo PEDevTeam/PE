@@ -34,7 +34,9 @@
 		Also I will reduce your debt slightly if you will wear a butt-plug to school to show you are really sorry.
 		
 	<<endif>>\
-	I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests. If not, I will have to punish you."@@
+	I will also be giving you various tasks to keep you occupied, so be a good boy and follow my requests. If not, I will have to punish you.
+	
+	"For your first task, I want you to start wearing a bra to school everyday, <<if $flags.teacherSawPanties>>one that matches those cute lacy panties you wore<<else>>as well as a pair of matching lacy panties<<endif>>. If you do, I will reduce your debt.  Now, run along. I believe you have some shopping to do."@@
 	
 	<<set $player.daring = 5>>\
 	<<set $player.perversion.teacher = 3>>\
@@ -42,6 +44,7 @@
 	<<set $tasksTeacher.trialChastity.status = 0>>\
 	<<set $flags.chastityKey to true>>\
 	<<set $flags.chastityLocked to true>>\
+	<<set $flags.friendBraTask = true>>\
 <<elseif ($scene eq "placeholderMonday") or ($scene eq "placeholder")>>\
 	You follow $teacher to her cabinet.
 	
@@ -85,8 +88,6 @@
 	- .
 	- Ignore - no consequences, boring option.
 	
-	@@.teacher;""@@
-	@@.hero;@@
 <<elseif ($scene eq "wearDressToSchool")>>\
 	<<set $tasksTeacher.wearDressToSchool.canStart = true>>\
 	<<set $tasksTeacher.wearDressToSchool.status = 1>>\
@@ -200,7 +201,7 @@
 	
 	Smirking at your guarded facial expression, she grabs collar of your shirt. She pulls it down, bending you over her knees and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>,\
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>,\
 	<<else>>\
 		yanks your pants down,\
 	<<endif>>\
@@ -541,14 +542,14 @@
 	<<if _u and _o.skirt>> your panties <<else>> your scrotum <<endif>>\
 	and touching the tip of your chastity. She keeps moving her foot up, and wipes her wet foot on your body
 	<<if _o and _o.female>>\
-	and your <<if _o.skirt>>skirt<<else>>cheer shorts<<endif>>,\
+	and your <<if _o.shorts>>cheer shorts<<else>>skirt<<endif>>,\
 	<<endif>>\
 	then does the same with her other foot.
 
 	@@.teacher;"I was easy on you this time. Remember - next time, I will not be."@@
 	
 	You get up, she removes the chain and the collar, gives you a slap on your butt and sends you home\
-	<<if _o and _o.female and _o.skirt>>\
+	<<if _o and _o.female and not (_o.shorts)>>\
 		with a stain on your skirt.
 	<<else>>\
 		with a stain on your clothes.
@@ -561,7 +562,7 @@
 	 
 	You decide the best thing to do is just stay silent. She goes to her desk and pulls out the familiar collar. You notice something covered by a cloth, just before before she approaches to give your punishment. Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>, \
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>, \
 	<<else>>\
 		yanks your pants halfway off,\
 	<<endif>>\
@@ -632,7 +633,9 @@
 	$teacher nudges you with one foot and laughs as you weakly try to get up. @@.teacher;"Pffff.. what a pathetic sight. Now clean up and try to remember this lesson next time you consider ignoring me."@@
 	
 <<elseif ($scene eq "punStool")>>\
-	<<if $teacherPunishments.punStool.progress lte 1>>\
+	<<if $teacherPunishments.punStool.progress lt 1>>\
+		<<addToInv 'gString' 41>>\
+		<<set $flags.teacherPanties = true>>\
 		You enter $teacher's room, and she tells you to close and lock the door. You do. 
 
 		@@.hero;This can't be good.@@
@@ -712,7 +715,6 @@
 		
 		Finally $teacher stands up and you almost collapse, as overbearing pressure disappears.\
 
-		She unlocks and takes off the blindfold and the gag,\
 		<<if $flags.teacherPanties>>\
 			She unlocks and takes off the blindfold and the gag, but leaves you her panties as a reminder.\
 		<<else>>\
@@ -725,8 +727,7 @@
 		@@.teacher;"Your performance shows that there is space for improvement, but overall it was satisfactory. I hope you've learned your lesson. Have a good weekend."@@
 		
 		Extremely horny and teased to exhaustion you meekly thank $teacher for the lesson and walk out. You know that it's going to be very long weekend.
-		<<addToInv 'gString' 41>>\
-		<<set $flags.teacherPanties = true>>\
+		<<set $teacherPunishments.punStool.progress++>>\
 	<<else>>\
 		You enter $teacher's room, and she tells you to close and lock the door. You do. 
 
@@ -793,7 +794,7 @@
 
 	Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
 	<<if _o and _o.female>>\
-		<<if _o.skirt>>lifts your skirt<<else>>pulls down your shorts<<endif>>\
+		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>\
 	<<else>>\
 		yanks your pants down\
 	<<endif>>\
@@ -930,11 +931,25 @@
 		
 		Nudged by $teacher, you follow Nancy as she leads you to the special salon chair used for treatments. She slips on a pair of nitrile gloves.
 		
-		@@.nurse;"First, we should take off his cage."@@ Nancy exchanges mischievous looks with $teacher, who hands your key to the nurse. Soon, you feel your penis being freed from its prison, and then the sudden, light contact of Nancy's fingers on your cock.
+		@@.nurse;"First, we should take off his cage."@@\
+		<<if $player.perversion.teacherPermChastity < 6>>\
+			<<set $player.perversion.teacherPermChastity = 0>>\
+			Nancy exchanges mischievous looks with $teacher, who hands your key to the nurse. Soon, you feel your penis being freed from its prison, and then the sudden, light contact of Nancy's fingers on your cock.
 
-		To your keen embarrassment, your penis springs erect in the grasp of Nancy's gentle hands, rapidly hardening to the most rigid it has ever been. The women leer with anticipation, sharing a laugh about your member's eagerness to perform despite... whatever it is they've planned for you.
-		
-		Nancy takes your shaft fully in her grasp, eliciting an involuntary moan from you that causes her to giggle. Before you can enjoy the lovely woman's touch, however, she pulls out some kind of injector-pistol, and you smart when she fires a series of shots around the base of your cock. 
+			To your keen embarrassment, your penis springs erect in the grasp of Nancy's gentle hands, rapidly hardening to the most rigid it has ever been. The women leer with anticipation, sharing a laugh about your member's eagerness to perform despite... whatever it is they've planned for you.
+			
+			Nancy takes your shaft fully in her grasp, eliciting an involuntary moan from you that causes her to giggle. Before you can enjoy the lovely woman's touch, however, she\
+		<<else>>\
+			<<set $player.perversion.teacherPermChastity = 0>>\
+			Nancy examines the device, only to find the remnants of the key jammed into the lock.  @@.nurse;"Oh, you poor thing,"@@ she coos. @@.nurse;"It looks like you're stuck in there for a long time."@@
+			
+			@@.teacher;"Is that going to be an issue for the proceedure?"@@ $teacher asks.
+			
+			@@.nurse;"We can work around it,"@@ Nancy replies. "In fact, this procedure might be one of the few things that would get him out of there."
+			
+			She into a nearby drawer and\
+		<<endif>>\
+		pulls out some kind of injector-pistol, and you smart when she fires a series of shots around the base of your cock. 
 		
 		Despite the loud, pneumatic 'pshh' the pistol makes each time she pulls the trigger, it hurts only slightly. Her grip and the weird feeling from the shots make your penis throb in Nancy's grip and leak a bit of precum.
 		
@@ -952,8 +967,15 @@
 		
 		You turn to $teacher and see a glint in her eyes that makes you catch your breath. With a sinking feeling, you realize she is planning exactly that.
 		
-		In horror, you look down at Nancy's closed hand and see that your penis is already visibly smaller. As she opens her fingers to release you, your erection wilts into a little, flaccid nub lying partially across Nancy's palm. To your deep embarrassment, a trail of precum traced across half her glove marks your penis' retraction.
-		
+		<<if $player.perversion.teacherPermChastity < 6>>\
+			In horror, you look down at Nancy's closed hand and see that your penis is already visibly smaller. As she opens her fingers to release you, your erection wilts into a little, flaccid nub lying partially across Nancy's palm. To your deep embarrassment, a trail of precum traced across half her glove marks your penis' retraction.
+			
+		<<else>>\
+			In horror, you look down and see that your penis is already visibly smaller, your chastity device almost cavernous around it. Your erection wilts into a little, flaccid nub and you wince as your balls slip past your chastity device's too large ring and it falls to the ground with a thud.
+			
+			@@.hero;Holy shit! I'm free!@@
+			
+		<<endif>>\
 		Nancy stands, smiling at you contentedly as she slips off the gloves and discards them into a medical waste bin. She helps you up.
 		
 		As you walk out $teacher leans to your ear and whispers:
@@ -1056,9 +1078,9 @@
 			<<set _item=itemsC.HairMedium>>\
 			@@.teacher;"I think a fresh hairstyle often leads to a fresh attitude,"@@ $teacher muses. @@.teacher;"I believe $player.name is decidedly in need of both. Nancy, would you be able to help?"@@
 			
-			@@.nurse;"No problem!" the nurse replies.
+			@@.nurse;"No problem!"@@ the nurse replies.
 			
-			@@.teacher;"Not too short, please," $teacher adds.
+			@@.teacher;"Not too short, please,"@@ $teacher adds.
 			
 			Nancy smiles congenially, ushering you over to a purpose-made salon chair before sitting you down in it with a gentle-yet-insistent push. As you watch her in the large, wall-mounted mirror, she fluffs your hair with her fingers, then tilts your head back and forth to examine your bone structure in the light.
 			
@@ -2044,7 +2066,7 @@
 	<<endif>>\
 	<<set $player.punishments.refusedToPay = false>>\
 	<<set $time.addMinutes(30)>>\
-	<<if $cheerFriend.currentSE > 0>>\
+	<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE != 9>>\
 		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
 	<<else>>\
 		<<display [[Travel]]>>\

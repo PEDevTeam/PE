@@ -102,11 +102,21 @@
 			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.club.id)>>\
-			<<if (not window.timeCode.isClubOpen()) or (not window.timeCode.isClubAvailable())>>\
+			<<if window.timeCode.isClubOpen() && window.timeCode.isFriday() && $flags.slutBadEnd > 0 && $player.perversion.teacher == 10>>\
+				<<set _description = "Go to the club for your punishment">>\
+				<<set _destination = "School Slut Bad End Sc1">>\				
+			<<else>>\
+				<<if (not window.timeCode.isClubOpen()) or (not window.timeCode.isClubAvailable())>>\
+					<<continue>>\
+				<<elseif (not window.clothes.dressedClub.check())>>\
+					<<set _available = false>>\
+					<<set _reason = $reason.dressedClub>>\
+				<<endif>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.spa.id)>>\
+			<<if not (window.timeCode.isFriday() && window.timeCode.isClubOpen() && $flags.slutGoodEnd > 0 && $player.perversion.teacher == 10)>>\
 				<<continue>>\
-			<<elseif (not window.clothes.dressedClub.check())>>\
-				<<set _available = false>>\
-				<<set _reason = $reason.dressedClub>>\
 			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.friendHouse.id)>>\
@@ -118,6 +128,22 @@
 			<<endif>>\
 			<<set _description = "Visit ">>\
 			<<set _description += $friend>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.cheerFriendHouse.id)>>\
+			<<if (not window.timeCode.canVisitCheerFriend())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedFemale())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be dressed like a girl to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
+			<<elseif (not window.clothes.dressedCheerFriend())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be wearing something other than your school or cheerleader uniform to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
+			<<endif>>\
+			<<set _description = "Visit ">>\
+			<<set _description += $cheerFriend.name>>\
+			<<set _description += "'s house">>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.therapist.id)>>\
 			<<if (not window.timeCode.needTherapy())>>\

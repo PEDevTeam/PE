@@ -323,7 +323,7 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="Rachel has ordered you to wear girl's clothes to school while you are on the cheer squad.";
 					return false;
 				}
-				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isTuesday() || timeCode.isThursday()) && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
+				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isTuesday() || timeCode.isThursday()) && timeCode.haveSchool() && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
 					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
 					return false;
 				}
@@ -372,5 +372,11 @@ window.clothes={
 		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
 		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
 		return (!underwear || underwear.female) && outerwear.female && shoes.female;	
+	},
+	dressedCheerFriend: function() {
+		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
+		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
+		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
+		return (!underwear || (underwear.female && !underwear.cheer) && (outerwear.female && !(outerwear.school)) && (shoes.female && !(shoes.cheer)));	
 	}
 }

@@ -1,0 +1,68 @@
+::Reset cheer
+Note: this may put clothing on you that you do not own so you are allowed to travel.  
+It can be removed at the bedroom.
+<<if $cheerleaders.progress > 10>>\
+	<<set playerCode.removeClothesJS('cheerBow')>>\
+	<<set playerCode.removeClothesJS('socks')>>\
+	<<set playerCode.removeClothesJS('cheerBriefs')>>\
+	<<set playerCode.removeClothesJS('hairbow')>>\
+	<<removeFromInv 'cheerDress'>>\
+	<<removeFromInv 'cheerBriefs'>>\
+	<<removeFromInv 'socks'>>\
+	<<removeFromInv 'hairbow'>>\
+	<<removeFromInv 'cheerSneakers'>>\
+	<<wearClothing 'flats'>>\
+	<<wearClothing 'schoolFemale'>>\
+<<elseif $cheerleaders.progress > 2>>\
+	<<set playerCode.removeClothesJS('cheerBow')>>\
+	<<set playerCode.removeClothesJS('socks')>>\
+	<<set playerCode.removeClothesJS('cheerBriefs')>>\
+	<<set playerCode.removeClothesJS('hairbow')>>\
+	<<removeFromInv 'rookieUniform'>>\
+	<<removeFromInv 'cheerBriefs'>>\
+	<<removeFromInv 'socks'>>\
+	<<removeFromInv 'hairbow'>>\
+	<<removeFromInv 'cheerSneakers'>>\
+	<<wearClothing 'flats'>>\
+	<<wearClothing 'schoolFemale' 0>>\
+<<endif>>
+<<set $cheerleaders.active = false>>\
+<<set $cheerleaders.progress = -1>>\
+<<set $cheerleaders.fakeName = $player.name>>\
+<<set $cheerleaders.position = 1>>\
+<<set $cheerleaders.bitchAffinity = 0>>\
+<<set $cheerleaders.bullySawWorkout = false>>\
+<<set $cheerleaders.rainyDay = false>>\
+<<set $cheerleaders.canPractice = false>>\
+<<set $cheerleaders.cleanDone = 0>>\
+<<set $cheerleaders.flags.skippedPractice = false>>\
+<<set $cheerleaders.flags.madeUpPractice = false>>\
+<<set $cheerleaders.flags.grope = false>>\
+<<set $cheerleaders.flags.beg = false>>\
+<<set $cheerleaders.flags.fakeName = false>>\
+<<set $cheerleaders.flags.stoleUniform = false>>\
+<<set $cheerleaders.flags.lateForPractice = false>>\
+<<set $cheerleaders.flags.bullyLeft = false>>\
+<<set $cheerleaders.flags.complain = false>>\
+<<set $cheerleaders.flags.slutUniform = 0>>\
+<<set $cheerleaders.flags.sarahTalk = 0>>\
+<<set $cheerleaders.flags.metBro = false>>\
+<<set $cheerleaders.flags.panties = false>>\
+<<set $cheerleaders.flags.wig = false>>\
+<<set $cheerleaders.flags.falsies = false>>\
+<<set $cheerleaders.flags.makeup = false>>\
+<<set $cheerleaders.flags.prankBeg = false>>\
+<<set $cheerleaders.game.athleticism = 0>>\
+<<set $cheerleaders.game.presentation = 0>>\
+<<set $cheerleaders.game.execution = 0>>\
+<<set $cheerleaders.game.finalScore = 0>>\
+<<set $cheerleaders.game.adjustedSlutScore = 0>>\
+<<set $cheerleaders.game.practiced = false>>\
+<<set $cheerFriend.progress = 0>>\
+<<set $cheerFriend.currentSE = 0>>\
+<<set $cheerFriend.flags.acceptInvite = false>>\
+<<set $cheerFriend.flags.boy = 1>>\
+<<set $cheerFriend.flags.force = false>>\
+<<set $giveUniform = false>>\
+<<set $player.fitness = 0>>\
+<<display [[Travel]]>>\

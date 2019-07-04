@@ -100,7 +100,7 @@ window.locationsJS={
 		description: "Work at fastfood restaurant",
 		x: -30,
 		y: -30,
-		busRange: 10,
+		busRange: 0,
 		remote: 0,
 		active: false,
 		important: false
@@ -114,6 +114,27 @@ window.locationsJS={
 		busRange: 5,
 		remote: 30,
 		active: false,
+		important: false
+	},
+	cheerFriendHouse: {
+		id: "cheerFriendHouse",
+		destination: "Cheer SE5 Sc1",
+		x: 30,
+		y: 50,
+		busRange: 10,
+		remote: 0,
+		active: true,
+		important: false
+	},
+	spa: {
+		id: "spa",
+		destination: "School Slut Good Ending Scene 1_1",
+		description: "Go to the address on the card for your reward",
+		x: -15,
+		y: 5,
+		busRange: 10,
+		remote: 0,
+		active: true,
 		important: false
 	},
 	tokenPlace: {

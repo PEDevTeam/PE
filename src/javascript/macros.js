@@ -79,8 +79,35 @@ macros.removeFromInv = {
 			throwError(place, "<<" + macroName + ">>: no parameters given");
 			return;
 		}
-		var index = state.active.variables.inventory.indexOf(params[0]);
-		if (index != -1) {
+		var index = State.active.variables.inventory.indexOf(params[0]);
+		var removeItem = true;
+		var w=window.itemsC[params[0]];
+		var wV=window.itemF.itemTwee(params[0]);
+		if (!w) {
+			throwError(place, "<<" + macroName + ">>: invalid item '" + params[0] + "'");
+			return;
+		}
+		if (!wV) {
+			throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
+			throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
+			return;
+		}
+		if (params.length == 2){
+			var type = params[1];
+		}
+		else {
+			var type=wV.curAlt;
+		}
+		if (window.itemsC[params[0]].maxAlt){
+			wV.ownAlt[type]=null;
+			for (var i = 0; i < wV.ownAlt.length;i++){
+				if (wV.ownAlt[i] == true){
+					removeItem = false;
+					wV.curAlt = i;
+				}
+			}
+		}
+		if (index != -1 && removeItem == true) {
 			state.active.variables.inventory.splice(index, 1);
 		}
 	}
@@ -200,7 +227,7 @@ macros.wearClothing = {
 			state.active.variables.player.clothes=state.active.variables.player.clothes.sort();
 		}
 		var type=params[1];
-		if (type) {
+		if (!(isNaN(type))) {
 			var wV=window.itemF.itemTwee(params[0]);
 			if (!wV) {
 					throwError(place, "<<" + macroName + ">>: invalid $item2 '" + params[0] + "'");
@@ -1145,7 +1172,7 @@ var ordinals = {
 	fi5th: ['0th', '1st', '2nd', '3rd'],
 	
     ordFun: (macro, arr, casify) => {
-		if (macro.args.lenght  < 1) {
+		if (macro.args.length  < 1) {
 			return macro.error('takes at least one argument');
 		}
 
@@ -1242,3 +1269,35 @@ Macro.add('reactOnce', {
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
+
+
+Macro.add('ScrollTo', {
+	skipArgs : false,
+	handler  : function () {
+		if (this.args.length > 0) {
+			var Value = this.args[0];
+			if (typeof Value === "string" || Value instanceof String) {
+				var element = null, params = undefined;
+				if (this.args.length > 1) {
+					params = this.args[1];
+				}
+				// wait for element
+				var elementWaitID = setInterval(function () {
+					element = document.getElementById(Value);
+					if (element != null) {
+						// stop waiting and set scroll position
+						clearInterval(elementWaitID);
+						if (params != undefined) {
+							element.scrollIntoView(params);
+						} else {
+							element.scrollIntoView();
+						}
+					}
+				}, 100);
+			}
+		}
+	}
+});
+
+
+
