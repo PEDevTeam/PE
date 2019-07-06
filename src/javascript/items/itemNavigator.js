@@ -158,7 +158,7 @@ window.itemNavigator = {
             if(navigatorType == "wardrobe"){
                 var filterMasterItems = [];
                 for(var inventoryItemIdx in State.active.variables.inventory){
-                    var inventoryItem = State.active.variables.inventory[inventoryItemIdx];
+                    var inventoryItem = window.itemFuncs.getItemByVariant(State.active.variables.inventory[inventoryItemIdx]);
                     if(typeof inventoryItem === 'object' && inventoryItem.masterItem !== null && !inventoryItem.disabled){
                         if(filterMasterItems.indexOf(inventoryItem.masterItem) == -1){
                             filterMasterItems.push(inventoryItem.masterItem);
@@ -170,7 +170,8 @@ window.itemNavigator = {
                 var filterMasterItems = []
                 for(var storeMasterItemIdx in window.mall.stores[State.active.variables.currentStore].masterItems){
                     var storeMasterItem = window.mall.stores[State.active.variables.currentStore].masterItems[storeMasterItemIdx]
-                    if(window.items.itemMasters[storeMasterItem].daring <= State.active.variables.player.daring && !window.items.itemMasters[storeMasterItem].disabled){
+                    var itemVariant = window.itemFuncs.getItemByVariant(window.items.itemMasters[storeMasterItem])
+                    if(window.items.itemMasters[storeMasterItem].daring <= State.active.variables.player.daring && !itemVariant.disabled){
                         filterMasterItems.push(storeMasterItem);
                     }
                 }
@@ -220,7 +221,7 @@ window.itemNavigator = {
             var itemVariants = [];
             var itemsOfMaster = window.inventoryFuncs.getChildItemsForMaster(masterItemName);
             for(var itemVariantIdx in itemsOfMaster){
-                var itemVariant = itemsOfMaster[itemVariantIdx];
+                var itemVariant = window.itemFuncs.getItemByVariant(itemsOfMaster[itemVariantIdx]);
                 if(!itemVariant.disabled){
                     itemVariants.push(itemVariant);
                 }
@@ -230,7 +231,7 @@ window.itemNavigator = {
             var itemVariants = []
             var itemsOfMaster = window.itemFuncs.getChildItemsForMaster(masterItemName);
             for(var itemVariantIdx in itemsOfMaster){
-                var itemVariant = itemsOfMaster[itemVariantIdx];
+                var itemVariant = window.itemFuncs.getItemByVariant(itemsOfMaster[itemVariantIdx]);
                 if(!itemVariant.disabled){
                     itemVariants.push(itemVariant);
                 }
@@ -245,7 +246,7 @@ window.itemNavigator = {
                 variantIndex = itemVariants.length - 1;
             }
 
-            var itemVariant = itemVariants[variantIndex];
+            var itemVariant = window.itemFuncs.getItemByVariant(itemVariants[variantIndex]);
             var masterItem = window.items.itemMasters[masterItemName];
             
             var itemVariantNavigateBackSpan = document.createElement('span');
@@ -570,7 +571,6 @@ window.itemNavigator = {
             itemVariants: []
         }
         State.active.variables.clothingSets.push(newClothingSet);
-        console.log("adding set " + setName);
     },
 
     renameClothingSet: function(oldName, newName){
@@ -579,14 +579,12 @@ window.itemNavigator = {
                 State.active.variables.clothingSets[clothingSetIdx].setName = newName;
             }
         }
-        console.log("Renaming set " + oldName + " to " + newName);
     },
 
     removeClothingSet: function(setName){
         for(var clothingSetIdx in State.active.variables.clothingSets){
             if(State.active.variables.clothingSets[clothingSetIdx].setName == setName){
                 State.active.variables.clothingSets.splice(clothingSetIdx, 1);
-                console.log("removing set " + setName);
             }
         }
     },
@@ -604,7 +602,6 @@ window.itemNavigator = {
                 }
             }
         }        
-        console.log("updating set " + setName);
     },
 
     wearClothingSet: function(setName){
@@ -614,13 +611,11 @@ window.itemNavigator = {
                 clothingSet = State.active.variables.clothingSets[clothingSetIdx];
             }
         }
-        console.log(clothingSet);
         if(clothingSet !== null){
             window.wardrobeFuncs.removeClothingAndAccessories();
             for(var itemVariantIdx in clothingSet.itemVariants){
                 window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
             }
-            console.log("wearing set " + setName);
         }
     },
 

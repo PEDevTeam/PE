@@ -10,7 +10,6 @@ window.choresFunc={
 			var choreV = chores[Object.keys(choresList)[i]];
 			if (choreV.active && (choreC.daringRequired <= player.daring) && (choreC.perversionRequired <= player.perversion.guardian) && (choreC.perversionMax >= player.perversion.guardian)) {
 				ca++;
-				console.log(choreV);
 				if ((choreV.dayPerformed + choreC.daysWait) >= time.day && (!choreV.hardFail)) {
 					cd++;
 				}

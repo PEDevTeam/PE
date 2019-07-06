@@ -26,11 +26,12 @@ window.wardrobeFuncs = {
         }
         var masterItem = window.items.itemMasters[itemVariant.masterItem];
         
-        if(masterItem.clothingSlot == 'nightwear'){
+        if(masterItem.clothingSlot == 'nightwear' || masterItem.clothingSlot == 'maid'){
             window.wardrobeFuncs.removeClothingAndAccessories();
         }
         else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
             SugarCube.State.active.variables.player.clothingSlots['nightwear'] = null;
+            SugarCube.State.active.variables.player.clothingSlots['maid'] = null;
         }
 
         var itemVariantClothingSlot = masterItem.clothingSlot;
@@ -89,7 +90,6 @@ window.wardrobeFuncs = {
                 var currentClothingSlotItem = currentClothing[clothingIdx];
                 var masterItem = window.items.itemMasters[currentClothingSlotItem.masterItem];
                 var currentClothingSlot = masterItem.clothingSlot;
-                console.log(currentClothingSlot);
                 var clothingSlotDiv = document.createElement('div');
                 var clothingSlotImg = document.createElement('img');
                 clothingSlotDiv.id = 'sidebar_' + currentClothingSlot + 'Slot';
@@ -130,7 +130,7 @@ window.wardrobe = {
                 "schoolUniform",
                 "schoolDress",
                 "sluttySchoolDress",
-                "maidUniform",
+                "maid",
             ]
         },
         socks: {

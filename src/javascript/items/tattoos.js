@@ -4,7 +4,7 @@ if(typeof window.items == "undefined"){
 
 $.extend(true, window.items, {
     itemMasters:{
-        //Chastity
+        //Tatoos
         tattoos:{
             itemType:"tattoos",
             clothingSlot:"",

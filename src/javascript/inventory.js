@@ -120,28 +120,6 @@ window.inventoryFuncs= {
         return false;
     },
 
-    // buyItemVariant: function(itemVariant){
-    //     console.log("buying item");
-    //     for(var itemName in SugarCube.State.variables.inventory){
-    //         var item = SugarCube.State.variables.inventory[itemName];
-    //         if(item.variant == itemVariant){
-    //             console.log("found item variant");
-    //             if(item.price > 0){
-    //                 //deduct cash
-    //                 window.itemFuncs.addItemToInventory(item);
-    //             }
-    //             break;
-    //         }
-    //     }
-    // },
-
-    // addItemToInventory: function(item){
-    //     console.log("adding item to inventory");
-    //     if(!(window.inventoryFuncs.checkItemInInventory(item))){
-    //         SugarCube.State.variables.inventory.push(item);
-    //     }
-    // },
-
     checkItemInInventory: function(item){
         var itemInInventory = false;
         for(var inventItemIdx in SugarCube.State.active.variables.inventory){
@@ -152,22 +130,6 @@ window.inventoryFuncs= {
         }
         return itemInInventory;
     },
-
-    // getTagsForItem: function(item){
-    //     var tags = [];
-    //     for(var tagName in item.tags){
-    //         if(item.tags[tagName] && tags.indexOf(tagName) < 0){
-    //             tags.push(tagName);
-    //         }
-    //     }
-    //     var masterItem = window.items.itemMasters[item.masterItem];
-    //     for(var tagName in masterItem.tags){
-    //         if(masterItem.tags[tagName] && tags.indexOf(tagName) < 0 && (item.tags[tagName] === undefined || item.tags[tagName])){
-    //             tags.push(tagName);
-    //         }
-    //     }
-    //     return tags;
-    // },
 
     isItemVariantOwned: function(itemVariant){
         var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);

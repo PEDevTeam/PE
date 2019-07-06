@@ -145,7 +145,6 @@ window.itemFuncs= {
                 }
             }
         }
-        return false;
     },
 
     buyItemVariant: function(itemVariant){
@@ -240,6 +239,7 @@ window.itemFuncs= {
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
+        console.log(item);
         item[propertyName] = propertyValue;
         for(var itemIdx in State.active.variables.itemVariantsOverrides){
             var overrideItem = State.active.variables.itemVariantsOverrides[itemIdx]

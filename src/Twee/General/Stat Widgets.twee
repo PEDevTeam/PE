@@ -145,6 +145,7 @@
 			
 		<</for>>
 	</div>
+	<<endif>>/
 	<</replace>>
 <!--</Clothes mini-images>-->
 <<elseif $showimages and $avatar.active>><!--<Avatar window>-->
@@ -707,6 +708,7 @@
 	<<click "List of vars">><<script>>Dialog.setup("Debug list of vars"); Dialog.wiki(Story.get("Debug list of vars").processText()); Dialog.open();<</script>><</click>>
 
 	<div id="debug-passage"><style>#debug-passage #textbox--passagename { min-width: auto; } </style>Open Specific passage:<<textbox "_passageName" "">><<button "Go to passage">><<goto _passageName>><</button>></div>
+	<div id="debug-passage-name"><style>#debug-passage-name { font-size: 9px; margin-top: -15px; }</style> Current Passage: <<print passage()>></div>
 <</replace>>\
 <</widget>>\
 

@@ -1754,43 +1754,5 @@ $.extend(true, window.items, {
                 red:true,
             }
         },
-
-        //maidUniform
-        maidOutfit0:{
-            masterItem:"maidUniform",
-            variant:"maid_outfit_00",
-            name:"Black Frilly Satin French Maid Outfit",
-            price:0,
-            daring:13,
-            disabled:false,
-            isMale:false,
-            isFemale:true,
-            isItemSet:false,
-            setName:"",
-            tags:{
-                black:true,
-                maid:true,
-                slutty:true,
-                sexy:true,
-            }
-        },
-        maidOutfit1:{
-            masterItem:"maidUniform",
-            variant:"maid_outfit_01",
-            name:"Black Latex French Maid Outfit",
-            price:0,
-            daring:13,
-            disabled:false,
-            isMale:false,
-            isFemale:true,
-            isItemSet:false,
-            setName:"",
-            tags:{
-                black:true,
-                maid:true,
-                slutty:true,
-                sexy:true,
-            }
-        },
     }
 });

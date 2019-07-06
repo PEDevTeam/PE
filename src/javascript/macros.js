@@ -202,7 +202,6 @@ macros ['glitchText'] = {
 			
 				str+='<span class="'+glitch+'" data-text="'+text[i]+'">'+text[i]+'</span> '; 
 			}
-			console.log(str);
 			new Wikifier(place, str);	
 			
 		}
@@ -641,7 +640,6 @@ macros.showAvatarImage = {
 					
 					$('#showClothes').empty();
 					$('#showClothes').append(str);
-					console.log("createAvatar:"+str);
 				}, 1);
 			}
 		}

@@ -815,6 +815,17 @@ window.playerList={
 	clubPassword: '',
 	clubPasswordFailed: false,
 	tattoos: [],
+	hasAlarmClock: false,
+	hasBatteries: false,
+	hasQualityBatteries: false,
+	hasPlaygirl: false,
+	hasVibrator: false,
+	hasSpyCamera: false,
+	hasStunGun: false,
+	hasCamera: false,
+	hasMassageOil: false,
+	hasNailPolish: false,
+	canVisitTestLab: false,
 },
 
 window.playerAddonsList={
@@ -953,6 +964,7 @@ window.playerAddonsList={
 		outerwear: null,
 		shoes: null,
 		underwear: null,
+		maid: null,
 	},
 },
 
@@ -1007,6 +1019,11 @@ window.bodyList={
 	hairColor: 1,
 	nose: 0,
 	earsPierced: false,
+	bellyPierced:false,
+	lipsPierced:false,
+	nipplesPierced:false,
+	nosePierced:false,
+	tonguePierced:false,
 	
 	boobs: 0,
 	lips: 0,
