@@ -50,7 +50,8 @@
 		
 	<<endif>>\
 	<<if not playerCode.owns(itemsC.vibrator)>>\
-		<<addToInv $items.vibrator.id>>\
+		<!-- <<addToInv $items.vibrator.id>>\ -->
+		<<set $player.hasVibrator = true>>
 	<<endif>>\
 	[[Use Sissy Trainer|Therapist sleep][$scene="Therapist sleep3"]]
 <<else>>\

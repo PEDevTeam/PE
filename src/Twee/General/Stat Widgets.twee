@@ -616,23 +616,28 @@
 	<<if $player.debugN eq 2>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.gString))>>\
-			<<addToInv $items.gString.id>>\
+			<!-- <<addToInv $items.gString.id>>\ -->
+			<<addItemVariantToInventory 'panties_sexy_40'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 3>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.chastityDevice))>>\
-			<<addToInv $items.chastityDevice.id>>\
+			<!-- <<addToInv $items.chastityDevice.id>>\ -->
+			<<addItemVariantToInventory 'chastity_cb6000'>>\
 		<<endif>>\
 		<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
-			<<addToInv $items.buttPlugHeart.id>>\
+			<!-- <<addToInv $items.buttPlugHeart.id>>\ -->
+			<<addItemVariantToInventory 'buttplug_heart'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 4>>\
 		<<set $player.debugN = 0>>\
 		<<if (not playerCode.owns(itemsC.schoolFemale))>>\
-			<<addToInv $items.schoolFemale.id>>\
+			<!-- <<addToInv $items.schoolFemale.id>>\  -->
+			<<addItemVariantToInventory 'school_female_00'>>\
 		<<endif>>\
 		<<if (not playerCode.owns(itemsC.highHeel3))>>\
-			<<addToInv $items.highHeel3.id>>\
+			<!-- <<addToInv $items.highHeel3.id>>\ -->
+			<<addItemVariantToInventory 'heels_03'>>\
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher eq 0>>\
@@ -678,16 +683,22 @@
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $giveUniform = true]]\
 	<<elseif $cheerleaders.progress == 3 && $giveUniform == true>>\
 		<<set $giveUniform = false>>\
-		<<addToInv 'rookieUniform'>>\
-		<<addToInv 'cheerBriefs'>>\
-		<<addToInv 'socks' 43>>\
-		<<addToInv 'hairbow' 43>>\
-		<<addToInv 'cheerSneakers'>>\
+		<!-- <<addToInv 'rookieUniform'>>\ -->
+		<!-- <<addToInv 'cheerBriefs'>>\ -->
+		<!-- <<addToInv 'socks' 43>>\ -->
+		<!-- <<addToInv 'hairbow' 43>>\ -->
+		<!-- <<addToInv 'cheerSneakers'>>\ -->
+		<<addItemVariantToInventory 'rookie_uniform'>>\
+		<<addItemVariantToInventory 'cheer_briefs'>>\
+		<<addItemVariantToInventory 'socks_43'>>\
+		<<addItemVariantToInventory 'hairbow_43'>>\
+		<<addItemVariantToInventory 'cheer_sneakers'>>\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
 	<<elseif $cheerleaders.progress == 11 && (not playerCode.owns(itemsC.cheerDress))>>\
 		<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>>\
 		<<removeFromInv 'rookieUniform'>>\
-		<<addToInv 'cheerDress'>>\
+		<!-- <<addToInv 'cheerDress'>>\ -->
+		<<addItemVariantToInventory 'cheer_dress'>>\
 		<<wearClothing 'cheerDress'>>\
 		<<set playerCode.saveQuickSlot(11)>>\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\

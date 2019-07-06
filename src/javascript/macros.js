@@ -34,7 +34,7 @@ macros.initInv = {
 
 // Add an item to your inventory:
 // Usage: <<addToInv rock>> or <<addToInv "a smooth rock">>
-macros.addToInv = {
+macros.addToInv_d = {
   handler: function(place, macroName, params, parser) {
     if (params.length == 0) {
       throwError(place, "<<" + macroName + ">>: no parameters given");

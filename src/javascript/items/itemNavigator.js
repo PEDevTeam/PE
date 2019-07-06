@@ -1,5 +1,12 @@
 window.itemNavigator = {
     getItemNavigator: function(navigatorType){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var findOne = function (haystack, arr) {
             return arr.some(function (v) {
                 return haystack.indexOf(v) >= 0;
@@ -22,8 +29,8 @@ window.itemNavigator = {
         for(var categoryName in categories){
             if(navigatorType == "wardrobe"){
                 var filterMasterItems = [];
-                for(var inventoryItemIdx in State.active.variables.inventory){
-                    var inventoryItem = State.active.variables.inventory[inventoryItemIdx];
+                for(var inventoryItemIdx in actVar.inventory){
+                    var inventoryItem = actVar.inventory[inventoryItemIdx];
                     if(typeof inventoryItem === 'object' && inventoryItem.masterItem !== null){
                         if(filterMasterItems.indexOf(inventoryItem.masterItem) == -1){
                             filterMasterItems.push(inventoryItem.masterItem);
@@ -33,9 +40,9 @@ window.itemNavigator = {
             }
             else{
                 var filterMasterItems = []
-                for(var storeMasterItemIdx in window.mall.stores[State.active.variables.currentStore].masterItems){
-                    var storeMasterItem = window.mall.stores[State.active.variables.currentStore].masterItems[storeMasterItemIdx]
-                    if(window.items.itemMasters[storeMasterItem].daring <= State.active.variables.player.daring){
+                for(var storeMasterItemIdx in window.mall.stores[actVar.currentStore].masterItems){
+                    var storeMasterItem = window.mall.stores[actVar.currentStore].masterItems[storeMasterItemIdx]
+                    if(window.items.itemMasters[storeMasterItem].daring <= actVar.player.daring){
                         filterMasterItems.push(storeMasterItem);
                     }
                 }
@@ -137,6 +144,13 @@ window.itemNavigator = {
         return itemNavigatorDiv;
 
         function callShowCategory(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             $(".item-navigator-category-button-selected").addClass("item-navigator-category-button").removeClass("item-navigator-category-button-selected");
             evt.currentTarget.className = "item-navigator-category-button-selected";
             window.itemNavigator.showCategory(evt.currentTarget.categoryName, evt.currentTarget.navigatorType);
@@ -144,6 +158,13 @@ window.itemNavigator = {
     },
 
     showCategory: function(categoryName, navigatorType){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var masterItemListTable = document.createElement('table');
         if(navigatorType == "wardrobe"){
             var category = window.wardrobe.categories[categoryName];
@@ -157,8 +178,8 @@ window.itemNavigator = {
         for(var masterItemIdx in category.masterItems){
             if(navigatorType == "wardrobe"){
                 var filterMasterItems = [];
-                for(var inventoryItemIdx in State.active.variables.inventory){
-                    var inventoryItem = window.itemFuncs.getItemByVariant(State.active.variables.inventory[inventoryItemIdx]);
+                for(var inventoryItemIdx in actVar.inventory){
+                    var inventoryItem = window.itemFuncs.getItemByVariant(actVar.inventory[inventoryItemIdx]);
                     if(typeof inventoryItem === 'object' && inventoryItem.masterItem !== null && !inventoryItem.disabled){
                         if(filterMasterItems.indexOf(inventoryItem.masterItem) == -1){
                             filterMasterItems.push(inventoryItem.masterItem);
@@ -168,10 +189,10 @@ window.itemNavigator = {
             }
             else{
                 var filterMasterItems = []
-                for(var storeMasterItemIdx in window.mall.stores[State.active.variables.currentStore].masterItems){
-                    var storeMasterItem = window.mall.stores[State.active.variables.currentStore].masterItems[storeMasterItemIdx]
+                for(var storeMasterItemIdx in window.mall.stores[actVar.currentStore].masterItems){
+                    var storeMasterItem = window.mall.stores[actVar.currentStore].masterItems[storeMasterItemIdx]
                     var itemVariant = window.itemFuncs.getItemByVariant(window.items.itemMasters[storeMasterItem])
-                    if(window.items.itemMasters[storeMasterItem].daring <= State.active.variables.player.daring && !itemVariant.disabled){
+                    if(window.items.itemMasters[storeMasterItem].daring <= actVar.player.daring && !itemVariant.disabled){
                         filterMasterItems.push(storeMasterItem);
                     }
                 }
@@ -209,6 +230,13 @@ window.itemNavigator = {
         window.itemNavigator.showVariant(firstMasterItem, 0, navigatorType);
 
         function callShowVariant(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             $(".item-navigator-master-item-selected").addClass("item-navigator-master-item").removeClass("item-navigator-master-item-selected");
             evt.currentTarget.className = "item-navigator-master-item-selected";
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, 0, evt.currentTarget.navigatorType);
@@ -216,6 +244,12 @@ window.itemNavigator = {
     },
 
     showVariant: function(masterItemName, variantIndex, navigatorType){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
 
         if(navigatorType == "wardrobe"){
             var itemVariants = [];
@@ -302,8 +336,8 @@ window.itemNavigator = {
                     itemVariantWearSpan.style.cursor = "not-allowed";
                 }
                 else{
-                    if(itemVariant.daring <= State.active.variables.player.daring){
-                        if(itemVariant.price <= State.active.variables.player.money){
+                    if(itemVariant.daring <= actVar.player.daring){
+                        if(itemVariant.price <= actVar.player.money){
                             var itemVariantWearSpan = document.createElement('span');
                             var itemVariantWearText = document.createTextNode('Buy - $' + itemVariant.price);
                             itemVariantWearSpan.appendChild(itemVariantWearText);
@@ -372,22 +406,50 @@ window.itemNavigator = {
 
         
         function callShowVariant(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
         }
 
         function buyItemVariant(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemFuncs.buyItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             $("#sidebar_money").text(State.active.variables.player.money);
         }
 
         function wearItemVariant(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.wardrobeFuncs.wearItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
         }
 
         function removeItemVariant(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.wardrobeFuncs.removeItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
@@ -395,6 +457,13 @@ window.itemNavigator = {
     },
     
     formatTagsDOM: function(itemTagArr){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var tagsDiv = document.createElement('div');
 
         for(var tagIdx in itemTagArr){
@@ -416,6 +485,13 @@ window.itemNavigator = {
         return tagsDiv;
 
         function invertColorByName(name, bw) {
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             var d = document.createElement("div");
             d.style.color = name;
             document.body.appendChild(d);
@@ -442,6 +518,13 @@ window.itemNavigator = {
     },
 
     getClothingSetNavigator: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var clothingSetHolderDiv = document.createElement('div');
         var clothingSetTitleDiv = document.createElement('div');
         var clothingSetTitleText = document.createTextNode('Clothing Sets:');
@@ -452,8 +535,8 @@ window.itemNavigator = {
         var clothingSetDiv = document.createElement('div');
         clothingSetDiv.className = "clothing-set-div";
 
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            var clothingSet = State.active.variables.clothingSets[clothingSetIdx];
+        for(var clothingSetIdx in actVar.clothingSets){
+            var clothingSet = actVar.clothingSets[clothingSetIdx];
 
             var clothingSetItemDiv = document.createElement('div');
             var clothingSetSpan = document.createElement('span');
@@ -527,16 +610,37 @@ window.itemNavigator = {
         return clothingSetHolderDiv;
 
         function addClothingSet(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemNavigator.addClothingSet(evt.currentTarget.setName);
             window.itemNavigator.refreshClothingSetNavigator();
         };
 
         function wearClothingSet(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemNavigator.wearClothingSet(evt.currentTarget.setName);
             window.wardrobeFuncs.updateSidebar();
         };
 
         function renameClothingSet(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             var newName = prompt("Please enter the new name", "");
             if(newName !== null && newName !== ""){
                 window.itemNavigator.renameClothingSet(evt.currentTarget.setName, newName);
@@ -545,21 +649,49 @@ window.itemNavigator = {
         };
 
         function removeClothingSet(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemNavigator.removeClothingSet(evt.currentTarget.setName);
             window.itemNavigator.refreshClothingSetNavigator();
         };
 
         function updateClothingSet(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             window.itemNavigator.updateClothingSet(evt.currentTarget.setName);
         }
     },
 
     refreshClothingSetNavigator: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var clothingSetHolderDiv = window.itemNavigator.getClothingSetNavigator();
         $("#clothingSetHolderDiv").replaceWith(clothingSetHolderDiv);
     },
 
     addClothingSet: function (setName){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var setIndex = 1;
         while(window.itemNavigator.checkClothingSetExists(setName)){
             setName = setName + " " + setIndex;
@@ -570,32 +702,53 @@ window.itemNavigator = {
             setName: setName,
             itemVariants: []
         }
-        State.active.variables.clothingSets.push(newClothingSet);
+        actVar.clothingSets.push(newClothingSet);
     },
 
     renameClothingSet: function(oldName, newName){
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            if(State.active.variables.clothingSets[clothingSetIdx].setName == oldName){
-                State.active.variables.clothingSets[clothingSetIdx].setName = newName;
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSetIdx in actVar.clothingSets){
+            if(actVar.clothingSets[clothingSetIdx].setName == oldName){
+                actVar.clothingSets[clothingSetIdx].setName = newName;
             }
         }
     },
 
     removeClothingSet: function(setName){
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            if(State.active.variables.clothingSets[clothingSetIdx].setName == setName){
-                State.active.variables.clothingSets.splice(clothingSetIdx, 1);
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSetIdx in actVar.clothingSets){
+            if(actVar.clothingSets[clothingSetIdx].setName == setName){
+                actVar.clothingSets.splice(clothingSetIdx, 1);
             }
         }
     },
 
     updateClothingSet: function(setName){
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            if(State.active.variables.clothingSets[clothingSetIdx].setName == setName){
-                var clothingSet = State.active.variables.clothingSets[clothingSetIdx];
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSetIdx in actVar.clothingSets){
+            if(actVar.clothingSets[clothingSetIdx].setName == setName){
+                var clothingSet = actVar.clothingSets[clothingSetIdx];
                 clothingSet.itemVariants = [];
-                for(var wearingItemIdx in State.active.variables.player.clothingSlots){
-                    var wearingItem = State.active.variables.player.clothingSlots[wearingItemIdx]
+                for(var wearingItemIdx in actVar.player.clothingSlots){
+                    var wearingItem = actVar.player.clothingSlots[wearingItemIdx]
                     if(wearingItem !== null){
                         clothingSet.itemVariants.push(wearingItem.variant);
                     }
@@ -605,10 +758,17 @@ window.itemNavigator = {
     },
 
     wearClothingSet: function(setName){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var clothingSet = null;
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            if(State.active.variables.clothingSets[clothingSetIdx].setName == setName){
-                clothingSet = State.active.variables.clothingSets[clothingSetIdx];
+        for(var clothingSetIdx in actVar.clothingSets){
+            if(actVar.clothingSets[clothingSetIdx].setName == setName){
+                clothingSet = actVar.clothingSets[clothingSetIdx];
             }
         }
         if(clothingSet !== null){
@@ -620,9 +780,16 @@ window.itemNavigator = {
     },
 
     checkClothingSetExists: function(setName){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var setExists = false;
-        for(var clothingSetIdx in State.active.variables.clothingSets){
-            if(State.active.variables.clothingSets[clothingSetIdx].setName == setName){
+        for(var clothingSetIdx in actVar.clothingSets){
+            if(actVar.clothingSets[clothingSetIdx].setName == setName){
                 setExists = true;
             }
         }

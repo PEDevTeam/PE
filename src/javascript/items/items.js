@@ -1,9 +1,25 @@
 //Macros
-
+macros.addItemVariantToInventory = {
+    handler: function(place, macroName, params, parser){
+        if (params.length == 0) {
+            throwError(place, "<<" + macroName + ">>: no parameters given");
+            return;
+        }
+        console.log(params[0]);
+        window.itemFuncs.addItemToInventory(params[0]);
+    }
+};
 
 //JS Functions
 window.itemFuncs= {
     hasTag: function(item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemVariant = window.itemFuncs.getItemByVariant(item);
         if(!(itemVariant === undefined)){
             if(!(itemVariant.tags[tag] === undefined)){
@@ -24,6 +40,13 @@ window.itemFuncs= {
         }
     },
     notTag: function (item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemVariant = window.itemFuncs.getItemByVariant(item);
         if(!(itemVariant === undefined)){
             if(!(itemVariant.tags[tag] === undefined)){
@@ -44,6 +67,13 @@ window.itemFuncs= {
         }
     },
     hasTagsAnd: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
@@ -58,6 +88,13 @@ window.itemFuncs= {
         return hasTags;
     },
     hasTagsOr: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
@@ -74,6 +111,13 @@ window.itemFuncs= {
         return hasTags;
     },
     notTagsAnd: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
@@ -88,6 +132,13 @@ window.itemFuncs= {
         return notTags;
     },
     notTagsOr: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
@@ -105,6 +156,13 @@ window.itemFuncs= {
     },
 
     getChildItemsForMaster: function(masterItem){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemChildren = [];
         for(var itemName in window.items.itemChildren){
             var item = window.items.itemChildren[itemName];
@@ -117,9 +175,16 @@ window.itemFuncs= {
     },
 
     getItemByVariant: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof itemVariant !== 'object'){
-            for(var itemIdx in State.active.variables.itemVariantsOverrides){
-                var item = State.active.variables.itemVariantsOverrides[itemIdx]
+            for(var itemIdx in actVar.itemVariantsOverrides){
+                var item = actVar.itemVariantsOverrides[itemIdx]
                 if(item.variant == itemVariant){
                     return item;
                 }
@@ -132,8 +197,8 @@ window.itemFuncs= {
             }
         }
         else{            
-            for(var itemIdx in State.active.variables.itemVariantsOverrides){
-                var item = State.active.variables.itemVariantsOverrides[itemIdx]
+            for(var itemIdx in actVar.itemVariantsOverrides){
+                var item = actVar.itemVariantsOverrides[itemIdx]
                 if(item.variant == itemVariant.variant){
                     return item;
                 }
@@ -148,6 +213,13 @@ window.itemFuncs= {
     },
 
     buyItemVariant: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
         if(typeof itemVariant !== 'object'){
             itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
         }
@@ -155,8 +227,8 @@ window.itemFuncs= {
             var item = window.items.itemChildren[itemName];
             item = window.itemFuncs.getItemByVariant(item);
             if(typeof itemVariant == 'object' && itemVariant.variant == item.variant){
-                if(item.price <= State.active.variables.player.money){
-                    State.active.variables.player.money -= item.price;
+                if(item.price <= actVar.player.money){
+                    actVar.player.money -= item.price;
                     window.itemFuncs.addItemToInventory(item);
                 }
                 break;
@@ -165,50 +237,92 @@ window.itemFuncs= {
     },
 
     addItemToInventory: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
         if(!(window.inventoryFuncs.checkItemInInventory(itemVariant))){
-            SugarCube.State.variables.inventory.push(itemVariant);
+            actVar.inventory.push(itemVariant);
         }
     },
 
     addItemsToInventoryByTag: function(tagName, tagValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         for(var itemIdx in window.items.itemChildren){
             var itemVariant = window.itemFuncs.getItemByVariant(window.items.itemChildren[itemIdx]);
             if(typeof itemVariant == 'object' && !(window.inventoryFuncs.checkItemInInventory(itemVariant)) && itemVariant.tags[tagName] == tagValue){
-                SugarCube.State.variables.inventory.push(itemVariant);
+                actVar.inventory.push(itemVariant);
             }
         }
     },
 
     removeItemFromInventory: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
-        for(var itemIdx in State.active.variables.inventory){
-            var item = State.active.variables.inventory[itemIdx];
+        for(var itemIdx in actVar.inventory){
+            var item = actVar.inventory[itemIdx];
             if(typeof item == 'object' && item.variant == itemVariant.variant){
-                State.active.variables.inventory.splice(itemIdx, 1);
+                actVar.inventory.splice(itemIdx, 1);
             }
         }
     },
 
     removeItemsFromInventoryByProperty: function(propertyName, propertyValue){
-        for(var arrIdx = State.active.variables.inventory.length - 1; arrIdx >= 0; arrIdx--){
-            var item = State.active.variables.inventory[arrIdx];
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var arrIdx = actVar.inventory.length - 1; arrIdx >= 0; arrIdx--){
+            var item = actVar.inventory[arrIdx];
             if(typeof item == 'object' && item[propertyName] == propertyValue){
-                State.active.variables.inventory.splice(arrIdx, 1);
+                actVar.inventory.splice(arrIdx, 1);
             }
         }
     },
 
     removeItemsFromInventoryByTag: function(tagName, tagValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         for(var arrIdx = State.active.variables.inventory.length - 1; arrIdx >= 0; arrIdx--){
             var item = State.active.variables.inventory[arrIdx];
             if(typeof item == 'object' && item.tags[tagName] == tagValue){
-                State.active.variables.inventory.splice(arrIdx, 1);
+                actVar.inventory.splice(arrIdx, 1);
             }
         }
     },
 
     getTagsForItem: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
@@ -228,33 +342,60 @@ window.itemFuncs= {
     },
 
     disableItemVariant: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         window.itemFuncs.overrideItemVariantProperty(item, 'disabled', true);
     },
 
     enableItemVariant: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         window.itemFuncs.overrideItemVariantProperty(item, 'disabled', false);
     },
 
     overrideItemVariantProperty: function(item, propertyName, propertyValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof item !== 'object'){
             item = window.itemFuncs.getItemByVariant(item);
         }
-        console.log(item);
         item[propertyName] = propertyValue;
-        for(var itemIdx in State.active.variables.itemVariantsOverrides){
-            var overrideItem = State.active.variables.itemVariantsOverrides[itemIdx]
+        for(var itemIdx in actVar.itemVariantsOverrides){
+            var overrideItem = actVar.itemVariantsOverrides[itemIdx]
             if(overrideItem.variant == item.variant){
-                State.active.variables.itemVariantsOverrides.splice(itemIdx, 1);
+                actVar.itemVariantsOverrides.splice(itemIdx, 1);
             }
         }
-        State.active.variables.itemVariantsOverrides.push(item);
+        actVar.itemVariantsOverrides.push(item);
     },
 
     addTattooToInventory: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemVariant = window.itemFuncs.getItemByVariant(item);
         if(!window.inventoryFuncs.checkItemInInventory(itemVariant)){
             window.itemFuncs.addItemToInventory(itemVariant);
-            State.active.variables.player.tattoos.push(itemVariant);
+            actVar.player.tattoos.push(itemVariant);
         }
     },
 

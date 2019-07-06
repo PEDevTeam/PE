@@ -18,14 +18,16 @@
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
 	<<if (not playerCode.owns(itemsC.chastityDevice))>>\
 		<<set _item=$items.chastityDevice>>\
-		<<addToInv _item.id>>\
+		<!-- <<addToInv _item.id>>\ -->
+		<<addItemVariantToInventory 'chastity_cb6000'>>\
 		<<wearClothing _item.id>>\
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
 		<<set _item=$items.buttPlugHeart>>\
-		<<addToInv _item.id>>\
+		<!-- <<addToInv _item.id>>\ -->
+		<<addItemVariantToInventory 'buttplug_heart'>>\
 		<<wearClothing _item.id>>\
 	<<elseif $tasksTeacher.trialChastity.cooldown eq 2>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 3>>\

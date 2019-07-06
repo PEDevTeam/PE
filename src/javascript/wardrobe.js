@@ -21,6 +21,13 @@ Macro.add('ClothingSlotSidebar',{
 
 window.wardrobeFuncs = {
     wearItemVariant: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof itemVariant !== 'object'){
             itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
         }
@@ -30,47 +37,89 @@ window.wardrobeFuncs = {
             window.wardrobeFuncs.removeClothingAndAccessories();
         }
         else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
-            SugarCube.State.active.variables.player.clothingSlots['nightwear'] = null;
-            SugarCube.State.active.variables.player.clothingSlots['maid'] = null;
+            actVar.player.clothingSlots['nightwear'] = null;
+            actVar.player.clothingSlots['maid'] = null;
         }
 
         var itemVariantClothingSlot = masterItem.clothingSlot;
-        SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
+        actVar.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
     },
     removeItemVariant: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof itemVariant !== 'object'){
             itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
         }
         var masterItem = window.items.itemMasters[itemVariant.masterItem];
         var itemVariantClothingSlot = masterItem.clothingSlot;
-        SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot] = null;
+        actVar.player.clothingSlots[itemVariantClothingSlot] = null;
     },
     removeClothingAndAccessories: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         window.wardrobeFuncs.removeMainClothing();
-        window.wardrobeFuncs.remoteAccessories();
+        window.wardrobeFuncs.removeAccessories();
     },
     removeMainClothing: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         for(var clothingSlotIdx in window.wardrobe.mainClothing){
-            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.mainClothing[clothingSlotIdx]] = null;
+            actVar.player.clothingSlots[window.wardrobe.mainClothing[clothingSlotIdx]] = null;
         }
     },
-    remoteAccessories: function(){
+    removeAccessories: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         for(var clothingSlotIdx in window.wardrobe.accessories){
-            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.accessories[clothingSlotIdx]] = null;
+            actVar.player.clothingSlots[window.wardrobe.accessories[clothingSlotIdx]] = null;
         }
     },
     removeToys: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         for(var clothingSlotIdx in window.wardrobe.toys){
-            SugarCube.State.active.variables.player.clothingSlots[window.wardrobe.toys[clothingSlotIdx]] = null;
+            actVar.player.clothingSlots[window.wardrobe.toys[clothingSlotIdx]] = null;
         }
     },
     isItemVariantWearing: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(typeof itemVariant !== 'object'){
             itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
         }
         var masterItem = window.items.itemMasters[itemVariant.masterItem];
         var itemVariantClothingSlot = masterItem.clothingSlot;
-        var currentlyWearing = SugarCube.State.active.variables.player.clothingSlots[itemVariantClothingSlot];
+        var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
         if(currentlyWearing != null && currentlyWearing.variant == itemVariant.variant){
             return true;
         }
@@ -79,7 +128,14 @@ window.wardrobeFuncs = {
         }
     },
     updateSidebar: function(){
-        var currentClothing = State.active.variables.player.clothingSlots;
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var currentClothing = actVar.player.clothingSlots;
 
         var clothingSlotSidebarDiv = document.createElement('div');
         clothingSlotSidebarDiv.id = 'sidebar_clothes';

@@ -10,7 +10,8 @@
 	<<set $cheerleaders.progress++>>\
 	<<if $cheerleaders.progress == 11>>\
 		<<removeFromInv 'rookieUniform'>>\
-		<<addToInv 'cheerDress'>>\
+		<!--<<addToInv 'cheerDress'>>\-->
+		<<addItemVariantToInventory 'cheer_dress'>>\
 		<<wearClothing 'cheerDress'>>\
 		<<set playerCode.saveQuickSlot(11)>><<updateClothes>>\
 	<<endif>>\

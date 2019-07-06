@@ -117,7 +117,8 @@
 	<<removeFromInv 'noseButton'>>\
 	<<endif>>\
 	<<set _item=itemsC.nosePiggy>>\
-	<<addToInv _item.id>>\
+	<!-- <<addToInv _item.id>>\ -->
+	<<set $body.nose = 3>>\
 	<<set $flags.salonNose=true>>\
 
 	@@.nurse;"You won't regret it!"@@  She exclaims and her eyes beam with such excitement, that it feels almost scary to be the focus of her attention.
@@ -140,10 +141,12 @@
 	<<endif>>\
 	<<if $flags.salonPickNose>>\
 		<<set _item=itemsC.noseClassic>>\
+		<<set $body.nose = 1>>\
 	<<else>>\
 		<<set _item=itemsC.noseButton>>\
+		<<set $body.nose = 2>>\
 	<<endif>>\
-	<<addToInv _item.id>>\
+	<!--<<addToInv _item.id>>\-->
 	<<set $flags.salonNose=true>>\
 	Nancy takes you to the back room of the salon.
 
@@ -201,7 +204,8 @@
 		
 		<<if (not playerCode.haveMakeup())>>\
 			<<set _item=itemsC.NormalMakeup>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<set $body.makeup = 2>>
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<set $flags.salonMakeup=true>>\
 
@@ -222,10 +226,12 @@
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<elseif (not $body.earsPierced)>>\
 			<<set _item=itemsC.PiercingEars>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<set $body.earsPierced = true>>
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<set _item=itemsC.hoopsEarrings>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<addItemVariantToInventory 'earrings_flashy_00'>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<wearClothing _item.id>>\
 			Before you know it, she has pierced both of your ears and snapped two golden hoop earrings into the lobes. @@.hero;Ouch!@@ you shout as she finishes up.
@@ -246,7 +252,8 @@
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<elseif (not playerCode.owns(itemsC.hoopsEarrings))>>\
 			<<set _item=itemsC.hoopsEarrings>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<addItemVariantToInventory 'earrings_flashy_00'>>\
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<wearClothing _item.id>>\
 			Nancy removes your earrings and replaces them with big, golden hoops.
@@ -268,7 +275,8 @@
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<elseif (not ($body.lips eq 1)) and (not ($body.lips eq 2))>>\
 			<<set _item=itemsC.LipsEnhancing>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<set $body.lips = 1>>
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<set $flags.salonLips=true>>\
 			@@.nurse;"This may sting a bit, but it should pass quickly,"@@ She says as she retrieves a needle from a case and starts to work on your lips.
@@ -292,7 +300,8 @@
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<elseif (not ($body.manicure eq 1)) and (not ($body.manicure eq 2))>>\
 			<<set _item=itemsC.Manicure>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<set $body.manicure = 1>>
 			<<set $player.salonTab += window.itemF.cost(_item)>>\
 			<<set $flags.salonManicure to true>>\
 			Nancy has you sit in the spa chair, soaking your feet in some water while she works on your nails.

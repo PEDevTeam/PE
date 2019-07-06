@@ -1676,6 +1676,24 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
+        rookieUniform:{
+            masterItem:"cheerUniform",
+            variant:"rookie_uniform",
+            name:"Rookie Cheerleader Uniform",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                cheer:true,
+                school:true,
+                red:true,
+                white:true,
+            }
+        },
         
         //schoolUniform
         schoolMale:{

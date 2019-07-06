@@ -220,7 +220,9 @@
 <<endif>>\
 \
 <<set $player.clothes to clone($player.clothesTmp)>>\
-<<addToInv braSexy _braAlt>>\
+<!-- <<addToInv braSexy _braAlt>>\ -->
+<<set _bra = 'bra_sexy_' + _braAlt>>
+<<addItemVariantToInventory _bra>>\
 <<wearClothing braSexy _braAlt>>\
 <<set $player.clothesTmp to clone($player.clothes)>>\
 <<removeClothingType 4>>\

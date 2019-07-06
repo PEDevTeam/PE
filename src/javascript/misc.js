@@ -26,19 +26,43 @@ window.misc={
 		if (kink) {return "checked"}
 		return "unchecked";
 	},
+	// getSnoopItems: function() {
+	// 	var ra=[];
+	// 	var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
+	// 	var pantiesVar = window.itemF.itemTwee("pantiesCotton");
+	// 	for (var i=0; i < sia.length; i++) {
+	// 		if (sia[i] == itemsC.pantiesCotton && playerCode.owns(sia[i]) && !pantiesVar.ownAlt[40]){
+	// 			ra.push(sia[i]);
+	// 		}
+	// 		else if (!playerCode.owns(sia[i])) {
+	// 			ra.push(sia[i]);
+	// 		}
+	// 	}
+	// 	return ra;
+	// },
 	getSnoopItems: function() {
-		var ra=[];
-		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
-		var pantiesVar = window.itemF.itemTwee("pantiesCotton");
-		for (var i=0; i < sia.length; i++) {
-			if (sia[i] == itemsC.pantiesCotton && playerCode.owns(sia[i]) && !pantiesVar.ownAlt[40]){
-				ra.push(sia[i]);
+		if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+		}
+		
+		var snoopItems=[];
+		for(var snoopItemIdx in window.misc.snoopItems){
+			var snoopItem = window.misc.snoopItems[snoopItemIdx];
+			if(snoopItem.type == "itemVariant"){
+				if(!(window.inventoryFuncs.checkItemInInventory(snoopItem.item))){
+					snoopItems.push(snoopItem);
+				}
 			}
-			else if (!playerCode.owns(sia[i])) {
-				ra.push(sia[i]);
+			else{
+				if(!(actVar.player[snoopItem.item])){
+					snoopItems.push(snoopItem);
+				}
 			}
 		}
-		return ra;
+		return snoopItems;
 	},
 	wager: {
 		calculate: function() {
@@ -126,7 +150,34 @@ window.misc={
 			State.active.variables.friendRiddles[Object.keys(ur)[rr]]=true;
 			return ur[rr];
 		}
-	}
+	},
+	snoopItems: [
+		{
+			item: 'panties_cotton_40',
+			type: 'itemVariant',
+			name: 'panties',
+		},
+		{
+			item: 'panties_sexy_40',
+			type: 'itemVariant',
+			name: 'g-string',
+		},
+		{
+			item: 'panties_latex_40',
+			type: 'itemVariant',
+			name: 'latex panties',
+		},
+		{
+			item: 'hasPlaygirl',
+			type: 'variable',
+			name: 'playgirl magazine',
+		},
+		{
+			item: 'hasVibrator',
+			type: 'variable',
+			name: 'vibrator',
+		}
+	]
 },
 
 window.friendRiddles = [

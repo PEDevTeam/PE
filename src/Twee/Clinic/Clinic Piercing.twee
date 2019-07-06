@@ -61,7 +61,8 @@ Nancy offers various piercing options.
 		@@.nurse;"Excellent choice!"@@  She exclaims.
 		<<if ($body.nose eq 3)>>\
 			<<set _item=itemsC.hoopsEarrings>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<addItemVariantToInventory 'earrings_flashy_00'>>\
 			<<wearClothing _item.id>>\
 		You pick out a pair of small diamond studs, but Nancy stops you and shows you a pair of big golden hoops.
 		
@@ -80,7 +81,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have pierced ears with large, golden hoops in them!@@
 		<<else>>\
 			<<set _item=itemsC.diamondStuds>>\
-			<<addToInv _item.id>>\
+			<!-- <<addToInv _item.id>>\ -->
+			<<addItemVariantToInventory 'earrings_casual_00'>>\
 			<<wearClothing _item.id>>\
 		You pick out a pair of small diamond studs and Nancy gets to work.
 		

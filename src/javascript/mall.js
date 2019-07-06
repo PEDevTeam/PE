@@ -33,12 +33,19 @@ macros.showMallStores = {
 
 macros.showStore = {
     handler: function(place, macroName, params, parser) {
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         if(params.length != 1){
             throwerror(place, "showStore only accepts 1 paramater");
             return;
         }
         var storeDiv = document.createElement('div');
-        var currentStore = window.mall.stores[State.active.variables.currentStore];
+        var currentStore = window.mall.stores[actVar.currentStore];
         var storeLogoHeadingDiv = document.createElement('div');
         var storeLogoImg = document.createElement('img');
         storeLogoImg.src = "./Images/StoreImages/" + currentStore.logo;
@@ -78,16 +85,37 @@ macros.showStore = {
 
 window.mallFuncs={
     checkStoreEntry: function(storeName){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var store = window.mall.stores[storeName];
         return store.entryCheck();
     },
 
     getStoreEntryPassage: function(storeName){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var store = window.mall.stores[storeName];
         return store.entryPassage();
     },
 
     getStoreMapDOM: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
         var outerDiv = document.createElement('div');
         outerDiv.className = "mall-map-outer-div";
 
@@ -140,16 +168,37 @@ window.mallFuncs={
         return outerDiv;
 
         function goToStore(evt){
-            State.active.variables.currentStore = evt.currentTarget.storeName;
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
+            actVar.currentStore = evt.currentTarget.storeName;
             Engine.play('Go to store');
         };
 
         function goToLocation(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             Engine.play(evt.currentTarget.locationPassage);
         }
     },
 
     getStoreListDom: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var outerDiv = document.createElement('div');
         outerDiv.className = "mall-store-list-div";
 
@@ -228,15 +277,36 @@ window.mallFuncs={
         return outerDiv;
 
         function navigateToStore(evt){
-            State.active.variables.currentStore = evt.currentTarget.currentStore;
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
+            actVar.currentStore = evt.currentTarget.currentStore;
             Engine.play('Go to store');
         }
         
         function goToLocation(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             Engine.play(evt.currentTarget.locationPassage);
         }
 
         function imgMouseover(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             if(evt.currentTarget.currentStore){
                 var area = "#" + evt.currentTarget.currentStore + "_area";
             }
@@ -247,6 +317,13 @@ window.mallFuncs={
         }
 
         function imgMouseout(evt){
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+
             if(evt.currentTarget.currentStore){
                 var area = "#" + evt.currentTarget.currentStore + "_area";
             }

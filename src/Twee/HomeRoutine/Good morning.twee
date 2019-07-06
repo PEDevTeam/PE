@@ -168,7 +168,8 @@
 	<<set $player.perversion.guardian to 4>>\
 	<<set $player.masturbationType = 0>>\
 	<<if (not playerCode.owns(itemsC.vibrator))>>\
-		<<addToInv 'vibrator'>>\
+		<!-- <<addToInv 'vibrator'>>\ -->
+		<<set $player.hasVibrator = true>>
 	<<endif>>\
 	Your eyes slowly open. $Guardian is shaking you awake, looking down at you sternly.
 
@@ -294,42 +295,53 @@
 	<<set window.playerCode.purgeMaleClothes()>>\
 	<<set window.playerCode.disableMaleClothes()>>\
 	<<set $flags.clothesPurged to true>>\
-	<<addToInv 'maidOutfit'>>\
+	<!-- <<addToInv 'maidOutfit'>>\ -->
+	<<addItemVariantToInventory 'maid_outfit_00'>>\
 	<<wearClothing 'maidOutfit'>>\
-	<<addToInv 'stockings' 39>>\
+	<!-- <<addToInv 'stockings' 39>>\ -->
+	<<addItemVariantToInventory 'stockings_39'>>\
 	<<set $items.stockings.curAlt=39>>\
 	<<wearClothing 'stockings'>>\
-	<<addToInv 'highHeel3' 39>>\
+	<!-- <<addToInv 'highHeel3' 39>>\ -->
+	<<addItemVariantToInventory 'heels_39'>>\
 	<<set $items.highHeel3.curAlt=39>>\
 	<<wearClothing 'highHeel3'>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
 	<<else>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing except for the school uniform.@@\
-		<<addToInv 'schoolMale'>>\
-		<<addToInv 'schoolShoes'>>\
+		<!-- <<addToInv 'schoolMale'>>\ -->
+		<<addItemVariantToInventory 'school_male'>>\
+		<!-- <<addToInv 'schoolShoes'>>\ -->
+		<<addItemVariantToInventory 'black_shoes_00'>>\
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.silkyTeddy))>>\
 		@@.guardian;I got you something new to sleep in. I'm sure you'll love it.@@\
-		<<addToInv 'silkyTeddy'>>\
+		<!-- <<addToInv 'silkyTeddy'>>\ -->
+		<<addItemVariantToInventory 'nightie_00'>>\ 
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.summerDress)) and (not playerCode.owns(itemsC.sluttyDress))>>\
 		@@.guardian;I got you a dress as a little present from me.@@\
-		<<addToInv 'summerDress'>>\
+		<!-- <<addToInv 'summerDress'>>\ -->
+		<<addItemVariantToInventory 'dress_casual_00'>>\ 
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.gString))>>\
 		@@.guardian;Also I've got you some underwear.@@\
-		<<addToInv 'gString' 40>>\
+		<!-- <<addToInv 'gString' 40>>\ -->
+		<<addItemVariantToInventory 'panties_sexy_40'>>\ 
 	<<endif>>\
 	<<if $items.gString.ownAlt[40]>>\
-		<<addToInv 'braSexy' 40>>\
+		<!-- <<addToInv 'braSexy' 40>>\ -->
+		<<addItemVariantToInventory 'bra_sexy_40'>>\ 
 	<<endif>>\
 	<<if $items.pantiesCotton.ownAlt[40]>>\
-		<<addToInv 'bra' 40>>\
+		<!-- <<addToInv 'bra' 40>>\ -->
+		<<addItemVariantToInventory 'bra_40'>>\ 
 	<<endif>>\
 	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not playerCode.owns(itemsC.schoolFemale))>>\
 		@@.guardian;I even got you a new school uniform.@@\
-		<<addToInv 'schoolFemale'>>\
+		<!-- <<addToInv 'schoolFemale'>>\ -->
+		<<addItemVariantToInventory 'school_female_00'>>\ 
 	<<endif>>\
 	<<if (not playerCode.owns(itemsC.flats)) and (not $items.highHeel3.ownAlt[0])>>\
 		<<if playerCode.owns(itemsC.schoolShoes)>>\
@@ -337,7 +349,8 @@
 		<<else>>\
 			@@.guardian;I brought you my old shoes since you don't have any left.@@\
 		<<endif>>\
-		<<addToInv 'highHeel3'>>\
+		<!-- <<addToInv 'highHeel3'>>\ -->
+		<<addItemVariantToInventory 'heels_00'>>\
 	<<endif>>\
 
 	<<if $player.room.style lte 4>>\
@@ -400,14 +413,17 @@
 		<<set $items.maidOutfit.ownAlt[0]=false>>\
 		<<set $items.maidOutfit.ownAlt[1]=true>>\
 		<<set $flags.gTrialLatexMaid=true>>\
-		<<addToInv 'stockingsLatex' 39>>\
+		<!-- <<addToInv 'stockingsLatex' 39>>\ -->
+		<<addItemVariantToInventory 'stockings_latex_39'>>\
 		<<set $items.stockingsLatex.curAlt=39>>\
 		<<wearClothing 'stockingsLatex'>>\
-		<<addToInv 'stilettoHeels' 39>>\
+		<!-- <<addToInv 'stilettoHeels' 39>>\ -->
+		<<addItemVariantToInventory 'heels_stripper_00'>>\
 		<<set $items.stilettoHeels.curAlt=39>>\
 		<<wearClothing 'stilettoHeels'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\
-		<<addToInv 'buttPlugVibro'>>\
+		<!-- <<addToInv 'buttPlugVibro'>>\ -->
+		<<addItemVariantToInventory 'buttplug_vibro'>>\
 		<<wearClothing 'buttPlugVibro'>>\
 		Your eyes open suddenly to find $guardian angrily shaking you awake. There is a wild, unrestrained fire in $guardian's eyes. However, the absence of any of the normal empathy in her expression scares you the most.
 

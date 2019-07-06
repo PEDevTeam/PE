@@ -43,7 +43,7 @@ window.structures={
 		this.setupFriend();
 		this.setupFuta();
 		this.setupQuickSlot();
-		this.setupItems();
+		//this.setupItems();
 		this.setupChores();
 		this.setupDreams();
 		this.setupLocations();
@@ -280,7 +280,7 @@ window.structures={
 		}
 	},
 
-	setupItems: function() {
+	setupItems_d: function() {
 		var itemsC=window.itemsC;
 		if (State.active.variables.items == null) {
 			State.active.variables.items = {};
@@ -1017,7 +1017,7 @@ window.bodyList={
 	penisShrink: 0,
 	hairstyle: 0,
 	hairColor: 1,
-	nose: 0,
+	nose: 0, // 0 = none, 1 = classic, 2 = button, 3 = piggy
 	earsPierced: false,
 	bellyPierced:false,
 	lipsPierced:false,
@@ -1026,11 +1026,11 @@ window.bodyList={
 	tonguePierced:false,
 	
 	boobs: 0,
-	lips: 0,
+	lips: 0, //0 = normal, 1 = enhanced, 2 = enhanced more
 	ass: 0,
 	face: 0,
-	manicure: 0,
-	makeup: 0,
+	manicure: 0, // 0 = normal, 1 = manicured, 2 = ???
+	makeup: 0, // 0 = none, 1 = subtle, 2 = normal, 3 = heavy, 4 = slutty
 	anal: 0,
 	
 	semiBoobs: 0,

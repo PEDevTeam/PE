@@ -3089,5 +3089,24 @@ $.extend(true, window.items, {
                 cheer:true,
             }
         },
+        cheerSneakers0:{
+            masterItem:"cheerSneakers",
+            variant:"heeled_cheer_sneakers",
+            name:"White Heeled Cheerleader Sneakers",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                white:true,
+                sexy:true,
+                slutty:true,
+                school:true,
+                cheer:true,
+            }
+        },
     }
 });

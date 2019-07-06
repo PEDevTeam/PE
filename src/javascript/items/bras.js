@@ -942,6 +942,38 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
+        sexyBras30:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_60",
+            name:"Pink Sexy Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                pink:true,
+                sexy:true,
+            }
+        },
+        sexyBras31:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_61",
+            name:"Pink Sexy Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                pink:true,
+                sexy:true,
+            }
+        },
 
         //latexBras
         latexBras0:{

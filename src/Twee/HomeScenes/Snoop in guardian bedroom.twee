@@ -4,18 +4,18 @@
 <<set $time.addMinutes(10)>>\
 Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsure of what you're hoping to find, and very nervous because you know $guardian could silently pop in at any time, thanks to the house's plush carpet.
 
-<<set _ia=window.misc.getSnoopItems()>>\
-<<if ((random(1) gt 0) or ($time.hour gte 22) or ($player.batteryExpireDay eq 0)) and (_ia.length gt 0)>>\
-	<<set _item=_ia[random(_ia.length - 1)]>>\
-	<<if _item eq itemsC.pantiesCotton>>\
+<<set _snoopItems=window.misc.getSnoopItems()>>\
+<<if ((random(1) gt 0) or ($time.hour gte 22) or ($player.batteryExpireDay eq 0)) and (_snoopItems.length gt 0)>>\
+	<<set _item=_snoopItems[random(_snoopItems.length - 1)]>>\
+	<<if _item.item eq 'panties_cotton_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
-	<<elseif _item eq itemsC.gString>>\
+	<<elseif _item.item eq 'panties_sexy_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
-	<<elseif _item eq itemsC.vibrator>>\
+	<<elseif _item.item eq 'hasVibrator'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her bedside table drawer. You imagine it deep in her wet pussy as she coaxes herself to one orgasm after another.  You bring it up to your nose and inhale deeply, catching a hint of her scent before opening your mouth and licking the tip.
-	<<elseif _item eq itemsC.playgirlMagazine>>\
+	<<elseif _item.item eq 'hasPlaygirl'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> hidden under her bed.  You imagine her idly stroking her pussy, turning herself on more and more as she fantasizes about the hunks within these glossy pages.  You start to flip through it, curious how these beefcake men and their erect penises compare to yourself.
-	<<elseif _item eq itemsC.pantiesLatex>>\
+	<<elseif _item.item eq 'panties_latex_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her laundry basket.  There's some residue in the crotch, and you can't stop yourself bringing them to your nose and sniffing.  They smell lightly of perfume... and sex.  You're hard immediately.  Do you dare lick?  You extend your tongue...
 	<<endif>>\
 <<else>>\
@@ -31,18 +31,26 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 <<endif>>\
 
 <<if _item>>\
-	<<if (not playerCode.owns(_item))>>\
-		<<addToInv _item.id>>\
-		<<if _item.maxAlt>>\
-			<<set $items[_item.id].ownAlt[0] = false>>\
-		<<endif>>\
+	<<nobr>>\
+	<!-- <<if (not playerCode.owns(_item))>>\ -->
+		<!-- <<addToInv _item.id>>\ -->
+		<!-- <<if _item.maxAlt>>\ -->
+			<!-- <<set $items[_item.id].ownAlt[0] = false>>\ -->
+		<!-- <<endif>>\ -->
+	<!-- <<endif>>\ -->
+	<!-- <<if _item.maxAlt>>\ -->
+		<!-- <<set $items[_item.id].curAlt = 40>>\ -->
+		<!-- <<set $items[_item.id].ownAlt[40] = true>>\ -->
+	<!-- <<endif>>\ -->
+	<!-- <<set _item.stolen=true>>\ -->
+	<</nobr>>\
+	<<if _item.type eq 'itemVariant'>>\
+		<<addItemVariantToInventory _item.item>>\
+		<<set window.inventoryFuncs.addTag(_item.item, 'stolen', true)>>
+	<<else>>\
+		<<set $player[_item.item] = true>>\
 	<<endif>>\
-	<<if _item.maxAlt>>\
-		<<set $items[_item.id].curAlt = 40>>\
-		<<set $items[_item.id].ownAlt[40] = true>>\
-	<<endif>>\
-	<<set _item.stolen=true>>\
-	<<if (not $player.daringFlag.snooping) and (_ia.length gt 1)>>\
+	<<if (not $player.daringFlag.snooping) and (_snoopItems.length gt 1)>>\
 		<<set $player.daringFlag.snooping to true>>\
 		<<set $player.batterySneakDay = $time.day + 7>>\
 		<<if $player.daring eq 0>><<Daring 1>>\
@@ -52,7 +60,7 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 		
 		[[Return to your room|Go to bedroom]]
 		
-	<<elseif (random(1) gt 0) and (not $flags.guardianSnooping) and ($player.batterySneakDay gt $time.day + 2) and (_ia.length gt 1)>>\
+	<<elseif (random(1) gt 0) and (not $flags.guardianSnooping) and ($player.batterySneakDay gt $time.day + 2) and (_snoopItems.length gt 1)>>\
 		<<set $flags.guardianSnooping to true>>\
 		You grab $guardian's <<print _item.name.toLowerCase()>> and rush to your room.
 

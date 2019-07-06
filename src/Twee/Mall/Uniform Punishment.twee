@@ -110,10 +110,12 @@ It's just too much, and after begging to her accept, you hurriedly stuff $<<prin
 
 <<buyItem "schoolFemale">>\
 <<if (not $items.socks.ownAlt[0])>>\
-	<<addToInv 'socks'>>\
+	<!-- <<addToInv 'socks'>>\ -->
+    <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
 <<if (not $items.flats.ownAlt[0])>>\
-	<<addToInv 'flats'>>\
+	<!-- <<addToInv 'flats'>>\ -->
+    <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\
 <<updateInventory>><<updateMoney>>\
 [[Return to the mall|Go to the mall]]
@@ -166,12 +168,15 @@ Susan has you put back every item of clothing you tried on, each piece like salt
 Thanking you once more for your help, Susan has you gather up your things and bids you goodbye. Exhausted by your ordeal, you wonder if it was really all worth saving a mere $<<print window.itemF.cost(itemsC.schoolFemale)>>? @@.hero;It's too late now.@@ You think as you trudge home.
 
 <<set $flags.metClothesClerk = true>>\
-<<addToInv 'schoolFemale'>>\
+<!-- <<addToInv 'schoolFemale'>>\ -->
+<<addItemVariantToInventory 'school_female_00'>>\
 <<if (not $items.socks.ownAlt[0])>>\
-	<<addToInv 'socks'>>\
+	<!-- <<addToInv 'socks'>>\ -->
+    <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
 <<if (not $items.flats.ownAlt[0])>>\
-	<<addToInv 'flats'>>\
+	<!-- <<addToInv 'flats'>>\ -->
+    <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\
 <<updateInventory>>\
 [[Return to the mall|Go to the mall]]

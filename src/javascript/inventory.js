@@ -11,7 +11,14 @@ Macro.add('StartingInventory', {
 //JS Functions
 window.inventoryFuncs= {
     hasTag: function(item, tag){
-        var locItem = SugarCube.State.active.variables.inventory[item];
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var locItem = actVar.inventory[item];
         if(!(locItem === undefined)){
             if(!(locItem.tags[tag] === undefined)){
                 return locItem.tags[tag];
@@ -31,7 +38,14 @@ window.inventoryFuncs= {
         }
     },
     notTag: function (item, tag){
-        var locItem = SugarCube.State.active.variables.inventory[item];
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var locItem = actVar.inventory[item];
         if(!(locItem === undefined)){
             if(!(locItem.tags[tag] === undefined)){
                 return false;
@@ -51,6 +65,13 @@ window.inventoryFuncs= {
         }
     },
     hasTagsAnd: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var hasTags = false;
         if(tags.constructor === Array){
             hasTags = true;
@@ -62,6 +83,13 @@ window.inventoryFuncs= {
         return hasTags;
     },
     hasTagsOr: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var hasTags = false;
         if(tags.constructor === Array){
             for(var i = 0; i < tags.length; i++){
@@ -75,6 +103,13 @@ window.inventoryFuncs= {
         return hasTags;
     },
     notTagsAnd: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var notTags = false;
         if(tags.constructor === Array){
             notTags = true;
@@ -86,6 +121,13 @@ window.inventoryFuncs= {
         return notTags;
     },
     notTagsOr: function (item, tags){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var notTags = false;
         if(tags.constructor === Array){
             for(var i = 0; i < tags.length; i++){
@@ -100,9 +142,16 @@ window.inventoryFuncs= {
     },
 
     getChildItemsForMaster: function(masterItem){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemChildren = [];
-        for(var itemName in SugarCube.State.active.variables.inventory){
-            var item = SugarCube.State.active.variables.inventory[itemName];
+        for(var itemName in actVar.inventory){
+            var item = actVar.inventory[itemName];
             if(item.masterItem == masterItem){
                 itemChildren.push(item);
             }
@@ -111,19 +160,43 @@ window.inventoryFuncs= {
     },
 
     getItemByVariant: function(itemVariant){
-        for(var itemName in SugarCube.State.active.variables.inventory){
-            var item = SugarCube.State.active.variables.inventory[itemName];
-            if(item.variant == itemVariant){
-                return item;
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+
+        if(typeof itemVariant !== 'object'){
+            for(var itemIdx in actVar.inventory){
+                var item = actVar.inventory[itemIdx];
+                if(typeof item == 'object' && item.variant == itemVariant){
+                    return item;
+                }
             }
         }
-        return false;
+        else{            
+            for(var itemIdx in actVar.inventory){
+                var item = actVar.inventory[itemIdx];
+                if(typeof item == 'object' && item.variant == itemVariant.variant){
+                    return item;
+                }
+            }
+        }
     },
 
     checkItemInInventory: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var itemInInventory = false;
-        for(var inventItemIdx in SugarCube.State.active.variables.inventory){
-            var inventItem = SugarCube.State.active.variables.inventory[inventItemIdx];
+        for(var inventItemIdx in actVar.inventory){
+            var inventItem = actVar.inventory[inventItemIdx];
             if(!(inventItem.variant === undefined) && inventItem.variant == item.variant){
                 itemInInventory = true;
             }
@@ -132,6 +205,13 @@ window.inventoryFuncs= {
     },
 
     isItemVariantOwned: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
         var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
         var ownedItemVariantNames = [];
         for(var ownedItemIdx in ownedItems){
@@ -141,6 +221,22 @@ window.inventoryFuncs= {
         return ownedItemVariantNames.indexOf(itemVariant.variant) > -1
     },
 
+    addTag: function(itemVariant, tag, value){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+        for(var inventoryIdx in actVar.inventory){
+            var inventoryItem = actVar.inventory[inventoryIdx];
+            if(typeof inventoryItem == 'object' && inventoryItem.variant == itemVariant.variant){
+                $.extend(true, inventoryItem.tags, {[tag]: value});
+            }
+        }
+    }
 }
 
 window.inventory = {

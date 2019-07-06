@@ -272,13 +272,15 @@
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@
 					<<if _u and (not _u.female)>>\
-						<<addToInv 'gString'>>\
+						<!-- <<addToInv 'gString'>>\ -->
+						<<addItemVariantToInventory 'panties_sexy_40'>>\
 						<<wearClothing 'gString'>>\
 						
 						She throws you a kinky looking lacy panties. @@.teacher;"There is no place for boring boxers now. Take them off and put on these panties."@@
 					<<endif>>\
 					<<if _f and (not _f.female)>>\
-						<<addToInv 'flats'>>\
+						<!-- <<addToInv 'flats'>>\ -->
+						<<addItemVariantToInventory 'flats_00'>>\
 						<<wearClothing 'flats'>>\
 						
 						$teacher points to a pair of flats near her desk. @@.teacher;"Those shoes do not meet the dress code for your new uniform, so change into these for now. I would like to see you in heels some day, though they may be a bit hard for you at first."@@
@@ -376,7 +378,8 @@
 					
 					@@.teacher;"There we are. Those are much more appropriate for you. There will be no further excuse if you fail to arrive in suitable underthings."@@
 					
-					<<addToInv 'gString'>>\
+					<!-- <<addToInv 'gString'>>\ -->
+					<<addItemVariantToInventory 'panties_sexy_40'>>\
 					<<wearClothing 'gString'>>\
 				<<endif>>\
 			<<else>>\

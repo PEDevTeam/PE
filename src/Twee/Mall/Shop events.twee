@@ -637,14 +637,16 @@
 	
 	You also pick\
 	<<if (not $items.socks.ownAlt[0])>>\
-		<<addToInv 'socks'>>\
+		<!-- <<addToInv 'socks'>>\ -->
+        <<addItemVariantToInventory 'socks_00'>>\
 		black knee high socks\
 		<<if (not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])>>\
 			and\
 		<<endif>>\
 	<<endif>>\
 	<<if (not $items.flats.ownAlt[0])>>\
-		<<addToInv 'flats'>>\
+		<!-- <<addToInv 'flats'>>\ -->
+        <<addItemVariantToInventory 'flats_00'>>\
 		a pair of flats\
 	<<endif>>\
 	to complete the set.

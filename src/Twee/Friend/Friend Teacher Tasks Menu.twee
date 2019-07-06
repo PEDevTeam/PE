@@ -297,7 +297,9 @@
         @@.friend;“On no, keep it. That dress suited you so much, I’d think it was made for you. Maybe you can wear it for me again some time…”@@ $friend says with a wink.
 
         <<set _dressAlt to $dressChoice + 61>>\
-        <<addToInv summerDress _dressAlt>>\
+        <!-- <<addToInv summerDress _dressAlt>>\ -->
+        <<set _dress = 'dress_casual_' + _dressAlt>>
+        <<addItemVariantToInventory _dress>>\
 		<<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
 		<<set $tasksTeacher.selfieFemaleClothes.progress++>>\
 		<<if ($player.perversion.crossdressing lte 1)>>\
