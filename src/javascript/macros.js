@@ -404,7 +404,7 @@ macros.showClothingImage_d = {
 	}
 };
 
-macros.showClothingImageSidebar = {
+macros.showClothingImageSidebar_d = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.clothingSelectorRender) {
 			state.active.variables.clothingSelectorRender=false;
