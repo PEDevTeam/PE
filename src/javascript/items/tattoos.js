@@ -135,5 +135,21 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
+        tattoo6:{
+            masterItem:"tattoos",
+            variant:"beauty_mark",
+            name:"Beauty Mark",
+            price:10,
+            daring:7,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                tattoo:true,
+            }
+        },
     }
 });

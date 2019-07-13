@@ -55,7 +55,7 @@ Nancy offers various piercing options.
 <<else>>\
 	<<if $scene eq "PiercingEars">>\
 		<<set _item=itemsC.PiercingEars>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.earsPierced = true>>\
 		@@.heroT;"I'd like to get my ears pierced,"@@ you tell Nancy.
 		@@.nurse;"Excellent choice!"@@  She exclaims.
@@ -98,7 +98,8 @@ Nancy offers various piercing options.
 		<<endif>>\
 	<<elseif $scene eq "PiercingLips">>\
 		<<set _item=itemsC.PiercingLips>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.lipsPierced = true>>
 		@@.heroT;"I'd like to get my lower lip pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@  She exclaims.
@@ -114,7 +115,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have a tiny, gold ring lip piercing!@@
 	<<elseif $scene eq "PiercingNose">>\
 		<<set _item=itemsC.PiercingNose>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.nosePierced = true>>
 		@@.heroT;"I'd like to get my nose pierced,"@@ you tell Nancy.
 
 		@@.nurse;"I think that will look lovely on you!"@@ she exclaims.
@@ -130,7 +132,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have a small, diamond nose piercing!@@
 	<<elseif $scene eq "PiercingBelly">>\
 		<<set _item=itemsC.PiercingBelly>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.bellyPierced = true >>
 		@@.heroT;"I'd like to get my belly button pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@ she exclaims.
@@ -154,7 +157,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have a small, diamond belly piercing!@@
 	<<elseif $scene eq "PiercingTongue">>\
 		<<set _item=itemsC.PiercingTongue>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.tonguePierced = true>>
 		@@.heroT;"I'd like to get my tongue pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@  She exclaims.
@@ -172,7 +176,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have a tongue piercing!@@
 	<<elseif $scene eq "PiercingNipples">>\
 		<<set _item=itemsC.PiercingNipples>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.nipplesPierced = true>>
 		@@.heroT;"I'd like to get my, um, nipples pierced,"@@ you tell Nancy.
 
 		@@.nurse;"Excellent choice!"@@ she exclaims. @@.nurse;"And I'm sure a lot of people will enjoy this bold decision you've just made,"@@ she adds, with a sly grin.

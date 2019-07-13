@@ -893,7 +893,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.analSmoothing2>>\
 	<<if ($body.nose neq 3)>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.nose = 3>>
 	<<endif>>\
 	<<set $body.anal = 2>>\
 	<<set $flags.salonAnal=true>>\
@@ -1018,7 +1019,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.analSmoothing1>>\
 	<<if ($body.nose neq 3)>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
+		<<set $body.nose = 3>>
 	<<endif>>\
 	<<set $body.anal = 1>>\
 	<<set $flags.salonAnal=true>>\
@@ -1055,7 +1057,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 	<<else>>\
 		<<set _item=itemsC.noseClassic>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.nose = 1>>\
 		<<set $flags.salonNose=true>>\
 		@@.heroT;"I'd like to have a classic straight nose,"@@ you tell Nancy.
@@ -1108,7 +1110,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 	<<else>>\
 		<<set _item=itemsC.noseButton>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.nose = 2>>\
 		<<set $flags.salonNose=true>>\
 
@@ -1130,7 +1132,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<elseif $scene eq "nosePiggy">>\
 	<<set _item=itemsC.nosePiggy>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.nose = 3>>\
 	<<set $flags.salonNose=true>>\
 	It seems like a weird option, but you got curious and the price is surprisingly low.
@@ -1191,7 +1193,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--<face_softening>-->\
 <<elseif $scene eq "surgeryFacial">>\
 	<<set _item=itemsC.surgeryFacial>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.face = 2>>\
 	<<set $flags.salonNose=true>>\
 	@@.heroT;"I'd like to have my facial features softened further,"@@ you tell Nancy.
@@ -1211,7 +1213,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <<elseif $scene eq "softeningFacial">>\
 	<<set _item=itemsC.softeningFacial>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.face = 1>>\
 	<<set $flags.salonNose=true>>\
 
@@ -1234,7 +1236,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--<penis_shrinking>-->\
 <<elseif $scene eq "PenisShrinking">>\
 	<<set _item=itemsC.PenisShrinking>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.penisShrink = 1>>\
 	You hesitate, unsure how to start, and Nancy's intrigued gaze doesn't help you feel any less self-conscious. You start mumbling, avoiding the subject directly, going on about how you heard about certain treatments that affect the size of certain private parts.
 	

@@ -237,7 +237,7 @@ macros.wearClothing_d = {
 	}
 };
 
-macros.buyItem = {
+macros.buyItem_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);

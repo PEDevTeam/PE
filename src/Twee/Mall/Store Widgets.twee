@@ -120,7 +120,7 @@
 				<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
 			<<endif>>\
 		<<elseif $player.money gte _cost>>\
-			<<set _in to _in + '<<click "Buy">><<buyItem "' + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
+			<!-- <<set _in to _in + '<<click "Buy">> --><!-- <<buyItem "' --><!-- + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\ -->
 		<<else>>\
 			<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
 		<<endif>>\

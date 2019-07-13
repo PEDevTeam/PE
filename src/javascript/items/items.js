@@ -5,8 +5,16 @@ macros.addItemVariantToInventory = {
             throwError(place, "<<" + macroName + ">>: no parameters given");
             return;
         }
-        console.log(params[0]);
         window.itemFuncs.addItemToInventory(params[0]);
+    }
+};
+macros.buyItemVariant = {
+    handler: function(place, macroName, params, parser){
+        if (params.length == 0) {
+            throwError(place, "<<" + macroName + ">>: no parameters given");
+            return;
+        }
+        window.itemFuncs.buyItemVariant(params[0]);
     }
 };
 
