@@ -92,7 +92,8 @@
 	<<endif>>\
 	<<set $items.alarmClock.disabled=true>>\
 	<<if playerCode.owns(itemsC.alarmClock)>>\
-	<<removeFromInv 'alarmClock'>>\
+		<!-- <<removeFromInv 'alarmClock'>>\ -->
+		<<set $player.hasAlarmClock = false>>
 	<<endif>>\
 	<<set $flags.dreamgameCaughtTalk to true>>\
 	<<set $time.guardian.wakeHour to 7>>\
@@ -212,7 +213,8 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 5>>\
 	<<if playerCode.owns(itemsC.alarmClock)>>\
-		<<removeFromInv 'alarmClock'>>\
+		<!-- <<removeFromInv 'alarmClock'>>\ -->
+		<<set $player.hasAlarmClock = false>>
 	<<endif>>\
 	<<set $items.alarmClock.disabled=true>>\
 	<<if $flags.guardianFuckedByStrapon>>\
@@ -367,10 +369,22 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>><<removeFromInv 'roomGamer'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>><<removeFromInv 'roomPunk'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>><<removeFromInv 'roomGeek'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>><<removeFromInv 'roomSport'>><<endif>>\
+	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>>
+		<!-- <<removeFromInv 'roomGamer'>> -->
+		<<removeItemVariantFromInventory 'room_gamer'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>>
+		<!-- <<removeFromInv 'roomPunk'>> -->
+		<<removeItemVariantFromInventory 'room_punk'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>>
+		<!-- <<removeFromInv 'roomGeek'>> -->
+		<<removeItemVariantFromInventory 'room_geek'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>>
+		<!-- <<removeFromInv 'roomSport'>> -->
+		<<removeItemVariantFromInventory 'room_sport'>>\
+	<<endif>>\
 	<<set $player.room.junk=[]>>\
 \
 	<<if $flags.dreamgameCaughtWin>>\

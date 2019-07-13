@@ -26,8 +26,10 @@
 <<if $flags.buttplugLost>>\
 	@@.teacher;"Oh, $player.name, that was hilarious. I have not laughed like that for a very long time. Still, as much as I would like to see that expression on your face again, I need to confiscate this butt-plug. Word of advice - find a bigger one. A much bigger one."@@
 
-	<<removeClothing 'buttPlugHeart'>>\
-	<<removeFromInv 'buttPlugHeart'>>\
+	<!-- <<removeClothing 'buttPlugHeart'>>\ -->
+	<!-- <<removeFromInv 'buttPlugHeart'>>\ -->
+	<<removeClothingItem 'buttplug'>>\
+	<<removeItemVariantFromInventory 'buttplug_heart'>>\
 	<<set $items.buttPlugHeart.disabled=true>>\
 	<<set $flags.buttplugLost=false>>\
 <<endif>>\

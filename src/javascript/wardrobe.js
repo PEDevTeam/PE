@@ -269,6 +269,20 @@ window.wardrobeFuncs = {
         }
 
         $("#sidebar_clothes").replaceWith(clothingSlotSidebarDiv);
+    },
+    getWornItem: function(clothingSlot){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        if(clothingSlot){
+            return actVar.player.clothingSlots[clothingSlot];
+        }
+        else{
+            return null;
+        }
     }
 }
 

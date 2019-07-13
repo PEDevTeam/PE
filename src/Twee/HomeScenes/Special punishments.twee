@@ -29,10 +29,22 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>><<removeFromInv $items.roomGamer.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>><<removeFromInv $items.roomPunk.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>><<removeFromInv $items.roomGeek.id>><<endif>>\
-	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>><<removeFromInv $items.roomSport.id>><<endif>>\
+	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>>
+		<!-- <<removeFromInv 'roomGamer'>> -->
+		<<removeItemVariantFromInventory 'room_gamer'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>>
+		<!-- <<removeFromInv 'roomPunk'>> -->
+		<<removeItemVariantFromInventory 'room_punk'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>>
+		<!-- <<removeFromInv 'roomGeek'>> -->
+		<<removeItemVariantFromInventory 'room_geek'>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>>
+		<!-- <<removeFromInv 'roomSport'>> -->
+		<<removeItemVariantFromInventory 'room_sport'>>\
+	<<endif>>\
 	<<set $player.room.junk=[]>>\
 	[[Perform other chores|Perform chores]]
 	[[Go to your room|Go to bedroom]]

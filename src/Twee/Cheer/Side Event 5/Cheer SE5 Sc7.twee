@@ -62,7 +62,7 @@ You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ 
 <<elseif $cheerFriend.prize == "panties">>\
 	Trying to be as discreet as possible, you reach up under your skirt and slide off your panties.
 
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+	<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 	<<set _panties = false>>\
 	<<if _u.maxAlt>>\
 		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
@@ -77,9 +77,12 @@ You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ 
 		<</for>>\
 	<<endif>>\
 	<<removeClothing _u.id>>\
-	<<if (not _panties)>>\
-		<<removeFromInv _u.id>>\
-	<<endif>>\
+	<<if (not _panties)>>\ -->
+		<!-- <<removeFromInv _u.id>>\ -->
+	<!-- <<endif>>\ -->
+	<<set wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<removeClothingItem 'underwear'>>\
+	<<removeItemVariantFromInventory wornItem.variant>>\
 	@@.malevoice9;“Thank you,”@@ Andrew says as he snatches them from your hand and runs over to the dresser. To your surprise, he returns holding a small wad of soft pink fabric.
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend Panties" 400 400>></div>\

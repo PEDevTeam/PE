@@ -248,8 +248,10 @@
 	[[Get out of there|Go to the mall]]
 	
 <<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 11)>>\
-	<<removeFromInv $items.chastityDevice.id>>\
-	<<removeFromInv $items.buttPlugHeart.id>>\
+	<!-- <<removeFromInv $items.chastityDevice.id>>\ -->
+	<<removeItemVariantFromInventory 'chastity_cb6000'>>\
+	<!-- <<removeFromInv $items.buttPlugHeart.id>>\ -->
+	<<removeItemVariantFromInventory 'buttplug_heart'>>\
 	<<set $player.money+=tasksTeacher.trialChastity.rewardMoney>>\
 	You choose the money.
 	

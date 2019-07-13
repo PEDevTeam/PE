@@ -73,7 +73,7 @@ macros.addToInv_d = {
 
 // Removes an item from your inventory
 // Usage: <<removeFromInv rock>> or <<removeFromInv "a smooth rock">>
-macros.removeFromInv = {
+macros.removeFromInv_d = {
 	handler: function(place, macroName, params, parser) {
 		if (params.length == 0) {
 			throwError(place, "<<" + macroName + ">>: no parameters given");

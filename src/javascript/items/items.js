@@ -17,6 +17,15 @@ macros.buyItemVariant = {
         window.itemFuncs.buyItemVariant(params[0]);
     }
 };
+macros.removeItemVariantFromInventory = {
+    handler: function(place, macroName, params, parser){
+        if (params.length == 0) {
+            throwError(place, "<<" + macroName + ">>: no parameters given");
+            return;
+        }
+        window.itemFuncs.removeItemFromInventory(params[0]);
+    }
+};
 
 //JS Functions
 window.itemFuncs= {
@@ -283,10 +292,12 @@ window.itemFuncs= {
         }
 
         itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
-        for(var itemIdx in actVar.inventory){
-            var item = actVar.inventory[itemIdx];
-            if(typeof item == 'object' && item.variant == itemVariant.variant){
-                actVar.inventory.splice(itemIdx, 1);
+        if(itemVariant){
+            for(var itemIdx in actVar.inventory){
+                var item = actVar.inventory[itemIdx];
+                if(typeof item == 'object' && item.variant == itemVariant.variant){
+                    actVar.inventory.splice(itemIdx, 1);
+                }
             }
         }
     },

@@ -131,10 +131,12 @@
 	<<set $items.batteriesQuality.disabled=true>>\
 	<<set $items.batteries.disabled=true>>\
 	<<if playerCode.owns(itemsC.batteriesQuality)>>\
-		<<removeFromInv $items.batteriesQuality.id>>\
+		<!-- <<removeFromInv $items.batteriesQuality.id>>\ -->
+		<<set $player.hasQualityBatteries = false>>
 	<<endif>>\
 	<<if playerCode.owns(itemsC.batteries)>>\
-		<<removeFromInv $items.batteries.id>>\
+		<!-- <<removeFromInv $items.batteries.id>>\ -->
+		<<set $player.hasBatteries = false>>
 	<<endif>>\
 <<endif>>\
 <<if $flags.chorePunishmentDildo>>\

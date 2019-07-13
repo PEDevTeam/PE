@@ -696,7 +696,8 @@
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
 	<<elseif $cheerleaders.progress == 11 && (not playerCode.owns(itemsC.cheerDress))>>\
 		<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>>\
-		<<removeFromInv 'rookieUniform'>>\
+		<!-- <<removeFromInv 'rookieUniform'>>\ -->
+		<<removeItemVariantFromInventory 'rookie_uniform'>>\
 		<!-- <<addToInv 'cheerDress'>>\ -->
 		<<addItemVariantToInventory 'cheer_dress'>>\
 		<!-- <<wearClothing 'cheerDress'>>\ -->

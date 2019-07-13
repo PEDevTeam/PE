@@ -45,9 +45,10 @@ $teacher doesn’t say anything, but the action itself is enough for you to fina
 <<endif>>\
 <<if $cheerleaders.flags.slutUniform == 0>>\
 	<<set $player.buttplugInflate = 0>>\
-	<<set _u=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<set playerCode.removeClothesJS(_u.id)>>\
-	<<removeFromInv _u.id>>\
+	<<set wornItem=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<!-- <<set playerCode.removeClothesJS(_u.id)>>\ -->
+	<!-- <<removeFromInv _u.id>>\ -->
+	<<removeItemVariantFromInventory wornItem.variant>>
 	<!-- <<if $removedPlug>>\ -->
 		<!-- <<wearClothing $removedPlug>>\ -->
 	<!-- <<endif>>\ -->
