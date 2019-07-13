@@ -519,7 +519,7 @@ macros.removeClothingType = {
 	}
 };
 
-macros.nextClothing = {
+macros.nextClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
