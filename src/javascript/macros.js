@@ -489,7 +489,7 @@ macros.showRoomImage = {
 	}
 };
 
-macros.removeClothing = {
+macros.removeClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		if (!w) {
@@ -503,7 +503,7 @@ macros.removeClothing = {
 	}
 };
 
-macros.removeClothingType = {
+macros.removeClothingType_d = {
   handler: function(place, macroName, params, parser) {
 		if (!params[0]) {
 			throwError(place, "<<" + macroName + ">>: invalid item type '" + params[0] + "'");

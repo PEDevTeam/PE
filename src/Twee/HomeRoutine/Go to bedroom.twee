@@ -4,8 +4,10 @@
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
 	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<if _u and _u.female>>\
-		<<removeClothing _u.id>>\
+	<<set wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<if wornItem and wornItem.female>>\
+		<!-- <<removeClothing _u.id>>\ -->
+		<<removeClothingItem 'underwear'>>
 	<<endif>>\
 	@@.info;$Guardian started a load of wash this morning and accidentally put your female underwear in with her own. They won't be dry until after you need to be at school.@@
 	<<if playerCode.owns(itemsC.pantiesLatex)>>\

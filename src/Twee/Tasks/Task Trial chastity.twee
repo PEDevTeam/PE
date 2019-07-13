@@ -100,23 +100,27 @@
 	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.exp.chastityExp=0]]
 	
 <<elseif ($tasksTeacher.trialChastity.status eq 5)>>\
-	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<if playerCode.isWearing(itemsC.chastityDevice)>>\
-		<<removeClothing $items.chastityDevice.id>>\
+	<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+	<<set wornChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+	<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+	<<set wornButtplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<if wornChastity>>\
+		<!-- <<removeClothing $items.chastityDevice.id>>\ -->
+		<<removeClothingItem 'chastity'>>
 	<<endif>>\
-	<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
-		<<removeClothing $items.buttPlugHeart.id>>\
+	<<if wornButtplug>>\
+		<!-- <<removeClothing $items.buttPlugHeart.id>>\ -->
+		<<removeClothingItem 'buttplug'>>
 	<<endif>>\
 	You enter the adult store, finding the shopkeeper to help you finish the market research trial. She greets you and leads you back to the cubicles.
-	<<if _c or _b>>\
+	<<if wornChastity or wornButtplug>>\
 		She asks you to remove\
-		<<if _c>>\
+		<<if wornChastity>>\
 			the cage\
-			<<if _b>>\
+			<<if wornButtplug>>\
 				and plug,\
 			<<endif>>\
-		<<elseif _b>>\
+		<<elseif wornButtplug>>\
 			the plug,\
 		<<endif>>\
 		once again standing outside the curtain giving you helpful 'advice' while you do it. Thankfully, the removal process is much easier.

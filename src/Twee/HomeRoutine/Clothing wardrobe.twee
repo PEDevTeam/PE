@@ -242,7 +242,7 @@
 						<<set _in to _in + '<<click @@.on;&#xe810;@@>><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 						<<set _in to _in + " ">>\
 					<<endif>>\
-					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+					<!-- <<set _in to _in + '<<click " ' + _verb2 + '">> --> <!-- <<removeClothing "' + _o.id + '">> --> <!-- <<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
 				<<endif>>\
 			<<elseif $flags.laundryAccident and ((_o.clothingType & itemTypes.Underwear) gt 0) and _o.female>>\
 				<<set _in to _in + " //@@.halftransparent;Wet@@//">>\
@@ -360,7 +360,7 @@
 					<<print '<<click " Lock chastity">><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 				@@.inv_action_faded;/@@ \
-				<<print '<<click " Remove chastity ">><<removeClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+				<!-- <<print '<<click " Remove chastity ">> --> <!-- <<removeClothing "chastityDevice">> --> <!-- <<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>> -->
 			<<endif>>\
 		<<else>>\
 			<<print '<<click " Put on chastity cage ">><<wearClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
