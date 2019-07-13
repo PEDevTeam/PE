@@ -539,7 +539,7 @@ macros.nextClothing_d = {
 	}
 };
 
-macros.previousClothing = {
+macros.previousClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
