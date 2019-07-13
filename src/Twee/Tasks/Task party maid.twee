@@ -8,7 +8,8 @@
 <<if (not $flags.partyMaidStarted) and (not $flags.partyMaidPunish)>>\
 	<<if $flags.maidUniform>>\
 		<<set $flags.maidUniform = false>>\
-		<<wearClothing 'chastityDevice'>>\
+		<!-- <<wearClothing 'chastityDevice'>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 		<<set _c to true>>\
 	<<endif>>\
 	<<if ($time.hour lt 15)>>\
@@ -212,7 +213,8 @@
 	<<if (not _c)>>\
 		@@.guardian;"First you will wear a chastity for the rest of weekend."@@ $Guardian makes you put it, then locks it.
 		
-		<<wearClothing 'chastityDevice'>>\
+		<!-- <<wearClothing 'chastityDevice'>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 		<<set _c to true>>\
 	<<endif>>\
 	$Guardian leads you to the living room where you see a familiar woman. She's tall, much taller than you, with dark hair. She kind of looks like an Amazon warrior. You were always intimidated by her appearance, and now you stand before her wearing sexy maid outfit.

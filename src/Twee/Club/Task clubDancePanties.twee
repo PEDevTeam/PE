@@ -388,9 +388,18 @@
 	<<if $scene eq "runAwayRestroom">>\
 		You quickly retreat to the ladies room.
 		
-		<<if playerCode.owns(itemsC.pantiesCotton)>><<wearClothing 'pantiesCotton'>><<set _panties=true>>\
-		<<elseif playerCode.owns(itemsC.gString)>><<wearClothing 'gString'>><<set _panties=true>>\
-		<<elseif playerCode.owns(itemsC.pantiesLatex)>><<wearClothing 'pantiesLatex'>><<set _panties=true>>\
+		<<if playerCode.owns(itemsC.pantiesCotton)>>\
+			<!-- <<wearClothing 'pantiesCotton'>>\ -->
+			<<wearRandomItemByMaster 'plainPanties'>>\
+			<<set _panties=true>>\
+		<<elseif playerCode.owns(itemsC.gString)>>\
+			<!-- <<wearClothing 'gString'>>\ -->
+			<<wearRandomItemByMaster 'sexyPanties'>>\
+			<<set _panties=true>>\
+		<<elseif playerCode.owns(itemsC.pantiesLatex)>>\
+			<!-- <<wearClothing 'pantiesLatex'>> -->
+			<<wearRandomItemByMaster 'latexPanties'>>\
+			<<set _panties=true>>\
 		<<endif>>\
 		<<if _panties>>\
 			Luckily this time you've come prepared. You enter empty cabin and put on spare pair of underwear.

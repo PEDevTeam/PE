@@ -243,7 +243,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have small breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsA>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 1>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsB">>\
@@ -273,7 +273,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have noticeable, ample breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsB>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 2>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsC">>\
@@ -304,7 +304,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have big, round breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsC>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 3>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsDD">>\
@@ -354,7 +354,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have a pair of massive breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsDD>>\
-		<<buyItem _item.id>>\
+		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs=4>>\
 		<<set $flags.salonBreast=true>>\
 	<<endif>>\
@@ -427,7 +427,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.LipsEnhancingXL>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.lips = 2>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
@@ -463,7 +463,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.LipsEnhancing>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.lips = 1>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
@@ -527,7 +527,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.AssEnhancingXL>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.ass = 2>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
@@ -559,7 +559,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.AssEnhancing>>\
-	<<buyItem _item.id>>\
+	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.ass = 1>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\
@@ -675,7 +675,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<if ($body.anal neq 3)>>\
 		<<set _item=itemsC.analSmoothing3>>\
 		<<if ($body.nose neq 3)>>\
-			<<buyItem _item.id>>\
+			<!-- <<buyItem _item.id>>\ -->
+			<<set $body.nose = 3>>
 		<<endif>>\
 		<<set $body.anal = 3>>\
 	@@.heroT;"I'd like to get the special anal smoothening course,"@@ you tell Nancy hesitantly, as you know what awaits you.
@@ -848,20 +849,21 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		Nancy puts your butt-plug back in place.
 		<<else>>\
 			<<if (not playerCode.owns(itemsC.buttPlugDildo))>>\
-			@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
-			
-			Nancy steps behind you, pushes you firmly into a waist-bend. She dons a fresh latex glove, then eases her little finger into your hole. The gentle penetration of her digit massaging your passage feels stunningly good, dissolving what little resistance you had left.
-			
-			Suddenly, she withdraws the finger. In its place, before you can even react, she shoves a huge dildo butt-plug deep inside you with a single thrust. You instinctively clench up and brace yourself for pain. Instead, after your latest treatment, there is only an incredible pressure and... you moan like a girl as a gout of precum spurts out of you. You didn't orgasm, but it was nearly as intense.
-			
-			@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
-			
-			@@.reward;You now have a butt-plug dildo!;@@
-			
-			<<set _item=itemsC.buttPlugDildo>>\
-			<!-- <<addToInv _item.id>>\ -->
-			<<addItemVariantToInventory 'buttplug_dildo'>>\
-			<<wearClothing _item.id>>\
+				@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
+				
+				Nancy steps behind you, pushes you firmly into a waist-bend. She dons a fresh latex glove, then eases her little finger into your hole. The gentle penetration of her digit massaging your passage feels stunningly good, dissolving what little resistance you had left.
+				
+				Suddenly, she withdraws the finger. In its place, before you can even react, she shoves a huge dildo butt-plug deep inside you with a single thrust. You instinctively clench up and brace yourself for pain. Instead, after your latest treatment, there is only an incredible pressure and... you moan like a girl as a gout of precum spurts out of you. You didn't orgasm, but it was nearly as intense.
+				
+				@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
+				
+				@@.reward;You now have a butt-plug dildo!;@@
+				
+				<<set _item=itemsC.buttPlugDildo>>\
+				<!-- <<addToInv _item.id>>\ -->
+				<<addItemVariantToInventory 'buttplug_dildo'>>\
+				<!-- <<wearClothing _item.id>>\ -->
+				<<wearItemVariant 'buttplug_dildo'>>\
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
@@ -971,20 +973,21 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			Nancy puts your butt-plug back in place.
 		<<else>>\
 			<<if (not playerCode.owns(itemsC.buttPlugDildo))>>\
-			@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
-			
-			Nancy steps behind you, pushes you firmly into a waist-bend. She dons a fresh latex glove, then eases her little finger into your hole. The gentle penetration of her digit massaging your passage feels stunningly good, dissolving what little resistance you had left.
-			
-			Suddenly, she withdraws the finger. In its place, before you can even react, she shoves a huge dildo butt-plug deep inside you with a single thrust. You instinctively clench up and brace yourself for pain. Instead, after your latest treatment, there is only an incredible pressure and... you moan like a girl as a gout of precum spurts out of you. You didn't orgasm, but it was nearly as intense.
-			
-			@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
-			
-			@@.reward;You now have a butt-plug dildo!;@@
-			
-			<<set _item=itemsC.buttPlugDildo>>\
-			<!-- <<addToInv _item.id>>\ -->
-			<<addItemVariantToInventory 'buttplug_dildo'>>\
-			<<wearClothing _item.id>>\
+				@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
+				
+				Nancy steps behind you, pushes you firmly into a waist-bend. She dons a fresh latex glove, then eases her little finger into your hole. The gentle penetration of her digit massaging your passage feels stunningly good, dissolving what little resistance you had left.
+				
+				Suddenly, she withdraws the finger. In its place, before you can even react, she shoves a huge dildo butt-plug deep inside you with a single thrust. You instinctively clench up and brace yourself for pain. Instead, after your latest treatment, there is only an incredible pressure and... you moan like a girl as a gout of precum spurts out of you. You didn't orgasm, but it was nearly as intense.
+				
+				@@.nurse;"Keep it,@@ she says, cheerfully. @@.nurse;"It's a gift!"@@
+				
+				@@.reward;You now have a butt-plug dildo!;@@
+				
+				<<set _item=itemsC.buttPlugDildo>>\
+				<!-- <<addToInv _item.id>>\ -->
+				<<addItemVariantToInventory 'buttplug_dildo'>>\
+				<!-- <<wearClothing _item.id>>\ -->
+				<<wearItemVariant 'buttplug_dildo'>>\
 			<<endif>>\
 		<<endif>>\
 	<<else>>\

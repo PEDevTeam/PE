@@ -25,7 +25,8 @@
 	<<if (not _c)>>\
 		Remembering $teacher’s warning, you return home, put on your chastity device and lock it.
 
-		<<wearClothing 'chastityDevice'>>\
+		<!-- <<wearClothing 'chastityDevice'>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
 		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<elseif not $flags.chastityLocked>>\

@@ -2,11 +2,13 @@
 \
 <<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))>>\
 	<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
-		<<wearClothing 'chastityDevice'>>\
+		<!-- <<wearClothing 'chastityDevice'>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 		You put on chastity device.
 	<<endif>>\
 	<<if (not playerCode.isWearing(itemsC.silkyTeddy))>>\
-		<<wearClothing 'silkyTeddy'>>\
+		<!-- <<wearClothing 'silkyTeddy'>>\ -->
+		<<wearItemVariant _item>>\
 		You put on your frilly nightie.
 	<<endif>>\
 	

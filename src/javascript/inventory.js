@@ -8,6 +8,42 @@ Macro.add('StartingInventory', {
     }
 });
 
+macros.getInventoryList = {
+    handler: function(place, macroName, params, parser){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        var outputDiv = document.createElement('div');
+
+        for(var sidebarInventoryIdx in window.inventory.sidebarInventory){
+            var br = document.createElement('br');
+            sidebarItem = window.inventory.sidebarInventory[sidebarInventoryIdx];
+            switch(sidebarItem.itemType){
+                case "variable":
+                    if(actVar.player[sidebarItem.variableName]){
+                        var text = document.createTextNode(sidebarItem.sidebarDisplayName);
+                        outputDiv.appendChild(br);
+                        outputDiv.appendChild(text);
+                    }
+                    break;
+                case "itemVariant":
+                    if(window.inventoryFuncs.checkItemInInventory(sidebarItem.itemVariant)){
+                        var text = document.createTextNode(sidebarItem.sidebarDisplayName);
+                        outputDiv.appendChild(br);
+                        outputDiv.appendChild(text);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        place.appendChild(outputDiv);
+    }
+}
+
 //JS Functions
 window.inventoryFuncs= {
     hasTag: function(item, tag){
@@ -247,5 +283,73 @@ window.inventory = {
         "lucky_jocks_00",
         "black_shoes_00",
         "sneakers_00",
-    ]
+    ],
+    sidebarInventory: {
+        sidebar0: {
+            itemType: "variable",
+            variableName: "hasRemoteButtplug",
+            itemVariant: "",
+            sidebarDisplayName: "Remote controlled butt-plug"
+        },
+        sidebar1: {
+            itemType: "variable",
+            variableName: "hasAlarmClock",
+            itemVariant: "",
+            sidebarDisplayName: "Alarm clock"
+        },
+        sidebar2: {
+            itemType: "variable",
+            variableName: "hasBatteries",
+            itemVariant: "",
+            sidebarDisplayName: "Batteries (Generic Brand)"
+        },
+        sidebar3: {
+            itemType: "variable",
+            variableName: "hasQualityBatteries",
+            itemVariant: "",
+            sidebarDisplayName: "Batteries (Name Brand)"
+        },
+        sidebar4: {
+            itemType: "variable",
+            variableName: "hasSpyCamera",
+            itemVariant: "",
+            sidebarDisplayName: "Wifi spy camera"
+        },
+        sidebar5: {
+            itemType: "variable",
+            variableName: "hasCamera",
+            itemVariant: "",
+            sidebarDisplayName: "Camera"
+        },
+        sidebar6: {
+            itemType: "variable",
+            variableName: "hasStunGun",
+            itemVariant: "",
+            sidebarDisplayName: "Stun gun"
+        },
+        sidebar7: {
+            itemType: "variable",
+            variableName: "hasVibrator",
+            itemVariant: "",
+            sidebarDisplayName: "Vibrator"
+        },        
+        sidebar8: {
+            itemType: "variable",
+            variableName: "hasMassageOil",
+            itemVariant: "",
+            sidebarDisplayName: "Sensuous massage oil"
+        },
+        sidebar9: {
+            itemType: "variable",
+            variableName: "hasPlaygirl",
+            itemVariant: "",
+            sidebarDisplayName: "Playgirl magazine"
+        },
+        sidebar10: {
+            itemType: "variable",
+            variableName: "hasNailPolish",
+            itemVariant: "",
+            sidebarDisplayName: "Nail polish"
+        },
+    }
 }

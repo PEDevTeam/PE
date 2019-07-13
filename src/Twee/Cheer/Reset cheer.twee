@@ -11,8 +11,10 @@ It can be removed at the bedroom.
 	<<removeFromInv 'socks'>>\
 	<<removeFromInv 'hairbow'>>\
 	<<removeFromInv 'cheerSneakers'>>\
-	<<wearClothing 'flats'>>\
-	<<wearClothing 'schoolFemale'>>\
+	<!-- <<wearClothing 'flats'>>\ -->
+	<<wearRandomItemByMaster 'flats'>>\
+	<!-- <<wearClothing 'schoolFemale'>>\ -->
+	<<wearRandomItemByMaster 'schoolDress'>>\
 <<elseif $cheerleaders.progress > 2>>\
 	<<set playerCode.removeClothesJS('cheerBow')>>\
 	<<set playerCode.removeClothesJS('socks')>>\
@@ -23,8 +25,10 @@ It can be removed at the bedroom.
 	<<removeFromInv 'socks'>>\
 	<<removeFromInv 'hairbow'>>\
 	<<removeFromInv 'cheerSneakers'>>\
-	<<wearClothing 'flats'>>\
-	<<wearClothing 'schoolFemale' 0>>\
+	<!-- <<wearClothing 'flats'>>\ -->
+	<<wearRandomItemByMaster 'flats'>>\
+	<!-- <<wearClothing 'schoolFemale' 0>>\ -->
+	<<wearRandomItemByMaster 'schoolDress'>>\
 <<endif>>
 <<set $cheerleaders.active = false>>\
 <<set $cheerleaders.progress = -1>>\

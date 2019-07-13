@@ -130,6 +130,19 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
+        sluttyCheerUniform:{
+            itemType:"outerwear",
+            clothingSlot:"outerwear",
+            name: "Slutty Cheerleader Uniform",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                cheer:true,
+            }
+        },
     },
     itemChildren:{
         //Tshirt Jeans
@@ -1770,6 +1783,45 @@ $.extend(true, window.items, {
                 sexy:true,
                 tartan:true,
                 red:true,
+            }
+        },
+                
+        //sluttyCheerUniform
+        sluttySchoolFemale0:{
+            masterItem:"sluttyCheerUniform",
+            variant:"slutty_cheer_00",
+            name:"Slutty Red Cheerleader Uniform with Short Skirt",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                cheer:true,
+                slutty:true,
+                sexy:true,
+                red:true,
+            }
+        },
+        sluttySchoolFemale0:{
+            masterItem:"sluttyCheerUniform",
+            variant:"slutty_cheer_01",
+            name:"Slutty Red and White Cheerleader Uniform with Micro Skirt",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                cheer:true,
+                slutty:true,
+                sexy:true,
+                red:true,
+                white:true,
             }
         },
     }

@@ -14,10 +14,102 @@ Macro.add('wardrobe', {
     }
 });
 Macro.add('ClothingSlotSidebar',{
-    handler: function(place, macroName, params, parser){
+    handler: function(){
         window.wardrobeFuncs.updateSidebar();
     }
 });
+macros.wearItemVariant = {
+    handler: function(place, macroName, params, parser){
+        if(params[0]){
+            window.wardrobeFuncs.wearItemVariant(params[0]);
+            window.wardrobeFuncs.updateSidebar();
+        }
+        else{
+            throwError(place, "<<" + macroName + ">>: needs 1 parameter");
+			return;
+        }
+    }
+}
+macros.wearRandomItemByMaster = {
+    handler: function(place, macroName, params, parser){
+        if(params[0]){
+            var itemVariants = window.inventoryFuncs.getChildItemsForMaster(params[0]);
+            if(itemVariants){
+                var itemVariant = itemVariants[Math.floor(Math.random()*itemVariants.length)];
+                window.wardrobeFuncs.wearItemVariant(itemVariant);
+                window.wardrobeFuncs.updateSidebar();
+            }
+            else{
+                throwError(place, "<<" + macroName + ">>: no item variants owned for this master item");
+                return;
+            }
+        }
+        else{
+            throwError(place, "<<" + macroName + ">>: needs 1 parameter");
+			return;
+        }
+    }
+}
+Macro.add('stashWornClothing', {
+    handler: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSlotIdx in actVar.player.clothingSlots){
+            var clothingSlot = actVar.player.clothingSlots[clothingSlotIdx];
+            if(clothingSlot){
+                actVar.player.stashedClothing[clothingSlotIdx] = clothingSlot;
+                window.wardrobeFuncs.removeItemVariant(clothingSlot.variant);
+            }
+        }
+        window.wardrobeFuncs.updateSidebar();
+    }
+}),
+Macro.add('wearStashedClothing', {
+    handler: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var stashedClothingIdx in actVar.player.stashedClothing){
+            var stashedClothing = actVar.player.stashedClothing[stashedClothingIdx];
+            if(stashedClothing){
+                window.wardrobeFuncs.wearItemVariant(stashedClothing.variant);
+                actVar.player.stashedClothing[stashedClothingIdx] = null;
+            }
+        }
+        window.wardrobeFuncs.updateSidebar();
+    }
+})
+macros.wearItemFromStash = {
+    handler: function(place, macroName, params, parser){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(params[0]){
+            var stashedClothing = actVar.player.stashedClothing[params[0]];
+            if(stashedClothing){
+                window.wardrobeFuncs.wearItemVariant(stashedClothing.variant);
+                actVar.player.stashedClothing[params[0]] = null;
+            }
+        }
+        else{
+            throwError(place, "<<" + macroName + ">>: needs 1 parameter");
+			return;
+        }
+    }
+}
 
 window.wardrobeFuncs = {
     wearItemVariant: function(itemVariant){

@@ -67,7 +67,7 @@ macros.addToInv_d = {
 		state.active.variables.inventory.push(w.id);
 		state.active.variables.inventory=state.active.variables.inventory.sort();
     }
-	macros.getInventoryList.handler(document.getElementById('inventory'));
+	macros.getInventoryList_d.handler(document.getElementById('inventory'));
   }
 };
 
@@ -141,7 +141,7 @@ macros.invWithLinks = {
   }
 };
 
-macros.getInventoryList = {
+macros.getInventoryList_d = {
   handler: function(place, macroName, params, parser) {
 //		new Wikifier(place, 'Aside from your clothing, ');
 		var inv=state.active.variables.inventory;
@@ -207,7 +207,7 @@ macros ['glitchText'] = {
 		}
 }
 
-macros.wearClothing = {
+macros.wearClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		if (!w) {

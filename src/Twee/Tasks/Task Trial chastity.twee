@@ -20,7 +20,8 @@
 		<<set _item=$items.chastityDevice>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'chastity_cb6000'>>\
-		<<wearClothing _item.id>>\
+		<!-- <<wearClothing _item.id>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
@@ -28,7 +29,8 @@
 		<<set _item=$items.buttPlugHeart>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'buttplug_heart'>>\
-		<<wearClothing _item.id>>\
+		<!-- <<wearClothing _item.id>>\ -->
+		<<wearItemVariant 'buttplug_heart'>>\
 	<<elseif $tasksTeacher.trialChastity.cooldown eq 2>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 3>>\
 	<<else>>\
@@ -213,11 +215,13 @@
 	
 	<<if playerCode.owns(itemsC.chastityDevice)>>\
 		<<set _item=itemsC.chastityDevice>>\
-		<<wearClothing _item.id>>\
+		<!-- <<wearClothing _item.id>>\ -->
+		<<wearRandomItemByMaster 'chastity'>>\
 	<<endif>>\
 	<<if playerCode.owns(itemsC.buttPlugHeart)>>\
 		<<set _item=itemsC.buttPlugHeart>>\
-		<<wearClothing _item.id>>\
+		<!-- <<wearClothing _item.id>>\ -->
+		<<wearItemVariant 'buttplug_heart'>>\
 	<<endif>>\
 	[[Get out of there|Go to the mall]]
 	

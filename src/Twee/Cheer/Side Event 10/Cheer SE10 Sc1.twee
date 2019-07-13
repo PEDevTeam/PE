@@ -65,7 +65,7 @@ Veronica sighs. @@.cheerLackey2;“Great. You can change in the costume room. It
 
 <<endif>>\
 You nod and head through the door she motioned towards. You search for a lock, disappointed to find that the door needs a key on both sides. Having to trust Ashley to give you privacy makes you even more nervous, but after a few seconds without interruption, you reluctantly start pulling off your <<if _b && $cheerleaders.slutUniform == 0>>clothes and remove your butt-plug<<else>>clothes<<endif>>.
-<<if _b && $cheerleaders.slutUniform == 0>>\
+<!-- <<if _b && $cheerleaders.slutUniform == 0>>\
 	<<set $removedPlug = _b.id>>\
 	<<set playerCode.removeClothesJS($removedPlug)>>\
 <<endif>>\
@@ -117,11 +117,18 @@ You nod and head through the door she motioned towards. You search for a lock, d
 <<if $removedCollar>>\
 	<<set playerCode.removeClothesJS($removedCollar.id)>>\
 <<endif>>\
-<<wearClothing "sluttyCheer" $cheerleaders.flags.slutUniform>>\
-<<wearClothing "cheerSneakers">>\
-<<wearClothing "socks" 43>>\
-<<wearClothing "hairbow" 43>>\
-
+-->
+\
+<<stashWornClothing>>\
+<<wearItemFromStash "chastity">>\
+<!-- <<wearClothing "sluttyCheer" $cheerleaders.flags.slutUniform>>\ -->
+<<wearRandomItemByMaster 'sluttyCheerUniform'>>\
+<!-- <<wearClothing "cheerSneakers">>\ -->
+<<wearRandomItemByMaster 'cheerSneakers'>>\
+<!-- <<wearClothing "socks" 43>>\ -->
+<<wearItemVariant 'socks_43'>>\
+<!-- <<wearClothing "hairbow" 43>>\ -->
+<<wearItemVariant 'hairbow_43'>>\
 <<if $cheerleaders.flags.slutUniform == 0>>\
 	[[Put on your uniform|Cheer SE10 Sc2a]]
 <<else>>\

@@ -834,10 +834,12 @@
 	
 	Not ready to face any more crazy today, you\
 	<<if playerCode.owns(itemsC.silkyTeddy) and $flags.nightieSleep>>\
-		<<wearClothing 'silkyTeddy'>>\
+		<!-- <<wearClothing 'silkyTeddy'>>\ -->
+		<<wearRandomItemByMaster 'nightie'>>\
 		change into your nightie\
 	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
-		<<wearClothing 'pyjamasMale'>>\
+		<!-- <<wearClothing 'pyjamasMale'>>\ -->
+		<<wearRandomItemByMaster 'pyjamas'>>\
 		change into your pajamas\
 	<<else>>\
 		<<set playerCode.getNaked()>>\

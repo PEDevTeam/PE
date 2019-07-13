@@ -18,7 +18,8 @@
 			<<set _item=itemsC.chastityDevice>>\
 			<!-- <<addToInv _item.id>>\ -->
 			<<addItemVariantToInventory 'chastity_cb6000'>>\
-			<<wearClothing _item.id>>\
+			<!-- <<wearClothing _item.id>>\ -->
+			<<wearRandomItemByMaster 'chastity'>>\
 			<<set $player.bribeDiscount -= _item.cost>>\
 		<<endif>>\
 		@@.teacher;"Here is a chastity device. Put it on. Now."@@
@@ -1184,7 +1185,8 @@
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory _item>>\
 		<<set $player.bribeDiscount -= _item.cost>>\
-		<<wearClothing _item.id>>\
+		<!-- <<wearClothing _item.id>>\ -->
+		<<wearItemVariant _item>>\
 
 	<<elseif ($scene eq "AssEnhancing")>>\
 		<<set _item=itemsC.AssEnhancing>>\
