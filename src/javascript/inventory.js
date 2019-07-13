@@ -54,6 +54,10 @@ window.inventoryFuncs= {
             var actVar = State.active.variables;
         }
 
+        if(typeof item == 'object'){
+            item = item.variant;
+        }
+
         var locItem = actVar.inventory[item];
         if(!(locItem === undefined)){
             if(!(locItem.tags[tag] === undefined)){
@@ -81,6 +85,10 @@ window.inventoryFuncs= {
             var actVar = State.active.variables;
         }
 
+        if(typeof item == 'object'){
+            item = item.variant;
+        }
+        
         var locItem = actVar.inventory[item];
         if(!(locItem === undefined)){
             if(!(locItem.tags[tag] === undefined)){

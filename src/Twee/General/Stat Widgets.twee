@@ -9,15 +9,17 @@
 <</widget>>\
 
 <<widget "CheckUnderwear">>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-	<<if _u and _u.female and (not $dreams.Panties.active)>>\
+	<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+	<<set wornUnderwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+	<<set wornOuterwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+	<<if wornUnderwear and wornUnderwear.female and (not $dreams.Panties.active)>>\
 		<<set $dreams.Panties.active = true>>\
 	<<endif>>\
-	<<if _o and _o.female and (not $therapistTalks.talkCrossdressing.start)>>\
+	<<if wornOuterwear and wornOuterwear.female and (not $therapistTalks.talkCrossdressing.start)>>\
 		/*<<set $therapistTalks.talkCrossdressing.start=true>>  DISABLED UNTIL PROPER TALK SCENE*/\
 	<<endif>>\
-	<<if _u and _u.female and _u.slutty and (not $player.daringFlag.femaleUnderwear)>>\
+	<<if wornUnderwear and wornUnderwear.female and window.inventoryFuncs.hasTag(wornUnderwear, 'slutty') and (not $player.daringFlag.femaleUnderwear)>>\
 		<<set $player.daringFlag.femaleUnderwear to true>>\
 		It's a little bit scary walking outside wearing slutty female underwear, and it feels like everyone who looks at you can tell.
 

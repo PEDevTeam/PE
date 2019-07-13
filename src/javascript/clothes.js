@@ -15,7 +15,7 @@ window.clothes={
 			State.active.variables.items.chastityDevice.image="chastity_cb6000s.jpg";
 		}
 	},
-	checkUnderwear: function() {
+	checkUnderwear_d: function() {
 		var player=State.active.variables.player;
 		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
 		if (player.daring < window.daringValues.daringUnderwearFemale) {
