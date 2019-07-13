@@ -370,7 +370,7 @@ macros.notDressed = {
 	}
 };
 
-macros.showClothingImage = {
+macros.showClothingImage_d = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.clothingSelectorRender) {
 			state.active.variables.clothingSelectorRender=false;
