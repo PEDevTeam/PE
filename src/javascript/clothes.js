@@ -9,7 +9,7 @@ window.daringValues={
 }
 
 window.clothes={
-	setCage: function() {
+	setCage_d: function() {
 		if (State.active.variables.flags.penisShrinkProgress) {
 			State.active.variables.items.chastityDevice.name="CB-6000S chastity device";
 			State.active.variables.items.chastityDevice.image="chastity_cb6000s.jpg";
