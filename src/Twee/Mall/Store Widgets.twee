@@ -91,8 +91,8 @@
 			<<set _in to _in + '($' + _cost + ') '>>\
 		<<endif>>\
 		<<if _image and $showimages and _o.maxAlt and _o.maxAlt gt 0 and _oV.storeAlt.length gt 0>>\
-			<<set _in to _in + '<<click "  ←">><<previousStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
-			<<set _in to _in + '<<click "→  ">><<nextStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\
+			<!-- <<set _in to _in + '<<click "  ←">><<previousStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\ -->
+			<!-- <<set _in to _in + '<<click "→  ">><<nextStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\ -->
 		<<endif>>\
 		<<if _image and $showimages and (_out or (_o.maxAlt and (_o.maxAlt gt 0) and (_oV.storeAlt.length eq 0)))>>\
 			<<set _in to _in + '@@.owned;owned@@'>>\

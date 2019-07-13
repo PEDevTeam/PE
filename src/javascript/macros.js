@@ -559,7 +559,7 @@ macros.previousClothing_d = {
 	}
 };
 
-macros.nextStoreClothing = {
+macros.nextStoreClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -592,7 +592,7 @@ macros.nextStoreClothing = {
 	}
 };
 
-macros.previousStoreClothing = {
+macros.previousStoreClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
