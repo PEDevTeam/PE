@@ -1,5 +1,5 @@
 window.misc={
-	unpostponeClothes: function(type) {
+	unpostponeClothes_d: function(type) {
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
 		for (var i=0; i < Object.keys(items).length; i++) {
