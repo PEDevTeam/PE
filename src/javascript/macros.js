@@ -288,7 +288,7 @@ macros.buyItem_d = {
 	}
 };
 
-macros.payForItem = {
+macros.payForItem_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
