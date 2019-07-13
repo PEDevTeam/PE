@@ -1,7 +1,9 @@
 :: Friend Basic Visit
 \
 <<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>><<updateClothes>>\
+<!-- <<removeClothingType 4>>\ -->
+<<removeClothingItem 'shoes'>>\
+<!--<<updateClothes>>\-->
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
 <<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
 <<selectScene FriendBasicVisit1 RND2RND>>\

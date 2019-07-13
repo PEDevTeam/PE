@@ -1,7 +1,9 @@
 :: Friend Chapter 1-1
 \
 <<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>><<updateClothes>>\
+<!-- <<removeClothingType 4>>\ -->
+<<removeClothingItem 'shoes'>>\
+<!--<<updateClothes>>\-->
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
 <<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
 You can’t wait to get over to $friend’s house again. You know $friendG.his_her parents will be at work and it will be great to hang out <<if $player.daring gte 3>>and get away from all the madness in your life currently<<endif>>. The house is as impressive from the sidewalk as you remember, but at least this time you know what to expect.

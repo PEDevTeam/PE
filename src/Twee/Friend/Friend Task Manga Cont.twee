@@ -3,7 +3,9 @@
 <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>><<updateClothes>>\
+<!-- <<removeClothingType 4>>\ -->
+<<removeClothingItem 'shoes'>>\
+<!--<<updateClothes>>\-->
 \
 <<set _boughtList to []>>\
 <<if playerCode.owns($items.bra)>><<set _boughtList.push("a bra")>><<endif>>\

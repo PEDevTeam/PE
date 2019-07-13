@@ -15,9 +15,13 @@
 		<<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<updateClothes>>\
 		You change into your casual clothes, grab your phone, and run to the backyard.
 	<<else>>\
-		<<removeClothingType 64>>\
-		<<removeClothingType 512>>\
-		<<removeClothingType 1024>>\
+		<!-- <<removeClothingType 64>>\ -->
+		<<removeClothingItem 'hosiery'>>\
+		<!-- <<removeClothingType 512>>\ -->
+		<<removeClothingItem 'eyewear'>>\
+		<<removeClothingItem 'mouthwear'>>\
+		<!-- <<removeClothingType 1024>>\ -->
+		<<removeClothingItem 'headwear'>>\
 		<!-- <<wearClothing 'casualMale' 0>>\ -->
 		<<wearItemVariant 'tshirt_jeans_00'>>
 		<!-- <<wearClothing 'sneakers' 0>>\ -->
