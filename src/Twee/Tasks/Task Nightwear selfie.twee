@@ -1,12 +1,14 @@
 :: Task Nightwear selfie [pos_649_554]
 \
-<<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))>>\
+<!-- <<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))>>\ -->
+<<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not window.wardrobeFuncs.isItemMasterWearing('nightie'))>>\
 	<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 		<!-- <<wearClothing 'chastityDevice'>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 		You put on chastity device.
 	<<endif>>\
-	<<if (not playerCode.isWearing(itemsC.silkyTeddy))>>\
+	<!-- <<if (not playerCode.isWearing(itemsC.silkyTeddy))>>\ -->
+	<<if (not window.wardrobeFuncs.isItemMasterWearing('nightie'))>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearItemVariant _item>>\
 		You put on your frilly nightie.

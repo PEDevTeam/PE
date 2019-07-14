@@ -200,7 +200,8 @@
 	@@.teacher;"$player.name, time for your inspection,"@@ she says.
 	
 	<<if _o.female>>\
-		You <<if playerCode.isWearing(itemsC.rookieUniform)>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\
+		<!-- You <<if playerCode.isWearing(itemsC.rookieUniform)>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\ -->
+		You <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\
 	<<else>>\
 		You pull down your pants to expose your\
 	<<endif>>\
@@ -330,7 +331,8 @@
 			"For your first task, I want you to start wearing a bra to school everyday, <<if $flags.teacherSawPanties>>one that matches those cute lacy panties you wore<<else>>as well as a pair of matching lacy panties<<endif>>."@@
 			
 			You nod, already dreading the trip to the lingerie store.
-			<<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\
+			<!-- <<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\ -->
+			<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\
 				
 				@@.hero;But I got my panties from $friend. Is there even a bra to match?@@
 				\
@@ -576,227 +578,231 @@
 \
 <!--</tasks check>-->\
 \
-	<!--<clothes check>-->\
-<!----><<set $openQuote=false>>\
-<!---->@@.teacher;<<openQuote>>Ok, let us see what we have here, shall we?"@@ She looks you over thoroughly.\
-<!----><<if $player.perversion.teacherCooldown gt 0>>\
-<!--	--><<if _u and (not _u.female) and ($player.perversion.teacher gte 3)>>\
-<!--		--><<set teacherCode.addPenalty(1)>>\
-<!--		-->@@.teacher;<<openQuote>>Boxers? I am disappointed, $player.name. This will count as misbehavior.@@\
-<!--	--><<endif>>\
-<!--	--><<if (not _b) and ($player.perversion.teacher gt 4)>>\
-<!--		-->@@.teacher;<<openQuote>>No butt-plug? That's a shame. I thought you liked the feeling of something up your butt.@@\
-<!--	--><<endif>>\
-<!--	--><<if (not _o.female) and ($player.perversion.teacher gte 4)>>\
-<!--		--><<if ($player.perversion.teacher eq 4)>>\
-<!--			-->@@.teacher;<<openQuote>>Tsk, tsk. You are wearing the wrong uniform today, $player.name. I hope to see you in the proper school dress next time.@@\
-<!--		--><<elseif ($player.perversion.teacher gte 5)>>\
-<!--			-->@@.teacher;<<openQuote>>Tsk, tsk. You are wearing the wrong uniform today, $player.name. I expect you to wear the proper school dress next time, or there will be consequences.@@\
-<!--			--><<set teacherCode.addPenalty(1)>>\
-<!--		--><<endif>>\
-<!--	--><<endif>>\
-<!--	--><<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
-<!--		-->@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
-<!--		--><<set teacherCode.addPenalty(1)>>\
-<!--	--><<endif>>\
-<!--    --><<if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)>>\
-<!--        -->@@.teacher;<<openQuote>>Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won't need heels to attract the proper kind of attention.@@\
-<!--    --><<endif>>\
-<!--	--><<if (not _f.female) and _o.female>>\
-<!--		--><<if $player.perversion.teacher gte 5>>\
-<!--		-->@@.teacher;<<openQuote>>These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time."@@
-<!--		-->	
-<!--		-->She makes a mark about your disobedience.\
-<!--		--><<set teacherCode.addPenalty(1)>>\
-<!--		--><<elseif $flags.shoesCheck>>\
-<!--		-->@@.teacher;<<openQuote>>I told you to wear appropriate shoes! Why must you never listen?"@@
-<!--		-->	
-<!--		-->She makes a mark, noting your disobedience.\
-<!--		--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>These are not appropriate shoes for this dress.@@\
-<!--		--><<set $flags.shoesCheck = true>>\
-<!--		--><<endif>>\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if _u.female and ($player.perversion.teacher eq 4)>>\
-<!--	--><<if $flags.laundryAccident and _u.female and _u.disabled>>\
-<!--		--><<if $flags.laundryAccident2>>\
-<!--		-->@@.teacher;<<openQuote>>You are wearing wet underwear //again?//"@@ She makes a mark about your misbehavior.\
-<!--		--><<set teacherCode.addPenalty(1)>>\
-<!--		--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>Why is your underwear wet? Actually, I am quite sure I //do not// want to know. If this happens again, I will consider it intentional misbehavior.@@\
-<!--		--><<set $flags.laundryAccident2 = true>>\
-<!--		--><<endif>>\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
-<!--	--><<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\
-<!--		--><<if (_underwearAlt == _braAlt)>>\
-<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
-<!--			--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
-<!--		--><<else>>\
-<!--			-->@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
-<!--		--><<endif>>\
-<!--	--><<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\
-<!--		-->@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
-<!--	--><<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\
-<!--		-->@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
-<!--	--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if _u.female and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleUnderwear>> for wearing female underwear.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
-<!--	--><<set $player.daysInPanties++>>\
-<!--	--><<if (not playerCode.isWearing(itemsC.gString)) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\
-<!--		-->@@.teacher;"@@<br><br>@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if _c and (not $flags.chastityKey) and ($player.perversion.teacher eq 2 and $player.perversion.teacherCooldown gt 0)>>\
-<!--	--><<if not $flags.schoolChastity>>\
-<!--		-->@@.teacher;<<openQuote>>A chastity device, as ordered. Get used to wearing it every day. I will deduct $<<print rewardMoney.teacherChastity>> for it.@@\
-<!--		--><<set $flags.schoolChastity to true>>\
-<!--	--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherChastity>> for being confined to a chastity device.@@\
-<!--		--><<if $flags.eagerStart and (not $flags.keyLended) and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-<!--			--><<set $flags.keyLended to true>>\
-<!--			-->@@.teacher;"@@
-<!--			-->
-<!--			-->Suddenly, you twitch and stumble awkwardly. You barely manage to not to fall down, but the sudden jerk causes your chastity cage key to fall out of your pocket and skid across the floor.
-<!--			-->
-<!--			-->You try to pick it up, but $teacher steps on it with the tip of her high heeled boot before you can.
-<!--			-->
-<!--			-->@@.teacher;<<openQuote>>How careless of you. I think this key should stay with me for safekeeping. You can ask for it tomorrow."@@
-<!--			-->
-<!--			-->You gulp as she tucks the key away, cursing your luck, but there is nothing you can do now. You'll just have to wait for tomorrow.
-<!--		--><<endif>>\
-<!--	--><<endif>>\
-<!--	--><<set _deduction+=rewardMoney.teacherChastity>>\
-<!----><<endif>>\
-<!----><<if _c and $flags.chastityKey>>\
-<!--	-->@@.teacher;<<openQuote>>@@\
-<!--	--><<if $player.perversion.teacher lte 3>>\
-<!--	-->@@.teacher;I hope you learn your lesson."@@\
-<!--	--><<elseif $player.perversion.teacher eq 4>>\
-<!--	-->@@.teacher;I bet it makes your dreams interesting."@@\
-<!--	--><<elseif $player.perversion.teacher eq 5>>\
-<!--	-->@@.teacher;Still looking forward to the weekend, aren't you?"@@\
-<!--	--><<elseif $player.perversion.teacher eq 6>>\
-<!--	-->@@.teacher;Locked like a proper sissy should be."@@\
-<!--	--><<elseif $player.perversion.teacher eq 7>>\
-<!--	-->@@.teacher;You probably enjoy this."@@\
-<!--	--><<elseif $player.perversion.teacher gte 8>>\
-<!--	-->@@.teacher;You love it, being locked and helpless, don't you?"@@\
-<!--	--><<endif>>\
-<!--	--> She taps your chastity cage with her fingernail.\
-<!----><<endif>>\
-<!----><<if _b and ($player.perversion.teacher gte 2) and ($player.perversion.teacher lte 4)>>\
-<!--	--><<if _c>>\
-<!--		--><<if not $flags.schoolButtplug>>\
-<!--		-->@@.teacher;<<openQuote>>A butt-plug! Very nice, $player.name. $<<print rewardMoney.teacherButtplug>> deduction for that.@@\
-<!--		--><<set $flags.schoolButtplug to true>>\
-<!--		--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherButtplug>> for wearing a butt-plug.@@\
-<!--		--><<endif>>\
-<!--		--><<set _deduction+=rewardMoney.teacherButtplug>>\
-<!--	--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>A butt-plug does not count without a chastity cage. I simply will not tolerate your playing with yourself whenever you feel like it! No discount.@@\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if _o.female and ($player.perversion.teacher gte 4) and (($player.perversion.teacher eq 4) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher lte 5)))>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleClothing>> for wearing a female school uniform.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherFemaleClothing>>\
-<!----><<endif>>\
-<!----><<if $cheerleaders.active == true && (window.timeCode.isWednesday() || window.timeCode.isFriday())>>\
-<!--	--><<if not $cheerleaders.flags.skippedPractice>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.cheerPractice>> for <<if $cheerleaders.progress gt 3>>participating in cheer activities<<else>>helping the cheer squad<<endif>>.@@\
-<!--		--><<set _deduction+=rewardMoney.cheerPractice>>\
-<!--	--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>Rachel was not pleased that you neglected your duties with the cheer squad yesterday.  No deduction.@@\
-<!--	--><<endif>>\
-<!----><<else>>\
-<!--	--><<if $flags.coachPosing>>\
-<!--		--><<if $flags.coachPosingHappy>>\
-<!--			--><<if $kink.futa>>\
-<!--				-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for Coach. She tells me you are one exceptional-looking sissy.@@\
-<!--			--><<else>>\
-<!--				-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for that dirty old coach. He tells me you are one exceptional-looking sissy.@@\
-<!--			--><<endif>>\
-<!--			--><<set _deduction+=rewardMoney.teacherCoachPosing>>\
-<!--		--><<else>>\
-<!--			--><<if $flags.coachPosingAngry>>\
-<!--				--><<set teacherCode.addPenalty(2)>>\
-<!--				-->@@.teacher;<<openQuote>>Coach said you were very rude and uncooperative - no discount. If you continue like that, I may reconsider releasing you from chastity. Try harder next time.@@\
-<!--			--><<else>>\
-<!--				-->@@.teacher;<<openQuote>>Coach said that your performance was lacking today - no discount. If you refuse to cooperate, I may reconsider releasing you<<if not window.timeCode.isFriday()>>on Friday<<endif>>. Try harder next time.@@\
-<!--			--><<endif>>\
-<!--		--><<endif>>\
-<!--		--><<set $flags.coachPosing to false>>\
-<!--		--><<set $flags.coachPosingHappy to false>>\
-<!--		--><<set $flags.coachPosingAngry to false>>\
-<!--	--><<elseif ($player.perversion.teacher eq 5) and ($player.perversion.teacherCooldown neq 0)>>\
-<!--		-->@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
-<!--	--><<endif>>\
-<!--	--><<if $minigames.coachgame.playedYesterday>>\
-<!--		--><<if !($player.perversion.teacher == 10)>>\
-<!--			--><<set $minigames.coachgame.playedYesterday to false>>\
-<!--			-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
-<!--			--><<set _deduction+=rewardMoney.teacherCoachSucking>>\
-<!--		--><<endif>>\
-<!--	--><<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
-<!--		-->@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if $flags.assistantSatisfied or ($player.perversion.assistant eq 5)>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherAssistant>> for helping out Miss Willow.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherAssistant>>\
-<!----><<endif>>\
-<!----><<if $flags.bullyRecorded>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBullySex>> for giving those $futa.boys_girls a nice, sexy release. Judging from that video, it would seem you had fun, too.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherBullySex>>\
-<!----><<elseif $flags.bullySucked>>\
-<!--	-->@@.teacher;<<openQuote>>I have not spoken to Miss Willow yet to see if those $futa.boys_girls have been taken care of, so I cannot very well give you a discount, can I?"@@\
-<!--	-->
-<!--	-->@@.hero;Oh fuck, does that mean all my troubles were for nothing? I should have filmed it on my phone! Next time, I'll make sure I get proof.@@\
-<!----><<endif>>\
-<!----><<if $flags.pissRecorded>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherPiss>> for being a urinal at the mall.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherPiss>>\
-<!----><<elseif $flags.pissDrunk>>\
-<!--	-->@@.teacher;"<<openQuote>>I cannot deduct anything for your task at the mall urinal without proof. Do you have any? No?"@@ \
-<!--	-->
-<!--	-->All that for nothing.
-<!----><<endif>>\
-<!----><<if $flags.whoreRecorded>>\
-<!--	-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherWhore>> for your street-walking efforts.@@\
-<!--	--><<set _deduction+=rewardMoney.teacherWhore>>\
-<!----><<elseif $flags.whoreFucked>>\
-<!--	-->@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
-<!----><<endif>>\
-<!----><<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
-<!--	--><<set $flags.slutWork = false>>\
-<!--	--><<if _o.slutty>>\
-<!--		-->@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
-<!--		--><<set _deduction+=rewardMoney.teacherSchoolslut>>\
-<!--	--><<else>>\
-<!--		-->@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
-<!--	--><<endif>>\
-<!----><<endif>>\
-<!----><<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
-<!--	-->@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
-<!--	--><<set teacherCode.addPenalty(1)>>\
-<!----><<endif>>\
-<!----><<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
-<!----><<set $flags.eagerStart = false>>\
-<!----><<endif>>\
+<!--<clothes check>-->\
+<<set $openQuote=false>>\
+@@.teacher;<<openQuote>>Ok, let us see what we have here, shall we?"@@ She looks you over thoroughly.\
+<<if $player.perversion.teacherCooldown gt 0>>\
+	<<if _u and (not _u.female) and ($player.perversion.teacher gte 3)>>\
+		<<set teacherCode.addPenalty(1)>>\
+		@@.teacher;<<openQuote>>Boxers? I am disappointed, $player.name. This will count as misbehavior.@@\
+	<<endif>>\
+	<<if (not _b) and ($player.perversion.teacher gt 4)>>\
+		@@.teacher;<<openQuote>>No butt-plug? That's a shame. I thought you liked the feeling of something up your butt.@@\
+	<<endif>>\
+	<<if (not _o.female) and ($player.perversion.teacher gte 4)>>\
+		<<if ($player.perversion.teacher eq 4)>>\
+			@@.teacher;<<openQuote>>Tsk, tsk. You are wearing the wrong uniform today, $player.name. I hope to see you in the proper school dress next time.@@\
+		<<elseif ($player.perversion.teacher gte 5)>>\
+			@@.teacher;<<openQuote>>Tsk, tsk. You are wearing the wrong uniform today, $player.name. I expect you to wear the proper school dress next time, or there will be consequences.@@\
+			<<set teacherCode.addPenalty(1)>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
+		@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
+		<<set teacherCode.addPenalty(1)>>\
+	<<endif>>\
+	<<if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)>>\
+		@@.teacher;<<openQuote>>Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won't need heels to attract the proper kind of attention.@@\
+	<<endif>>\
+	<<if (not _f.female) and _o.female>>\
+		<<if $player.perversion.teacher gte 5>>\
+			@@.teacher;<<openQuote>>These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time."@@
+	
+			She makes a mark about your disobedience.\
+			<<set teacherCode.addPenalty(1)>>\
+		<<elseif $flags.shoesCheck>>\
+			@@.teacher;<<openQuote>>I told you to wear appropriate shoes! Why must you never listen?"@@
+	
+			She makes a mark, noting your disobedience.\
+		<<else>>\
+			@@.teacher;<<openQuote>>These are not appropriate shoes for this dress.@@\
+			<<set $flags.shoesCheck = true>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+<<if _u.female and ($player.perversion.teacher eq 4)>>\
+	<<if $flags.laundryAccident and _u.female and _u.disabled>>\
+		<<if $flags.laundryAccident2>>\
+			@@.teacher;<<openQuote>>You are wearing wet underwear //again?//"@@ She makes a mark about your misbehavior.\
+			<<set teacherCode.addPenalty(1)>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>Why is your underwear wet? Actually, I am quite sure I //do not// want to know. If this happens again, I will consider it intentional misbehavior.@@\
+			<<set $flags.laundryAccident2 = true>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+<<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
+	<!-- <<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\ -->
+	<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
+		<<if (_underwearAlt == _braAlt)>>\
+			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
+			<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>Your underwear is appropriately sexy, but it fails to match. No deduction.@@\
+		<<endif>>\
+	<!-- <<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.braSexy)>>\ -->
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
+		@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
+	<!-- <<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\ -->
+	<<elseif _u.female and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
+		@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
+	<<else>>\
+		@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
+	<<endif>>\
+<<endif>>\
+<<if _u.female and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
+	@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleUnderwear>> for wearing female underwear.@@\
+	<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
+	<<set $player.daysInPanties++>>\
+	<!-- <<if (not playerCode.isWearing(itemsC.gString)) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\ -->
+	<<if (not window.wardrobeFuncs.isItemMasterWearing('sexyPanties')) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\
+		@@.teacher;"@@<br><br>@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
+	<<endif>>\
+<<endif>>\
+<<if _c and (not $flags.chastityKey) and ($player.perversion.teacher eq 2 and $player.perversion.teacherCooldown gt 0)>>\
+	<<if not $flags.schoolChastity>>\
+		@@.teacher;<<openQuote>>A chastity device, as ordered. Get used to wearing it every day. I will deduct $<<print rewardMoney.teacherChastity>> for it.@@\
+		<<set $flags.schoolChastity to true>>\
+	<<else>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherChastity>> for being confined to a chastity device.@@\
+		<<if $flags.eagerStart and (not $flags.keyLended) and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
+			<<set $flags.keyLended to true>>\
+			@@.teacher;"@@
+
+			Suddenly, you twitch and stumble awkwardly. You barely manage to not to fall down, but the sudden jerk causes your chastity cage key to fall out of your pocket and skid across the floor.
+
+			You try to pick it up, but $teacher steps on it with the tip of her high heeled boot before you can.
+
+			@@.teacher;<<openQuote>>How careless of you. I think this key should stay with me for safekeeping. You can ask for it tomorrow."@@
+
+			You gulp as she tucks the key away, cursing your luck, but there is nothing you can do now. You'll just have to wait for tomorrow.
+			<<endif>>\
+	<<endif>>\
+	<<set _deduction+=rewardMoney.teacherChastity>>\
+<<endif>>\
+<<if _c and $flags.chastityKey>>\
+	@@.teacher;<<openQuote>>@@\
+	<<if $player.perversion.teacher lte 3>>\
+		@@.teacher;I hope you learn your lesson."@@\
+	<<elseif $player.perversion.teacher eq 4>>\
+		@@.teacher;I bet it makes your dreams interesting."@@\
+	<<elseif $player.perversion.teacher eq 5>>\
+		@@.teacher;Still looking forward to the weekend, aren't you?"@@\
+	<<elseif $player.perversion.teacher eq 6>>\
+		@@.teacher;Locked like a proper sissy should be."@@\
+	<<elseif $player.perversion.teacher eq 7>>\
+		@@.teacher;You probably enjoy this."@@\
+	<<elseif $player.perversion.teacher gte 8>>\
+		@@.teacher;You love it, being locked and helpless, don't you?"@@\
+	<<endif>>\
+	She taps your chastity cage with her fingernail.\
+<<endif>>\
+<<if _b and ($player.perversion.teacher gte 2) and ($player.perversion.teacher lte 4)>>\
+	<<if _c>>\
+		<<if not $flags.schoolButtplug>>\
+			@@.teacher;<<openQuote>>A butt-plug! Very nice, $player.name. $<<print rewardMoney.teacherButtplug>> deduction for that.@@\
+			<<set $flags.schoolButtplug to true>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherButtplug>> for wearing a butt-plug.@@\
+		<<endif>>\
+			<<set _deduction+=rewardMoney.teacherButtplug>>\
+		<<else>>\
+		@@.teacher;<<openQuote>>A butt-plug does not count without a chastity cage. I simply will not tolerate your playing with yourself whenever you feel like it! No discount.@@\
+	<<endif>>\
+<<endif>>\
+<<if _o.female and ($player.perversion.teacher gte 4) and (($player.perversion.teacher eq 4) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher lte 5)))>>\
+	@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleClothing>> for wearing a female school uniform.@@\
+	<<set _deduction+=rewardMoney.teacherFemaleClothing>>\
+<<endif>>\
+<<if $cheerleaders.active == true && (window.timeCode.isWednesday() || window.timeCode.isFriday())>>\
+	<<if not $cheerleaders.flags.skippedPractice>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.cheerPractice>> for <<if $cheerleaders.progress gt 3>>participating in cheer activities<<else>>helping the cheer squad<<endif>>.@@\
+		<<set _deduction+=rewardMoney.cheerPractice>>\
+	<<else>>\
+		@@.teacher;<<openQuote>>Rachel was not pleased that you neglected your duties with the cheer squad yesterday.  No deduction.@@\
+	<<endif>>\
+<<else>>\
+	<<if $flags.coachPosing>>\
+		<<if $flags.coachPosingHappy>>\
+			<<if $kink.futa>>\
+				@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for Coach. She tells me you are one exceptional-looking sissy.@@\
+			<<else>>\
+				@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachPosing>> for posing for that dirty old coach. He tells me you are one exceptional-looking sissy.@@\
+			<<endif>>\
+			<<set _deduction+=rewardMoney.teacherCoachPosing>>\
+		<<else>>\
+			<<if $flags.coachPosingAngry>>\
+				<<set teacherCode.addPenalty(2)>>\
+				@@.teacher;<<openQuote>>Coach said you were very rude and uncooperative - no discount. If you continue like that, I may reconsider releasing you from chastity. Try harder next time.@@\
+			<<else>>\
+				@@.teacher;<<openQuote>>Coach said that your performance was lacking today - no discount. If you refuse to cooperate, I may reconsider releasing you<<if not window.timeCode.isFriday()>>on Friday<<endif>>. Try harder next time.@@\
+			<<endif>>\
+		<<endif>>\
+		<<set $flags.coachPosing to false>>\
+		<<set $flags.coachPosingHappy to false>>\
+		<<set $flags.coachPosingAngry to false>>\
+	<<elseif ($player.perversion.teacher eq 5) and ($player.perversion.teacherCooldown neq 0)>>\
+		@@.teacher;<<openQuote>>Skipping your tasks, $player.name? Not good. Not good at all!@@\
+	<<endif>>\
+	<<if $minigames.coachgame.playedYesterday>>\
+		<<if !($player.perversion.teacher == 10)>>\
+			<<set $minigames.coachgame.playedYesterday to false>>\
+				@@.teacher;<<openQuote>>$<<print rewardMoney.teacherCoachSucking>> for pleasing that dirty <<if $kink.futa>>bitch<<else>>old geezer<<endif>>. From what $futa.he_she tells me, you are an exceptional cocksucker.@@\
+				<<set _deduction+=rewardMoney.teacherCoachSucking>>\
+			<<endif>>\
+		<<elseif ($player.perversion.teacher eq 7) and ($player.perversion.teacherCooldown neq 0)>>\
+			@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
+		<<endif>>\
+	<<endif>>\
+	<<if $flags.assistantSatisfied or ($player.perversion.assistant eq 5)>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherAssistant>> for helping out Miss Willow.@@\
+		<<set _deduction+=rewardMoney.teacherAssistant>>\
+	<<endif>>\
+	<<if $flags.bullyRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBullySex>> for giving those $futa.boys_girls a nice, sexy release. Judging from that video, it would seem you had fun, too.@@\
+		<<set _deduction+=rewardMoney.teacherBullySex>>\
+	<<elseif $flags.bullySucked>>\
+		@@.teacher;<<openQuote>>I have not spoken to Miss Willow yet to see if those $futa.boys_girls have been taken care of, so I cannot very well give you a discount, can I?"@@\
+
+		@@.hero;Oh fuck, does that mean all my troubles were for nothing? I should have filmed it on my phone! Next time, I'll make sure I get proof.@@\
+	<<endif>>\
+	<<if $flags.pissRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherPiss>> for being a urinal at the mall.@@\
+		<<set _deduction+=rewardMoney.teacherPiss>>\
+	<<elseif $flags.pissDrunk>>\
+		@@.teacher;"<<openQuote>>I cannot deduct anything for your task at the mall urinal without proof. Do you have any? No?"@@ \
+
+		All that for nothing.
+	<<endif>>\
+	<<if $flags.whoreRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherWhore>> for your street-walking efforts.@@\
+		<<set _deduction+=rewardMoney.teacherWhore>>\
+	<<elseif $flags.whoreFucked>>\
+		@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
+	<<endif>>\
+	<<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
+		<<set $flags.slutWork = false>>\
+		<<if _o.slutty>>\
+			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
+			<<set _deduction+=rewardMoney.teacherSchoolslut>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
+		<<endif>>\
+	<<endif>>\
+	<<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
+		@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
+		<<set teacherCode.addPenalty(1)>>\
+	<<endif>>\
+	<<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
+		<<set $flags.eagerStart = false>>\
+	<<endif>>\
 <!--</clothes check>-->\
 \
-<!----><<if _deduction gt 0>>\
-<!--	-->@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
-<!----><<elseif $player.perversion.teacher lte 8>>\
-<!--	-->@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
-<!----><<endif>>\
+	<<if _deduction gt 0>>\
+		@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
+	<<elseif $player.perversion.teacher lte 8>>\
+		@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
+	<<endif>>\
 \
 	<!--<tasks giving>-->\
 	<<if (($player.perversion.teacherCooldown neq 0) and ($player.perversion.teacher gte 3)) or $tasksTeacher.trialChastity.canStart>>\

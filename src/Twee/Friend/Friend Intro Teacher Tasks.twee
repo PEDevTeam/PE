@@ -6,7 +6,8 @@
 <<set $wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set $wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\
+<!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
+<<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
 \
 <<if $wornUnderwear>>\
     <<set _underwear to itemF.itemTwee($wornUnderwear.id)>>\

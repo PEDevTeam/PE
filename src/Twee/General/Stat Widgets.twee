@@ -353,7 +353,8 @@
 	
 	
 	<<if $avatar.mode eq 0>>
-		<<if playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop)>>
+		<!-- <<if playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop)>> -->
+		<<if window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 			<<set _chest="clothes_slutty_top_breasts_">>
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
@@ -365,7 +366,8 @@
 			<<endif>>
 			<<set _chest2+=_hs>>
 			<<set _chest2+=".png">>
-		<<elseif playerCode.isWearing(itemsC.schoolMale)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.schoolMale)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
 			<<if _bs lte 2>>
 				<<set _bs = 0>>
 			<<endif>>
@@ -373,7 +375,8 @@
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.schoolFemale)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
 			<<if _bs eq 2>>
 				<<set _bs = 1>>
 			<<endif>>
@@ -387,7 +390,8 @@
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
 			<<if _bs lt 2>>
 				<<set _bs = 2>>
 			<<endif>>
@@ -399,7 +403,8 @@
 			<<set _chest2+=_hs>>
 			<<set _chest2+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.silkyTeddy)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 			<<if _bs eq 2>>
 				<<set _bs = 1>>
 			<<endif>>
@@ -407,31 +412,36 @@
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.pyjamasMale)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 			<<set _chest="clothes_pyjamas_breasts_">>
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.maidOutfit)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 			<<set _chest="clothes_maid_breasts_">>
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
 			<<set _feets="feets_maid_heels.png">>
-		<<elseif playerCode.isWearing(itemsC.summerDress)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.summerDress)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
 			<<if (_bs lte 3) and (_bs gte 1)>>
 				<<set _bs = 1>>
 			<<endif>>
 			<<set _chest="clothes_casual_dress_breasts_">>
 			<<set _chest+=_bs>>
 			<<set _chest+=".png">>
-		<<elseif playerCode.isWearing(itemsC.casualMale)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.casualMale)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
 			<<set _chest="clothes_casual_br_">>
 			<<set _chest+=_bs>>
 			<<set _chest+="_hips_">>
 			<<set _chest+=_hs>>
 			<<set _chest+=".png">>
 			<<set _arms="none">>
-		<<elseif playerCode.isWearing(itemsC.rookieUniform)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.rookieUniform)>> -->
+		<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') || window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 			<<set _chest="clothes_cheer_rookie_br_">>
 			<<set _chest+=_bs>>
 			<<set _chest+="_hips_">>
@@ -440,7 +450,8 @@
 			<<set _groin="underwear_boxers_hips_">>
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
-		<<elseif playerCode.isWearing(itemsC.cheerDress)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.cheerDress)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 			<<set _chest="clothes_cheer_uniform_br_">>
 			<<set _chest+=_bs>>
 			<<set _chest+="_hips_">>
@@ -453,23 +464,28 @@
 	<<endif>>
 	
 	<<if $avatar.mode lte 1>>
-		<<if playerCode.isWearing(itemsC.jocksLucky)>>
+		<!-- <<if playerCode.isWearing(itemsC.jocksLucky)>> -->
+		<<if window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
 			<<set _groin="underwear_boxers_hips_">>
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
-		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.pantiesCotton)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
 			<<set _groin="underwear_cotton_hips_">>
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
-		<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.pantiesLatex)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
 			<<set _groin="underwear_satin_hips_">>
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
-		<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.cheerBriefs)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
 			<<set _groin="underwear_boxers_hips_">>
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
-		<<elseif playerCode.isWearing(itemsC.gString)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.gString)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
 			<<if playerCode.isWearingOn(itemTypes.Chastity)>>
 				<<set _groin="underwear_gstring_chastity_hips_">>
 			<<elseif playerCode.isHorny()>>
@@ -545,11 +561,14 @@
 	<<endif>>
 	
 	<<if $body.earsPierced>>
-		<<if playerCode.isWearing(itemsC.diamondStuds)>>
+		<!-- <<if playerCode.isWearing(itemsC.diamondStuds)>> -->
+		<<if window.wardrobeFuncs.isItemMasterWearing('casualEarrings')>>\
 			<<showAvatarImage "earrings_diamond.png">>
-		<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.rubyEarrings)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
 			<<showAvatarImage "earrings_ruby.png">>
-		<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>
+		<!-- <<elseif playerCode.isWearing(itemsC.hoopsEarrings)>> -->
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('flashyEarrings')>>\
 			<<showAvatarImage "earrings_hoops.png">>
 		<<endif>>
 	<<endif>>

@@ -13,7 +13,8 @@
 <<if window.timeCode.guardian.isAwake() or playerCode.isMaid()>>\
 	<<if playerCode.isMaid()>>\
 	<!--<maid start>*********************-->\
-		<<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\
+		<!-- <<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\ -->
+		<<if playerCode.owns(itemsC.maidOutfit) and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
 			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
@@ -397,7 +398,8 @@
 			<<elseif $player.perversion.guardian lte 6>>\
 				@@.guardian;"You got your ears pierced? They look nice."@@
 			<<elseif $player.perversion.guardian gte 7>>\
-				<<if playerCode.isWearing(itemsC.hoopsEarrings)>>\
+				<!-- <<if playerCode.isWearing(itemsC.hoopsEarrings)>>\ -->
+				<<if window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
 					@@.guardian;"So, you've pierced your ears? I love your hoop earrings - they're just right for a slut like you."@@
 				<<else>>\
 					@@.guardian;"So, you've pierced your ears? I suggest some hoop earrings - they're more appropriate for a slut like you."@@

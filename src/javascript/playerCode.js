@@ -12,7 +12,7 @@ window.playerCode={
 			player.therapistDays.push([1,2,3,4,5]);
 		}
 	},	
-	isWearing: function(item) {
+	isWearing_d: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},
 	isWearingOn: function(type) {
@@ -259,24 +259,25 @@ window.playerCode={
 		var itemTypes=window.itemTypes;
 		var body=State.active.variables.body;
 		var s=this.isWearingOn(itemTypes.Shoes);
-		var st=(this.isWearing(items.stilettoHeels) || this.isWearing(items.maidOutfit));
+		//var st=(this.isWearing(items.stilettoHeels) || this.isWearing(items.maidOutfit));
+		var stilettos=(window.wardrobeFuncs.isItemMasterWearing('stripperHeels') || window.wardrobeFuncs.isItemMasterWearing('maid'));
 		var o=this.isWearingOn(itemTypes.Outerwear);
 		var u=this.isWearingOn(itemTypes.Underwear);
 		var b=this.isWearingOn(itemTypes.AnalPlug);
 		var c=this.isWearingOn(itemTypes.Chastity);
 		var e=this.isWearingOn(itemTypes.Earrings);
 		// Score
-		if ((body.makeup>=4 && body.lips>=2 && body.boobs>=4 && body.ass>=2) || (body.makeup>=4 && body.boobs>=4 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (st))) {
+		if ((body.makeup>=4 && body.lips>=2 && body.boobs>=4 && body.ass>=2) || (body.makeup>=4 && body.boobs>=4 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (stilettos))) {
 			score=9;
 			return score;
 			// total whore
 		}
-		if (((body.makeup>=4 && (e && e.slutty) && (st)) || (body.makeup>=4 && (body.lips>=2 || body.boobs>=4 || body.ass>=2))) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (st))) {
+		if (((body.makeup>=4 && (e && e.slutty) && (stilettos)) || (body.makeup>=4 && (body.lips>=2 || body.boobs>=4 || body.ass>=2))) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (stilettos))) {
 			score=8;
 			return score;
 			// whorish girl
 		}
-		if (body.makeup>=4 || (body.makeup>=3 && (st)) || (body.makeup>=3 && body.boobs>=3 && body.lips>=1 && body.ass>=1) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && (e) && (s && s.slutty))) {
+		if (body.makeup>=4 || (body.makeup>=3 && (stilettos)) || (body.makeup>=3 && body.boobs>=3 && body.lips>=1 && body.ass>=1) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && (e) && (s && s.slutty))) {
 			score=7;
 			return score;
 			//slutty girl
@@ -488,7 +489,8 @@ window.playerCode={
 			}
 		}
 		/* Forcing on Maid stuff */
-		if (playerCode.isWearing(window.itemsC.maidOutfit)) {
+		//if (playerCode.isWearing(window.itemsC.maidOutfit)) {
+		if (window.wardrobeFuncs.isItemMasterWearing('maid')) {
 			if (State.active.variables.flags.gTrialBalletHeels) {
 				this.wearClothesJS('balletHeels');
 			} else {
@@ -502,7 +504,8 @@ window.playerCode={
 			}
 			
 			if (State.active.variables.flags.gTrialLatexMaid) {
-				if (!playerCode.isWearing(window.itemsC.stockingsLatex)) {
+				//if (!playerCode.isWearing(window.itemsC.stockingsLatex)) {
+				if (!window.wardrobeFuncs.isItemMasterWearing('latexStockings')) {
 					State.active.variables.items.stockingsLatex.curAlt=39;
 					this.wearClothesJS('stockingsLatex');
 				}
@@ -511,7 +514,8 @@ window.playerCode={
 				this.wearClothesJS('stockings');
 			}
 
-			if (playerCode.isWearing(window.itemsC.cheerBriefs)) {
+			//if (playerCode.isWearing(window.itemsC.cheerBriefs)) {
+			if (window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')) {
 				this.removeClothesJS('cheerBriefs');
 			}
 		}

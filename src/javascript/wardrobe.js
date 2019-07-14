@@ -238,6 +238,24 @@ window.wardrobeFuncs = {
             return false;
         }
     },
+    isItemMasterWearing: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var masterItem = window.items.itemMasters[itemMaster];
+        var itemVariantClothingSlot = masterItem.clothingSlot;
+        var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
+        if(currentlyWearing != null && currentlyWearing.masterItem == itemMaster){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
     updateSidebar: function(){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

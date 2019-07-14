@@ -473,12 +473,18 @@
 
         Mz. Knight chuckles at your seemingly inspired joke. @@.femvoice7;“Well perhaps a tad, but not really.@@
 
-        @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
+        <!-- @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
         <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are too tight. \
+        @@.femvoice7;“Oh dear. Well, you’ll have to take them off. Don’t balk. You have nothing I have not seen before.”@@ -->
+        @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
+        <<if window.wardrobeFuncs.isItemMasterWearing('thsirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> are too tight. \
         @@.femvoice7;“Oh dear. Well, you’ll have to take them off. Don’t balk. You have nothing I have not seen before.”@@
 
-        You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
+        <!-- You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
         inspections… You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your \
+        <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs. -->
+        You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
+        inspections… You unfasten your fly and slip your <<if window.wardrobeFuncs.isItemMasterWearing('thsirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your \
         <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
         Mz. Knight looks at your bare legs and feet.
@@ -489,7 +495,8 @@
             <<else>>\
                 @@.femvoice7;I see you have some panties of your own. Very pretty.@@
             <<endif>>\
-        <<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
+        <!-- <<elseif playerCode.isWearing(itemsC.jocksLucky)>>\ -->
+        <<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
             @@.femvoice7;Oh, boxer shorts! Well, I am not sure they will go with stockings. Your choice, I suppose.@@
         <<else>>\
             @@.femvoice7;Oh my! You don’t wear… Oh dear.@@
@@ -699,7 +706,10 @@
            Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
            Two women, both extremely attractive and in their mid-twenties.
 
-           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
+           <!-- Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
+           loitering outside this shop, of all places. \
+           You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers. -->
+            Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>in a school uniform<<endif>> \
            loitering outside this shop, of all places. \
            You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
 

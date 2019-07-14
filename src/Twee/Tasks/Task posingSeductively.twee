@@ -29,7 +29,8 @@
 	<<if $tasksTeacher.selfieFemaleClothes.progress gt 0>>\
 		This isn't the first time you've photographed yourself in girls clothes, but this time it's different.\
 	<<endif>>\
-	<<if playerCode.isWearing(itemsC.skirtTop)>>\
+	<!-- <<if playerCode.isWearing(itemsC.skirtTop)>>\ -->
+	<<if window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		Checking your skirt and top once again\
 	<<else>>\
 		Checking and straightening your dress once again\

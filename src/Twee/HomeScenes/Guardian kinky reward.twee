@@ -41,7 +41,8 @@
 	
 	@@.guardian;"Now..."@@ Her voice gives out, breaking act of the harsh mistress for a second, but she coughs, licks her lips and continues like nothing happened\
 	<<if playerCode.owns(itemsC.silkyTeddy)>>\
-		<<if playerCode.isWearing(itemsC.silkyTeddy)>>\
+		<!-- <<if playerCode.isWearing(itemsC.silkyTeddy)>>\ -->
+		<<if window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 			@@.guardian;"Now, get on the bed and play with this toy while I watch."@@
 
 			She taps her foot, eyeing you as you fidget in your frilly nightie.
@@ -58,7 +59,8 @@
 	
 	@@.guardian;"Now!"@@ $Guardian slaps you, snapping you out of the trance. It isn't painful, more like a forceful tap, but it still spurs you into motion.
 	
-	<<if not playerCode.isWearing(itemsC.silkyTeddy)>>\
+	<!-- <<if not playerCode.isWearing(itemsC.silkyTeddy)>>\-->
+	<<if not window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		With trembling hands, you quickly put on your silky nightie, and then crawl onto the bed on all fours, picking up the waiting vibrator.
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\

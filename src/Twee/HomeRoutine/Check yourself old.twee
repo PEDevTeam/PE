@@ -1,4 +1,4 @@
-:: Check yourself [pos_1273_215]
+:: Check yourself old [pos_1273_215]
 \
 <span id="check_window">\
 <img id="inv_item" class="hidden">\
@@ -281,11 +281,11 @@
 \
 <<if $body.earsPierced>>\
 	&#9702; You have your ears\
-		<<if window.wardrobeFuncs.isItemMasterWearing('casualEarrings')>>\
+		<<if playerCode.isWearing(itemsC.diamondStuds)>>\
 		pierced and bejeweled with small, diamond earrings.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
+		<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>\
 		adorned with dangling, ruby earrings.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('flashyEarrings')>>\
+		<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>\
 		decorated with big, golden hoops. They look so slutty.
 		<<else>>\
 		pierced, but the tiny holes in your earlobes are currently vacant.
@@ -579,37 +579,37 @@
 <<endif>>\
 <!--</PCface>-->\
 \
-<<if window.wardrobeFuncs.isItemMasterWearing('hairbands')>>\
+<<if playerCode.isWearing(itemsC.hairband)>>\
 	&#9702; You're wearing a hairband.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('hairbows')>>\
+<<if playerCode.isWearing(itemsC.hairbow)>>\
 	&#9702; You're wearing a cute hairbow.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('chokers')>>\
+<<if playerCode.isWearing(itemsC.choker)>>\
 	&#9702; You're wearing a choker.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('collar')>>\
+<<if playerCode.isWearing(itemsC.collar)>>\
 	&#9702; You're wearing a collar.
 <<endif>>\
-<<if (window.wardrobeFuncs.isItemVariantWearing('collar_sissy_00') or window.wardrobeFuncs.isItemVariantWearing('collar_sissy_01'))>>\
+<<if playerCode.isWearing(itemsC.collarSissy)>>\
 	&#9702; You're wearing an extremely humiliating collar.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemVariantWearing('collar_bitch')>>\
+<<if playerCode.isWearing(itemsC.collarBitch)>>\
 	&#9702; You're wearing a collar with engraving spelling 'BITCH'.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemVariantWearing('collar_steel')>>\
+<<if playerCode.isWearing(itemsC.collarSteel)>>\
 	&#9702; You're wearing a steel collar.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('sunglasses')>>\
+<<if playerCode.isWearing(itemsC.sunglasses)>>\
 	&#9702; You're wearing sunglasses.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('glasses')>>\
+<<if playerCode.isWearing(itemsC.glasses)>>\
 	&#9702; You're wearing decorative glasses, which makes you look a bit nerdy.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('blindfold')>>\
+<<if playerCode.isWearing(itemsC.blindfold)>>\
 	&#9702; You're wearing a blindfold.
 <<endif>>\
-<<if window.wardrobeFuncs.isItemMasterWearing('gag')>>\
+<<if playerCode.isWearing(itemsC.gag)>>\
 	&#9702; You have a gag in your mouth.
 <<endif>>\
 \
@@ -675,7 +675,7 @@
 <!--</skin>-->\
 \
 <!--<clothes>-->\
-<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 		&#9702; You wear your comfy pajamas.\
 		<<if ($body.boobs eq 4)>>\
 		They are barely holding in your huge breasts.
@@ -696,7 +696,7 @@
 			<</switch>>\
 		<<endif>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 		&#9702; You wear casual clothes, including jeans and a T-shirt.\
 		<<if ($body.boobs eq 4)>>\
 		Your shirt barely holds in your huge breasts, giving you a slutty, tomgirl look.
@@ -717,7 +717,7 @@
 			<</switch>>\
 		<<endif>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+	<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 		&#9702; You wear the standard Pepperton Academy school uniform - a white shirt, a blazer jacket with the school crest, a tie and slacks.\
 		<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts.\
@@ -737,7 +737,7 @@
 				Wearing it just doesn't feel right anymore, but you can't put your finger on the reason.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 		&#9702; You wear a standard Pepperton Academy girl's uniform - a school crest blazer jacket with a white blouse and a tie, and a short, tartan skirt.\
 		<<if ($body.boobs eq 4)>>\
 			It's barely holding in your huge breasts.\
@@ -759,7 +759,7 @@
 				You actually feel comfortable wearing it. It's so much better and prettier than your old uniform.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+	<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 		&#9702; You wear the Pepperton Academy Cheer Squad rookie uniform - red and white shirt with the word "cheer team" in black lettering and matching short shorts emblazoned with "rookie".\
 		<<if ($body.boobs eq 4)>>\
 			It's barely holding in your huge breasts.\
@@ -781,7 +781,7 @@
 				Wearing the uniform fills you with pride as you think about your place on the cheerleading squad.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+	<<elseif playerCode.isWearing(itemsC.cheerDress)>>\
 		&#9702; You wear the Pepperton Academy Cheer Squad uniform, a red, white, and black cheer dress with the school's logo across the chest.\
 		<<if ($body.boobs eq 4)>>\
 			It's barely holding in your huge breasts.\
@@ -803,7 +803,7 @@
 				You can't help but smile when you see yourself in the uniform, knowing you're one of the girls every girl in school wishes they could be.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+	<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 		&#9702; You wear a slutty mockery of a cheer uniform, specifically designed to show off as much skin as possible. Even worse, the outfit is in Pepperton's colors - red, white, and black.\
 		<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
@@ -823,7 +823,7 @@
 				The outfit makes you look like a porn star, and you can't help reveling in the fact that everyone who sees you in it is going to want you.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 		&#9702; You wear a light summer dress.\
 		<<if ($body.boobs eq 4)>>\
 		It's a barely holding in your huge breasts. It feels like they could tumble out of your dress at any moment, flashing everyone around.\
@@ -846,7 +846,7 @@
 			It still feels quite comfortable and even freeing to wear it.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+	<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 		&#9702; You wear a silky nightie that's so thin, it's almost see-through.\
 		<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts.\
@@ -868,7 +868,7 @@
 			It feels so nice and comfortable that you don't want to take it off.
 		<</switch>>\
 \		
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+	<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 		&#9702; You're wearing a separates outfit with skirt and top, hugging you in a stylish and feminine fit. Your\
 		<<if ($body.boobs eq 4)>>\
 		large breasts are snugly and prominently contained by the fabric, with a bit of cleavage peeking out below the neckline.\
@@ -891,7 +891,7 @@
 			You can't help but feel sexy in the fashionable combo, and it shows off your body very well.
 			<</switch>>\
 \				
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+	<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 		&#9702; You're wearing a fetish version of a schoolgirl outfit. The blouse is too small for you and only barely covers your\
 		<<if ($body.boobs eq 4)>>\
 		huge breasts. Your globes threaten to fall out of the dress's top at any minute, flashing everyone around. Its lower ends are loosely tied under your boobs, held closed by a small knot instead of being properly buttoned.\
@@ -914,7 +914,7 @@
 			It's scandalous, daring, and has far more sass than any school can handle, but it's one damn sexy dress.
 			<</switch>>\
 \				
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+	<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 		&#9702; You are wearing a very revealing dress.\
 		<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
@@ -936,7 +936,7 @@
 			This dress puts the world on notice that you are out in force. Stand back.
 			<</switch>>\
 \
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 		&#9702; You wear a slutty maid outfit.\
 		<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts - at any minute your globes could fall out of the dress, flashing everyone around.\
@@ -1305,7 +1305,7 @@
 			<<endif>>\
 	&#9702; Your <<print _in>> \
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 			isn't covered by underwear in your pants.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
@@ -1315,17 +1315,17 @@
 				<<default>>\
 					@@.hero;It's uncomfortable.@@
 				<</switch>>\
-			<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 			isn't covered by underwear in your shorts.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 			isn't covered by underwear under your skirt.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('nightie') or window.wardrobeFuncs.isItemMasterWearing('maid')or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.silkyTeddy) or playerCode.isWearing(itemsC.maidOutfit)or playerCode.isWearing(itemsC.cheerDress)>>\
 			isn't covered by underwear under your dress.
 			<<else>>\
 			is in full view.\
 			@@.hero;Congratulations. It's a girl.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 		is covered with boxers.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1335,7 +1335,7 @@
 			<<default>>\
 			@@.hero;They fit uncomfortably over the girlish contours of your lower parts.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties') or window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesLatex) or playerCode.isWearing(itemsC.pantiesCotton)>>\
 		is covered by your panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1345,7 +1345,7 @@
 			<<default>>\
 			@@.hero;They feel snug and cozy.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
 		is tucked in your cheer briefs.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1355,7 +1355,7 @@
 			<<default>>\
 			@@.hero;It feels soft and snug.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString)>>\
 		is covered by your lacy panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1371,7 +1371,7 @@
 	<<if playerCode.isNotHorny()>>\
 		&#9702; Your soft <<print _penis>>\
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 			isn't covered by underwear, hanging freely in your pants.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
@@ -1381,13 +1381,13 @@
 				<<default>>\
 					@@.hero;It's really distracting, and it feels like people might see.@@
 				<</switch>>\
-			<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 			isn't covered by underwear under your shorts.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 			isn't covered by underwear under your skirt.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid')or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit)or playerCode.isWearing(itemsC.cheerDress)>>\
 			isn't covered by underwear under your dress.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie') >>\
+			<<elseif playerCode.isWearing(itemsC.silkyTeddy) >>\
 			isn't covered by underwear under your feminine nightclothes.
 			<<else>>\
 			hangs freely in full view.\
@@ -1400,7 +1400,7 @@
 					@@.hero;It looks better on me when it's that small.@@
 				<</switch>>\
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 		is covered with boxers.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1410,7 +1410,7 @@
 			<<default>>\
 			@@.hero;It's uncomfortable for some weird reason.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties') or window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesLatex) or playerCode.isWearing(itemsC.pantiesCotton)>>\
 		is tucked in your panties.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1420,7 +1420,7 @@
 			<<default>>\
 			@@.hero;It feels soft and snug.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
 		is tucked in your cheer briefs.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1430,7 +1430,7 @@
 			<<default>>\
 			@@.hero;It feels soft and snug.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString)>>\
 		barely fit in your lacy panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1442,7 +1442,7 @@
 			<</switch>>\
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug occupies your asshole, pressing on your prostate.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1452,7 +1452,7 @@
 			<<default>>\
 			@@.hero;It feels nice to have it in.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1466,7 +1466,7 @@
 	<<elseif playerCode.isHalfHorny()>>\
 		&#9702; Your half-hard <<print _penis>>\
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 				is unrestricted, without underwear on under your pants.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
@@ -1476,13 +1476,13 @@
 				<<default>>\
 				@@.hero;It's pretty uncomfortable.@@
 				<</switch>>\
-			<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 				isn't covered by underwear under your shorts.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 				isn't covered by underwear under your skirt.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.cheerDress)>>\
 				isn't covered by underwear under your dress.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 				isn't covered by underwear under your feminine nightclothes.
 			<<else>>\
 				hangs freely in full view.\
@@ -1495,7 +1495,7 @@
 					@@.hero;I'm so horny. I feel adventurous.@@
 					<</switch>>\
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 		is covered with boxers.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
@@ -1505,7 +1505,7 @@
 			<<default>>\
 			@@.hero;I don't know what it is, but they're uncomfortable for some reason.@@
 			<</switch>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 		stretches the fabric of your panties.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;It's embarrassing.@@
@@ -1514,7 +1514,7 @@
 			<<else>>\
 			@@.hero;It feels nice.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
 		stretches the fabric of your cheer briefs.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;It's embarrassing.@@
@@ -1523,7 +1523,7 @@
 			<<else>>\
 			@@.hero;It feels nice.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>\
 		stretches the latex of your panties.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;I'm a little flustered.@@
@@ -1532,7 +1532,7 @@
 			<<else>>\
 			@@.hero;It feels naughty... I like it.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString)>>\
 		bulges in your lacy panties.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;It makes the string strain against my ass. It's embarrassing.@@
@@ -1542,7 +1542,7 @@
 			@@.hero;It makes the string strain against my ass. It's so sexy.@@
 			<<endif>>\
 		<<endif>>\
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug occupies your asshole, pressing on your prostate and echoing every twitch of your anus.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Damn, my ass is so sensitive with this inside me.@@
@@ -1551,7 +1551,7 @@
 			<<else>>\
 			@@.hero;It is so exciting. My ass pulses in unison with my <<print _penis>>.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, echoing every twitch of your anus.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Shit, I have a dildo in my ass and it's making me hard. This is embarrassing!@@
@@ -1564,24 +1564,24 @@
 	<<else>>\
 	&#9702; Your semi-erect <<print _penis>>\
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 			is unrestricted by underwear in your pants.\
-			<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 			isn't covered by underwear under your shorts.\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 			isn't covered by underwear under your skirt.\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.cheerDress)>>\
 			isn't covered by underwear under your dress.\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			isn't covered by underwear under your feminine nightclothes, and it's a little obvious.\ 
 			<<else>>\
 			stands out freely on the verge of a hard-on, begging for release.\
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 		tents your boxers, begging for release.\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties') or window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesLatex) or playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(cheerBriefs)>>\
 		bulges in your panties, begging for release.\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString)>>\
 		peeks out of your lacy panties, begging for release.\
 		<<endif>>\
 \
@@ -1593,7 +1593,7 @@
 		@@.hero;I so want to get fucked... I mean, to fuck right now, in any way.@@
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug occupies your asshole, pressing on your prostate, making your <<print _penis>> slowly drip with precum.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Fuck, it's even harder to think straight this way.@@
@@ -1602,7 +1602,7 @@
 			<<else>>\
 			@@.hero;Fuck. I'm leaking like a bitch in a heat.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		 - A dildo butt-plug stretches your asshole, pressing on your prostate, making your <<print _penis>> slowly drip with precum.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Fuck, I am raging hard with this dildo in my ass. Does that make me a fag?@@
@@ -1631,24 +1631,24 @@
 	<<endif>>\
 \
 	<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-		<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 		&#9702; Rubbing against the inside of your pants,\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 		&#9702; Rubbing against the inside of your shorts,\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 		&#9702; Hidden only by your skirt,\
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('nightie') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.silkyTeddy) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.sluttyschoolFemale) or playerCode.isWearing(itemsC.cheerDress)>>\
 		&#9702; Hidden only by your dress,\
 		<<else>>\
 		&#9702; In full view, free of underwear,\
 		<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+	<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 	&#9702; Under your boxers,\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties') or window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+	<<elseif playerCode.isWearing(itemsC.pantiesLatex) or playerCode.isWearing(itemsC.pantiesCotton)>>\
 	&#9702; In your panties,\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
+	<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
 	&#9702; In your cheer briefs,\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+	<<elseif playerCode.isWearing(itemsC.gString)>>\
 	&#9702; Tightly encompassed by your lacy panties,\
 	<<endif>>\
 \
@@ -1662,7 +1662,7 @@
 		@@.hero;Huh. It actually looks quite nice on me.@@
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug is nestled tightly in your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
 		@@.hero;This is so uncomfortable.@@
@@ -1671,7 +1671,7 @@
 			<<else>>\
 		@@.hero;It feels nice to have it in.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
 		@@.hero;It's so big, damn this is uncomfortable.@@
@@ -1691,7 +1691,7 @@
 		@@.hero;I have to admit, it's actually arousing to be locked in chastity.@@
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate so you feel every twitch of your anus. This makes your ordeal with the cage even worse.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Damn, my anus is actually sensitive. It sure doesn't help with the cage thing.@@
@@ -1700,7 +1700,7 @@
 			<<else>>\
 			@@.hero;Oh~ Such a sweet feeling, with the plug in my pulsing ass and the cage on my twitching cock.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate so you feel every twitch of your anus. This takes your ordeal with the cage to a whole new level.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Shit, my aching <<print _penis>> is locked up in chastity, and I have a fat dildo up my ass driving me crazy. I feel like a total sissy.@@
@@ -1720,7 +1720,7 @@
 		@@.hero;I so want to get fucke-- I mean to fuck. Right now. //Anything// to get off right now.@@
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
 		@@.hero;Fuck, this is humiliating.@@
@@ -1729,7 +1729,7 @@
 			<<else>>\
 		@@.hero;Fuck. My caged <<print _penis>> can't do anything but leak like a bitch in heat.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
 		@@.hero;Fuck, I'm wearing a chastity cage and leaking from having a dildo up my ass. Does this make me a sissy?@@
@@ -1751,7 +1751,7 @@
 			@@.hero;I'm completely at the mercy of someone else to unlock me if I ever want to touch my <<print _penis>>. It makes me feel a little excited.@@
 	<<endif>>\	
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;This is humiliating, but do I really have a choice?@@
@@ -1760,7 +1760,7 @@
 			<<else>>\
 			@@.hero;Now I'm equipped like a proper sissy.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;My useless dick is kept small and locked away, but I have a big rubber one showed up my ass as a reminder of what I have become... Perfect. Just perfect.@@
@@ -1780,7 +1780,7 @@
 		@@.hero;It feels so wrong... but so right. Why does it feel, like I should *earn* my release?@@
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate, reminding you of where your choices have brought you.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;This only makes things worse.@@
@@ -1789,7 +1789,7 @@
 			<<else>>\
 			@@.hero;Now I am equipped like a proper sissy, it keeps me blissfully flustered all the time.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate so you feel every twitch of your anus. You feel so full, and that only makes being locked in chastity worse.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;My useless dick is aching in chastity, but I have a big rubber one showed up my ass as a reminder of what I have become... Perfect. Just perfect.@@
@@ -1809,7 +1809,7 @@
 		@@.hero;Fuuuck, wha... what should I do? I would do anything to get off. Anything.@@ You lower you gaze in frustrated shame, overcome by feelings of helplessness.
 		<<endif>>\
 \
-		<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_heart')>>\
+		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;And I thought it couldn't get any worse. Damn, this is humiliating.@@
@@ -1818,7 +1818,7 @@
 			<<else>>\
 			@@.hero;Look at me, I'm leaking like a bitch in heat. Maybe this is what I deserve.@@
 			<<endif>>\
-		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo')>>\
+		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;And I thought it couldn't get any worse. Now every time I move that thick rubber cock slides in my ass. Grrr, it's like it echoes in my throbbing dick. How did I come to this?@@
@@ -1835,8 +1835,8 @@
 <!--</groin>-->\
 \
 <!--<pants, skirt>-->\
-<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
-	<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
+	<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; You're wearing pajama pants.\
 			<<elseif playerCode.isMind_1()>>\
@@ -1844,7 +1844,7 @@
 			<<else>>\
 			&#9702; Your sweet ass is covered by pajama pants.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; You're wearing regular jeans.\
 			<<elseif playerCode.isMind_1()>>\
@@ -1875,18 +1875,18 @@
 	<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 		<<if playerCode.isNotHorny()>>\
 		You're not horny right now, so your flaccid member isn't noticeable under the\
-			<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			fabric.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			denim.
 			<<else>>\
 			fabric.
 			<<endif>>\
 		<<elseif playerCode.isHalfHorny()>>\
 		Your excitement is just barely becoming noticeable under the \
-			<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			fabric,\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			denim,\
 			<<else>>\
 			fabric,\
@@ -1894,9 +1894,9 @@
 		letting you fantasize about sex without obvious visible signs.
 		<<else>>\
 		Your semi-erect <<print _penis>> is straining against the front of the \
-			<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			fabric,\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			denim fly,\
 			<<else>>\
 			fabric of your fly,\
@@ -1929,9 +1929,9 @@
 		<<endif>>\
 \
 		<<print _penis>> is locked in its chastity cage, and isn't noticeable under your \
-			<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			pajama pants.\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			jeans.\
 			<<else>>\
 			pants.\
@@ -1948,7 +1948,7 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+<<if playerCode.isWearing(itemsC.rookieUniform)>>\
 		<<if playerCode.isMind_0()>>\
 		&#9702; You're wearing red shorts that go with your cheer uniform.\
 		<<elseif playerCode.isMind_1()>>\
@@ -2011,8 +2011,8 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
-	<<if window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+<<if playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.summerDress)>>\
+	<<if playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.cheerDress)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your skirt ends just above your knees, which feels way too high.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2020,7 +2020,7 @@
 			<<else>>\
 			&#9702; Your sweet ass is covered by a skirt, which ends just above your knees.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your skirt ends just above your knees, which feels way too high.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2073,33 +2073,33 @@
 		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your flaccid <<print _penis>> and balls feel the breeze under your \
-				<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+				<<if playerCode.isWearing(itemsC.summerDress)>>\
 					dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					tartan skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					revealing dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie, \
 				<<endif>>\
 			which is weird and uncomfortable.\
 			<<elseif playerCode.isHalfHorny()>>\
 			Without underwear, your excitement is visible, making a slight tent in \
-			<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+			<<if playerCode.isWearing(itemsC.summerDress)>>\
 					the front of your dress. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					the fabric of your tartan skirt. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					the fabric of your cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					the front of your dress. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					the fabric of your skirt. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					the nightie's silky fabric. \
 				<<endif>>\ 
 			Your bare <<print _penis>> and balls feel the breeze underneath, stimulating you even more.
@@ -2115,7 +2115,7 @@
 \
 				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 				Your precum drips slowly down your upper leg, leaving noticeable traces on your \
-					<<if window.wardrobeFuncs.isItemMasterWearing('socks')>>\
+					<<if playerCode.isWearing(itemsC.socks)>>\
 					thighs and socks.
 					<<else>>\
 					thighs.
@@ -2136,7 +2136,7 @@
 \
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 			&#9702; Your precum drips slowly down your upper leg, leaving noticeable traces on your \
-				<<if window.wardrobeFuncs.isItemMasterWearing('socks')>>\
+				<<if playerCode.isWearing(itemsC.socks)>>\
 					thighs and socks.
 					<<else>>\
 					thighs.
@@ -2146,13 +2146,13 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if window.wardrobeFuncs.isItemMasterWearing('socks')>>\
+	<<if playerCode.isWearing(itemsC.socks)>>\
 		&#9702; Knee-high socks on your legs finish your school dress ensemble.
 	<<endif>>\
 <<endif>>\
 \
-<<if window.wardrobeFuncs.isItemMasterWearing('nightie') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
-	<<if window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+<<if playerCode.isWearing(itemsC.silkyTeddy) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.sluttyschoolFemale) or playerCode.isWearing(itemsC.sluttyCheer)>>\
+	<<if playerCode.isWearing(itemsC.silkyTeddy)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your nightie barely covers your private parts.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2160,7 +2160,7 @@
 			<<else>>\
 			&#9702; Your nightie barely covers your sweet ass and private parts.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+	<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your skimpy dress barely covers your private parts, making bending over a very risky move.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2168,7 +2168,7 @@
 			<<else>>\
 			&#9702; Your skimpy dress wraps tightly around your sweet ass. It is very short, giving easy access to anyone who might want to fuck you.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+	<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your skirt's hemline leaves little margin to cover your private parts, making you self-conscious when you bend your waist.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2176,7 +2176,7 @@
 			<<else>>\
 			&#9702; Your skirt wraps snugly around your sweet ass. It is short, and easy to pull up if anyone wants to fuck you.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+	<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your miniskirt barely covers your private parts, making bending over a very risky move.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2184,7 +2184,7 @@
 			<<else>>\
 			&#9702; Your miniskirt wraps tightly around your sweet ass.  It is very short, giving easy access to anyone who might want to fuck you.\
 			<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			<<if playerCode.isMind_0()>>\
 			&#9702; Your maid outfit's short, black dress barely covers your private parts, making bending over a very risky move.\
 			<<elseif playerCode.isMind_1()>>\
@@ -2234,47 +2234,47 @@
 		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your bare <<print _penis>> and balls feel the breeze under your \
-				<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+				<<if playerCode.isWearing(itemsC.summerDress)>>\
 					dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					tartan skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					revealing dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie, \
 				<<endif>>\
 			which is weird and uncomfortable. If you're not careful when you sit, or bend over, or.... Well, you'd better just stand very still if you don't want to risk flashing your male parts to everyone.\
 			<<elseif playerCode.isHalfHorny()>>\
 			Without underwear, your excitement is obvious, tenting \ 
-				<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+				<<if playerCode.isWearing(itemsC.summerDress)>>\
 					the front of your dress \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					the fabric of your tartan skirt \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					the fabric of your cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					the front of your dress \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					the fabric of your skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					the nightie's silky fabric \
 				<<endif>>\
 			visibly. Anyone looking would definitely notice. Your bare <<print _penis>> and balls feel the breeze under your \
-			<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+			<<if playerCode.isWearing(itemsC.summerDress)>>\
 					dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					tartan skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie, \
 				<<endif>>\
 			which excites you even more. Unless you pull the hem down constantly, the tip of your <<print _penis>> keeps peeking out from underneath.\
@@ -2292,24 +2292,24 @@
 \
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 			&#9702; Precum drips down your thighs, leaving noticeable traces on your skin.\
-				<<if window.wardrobeFuncs.isItemMasterWearing('stockings') or window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
+				<<if playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex)>>\
 				It also leaves stains on your stockings.\
 				<<endif>>\
 			@@.hero;I can't even control myself.@@
 			<<endif>>\
 		<<else>>\
 			Your bare balls feel the breeze under your \
-			 	<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+			 	<<if playerCode.isWearing(itemsC.summerDress)>>\
 					dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					tartan skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					revealing dress, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie, \
 				<<endif>>\
 			<<if playerCode.isNotHorny()>>\
@@ -2321,17 +2321,17 @@
 			<<endif>>\
 \
 			<<print _penis>> is locked in its chastity cage and mostly hidden by your \
-			 	<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+			 	<<if playerCode.isWearing(itemsC.summerDress)>>\
 					dress. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+				<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 					skirt. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+				<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.sluttyCheer)>>\
 					cheer skirt, \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+				<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 					dress. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					skirt. \
-				<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie. \
 				<<endif>>\
 			If you're not careful when you move, the tip of your cage occasionally peeks out, letting everyone know about your \
@@ -2345,7 +2345,7 @@
 \
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 			&#9702; Precum drips down your thighs, leaving streaks on your skin.\
-				<<if window.wardrobeFuncs.isItemMasterWearing('stockings') or window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
+				<<if playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex)>>\
 				It also stains on your stockings.\
 				<<endif>>\
 			@@.hero;This is so humiliating.@@
@@ -2353,341 +2353,341 @@
 		<<endif>>\
 	<<endif>>\
 \
-	<<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
+	<<if playerCode.isWearing(itemsC.stockings)>>\
 		&#9702; Stylish stockings looks good on your legs.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
+	<<elseif playerCode.isWearing(itemsC.stockingsLatex)>>\
 		&#9702; Stylish stockings accessorize nicely with your skirt.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 		&#9702; Sheer stockings add polish to your maid ensemble.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('socks')>>\
+	<<elseif playerCode.isWearing(itemsC.socks)>>\
 		&#9702; Girly knee-high socks finish your ensemble.
 	<<endif>>\
 <<endif>>\
 <!--</pants, skirt>-->\
 \
 <!--<footwear>-->\
-<<if window.wardrobeFuncs.isItemMasterWearing('sneakers')>>\
+<<if playerCode.isWearing(itemsC.sneakers)>>\
 	&#9702; On your feet, you wear regular sneakers.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look kind of dumb with your pajamas, but meh. Who's really gonna see 'em?
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They're pretty cool.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			@@.hero;I wish they would actually let me wear these to school with my uniform.@@
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts. @@.hero;Studly.@@
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They look out of place with your dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They look pretty //un//-sexy with your sexy dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			They look a little off with your girls' school uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			They don't at all go with your slutty school uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			They look a little off with your cheer uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They don't at all go with your slutty cheerleader uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They look kind of ridiculous with your maid outfit, giving it more of a joke costume feel.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look pretty stupid with your silky nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They're definitely a guys' style, so they look off with your skirt and top.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They look super stupid with your girly cotton panties.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They look incredibly ridiculous with your naughty underthings.
 		<<else>>\
 			You're otherwise naked. @@.hero;Really?@@
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('blackShoes')>>\
+<<elseif playerCode.isWearing(itemsC.schoolShoes)>>\
 	&#9702; On your feet, you wear black dress shoes.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look silly with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They're a little dressy for your casual clothes, but it kind of works. Maybe.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			They're part of the dress code for your uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			They look comical with your boxer shorts. @@.hero;Seriously?@@
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They're //very// clearly not meant to be worn with a dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They're the opposite of what goes with a sexy dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your girls' school uniform should be worn with dressy shoes, but definitely not //these//.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			They don't go with your slutty school uniform in any way, shape or form.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They don't at all go with your slutty cheerleader uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They look strangely severe with your maid outfit, and definitely don't go together.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look ridiculously stupid with your silky nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They are a highly tragic fashion choice with your skirt and top.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They make you look super stupid, wearing them in your girly cotton panties.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They look incredibly ridiculous with your naughty underthings.
 		<<else>>\
 			You're naked... in dress shoes. @@.hero;Why, god damn it?!?@@
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('flats')>>\
+<<elseif playerCode.isWearing(itemsC.flats)>>\
 	&#9702; On your feet, you wear flats.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look silly with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They look awfully girly for your guy clothes, but your pants hide them a little bit. Maybe.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Your school uniform makes them look especially dainty and girlish.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			Together with your boxer shorts, it makes for a pretty bizarre combination.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They're rather nice with your dress, giving it a pretty, casual feel.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They're not really meant to go with such a sexy dress, and look plain by comparison.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			They go just fine with your school uniform, making for a very basic, girly look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			They really lack the proper 'oomph' to go with your slutty school outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They don't at all go with your slutty cheerleader uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They look a little plain with such a fancy maid uniform, but they're passable.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look almost delicate enough to go with your nightie, but not quite enough.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your outfit a more dressed-down kind of vibe.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			Wearing them in your girly cotton panties, you look like a girl about to play dress-up.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			It simply doesn't look right, wearing these with just your naughty panties.
 		<<else>>\
 			You look really strange without any other clothes on.
 		<<endif>>\	
-<<elseif window.wardrobeFuncs.isItemMasterWearing('girlSneakers')>>\
+<<elseif playerCode.isWearing(itemsC.girlsneakers)>>\
 	&#9702; On your feet, you wear cute girls' sneakers.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They are very obviously girly and your jeans can't change it.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They're rather nice with your dress, giving it a playful, girly look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They really don't match such a sexy dress, and just look wrong together.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			With your slutty outfit, they make you look like a girly little tease.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			While they mostly match your outfit, your cheer uniform should really be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			Even though they don't exactly match, they look great with your slutty cheerleader uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They're much too casual for your formal maid uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your skirt and top a more relaxed, girlish feel.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			Wearing panties with these looks a little silly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They are out of place, worn with just your naughty panties on.
 		<<else>>\
 			They make you look like a nudist getting ready for some sports.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('heels')>>\
+<<elseif playerCode.isWearing(itemsC.highHeel3)>>\
 	&#9702; On your feet, you wear 3-inch high heels.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look hilariously wrong with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They look strikingly out of place with your casual male look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			They give your uniform an odd, 'womens' pantsuit' vibe, but it looks wrong.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			Your boxers are probably the least matched clothes one could wear with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They add a touch of sophistication and style to the look of your dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They look a little sexier with your provocative dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks much more dressy and upscale with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			They help show off your legs, adding appeal to your slutty school outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They look fine with your slutty cheerleader uniform, but you think something more athletic would look better.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They're a complementary style for your formal maid uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look rather sultry with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your skirt and top a sexier, dressed-up vibe.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They give your legs a very feminine appeal.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			Your heels and naughty underthings together make for a sensual combination.
 		<<else>>\
 			They make your legs look genuinely feminine.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('boots') or window.wardrobeFuncs.isItemMasterWearing('heeledBoots') or window.wardrobeFuncs.isItemMasterWearing('highBoots')>>\
-	<<if window.wardrobeFuncs.isItemMasterWearing('boots')>>\
+<<elseif playerCode.isWearing(itemsC.boots) or playerCode.isWearing(itemsC.heeledBoots) or playerCode.isWearing(itemsC.highBoots)>>\
+	<<if playerCode.isWearing(itemsC.boots)>>\
 		&#9702; On your feet, you wear obviously feminine boots.\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('heeledBoots')>>\
+	<<elseif playerCode.isWearing(itemsC.heeledBoots)>>\
 		&#9702; On your feet, you wear high heeled boots.\
 	<<else>>\
 		&#9702; On your feet, you wear thigh-high boots.\
 	<<endif>>\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look hilariously wrong with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They look strikingly out of place with your casual male look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			They give your uniform an odd, 'womens' pantsuit' vibe, but it looks wrong.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			Your boxers are probably the least matched clothes one could wear with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They look nice with your dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They look a little sexier with your provocative dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Such boots are against school dress code.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			Such boots are against school dress code, which is hilarious, considering your slutty school outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They look fine with your slutty cheerleader uniform, but you think something more athletic would look better.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look a bit odd with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your skirt and top a sexier, dressed-up vibe.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They give your legs a very feminine appeal.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			Your heels and naughty underthings together make for a sensual combination.
 		<<else>>\
 			They make your legs look genuinely feminine.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('stripperHeels')>>\
+<<elseif playerCode.isWearing(itemsC.stilettoHeels)>>\
 	&#9702; On your feet, you wear incredibly slutty 'fuck-me' heels.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			You see yourself in your pajamas and heels, and can't help but erupt in laughter.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They have no place being worn with casual men's clothing.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			With these on your feet, your school uniform is stripped of any dignity it may have had.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With nothing else but your boxers on, you look like a variety show comedy act.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			Your dress suddenly takes on a very sensual overtone.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They add greatly to the brazenly sexual look of your outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your feminine school uniform becomes far more sensual with these heels.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			Your slutty school outfit simply blasts sex with these heels in combination.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They definitely ehmpahsize the "slutty" of your slutty cheerleader uniform, but you think something more athletic would look better.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They give your maid uniform a much naughtier appearance.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look incredibly sexy with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			Your skirt and top takes on a whole different level of sensuality when combined with these heels.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They show off your legs in an exceptionally sexy, feminine way.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			You look like a porn star with your naughty underthings on.
 		<<else>>\
 			You twirl and are amazed how sexy and womanly your legs are in them.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerSneakers')>>\
+<<elseif playerCode.isWearing(itemsC.cheerSneakers)>>\
 	&#9702; On your feet, you wear regulation cheer sneakers.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They are very obviously girly and your jeans can't change it.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They're rather nice with your dress, giving it a playful, girly look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They really don't match such a sexy dress, and just look wrong together.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			With your slutty outfit, they make you look like a girly little tease.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			They look perfect with your cheerleader outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			Even though they look great with your slutty cheerleader uniform, you think they might be a little too mundane.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They're much too casual for your formal maid uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your skirt and top a more relaxed, girlish feel.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			Wearing panties with these looks a little silly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They are out of place, worn with just your naughty panties on.
 		<<else>>\
 			They make you look like a nudist getting ready for some sports.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemVariantWearing('heeled_cheer_sneakers')>>\
+<<elseif playerCode.isWearing(itemsC.heeledCheer)>>\
 	&#9702; On your feet, you wear sneakers that look like your cheer sneakers with a high wedge built-in.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
+		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
+		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			They are very obviously girly and your jeans can't change it.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
+		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 			They're rather nice with your dress, giving it a playful, girly look.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			Even though they're sneakers, they go surprisingly well with your sexy dress.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
 			With your slutty outfit, they make you look like a girly little tease.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform') or window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
+		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			They look a little slutty for your regulation cheerleader outfit.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
+		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They look great with your slutty cheerleader uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They're much too casual for your formal maid uniform.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
+		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
+		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			They give your skirt and top a more relaxed, girlish feel.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			Wearing panties with these looks a little silly.
-		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
+		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They are out of place, worn with just your naughty panties on.
 		<<else>>\
 			They make you look like a nudist getting ready for some sports.
 		<<endif>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('balletHeels')>>\
+<<elseif playerCode.isWearing(itemsC.balletHeels)>>\
 	&#9702; On your feet, you wear very kinky ballet high heels.\
-		<<if window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<if playerCode.isWearing(itemsC.maidOutfit)>>\
 			Together with your fetish uniform it clearly shows what //kind// of maid you are.
 		<<else>>\
 			It is incredibly hard to keep the balance in these.

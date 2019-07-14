@@ -5,7 +5,8 @@
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _m=playerCode.isWearing(itemsC.maidOutfit)>>\
+<!-- <<set _m=playerCode.isWearing(itemsC.maidOutfit)>>\ -->
+<<set _maidCheck=window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 <<set _rew=true>>\
 <<set _fail=false>>\
 \
@@ -206,7 +207,7 @@
 		<<set $player.choreFailPercent=100>>\
 	<<endif>>\
 <<endif>>\
-<<if _c or _b or ((_f and _f.slutty) or _m)>>\
+<<if _c or _b or ((_f and _f.slutty) or _maidCheck)>>\
 
 
 <<endif>>\
