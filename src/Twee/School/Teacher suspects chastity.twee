@@ -1,0 +1,61 @@
+::Teacher suspects chastity
+\
+<<if not $flags.teacherSuspectsChastity>><!-- switch scenes -->\
+<<set $flags.teacherSuspectsChastity to true>>\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "School Hallway" 400 400>></div>\
+\
+You wait outside the classroom, flustered.
+
+After a long wait, $teacher finally comes out of the classroom to talk to you.
+
+@@.teacher;“Something is different with you today. Whatever it may be, you are still not paying attention. Focus now. We will talk after class.”@@
+
+She opens the classroom door for you to go back inside.
+
+[[Ga back to class|Teacher suspects chastity]]
+<<else>><!-- switch scenes -->\
+<div style="float: right; margin: 10px;"><<RandomImageFromPack "Classroom" 400 400>></div>\
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set $time.hour=15>>\
+<<set $time.minute=30>>\
+You spend the rest of the day trying to avoid $teacher’s gaze and trying to stay out of trouble. 
+You cannot stop thinking of the chastity device encasing your penis. $teacher would not let you leave to take it of so there is no getting rid of it now. As the final bell of the day tolls, everyone packs their bags and leaves, only you stay with $teacher.
+
+@@.teacher;“Now, $player.name, I noticed something unusual in your behaviour. More unusual than normally.”@@ $teacher stands and paces over to you. 
+
+@@.teacher;“Stand up.”@@ she orders sternly. You meekly comply.
+
+<<if _o.female>>\
+How did you manage to wear female clothing to school at this point in the game? This scene assumes a male school uniform.
+<<endif>>\
+@@.teacher;“Lower your pants.”@@
+
+@@.hero;What?!@@ You just stare at her, frozen in shock.
+
+@@.teacher;“Undo your pants. Now.”@@ $teacher scowls at you.
+
+You hesitantly unzip your fly, revealing your <<if _u>>_u.name<<else>>caged penis<<endif>>.
+
+<<set $flags.teacherNoticeChastity to true>>\
+@@.teacher;“A chastity cage. I knew a naughty boy like you could not learn to contain his raging boner from one day to another.\
+<<if _u and _u.female>> I did not expect you to wear panties, though.<<endif>>\
+<<if _u>> I expect my students to wear underwear, though.<<endif>>”@@
+
+She wags her head in contempt. Your cheeks burn bright red. To make it worse, your penis twitches inside the cage. The way she is displaying her power manages to arouse you.
+
+@@.hero;Fuck! How can I possibly be turned on by this?@@
+
+@@.teacher;“You can probably guess I cannot allow my students to use their sex toys at this school…”@@ she continues.
+
+@@.hero;Oh, boy, that will be one weird school letter to explain.@@ Your shoulders slump.
+
+@@.teacher;“…not without proper tutoring.”@@
+
+Your jaw drops. @@.hero;She is going to help me?@@
+
+@@.teacher;“I can train you to keep your rampant urges in check, suppress your male sexuality, rid you of the embarassment of unwanted erections in front of the class. In fact, I support your wish to be more humble. I can even show you a female point of view. Chose now, but chose carefully. Once you agreed, I will not allow you to back out.”@@
+
+[[Have private tutoring|Agree to extra instruction][$player.daringFlag.bribe=true]]
+[[Reject offer|Finish school]]
+<<endif>><!-- switch scenes -->
