@@ -38,15 +38,13 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<set $tasksTeacher.trialChastity.status = 6>>\
-<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if ($tasksTeacher.trialChastity.progress == 1) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set $tasksTeacher.trialChastity.progress to 4>>\
 
 	You've slept well, despite wearing a chastity cage. You can't believe how quickly you got used to it.
 	
 	@@.info;It's time to return the device to receive your pay.@@
 
-	<<set $tasksTeacher.trialChastity.status = 5>>\
 	/*<<set $tasksTeacher.trialChastity.text.checkMe.reminder = "You completed the trial, now you should return the device to the shop.">>*/\
 <<endif>>\
 <<if $kinkAllow.penisShrink and $flags.penisShrinkSleep and ($flags.penisShrinkProgress gte 1) and ($body.penisShrink eq 1) and $time.weekDay() eq 5>>\

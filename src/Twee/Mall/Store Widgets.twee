@@ -193,12 +193,12 @@ The mall is closed now.
 <<if window.timeCode.isArcadeOpen()>>[[Play in the arcade][$time.addMinutes(5)]]<<else>>@@.halftransparent;Play in the arcade - closed@@<<endif>>
 [[Go to mall toilet][$time.addMinutes(10);$flags.cameraRecording to false]]
 
-<<if (($tasksTeacher.trialChastity.status eq 1 or $tasksTeacher.trialChastity.status eq 7) and (not _c) and (not _b)) or ($tasksTeacher.trialChastity.status eq 5)>>\
-	<<if $tasksTeacher.trialChastity.status eq 7>>\
+<<if $flags.playgirlChastity and not $tasksTeacher.trialChastity.progress>>\
 	[[Ask about chastity devices|Task Trial chastity]]
-	<<else>>\
+<<elseif $tasksTeacher.trialChastity.status eq 1>>\
 	[[Ask about the market research opportunity|Task Trial chastity]]
-	<<endif>>\
+<<elseif $tasksTeacher.trialChastity.progress eq 4>>\
+	[[Return to finish the market research|Task Trial chastity]]
 <<endif>>\
 <<if ($tasksTeacher.penaltyTrials.status eq 1) and _c>>\
 [[Ask about the tester job|Task Trials][$tasksTeacher.penaltyTrials.progress=0]]
