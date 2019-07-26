@@ -1,8 +1,8 @@
 :: Task Trial chastity [pos_1952_2896]
 \
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<if $tasksTeacher.trialChastity.status eq 1 or $tasksTeacher.trialChastity.status eq 7>>\
-	You enter the adult store. After some hesitation, you ask the shopkeeper about the <<if $tasksTeacher.trialChastity.status eq 7>>chastity device you saw in the Playgirl magazine<<else>>market research opportunity $teacher told you about<<endif>>. She looks a little puzzled.
+<<if not $tasksTeacher.trialChastity.progress>>\
+	You enter the adult store. After some hesitation, you ask the shopkeeper about the <<if not $tasksTeacher.trialChastity.status eq 1>>chastity device you saw in the Playgirl magazine<<else>>market research opportunity $teacher told you about<<endif>>. She looks a little puzzled.
 
 	@@.shopclothes;“Oh, you must mean the market testing on our new line of chastity cages and anal plugs! Sorry, you’re a lot younger than the normal demographic for those, so I was a little bit confused.”@@
 
@@ -12,10 +12,10 @@
 
 	The thought of having those things //on your cock// and //in your ass// while you’re sleeping doesn’t sound very pleasant, but otherwise it sounds pretty simple.
 	
-	[[Agree|Task Trial chastity][$tasksTeacher.trialChastity.status=4]]
+	[[Agree|Task Trial chastity][$tasksTeacher.trialChastity.progress=1]]
 	[[Refuse|Go to the mall]]
 	
-<<elseif $tasksTeacher.trialChastity.status eq 4>>\
+<<elseif $tasksTeacher.trialChastity.progress eq 1>>\
 	<<if (not playerCode.owns(itemsC.chastityDevice))>>\
 		<<set _item=$items.chastityDevice>>\
 		<<addToInv _item.id>>\
@@ -93,9 +93,9 @@
 
 	Unable to bear more, you scurry out of the store with what's left of your shrunken self-respect.
 	
-	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.exp.chastityExp=0]]
+	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.progress=1;$player.exp.chastityExp=0]]
 	
-<<elseif ($tasksTeacher.trialChastity.status eq 5)>>\
+<<elseif ($tasksTeacher.trialChastity.progress eq 4)>>\
 	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 	<<if playerCode.isWearing(itemsC.chastityDevice)>>\
@@ -163,11 +163,14 @@
 	@@.hero;I still need a chastity to show $teacher, and both items would cost more if I just buy them in the store. I could save some cash by taking these items, but damn, I don't want to write up how it felt!@@
 	
 	<<endif>>\
-	[[Choose and wear items|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=12]]
-	[[Choose items|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=10]]
-	[[Choose money|Task Trial chastity][$tasksTeacher.trialChastity.status=2;$tasksTeacher.trialChastity.progress=11]]
+	<<if $tasksTeacher.trialChastity.status == 1>>\
+		<<set $tasksTeacher.trialChastity.status to 2>>\
+	<<endif>>\
+	[[Choose and wear items|Task Trial chastity][$tasksTeacher.trialChastity.progress=12]]
+	[[Choose items|Task Trial chastity][$tasksTeacher.trialChastity.progress=10]]
+	[[Choose money|Task Trial chastity][$tasksTeacher.trialChastity.progress=11]]
 
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 12)>>\
+<<elseif $tasksTeacher.trialChastity.progress eq 12>>\
 	You choose the items.
 	
 	The shopkeeper guides you over to a desk, then hands you the company's product testing feedback form and a pen. You sit down to write your review, describing your experience during the trial.
@@ -219,7 +222,7 @@
 	<<endif>>\
 	[[Get out of there|Go to the mall]]
 	
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 10)>>\
+<<elseif $tasksTeacher.trialChastity.progress eq 10>>\
 	You choose the items.
 	
 	The shopkeeper guides you over to a desk, then hands you the company's product testing feedback form and a pen. You sit down to write your review, describing your experience during the trial.
@@ -241,7 +244,7 @@
 	
 	[[Get out of there|Go to the mall]]
 	
-<<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 11)>>\
+<<elseif ($tasksTeacher.trialChastity.progress eq 11>>\
 	<<removeFromInv $items.chastityDevice.id>>\
 	<<removeFromInv $items.buttPlugHeart.id>>\
 	<<set $player.money+=tasksTeacher.trialChastity.rewardMoney>>\
