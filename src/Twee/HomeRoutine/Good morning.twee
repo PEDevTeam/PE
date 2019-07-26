@@ -170,11 +170,11 @@
 	<<endif>>\
 	Your eyes slowly open. $Guardian is shaking you awake, looking down at you sternly.
 
-	@@.guardian;"We need to talk. I'd hoped that it was just a phase, but you've shown that you're willing to take your fetishes way further than I expected. Locking yourself in chastity, sticking a vibrator up your ass, and god knows what else you've been up to...."@@
+	@@.guardian;"We need to talk. I'd hoped that it was just a phase, but you've shown that you're willing to take your fetishes way further than I expected. Locking yourself in chastity, sticking a vibrator up your ass, and god knows what else you've been up to...<<if not $flags.teacherNoticeChastity>>"@@
 	
 	You don't dare tell her that being in chastity wasn't your decision.
 	
-	@@.guardian;"It seems you're just asking to be treated accordingly. I've installed a camera in your room so I can monitor you, just in case your fetishes become a danger to your health. Don't even try to obscure the view, or I will come up with something even more inconvenient for you."@@
+	@@.guardian;"<<else>> <<endif>>It seems you're just asking to be treated accordingly. I've installed a camera in your room so I can monitor you, just in case your fetishes become a danger to your health. Don't even try to obscure the view, or I will come up with something even more inconvenient for you."@@
 	
 	When you try to argue that you need at least some privacy, $guardian interrupts you again.
 	
@@ -273,6 +273,7 @@
 		
 		@@.hero;Oh, hell.@@
 		
+		<<if not $teacherNoticeChastity>>\
 		@@.guardian;"I was ashamed to hear what you did - that poor girl, who had to move to another town in shame after your cruel and humiliating prank!"@@
 		
 		@@.hero;What?@@
@@ -282,6 +283,9 @@
 		"After all, you agreed to face the consequences and take responsibility for your actions on your own, even if you did chose such a dirty way to earn the money. I guess the punishment fit the crime that way. Anyway, $teacher and I have come to an agreement, and I will help with your situation until you pay your debt completely."@@
 		
 		@@.hero;How is that even...?@@
+		<<else>>\
+		@@.guardian;"How dare you running to your teacher to seek assistance? It looks like you trust her more than me. Fortunately for you, $teacher and I came to an agreement. Your training now will also continue while you are here at home."@@
+		<<endif>>
 		
 		@@.guardian;"You will work as my personal maid, wearing a uniform while doing chores and following every one of my orders at home."@@
 	
