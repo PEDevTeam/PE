@@ -1,4 +1,9 @@
 ::Teacher suspects chastity
+<!--
+VARIABLES:
+$flags.teacherSuspectsChastity = Teacher suspects PC wearing chaistity device to school but does not know for sure, yet
+$flags.playerChoseChastity = PC agreed to paid "extra instructions" (consensual submission route)
+-->\
 \
 <<if not $flags.teacherSuspectsChastity>><!-- switch scenes -->\
 <<set $flags.teacherSuspectsChastity to true>>\
@@ -37,7 +42,6 @@ How did you manage to wear female clothing to school at this point in the game? 
 
 You hesitantly unzip your fly, revealing your <<if _u>>_u.name<<else>>caged penis<<endif>>.
 
-<<set $flags.teacherNoticeChastity to true>>\
 @@.teacher;“A chastity cage! I //knew// a naughty boy like you could not learn to contain his raging boner from one day to another.\
 <<if _u and _u.female>> I did not expect you to wear panties, though.<<endif>>\
 <<if _u>> I expect my students to wear underwear, though.<<endif>>”@@
@@ -56,6 +60,6 @@ Your jaw drops. @@.hero;She is going to help me?@@
 
 @@.teacher;“I can train you to keep your rampant urges in check, suppress your male sexuality, rid you of the embarassment of unwanted erections in front of the class. In fact, I support your wish to be more humble. I can even show you a female point of view. Chose now, but chose carefully. Once you agreed, I will not allow you to back out.”@@
 
-[[Have private tutoring|Agree to extra instruction][$player.daringFlag.bribe=true]]
+[[Have private tutoring|Agree to extra instruction][$player.daringFlag.bribe=true;$flags.playerChoseChastity=true]]
 [[Reject offer|Finish school]]
 <<endif>><!-- switch scenes -->

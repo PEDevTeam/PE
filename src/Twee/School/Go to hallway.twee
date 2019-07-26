@@ -364,7 +364,7 @@
 			<<set $flags.friendBraTask = true>>\
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 1>>\
-		<<if (_u and _u.female and _u.slutty) or (_c and not $flags.teacherNoticeChastity)>>\
+		<<if (_u and _u.female and _u.slutty) or (_c and not $flags.playerChoseChastity)>>\
 			<<set $player.perversion.teacher to 2>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			<<set $tasksTeacher.trialChastity.canStart = true>>\
@@ -412,7 +412,7 @@
 			
 			$teacher stares down at you so intently, that you don't dare to object.
 
-		<<elseif $flags.teacherNoticeChastity and ((_u and _u.female and _u.slutty) or _b)>>\
+		<<elseif $flags.playerChoseChastity and ((_u and _u.female and _u.slutty) or _b)>>\
 			<<set $player.perversion.teacher to 2>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			@@.teacher;"So, $player.name? It looks like you want to 'up your game' by wearing\
@@ -741,7 +741,8 @@
 <!--	--><<endif>>\
 <!--	--><<set _deduction+=rewardMoney.teacherChastity>>\
 <!----><<endif>>\
-		<<if _c and $flags.teacherNoticeChastity and not $flags.chastityKey and $player.perversion.teacherCooldown eq 0>>\
+		<<if _c and $flags.playerChoseChastity and not $flags.chastityKey and $player.perversion.teacherCooldown eq 0>>\
+			<!-- In the consensual route, teacher already knows about the chastity cage at the first inspection. -->\
 			@@.teacher;<<openQuote>>You chose to wear your chastity device. Nice touch. I will deduct $<<print rewardMoney.teacherChastity>> for it.@@\
 			<<set _deduction+=rewardMoney.teacherChastity>>\
 		<<endif>>\

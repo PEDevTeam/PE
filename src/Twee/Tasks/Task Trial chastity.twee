@@ -1,4 +1,27 @@
 :: Task Trial chastity [pos_1952_2896]
+<!--
+This scene is only accessible if the PC was given trialChastity task was by Teacher
+OR
+PC read about chastity devices from in the Playgirl magazine
+Both options circumvent the daring check for the adult store.
+
+VARIABLES:
+$tasksTeacher.trialChastity.status
+0 = task not given
+1 = task given
+2 = task completed successfully
+3 = task failed
+
+$tasksTeacher.trialChastity.progress
+0 = not started
+1 = started / trial ongoing
+4 = spent 3 nights / ready to return items
+10 = trial completed, take devices
+11 = trial completed, take money
+12 = trial completed, take devices and wear
+
+$flags.playgirlChastity = PC read about chastity devices from in the Playgirl magazine
+-->\
 \
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<if not $tasksTeacher.trialChastity.progress>>\
