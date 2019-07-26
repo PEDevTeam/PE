@@ -146,16 +146,15 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	<<if _c>>\
 		@@.teacher;"I'll talk to you outside."@@ 
 		
-		You get up and are thankful for the chastity device stopping your penis from sticking out against your pants.<<if not $flags.teacherNoticeChastity and $player.perversion.teacher lt 2>>\
+		You get up and are thankful for the chastity device stopping your penis from sticking out against your pants.<<if not $flags.playerChoseChastity and $player.perversion.teacher lt 2>>\
 		$teacher skeptically eyes your crotch.
 		
-		@@.hero;"Shit. Does she know what I am wearing right now?"@@ 
-		
+		@@.hero;"Shit. Does she know I am wearing a chastity device right now?"@@ 
 		
 			[[Get out of there|Teacher suspects chastity]]
 		<<else>>\
-		
-		
+
+
 			[[Exit to the hallway|Go to hallway][$player.punishments.refusedToPay=false]]
 			<<if window.timeCode.isMonday() and ($bribeAmount-$player.bribeDiscount) gt 0 and $player.perversion.teacher gte 2>>\
 				<<print "[[Exit to the hallway but refuse to pay|Go to hallway][$player.punishments.refusedToPay=true]]">>
