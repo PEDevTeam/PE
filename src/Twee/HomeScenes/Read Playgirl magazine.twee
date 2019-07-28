@@ -225,12 +225,32 @@
 	<<endif>>\
 <<elseif $flags.quizState != "question">>\
 	<<if _c>>\
-		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
+		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you\
 	<<else>>\
 		You come hard, clean up quickly and \
 	<<endif>>\
-	put the magazine away, glad that $guardian didn't walk in on you.
-
+	<<if _c and $flags.playerChoseChastity and $player.perversion.guardian eq 0 and not $flags.guardianNoticeChastity>>\
+		keep enjoying the magazine despite being unable to cum. Or rather //because// you cannot cum right now.
+		
+		Lost in your fantasies, you barely register a knock on your door. Your lust-addled mind fails to process the events in time, so jump scared as $guardian barges into your room. There is no time to cover yourself.
+		
+		@@.guardian;"What the… ?!"@@ 
+		
+		She stares at you in disbelief and confusion. Your cock is pulsing within the confines of the transparent cage in scared arousal. She might have been mentally prepared for walking into one of your masturbation sessions, but not for this sight.
+		
+		@@.guardian;"Why on earth would you wear something like that? This… I… I need to think about this."@@ 
+		
+		Lost in her confusion, she wanders out of your room.
+		
+		@@.hero;Now that went well.@@ 
+		
+		On the bright side, she was so taken aback by the chastity cage, she did not even notice the stolen magazine.
+		<<set $flags.guardianNoticeChastity = true>>\
+		<<set $therapistTalks.talkChastity.start=true>>\
+	<<else>>\
+		put the magazine away, glad that $guardian didn't walk in on you.
+	<<endif>>\
+	
 	<<if _c>>\
 		<<set playerCode.changeArousal(5)>>\
 		<<set playerCode.upArousalTo(50,50)>>\
