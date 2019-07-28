@@ -891,12 +891,14 @@
 		
 	<<endif>>\
 	With a heavy sigh, you tell $therapist how $guardian recognized the pink roller skates she'd given you in the video you uploaded. Seeing you all slumped down in your seat, $therapist replies, @@.therapist;"I see how it may have been hard to explain. I hope she didn't react too harshly?"@@
-	
-	@@.hero;Finally, I can talk to someone about this huge mess!@@
 
-	You heatedly describe the fake story about some girl and a mean prank that $teacher fed to $guardian. You swear you are innocent, and explain how $teacher made it all up to frame you. $therapist tilts her head and touches her cheek at this, but doesn't say anything, letting you finish your rant.
-	
-	@@.therapist;"I just want to remind you I'm on your side. So, what exactly did $guardian do in reaction to $teacher's revelations?"@@
+	<<if not $flags.playerChoseChastity>>\
+		@@.hero;Finally, I can talk to someone about this huge mess!@@
+
+		You heatedly describe the fake story about some girl and a mean prank that $teacher fed to $guardian. You swear you are innocent, and explain how $teacher made it all up to frame you. $therapist tilts her head and touches her cheek at this, but doesn't say anything, letting you finish your rant.
+
+		@@.therapist;"I just want to remind you I'm on your side. So, what exactly did $guardian do in reaction to $teacher's revelations?"@@
+	<<endif>>\
 	
 	<<if ($player.perversion.teacher gte 4)>>\
 		@@.heroT;"She... she took my clothes."@@
@@ -921,19 +923,44 @@
 	
 	$therapist looks at you as if wanting more details, but recovers after a second and asks, @@.therapist;"We can talk about it bit later, if you want to."@@
 	
-	After a brief pause she continues, @@.therapist;"But, back to this //fake// story. If... sorry, what I meant to say was, her story is obviously untrue..."@@ You glare at her, a bit hurt by her slip up. @@.therapist;"Have you thought it could be just a convenient explanation for you? I mean, from what you told me, it is possible $teacher and $guardian just agreed on that story to help you take a step further."@@
-	
-	You really hadn't thought about it like that before. Seeing your skeptical expression, $therapist adds, @@.therapist;"Would I be right if I say that <<if ($player.perversion.teacher gte 4)>>$teacher has more control over you, now you have no male clothes, and that <<endif>>$guardian is really excited about having a personal maid?"@@
-	
-	You can't really argue with that. @@.hero;Huh...@@
-	
-	With an apologetic smile $therapist continues, @@.therapist;"I don't mean there's some kind of sinister plan - their intentions most likely aren't malicious. Perhaps they mutually decided to take more control over your life, as the incident with the video clearly showed your carelessness. The story about a prank may simply be a means to keep you from protesting. 
+	<<if $flags.playerChoseChastity>>\
+		After a brief pause she continues, @@.therapist;"Maybe we should stop thinking about how you feel and think about how $guardian feels. Maybe this will be insightful for you. Tell me, what was she like when she talked with you in the morning?"@@
+		
+		@@.heroT;"She… she seemed… disappointed, mostly."@@
+		
+		@@.therapist;"There you are."@@ $therapist smiles reassuringly. @@.therapist;"Is it possible that she is not angered about what you did that specific evening, but what you did in general. More so you betrayed her trust by leaving her out of the loop."@@
+		
+		Her words make you uneasy. Submitting to your sexy teacher is one thing, but to involve <<if $kink.incest>>your own mother<<else>>your babysitter<<endif>> seemed unthinkable to you.
+		
+		@@.therapist;"You need to understand that the connection between you two works both ways.\
+		<<switch $player.perversion.guardian>>\
+			<<case 0>>She loves you and just wants the best for you.\
+			<<case 1>>She may be strict, but only to bring out the best of you.\
+			<<case 2>>She may be angry now, but she wants you to be the best you can.\
+			<<case 3>>She may be confused by your new interests, but she will understand.\
+			<<case 4>>She is curious about your interests and is likely to enjoy helping to find your new self.\
+			<<case 5>>Her actions may look extreme, but she is interested in your interests and is eager to support you.\
+			<<case 6>>She loves you. In more intimate ways than you could ever dream of.\
+			<<case 7>>She may be cross with you, but that is only due to your actions.\
+		<</switch>>\
+		I am sure, with $guardian and $teacher working together, you can live up to your potential."
+		
+		The talk leaves you confused. $therapist's theory about $teacher's and $guardian's alliance has got you thinking:\
+	<<else>>\
+		After a brief pause she continues, @@.therapist;"But, back to this //fake// story. If... sorry, what I meant to say was, her story is obviously untrue..."@@ You glare at her, a bit hurt by her slip up. @@.therapist;"Have you thought it could be just a convenient explanation for you? I mean, from what you told me, it is possible $teacher and $guardian just agreed on that story to help you take a step further."@@
+		
+		You really hadn't thought about it like that before. Seeing your skeptical expression, $therapist adds, @@.therapist;"Would I be right if I say that <<if ($player.perversion.teacher gte 4)>>$teacher has more control over you, now you have no male clothes, and that <<endif>>$guardian is really excited about having a personal maid?"@@
+		
+		You can't really argue with that. @@.hero;Huh...@@
+		
+		With an apologetic smile $therapist continues, @@.therapist;"I don't mean there's some kind of sinister plan - their intentions most likely aren't malicious. Perhaps they mutually decided to take more control over your life, as the incident with the video clearly showed your carelessness. The story about a prank may simply be a means to keep you from protesting. 
 
-	"It may seem harsh now, but if it's a sign of how worried they are, it also could be good for you, in a way. At the very least, $guardian and $teacher may ease up on you if you comply with their wishes for a time."@@
+		"It may seem harsh now, but if it's a sign of how worried they are, it also could be good for you, in a way. At the very least, $guardian and $teacher may ease up on you if you comply with their wishes for a time."@@
 
-	You really want to argue, but seeing her disarming half-smile you hesitate and eventually decide to just let it go.
-	
-	The talk leaves you confused. $therapist's theory about $teacher's and $guardian's reasoning has got you thinking:\
+		You really want to argue, but seeing her disarming half-smile you hesitate and eventually decide to just let it go.
+		
+		The talk leaves you confused. $therapist's theory about $teacher's and $guardian's reasoning has got you thinking:\
+	<<endif>>\
 	<<if playerCode.isMind_0()>>\
 		@@.hero;Do I really need supervision? Is it truly their way of worrying about me?@@
 		
