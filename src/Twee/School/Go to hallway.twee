@@ -740,8 +740,7 @@
 <!--		--><<endif>>\
 <!--	--><<endif>>\
 <!--	--><<set _deduction+=rewardMoney.teacherChastity>>\
-<!----><<endif>>\
-		<<if _c and $flags.playerChoseChastity and not $flags.chastityKey and $player.perversion.teacherCooldown eq 0>>\
+<!----><<elseif _c and $flags.playerChoseChastity and not $flags.chastityKey>>\
 			<!-- In the consensual route, teacher already knows about the chastity cage at the first inspection. -->\
 			@@.teacher;<<openQuote>>You chose to wear your chastity device. Nice touch. I will deduct $<<print rewardMoney.teacherChastity>> for it.@@\
 			<<set _deduction+=rewardMoney.teacherChastity>>\
