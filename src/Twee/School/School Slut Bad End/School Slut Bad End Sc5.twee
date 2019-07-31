@@ -19,17 +19,18 @@ $teacher takes her place behind a podium and taps on the microphone to get every
 	<<set _auctionBetters.push($guardian)>>\
 	<<set _auctionColor = "@@.guardian;">>\
 <<endif>>\
-<<if $cheerleaders.progress > 3>>
-	<<if $cheerleaders.bitchAffinity > 0>>
+<<if $cheerleaders.progress > 3>>\
+	<<if $cheerleaders.bitchAffinity > 0>>\
 		<<set _chance = _chance + $cheerleaders.bitchAffinity *5>>\
 		<<set _auctionChance.push(_chance)>>\
 		<<set _auctionBetters.push("Ashley")>>\
+		<<set _auctionColor = "@@.cheerBitch;">>\
 	<<else>>\
 		<!--
 		<<set _chance = _chance+$cheerleaders.progress * 2>>\
 		<<set _auctionChance.push(_chance)>>\
 		<<set _auctionBetters.push("Rachel")>>\
-		-->
+		-->\
 	<<endif>>\
 <<endif>>\
 <!--
@@ -38,11 +39,12 @@ $teacher takes her place behind a podium and taps on the microphone to get every
 	<<set _auctionChance.push(_chance)>>\
 	<<set _auctionBetters.push("Roxy")>>\
 <<endif>>\
--->
+-->\
 <<if not ($flags.friendIsMale) and $player.perversion.friend > 3>>\ 
 	<<set _chance = _chance + 30>>\
 	<<set _auctionChance.push(_chance)>>\
 	<<set _auctionBetters.push($friend)>>\
+	<<set _auctionColor = "@@.friend;">>\
 <<endif>>\
 <<if _chance > 0>>\
 	<<set _winnerNum = random(0, _chance)>>\

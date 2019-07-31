@@ -1,4 +1,4 @@
-::Friend Teacher Tasks Leg Hair Removal p2\
+::Friend Teacher Tasks Leg Hair Removal p2
 \
 <<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 \
@@ -101,13 +101,19 @@ admiring your own, previously-unnoticed curves. The feelings leave you a little 
 
 Confusion rages inside, both at how feminine your legs appear and how attracted you are to them. As you try to calm yourself,  $friend begins to rub warm, slippery and scented oil over your tender skin, \
 and the sensations send you into overdrive. You flop back on the massage table as $friendG.his_her hands glide over your womanly legs, your limbs moving into $friendG.his_her touch of their own accord. \
-You can feel more precum <<if _wearingChastity>>filling your cage and trickling down your <<if *>>crushed penis<<else *>>dripping into your cupped hand<<endif*>><<endif>>.
+You can feel more precum <<if _wearingChastity>>filling your cage and trickling down your crushed penis<<else>>dripping into your cupped hand<<endif>>.
 
 When $friends hands drift between your legs and across your perineum, you realize it is the closest anyone else, other than a doctor or $guardian years ago, has ever come to touching you there. \
 Your need for release is overwhelming and you groan to yourself in frustration.
 
 You are just about to admit to $friend how good it feels feel when $friendG.he_she suddenly steps back, mumbles an apology and scurries off to the hidden room. You lay back in complete frustration. \
 To add to your unhappiness, very distinct noises of $friend resolving $friendG.his_her own pent up frustration echo from the back room.
+<<set _item=itemsC.Waxing>>\
+<<buyItem _item.id>>\
+<<set $body.bodyhair = 1>>\
+<<set $flags.salonHairRemoval to true>>\
+<<set $player.money += 20>>\
+<<set $tasksTeacherBody.legHairRemoval.progress++>>\
 
 <<if ! _wearingChastity or $flags.chastityKey>>\
     [[Masturbate in the room|Friend Teacher Tasks Leg Hair Removal p3]]
