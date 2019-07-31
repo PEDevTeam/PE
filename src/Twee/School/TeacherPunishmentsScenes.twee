@@ -833,7 +833,11 @@
 	<<else>>\
 	<<endif>>\
 <<elseif ($scene eq "walkOfShame")>>\
-	<<include "walkOfShame1">>\
+	<<if $player.punishments.penalty < 10>>\
+		<<include "walkOfShame1">>\
+	<<else>>\
+		<<include "walkOfShame3">>\
+	<<endif>>\
 <<elseif ($scene eq "walkOfShame2")>>\
 	<<include "walkOfShame2">>\
 <<elseif ($scene eq "abandonment")>>\
