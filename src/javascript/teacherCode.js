@@ -287,9 +287,9 @@ window.teacherPunishments = {
 		passage:	'walkOfShame',
 		active:		true,
 		onlyOnce:	false,
-		chance:		20,
+		chance:		10,
 		priority:	0,
-		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
+		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 10] },
 		extraReq:	function () {
 					return true;
 				},
@@ -306,9 +306,9 @@ window.teacherPunishments = {
 		passage:	'abandonment',
 		active:		true,
 		onlyOnce:	false,
-		chance:		20,
+		chance:		10,
 		priority:	0,
-		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
+		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 10] },
 		extraReq:	function () {
 					return true;
 				},

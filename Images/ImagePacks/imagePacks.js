@@ -2381,7 +2381,7 @@ window.imagePacks = {
                                      ]
                        },
                        {
-                           "name":  "Room 455 Diaper",
+                           "name":  "Room 455 diaper",
                            "path":  "Club/Basement/Room_455/Diaper",
                            "files":  [
                                          {
@@ -2392,7 +2392,7 @@ window.imagePacks = {
                                      ]
                        },
                        {
-                           "name":  "Room 455 Peeing",
+                           "name":  "Room 455 peeing",
                            "path":  "Club/Basement/Room_455/Peeing",
                            "files":  [
                                          {
@@ -4712,6 +4712,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "SS Bad End Double Dildo",
+                           "path":  "School/School Slut Bad End/Double Dildo",
+                           "files":  [
+                                         {
+                                             "fileName":  "18523086.gif",
+                                             "height":  266,
+                                             "width":  412
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "SS Bad End Elizabeth",
                            "path":  "School/School Slut Bad End/Elizabeth",
                            "files":  [
@@ -4778,7 +4789,7 @@ window.imagePacks = {
                                      ]
                        },
                        {
-                           "name":  "SS Bad End Ruined",
+                           "name":  "SS Bad End Ruin",
                            "path":  "School/School Slut Bad End/Ruined",
                            "files":  [
                                          {
