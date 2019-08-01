@@ -3,11 +3,15 @@
 @@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
 
 <<if $tasksTeacher.selfieFemaleClothes.status eq 1>>\
-    <<include [[Friend Teacher Tasks Selfie Female Clothes]]>>
-<<elseif $tasksTeacher.selfieHomeMakeup.status eq 1>>\
-    <<include [[Friend Teacher Tasks Selfie Makeup]]>>
-<<elseif $tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress == 0>>\
-    <<include [[Friend Teacher Tasks Wear Stockings]]>>\
-<<elseif $tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0>>\
-	<<include [[Friend Teacher Tasks Leg Hair Removal]]>>\
+    [[Wearing a Dress|Friend Teacher Tasks Selfie Female Clothes]]
 <<endif>>\
+<<if $tasksTeacher.selfieHomeMakeup.status eq 1>>\
+    [[Putting on Makeup|Friend Teacher Tasks Selfie Makeup]]
+<<endif>>\
+<<if $tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress == 0>>\
+    [[Wearing Stockings|Friend Teacher Tasks Wear Stockings]]
+<<endif>>\
+<<if $tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0>>\
+	[[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
+<<endif>>\
+[[Nothing Right Now|Friend Basic Teacher Tasks]]
