@@ -2693,7 +2693,7 @@ window.imagePacks = {
                                              "width":  480
                                          },
                                          {
-                                             "fileName":  "icecream_1.-jpeg",
+                                             "fileName":  "icecream_1.jpeg",
                                              "height":  575,
                                              "width":  500
                                          },
