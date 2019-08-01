@@ -43,7 +43,7 @@
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy bra">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
+			<<elseif (not ($flags.firstBuyStockings || $tasksTeacher.wearStockings.progress > 0)) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyStockings = true>>\
 				<<set $scene = "first buy stockings">>\
@@ -399,7 +399,7 @@
 	<<set $mallLingerieIntro to 1>>\
 <<elseif $scene eq "first buy stockings">>\
     <<set _stockingsAlt to itemF.itemTwee(_item.id).storeCur>>\
-    <<if $wearStockingsTaskTemp>>\
+    <<if $tasksTeacher.wearStockings.status == 1>>\
         @@.hero;Stockings I can wear with a uniform? What’s wrong with socks?@@ you ponder as you peruse the displays of stockings, tights and other items of hosiery.
     <<else>>\
         @@.hero;Stockings, and so many different types and colours. Perhaps I could...@@
@@ -557,6 +557,9 @@
     @@.statUp;You bought your first stockings@@
 
     [[Return to Mall|Go to the mall]]
+	<<if $tasksTeacher.wearStockings.progress == 0>>\
+		<<set $tasksTeacher.wearStockings.progress++>>\
+	<<endif>>\
     <<set $scene = "general">>\
     <<set $player.bought="">>\
     <<set $mallLingerieIntro to 1>>\
