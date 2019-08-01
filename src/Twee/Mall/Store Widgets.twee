@@ -196,7 +196,7 @@ The mall is closed now.
 	[[Ask about chastity devices|Task Trial chastity]]
 <<elseif $tasksTeacher.trialChastity.status eq 1>>\
 	[[Ask about the market research opportunity|Task Trial chastity]]
-<<elseif $tasksTeacher.trialChastity.progress eq 4>>\
+<<elseif $tasksTeacher.trialChastity.progress eq 4 and not $flags.chastityKey>>\
 	[[Return to finish the market research|Task Trial chastity]]
 <<endif>>\
 <<if ($tasksTeacher.penaltyTrials.status eq 1) and _c>>\
