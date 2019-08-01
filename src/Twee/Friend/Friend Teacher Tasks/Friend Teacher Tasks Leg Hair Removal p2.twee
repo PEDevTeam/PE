@@ -16,12 +16,12 @@ panties and try to tap it dry with your fingers, but you only succeed in ripping
     @@.friend;"Is it um, comfortable?”@@ $friend asks, half-reaching out to touch it before withdrawing $friendG.his_her hand.
 
     @@.heroT;"Not really. But like I guess I am getting used to it."@@ you mumble, surprised at your own admission.
-    \
-    <<if ! $flags.chastityKey>>*
+
+    <<if $flags.chastityKey>>\
         @@.friend; "Wait, is that a lock? Where’s the key?”@@
 
         @@.heroT;"Oh, I left it safe at home,"@@ you lie smoothly.
-        \
+
         <<if $friendG.gender eq "T">>\
             @@.friend;"Hmm. Perhaps…”@@ $friend begins, then grumbles something unintelligible under his breath. @@.friend;"We’d better get on.”@@ $friend hurriedly starts to prepare more wax, \
             although his gaze seems to surreptitiously return to your cage every so often.
@@ -114,7 +114,7 @@ To add to your unhappiness, very distinct noises of $friend resolving $friendG.h
 <<set $player.money += 20>>\
 <<set $tasksTeacherBody.legHairRemoval.progress++>>\
 
-<<if ! _wearingChastity or $flags.chastityKey>>\
+<<if not _wearingChastity or not $flags.chastityKey>>\
     [[Masturbate in the room|Friend Teacher Tasks Leg Hair Removal p3]]
 <<endif>>\
-[[Go home|Go to bedroom[$time.addMinutes(30)]]\
+[[Go home|Go to bedroom][$time.addMinutes(30)]]\
