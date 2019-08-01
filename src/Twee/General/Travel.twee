@@ -102,7 +102,7 @@
 			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.club.id)>>\
-			<<if window.timeCode.isClubOpen() && window.timeCode.isFriday() && $flags.slutBadEnd > 0 && $player.perversion.teacher == 10>>\
+			<<if window.timeCode.isClubOpen() && window.timeCode.isFriday() && $flags.slutBadEnd == 1 && $player.perversion.teacher == 10>>\
 				<<set _description = "Go to the club for your punishment">>\
 				<<set _destination = "School Slut Bad End Sc1">>\				
 			<<else>>\
@@ -115,7 +115,7 @@
 			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.spa.id)>>\
-			<<if not (window.timeCode.isFriday() && window.timeCode.isClubOpen() && $flags.slutGoodEnd > 0 && $player.perversion.teacher == 10)>>\
+			<<if not (window.timeCode.isFriday() && window.timeCode.isClubOpen() && $flags.slutGoodEnd == 1 && $player.perversion.teacher == 10)>>\
 				<<continue>>\
 			<<endif>>\
 		<<endif>>\

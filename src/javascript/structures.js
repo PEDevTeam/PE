@@ -1299,6 +1299,7 @@ window.flagsList={
 	slutBadEnd: 0,
 	teacherSawPanties: false,
 	friendBraTask: false,
+	ashleyTrained: false,
 },
 
 window.kinkList={
