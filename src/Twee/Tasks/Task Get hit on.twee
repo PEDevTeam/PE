@@ -36,14 +36,14 @@ You walk up to some random guy and ask him to pretend to hit on you.
 <<elseif ($tasksTeacher.getHitOn.status eq 5)>>\
 You find some random guy and ask him to pretend to hit on you.
 
-The guy tells you that he'll help you for $<<print 10>>.
+The guy tells you that he’ll help you for $<<print 10>>.
 
 	<<if $player.money gte 10>>\
 		[[Pay up|Task Get hit on][$tasksTeacher.getHitOn.status=10; $player.money-=10]]
 		[[Look for someone else|Task Get hit on][$tasksTeacher.getHitOn.status=(4+random(2))]]
 		[[Maybe another time|Go to the mall][$tasksTeacher.getHitOn.status=1]]
 	<<else>>\
-		You don't have enough money.
+		You don’t have enough money.
 	
 		[[Look for someone else|Task Get hit on][$tasksTeacher.getHitOn.status=(4+random(2))]]
 		[[Return|Go to the mall][$tasksTeacher.getHitOn.status=1]]

@@ -13,10 +13,10 @@ You sit down in a multi-player rally car racing game.
 	<<set _crv to 0>>\
 <<elseif ((_sl gte 18) and (_sl lte 19)) or ((_sl gte 28) and (_sl lte 29))>>\
 	<<set _crv to (1+random(1))>>\
-	Lured by the visage of a whorish girl, challengers don't make you wait. \
+	Lured by the visage of a whorish girl, challengers don’t make you wait. \
 <<elseif ((_sl gte 16) and (_sl lte 19)) or ((_sl gte 25) and (_sl lte 29))>>\
 	<<set _crv to (1+random(1))>>\
-	Lured by the visage of a sexy girl, challengers don't make you wait. \
+	Lured by the visage of a sexy girl, challengers don’t make you wait. \
 <<endif>>\
 <<if _crv eq 0>>\
 	Nobody else seems to be interested in challenging you, so you play by yourself and have some fun playing against the computer for a few minutes.
@@ -32,7 +32,7 @@ You sit down in a multi-player rally car racing game.
 	An older guy comes up and asks to play against you.
 	
 <<else>>\
-	A group of three bigger boys come over, and they ask if you're up for a challenge race.
+	A group of three bigger boys come over, and they ask if you’re up for a challenge race.
 	
 <<endif>>\
 <<if _crv gt 0>>\
@@ -54,26 +54,26 @@ You sit down in a multi-player rally car racing game.
 		<<if $player.blowjobsToday lt $player.maxBlowjobs>>\
 			<<if _crv eq 1>>\
 				<<if _result == "lose">>\
-					[[Yep, I'm game|Mall blowjob single]]
+					[[Yep, I’m game|Mall blowjob single]]
 				<<elseif _result == "win">>\
-					[[Yep, I'm game|Car racing wager single - win]]
+					[[Yep, I’m game|Car racing wager single - win]]
 				<<else>>\
 					<<if ($player.gameSkill + _roll lte 75)>>\
-						[[Yep, I'm game|Mall blowjob single]]
+						[[Yep, I’m game|Mall blowjob single]]
 					<<elseif ($player.gameSkill + _roll gt 75)>>\
-						[[Yep, I'm game|Car racing wager single - win]]
+						[[Yep, I’m game|Car racing wager single - win]]
 					<<endif>>\
 				<<endif>>\
 			<<else>>\
 				<<if _result == "lose">>\
-					[[Yep, I'm game|Mall blowjob group]]
+					[[Yep, I’m game|Mall blowjob group]]
 				<<elseif _result == "win">>\
-					[[Yep, I'm game|Car racing wager group - win]]
+					[[Yep, I’m game|Car racing wager group - win]]
 				<<else>>\
 					<<if ($player.gameSkill + _roll lte 150)>>\
-						[[Yep, I'm game|Mall blowjob group]]
+						[[Yep, I’m game|Mall blowjob group]]
 					<<elseif ($player.gameSkill + _roll gt 150)>>\
-						[[Yep, I'm game|Car racing wager group - win]]
+						[[Yep, I’m game|Car racing wager group - win]]
 					<<endif>>\
 				<<endif>>\
 			<<endif>>\
@@ -81,31 +81,31 @@ You sit down in a multi-player rally car racing game.
 	<<else>>\
 		<<if _crv eq 1>>\
 			<<if _result == "lose">>\
-				[[Yep, I'm game|Car racing wager single - lose]]
+				[[Yep, I’m game|Car racing wager single - lose]]
 			<<elseif _result == "win">>\
-				[[Yep, I'm game|Car racing wager single - win]]
+				[[Yep, I’m game|Car racing wager single - win]]
 			<<else>>\
 				<<if ($player.gameSkill + _roll lte 75)>>\
-					[[Yep, I'm game|Car racing wager single - lose]]
+					[[Yep, I’m game|Car racing wager single - lose]]
 				<<elseif ($player.gameSkill + _roll gt 75)>>\
-					[[Yep, I'm game|Car racing wager single - win]]
+					[[Yep, I’m game|Car racing wager single - win]]
 				<<endif>>\
 			<<endif>>\
 		<<else>>\
 			<<if _result == "lose">>\
-				[[Yep, I'm game|Car racing wager group - lose]]
+				[[Yep, I’m game|Car racing wager group - lose]]
 			<<elseif _result == "win">>\
-				[[Yep, I'm game|Car racing wager group - win]]
+				[[Yep, I’m game|Car racing wager group - win]]
 			<<else>>\
 				<<if ($player.gameSkill + _roll lte 150)>>\
-					[[Yep, I'm game|Car racing wager group - lose]]
+					[[Yep, I’m game|Car racing wager group - lose]]
 				<<elseif ($player.gameSkill + _roll gt 150)>>\
-					[[Yep, I'm game|Car racing wager group - win]]
+					[[Yep, I’m game|Car racing wager group - win]]
 				<<endif>>\
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	[[Nah, I'm just here for fun|Car racing fun]]
+	[[Nah, I’m just here for fun|Car racing fun]]
 <<endif>>\
 
 

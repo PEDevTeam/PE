@@ -15,7 +15,7 @@
 <<if ($body.penisShrink eq 1)>>\
 	<<if (not $avatar.active)>>\
 		<<set _item=itemsC.PenisShrinking>>\
-		<<set _word="@@.info;small penis@@">>\
+		<<set _word=”@@.info;small penis@@">>\
 			<<if _item.image and $showimages>>\
 				<<set _penis to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _penis to _penis + _word>>\
@@ -30,17 +30,17 @@
 <<if ($body.hairstyle eq 1)>>\
 <<set _item=itemsC.HairShort>>\
 	<<if $body.hairColor eq 0>>\
-		<<set _word="@@.info;short black hair@@">>\
+		<<set _word=”@@.info;short black hair@@">>\
 	<<elseif $body.hairColor eq 1>>\
-		<<set _word="@@.info;short brown hair@@">>\
+		<<set _word=”@@.info;short brown hair@@">>\
 	<<elseif $body.hairColor eq 2>>\
-		<<set _word="@@.info;short red hair@@">>\
+		<<set _word=”@@.info;short red hair@@">>\
 	<<elseif $body.hairColor eq 3>>\
-		<<set _word="@@.info;short blonde hair@@">>\
+		<<set _word=”@@.info;short blonde hair@@">>\
 	<<elseif $body.hairColor eq 4>>\
-		<<set _word="@@.info;short white hair@@">>\
+		<<set _word=”@@.info;short white hair@@">>\
 	<<else>>\
-		<<set _word="@@.info;short pink hair@@">>\
+		<<set _word=”@@.info;short pink hair@@">>\
 	<<endif>>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + window.itemF.image(_item) + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
@@ -52,7 +52,7 @@
 	&#9702; You have <<print _in>>, that looks androgynous.\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		It is still more feminine than you're comfortable with, but it's manageable for now.
+		It is still more feminine than you’re comfortable with, but it’s manageable for now.
 	<<case 1>>\
 		It gives you this 'cute, pixie-like' look.
 	<<default>>\
@@ -62,17 +62,17 @@
 <<elseif ($body.hairstyle eq 2)>>\
 <<set _item=itemsC.HairMedium>>\
 	<<if $body.hairColor eq 0>>\
-		<<set _word="@@.info;shoulder-length, black hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, black hair,@@">>\
 	<<elseif $body.hairColor eq 1>>\
-		<<set _word="@@.info;shoulder-length, brown hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, brown hair,@@">>\
 	<<elseif $body.hairColor eq 2>>\
-		<<set _word="@@.info;shoulder-length, red hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, red hair,@@">>\
 	<<elseif $body.hairColor eq 3>>\
-		<<set _word="@@.info;shoulder-length, blonde hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, blonde hair,@@">>\
 	<<elseif $body.hairColor eq 4>>\
-		<<set _word="@@.info;shoulder-length, white hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, white hair,@@">>\
 	<<else>>\
-		<<set _word="@@.info;shoulder-length, pink hair,@@">>\
+		<<set _word=”@@.info;shoulder-length, pink hair,@@">>\
 	<<endif>>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + window.itemF.image(_item) + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
@@ -84,9 +84,9 @@
 	&#9702; You have <<print _in>> that gives you a very feminine look.\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		You try to fool yourself into thinking it gives you a cool, edgy style... but nope, it's still a girl's haircut.
+		You try to fool yourself into thinking it gives you a cool, edgy style... but nope, it’s still a girl’s haircut.
 	<<case 1>>\
-		You can't help but admit it looks nice.
+		You can’t help but admit it looks nice.
 	<<default>>\
 		You love how it looks.
 	<</switch>>\
@@ -94,17 +94,17 @@
 <<elseif ($body.hairstyle eq 3)>>\
 <<set _item=itemsC.HairLong>>\
 	<<if $body.hairColor eq 0>>\
-		<<set _word="@@.info;long, wavy black hair@@">>\
+		<<set _word=”@@.info;long, wavy black hair@@">>\
 	<<elseif $body.hairColor eq 1>>\
-		<<set _word="@@.info;long, wavy brown hair@@">>\
+		<<set _word=”@@.info;long, wavy brown hair@@">>\
 	<<elseif $body.hairColor eq 2>>\
-		<<set _word="@@.info;long, wavy red hair@@">>\
+		<<set _word=”@@.info;long, wavy red hair@@">>\
 	<<elseif $body.hairColor eq 3>>\
-		<<set _word="@@.info;long, wavy blonde hair@@">>\
+		<<set _word=”@@.info;long, wavy blonde hair@@">>\
 	<<elseif $body.hairColor eq 4>>\
-		<<set _word="@@.info;long, wavy white hair@@">>\
+		<<set _word=”@@.info;long, wavy white hair@@">>\
 	<<else>>\
-		<<set _word="@@.info;long, wavy pink hair@@">>\
+		<<set _word=”@@.info;long, wavy pink hair@@">>\
 	<<endif>>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + window.itemF.image(_item) + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
@@ -118,14 +118,14 @@
 	<<case 0>>\
 		It is so frustrating, the way it gets in your face. It gets in your eyes and is just inconvenient in general.
 	<<case 1>>\
-		You can't stop playing with your hair. It's still a new thing for you, having it so long.
+		You can’t stop playing with your hair. It’s still a new thing for you, having it so long.
 	<<default>>\
 		You love how your hair is so soft. Almost instinctively, you run your hands through your hair, and the gesture is so damn sexy.
 	<</switch>>\
 \
 <<elseif ($body.hairstyle eq 4)>>\
 <<set _item=itemsC.HairPigtails>>\
-<<set _word="@@.info;two frilly pigtails@@">>\
+<<set _word=”@@.info;two frilly pigtails@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + window.itemF.image(_item) + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -140,12 +140,12 @@
 	<<case 1>>\
 		You catch yourself toying with the end of one of your pigtails, fluttering your eyes at your reflection in the mirror.
 	<<default>>\
-		It's just like a hairstyle you'd see on a slutty schoolgirl in a porno. You get hot just thinking about it.
+		It’s just like a hairstyle you’d see on a slutty schoolgirl in a porno. You get hot just thinking about it.
 	<</switch>>\
 \
 <<elseif ($body.hairstyle eq 5)>>\
 <<set _item=itemsC.HairCurly>>\
-<<set _word="@@.info;dolly ringlets@@">>\
+<<set _word=”@@.info;dolly ringlets@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + window.itemF.image(_item) + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -158,7 +158,7 @@
 	<<case 0>>\
 		You hate how primped and effeminate it makes you look.
 	<<case 1>>\
-		It is like you're a spoiled, pampered sissy, which you aren't... you're not spoiled or pampered one bit.
+		It is like you’re a spoiled, pampered sissy, which you aren’t... you’re not spoiled or pampered one bit.
 	<<default>>\
 		It makes you feel like a sexy, little dolly. Does that mean you will grow up to be a sex doll? You lose yourself for a moment in the fantasy... tee hee.
 	<</switch>>\
@@ -175,14 +175,14 @@
 	<<case 1>>\
 		You love your new face.
 	<<default>>\
-		You can't stop making suggestive expressions when you look in mirror.
+		You can’t stop making suggestive expressions when you look in mirror.
 	<</switch>>\
 \
 <<elseif ($body.face eq 1)>>\
 	&#9702; Your face is soft and feminine.\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		You can't help but get aroused by your own face.
+		You can’t help but get aroused by your own face.
 	<<case 1>>\
 		It feels nice and natural.
 	<<default>>\
@@ -195,7 +195,7 @@
 	<<case 0>>\
 		This has never helped you get a date before.
 	<<case 1>>\
-		For some reason, this doesn't bother you as much lately as it used to.
+		For some reason, this doesn’t bother you as much lately as it used to.
 	<<default>>\
 		You frown a bit, thinking it looks a bit too rough around the edges.
 	<</switch>>\
@@ -203,7 +203,7 @@
 \
 <<if ($body.makeup eq 1)>>\
 <<set _item=itemsC.SubtleMakeup>>\
-<<set _word="@@.info;makeup@@">>\
+<<set _word=”@@.info;makeup@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -212,16 +212,16 @@
 			<<set _in to _word>>\
 		<<endif>>\
 	<<if $body.permMakeup gte 1>>\
-		&#9702; Subtle <<print _in>> is actually tattooed on your face. You'll always look a bit more feminine and flashy.
+		&#9702; Subtle <<print _in>> is actually tattooed on your face. You’ll always look a bit more feminine and flashy.
 	<<elseif $body.semiMakeup gte 1>>\
-		&#9702; Subtle <<print _in>> is applied as semi-permanent tattoo on your face. You'll look look a bit more feminine and flashy until you get the reversal treatment.
+		&#9702; Subtle <<print _in>> is applied as semi-permanent tattoo on your face. You’ll look look a bit more feminine and flashy until you get the reversal treatment.
 	<<else>>\
 		&#9702; Subtly applied <<print _in>> makes your face a bit more feminine and flashy.
 	<<endif>>\
 \
 <<elseif ($body.makeup eq 2)>>\
 <<set _item=itemsC.NormalMakeup>>\
-<<set _word="@@.info;makeup@@">>\
+<<set _word=”@@.info;makeup@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -230,21 +230,21 @@
 			<<set _in to _word>>\
 		<<endif>>\
 	<<if $body.permMakeup gte 2>>\
-		&#9702; Professional <<print _in>> is actually tattooed on your face. You'll always look like a sexy girl ready for a hot date.
+		&#9702; Professional <<print _in>> is actually tattooed on your face. You’ll always look like a sexy girl ready for a hot date.
 	<<elseif $body.semiMakeup gte 2>>\
-		&#9702; Professional <<print _in>> is applied as semi-permanent tattoo on your face. You'll look like a sexy girl ready for a hot date until you get the reversal treatment.
+		&#9702; Professional <<print _in>> is applied as semi-permanent tattoo on your face. You’ll look like a sexy girl ready for a hot date until you get the reversal treatment.
 	<<else>>\
 		&#9702; Perfectly applied <<print _in>> makes your face look very feminine and sexy.\
 		<<switch playerCode.isMind()>>\
-		<<case 0>>It's beautiful. @@.hero; ...on someone else.@@
-		<<case 1>>You just can't believe that makeup can make you look this good.
-		<<default>>You actually envy Nancy's talent. You look fantastic.
+		<<case 0>>It’s beautiful. @@.hero; ...on someone else.@@
+		<<case 1>>You just can’t believe that makeup can make you look this good.
+		<<default>>You actually envy Nancy’s talent. You look fantastic.
 		<</switch>>\
 	<<endif>>\
 \
 <<elseif ($body.makeup eq 3)>>\
 <<set _item=itemsC.BimboMakeup>>\
-<<set _word="@@.info;makeup@@">>\
+<<set _word=”@@.info;makeup@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -253,16 +253,16 @@
 			<<set _in to _word>>\
 		<<endif>>\
 	<<if $body.permMakeup gte 3>>\
-		&#9702; Colorful <<print _in>> is actually tattooed on your face. You'll look like a ditzy bimbo for the rest of your life.
+		&#9702; Colorful <<print _in>> is actually tattooed on your face. You’ll look like a ditzy bimbo for the rest of your life.
 	<<elseif $body.semiMakeup gte 3>>\
-		&#9702; Colorful <<print _in>> is applied as semi-permanent tattoo on your face. You'll look like a ditzy bimbo until you get the reversal treatment.
+		&#9702; Colorful <<print _in>> is applied as semi-permanent tattoo on your face. You’ll look like a ditzy bimbo until you get the reversal treatment.
 	<<else>>\
 		&#9702; Colorful <<print _in>> on your face makes you look like a stereotypical bimbo.
 	<<endif>>\
 \
 <<elseif ($body.makeup eq 4)>>\
 <<set _item=itemsC.HeavyMakeup>>\
-<<set _word="@@.info;makeup@@">>\
+<<set _word=”@@.info;makeup@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -271,9 +271,9 @@
 			<<set _in to _word>>\
 		<<endif>>\
 	<<if $body.permMakeup gte 4>>\
-		&#9702; Thick, overdone <<print _in>> is actually tattooed on your face. You'll look like a street whore for the rest of your life.
+		&#9702; Thick, overdone <<print _in>> is actually tattooed on your face. You’ll look like a street whore for the rest of your life.
 	<<elseif $body.semiMakeup gte 4>>\
-		&#9702; Thick, overdone <<print _in>> is applied as semi-permanent tattoo on your face. You'll look like a street whore until you get the reversal treatment.
+		&#9702; Thick, overdone <<print _in>> is applied as semi-permanent tattoo on your face. You’ll look like a street whore until you get the reversal treatment.
 	<<else>>\
 		&#9702; Thick, overdone <<print _in>> on your face makes you look like a street whore out on the prowl.
 	<<endif>>\
@@ -294,7 +294,7 @@
 \
 <<if ($body.lips eq 2)>>\
 <<set _item=itemsC.LipsEnhancingXL>>\
-<<set _word="@@.info;cocksucking lips@@">>\
+<<set _word=”@@.info;cocksucking lips@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -307,18 +307,18 @@
 	<<case 0>>\
 		turn your face into a sex object. No one will take you seriously with lips like these.\
 		<<if playerCode.isNotHorny()>>\
-			You look like you're pouting all the time, no matter what you do.
+			You look like you’re pouting all the time, no matter what you do.
 		<<elseif playerCode.isHalfHorny()>>\
-			Despite your efforts, you can't close your mouth all the way. It stays open in an inviting pout no matter what.
+			Despite your efforts, you can’t close your mouth all the way. It stays open in an inviting pout no matter what.
 		<<else>>\
-			Your mouth pouts open invitingly, like it's almost made for a cock.
+			Your mouth pouts open invitingly, like it’s almost made for a cock.
 		<<endif>>\
 	<<case 1>>\
 		turn your face in a sex object, which sends quivers of excitement and humiliation all through your body.\
 		<<if playerCode.isNotHorny()>>\
-			You look like you're pouting all the time, and it makes you look silly and cheap.
+			You look like you’re pouting all the time, and it makes you look silly and cheap.
 		<<elseif playerCode.isHalfHorny()>>\
-			Your mouth stays half-open in an inviting pout, like it's just waiting to be used.
+			Your mouth stays half-open in an inviting pout, like it’s just waiting to be used.
 		<<else>>\
 			You lick your lips, enjoying how nice it feels to have something thick, slick and warm sliding between your lips...
 		<<endif>>\
@@ -335,7 +335,7 @@
 \
 <<elseif ($body.lips eq 1)>>\
 <<set _item=itemsC.LipsEnhancing>>\
-<<set _word="@@.info;plump lips@@">>\
+<<set _word=”@@.info;plump lips@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -355,7 +355,7 @@
 			A slutty inviting smile forms on your face before you freeze, realizing what you are doing.
 		<<endif>>\
 	<<case 1>>\
-		look so sexy. While it's a bit embarrassing to have such nice lips, you're not really against the idea.\
+		look so sexy. While it’s a bit embarrassing to have such nice lips, you’re not really against the idea.\
 		<<if playerCode.isNotHorny()>>\
 			Your lips pout in an inviting smile before you realize what you are doing.
 		<<elseif playerCode.isHalfHorny()>>\
@@ -370,7 +370,7 @@
 		<<elseif playerCode.isHalfHorny()>>\
 			Your mind drifts to porn, and all those sluts who look so happy giving blowjobs.
 		<<else>>\
-			You'd like think about kissing someone with these lips, but only images of wrapping them around one fat cock after another come to mind.
+			You’d like think about kissing someone with these lips, but only images of wrapping them around one fat cock after another come to mind.
 		<<endif>>\
 	<</switch>>\
 <<else>>\
@@ -398,14 +398,14 @@
 		<<elseif playerCode.isHalfHorny()>>\
 			are a bit disappointing, really. They form a wistful pout as you think about your last dream.
 		<<else>>\
-			are disappointing. In your fantasies, girls always have plump lips. You can't help envy them when you think about how you don't measure up.
+			are disappointing. In your fantasies, girls always have plump lips. You can’t help envy them when you think about how you don’t measure up.
 		<<endif>>\
 	<</switch>>\
 <<endif>>\
 \
 <<if playerCode.owns(itemsC.tattooHeart)>>\
 <<set _item=itemsC.tattooHeart>>\
-<<set _word="@@.info;pink heart@@">>\
+<<set _word=”@@.info;pink heart@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -418,7 +418,7 @@
 \
 <<if playerCode.owns(itemsC.beautyMark)>>\
 <<set _item=itemsC.beautyMark>>\
-<<set _word="@@.info;beauty mark@@">>\
+<<set _word=”@@.info;beauty mark@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -431,7 +431,7 @@
 \
 <<if playerCode.owns(itemsC.PiercingLips)>>\
 <<set _item=itemsC.PiercingLips>>\
-<<set _word="@@.info;golden ring@@">>\
+<<set _word=”@@.info;golden ring@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -444,7 +444,7 @@
 		<<case 0>>\
 		 you hoped it would make you look edgy and tough, but it just looks girly and a little slutty.
 		<<case 1>>\
-		 it looks cool, even if it's a little bit slutty.
+		 it looks cool, even if it’s a little bit slutty.
 		<<default>>\
 		 it makes you look nice and slutty when you lick your lips.
 		<</switch>>\
@@ -452,7 +452,7 @@
 \
 <<if playerCode.owns(itemsC.PiercingTongue)>>\
 <<set _item=itemsC.PiercingTongue>>\
-<<set _word="@@.info;silver stud@@">>\
+<<set _word=”@@.info;silver stud@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -463,9 +463,9 @@
 	&#9702; A small <<print _in>> pierces your tongue, giving you a cute, subtle lisp when you speak.\
 		<<switch playerCode.isMind()>>\
 		<<case 0>>\
-		It's so embarrassing.
+		It’s so embarrassing.
 		<<case 1>>\
-		It's a little risqué.
+		It’s a little risqué.
 		<<default>>\
 		... You feel so sexy.
 		<</switch>>\
@@ -473,7 +473,7 @@
 \
 <<if ($body.nose eq 1)>>\
 <<set _item=itemsC.noseClassic>>\
-<<set _word="@@.info;classic straight nose,@@">>\
+<<set _word=”@@.info;classic straight nose,@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -488,12 +488,12 @@
 	<<case 1>>\
 		which gives your face a lovely look, for a girl.
 	<<default>>\
-		and it's gorgeous.
+		and it’s gorgeous.
 	<</switch>>\
 \
 <<elseif ($body.nose eq 2)>>\
 <<set _item=itemsC.noseButton>>\
-<<set _word="@@.info;cute button nose@@">>\
+<<set _word=”@@.info;cute button nose@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -504,16 +504,16 @@
 	&#9702; You have a small, <<print _in>>\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		It's kind of //too// cute.
+		It’s kind of //too// cute.
 	<<case 1>>\
 		It looks pretty... for a girl.
 	<<default>>\
-		It's adorable.
+		It’s adorable.
 	<</switch>>\
 \
 <<elseif ($body.nose eq 3)>>\
 	<<set _item=itemsC.nosePiggy>>\
-	<<set _word="@@.info;wide upturned nose@@">>\
+	<<set _word=”@@.info;wide upturned nose@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -527,7 +527,7 @@
 	Together with your heavy makeup and fat lips... you look downright cock-hungry, and ready to be used. Something in your look works on a primal level, preventing people from thinking of you as a person, and bringing out their basest desires at your expense.\
 		<<switch playerCode.isMind()>>\
 		<<case 0>>\
-			You can't believe you allowed someone to do this to you! Any trace of your dignity is gone. Only a fucktoy is left,\
+			You can’t believe you allowed someone to do this to you! Any trace of your dignity is gone. Only a fucktoy is left,\
 				<<if playerCode.isNotHorny()>>\
 					and there is no one to blame but yourself.
 				<<elseif playerCode.isHalfHorny()>>\
@@ -537,9 +537,9 @@
 			<<endif>>\
 			You briefly wonder if you could get used to this, but that stray thought horrifies you.
 		<<case 1>>\
-			You can't believe that you allowed someone to do this to you. In the mirror, all you see is the face of a total fucktoy.\
+			You can’t believe that you allowed someone to do this to you. In the mirror, all you see is the face of a total fucktoy.\
 			<<if playerCode.isNotHorny()>>\
-				You can't stop looking, mesmerized in macabre fascination by what you have become.
+				You can’t stop looking, mesmerized in macabre fascination by what you have become.
 				<<elseif playerCode.isHalfHorny()>>\
 				You feel betrayed and ashamed as your own whorish image makes you horny.
 				<<else>>\
@@ -550,13 +550,13 @@
 			<<if playerCode.isNotHorny()>>\
 				Damn, you wish you could take it back - this is way over the top. Still, you admit, it does have a unique allure.
 			<<elseif playerCode.isHalfHorny()>>\
-				Shame burns in you, but you can't help but get aroused by your own whorish image. Maybe that means you deserve to look like this.
+				Shame burns in you, but you can’t help but get aroused by your own whorish image. Maybe that means you deserve to look like this.
 			<<else>>\
-				You know that when you calm down a bit you'll hate it, but right now you can't help but admit you enjoy looking this way.
+				You know that when you calm down a bit you’ll hate it, but right now you can’t help but admit you enjoy looking this way.
 			<<endif>>\
 		<</switch>>\
 		<<if ($body.permMakeup gte 4) and ($body.lips eq 2) and ($body.permLips gte 2)>>\
-			With the permanent body modification and tattooing you've had, you'll look like this forever. Everyone will treat you like a worthless whore, and make sure you know that you're beneath them in every way.
+			With the permanent body modification and tattooing you’ve had, you’ll look like this forever. Everyone will treat you like a worthless whore, and make sure you know that you’re beneath them in every way.
 		<<endif>>\
 	<<else>>\
 	
@@ -566,7 +566,7 @@
 \
 <<if playerCode.owns(itemsC.PiercingNose)>>\
 <<set _item=itemsC.PiercingNose>>\
-<<set _word="@@.info;small piercing@@">>\
+<<set _word=”@@.info;small piercing@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -580,34 +580,34 @@
 <!--</PCface>-->\
 \
 <<if playerCode.isWearing(itemsC.hairband)>>\
-	&#9702; You're wearing a hairband.
+	&#9702; You’re wearing a hairband.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.hairbow)>>\
-	&#9702; You're wearing a cute hairbow.
+	&#9702; You’re wearing a cute hairbow.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.choker)>>\
-	&#9702; You're wearing a choker.
+	&#9702; You’re wearing a choker.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.collar)>>\
-	&#9702; You're wearing a collar.
+	&#9702; You’re wearing a collar.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.collarSissy)>>\
-	&#9702; You're wearing an extremely humiliating collar.
+	&#9702; You’re wearing an extremely humiliating collar.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.collarBitch)>>\
-	&#9702; You're wearing a collar with engraving spelling 'BITCH'.
+	&#9702; You’re wearing a collar with engraving spelling 'BITCH'.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.collarSteel)>>\
-	&#9702; You're wearing a steel collar.
+	&#9702; You’re wearing a steel collar.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.sunglasses)>>\
-	&#9702; You're wearing sunglasses.
+	&#9702; You’re wearing sunglasses.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.glasses)>>\
-	&#9702; You're wearing decorative glasses, which makes you look a bit nerdy.
+	&#9702; You’re wearing decorative glasses, which makes you look a bit nerdy.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.blindfold)>>\
-	&#9702; You're wearing a blindfold.
+	&#9702; You’re wearing a blindfold.
 <<endif>>\
 <<if playerCode.isWearing(itemsC.gag)>>\
 	&#9702; You have a gag in your mouth.
@@ -615,7 +615,7 @@
 \
 <!--<skin>-->\
 <<if ($body.bodyhair eq 1)>>\
-	<<set _word="@@.info;skin@@">>\
+	<<set _word=”@@.info;skin@@">>\
 	<<if (not $avatar.active)>>\
 		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/general/smooth_skin.gif\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
@@ -634,7 +634,7 @@
 	<</switch>>\
 \
 <<elseif ($body.bodyhair eq 2)>>\
-	<<set _word="@@.info;legs@@">>\
+	<<set _word=”@@.info;legs@@">>\
 	<<if (not $avatar.active)>>\
 		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/general/legs_waxed.jpg\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
@@ -653,7 +653,7 @@
 	<</switch>>\
 \
 <<elseif ($body.bodyhair eq 3)>>\
-	<<set _word="@@.info;skin@@">>\
+	<<set _word=”@@.info;skin@@">>\
 	<<if (not $avatar.active)>>\
 		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/general/smooth_skin.gif\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
@@ -666,9 +666,9 @@
 	<<case 0>>\
 		You shiver at nearly every touch against your skin, now so much more sensitive. You have no choice but to get used to the feeling of vulnerability that it creates in you.
 	<<case 1>>\
-		Your body is much more sensitive since the treatment, and you can't help notice how different it feels to just be in your own skin now.
+		Your body is much more sensitive since the treatment, and you can’t help notice how different it feels to just be in your own skin now.
 	<<default>>\
-		You smile as you imagine someone's hands on your bare, sensitive skin.
+		You smile as you imagine someone’s hands on your bare, sensitive skin.
 	<</switch>>\
 \
 <<endif>>\
@@ -713,14 +713,14 @@
 			<<case 1>>\
 				It feels slightly uncomfortable for some reason.
 			<<default>>\
-				It doesn't feel right anymore, but you can't pinpoint why. How odd.
+				It doesn’t feel right anymore, but you can’t pinpoint why. How odd.
 			<</switch>>\
 		<<endif>>\
 \
 	<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 		&#9702; You wear the standard Pepperton Academy school uniform - a white shirt, a blazer jacket with the school crest, a tie and slacks.\
 		<<if ($body.boobs eq 4)>>\
-		It's barely holding in your huge breasts.\
+		It’s barely holding in your huge breasts.\
 		<<elseif ($body.boobs eq 3)>>\
 		You look like a crossdressing girl with her uniform tightly constraining her breasts.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -730,17 +730,17 @@
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-				It's a little too institutional to blend in anywhere but school.
+				It’s a little too institutional to blend in anywhere but school.
 			<<case 1>>\
-				It's slightly uncomfortable for some reason.
+				It’s slightly uncomfortable for some reason.
 			<<default>>\
-				Wearing it just doesn't feel right anymore, but you can't put your finger on the reason.
+				Wearing it just doesn’t feel right anymore, but you can’t put your finger on the reason.
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
-		&#9702; You wear a standard Pepperton Academy girl's uniform - a school crest blazer jacket with a white blouse and a tie, and a short, tartan skirt.\
+		&#9702; You wear a standard Pepperton Academy girl’s uniform - a school crest blazer jacket with a white blouse and a tie, and a short, tartan skirt.\
 		<<if ($body.boobs eq 4)>>\
-			It's barely holding in your huge breasts.\
+			It’s barely holding in your huge breasts.\
 		<<elseif ($body.boobs eq 3)>>\
 			It perfectly fits your sexy figure, tightly constraining your breasts.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -752,17 +752,17 @@
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-				It fits you pretty well for a girl's dress. You don't know how to feel about that.
+				It fits you pretty well for a girl’s dress. You don’t know how to feel about that.
 			<<case 1>>\
-				You're glad you at least look good in it, if you have to wear it.
+				You’re glad you at least look good in it, if you have to wear it.
 			<<default>>\
-				You actually feel comfortable wearing it. It's so much better and prettier than your old uniform.
+				You actually feel comfortable wearing it. It’s so much better and prettier than your old uniform.
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
 		&#9702; You wear the Pepperton Academy Cheer Squad rookie uniform - red and white shirt with the word "cheer team" in black lettering and matching short shorts emblazoned with "rookie".\
 		<<if ($body.boobs eq 4)>>\
-			It's barely holding in your huge breasts.\
+			It’s barely holding in your huge breasts.\
 		<<elseif ($body.boobs eq 3)>>\
 			It perfectly fits your sexy figure, tightly constraining your breasts.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -774,7 +774,7 @@
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-				It is nice to be wearing shorts again, but you doubt anyone would mistake these clothes for boy's clothes.
+				It is nice to be wearing shorts again, but you doubt anyone would mistake these clothes for boy’s clothes.
 			<<case 1>>\
 				It clings to your body in a very appealing way, allowing you to flip and dance unimpeded but also showing you off in a way that makes you a bit uncomfortable.
 			<<default>>\
@@ -782,9 +782,9 @@
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.cheerDress)>>\
-		&#9702; You wear the Pepperton Academy Cheer Squad uniform, a red, white, and black cheer dress with the school's logo across the chest.\
+		&#9702; You wear the Pepperton Academy Cheer Squad uniform, a red, white, and black cheer dress with the school’s logo across the chest.\
 		<<if ($body.boobs eq 4)>>\
-			It's barely holding in your huge breasts.\
+			It’s barely holding in your huge breasts.\
 		<<elseif ($body.boobs eq 3)>>\
 			It perfectly fits your sexy figure, tightly constraining your breasts.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -796,17 +796,17 @@
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-				Wearing the uniform fills you with pride, a symbol of the work you've done to earn a place on the cheer squad.
+				Wearing the uniform fills you with pride, a symbol of the work you’ve done to earn a place on the cheer squad.
 			<<case 1>>\
-				The uniform is very appealing on you, though you're a little concerned by just how much the skirt likes to flip as you cheer.
+				The uniform is very appealing on you, though you’re a little concerned by just how much the skirt likes to flip as you cheer.
 			<<default>>\
-				You can't help but smile when you see yourself in the uniform, knowing you're one of the girls every girl in school wishes they could be.
+				You can’t help but smile when you see yourself in the uniform, knowing you’re one of the girls every girl in school wishes they could be.
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
-		&#9702; You wear a slutty mockery of a cheer uniform, specifically designed to show off as much skin as possible. Even worse, the outfit is in Pepperton's colors - red, white, and black.\
+		&#9702; You wear a slutty mockery of a cheer uniform, specifically designed to show off as much skin as possible. Even worse, the outfit is in Pepperton’s colors - red, white, and black.\
 		<<if ($body.boobs eq 4)>>\
-		It's barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
+		It’s barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
 		<<elseif ($body.boobs eq 3)>>\
 		It perfectly fits your sexy figure, tightly enveloping your breasts and showing off your breathtaking cleavage.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -816,17 +816,17 @@
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-				Wearing it feels you with dread.  Not only do you looks like a slut, but you're certain the actual cheerleaders won't treat you kindly if they catch you in a mockery of their uniform.
+				Wearing it feels you with dread.  Not only do you looks like a slut, but you’re certain the actual cheerleaders won’t treat you kindly if they catch you in a mockery of their uniform.
 			<<case 1>>\
-				You feel dirty wearing a mockery of your own school's cheerleader outfit, but for some reson, your pulse quickens at the thought of someone seeing you in it.
+				You feel dirty wearing a mockery of your own school’s cheerleader outfit, but for some reson, your pulse quickens at the thought of someone seeing you in it.
 			<<default>>\
-				The outfit makes you look like a porn star, and you can't help reveling in the fact that everyone who sees you in it is going to want you.
+				The outfit makes you look like a porn star, and you can’t help reveling in the fact that everyone who sees you in it is going to want you.
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
 		&#9702; You wear a light summer dress.\
 		<<if ($body.boobs eq 4)>>\
-		It's a barely holding in your huge breasts. It feels like they could tumble out of your dress at any moment, flashing everyone around.\
+		It’s a barely holding in your huge breasts. It feels like they could tumble out of your dress at any moment, flashing everyone around.\
 		<<elseif ($body.boobs eq 3)>>\
 		It perfectly fits your sexy figure, tightly constraining your breasts and showing off your breathtaking cleavage.\
 		Your large breasts are on full display.\
@@ -835,11 +835,11 @@
 		<<elseif ($body.boobs eq 1)>>\
 		It fits nicely, giving you that jail-bait look.\
 		<<else>>\
-		It's a bit too spacious for your lean figure.\
+		It’s a bit too spacious for your lean figure.\
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			It feels too light, creating an impression that you're not wearing anything.
+			It feels too light, creating an impression that you’re not wearing anything.
 			<<case 1>>\
 			It feels kinda nice, if perhaps a little too open feeling.
 			<<default>>\
@@ -847,9 +847,9 @@
 			<</switch>>\
 \
 	<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
-		&#9702; You wear a silky nightie that's so thin, it's almost see-through.\
+		&#9702; You wear a silky nightie that’s so thin, it’s almost see-through.\
 		<<if ($body.boobs eq 4)>>\
-		It's barely holding in your huge breasts.\
+		It’s barely holding in your huge breasts.\
 		<<elseif ($body.boobs eq 3)>>\
 		It perfectly fits your sexy figure, tightly constraining your breasts and showing off your breathtaking cleavage.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -861,15 +861,15 @@
 		<<endif>>\
 		<<switch playerCode.isMind()>>\
 		<<case 0>>\
-			You're embarrassed by how good you look in it, though it's incredibly comfortable.
+			You’re embarrassed by how good you look in it, though it’s incredibly comfortable.
 		<<case 1>>\
 			You look just like a hot trap that you saw in some random Internet porn.
 		<<default>>\
-			It feels so nice and comfortable that you don't want to take it off.
+			It feels so nice and comfortable that you don’t want to take it off.
 		<</switch>>\
 \		
 	<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
-		&#9702; You're wearing a separates outfit with skirt and top, hugging you in a stylish and feminine fit. Your\
+		&#9702; You’re wearing a separates outfit with skirt and top, hugging you in a stylish and feminine fit. Your\
 		<<if ($body.boobs eq 4)>>\
 		large breasts are snugly and prominently contained by the fabric, with a bit of cleavage peeking out below the neckline.\
 		<<elseif ($body.boobs eq 3)>>\
@@ -886,15 +886,15 @@
 			<<case 0>>\
 			The open, form-fitting feel of it leaves you feeling exposed and vulnerable.
 			<<case 1>>\
-			The tight but open feel of it is strange, but it's light and comfortable to wear.
+			The tight but open feel of it is strange, but it’s light and comfortable to wear.
 			<<default>>\
-			You can't help but feel sexy in the fashionable combo, and it shows off your body very well.
+			You can’t help but feel sexy in the fashionable combo, and it shows off your body very well.
 			<</switch>>\
 \				
 	<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
-		&#9702; You're wearing a fetish version of a schoolgirl outfit. The blouse is too small for you and only barely covers your\
+		&#9702; You’re wearing a fetish version of a schoolgirl outfit. The blouse is too small for you and only barely covers your\
 		<<if ($body.boobs eq 4)>>\
-		huge breasts. Your globes threaten to fall out of the dress's top at any minute, flashing everyone around. Its lower ends are loosely tied under your boobs, held closed by a small knot instead of being properly buttoned.\
+		huge breasts. Your globes threaten to fall out of the dress’s top at any minute, flashing everyone around. Its lower ends are loosely tied under your boobs, held closed by a small knot instead of being properly buttoned.\
 		<<elseif ($body.boobs eq 3)>>\
 		full breasts, showing off your breathtaking cleavage. Its lower ends are tightly tied under your boobs, held halfway closed by a small knot instead of being properly buttoned.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -909,15 +909,15 @@
 			<<case 0>>\
 			You feel cheap and dirty, despite how expensive this outfit must have been.
 			<<case 1>>\
-			It's way too slutty, though you can't help but admit that it looks cool in a trashy way.
+			It’s way too slutty, though you can’t help but admit that it looks cool in a trashy way.
 			<<default>>\
-			It's scandalous, daring, and has far more sass than any school can handle, but it's one damn sexy dress.
+			It’s scandalous, daring, and has far more sass than any school can handle, but it’s one damn sexy dress.
 			<</switch>>\
 \				
 	<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 		&#9702; You are wearing a very revealing dress.\
 		<<if ($body.boobs eq 4)>>\
-		It's barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
+		It’s barely holding in your huge breasts. At any minute your globes could fall out of the dress to flash everyone around.\
 		<<elseif ($body.boobs eq 3)>>\
 		It perfectly fits your sexy figure, tightly enveloping your breasts and showing off your breathtaking cleavage.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -925,13 +925,13 @@
 		<<elseif ($body.boobs eq 1)>>\
 		It fits nicely, giving you that jail-bait look.\
 		<<else>>\
-		It's a bit loose in the chest area, but apart from that it fits your lean figure like a glove.\
+		It’s a bit loose in the chest area, but apart from that it fits your lean figure like a glove.\
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
 			You feel cheap and dirty, despite how expensive this dress is.
 			<<case 1>>\
-			It's way too slutty, though you can't help but admit that it looks cool in a trashy way.
+			It’s way too slutty, though you can’t help but admit that it looks cool in a trashy way.
 			<<default>>\
 			This dress puts the world on notice that you are out in force. Stand back.
 			<</switch>>\
@@ -939,7 +939,7 @@
 	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 		&#9702; You wear a slutty maid outfit.\
 		<<if ($body.boobs eq 4)>>\
-		It's barely holding in your huge breasts - at any minute your globes could fall out of the dress, flashing everyone around.\
+		It’s barely holding in your huge breasts - at any minute your globes could fall out of the dress, flashing everyone around.\
 		<<elseif ($body.boobs eq 3)>>\
 		It perfectly fits your sexy figure, tightly constraining your breasts and showing off your breathtaking cleavage.\
 		<<elseif ($body.boobs eq 2)>>\
@@ -947,22 +947,22 @@
 		<<elseif ($body.boobs eq 1)>>\
 		It fits nicely.\
 		<<else>>\
-		It's a bit loose in the chest area, but apart from that fits your lean figure like a glove.\
+		It’s a bit loose in the chest area, but apart from that fits your lean figure like a glove.\
 		<<endif>>\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			It's awkward and embarrassing to work in these clothes.
+			It’s awkward and embarrassing to work in these clothes.
 			<<case 1>>\
-			It's way too slutty, but you can't help but admit it looks cool in a trashy way.
+			It’s way too slutty, but you can’t help but admit it looks cool in a trashy way.
 			<<default>>\
-			It's great - your old fantasy fulfilled, though not in any way you had ever expected!
+			It’s great - your old fantasy fulfilled, though not in any way you had ever expected!
 			<</switch>>\
 \
 <<endif>>\
 \
 <<if ($body.boobs eq 4)>>\
 	<<set _item=itemsC.breastImplantsDD>>\
-	<<set _word="@@.info;breasts@@">>\
+	<<set _word=”@@.info;breasts@@">>\
 			<<if _item.image and (not $avatar.active)>>\
 				<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _in to _in + _word>>\
@@ -975,18 +975,18 @@
 	<<case 0>>\
 		You stare into the mirror, almost in tears, looking at what you have done to yourself
 	<<case 1>>\
-		Your face flushes red. @@.hero;I'm almost all tit now... These things are almost as big as my head!@@
+		Your face flushes red. @@.hero;I’m almost all tit now... These things are almost as big as my head!@@
 	<<default>>\
 		You squeeze your tits, rubbing your nipples and licking your lips as you stare at yourself with arousal\
 		<<if $kink.futa>>\
 			@@.hero;With these huge fun-bags, I would make all the girls die from envy.@@
 		<<else>>\
-			@@.hero;With these huge fun-bags, I should have the boys lining up... I can't wait.@@
+			@@.hero;With these huge fun-bags, I should have the boys lining up... I can’t wait.@@
 		<<endif>>\
 	<</switch>>\
 <<elseif ($body.boobs eq 3)>>\
 	<<set _item=itemsC.breastImplantsC>>\
-	<<set _word="@@.info;breasts@@">>\
+	<<set _word=”@@.info;breasts@@">>\
 			<<if _item.image and (not $avatar.active)>>\
 				<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _in to _in + _word>>\
@@ -999,13 +999,13 @@
 	<<case 0>>\
 		@@.hero;These things are ridiculous!@@
 	<<case 1>>\
-		You stare at your busty chest, mesmerized by the way your new assets jiggle. @@.hero;These aren't breasts anymore... they're tits. I have //tits//.@@
+		You stare at your busty chest, mesmerized by the way your new assets jiggle. @@.hero;These aren’t breasts anymore... they’re tits. I have //tits//.@@
 	<<default>>\
 		@@.hero;Oh, these are nice. I should get all kinds of attention with them... I wonder what it would feel like to give some cock a tit-job?@@
 	<</switch>>\
 <<elseif ($body.boobs eq 2)>>\
 	<<set _item=itemsC.breastImplantsB>>\
-	<<set _word="@@.info;breasts@@">>\
+	<<set _word=”@@.info;breasts@@">>\
 			<<if _item.image and (not $avatar.active)>>\
 				<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _in to _in + _word>>\
@@ -1020,11 +1020,11 @@
 	<<case 1>>\
 		@@.hero;Am I... am I getting turned on by my own breasts? Oooo~ I guess I am!@@
 	<<default>>\
-		@@.hero;Nice little handfuls. Oh god, if these get any bigger I'll have proper cleavage...@@
+		@@.hero;Nice little handfuls. Oh god, if these get any bigger I’ll have proper cleavage...@@
 	<</switch>>\
 <<elseif ($body.boobs eq 1)>>\
 	<<set _item=itemsC.breastImplantsA>>\
-	<<set _word="@@.info;breasts@@">>\
+	<<set _word=”@@.info;breasts@@">>\
 			<<if _item.image and (not $avatar.active)>>\
 				<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _in to _in + _word>>\
@@ -1035,14 +1035,14 @@
 &#9702; A pair of small and perky <<print _in>> adorn your chest.\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>@@.hero;Well, at least these should be easy to hide beneath my clothing...@@
-	<<case 1>>@@.hero;They're kind of cute, actually, and... Ooooo~ sensitive!@@
-	<<default>>@@.hero;They're better than nothing I guess. I bet I'd look hot if they were bigger...@@
+	<<case 1>>@@.hero;They’re kind of cute, actually, and... Ooooo~ sensitive!@@
+	<<default>>@@.hero;They’re better than nothing I guess. I bet I’d look hot if they were bigger...@@
 	<</switch>>\
 <<else>>\
 &#9702; Your chest is flat and a little soft from lack of exercise.\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>@@.hero;I really need to start doing push-ups again... Maybe tomorrow.@@
-	<<case 1>>For some reason you find yourself self-consciously crossing your arms over your chest. @@.hero;It's like... something feels off.@@
+	<<case 1>>For some reason you find yourself self-consciously crossing your arms over your chest. @@.hero;It’s like... something feels off.@@
 	<<default>>You run your hands lightly over your chest, your face heating up as you imagine what you would look like with tits.
 	<</switch>>\
 <<endif>>\
@@ -1075,7 +1075,7 @@
 <!--<piercing, tattoo, manicure>-->\
 <<if playerCode.owns(itemsC.PiercingNipples)>>\
 <<set _item=itemsC.PiercingNipples>>\
-<<set _word="@@.info;small, golden rings@@">>\
+<<set _word=”@@.info;small, golden rings@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1096,7 +1096,7 @@
 \
 <<if playerCode.owns(itemsC.tattooSissy)>>\
 <<set _item=itemsC.tattooSissy>>\
-<<set _word="@@.info;'Sissy'@@">>\
+<<set _word=”@@.info;’sissy'@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1109,7 +1109,7 @@
 \
 <<if playerCode.owns(itemsC.tattooStupidWhore)>>\
 <<set _item=itemsC.tattooStupidWhore>>\
-<<set _word="@@.info;'Stupid Whore'@@">>\
+<<set _word=”@@.info;’stupid Whore'@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1122,7 +1122,7 @@
 \
 <<if playerCode.owns(itemsC.tattooSlut)>>\
 <<set _item=itemsC.tattooSlut>>\
-<<set _word="@@.info;'Slut'@@">>\
+<<set _word=”@@.info;“Slut”@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1135,7 +1135,7 @@
 \
 <<if playerCode.owns(itemsC.tattooBunny)>>\
 <<set _item=itemsC.tattooBunny>>\
-<<set _word="@@.info;bunny symbol@@">>\
+<<set _word=”@@.info;bunny symbol@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1148,7 +1148,7 @@
 \
 <<if playerCode.owns(itemsC.tattooButterfly)>>\
 <<set _item=itemsC.tattooButterfly>>\
-<<set _word="@@.info;butterfly@@">>\
+<<set _word=”@@.info;butterfly@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1161,7 +1161,7 @@
 \
 <<if ($body.manicure eq 1)>>\
 <<set _item=itemsC.Manicure>>\
-<<set _word="@@.info;long nails@@">>\
+<<set _word=”@@.info;long nails@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1174,14 +1174,14 @@
 		<<case 0>>\
 		making it hard to do tasks and lift things with your fingers.
 		<<case 1>>\
-		long and skillfully polished. They're hard to get used to, but you like how they look.
+		long and skillfully polished. They’re hard to get used to, but you like how they look.
 		<<default>>\
 		long and gorgeous! Who cares how unwieldy these are? They look fabulous!
 		<</switch>>\
 \
 <<elseif ($body.manicure eq 2)>>\
 <<set _item=itemsC.GarishManicure>>\
-<<set _word="@@.info;garish long nails@@">>\
+<<set _word=”@@.info;garish long nails@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1194,21 +1194,21 @@
 		<<case 0>>\
 		They constantly get in the way, frustrating you to tears. You feel pitiful with this slutty style,\
 			<<if ($body.permManicure gt 0) and ($body.semiManicure gt 0)>>\
-				made worse knowing you'll be stuck with these for a very long time.\
+				made worse knowing you’ll be stuck with these for a very long time.\
 			<<else>>\
 				even knowing that it is temporarily.\
 			<<endif>>\
 		<<case 1>>\
 		These are frustrating to deal with, but the feeling of helplessness from knowing that\
 			<<if ($body.permManicure gt 0) and ($body.semiManicure gt 0)>>\
-				you can't change them somehow excites you. @@.hero;What is wrong with me?@@\
+				you can’t change them somehow excites you. @@.hero;What is wrong with me?@@\
 			<<else>>\
 				everyone will look down on your unwieldy manicure.\
 			<<endif>>\
 		<<default>>\
-		These are hard to get used to, but you can't help but get excited at the thought of how they make you look,\
+		These are hard to get used to, but you can’t help but get excited at the thought of how they make you look,\
 			<<if ($body.permManicure gt 0) and ($body.semiManicure gt 0)>>\
-				especially knowing you're going to have these for a long time!\
+				especially knowing you’re going to have these for a long time!\
 			<<else>>\
 				even knowing that it is temporarily.\
 			<<endif>>\
@@ -1218,7 +1218,7 @@
 \
 <<if playerCode.owns(itemsC.PiercingBelly)>>\
 <<set _item=itemsC.PiercingBelly>>\
-<<set _word="@@.info;small piercing@@">>\
+<<set _word=”@@.info;small piercing@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1229,7 +1229,7 @@
 	&#9702; A <<print _in>> decorates your navel,\
 		<<switch playerCode.isMind()>>\
 		<<case 0>>\
-			but thankfully, it's often covered by clothes.
+			but thankfully, it’s often covered by clothes.
 		<<case 1>>\
 			and it looks surprisingly sexy on you.
 		<<default>>\
@@ -1241,7 +1241,7 @@
 <!--<ass>-->\
 <<if ($body.ass eq 2)>>\
 <<set _item=itemsC.AssEnhancingXL>>\
-<<set _word="@@.info;bubble butt@@">>\
+<<set _word=”@@.info;bubble butt@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1252,16 +1252,16 @@
 	&#9702; Your <<print _in>>\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		is so damn big. You can feel it bounce and shake behind you, and you keep catching people checking you out. @@.hero;This thing is too big! I can't believe I have a such a jiggly ass!@@
+		is so damn big. You can feel it bounce and shake behind you, and you keep catching people checking you out. @@.hero;This thing is too big! I can’t believe I have a such a jiggly ass!@@
 	<<case 1>>\
-		is a bit annoying, but you get excited as you catch people staring... so maybe it's not all bad. @@.hero;My ass is so big and juicy, I can't blame people for looking...@@
+		is a bit annoying, but you get excited as you catch people staring... so maybe it’s not all bad. @@.hero;My ass is so big and juicy, I can’t blame people for looking...@@
 	<<default>>\
-		draws attention to itself as you roll your hips and shake your ass, drawing quite a few lustful stares. @@.hero;I get so hot when I imagine someone's fingers sinking into the big, round swells of my thick, juicy ass...@@
+		draws attention to itself as you roll your hips and shake your ass, drawing quite a few lustful stares. @@.hero;I get so hot when I imagine someone’s fingers sinking into the big, round swells of my thick, juicy ass...@@
 	<</switch>>\
 \
 <<elseif ($body.ass eq 1)>>\
 <<set _item=itemsC.AssEnhancing>>\
-<<set _word="@@.info;heart-shaped butt@@">>\
+<<set _word=”@@.info;heart-shaped butt@@">>\
 		<<if _item.image and (not $avatar.active)>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 			<<set _in to _in + _word>>\
@@ -1272,9 +1272,9 @@
 	&#9702; Your <<print _in>>\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		is so feminine that you would generally be mistaken for a girl from behind, even in pants. @@.hero;Especially since only girls' pants fit me, now.@@
+		is so feminine that you would generally be mistaken for a girl from behind, even in pants. @@.hero;Especially since only girls’ pants fit me, now.@@
 	<<case 1>>\
-		is cute and it feels nice when it's touched.
+		is cute and it feels nice when it’s touched.
 	<<default>>\
 		is cute and sexy. You would love it to get a good squeeze now and then.
 	<</switch>>\
@@ -1283,11 +1283,11 @@
 	&#9702; Your small butt\
 	<<switch playerCode.isMind()>>\
 	<<case 0>>\
-		would look toned and sexy if you had more muscles overall, but as of now, it's androgynous at best.
+		would look toned and sexy if you had more muscles overall, but as of now, it’s androgynous at best.
 	<<case 1>>\
 		is pretty androgynous. You could easily pull off wearing a skirt without it looking out of place. You try not to imagine yourself with a girlier, plumper bottom...
 	<<default>>\
-		is mostly flat and disappointing. You know you'd look better with a bigger one.
+		is mostly flat and disappointing. You know you’d look better with a bigger one.
 	<</switch>>\
 <<endif>>\
 <!--</ass>-->\
@@ -1295,7 +1295,7 @@
 <!--<groin>-->\
 <<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
 	<<set _item=itemsC.surgerySexualReassignment>>\
-	<<set _word="@@.info;pussy@@">>\
+	<<set _word=”@@.info;pussy@@">>\
 			<<if _item.image and (not $avatar.active)>>\
 				<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 				<<set _in to _in + _word>>\
@@ -1306,24 +1306,24 @@
 	&#9702; Your <<print _in>> \
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
 			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
-			isn't covered by underwear in your pants.\
+			isn’t covered by underwear in your pants.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
 					@@.hero;Huh. Commando style.@@
 				<<case 1>>\
-					@@.hero;It's not very pleasant this way.@@
+					@@.hero;It’s not very pleasant this way.@@
 				<<default>>\
-					@@.hero;It's uncomfortable.@@
+					@@.hero;It’s uncomfortable.@@
 				<</switch>>\
 			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
-			isn't covered by underwear in your shorts.
+			isn’t covered by underwear in your shorts.
 			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
-			isn't covered by underwear under your skirt.
+			isn’t covered by underwear under your skirt.
 			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.silkyTeddy) or playerCode.isWearing(itemsC.maidOutfit)or playerCode.isWearing(itemsC.cheerDress)>>\
-			isn't covered by underwear under your dress.
+			isn’t covered by underwear under your dress.
 			<<else>>\
 			is in full view.\
-			@@.hero;Congratulations. It's a girl.@@
+			@@.hero;Congratulations. It’s a girl.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 		is covered with boxers.\
@@ -1339,7 +1339,7 @@
 		is covered by your panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;They're embarrassing.@@
+			@@.hero;They’re embarrassing.@@
 			<<case 1>>\
 			@@.hero;Feels soft.@@
 			<<default>>\
@@ -1349,7 +1349,7 @@
 		is tucked in your cheer briefs.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<case 1>>\
 			@@.hero;It feels nice for some reason.@@
 			<<default>>\
@@ -1359,7 +1359,7 @@
 		is covered by your lacy panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;They're embarrassing and it feels like everything is on display.@@
+			@@.hero;They’re embarrassing and it feels like everything is on display.@@
 			<<case 1>>\
 			@@.hero;Feels naughty.@@
 			<<default>>\
@@ -1372,32 +1372,32 @@
 		&#9702; Your soft <<print _penis>>\
 		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
 			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
-			isn't covered by underwear, hanging freely in your pants.\
+			isn’t covered by underwear, hanging freely in your pants.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
 					@@.hero;Huh. Commando style.@@
 				<<case 1>>\
-					@@.hero;It's a little bit chaffing sometimes, but easier to, um, adjust.@@
+					@@.hero;It’s a little bit chaffing sometimes, but easier to, um, adjust.@@
 				<<default>>\
-					@@.hero;It's really distracting, and it feels like people might see.@@
+					@@.hero;It’s really distracting, and it feels like people might see.@@
 				<</switch>>\
 			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
-			isn't covered by underwear under your shorts.
+			isn’t covered by underwear under your shorts.
 			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
-			isn't covered by underwear under your skirt.
+			isn’t covered by underwear under your skirt.
 			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit)or playerCode.isWearing(itemsC.cheerDress)>>\
-			isn't covered by underwear under your dress.
+			isn’t covered by underwear under your dress.
 			<<elseif playerCode.isWearing(itemsC.silkyTeddy) >>\
-			isn't covered by underwear under your feminine nightclothes.
+			isn’t covered by underwear under your feminine nightclothes.
 			<<else>>\
 			hangs freely in full view.\
 				<<switch playerCode.isMind()>>\
 				<<case 0>>\
-					@@.hero;Congratulations. It's a boy.@@
+					@@.hero;Congratulations. It’s a boy.@@
 				<<case 1>>\
-					@@.hero;It's so relaxed and small.@@
+					@@.hero;It’s so relaxed and small.@@
 				<<default>>\
-					@@.hero;It looks better on me when it's that small.@@
+					@@.hero;It looks better on me when it’s that small.@@
 				<</switch>>\
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
@@ -1408,13 +1408,13 @@
 			<<case 1>>\
 			@@.hero;Something is off about it.@@
 			<<default>>\
-			@@.hero;It's uncomfortable for some weird reason.@@
+			@@.hero;It’s uncomfortable for some weird reason.@@
 			<</switch>>\
 		<<elseif playerCode.isWearing(itemsC.pantiesLatex) or playerCode.isWearing(itemsC.pantiesCotton)>>\
 		is tucked in your panties.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<case 1>>\
 			@@.hero;It feels nice for some reason.@@
 			<<default>>\
@@ -1424,7 +1424,7 @@
 		is tucked in your cheer briefs.
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<case 1>>\
 			@@.hero;It feels nice for some reason.@@
 			<<default>>\
@@ -1434,11 +1434,11 @@
 		barely fit in your lacy panties.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<case 1>>\
 			@@.hero;So naughty.@@
 			<<default>>\
-			@@.hero;It's so sexy.@@
+			@@.hero;It’s so sexy.@@
 			<</switch>>\
 		<<endif>>\
 \
@@ -1448,7 +1448,7 @@
 			<<case 0>>\
 			@@.hero;This is so uncomfortable.@@
 			<<case 1>>\
-			@@.hero;It's not so bad.@@
+			@@.hero;It’s not so bad.@@
 			<<default>>\
 			@@.hero;It feels nice to have it in.@@
 			<</switch>>\
@@ -1456,11 +1456,11 @@
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<switch playerCode.isMind()>>\
 			<<case 0>>\
-			@@.hero;It's so big! Damn, this is uncomfortable.@@
+			@@.hero;It’s so big! Damn, this is uncomfortable.@@
 			<<case 1>>\
-			@@.hero;It's not so bad. It makes me horny all the time, though walking is awkward with it in.@@
+			@@.hero;It’s not so bad. It makes me horny all the time, though walking is awkward with it in.@@
 			<<default>>\
-			@@.hero;It makes me feel stretched and full, and it's so deep inside me.@@
+			@@.hero;It makes me feel stretched and full, and it’s so deep inside me.@@
 			<</switch>>\
 		<<endif>>\
 	<<elseif playerCode.isHalfHorny()>>\
@@ -1472,18 +1472,18 @@
 				<<case 0>>\
 				@@.hero;Huh. Commando style.@@
 				<<case 1>>\
-				@@.hero;It's not very enjoyable this way.@@
+				@@.hero;It’s not very enjoyable this way.@@
 				<<default>>\
-				@@.hero;It's pretty uncomfortable.@@
+				@@.hero;It’s pretty uncomfortable.@@
 				<</switch>>\
 			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
-				isn't covered by underwear under your shorts.
+				isn’t covered by underwear under your shorts.
 			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
-				isn't covered by underwear under your skirt.
+				isn’t covered by underwear under your skirt.
 			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.cheerDress)>>\
-				isn't covered by underwear under your dress.
+				isn’t covered by underwear under your dress.
 			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
-				isn't covered by underwear under your feminine nightclothes.
+				isn’t covered by underwear under your feminine nightclothes.
 			<<else>>\
 				hangs freely in full view.\
 					<<switch playerCode.isMind()>>\
@@ -1492,7 +1492,7 @@
 					<<case 1>>\
 					@@.hero;I wonder what $myguardian does to get off?@@
 					<<default>>\
-					@@.hero;I'm so horny. I feel adventurous.@@
+					@@.hero;I’m so horny. I feel adventurous.@@
 					<</switch>>\
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
@@ -1503,43 +1503,43 @@
 			<<case 1>>\
 			@@.hero;Something is off about them.@@
 			<<default>>\
-			@@.hero;I don't know what it is, but they're uncomfortable for some reason.@@
+			@@.hero;I don’t know what it is, but they’re uncomfortable for some reason.@@
 			<</switch>>\
 		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 		stretches the fabric of your panties.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;It's a bit embarrassing.@@
+			@@.hero;It’s a bit embarrassing.@@
 			<<else>>\
 			@@.hero;It feels nice.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
 		stretches the fabric of your cheer briefs.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;It's embarrassing.@@
+			@@.hero;It’s embarrassing.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;It's a bit embarrassing.@@
+			@@.hero;It’s a bit embarrassing.@@
 			<<else>>\
 			@@.hero;It feels nice.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>\
 		stretches the latex of your panties.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;I'm a little flustered.@@
+			@@.hero;I’m a little flustered.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;It's a bit embarrassing.@@
+			@@.hero;It’s a bit embarrassing.@@
 			<<else>>\
 			@@.hero;It feels naughty... I like it.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.gString)>>\
 		bulges in your lacy panties.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;It makes the string strain against my ass. It's embarrassing.@@
+			@@.hero;It makes the string strain against my ass. It’s embarrassing.@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;It makes the string strain against my ass. So naughty.@@
 			<<else>>\
-			@@.hero;It makes the string strain against my ass. It's so sexy.@@
+			@@.hero;It makes the string strain against my ass. It’s so sexy.@@
 			<<endif>>\
 		<<endif>>\
 		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
@@ -1554,7 +1554,7 @@
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, echoing every twitch of your anus.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;Shit, I have a dildo in my ass and it's making me hard. This is embarrassing!@@
+			@@.hero;Shit, I have a dildo in my ass and it’s making me hard. This is embarrassing!@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;It is so distracting how my ass clenches around this dildo in my ass.@@
 			<<else>>\
@@ -1567,13 +1567,13 @@
 			<<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 			is unrestricted by underwear in your pants.\
 			<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
-			isn't covered by underwear under your shorts.\
+			isn’t covered by underwear under your shorts.\
 			<<elseif playerCode.isWearing(itemsC.schoolFemale) or playerCode.isWearing(itemsC.skirtTop) or playerCode.isWearing(itemsC.sluttyCheer)>>\
-			isn't covered by underwear under your skirt.\
+			isn’t covered by underwear under your skirt.\
 			<<elseif playerCode.isWearing(itemsC.summerDress) or playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.maidOutfit) or playerCode.isWearing(itemsC.cheerDress)>>\
-			isn't covered by underwear under your dress.\
+			isn’t covered by underwear under your dress.\
 			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
-			isn't covered by underwear under your feminine nightclothes, and it's a little obvious.\ 
+			isn’t covered by underwear under your feminine nightclothes, and it’s a little obvious.\ 
 			<<else>>\
 			stands out freely on the verge of a hard-on, begging for release.\
 			<<endif>>\
@@ -1588,7 +1588,7 @@
 		<<if playerCode.isMind_0()>>\
 		@@.hero;Damn, I need to get off right now.@@
 		<<elseif playerCode.isMind_1()>>\
-		@@.hero;Fuck, I need to get off soon or I'll go crazy.@@
+		@@.hero;Fuck, I need to get off soon or I’ll go crazy.@@
 		<<else>>\
 		@@.hero;I so want to get fucked... I mean, to fuck right now, in any way.@@
 		<<endif>>\
@@ -1596,11 +1596,11 @@
 		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug occupies your asshole, pressing on your prostate, making your <<print _penis>> slowly drip with precum.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;Fuck, it's even harder to think straight this way.@@
+			@@.hero;Fuck, it’s even harder to think straight this way.@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;Shit, it seems I leak even without release.@@
 			<<else>>\
-			@@.hero;Fuck. I'm leaking like a bitch in a heat.@@
+			@@.hero;Fuck. I’m leaking like a bitch in a heat.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		 - A dildo butt-plug stretches your asshole, pressing on your prostate, making your <<print _penis>> slowly drip with precum.\
@@ -1609,13 +1609,13 @@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;Shit, this dildo up my ass is making me leak like a girl.@@
 			<<else>>\
-			@@.hero;Fuck. I'm leaking like a bitch in heat with my ass clenched around this dildo.@@
+			@@.hero;Fuck. I’m leaking like a bitch in heat with my ass clenched around this dildo.@@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
 \
 <<else>>\
-	<<set _word="@@.info;chastity cage@@">>\
+	<<set _word=”@@.info;chastity cage@@">>\
 	<<if (not $avatar.active)>>\
 		<<if playerCode.isNotHorny()>>\
 			<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/general/chastity_not_horny.jpg\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
@@ -1657,7 +1657,7 @@
 		<<if playerCode.isMind_0()>>\
 		@@.hero;Damn, I feel pitiful with this thing on.@@
 		<<elseif playerCode.isMind_1()>>\
-		@@.hero;Wearing this is a bit confining, but it's not that bad, I guess.@@
+		@@.hero;Wearing this is a bit confining, but it’s not that bad, I guess.@@
 		<<else>>\
 		@@.hero;Huh. It actually looks quite nice on me.@@
 		<<endif>>\
@@ -1667,16 +1667,16 @@
 			<<if playerCode.isMind_0()>>\
 		@@.hero;This is so uncomfortable.@@
 			<<elseif playerCode.isMind_1()>>\
-		@@.hero;Huh. It's not so bad.@@
+		@@.hero;Huh. It’s not so bad.@@
 			<<else>>\
 		@@.hero;It feels nice to have it in.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
-		@@.hero;It's so big, damn this is uncomfortable.@@
+		@@.hero;It’s so big, damn this is uncomfortable.@@
 			<<elseif playerCode.isMind_1()>>\
-		@@.hero;It's not so bad, though it feels weird when it moves inside me while I walk.@@
+		@@.hero;It’s not so bad, though it feels weird when it moves inside me while I walk.@@
 			<<else>>\
 		@@.hero;It is so big... I love the way it rubs up inside me when I walk.@@
 			<<endif>>\
@@ -1688,15 +1688,15 @@
 		<<elseif playerCode.isMind_1()>>\
 		@@.hero;When did I start to feel excited by this constant pressure on my <<print _penis>>?@@
 		<<else>>\
-		@@.hero;I have to admit, it's actually arousing to be locked in chastity.@@
+		@@.hero;I have to admit, it’s actually arousing to be locked in chastity.@@
 		<<endif>>\
 \
 		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate so you feel every twitch of your anus. This makes your ordeal with the cage even worse.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;Damn, my anus is actually sensitive. It sure doesn't help with the cage thing.@@
+			@@.hero;Damn, my anus is actually sensitive. It sure doesn’t help with the cage thing.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;I'm a little excited... between this and the cage... it's so kinky.@@
+			@@.hero;I’m a little excited... between this and the cage... it’s so kinky.@@
 			<<else>>\
 			@@.hero;Oh~ Such a sweet feeling, with the plug in my pulsing ass and the cage on my twitching cock.@@
 			<<endif>>\
@@ -1705,15 +1705,15 @@
 			<<if playerCode.isMind_0()>>\
 			@@.hero;Shit, my aching <<print _penis>> is locked up in chastity, and I have a fat dildo up my ass driving me crazy. I feel like a total sissy.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;Fuck, my ass is clenching around this dildo so hard... I feel like I can't concentrate on anything but sex.@@
+			@@.hero;Fuck, my ass is clenching around this dildo so hard... I feel like I can’t concentrate on anything but sex.@@
 			<<else>>\
-			@@.hero;Ohhh god~ It's grinding on my sensitive spots with every move I make! Between this and the chastity cage, I'm just a hot and flustered mess.@@
+			@@.hero;Ohhh god~ It’s grinding on my sensitive spots with every move I make! Between this and the chastity cage, I’m just a hot and flustered mess.@@
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
 	your <<print _penis>> strains hard against your <<print _in>>.\
 		<<if playerCode.isMind_0()>>\
-		@@.hero;Damn, it's pressing hard into the plastic. I need to unlock this thing and get off right now.@@
+		@@.hero;Damn, it’s pressing hard into the plastic. I need to unlock this thing and get off right now.@@
 		<<elseif playerCode.isMind_1()>>\
 		@@.hero;Fuck, I am so horny. I wonder what $myguardian would say if she saw me now?@@
 		<<else>>\
@@ -1725,18 +1725,18 @@
 			<<if playerCode.isMind_0()>>\
 		@@.hero;Fuck, this is humiliating.@@
 			<<elseif playerCode.isMind_1()>>\
-		@@.hero;Shit, I'm leaking like a horny girl. It's just too embarrassing!@@
+		@@.hero;Shit, I’m leaking like a horny girl. It’s just too embarrassing!@@
 			<<else>>\
-		@@.hero;Fuck. My caged <<print _penis>> can't do anything but leak like a bitch in heat.@@
+		@@.hero;Fuck. My caged <<print _penis>> can’t do anything but leak like a bitch in heat.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
-		@@.hero;Fuck, I'm wearing a chastity cage and leaking from having a dildo up my ass. Does this make me a sissy?@@
+		@@.hero;Fuck, I’m wearing a chastity cage and leaking from having a dildo up my ass. Does this make me a sissy?@@
 			<<elseif playerCode.isMind_1()>>\
 		@@.hero;Shit, this dildo up my ass makes me leak like a horny girl. It is so embarrassing. Am I... am I enjoying it?@@
 			<<else>>\
-		@@.hero;Fuck. I'm leaking like a bitch in heat with my ass clenched around this dildo and my useless dick locked in chastity.@@
+		@@.hero;Fuck. I’m leaking like a bitch in heat with my ass clenched around this dildo and my useless dick locked in chastity.@@
 			<<endif>>\
 		<<endif>>\
 	  <<endif>>\
@@ -1744,11 +1744,11 @@
 	<<if playerCode.isNotHorny()>>\
 		your flaccid <<print _penis>> and balls are kept safe and locked away inside a <<print _in>>. You feel a little uneasy when you remember that you no longer have the key to unlock it.\
 		<<if playerCode.isMind_0()>>\
-			@@.hero;Crap, I didn't think this through. How will I get off now?@@
+			@@.hero;Crap, I didn’t think this through. How will I get off now?@@
 		<<elseif playerCode.isMind_1()>>\
-			@@.hero;I did it just to escape expulsion, right? I didn't actually want my <<print _penis>> to be locked away... did I?@@
+			@@.hero;I did it just to escape expulsion, right? I didn’t actually want my <<print _penis>> to be locked away... did I?@@
 		<<else>>\
-			@@.hero;I'm completely at the mercy of someone else to unlock me if I ever want to touch my <<print _penis>>. It makes me feel a little excited.@@
+			@@.hero;I’m completely at the mercy of someone else to unlock me if I ever want to touch my <<print _penis>>. It makes me feel a little excited.@@
 	<<endif>>\	
 \
 		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
@@ -1756,16 +1756,16 @@
 			<<if playerCode.isMind_0()>>\
 			@@.hero;This is humiliating, but do I really have a choice?@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;It is so wrong, but somehow it feels right. This doesn't make any sense...@@
+			@@.hero;It is so wrong, but somehow it feels right. This doesn’t make any sense...@@
 			<<else>>\
-			@@.hero;Now I'm equipped like a proper sissy.@@
+			@@.hero;Now I’m equipped like a proper sissy.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate.\
 			<<if playerCode.isMind_0()>>\
 			@@.hero;My useless dick is kept small and locked away, but I have a big rubber one showed up my ass as a reminder of what I have become... Perfect. Just perfect.@@
 			<<elseif playerCode.isMind_1()>>\
-			@@.hero;I can't stop comparing my own useless, caged dick with the fat dildo shoved up my ass.@@
+			@@.hero;I can’t stop comparing my own useless, caged dick with the fat dildo shoved up my ass.@@
 			<<else>>\
 			@@.hero;It constantly reminds me of what a pathetic sissy I am, and everything I gave away. But somehow it feels right and natural, like I deserve this.@@
 			<<endif>>\
@@ -1775,7 +1775,7 @@
 		<<if playerCode.isMind_0()>>\
 		@@.hero;I am so pathetic, I surrendered control of my own <<print _penis>>. How did I become such a sissy?@@
 		<<elseif playerCode.isMind_1()>>\
-		@@.hero;I feel my dick trying to get hard, but it's locked away. Does it mean I should just give up on my manhood and... obey?@@
+		@@.hero;I feel my dick trying to get hard, but it’s locked away. Does it mean I should just give up on my manhood and... obey?@@
 		<<else>>\
 		@@.hero;It feels so wrong... but so right. Why does it feel, like I should *earn* my release?@@
 		<<endif>>\
@@ -1796,7 +1796,7 @@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;It makes me so desperately horny. Is this what makes me excited now? Having things poked up my ass?@@
 			<<else>>\
-			@@.hero;It only natural for me to have a dick up my ass. It's good practice, and it keeps me blissfully flustered and stretched all the time.@@
+			@@.hero;It only natural for me to have a dick up my ass. It’s good practice, and it keeps me blissfully flustered and stretched all the time.@@
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
@@ -1812,16 +1812,16 @@
 		<<if playerCode.isWearing(itemsC.buttPlugHeart)>>\
 		&#9702; A small butt-plug sits tightly in your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;And I thought it couldn't get any worse. Damn, this is humiliating.@@
+			@@.hero;And I thought it couldn’t get any worse. Damn, this is humiliating.@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;It makes me leak like a horny girl... actually, it feels almost soothing.@@
 			<<else>>\
-			@@.hero;Look at me, I'm leaking like a bitch in heat. Maybe this is what I deserve.@@
+			@@.hero;Look at me, I’m leaking like a bitch in heat. Maybe this is what I deserve.@@
 			<<endif>>\
 		<<elseif playerCode.isWearing(itemsC.buttPlugDildo)>>\
 		&#9702; A dildo butt-plug stretches your asshole, pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 			<<if playerCode.isMind_0()>>\
-			@@.hero;And I thought it couldn't get any worse. Now every time I move that thick rubber cock slides in my ass. Grrr, it's like it echoes in my throbbing dick. How did I come to this?@@
+			@@.hero;And I thought it couldn’t get any worse. Now every time I move that thick rubber cock slides in my ass. Grrr, it’s like it echoes in my throbbing dick. How did I come to this?@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;My ass clenches around the dildo, and it grinds into me with every step. It feels like it echoes the aching in my dick, and is milking out even more precum.@@
 			<<else>>\
@@ -1838,7 +1838,7 @@
 <<if playerCode.isWearing(itemsC.schoolMale) or playerCode.isWearing(itemsC.casualMale) or playerCode.isWearing(itemsC.pyjamasMale)>>\
 	<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			<<if playerCode.isMind_0()>>\
-			&#9702; You're wearing pajama pants.\
+			&#9702; You’re wearing pajama pants.\
 			<<elseif playerCode.isMind_1()>>\
 			&#9702; Your butt is covered by pajama pants.\
 			<<else>>\
@@ -1846,13 +1846,13 @@
 			<<endif>>\
 	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
 			<<if playerCode.isMind_0()>>\
-			&#9702; You're wearing regular jeans.\
+			&#9702; You’re wearing regular jeans.\
 			<<elseif playerCode.isMind_1()>>\
 			&#9702; Your butt is covered by \
 				<<if ($body.ass eq 2)>>\
-					a girls' plus-size, booty-hugging \
+					a girls’ plus-size, booty-hugging \
 				<<elseif ($body.ass eq 1)>>\
-					a girls' ass-hugging \
+					a girls’ ass-hugging \
 				<<else>>\
 					regular \
 				<<endif>>\
@@ -1862,7 +1862,7 @@
 			<<endif>>\
 	<<else>>\
 			<<if playerCode.isMind_0()>>\
-			&#9702; You're wearing conservative slacks that go with your uniform.\
+			&#9702; You’re wearing conservative slacks that go with your uniform.\
 			<<elseif playerCode.isMind_1()>>\
 			&#9702; Your butt fits tightly into the conservative slacks that go with your uniform.\
 			<<else>>\
@@ -1874,7 +1874,7 @@
 		It feels weird to wear pants.\
 	<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 		<<if playerCode.isNotHorny()>>\
-		You're not horny right now, so your flaccid member isn't noticeable under the\
+		You’re not horny right now, so your flaccid member isn’t noticeable under the\
 			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			fabric.
 			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
@@ -1901,9 +1901,9 @@
 			<<else>>\
 			fabric of your fly,\
 			<<endif>>\
-		making a noticeable bulge that lets everyone know you're turned on.\
+		making a noticeable bulge that lets everyone know you’re turned on.\
 			<<if playerCode.isMind_0()>>\
-			It's embarrassing.
+			It’s embarrassing.
 			<<elseif playerCode.isMind_1()>>\
 			This is inappropriate.
 			<<else>>\
@@ -1928,7 +1928,7 @@
 		Aching from the pressure, your\
 		<<endif>>\
 \
-		<<print _penis>> is locked in its chastity cage, and isn't noticeable under your \
+		<<print _penis>> is locked in its chastity cage, and isn’t noticeable under your \
 			<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			pajama pants.\
 			<<elseif playerCode.isWearing(itemsC.casualMale)>>\
@@ -1950,13 +1950,13 @@
 \
 <<if playerCode.isWearing(itemsC.rookieUniform)>>\
 		<<if playerCode.isMind_0()>>\
-		&#9702; You're wearing red shorts that go with your cheer uniform.\
+		&#9702; You’re wearing red shorts that go with your cheer uniform.\
 		<<elseif playerCode.isMind_1()>>\
 			&#9702; Your butt is covered by red \
 			<<if ($body.ass eq 2) or ($body.ass eq 1)>>\
 				ass-hugging \
 			<<else>>\
-				girl's athletic \
+				girl’s athletic \
 			<<endif>>\
 		shorts that go with your cheer uniform.\
 		<<else>>\
@@ -1967,13 +1967,13 @@
 		It feels different now that you have a pussy instead of a penis.\
 	<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 		<<if playerCode.isNotHorny()>>\
-		You're not horny right now, so your flaccid member isn't noticeable under the fabric.\
+		You’re not horny right now, so your flaccid member isn’t noticeable under the fabric.\
 		<<elseif playerCode.isHalfHorny()>>\
 		Your excitement is just barely becoming noticeable under the fabric, letting you fantasize about sex without obvious visible signs.
 		<<else>>\
-		Your semi-erect <<print _penis>> is straining against the front of the fabric, making a noticeable bulge that lets everyone know you're turned on.\
+		Your semi-erect <<print _penis>> is straining against the front of the fabric, making a noticeable bulge that lets everyone know you’re turned on.\
 			<<if playerCode.isMind_0()>>\
-			It's embarrassing.
+			It’s embarrassing.
 			<<elseif playerCode.isMind_1()>>\
 			This is inappropriate.
 			<<else>>\
@@ -1998,7 +1998,7 @@
 		Aching from the pressure, your\
 		<<endif>>\
 \
-		<<print _penis>> is locked in its chastity cage, and isn't noticeable under your shorts.\
+		<<print _penis>> is locked in its chastity cage, and isn’t noticeable under your shorts.\
 		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 		But your leaking precum still leaves \
 			<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
@@ -2037,11 +2037,11 @@
 			<<if playerCode.isNotHorny()>>\
 			Your flaccid <<print _penis>> is barely noticeable through your underwear.
 			<<elseif playerCode.isHalfHorny()>>\
-			Thankfully, your excitement is partially concealed by your underwear, letting you walk around without it being too obvious you're aroused.
+			Thankfully, your excitement is partially concealed by your underwear, letting you walk around without it being too obvious you’re aroused.
 			<<else>>\
-			Your underwear can't hide your semi-erect <<print _penis>>. It's bulging against the front of your skirt, letting everyone see that you have male parts and are very turned on.\
+			Your underwear can’t hide your semi-erect <<print _penis>>. It’s bulging against the front of your skirt, letting everyone see that you have male parts and are very turned on.\
 				<<if playerCode.isMind_0()>>\
-				It's humiliating.\
+				It’s humiliating.\
 				<<elseif playerCode.isMind_1()>>\
 				This is embarrassing.\
 				<<else>>\
@@ -2061,7 +2061,7 @@
 			<<else>>\
 			Aching from the pressure, your\
 			<<endif>>\
-			<<print _penis>> is locked in its chastity cage, and isn't noticeable under your skirt... unless something flips up your skirt, that is.\
+			<<print _penis>> is locked in its chastity cage, and isn’t noticeable under your skirt... unless something flips up your skirt, that is.\
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 			Your leaking precum slowly soaks your underwear. @@.hero;This is so humiliating.@@
 			<<else>>\
@@ -2100,13 +2100,13 @@
 				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					the fabric of your skirt. \
 				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
-					the nightie's silky fabric. \
+					the nightie’s silky fabric. \
 				<<endif>>\ 
 			Your bare <<print _penis>> and balls feel the breeze underneath, stimulating you even more.
 			<<else>>\
 			Without underwear, your semi-erect <<print _penis>> bulges visibly through your clothing, letting everyone see that you have male parts and are very turned on.\
 				<<if playerCode.isMind_0()>>\
-				It's so humiliating.
+				It’s so humiliating.
 				<<elseif playerCode.isMind_1()>>\
 				This is embarrassing.
 				<<else>>\
@@ -2132,7 +2132,7 @@
 			Your bare balls feel the breeze under your clothes, which almost distracts you from your aching cock. Your painfully compressed \
 			<<endif>>\
 \
-			<<print _penis>> is locked in its chastity cage and hidden under skirt. It isn't noticeable... unless something flips up your skirt, of course.
+			<<print _penis>> is locked in its chastity cage and hidden under skirt. It isn’t noticeable... unless something flips up your skirt, of course.
 \
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 			&#9702; Your precum drips slowly down your upper leg, leaving noticeable traces on your \
@@ -2170,7 +2170,7 @@
 			<<endif>>\
 	<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 			<<if playerCode.isMind_0()>>\
-			&#9702; Your skirt's hemline leaves little margin to cover your private parts, making you self-conscious when you bend your waist.\
+			&#9702; Your skirt’s hemline leaves little margin to cover your private parts, making you self-conscious when you bend your waist.\
 			<<elseif playerCode.isMind_1()>>\
 			&#9702; Your skirt wraps snugly around your butt. You feel the caress of the hemline whenever you bend.\
 			<<else>>\
@@ -2186,11 +2186,11 @@
 			<<endif>>\
 	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			<<if playerCode.isMind_0()>>\
-			&#9702; Your maid outfit's short, black dress barely covers your private parts, making bending over a very risky move.\
+			&#9702; Your maid outfit’s short, black dress barely covers your private parts, making bending over a very risky move.\
 			<<elseif playerCode.isMind_1()>>\
-			&#9702; Your maid outfit's short, black dress wraps tightly around your butt. It barely covers your private parts, making bending over... very interesting.\
+			&#9702; Your maid outfit’s short, black dress wraps tightly around your butt. It barely covers your private parts, making bending over... very interesting.\
 			<<else>>\
-			&#9702; Your maid outfit's short, black dress wraps tightly around your sweet ass. It is almost comically short, giving easy access to anyone who might want to fuck you.\
+			&#9702; Your maid outfit’s short, black dress wraps tightly around your sweet ass. It is almost comically short, giving easy access to anyone who might want to fuck you.\
 			<<endif>>\
 	<<endif>>\
 \
@@ -2199,13 +2199,13 @@
 	<<elseif playerCode.isWearingOn(itemTypes.Underwear)>>\
 		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
 			<<if playerCode.isNotHorny()>>\
-			Your male parts are hidden in underwear beneath your dress, unless you sit, or bend over, or... Well, you'd better just stand very still.
+			Your male parts are hidden in underwear beneath your dress, unless you sit, or bend over, or... Well, you’d better just stand very still.
 			<<elseif playerCode.isHalfHorny()>>\
-			Thankfully, your excitement is partially concealed by your underwear, letting you walk around without your arousal being too obvious... unless you sit, or bend over, or... Well, you'd better just stand very still.
+			Thankfully, your excitement is partially concealed by your underwear, letting you walk around without your arousal being too obvious... unless you sit, or bend over, or... Well, you’d better just stand very still.
 			<<else>>\
 			Your semi-erect <<print _penis>> tents your underwear and bulges against the front of the dress, letting everyone see that you have male parts and are very turned on.\
 				<<if playerCode.isMind_0()>>\
-				It's humiliating.\
+				It’s humiliating.\
 				<<elseif playerCode.isMind_1()>>\
 				This is embarrassing.\
 				<<else>>\
@@ -2213,7 +2213,7 @@
 				<<endif>>\
 \
 				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-				You're leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
+				You’re leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
 				<<endif>>\
 			<<endif>>\
 		<<else>>\
@@ -2224,10 +2224,10 @@
 			<<else>>\
 			Aching from the pressure, your\
 			<<endif>>\
-			<<print _penis>> is locked in its chastity cage and hidden under your dress. No one should notice unless you sit, or bend over, or... Well, you'd better just stand very still.
+			<<print _penis>> is locked in its chastity cage and hidden under your dress. No one should notice unless you sit, or bend over, or... Well, you’d better just stand very still.
 \
 			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-			&#9702; You're leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
+			&#9702; You’re leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
@@ -2247,7 +2247,7 @@
 				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie, \
 				<<endif>>\
-			which is weird and uncomfortable. If you're not careful when you sit, or bend over, or.... Well, you'd better just stand very still if you don't want to risk flashing your male parts to everyone.\
+			which is weird and uncomfortable. If you’re not careful when you sit, or bend over, or.... Well, you’d better just stand very still if you don’t want to risk flashing your male parts to everyone.\
 			<<elseif playerCode.isHalfHorny()>>\
 			Without underwear, your excitement is obvious, tenting \ 
 				<<if playerCode.isWearing(itemsC.summerDress)>>\
@@ -2261,7 +2261,7 @@
 				<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
 					the fabric of your skirt, \
 				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
-					the nightie's silky fabric \
+					the nightie’s silky fabric \
 				<<endif>>\
 			visibly. Anyone looking would definitely notice. Your bare <<print _penis>> and balls feel the breeze under your \
 			<<if playerCode.isWearing(itemsC.summerDress)>>\
@@ -2283,7 +2283,7 @@
 			<<endif>>\
 \
 			<<if playerCode.isMind_0()>>\
-			@@.hero;It's so humiliating.@@
+			@@.hero;It’s so humiliating.@@
 			<<elseif playerCode.isMind_1()>>\
 			@@.hero;This is embarrassing.@@
 			<<else>>\
@@ -2295,7 +2295,7 @@
 				<<if playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex)>>\
 				It also leaves stains on your stockings.\
 				<<endif>>\
-			@@.hero;I can't even control myself.@@
+			@@.hero;I can’t even control myself.@@
 			<<endif>>\
 		<<else>>\
 			Your bare balls feel the breeze under your \
@@ -2334,7 +2334,7 @@
 				<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 					nightie. \
 				<<endif>>\
-			If you're not careful when you move, the tip of your cage occasionally peeks out, letting everyone know about your \
+			If you’re not careful when you move, the tip of your cage occasionally peeks out, letting everyone know about your \
 			<<if playerCode.isMind_0()>>\
 			humiliating situation.
 			<<elseif playerCode.isMind_1()>>\
@@ -2369,9 +2369,9 @@
 <<if playerCode.isWearing(itemsC.sneakers)>>\
 	&#9702; On your feet, you wear regular sneakers.\
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
-			They look kind of dumb with your pajamas, but meh. Who's really gonna see 'em?
+			They look kind of dumb with your pajamas, but meh. Who’s really gonna see ’em?
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They're pretty cool.
+			They’re pretty cool.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			@@.hero;I wish they would actually let me wear these to school with my uniform.@@
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
@@ -2381,50 +2381,50 @@
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
 			They look pretty //un//-sexy with your sexy dress.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
-			They look a little off with your girls' school uniform.
+			They look a little off with your girls’ school uniform.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
-			They don't at all go with your slutty school uniform.
+			They don’t at all go with your slutty school uniform.
 		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			They look a little off with your cheer uniform.
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
-			They don't at all go with your slutty cheerleader uniform.
+			They don’t at all go with your slutty cheerleader uniform.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
 			They look kind of ridiculous with your maid outfit, giving it more of a joke costume feel.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look pretty stupid with your silky nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
-			They're definitely a guys' style, so they look off with your skirt and top.
+			They’re definitely a guys' style, so they look off with your skirt and top.
 		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			They look super stupid with your girly cotton panties.
 		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They look incredibly ridiculous with your naughty underthings.
 		<<else>>\
-			You're otherwise naked. @@.hero;Really?@@
+			You’re otherwise naked. @@.hero;Really?@@
 		<<endif>>\
 <<elseif playerCode.isWearing(itemsC.schoolShoes)>>\
 	&#9702; On your feet, you wear black dress shoes.\
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look silly with your pajamas.
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They're a little dressy for your casual clothes, but it kind of works. Maybe.
+			They’re a little dressy for your casual clothes, but it kind of works. Maybe.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
-			They're part of the dress code for your uniform.
+			They’re part of the dress code for your uniform.
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			They look comical with your boxer shorts. @@.hero;Seriously?@@
 		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
-			They're //very// clearly not meant to be worn with a dress.
+			They’re //very// clearly not meant to be worn with a dress.
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
-			They're the opposite of what goes with a sexy dress.
+			They’re the opposite of what goes with a sexy dress.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
-			Your girls' school uniform should be worn with dressy shoes, but definitely not //these//.
+			Your girls’ school uniform should be worn with dressy shoes, but definitely not //these//.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
-			They don't go with your slutty school uniform in any way, shape or form.
+			They don’t go with your slutty school uniform in any way, shape or form.
 		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
-			They don't at all go with your slutty cheerleader uniform.
+			They don’t at all go with your slutty cheerleader uniform.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They look strangely severe with your maid outfit, and definitely don't go together.
+			They look strangely severe with your maid outfit, and definitely don’t go together.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look ridiculously stupid with your silky nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2434,7 +2434,7 @@
 		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
 			They look incredibly ridiculous with your naughty underthings.
 		<<else>>\
-			You're naked... in dress shoes. @@.hero;Why, god damn it?!?@@
+			You’re naked... in dress shoes. @@.hero;Why, god damn it?!?@@
 		<<endif>>\
 <<elseif playerCode.isWearing(itemsC.flats)>>\
 	&#9702; On your feet, you wear flats.\
@@ -2447,9 +2447,9 @@
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			Together with your boxer shorts, it makes for a pretty bizarre combination.
 		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
-			They're rather nice with your dress, giving it a pretty, casual feel.
+			They’re rather nice with your dress, giving it a pretty, casual feel.
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
-			They're not really meant to go with such a sexy dress, and look plain by comparison.
+			They’re not really meant to go with such a sexy dress, and look plain by comparison.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			They go just fine with your school uniform, making for a very basic, girly look.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
@@ -2457,9 +2457,9 @@
 		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			Even at school, your cheer uniform should be worn with the matching sneakers.
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
-			They don't at all go with your slutty cheerleader uniform.
+			They don’t at all go with your slutty cheerleader uniform.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They look a little plain with such a fancy maid uniform, but they're passable.
+			They look a little plain with such a fancy maid uniform, but they’re passable.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look almost delicate enough to go with your nightie, but not quite enough.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2467,24 +2467,24 @@
 		<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
 			Wearing them in your girly cotton panties, you look like a girl about to play dress-up.
 		<<elseif playerCode.isWearing(itemsC.gString) or playerCode.isWearing(itemsC.pantiesLatex)>>\
-			It simply doesn't look right, wearing these with just your naughty panties.
+			It simply doesn’t look right, wearing these with just your naughty panties.
 		<<else>>\
 			You look really strange without any other clothes on.
 		<<endif>>\	
 <<elseif playerCode.isWearing(itemsC.girlsneakers)>>\
-	&#9702; On your feet, you wear cute girls' sneakers.\
+	&#9702; On your feet, you wear cute girls’ sneakers.\
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They are very obviously girly and your jeans can't change it.
+			They are very obviously girly and your jeans can’t change it.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
 		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
-			They're rather nice with your dress, giving it a playful, girly look.
+			They’re rather nice with your dress, giving it a playful, girly look.
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
-			They really don't match such a sexy dress, and just look wrong together.
+			They really don’t match such a sexy dress, and just look wrong together.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
@@ -2492,9 +2492,9 @@
 		<<elseif playerCode.isWearing(itemsC.cheerDress) or playerCode.isWearing(itemsC.rookieUniform)>>\
 			While they mostly match your outfit, your cheer uniform should really be worn with the matching sneakers.
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
-			Even though they don't exactly match, they look great with your slutty cheerleader uniform.
+			Even though they don’t exactly match, they look great with your slutty cheerleader uniform.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They're much too casual for your formal maid uniform.
+			They’re much too casual for your formal maid uniform.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2529,7 +2529,7 @@
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They look fine with your slutty cheerleader uniform, but you think something more athletic would look better.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They're a complementary style for your formal maid uniform.
+			They’re a complementary style for your formal maid uniform.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They look rather sultry with your nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2583,9 +2583,9 @@
 <<elseif playerCode.isWearing(itemsC.stilettoHeels)>>\
 	&#9702; On your feet, you wear incredibly slutty 'fuck-me' heels.\
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
-			You see yourself in your pajamas and heels, and can't help but erupt in laughter.
+			You see yourself in your pajamas and heels, and can’t help but erupt in laughter.
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They have no place being worn with casual men's clothing.
+			They have no place being worn with casual men’s clothing.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			With these on your feet, your school uniform is stripped of any dignity it may have had.
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
@@ -2620,15 +2620,15 @@
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They are very obviously girly and your jeans can't change it.
+			They are very obviously girly and your jeans can’t change it.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
 		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
-			They're rather nice with your dress, giving it a playful, girly look.
+			They’re rather nice with your dress, giving it a playful, girly look.
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
-			They really don't match such a sexy dress, and just look wrong together.
+			They really don’t match such a sexy dress, and just look wrong together.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
@@ -2638,7 +2638,7 @@
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			Even though they look great with your slutty cheerleader uniform, you think they might be a little too mundane.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They're much too casual for your formal maid uniform.
+			They’re much too casual for your formal maid uniform.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2655,15 +2655,15 @@
 		<<if playerCode.isWearing(itemsC.pyjamasMale)>>\
 			They look rather amusing with your pajamas.
 		<<elseif playerCode.isWearing(itemsC.casualMale)>>\
-			They are very obviously girly and your jeans can't change it.
+			They are very obviously girly and your jeans can’t change it.
 		<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
 			Peeking out from under your uniform slacks, they look hilariously girly.
 		<<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
 			With your boxer shorts in combination, you are a ridiculous sight.
 		<<elseif playerCode.isWearing(itemsC.summerDress)>>\
-			They're rather nice with your dress, giving it a playful, girly look.
+			They’re rather nice with your dress, giving it a playful, girly look.
 		<<elseif playerCode.isWearing(itemsC.sluttyDress)>>\
-			Even though they're sneakers, they go surprisingly well with your sexy dress.
+			Even though they’re sneakers, they go surprisingly well with your sexy dress.
 		<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
 			Your school uniform looks even girlier with these.
 		<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
@@ -2673,7 +2673,7 @@
 		<<elseif playerCode.isWearing(itemsC.sluttyCheer)>>\
 			They look great with your slutty cheerleader uniform.
 		<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
-			They're much too casual for your formal maid uniform.
+			They’re much too casual for your formal maid uniform.
 		<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
 			They just look silly with your nightie.
 		<<elseif playerCode.isWearing(itemsC.skirtTop)>>\
@@ -2708,15 +2708,15 @@
 		<<elseif _sl eq 3>>\
 			Overall, you look like a very feminine boy.
 		<<elseif _sl eq 4>>\
-			Overall, you look like a plain-looking girl dressed in boy's clothes.
+			Overall, you look like a plain-looking girl dressed in boy’s clothes.
 		<<elseif _sl eq 5>>\
-			Overall, you look like an ordinary girl dressed in boy's clothes.
+			Overall, you look like an ordinary girl dressed in boy’s clothes.
 		<<elseif _sl eq 6>>\
-			Overall, you look like a sexy girl dressed in boy's clothes.
+			Overall, you look like a sexy girl dressed in boy’s clothes.
 		<<elseif _sl eq 7>>\
-			Overall, you look like a slutty girl dressed in boy's clothes.
+			Overall, you look like a slutty girl dressed in boy’s clothes.
 		<<elseif _sl eq 8>>\
-			Overall, you look like a whorish girl dressed in boy's clothes.
+			Overall, you look like a whorish girl dressed in boy’s clothes.
 		<<elseif _sl eq 9>>\
 			Overall, you look like a total whore dressed as a boy.
 		<<endif>>\
@@ -2767,13 +2767,13 @@
 	<<endif>>\
 <<else>>\
 	<<if _sl eq 20>>\
-		Overall, you look like an ordinary boy dressed in slutty girls' clothes.
+		Overall, you look like an ordinary boy dressed in slutty girls’ clothes.
 	<<elseif _sl eq 21>>\
-		Overall, you look like an ordinary boy dressed in slutty girls' clothes and there is a kinky secret under your skirt.
+		Overall, you look like an ordinary boy dressed in slutty girls’ clothes and there is a kinky secret under your skirt.
 	<<elseif _sl eq 22>>\
-		Overall, you look like a feminine boy dressed in slutty girls' clothes.
+		Overall, you look like a feminine boy dressed in slutty girls’ clothes.
 	<<elseif _sl eq 23>>\
-		Overall, you look like a very feminine boy dressed in slutty girls' clothes.
+		Overall, you look like a very feminine boy dressed in slutty girls’ clothes.
 	<<elseif _sl eq 24>>\
 		Overall, you look like a plain-looking girl dressed as a slut.
 	<<elseif _sl eq 25>>\
@@ -2796,15 +2796,15 @@
 <!--<hints>-->\
 <<if $player.perversion.guardianCooldown gte 5>>\
 	<<if $player.perversion.guardian eq 0>>\
-	@@.hero;Maybe I should try to get in $myguardian's room somehow? Didn't she say she needed some new batteries for her clock?@@
+	@@.hero;Maybe I should try to get in $myguardian’s room somehow? Didn’t she say she needed some new batteries for her clock?@@
 	<<elseif $player.perversion.guardian eq 1>>\
-	@@.hero;$Myguardian sleeps so soundly, maybe if I could wake up early I could sneak into her room and have some fun with her while she's still asleep.@@
+	@@.hero;$Myguardian sleeps so soundly, maybe if I could wake up early I could sneak into her room and have some fun with her while she’s still asleep.@@
 	<<elseif $player.perversion.guardian eq 2>>\
-	@@.hero;I heard that female lingerie is really soft and cozy to sleep in, but I've never tried.@@
+	@@.hero;I heard that female lingerie is really soft and cozy to sleep in, but I’ve never tried.@@
 	<<elseif $player.perversion.guardian eq 4>>\
 	@@.hero;I bet I could earn some extra money if I keep responding to these anonymous requests for pictures and videos.@@
 	<<elseif $player.perversion.guardian eq 5>>\
-	@@.hero;Well, $myguardian will be displeased if I don't keep up with my chores.@@
+	@@.hero;Well, $myguardian will be displeased if I don’t keep up with my chores.@@
 	<<endif>>\
 <<endif>>\
 <<if $player.perversion.teacherCooldown gte 5>>\
@@ -2817,16 +2817,16 @@
 	<<elseif $player.perversion.teacher eq 3>>\
 	@@.hero;Ugh, sometimes these girly panties are really uncomfortable to wear.@@
 	<<elseif $player.perversion.teacher eq 3>>\
-	@@.hero;Maybe if I just follow $teacher's orders she will go easy on me?@@
+	@@.hero;Maybe if I just follow $teacher’s orders she will go easy on me?@@
 	<<elseif $player.perversion.teacher eq 5>>\
-	@@.hero;Maybe I should just play along with Coach's demands... maybe $futa.he_she could help me get out from under $teacher?@@
+	@@.hero;Maybe I should just play along with Coach’s demands... maybe $futa.he_she could help me get out from under $teacher?@@
 	<<elseif $player.perversion.teacher eq 6 and $player.perversion.bullies gte 3>>\
 	@@.hero;Those bullies are too rough! I need to find a way to defend myself.@@
 	<<elseif $player.perversion.teacher eq 7>>\
 		<<if $kink.futa>>\
-			@@.hero;Well, I'm stuck sucking off that pervy Coach. Maybe if I do a good enough job, and *really* wear her out, she'll leave me alone.@@
+			@@.hero;Well, I’m stuck sucking off that pervy Coach. Maybe if I do a good enough job, and *really* wear her out, she’ll leave me alone.@@
 		<<else>>\
-			@@.hero;Well, I'm stuck sucking off that old geezer every day. Maybe if I do a good enough job, and *really* wear him out, he'll leave me alone.@@
+			@@.hero;Well, I’m stuck sucking off that old geezer every day. Maybe if I do a good enough job, and *really* wear him out, he’ll leave me alone.@@
 		<<endif>>\
 	<<endif>>\
 <<endif>>\

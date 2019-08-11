@@ -59,7 +59,7 @@ You look at $friend and blink. Did $friendG.he_she really just ask me what type�
 	@@.friend;“Don’t forget, you can tell me anything. Got it?”@@ she says at the door. Although she doesn’t open it, she stands there looking at you, biting her bottom lip like she does when she’s thinking. Then she pauses as if she is going to say something, before clamping her jaws shut with a click. She  opens the door, hiding behind it until you step out into the cool air, feeling even more bemused than before.
 	<<addToInv gString 61>>\
 	
-	[[Promise to wear them for her|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
+	[[Promise to wear them for her|Leave friend house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
 <<else>>
 	@@.friend;“This is so cool. Wait I have an idea!”@@ $friend gets up and hurries out of his room, returning a few moments later.
 
@@ -78,6 +78,6 @@ You look at $friend and blink. Did $friendG.he_she really just ask me what type�
 	@@.friend;“If you take them, you’ll have to send me a selfie though.”@@
 	<<addToInv gString 60>>\
 
-	[[Promise to wear them for him|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
-	[[Promise to wear them for him but he has to wear some for you too|Leave friend's house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day; $friendG.gender='T';]]
+	[[Promise to wear them for him|Leave friend house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day;]]
+	[[Promise to wear them for him but he has to wear some for you too|Leave friend house][$time.addMinutes(90); $tasksFriend.pantieSelfie.status=1; $tasksFriend.pantieSelfie.startDay=$time.day; $friendG.gender='T';]]
 <<endif>>\

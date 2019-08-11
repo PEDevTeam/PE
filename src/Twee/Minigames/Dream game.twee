@@ -2,9 +2,9 @@
 \
 <<if window.dreamMinigame.isAwake()>>\
 	<<if $player.alarmClockGuardian and ($time.hour gt $time.guardian.wakeHour or ($time.hour eq $time.guardian.wakeHour and $time.minute gte $time.guardian.wakeMinute))>>\
-		A shrill beeping startles you, and you realize $guardian's alarm clock is going off.  You quickly duck out of the bedroom before she opens her eyes.
+		A shrill beeping startles you, and you realize $guardian’s alarm clock is going off.  You quickly duck out of the bedroom before she opens her eyes.
 	<<else>>\
-		You suddenly realize that $guardian's breathing has stopped, and fearing that she knows you're there, you quickly and quietly tip-toe out.
+		You suddenly realize that $guardian’s breathing has stopped, and fearing that she knows you’re there, you quickly and quietly tip-toe out.
 	<<endif>>\
 	
 	[[Have breakfast][$time.hour=$time.guardian.wakeHour;$time.minute=$time.guardian.wakeMinute]]
@@ -15,7 +15,7 @@
 	<<endif>>\
 	<<print window.dreamMinigame.getActionById($minigames.dreamgame.lastActionId).action>>
 	
-	You don't want to press your luck any further, so you quietly tip-toe out of $guardian's bedroom.
+	You don’t want to press your luck any further, so you quietly tip-toe out of $guardian’s bedroom.
 	
 	[[Have breakfast][$time.hour=$time.guardian.wakeHour;$time.minute=$time.guardian.wakeMinute]]
 <<else>>\

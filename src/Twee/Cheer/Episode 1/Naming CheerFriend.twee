@@ -1,7 +1,7 @@
 :: Naming CheerFriend
 \
 <<if $random.stored eq 0>>\
-What is the cute girl's name?
+What is the cute girl’s name?
 <<textbox "$cheerFriend.name" "Lauren" autofocus>>
 
 [[Confirm name|Naming CheerFriend][$random.stored=1]]
@@ -12,7 +12,7 @@ What is the cute girl's name?
 		[[Try again|Naming CheerFriend][$random.stored=0]]
 	<<else>>\
 		<<set $cheerFriend.name to $cheerFriend.name.toProperCase()>>\
-		@@.cheerFriend;"My name is $cheerFriend.name,"@@ she says.
+		@@.cheerFriend;“My name is $cheerFriend.name,”@@ she says.
 		
 		[[Shake her hand|Cheer Ep1 Sc3]]
 	<<endif>>\

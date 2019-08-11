@@ -14,18 +14,18 @@ You put a dollar into the game and start shooting.
 <<endif>>\
 <<set _bst to $player.gameSkill + _roll>>\
 <<if _bst lt 40 or _result == "lose">>\
-	Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn't get any prize tickets.
+	Your aim is terrible, and you only get a few baskets. You hear a couple of boys scoff at your low score as they walk by. You didn’t get any prize tickets.
 
 	Maybe if you were a better <b>gamer</b> you could win more?
 
 <<elseif _bst gte 70 or _result == "win">>\
-	You're in the zone, and sink almost every basket. After you finish, you turn around to see a few girls watching you, but they smile and walk off before you can say anything. You grab your prize tickets and cash them in.
+	You’re in the zone, and sink almost every basket. After you finish, you turn around to see a few girls watching you, but they smile and walk off before you can say anything. You grab your prize tickets and cash them in.
 
 	@@.reward;You just won $5!@@
 
 	<<set $player.money+=5>>\
 <<else>>\
-	Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it's only worth a dollar.
+	Your aim is pretty good, and you get a lot of baskets. You eagerly grab the prize ticket that comes out, but it’s only worth a dollar.
 
 	Maybe if you were a better <b>gamer</b> you could win more?
 

@@ -16,13 +16,13 @@
 <!--<Misc events>-->\
 <<if $flags.chastityKey>>\
 	<<if (not _c)>>\
-		Remembering $teacher's warning, you return home, put on your chastity device and lock it.
+		Remembering $teacher’s warning, you return home, put on your chastity device and lock it.
 
 		<<wearClothing 'chastityDevice'>>\
 		<<set $flags.chastityLocked = true>>\
 		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<elseif not $flags.chastityLocked>>\
-		Remembering $teacher's warning, you quickly lock your chastity device.
+		Remembering $teacher’s warning, you quickly lock your chastity device.
 		
 		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
@@ -39,9 +39,9 @@
 <<endif>>\
 <<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 0)>>\
 	<<set $player.perversion.therapistCooldown = 1>>\
-	You are relieved that you don't have those weird fantasies anymore.
+	You are relieved that you don’t have those weird fantasies anymore.
 	
-	@@.hero;Thank god that's over.@@
+	@@.hero;Thank god that’s over.@@
 	
 	Could it be you ate something that went off? Or was it somehow linked to the experimental therapy?
 	

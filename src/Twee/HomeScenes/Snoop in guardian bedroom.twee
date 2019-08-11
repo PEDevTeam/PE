@@ -2,30 +2,30 @@
 \
 <div><<RandomImageFromPack "Guardian Bedroom" 400 400>></div>\	
 <<set $time.addMinutes(10)>>\
-Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsure of what you're hoping to find, and very nervous because you know $guardian could silently pop in at any time, thanks to the house's plush carpet.
+Full of curiosity, you quietly snoop around in $guardian’s bedroom.  You’re unsure of what you’re hoping to find, and very nervous because you know $guardian could silently pop in at any time, thanks to the house’s plush carpet.
 
 <<set _ia=window.misc.getSnoopItems()>>\
 <<if ((random(1) gt 0) or ($time.hour gte 22) or ($player.batteryExpireDay eq 0)) and (_ia.length gt 0)>>\
 	<<set _item=_ia[random(_ia.length - 1)]>>\
 	<<if _item eq itemsC.pantiesCotton>>\
-		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
+		You find $guardian’s <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
 	<<elseif _item eq itemsC.gString>>\
-		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
+		You find $guardian’s <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
 	<<elseif _item eq itemsC.vibrator>>\
-		You find $guardian's <<print _item.name.toLowerCase()>> in her bedside table drawer. You imagine it deep in her wet pussy as she coaxes herself to one orgasm after another.  You bring it up to your nose and inhale deeply, catching a hint of her scent before opening your mouth and licking the tip.
+		You find $guardian’s <<print _item.name.toLowerCase()>> in her bedside table drawer. You imagine it deep in her wet pussy as she coaxes herself to one orgasm after another.  You bring it up to your nose and inhale deeply, catching a hint of her scent before opening your mouth and licking the tip.
 	<<elseif _item eq itemsC.playgirlMagazine>>\
-		You find $guardian's <<print _item.name.toLowerCase()>> hidden under her bed.  You imagine her idly stroking her pussy, turning herself on more and more as she fantasizes about the hunks within these glossy pages.  You start to flip through it, curious how these beefcake men and their erect penises compare to yourself.
+		You find $guardian’s <<print _item.name.toLowerCase()>> hidden under her bed.  You imagine her idly stroking her pussy, turning herself on more and more as she fantasizes about the hunks within these glossy pages.  You start to flip through it, curious how these beefcake men and their erect penises compare to yourself.
 	<<elseif _item eq itemsC.pantiesLatex>>\
-		You find $guardian's <<print _item.name.toLowerCase()>> in her laundry basket.  There's some residue in the crotch, and you can't stop yourself bringing them to your nose and sniffing.  They smell lightly of perfume... and sex.  You're hard immediately.  Do you dare lick?  You extend your tongue...
+		You find $guardian’s <<print _item.name.toLowerCase()>> in her laundry basket.  There’s some residue in the crotch, and you can’t stop yourself bringing them to your nose and sniffing.  They smell lightly of perfume... and sex.  You’re hard immediately.  Do you dare lick?  You extend your tongue...
 	<<endif>>\
 <<else>>\
 	<<set _item = null>>\
 <<endif>>\
 <<if not _item>>\
 	<<selectScene snoopItems RND>>\
-		<<scene 10>>You rummage around for a while, then hear what could be $guardian moving around in the house. You stop what you're doing, despite not having found anything interesting.
-		<<scene 10>>You rummage around briefly, then hear what could be $guardian talking on a phone. You stop what you're doing, sadly you haven't found anything interesting yet.
-		<<scene 10>>You look for something interesting. After a while, you hear what could be TV . You stop what you're doing trying to calm down your thundering heart.
+		<<scene 10>>You rummage around for a while, then hear what could be $guardian moving around in the house. You stop what you’re doing, despite not having found anything interesting.
+		<<scene 10>>You rummage around briefly, then hear what could be $guardian talking on a phone. You stop what you’re doing, sadly you haven’t found anything interesting yet.
+		<<scene 10>>You look for something interesting. After a while, you hear what could be TV . You stop what you’re doing trying to calm down your thundering heart.
 		<<scene 10>>You rummage through her things for a while, then hear what could be $guardian walking by the door. You instantly freeze, afraid to be caught.
 	<</selectScene>>\
 <<endif>>\
@@ -48,18 +48,18 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 		<<if $player.daring eq 0>><<Daring 1>>\
 		<<elseif $player.daring eq 1>><<Daring 2>>\
 		<<endif>>\
-		The sound of $guardian moving around in the house startles you. In panic you grab $guardian's <<print _item.name.toLowerCase()>> and rush to your room.
+		The sound of $guardian moving around in the house startles you. In panic you grab $guardian’s <<print _item.name.toLowerCase()>> and rush to your room.
 		
 		[[Return to your room|Go to bedroom]]
 		
 	<<elseif (random(1) gt 0) and (not $flags.guardianSnooping) and ($player.batterySneakDay gt $time.day + 2) and (_ia.length gt 1)>>\
 		<<set $flags.guardianSnooping to true>>\
-		You grab $guardian's <<print _item.name.toLowerCase()>> and rush to your room.
+		You grab $guardian’s <<print _item.name.toLowerCase()>> and rush to your room.
 
 		[[Return to your room|Go to bedroom]]
 
 	<<else>>\
-		The sound of $guardian gasping at the door startles you.  @@.guardian;"$player.name! What are you doing with my things? Oh, my god! Get out of here, you pervert!"@@
+		The sound of $guardian gasping at the door startles you.  @@.guardian;“$player.name! What are you doing with my things? Oh, my god! Get out of here, you pervert!”@@
 
 		<<if (not $flags.guardianSnoopingCaught)>>\
 			<<if $player.perversion.guardian eq 0>>\
@@ -70,7 +70,7 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 		<<endif>>\
 		<<set $player.alarmClockGuardian=false>>\
 		<<set $items.batteriesQuality.disabled=true>>\
-		<<print "[[Run out holding " + $guardian + "'s " + _item.name.toLowerCase() + "|Go to bedroom]]">>
+		<<print "[[Run out holding " + $guardian + "’s " + _item.name.toLowerCase() + "|Go to bedroom]]">>
 	<<endif>>\
 <<else>>\
 	[[Go back to your bedroom|Go to bedroom]]

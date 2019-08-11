@@ -4,15 +4,15 @@ You walk over to the clinic where $guardian works.
 
 <<if window.timeCode.canWork()>>\
 	<<if window.clothes.dressedGuardianWork.check()>>\
-		<<print '[[Work at '+$guardian+'\'s department|Work at clinic][$random.store(4)]]'>>
+		<<print '[[Work at '+$guardian+'’s department|Work at clinic][$random.store(4)]]'>>
 	<<else>>\
-		<<print '<<notDressed "Go to '+$guardian+'\'s clinic" $reason.dressedTherapy>>'>>
+		<<print '<<notDressed "Go to '+$guardian+'’s clinic" $reason.dressedTherapy>>'>>
 	<<endif>>\
 <<endif>>\
 <<if ($player.daring gt 0)>>\
 	<<print "[[Enter the Beauty salon|Beauty Salon]]">>
 <<else>>\
-	<<click "Enter Beauty salon">><<replace "#beautySalon_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="beautySalon_deny"></span>
+	<<click "Enter Beauty salon">><<replace "#beautySalon_deny">>@@.deny;You don’t feel daring enough@@<</replace>><</click>> <span id="beautySalon_deny"></span>
 <<endif>>\
 
 <<display [[Travel]]>>\
