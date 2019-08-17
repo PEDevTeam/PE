@@ -1,6 +1,7 @@
 :: Club dance floor [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
 <<elseif (($time.hour gte 23) or ($time.hour lt 7)) and $scene eq "danceFloor">>\
@@ -29,8 +30,8 @@
 		<<else>>\
 			[[Visit the DJ booth|Club dance floor][$scene="VisitDJbooth"]]
 		<<endif>>\
-		<<if ($tasksTeacher.clubDancePanties.status eq 1) and ($player.perversion.danceClub gte 2) and _u and _u.female>>\
-			<<if _u.cheer>>\
+		<<if ($tasksTeacher.clubDancePanties.status eq 1) and ($player.perversion.danceClub gte 2) and _underwear and _underwear.isFemale>>\
+			<<if window.inventoryFuncs.hasTag(_underwear, 'cheer')>>\
 				<div class="tooltip">@@.halftransparent;<<print "Dance with someone and give them your panties">>@@ <span id="test_surv" class="tooltiptext"><<print "I can't give away these panties. I need them for cheerleading.">></span></div>
 			<<else>>\
 				[[Dance with someone and give them your panties|Task clubDancePanties][$scene="step1"]]

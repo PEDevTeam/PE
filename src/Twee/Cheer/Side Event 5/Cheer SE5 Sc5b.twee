@@ -1,5 +1,6 @@
 ::Cheer SE5 Sc5b
-<<set _under=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<!-- <<set _under=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('shoes')>>\
 @@.heroT;“Fine. If I give you $<<if $player.money > 20>>20<<else>>$player.money<<endif>>, will you give me the diary?”@@
 
 @@.malevoice9;“Fifty,”@@ Andrew demands.
@@ -18,12 +19,12 @@ You’re shocked by his rather unconventional request. @@.heroT;“What? My pant
 @@.malevoice9;“Yeah. They feel nice, but $cheerFriend.name gets mad when I take hers. If you give me yours, I’ll give you the diary back.”@@
 
 @@.hero;Panties would be cheaper to replace...\
-<<if not _under>>\
+<<if not _underwear>>\
 	Too bad I didn’t wear any today. \
 <<endif>>\
 Of course, I could save myself a lot of hassle and just take the diary. He’s only ten.@@
 
-<<if _under>>\
+<<if _underwear>>\
 	[[Give him your panties|Cheer SE5 Sc6b][$cheerFriend.prize = "panties"]]
 <<endif>>\
 <<if $player.money > 50>>\

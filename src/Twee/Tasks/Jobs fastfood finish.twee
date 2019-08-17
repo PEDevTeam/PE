@@ -1,9 +1,11 @@
 :: Jobs fastfood finish [pos_476_1717]
 \
 <div><<RandomImageFromPack "Job Adult Shop" 400 400>></div>\	
-<<set _slb = playerCode.slutScoreBasic()>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 \
 <<set $player.jobs.pay=20>>\
 <<set $player.jobs.tips=1+random(5)>>\
@@ -22,15 +24,15 @@
 	<<set $player.jobs.tips+=30>>\
 <<endif>>\
 \
-<<if _slb lte 1>>\
+<<if _slutScoreBasic lte 1>>\
 	<<set $player.jobs.tips+=0>>\
-<<elseif _slb lte 3>>\
+<<elseif _slutScoreBasic lte 3>>\
 	<<set $player.jobs.tips+=5>>\
-<<elseif _slb lte 5>>\
+<<elseif _slutScoreBasic lte 5>>\
 	<<set $player.jobs.tips+=10>>\
-<<elseif _slb lte 7>>\
+<<elseif _slutScoreBasic lte 7>>\
 	<<set $player.jobs.tips+=15>>\
-<<elseif _slb lte 8>>\
+<<elseif _slutScoreBasic lte 8>>\
 	<<set $player.jobs.tips+=20>>\
 <<else>>\
 	<<set $player.jobs.tips+=25>>\
@@ -82,17 +84,17 @@
 	<<endif>>\
 
 	This time, it’s a bit harder for you to concentrate on the task at hand. You constantly keep having to pull the hem of your short work skirt down to stop people from seeing \
-	<<if _c>>\
+	<<if _chastity>>\
 		the tip of your chastity cage. \
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		your underwear. \
 	<<else>>\
 		the tip of your penis. \
 	<<endif>>\
 	This can be especially difficult when you have to carry food out. Without a free hand, you can only blush and hope no one sees \
-	<<if _c>>\
+	<<if _chastity>>\
 		the plastic prison peeking out from underneath.
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		your penis tenting your underwear.
 	<<else>>\
 		your penis peeking out from underneath, uncovered.
@@ -111,17 +113,17 @@
 	After a short walk to the local fast food restaurant, you clock in and start taking orders.
 	
 	It's hard for you to concentrate on the task at hand. You constantly keep having to pull the hem of your short work skirt down to stop people from seeing \
-	<<if _c>>\
+	<<if _chastity>>\
 		the tip of your chastity cage. \
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		your underwear. \
 	<<else>>\
 		the tip of your penis. \
 	<<endif>>\
 	This can be especially difficult when you have to carry food out. Without a free hand, you can only blush and hope no one sees \
-	<<if _c>>\
+	<<if _chastity>>\
 		the plastic prison peeking out from underneath.
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		your penis tenting your underwear.
 	<<else>>\
 		your penis peeking out from underneath uncovered.
@@ -146,15 +148,15 @@
 			<<endif>>\
 		<<endif>>\
 \
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			It is obvious that you are a boy, but it seems they don't care, or even prefer it this way. \
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			It's noticeable that you are a boy, but it seems they don't care, or even prefer it this way, considering your effeminate appearance. \
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			It is no wonder, as you look like a girl. \
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			It is no wonder, as you look like a fairly sexy girl. \
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			You can blame only yourself for your slutty look attracting perverts. \
 		<<else>>\
 			With your whorish look, it's more surprising that they didn't decide to just fuck you on the table. \
@@ -178,7 +180,7 @@
 			<<else>>\
 				It is a bit embarrassing to get treated like this in full view of everyone, but you really want more money. You smile back and say it's a pleasure to serve them. \
 			<<endif>>\
-		<<elseif _c>>\
+		<<elseif _chastity>>\
 			<<if playerCode.isMind_0()>>\
 				You hate it, but you really need the money and you know what they like. Burning with shame, you put on a forced smile, lift your skirt a bit to show your chastity, and meekly murmur that //'this sissy'// is happy to serve them. The customers burst out in laughter, making you wish that the earth would swallow you up on the spot, but they leave generous tips after making a few loud and humiliating comments about your exemplary service. \
 			<<elseif playerCode.isMind_1()>>\
@@ -197,15 +199,15 @@
 		<<endif>>\
 	<<elseif _cu eq 1>>\
 		Suddenly a guest puts a hand around your hips and forcefully makes you sit on his leg while dictating his order. \
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			It is obvious that you are a boy, but it seems he doesn't care, or even prefers it this way. \
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			It's noticeable that you are a boy, but it seems he doesn't care, or even prefers it this way, considering your effeminate appearance. \
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			It is no wonder, as you look like a girl. \
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			It is no wonder, as you look like a fairly sexy girl. \
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			You can only blame yourself that your slutty look attracts perverts. \
 		<<else>>\
 			With your whorish look it's more surprising they didn't decide to just fuck you on the table. \
@@ -217,7 +219,7 @@
 		<<elseif (_plan lte 80)>>\
 			<<if playerCode.isMind_0()>>\
 				You want to hit him, but you need the money, so you just try to endure his groping. Your eyes widen as you feel something hard throb against your legs.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -227,7 +229,7 @@
 				The whole thing has not gone unnoticed by some guests, who start to watch your work with curiosity.
 			<<elseif playerCode.isMind_1()>>\
 				It makes you uncomfortable, but you need the money, so you just resign yourself to being groped. Your eyes widen as you feel something hard throb against your legs.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -239,7 +241,7 @@
 				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ 
 
 				You feel something hard throb against your legs, and in this exact moment, you understand that you are literally making him hard and twitching with desire.
-				<<if _c>>\
+				<<if _chastity>>\
 					The feeling of his dick pulsing under you makes your own penis strain hard against its cage. \
 				<<else>>\
 					The feeling of his dick pulsing under you makes your own penis tent the skirt of your uniform. \
@@ -253,7 +255,7 @@
 				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
 
 				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain hard against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -267,7 +269,7 @@
 				You want to hit him, but you really need the money, so you just whisper: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
 
 				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain hard against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -281,7 +283,7 @@
 				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ 
 
 				You feel something hard throb against your legs, and in this exact moment, you understand that you are literally making him hard and twitching with desire.
-				<<if _c>>\
+				<<if _chastity>>\
 					The feeling of his dick pulsing under you makes your own penis strains hard against its cage. \
 				<<else>>\
 					The feeling of his dick pulsing under you makes your own penis tent skirt of your uniform. \
@@ -295,7 +297,7 @@
 				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
 
 				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs. In this exact moment, you discover you're making him hard as he twitches with desire. In confusion, your brain stops and to your shock you find that you've placed your hand over his dick. Almost instinctively you give it gentle squeeze, feeling it pulsing.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain hard against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -309,7 +311,7 @@
 				You want to hit him, but you really need the money, so you just meekly mumble: @@.heroT;"Sure, your order will be ready in a minute, sir."@@ 
 
 				You feel ashamed, but it's nothing in comparison to what you feel when something hard throbs against your legs. In this exact moment, you're aware //you're// the one making him hard as he twitches with desire.
-				<<if _c>>\
+				<<if _chastity>>\
 					To your shame, it makes your own penis strain hard against its cage. \
 				<<else>>\
 					To your shame, it makes your own penis tent the skirt of your uniform. \
@@ -321,7 +323,7 @@
 				@@.hero;Why the hell did I do that? Now everyone here thinks I'm a slut, or a whore, or both.@@
 			<<else>>\
 				You know how to get the best out of it. With a soft voice, you whisper: @@.heroT;"Sure, your order will be ready in a minute."@@ You feel something hard throb against your legs, and in this exact moment, you're aware //you're// the one making him hard as he twitches with desire. Boldly, surprising even yourself, you wink at him, and with your right hand you start to rub his throbbing dick through his pants.
-				<<if _c>>\
+				<<if _chastity>>\
 					The feeling of his dick pulsing under your palm makes your own penis strains hard against its cage. \
 				<<else>>\
 					The feeling of his dick pulsing under your palm makes your own penis tent skirt of your uniform. \

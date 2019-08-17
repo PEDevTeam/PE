@@ -1,5 +1,6 @@
 :: Cheer SE3 Sc4
-<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _uniform = window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<if $version == "feminine">>\
 	@@.heroT;“I guess I can see it.”@@ You point to a passage on the screen. @@.heroT;“It says right here that it can help people deal with the difficulty of achieving traditional gender roles. I guess some guys find it easier to act girly than manly, and if someone is forcing them to be girly, then it kind of makes them feel better about it.”@@
 
@@ -38,7 +39,7 @@ $cheerFriend.name continues researching feminization, pulling up myriad document
 
 	$cheerFriend.name continues working without acknowledging the intrusion, while you cower a bit in your seat, hoping <<if $cheerleaders.metBro>>Ashley's brother<<else>>the guy<<endif>> will just go away.
 
-	@@.cheerBro;“Always good to see a <<if _uniform.cheer>>couple of cheerleaders<<else>>cheerleader<<endif>> hanging around. You see that game yesterday? I scored the game-winning goal. You should help me celebrate. I’d love to see how you handle my spirit stick.”@@
+	@@.cheerBro;“Always good to see a <<if window.inventoryFuncs.hasTag(_uniform, 'cheer')>>couple of cheerleaders<<else>>cheerleader<<endif>> hanging around. You see that game yesterday? I scored the game-winning goal. You should help me celebrate. I’d love to see how you handle my spirit stick.”@@
 
 	$cheerFriend.name continues typing for a few seconds, then finally looks up from the computer screen at the jock. @@.cheerFriend;“Like, my friend and I could totally help you celebrate,”@@ she says in an oddly cutesy tone. @@.cheerFriend;“I mean, it’s practically a cheerleader’s job to reward winners, right?”@@
 
@@ -50,7 +51,7 @@ $cheerFriend.name continues researching feminization, pulling up myriad document
 
 	@@.cheerFriend;“You know, I’m not sure what’s sadder: that you had to lie about winning a game so we’d go out with you, or that your sport is so unwatched, you feel comfortable lying to a couple of girls about when you lose.”@@
 
-	@@.cheerBro;“Fucking cocktease <<if _uniform.cheer>>cheerleaders<<else>>cheerleader<<endif>>,”@@ he mutters as he walks away. @@.cheerBro;“Should’ve known they’d all be stuck-up whores like my bitch of a sister.”@@
+	@@.cheerBro;“Fucking cocktease <<if window.inventoryFuncs.hasTag(_uniform, 'cheer')>>cheerleaders<<else>>cheerleader<<endif>>,”@@ he mutters as he walks away. @@.cheerBro;“Should’ve known they’d all be stuck-up whores like my bitch of a sister.”@@
 
 	As he storms out the door, you wonder \
 	<<if $cheerleaders.flags.metBro == true>>\
@@ -142,7 +143,8 @@ $cheerFriend.name continues researching feminization, pulling up myriad document
 
 	@@.cheerFriend;“God, can you imagine me acting like a dominatrix, making some guy dress up for my amusement?”@@
 
-	Somehow, you can, and judging by <<if playerCode.isWearingOn(window.itemTypes.Chastity)>>the increasing tightness in your cage<<else>>the rapid stiffening of your cock<<endif>> you’re not entirely sure you find the idea unpleasant.
+	<!-- Somehow, you can, and judging by <<if playerCode.isWearingOn(window.itemTypes.Chastity)>>the increasing tightness in your cage<<else>>the rapid stiffening of your cock<<endif>> you’re not entirely sure you find the idea unpleasant. -->
+	Somehow, you can, and judging by <<if window.wardrobeFuncs.getWornItem('chastity')>>the increasing tightness in your cage<<else>>the rapid stiffening of your cock<<endif>> you’re not entirely sure you find the idea unpleasant.
 <<endif>>\
 
 Suddenly, $cheerFriend.name’s phone beings to vibrate, and she quickly checks the incoming message. @@.cheerFriend;“Crap. I’ve got to go,”@@ she says. @@.cheerFriend;“My parents are expecting me for dinner.”@@ She hurriedly saves documents to a flash drive, then turns to you with a smile.

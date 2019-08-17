@@ -3,27 +3,32 @@
 <!-- <<removeClothingType 4>>\ -->
 <<removeClothingItem 'shoes'>>\
 <<updateClothes>>\
-<<set $wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set $wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set $wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set $wearingChastity to window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set $wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set $wornUnderwear to window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _wearingPlug to window.wardrobeFuncs.getWornItem('buttplug')>>\
 <!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
 <<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
 \
-<<if $wornUnderwear>>\
+<!-- <<if $wornUnderwear>>\
     <<set _underwear to itemF.itemTwee($wornUnderwear.id)>>\
     <<set $underwearAlt to _underwear.curAlt>>\
-<<endif>>\
+<<endif>>\ -->
 \
 <<if _wearingGString>>\
-    <<if $underwearAlt eq 60>>\
+    <!-- <<if $underwearAlt eq 60>>\ -->
+    <<if $wornUnderwear.variant == 'panties_sexy_60'>>
         <<set $friendUnderwear to 1>>\
-    <<elseif $underwearAlt eq 61>>\
+    <<elseif $wornUnderwear.variant == 'panties_sexy_61'>>
+    <!-- <<elseif $underwearAlt eq 61>>\ -->
         <<set $friendUnderwear to 2>>\
     <<endif>>\
 <<endif>>\
 \
-<<if $wornUnderwear.female>>\
-    <<set $friendG.seenPanties to [playerCode.isWearingOn(itemTypes.Underwear).id, $underwearAlt]>>\
+<<if $wornUnderwear.isFemale>>\
+    <<set $friendG.seenPanties to [$wornUnderwear.variant, $underwearAlt]>>\
 <<endif>>\
 \
 <<set _plugText to "As you walk the buttplug wiggles inside you. Even breathing makes you aware of the device invading your body. You feel on the verge of exploding every time you move to get comfortable<<if _wearingGString>>, the pressure of your thong panties on your plug's base adding to your frustration.<<endif>>">>\
@@ -54,7 +59,7 @@ You follow $friendG.him_her up to $friendG.his_her bedroom, but your heart isn�
 You flop down on the couch, a forlorn expression etched on your face.\
 <<if $friendUnderwear eq 1>> You are immediately reminded that you are wearing the panties he gave you to wear, a thought that makes your cock twitch, and that you need to secure the bra to match them somehow.\
 <<elseif $friendUnderwear eq 2>>You are immediately reminded that you are wearing $friend’s panties, a thought that makes your cock twitch, and that you need to secure the bra to match them somehow.\
-<<elseif $wornUnderwear.female>>Your panties stretch snugly against your butt cheeks.\
+<<elseif $wornUnderwear.isFemale>>Your panties stretch snugly against your butt cheeks.\
 <<endif>>\
 
 $friend smiles reassuringly. @@.friend;“Is this more... wardrobe related changes?”@@

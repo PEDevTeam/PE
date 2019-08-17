@@ -182,9 +182,12 @@ The mall is closed now.
 
 <<widget "showMallPlaces">>\
 
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 /*You can also:*/\
 <<if $player.debugA>>\
 <!--[[Debug restock stores|Go to the mall][$restock=[]]]-->\
@@ -192,10 +195,10 @@ The mall is closed now.
 <<if window.timeCode.isArcadeOpen()>>[[Play in the arcade][$time.addMinutes(5)]]<<else>>@@.halftransparent;Play in the arcade - closed@@<<endif>>
 [[Go to mall toilet][$time.addMinutes(10);$flags.cameraRecording to false]]
 
-<<if (($tasksTeacher.trialChastity.status eq 1) and (not _c) and (not _b)) or ($tasksTeacher.trialChastity.status eq 5)>>\
+<<if (($tasksTeacher.trialChastity.status eq 1) and (not _chastity) and (not _plug)) or ($tasksTeacher.trialChastity.status eq 5)>>\
 [[Ask about the market research opportunity|Task Trial chastity]]
 <<endif>>\
-<<if ($tasksTeacher.penaltyTrials.status eq 1) and _c>>\
+<<if ($tasksTeacher.penaltyTrials.status eq 1) and _chastity>>\
 [[Ask about the tester job|Task Trials][$tasksTeacher.penaltyTrials.progress=0]]
 <<endif>>\
 \
@@ -205,7 +208,7 @@ You could try to steal the stun gun if you are desperate.
 [[Steal stungun]]
 <<endif>>\
 \
-<<if ($tasksTeacher.suckPopsickle.status eq 1) and _o and _o.female>>\
+<<if ($tasksTeacher.suckPopsickle.status eq 1) and _outerwear and _outerwear.isFemale>>\
 [[Popsicle task|Task Suck popsickle]]
 <<endif>>\
 \
@@ -213,11 +216,11 @@ You could try to steal the stun gun if you are desperate.
 [[Try on some dresses|Task tryingClothesMall]]
 <<endif>>\
 \
-<<if ($tasksTeacher.girlyDesert.status eq 1) and _o and _o.female>>\
+<<if ($tasksTeacher.girlyDesert.status eq 1) and _outerwear and _outerwear.isFemale>>\
 [[Order a girly desert at the café|Task girlyDesert]]
 <<endif>>\
 \
-<<if ($tasksTeacher.windowshopping.status eq 1) and _o and _o.female and _b and _c>>\
+<<if ($tasksTeacher.windowshopping.status eq 1) and _outerwear and _outerwear.female and _plug and _chastity>>\
 [[Windowshopping task|Task Windowshopping]]
 <<endif>>\
 \
@@ -225,10 +228,10 @@ You could try to steal the stun gun if you are desperate.
 [[Get hit on task|Task Get hit on]]
 <<endif>>\
 \
-<<if ($tasksTeacher.guideHand.status eq 1) and _c>>\
+<<if ($tasksTeacher.guideHand.status eq 1) and _chastity>>\
 	[[Guide hand task|Task Guide hand][$scene="Caffee"; $random.store(3)]]
 <<endif>>\
-<<if ($tasksTeacher.selfiePublicChastity.status eq 1) and _c and not _o.shorts>>\
+<<if ($tasksTeacher.selfiePublicChastity.status eq 1) and _chastity>>\
 	[[Make a risky chastity selfie|Task selfiePublicChastity]]
 <<endif>>\
 \

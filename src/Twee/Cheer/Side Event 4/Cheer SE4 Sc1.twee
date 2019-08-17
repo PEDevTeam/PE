@@ -1,10 +1,11 @@
 :: Cheer SE4 Sc1
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend park" 400 400>></div>\
-<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _uniform = window.wardrobeFuncs.getWornItem('outerwear')>>>\
 $cheerFriend.name pulls her car into the parking lot of the local park. She throws the vehicle into park and grabs her backpack from the back seat before bursting out of the car.
 
 As you climb out of the passenger’s seat, she grabs your hand and starts pulling you towards the\
-<<if (not _uniform.cheer)>>\
+<<if (not _window.inventoryFuncs.hasTag(uniform,'cheer'))>>\
 park, even as you’re dropping off your uniform jacket in the car.\
 <<else>>\
 park.\

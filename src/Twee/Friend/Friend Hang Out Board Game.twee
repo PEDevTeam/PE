@@ -1,10 +1,15 @@
 :: Friend Hang Out Board Game
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
+<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<!-- <<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 \
 You open up the large unit and look down the array of games. You used to enjoy some of them, especially some of the older ones. Of course, computer games have replaced many of them, but still...
 
@@ -59,7 +64,7 @@ You open up the large unit and look down the array of games. You used to enjoy s
 		<<endif>>
 
 		You are not sure that you like being given a pink peg\
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			though, even if you are dressed like a girl.\
 		<<else>>\
 			though.\
@@ -72,7 +77,7 @@ You open up the large unit and look down the array of games. You used to enjoy s
 		Like all games, it takes ages to get to the\
 		<<if $time.hour gte 18>>end and it’s dark outside when you finish.\
 		<<else>>end.<<endif>>\
-		You lost, badly; a fact that $friend reminds you of, even as you are getting your <<if _shoes.heels>>heels<<else>>shoes<<endif>> on to leave.
+		You lost, badly; a fact that $friend reminds you of, even as you are getting your <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>heels<<else>>shoes<<endif>> on to leave.
 	<<scene>>\
 		@@.heroT;Dungeons of Talismania!@@
 

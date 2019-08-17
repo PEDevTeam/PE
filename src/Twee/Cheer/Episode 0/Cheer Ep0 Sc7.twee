@@ -1,7 +1,9 @@
 :: Cheer Ep0 Sc7
 \
-<<set _o to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<!-- <<set _o to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear = window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _u to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear = window.wardrobeFuncs.getWornItem('underwear')>>\
 You wade through the props over to the far corner of the room. You sort clothes at the house all the time when you do laundry, so this shouldn’t be too hard. You push the pile away from the cabinet and open it, only to find even more haphazardly stashed uniforms.
 
 @@.hero;Great…@@
@@ -30,20 +32,20 @@ As you run your hands over the uniform, you can’t help but picture \
 <<endif>>\
 
 Your hand drifts \
-<<if not _o.female>>\
+<<if not _outerwear.isFemale>>\
 beneath your \
-	<<if _u and not _u.female>>\
+	<<if _underwear and not _underwear.isFemale>>\
 		waistband and inside your boxers,\
-	<<elseif _u and _u.female>>\
+	<<elseif _underwear and _underwear.isFemale>>\
 		waistband and inside your panties,\
 	<<else>>\
 		waistband,\
 	<<endif>>\
 <<else>>\
 	under your \
-	<<if _u and not _u.female>>\
+	<<if _underwear and not _underwear.isFemale>>\
 		skirt and inside your boxers,\
-	<<elseif _u and _u.female>>\
+	<<elseif _underwear and _underwear.isFemale>>\
 		skirt and inside your panties,\
 	<<else>>\
 		skirt,\

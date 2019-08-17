@@ -19,9 +19,12 @@
 <<widget "showMallPlaces">>\
 \
     <<nobr>>\
-        <<set _outerwear=playerCode.isWearingOn(itemTypes.Outerwear)>>
-        <<set _analPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>
-        <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>
+        <!-- <<set _outerwear=playerCode.isWearingOn(itemTypes.Outerwear)>> -->
+        <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+        <!-- <<set _analPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>> -->
+        <<set _analPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+        <!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>> -->
+        <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
         
         <<if window.timeCode.isArcadeOpen()>>
             [[Play in the arcade][$time.addMinutes(5)]]<br>
@@ -51,11 +54,11 @@
             [[Try on some dresses|Task tryingClothesMall]]<br>
         <<endif>>
         
-        <<if ($tasksTeacher.girlyDesert.status eq 1) and _outerwear and _outerwear.female>>
+        <<if ($tasksTeacher.girlyDesert.status eq 1) and _outerwear and _outerwear.isFemale>>
             [[Order a girly desert at the café|Task girlyDesert]]<br>
         <<endif>>
         
-        <<if ($tasksTeacher.windowshopping.status eq 1) and _outerwear and _outerwear.female and _analPlug and _chastity>>
+        <<if ($tasksTeacher.windowshopping.status eq 1) and _outerwear and _outerwear.isFemale and _analPlug and _chastity>>
             [[Windowshopping task|Task Windowshopping]]<br>
         <<endif>>
         

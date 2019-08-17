@@ -4,9 +4,10 @@
 <<set $friendG.daysSinceLastVisit to $time.day - $player.friendLastVisit>>\
 <<set $player.friendLastVisit to $time.day>>\
 <<set _femAppearance to playerCode.obviousFemaleAppearance()>>\
-<<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerWear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 \
-<<if _outerWear.female or $friendG.catchUp eq 1>>\
+<<if _outerWear.isFemale or $friendG.catchUp eq 1>>\
     <<set $friendG.visit.r2 to 2>>\
 <<endif>>\
 \

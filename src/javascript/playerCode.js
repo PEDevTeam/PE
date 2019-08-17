@@ -15,7 +15,7 @@ window.playerCode={
 	isWearing_d: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},
-	isWearingOn: function(type) {
+	isWearingOn_d: function(type) {
 		for (var j=0; j < State.active.variables.player.clothes.length; j++) {
 			var o=window.itemsC[State.active.variables.player.clothes[j]];
 			if (o && ((o.clothingType & type) > 0)) {
@@ -26,11 +26,12 @@ window.playerCode={
 		return false;
 	},
 	getNaked: function() {
-		var c=this.isWearingOn(window.itemTypes.Chastity);
+		//var c=this.isWearingOn(window.itemTypes.Chastity);
+		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var player=State.active.variables.player;
 		player.clothes=[];
-		if (c && (State.active.variables.flags.chastityKey || State.active.variables.flags.chastityLocked)) {
-			player.clothes.push(c.id);
+		if (chastity && (State.active.variables.flags.chastityKey || State.active.variables.flags.chastityLocked)) {
+			player.clothes.push(chastity);
 		}
 	},
 	masturbate: {
@@ -177,10 +178,11 @@ window.playerCode={
 		return (State.active.variables.body.bodyhair >= 2);
 	},
 	isInChastity: function() {
-	    return this.isWearingOn(itemTypes.Chatisty);
+		return window.wardrobeFuncs.isItemMasterWearing('chastity');
+	    //return this.isWearingOn(itemTypes.Chatisty);
 	},
 	isLockedInChastity: function() {
-		return (this.isWearingOn(itemTypes.Chatisty) &&
+		return (window.wardrobeFuncs.isItemMasterWearing('chastity') &&
 		        State.active.variables.flags.chastityLocked);
 	},
 	haveHaircut: function() {
@@ -241,13 +243,13 @@ window.playerCode={
 		return (State.active.variables.body.ass > 0);
 	},
 	obviousFemaleAppearance: function() {
-		var itemTypes=window.itemTypes;
 		var body=State.active.variables.body;
-		var fo=this.isWearingOn(itemTypes.Outerwear).female;
-		var fs=this.isWearingOn(itemTypes.Shoes).slutty;
-		var e=this.isWearingOn(itemTypes.Earrings);
-		var itemTypes=window.itemTypes;
-		var itemTypes=window.itemTypes;
+		//var fo=this.isWearingOn(itemTypes.Outerwear).female;
+		//var fs=this.isWearingOn(itemTypes.Shoes).slutty;
+		//var e=this.isWearingOn(itemTypes.Earrings);
+		var fo=window.wardrobeFuncs.getWornItem('outerwear').isFemale;
+		var fs=window.itemFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'slutty');
+		var e=window.wardrobeFuncs.getWornItem('earring');
 		if (fo || fs || e || body.makeup>1 || body.hairstyle>1 || body.boobs>1 || body.lips>1 || body.manicure>0) {
 			return true;
 		}
@@ -258,31 +260,37 @@ window.playerCode={
 		var items=window.itemsC;
 		var itemTypes=window.itemTypes;
 		var body=State.active.variables.body;
-		var s=this.isWearingOn(itemTypes.Shoes);
+		//var s=this.isWearingOn(itemTypes.Shoes);
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
 		//var st=(this.isWearing(items.stilettoHeels) || this.isWearing(items.maidOutfit));
 		var stilettos=(window.wardrobeFuncs.isItemMasterWearing('stripperHeels') || window.wardrobeFuncs.isItemMasterWearing('maid'));
-		var o=this.isWearingOn(itemTypes.Outerwear);
-		var u=this.isWearingOn(itemTypes.Underwear);
-		var b=this.isWearingOn(itemTypes.AnalPlug);
-		var c=this.isWearingOn(itemTypes.Chastity);
-		var e=this.isWearingOn(itemTypes.Earrings);
+		//var o=this.isWearingOn(itemTypes.Outerwear);
+		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		//var u=this.isWearingOn(itemTypes.Underwear);
+		var underwear=window.wardrobeFuncs.getWornItem('underwear');
+		//var b=this.isWearingOn(itemTypes.AnalPlug);
+		var buttplug=window.wardrobeFuncs.getWornItem('buttplug');
+		//var c=this.isWearingOn(itemTypes.Chastity);
+		var chastity=window.wardrobeFuncs.getWornItem('chastity');
+		//var e=this.isWearingOn(itemTypes.Earrings);
+		var earring=window.wardrobeFuncs.getWornItem('earring');
 		// Score
-		if ((body.makeup>=4 && body.lips>=2 && body.boobs>=4 && body.ass>=2) || (body.makeup>=4 && body.boobs>=4 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (stilettos))) {
+		if ((body.makeup>=4 && body.lips>=2 && body.boobs>=4 && body.ass>=2) || (body.makeup>=4 && body.boobs>=4 && body.lips>=1 && body.ass>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
 			score=9;
 			return score;
 			// total whore
 		}
-		if (((body.makeup>=4 && (e && e.slutty) && (stilettos)) || (body.makeup>=4 && (body.lips>=2 || body.boobs>=4 || body.ass>=2))) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && body.ass>=1 && (e && e.slutty) && (stilettos))) {
+		if (((body.makeup>=4 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos)) || (body.makeup>=4 && (body.lips>=2 || body.boobs>=4 || body.ass>=2))) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && body.ass>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
 			score=8;
 			return score;
 			// whorish girl
 		}
-		if (body.makeup>=4 || (body.makeup>=3 && (stilettos)) || (body.makeup>=3 && body.boobs>=3 && body.lips>=1 && body.ass>=1) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && (e) && (s && s.slutty))) {
+		if (body.makeup>=4 || (body.makeup>=3 && (stilettos)) || (body.makeup>=3 && body.boobs>=3 && body.lips>=1 && body.ass>=1) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && (earring) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty')))) {
 			score=7;
 			return score;
 			//slutty girl
 		}
-		if (this.haveGirlyFace() && body.hairstyle>1 && body.lips>=1 && (body.boobs>=3 || ((body.boobs>=2 || body.ass>=1) && (s && s.slutty)))) {
+		if (this.haveGirlyFace() && body.hairstyle>1 && body.lips>=1 && (body.boobs>=3 || ((body.boobs>=2 || body.ass>=1) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty'))))) {
 			score=6;
 			return score;
 			//sexy girl
@@ -302,12 +310,12 @@ window.playerCode={
 			return score;
 			//very feminine boy
 		}
-		if (body.boobs==1 || body.manicure==1 || (body.bodyhair>=2 && (!o || (o && o.female)))) {
+		if (body.boobs==1 || body.manicure==1 || (body.bodyhair>=2 && (!outerwear || (outerwear && outerwear.isFemale)))) {
 			score=2;
 			return score;
 			//feminine boy
 		}
-		if ((u && u.female) || (c) || (b)) {
+		if ((underwear && underwear.isFemale) || (chastity) || (buttplug)) {
 			score=1;
 			return score;
 			//ordinary boy
@@ -316,22 +324,24 @@ window.playerCode={
 	},
 	slutScore: function() {
 		var score=this.slutScoreBasic();
-		var o=this.isWearingOn(window.itemTypes.Outerwear);
-		if (o) {
-			if (o.female) {
+		//var o=this.isWearingOn(window.itemTypes.Outerwear);
+		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		if (outerwear) {
+			if (outerwear.isFemale) {
 				score+=10;
 				}
-			if (o.slutty) {
+			if (window.itemFuncs.hasTag(outerwear, 'slutty')) {
 				score+=10;
 				}
 		}
 		return score;
 	},
 	heelsCheck: function() {
-		var s=this.isWearingOn(window.itemTypes.Shoes);
+		//var s=this.isWearingOn(window.itemTypes.Shoes);
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
 		var player=State.active.variables.player;
-		if (s && s.heels) {
-			if (s.daringRec > 6) {
+		if (shoes && window.itemFuncs.hasTag(shoes, 'heels')) {
+			if (shoes.daring > 6) {
 				if ((window.randomCode.getIntInclusive(0, 10) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -342,7 +352,7 @@ window.playerCode={
 				}
 				return false;
 			}
-			if (s.daringRec > 4) {
+			if (shoes.daring > 4) {
 				if ((window.randomCode.getIntInclusive(0, 5) >= player.heelsSkill) && (window.randomCode.getIntInclusive(0, 2) == 0)) {
 					player.heelsSkill++;
 					State.active.variables.flags.heelsFall=true;
@@ -412,7 +422,7 @@ window.playerCode={
 		var player=State.active.variables.player;
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
-		if ((player.clothes.length == 0) || ((player.clothes.length == 1) && (this.isWearingOn(window.itemTypes.Chastity)))) {
+		if ((player.clothes.length == 0) || ((player.clothes.length == 1) && (window.wardrobeFuncs.getWornItem('chastity')))) {
 			this.deleteQuickSlot(slot);
 			return;
 			}
@@ -543,13 +553,14 @@ window.playerCode={
 		}
 	},
 	loadQuickSlot: function(slot) {
-		var ch=this.isWearingOn(window.itemTypes.Chastity);
+		//var ch=this.isWearingOn(window.itemTypes.Chastity);
+		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
 		var player=State.active.variables.player;
 		player.clothes=[];
-		if (ch) {
-			player.clothes.push(ch.id);
+		if (chastity) {
+			player.clothes.push(chastity);
 		}
 		
 		var quickS=State.active.variables.quickSlot;
@@ -572,12 +583,13 @@ window.playerCode={
 		window.playerCode.clothesOverride();
 	},
 	wearPajamas: function() {
-		var c=this.isWearingOn(window.itemTypes.Chastity);
+		//var c=this.isWearingOn(window.itemTypes.Chastity);
+		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var player=State.active.variables.player;
 		var items=window.itemsC;
 		player.clothes=[];
-		if (c) {
-			player.clothes.push(c.id);
+		if (chastity) {
+			player.clothes.push(chastity);
 		}
 		var o;
 		for (var i=0; i < Object.keys(items).length; i++) {

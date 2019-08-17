@@ -74,10 +74,12 @@
 	
 	[[Agree to confess|SissyConfession][$scene="AgreeToConfess"]]
 <<elseif $scene eq "AgreeToConfess">>\
-	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+	<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+	<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+	<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+	<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 	<<set $flags.sissyConfession = true>>\
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
+	<<if _chastity and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
 		<<set $player.punishments.penalty = 0>>\
 	<<endif>>\
 	Fidgeting in your chair, you begin to read the script out loud...
@@ -118,11 +120,11 @@
 
 	With a sigh of relief, you place the paper on your lap and try to calm down as you can feel your arms trembling...
 
-	<<if _c>>\
+	<<if _chastity>>\
 		only to realize that your penis is straining hard against its cage.
 	<<else>>\
 		only to realize that the paper is now tented by the rather obvious erection trying to\
-		<<if (_o and _o.female)>>\
+		<<if (_outerwear and _outerwear.isFemale)>>\
 		lift your skirt.
 		<<else>>\
 		burst through your pants.
@@ -192,7 +194,7 @@
 		@@.heroT;Fuck.@@
 		
 	<<endif>>\
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
+	<<if _chastity and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
 		$teacher unlocks your chastity cage.
 		<<set $flags.chastityLocked = false>>\
 	

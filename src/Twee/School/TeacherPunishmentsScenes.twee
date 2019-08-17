@@ -2,25 +2,31 @@
 \
 <<set _defaultPunishmentEnd = true>>\
 <<set $player.punishments.refusedToPay = false>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<!-- <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 \
 <<if ($scene eq "takingKeyFromChastity")>>\
 	You follow $teacher to her cabinet. She makes you sit on a chair in front of her desk.
 	
 	She frowns at you. @@.teacher;"So, you still struggle to earn my forgiveness - or maybe, you simply choose to ignore me? Clearly, you have no discipline at all. We will have to do something about that."@@
-	<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+	<<if (not _chastity)>>\
 		<<if (not playerCode.owns(itemsC.chastityDevice))>>\
-			<<set _item=itemsC.chastityDevice>>\
+			<<set _item=window.itemFuncs.getItemByVariant('chastity_cb6000')>>\
 			<!-- <<addToInv _item.id>>\ -->
 			<<addItemVariantToInventory 'chastity_cb6000'>>\
 			<!-- <<wearClothing _item.id>>\ -->
 			<<wearRandomItemByMaster 'chastity'>>\
-			<<set $player.bribeDiscount -= _item.cost>>\
+			<<set $player.bribeDiscount -= _item.price>>\
 		<<endif>>\
 		@@.teacher;"Here is a chastity device. Put it on. Now."@@
 		
@@ -184,7 +190,7 @@
 		@@.teacher;"Good boy!"@@ she says, and spits in your mouth! 
 
 		You taste her spit - it has a strawberry flavor. You feel so degraded<<if $kink.spitting>>, yet so horny<<endif>>.\
-		<<if _c>>Your penis starts to twitch in your chastity cage.<<endif>>\
+		<<if _chastity>>Your penis starts to twitch in your chastity cage.<<endif>>\
 		You blush, looking up and meeting her eyes. She knows you're turned on - anyone would. You look like a bitch in heat, panting like that. She pats your head, telling you what a good sissy you are.
 		
 		She periodically orders you to open up, each time spiting in your mouth again.
@@ -202,13 +208,13 @@
 	She gestures you to come to her. As you hesitantly walk to her she repeats gesture and you lean closer.
 	
 	Smirking at your guarded facial expression, she grabs collar of your shirt. She pulls it down, bending you over her knees and roughly\
-	<<if _o and _o.female>>\
-		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>,\
+	<<if _outerwear and _outerwear.isFemale>>\
+		<<if window.inventoryFuncs.hasTag(_outerwear, 'shorts')>>pulls down your shorts<<else>>lifts your skirt<<endif>>,\
 	<<else>>\
 		yanks your pants down,\
 	<<endif>>\
-	<<if _u>>\
-		<<if _u.female>>\
+	<<if _underwear>>\
+		<<if _underwear.isFemale>>\
 			pulling your panties down around your ankles.\
 		<<else>>\
 			pulling your boxers down around your ankles.\
@@ -216,7 +222,7 @@
 	<<else>>\
 		exposing your naked butt.\
 	<<endif>>\
-	<<if _b>>\
+	<<if _plug>>\
 		She very slowly pulls the butt-plug out of your ass, making you squirm in the process.\
 	<<endif>>\
 	
@@ -253,7 +259,7 @@
 
 	Pulling you off balance, she easily drags you to the corner of the room as you shuffle clumsily behind her. There, she pushes you down on all fours, yanking your collar to the floor and forcing your ass high in the air. She locks your leash and the chain of your wrist cuffs to a ring bolted into the tile beneath you.
 	
-	<<if _b>>\
+	<<if _plug>>\
 		You feel a tug at your rump, and then pressure from within your anus as $teacher very slowly pulls the butt-plug out of your ass, making you squirm in the process. A hollow feeling is left inside you when the plug slips free, but the voiding gape of your sphincter last only a few moments before you're probed again.
 		
 		You feel the distinct shape of $teacher's finger entering you, but then it immediately withdraws. It takes a moment to realize that a tiny object has been left behind, but you barely have time to guess what it was when she starts pushing something bigger in.
@@ -344,7 +350,7 @@
 	
 	Pulling you off balance, she easily drags you to the corner of the room as you shuffle clumsily behind her. There, she pushes you down on all fours, yanking your collar to the floor and forcing your ass high in the air. She locks your leash and the chain of your wrist cuffs to a ring bolted into the tile beneath you.
 	
-	<<if _b>>\
+	<<if _plug>>\
 		You feel a tug at your rump, and then pressure from within your anus as $teacher very slowly pulls the butt-plug out of your ass, making you squirm in the process. A hollow feeling is left inside you when the plug slips free, but the voiding gape of your sphincter last only a few moments before you're probed again.
 		
 		You feel the distinct shape of $teacher's finger entering you, but then it immediately withdraws. It takes a moment to realize that a tiny object has been left behind, but you barely have time to guess what it was when she starts pushing something bigger in.
@@ -451,7 +457,7 @@
 	was commendable, though you might have enjoyed the punishment a bit too much.
 	
 	To your slight discomfort, $teacher helps you remove the huge plug,\
-	<<if _b>>\
+	<<if _plug>>\
 		replacing it with your original one. For several minutes, it feels like your much smaller butt-plug might fall right out after the intense anal stretching you received, but it stays in long enough for your anus to close enough to hold onto it firmly.
 		
 		You hate to admit it, but it's strangely comforting after that intense fucking to have something to keep your insides from feeling completely empty.
@@ -488,7 +494,7 @@
 		She pulls out the familiar collar from her desk drawer and walks up to you. You put it on. She gives you an evil smile. 
 	<<endif>>\
 	
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.female)>>\
 		$teacher orders you to undress and you quickly comply, though you fumble a bit to $teacher's annoyance.
 	
 	<<endif>>\
@@ -537,21 +543,21 @@
 	@@.heroT;"Thank you, $teacher,"@@ you mumble while kissing her feet.
 
 	Finally, she rises, tugging the chain a bit; you get up on your knees. You look up and see her watching you with a glint in her eye. She nudges your knees with her foot, making you spread them, then she holds your leash closer and pulls you up a bit. You feel like you are going to faint when she puts her wet foot between your legs. \
-	<<if _b>>\
+	<<if _plug>>\
 		Her foot finds the base of your butt-plug and touches it a bit, giving you a wonderful sensation. Your penis pulses as if it's gonna break the chastity. \
 	<<endif>>\
 	She slowly starts to move her foot, brushing\
-	<<if _u and _o.skirt>> your panties <<else>> your scrotum <<endif>>\
+	<<if _underwear and _outerwear.masterItem == 'skirtTop'>> your panties <<else>> your scrotum <<endif>>\
 	and touching the tip of your chastity. She keeps moving her foot up, and wipes her wet foot on your body
-	<<if _o and _o.female>>\
-	and your <<if _o.shorts>>cheer shorts<<else>>skirt<<endif>>,\
+	<<if _outerwear and _outerwear.isFemale>>\
+	and your <<if window.inventoryFuncs.hasTag(_outerwear, 'shorts')>>cheer shorts<<else>>skirt<<endif>>,\
 	<<endif>>\
 	then does the same with her other foot.
 
 	@@.teacher;"I was easy on you this time. Remember - next time, I will not be."@@
 	
 	You get up, she removes the chain and the collar, gives you a slap on your butt and sends you home\
-	<<if _o and _o.female and not (_o.shorts)>>\
+	<<if _outerwear and _outerwear.isFemale and not (window.inventoryFuncs.hasTag(_outerwear, 'shorts'))>>\
 		with a stain on your skirt.
 	<<else>>\
 		with a stain on your clothes.
@@ -563,13 +569,13 @@
 	@@.teacher;"It seems going easy on you was a mistake!"@@ she yells, with genuine malice in her voice.
 	 
 	You decide the best thing to do is just stay silent. She goes to her desk and pulls out the familiar collar. You notice something covered by a cloth, just before before she approaches to give your punishment. Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
-	<<if _o and _o.female>>\
-		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>, \
+	<<if _outerwear and _outerwear.isFemale>>\
+		<<if window.inventoryFuncs.hasTag(_outerwear, 'shorts')>>pulls down your shorts<<else>>lifts your skirt<<endif>>, \
 	<<else>>\
 		yanks your pants halfway off,\
 	<<endif>>\
-	<<if _u>>\
-		<<if _u.female>>\
+	<<if _underwear>>\
+		<<if _underwear.isFemale>>\
 			pulling your panties down around your ankles, too.\
 		<<else>>\
 			pulling your boxers down around your ankles, too.\
@@ -577,7 +583,7 @@
 	<<else>>\
 		baring your butt.\
 	<<endif>>\
-	<<if _b>>\
+	<<if _plug>>\
 		She very slowly pulls the butt-plug out of your ass, making you squirm in the process.
 	<<endif>>\
 
@@ -709,7 +715,7 @@
 		Your penis strains in your chastity cage, helplessly useless and locked away. As your discomfort grows, you sniff, blinking the tears away, but not daring to move, resigned to your role.
 
 		Suddenly you feel $teacher's fingers on your butt. She absentmindedly\
-		<<if _b>>\
+		<<if _plug>>\
 			plays with base of your butt-plug,\
 		<<else>>\
 			massages your anus,\
@@ -759,7 +765,7 @@
 		Your penis strains in your chastity cage, helplessly useless and locked away. As your discomfort grows, you sniff, blinking the tears away, but not daring to move, resigned to your role.
 
 		Suddenly you feel $teacher's fingers on your butt. She absentmindedly\
-		<<if _b>>\
+		<<if _plug>>\
 			plays with base of your butt-plug,\
 		<<else>>\
 			massages your anus,\
@@ -796,20 +802,20 @@
 	@@.teacher;"Is there anything that doesn’t turn you on?"@@ she asks with a wicked smile.
 
 	Without waiting, she grabs the chain of your collar and moves you over to her desk. She bends you over and roughly\
-	<<if _o and _o.female>>\
-		<<if _o.shorts>>pulls down your shorts<<else>>lifts your skirt<<endif>>\
+	<<if _outerwear and _outerwear.isFemale>>\
+		<<if window.inventoryFuncs.hasTag(_outerwear, 'shorts')>>pulls down your shorts<<else>>lifts your skirt<<endif>>\
 	<<else>>\
 		yanks your pants down\
 	<<endif>>\
-	<<if _u>>\
-		<<if _u.female>>\
+	<<if _underwear>>\
+		<<if _underwear.isFemale>>\
 			, pulling your panties down around your ankles\
 		<<else>>\
 			, pulling your boxers down around your ankles\
 		<<endif>>\
 	<<endif>>\
 	.\
-	<<if _b>>\
+	<<if _plug>>\
 		<<selectScene Teacher_spanking_1 SEQ>>
 		<<scene>>She begins to pull the butt-plug out of your ass, but when it's halfway out, she changes her mind. 
 			
@@ -1739,7 +1745,7 @@
 		
 		@@.teacher;"Slut loves it."@@ $teacher intently watches Nancy working on you.
 		
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Nancy pulls out your butt-plug and puts it on the tray near her. 
 			
 			@@.teacher;"Don't worry $player.name, you will get it back."@@
@@ -1787,7 +1793,7 @@
 
 		"If I was you, I would just, you know... come back sooner rather than later if you want to undo stuff."@@
 
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Not giving you time to recover, Nancy slams your butt-plug back in place with one smooth motion.
 		
 		<<endif>>\
@@ -1806,7 +1812,7 @@
 		
 		@@.teacher;"Slut loves it."@@ $teacher intently watches Nancy working on you.
 		
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Nancy pulls out your butt-plug and puts it on the tray near her. 
 			
 			@@.teacher;"Don't worry $player.name, you will get it back."@@
@@ -1867,7 +1873,7 @@
 
 		"If I was you, I would just, you know... come back sooner rather than later if you want to undo stuff."@@
 
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 		Not giving you time to recover, Nancy slams your butt-plug back in place with one smooth motion.
 		
 		<<endif>>\
@@ -1883,7 +1889,7 @@
 			
 			@@.teacher;"Slut loves it,"@@ $teacher says, intently watching as Nancy works on you.
 			
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Nancy pulls out your butt-plug and puts it on the tray near her. 
 				
 				@@.teacher;"Don't worry $player.name, you will get it back."@@
@@ -1948,7 +1954,7 @@
 			
 			@@.nurse;"Don't worry, you will be constantly wet down there."@@
 			
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Not giving you time to recover, Nancy slams your butt-plug back in place with one, smooth motion.
 			
 			<<endif>>\
@@ -1965,7 +1971,7 @@
 			
 			@@.teacher;"Slut loves it,"@@ says $teacher, her eyes examining your reaction as Nancy works on you.
 			
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Nancy pulls out your butt-plug and puts it on the tray near her.
 			
 			@@.teacher;"Don't worry $player.name, you will get it back."@@
@@ -1993,7 +1999,7 @@
 			
 			Finally, Nancy stops, and wipes your anus with moist tissues before unlocking you, though once again you are still weak, curling up right there unable to get up.
 
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Not giving you time to recover, Nancy slams your butt-plug back in place with one smooth motion.
 			
 			<<endif>>\
@@ -2018,7 +2024,7 @@
 		
 		@@.teacher;"Slut loves it,"@@ says $teacher, her eyes examining your reaction as Nancy works on you.
 		
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 		Nancy pulls out your butt-plug and puts it on the tray near her.
 		
 		@@.teacher;"Don't worry $player.name, you will get it back."@@
@@ -2042,7 +2048,7 @@
 		
 		Finally, Nancy stops, and wipes your anus with moist tissues before unlocking you, though once again you are still weak, curling up right there unable to get up.
 
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 		Not giving you time to recover, Nancy slams your butt-plug back in place with one smooth motion.
 		
 		<<endif>>\
@@ -2075,7 +2081,7 @@
 			<<set $flags.walletForgottenEnd = true>>\
 		<<endif>>\
 	<<else>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity') and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
 			Finally, $teacher unlocks your chastity cage.
 			
 			<<set $flags.chastityLocked = false>>\

@@ -1,13 +1,21 @@
 :: Good morning [pos_639_373]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _br=playerCode.isWearingOn(itemTypes.Bras)>>\
-<<set _st=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _co=playerCode.isWearingOn(itemTypes.Collar)>>\
-<<set _hb=playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<set _ex=playerCode.isWearingOn(itemTypes.Extra)>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>\
+<!-- <<set _br=playerCode.isWearingOn(itemTypes.Bras)>>\ -->
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<!-- <<set _st=playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<!-- <<set _co=playerCode.isWearingOn(itemTypes.Collar)>>\ -->
+<<set _neckwear=window.wardrobeFuncs.getWornItem('neckwear')>>\
+<!-- <<set _hb=playerCode.isWearingOn(itemTypes.Hairband)>>\ -->
+<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
+<!-- <<set _ex=playerCode.isWearingOn(itemTypes.Extra)>>\ -->
 \
 <<display "Daily resets">>\
 \
@@ -27,7 +35,7 @@
 			<<set $roomSize = 4>>\
 		<<endif>>\
 		<<display "Show bedroom">>\
-	<<elseif _c and random(1) eq 0>>\
+	<<elseif _chastity and random(1) eq 0>>\
 		<<if playerCode.isMaid()>>\
 			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Morning Chastity Maid" 450 450>></div>\
 		<<else>>\
@@ -38,9 +46,9 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<set $tasksTeacher.trialChastity.status = 6>>\
-<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and window.wardrobeFuncs.getWornItem('chastity')>>\
 
 	You've slept well, despite wearing a chastity cage. You can't believe how quickly you got used to it.
 	
@@ -70,10 +78,13 @@
 	You open your eyes to find $guardian shaking you awake, looking down at you sternly.
 	
 	<<if $player.perversion.guardian lte 2>>\
-		<<if (_o and _o.female and _o.sleepWear)>>\
+		<!--<<if (_o and _o.female and _o.sleepWear)>>\-->
+		<<if (_nightwear and _nightwear.isFemale)>>\
+		
 			Luckily she hasn't pulled the blanket off you and exposed your frilly nightie.
 			
-		<<elseif (_u and _u.female) or _br or _co or _co or _ex>>\
+		<!-- <<elseif (_u and _u.female) or _br or _co or _co or _ex>>\ -->
+		<<elseif (_underwear and _underwear.isFemale) or _bra or _neckwear>>\
 			Luckily she hasn't pulled the blanket off you and exposed your compromising attire.
 			
 		<<endif>>\
@@ -100,10 +111,12 @@
 	You open your eyes to find $guardian shaking you awake, looking down at you sternly.
 
 	<<if $player.perversion.guardian lte 2>>\
-		<<if (_o and _o.female and _o.sleepWear)>>\
+		<!-- <<if (_o and _o.female and _o.sleepWear)>>\ -->
+		<<if (_nightwear and _nightwear.isFemale)>>\
 			Luckily, your frilly nightie stays hidden under the covers.
 			
-		<<elseif (_u and _u.female)>>\
+		<!-- <<elseif (_u and _u.female)>>\ -->
+		<<elseif (_underwear and _underwear.isFemale)>>\
 			Luckily, your frilly underwear stays hidden under the covers.
 			
 		<<endif>>\
@@ -630,7 +643,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	<!--<maid morning>--><!--Special alarms-->\
 	<<if $flags.dreamgameCaughtWin>>\
 	You are brought out of sleep by \
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<if $player.alarmProgress eq 0>>\
 			<<set $player.alarmProgress++>>\
 			a butt-plug alarm vibrating in your anus, bringing you to tears as your locked penis desperately strains against the cage. You try to pull the torturous device from your ass, but it starts to screech and wail so loudly that you push it back in, letting out a weak whimper as you gasp and pant. There is no choice but to endure it, so you bite your pillow and try to relax, but the butt-plug keeps you on the edge the whole time.
@@ -681,7 +694,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 		
 	<<elseif $flags.dreamgameCaught>>\
 	You are brought out of sleep by \
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<if $player.alarmProgress eq 0>>\
 			an alarm butt-plug vibrating in your anus bringing you to tears as your locked penis desperately strains against the cage. That was a hell of a way to start the day!
 			<<elseif $player.alarmProgress eq 1>>\
@@ -752,11 +765,12 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 
 			You open your eyes slowly, gradually becoming aware of $guardian gently shaking you awake.
 			
-			<<if _u.female or (_o.female and _o.sleepWear) or _br>>\
+			<!-- <<if _u.female or (_o.female and _o.sleepWear) or _br>>\ -->
+			<<if _underwear.isFemale or (_nightwear and _nightwear.isFemale) or _bra>>\
 				She pulls the covers back a little and sees what you're wearing. 
 				
-				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _u.female>>underwear<<else>>nightclothes<<endif>>?"@@
-				<<if _c and (not _u) and (not $flags.guardianNoticeChastity)>>\
+				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _underwear.isFemale>>underwear<<else>>nightclothes<<endif>>?"@@
+				<<if _chastity and (not _underwear) and (not $flags.guardianNoticeChastity)>>\
 					<<set $flags.guardianNoticeChastity = true>>\
 					Her eyes widen as she notices your chastity cage peeking from under your nightie. @@.guardian;"Oh my..."@@
 				<<endif>>\

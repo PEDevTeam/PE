@@ -1,6 +1,7 @@
 :: Task Trial chastity [pos_1952_2896]
 \
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $tasksTeacher.trialChastity.status eq 1>>\
 	You enter the adult store. After some hesitation, you ask the shopkeeper about the market research opportunity $teacher told you about. She looks a little puzzled.
 
@@ -43,11 +44,11 @@
 	You agree, so the shopkeeper takes you to a small cubicle with a curtain instead of a door. She brings several boxes containing chastity cages of various sizes, and a small metal butt-plug. She tells you to find a cage option that fits you and then leaves, noting she’ll be nearby if you need anything.
 
 	You take off your pants \
-	<<if _u and (not _u.female)>>\
+	<<if _underwear and (not _underwear.isFemale)>>\
 		and lower your boxers.
-	<<elseif _u and (not _u.slutty)>>\
+	<<elseif _underwear and (not window.inventoryFuncs.hasTag(_underwear, 'slutty'))>>\
 		and lower your panties.
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		and lower your lacy panties.
 	<<endif>>\
 
@@ -196,11 +197,11 @@
 
 	She abruptly leads you by the hand back to the cubicle, this time joining you inside. As she unpacks the devices, puts on some latex gloves and gets some items from a cabinet, she tells you to drop your pants. At the sound of her no-nonsense tone, you comply before you can really think about it, standing there in bewilderment at your automatic obedience.
 	
-	<<if _u and (not _u.female)>>\
+	<<if _underwear and (not _underwear.isFemale)>>\
 		She quirks an eyebrow, looking at your boxers. She swiftly pulls them down, exposing your penis.
-	<<elseif _u and (not _u.slutty)>>\
+	<<elseif _underwear and (not window.inventoryFuncs.hasTag(_underwear, 'slutty'))>>\
 		She smiles at the sight of your panties. She swiftly pulls them down, exposing your penis.
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		She gives you a knowing smile upon seeing your naughty panties, then swiftly pulls them down to expose your penis.
 	<<endif>>\
 
@@ -295,11 +296,11 @@
 
 	She tells you to lower your pants as she holds the devices. A bit overwhelmed by her no-nonsense tone and manner of speech, you comply before you can really think about it. Then stand there blushing bright red from your automatic obedience.
 	
-	<<if _u and (not _u.female)>>\
+	<<if _underwear and (not _underwear.female)>>\
 		She quirks an eyebrow up, looking at your boxers and suddenly pulls them down, revealing your penis.
-	<<elseif _u and (not _u.slutty)>>\
+	<<elseif _underwear and (not _underwear.slutty)>>\
 		She smiles, eyeing your panties and suddenly pulls them down, revealing your penis.
-	<<elseif _u>>\
+	<<elseif _underwear>>\
 		She smiles eyeing, your lacy panties and suddenly pulls them down, revealing your penis.
 	<<endif>>\
 

@@ -1,9 +1,13 @@
 :: Friend Hang Out Manga
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<set _waxed to playerCode.isWaxed()>>\
 \
 <<if $player.daring lt 5 and $tasksFriend.manga.status eq 0>>\
@@ -49,19 +53,19 @@
 		<<if _chastity and $flags.chastityKey>>and locked in chastity<<endif>>, you\
 		know you would be jerking one out. You glance up and see $friend watching you intently. 
 
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings>>stocking top\
+			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking top\
 			<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Your skin is all tingly, your cheeks flushed and your penis is\
 			<<if _chatity>>solid and painfully pressing against your cage.\
 			<<else>>solid.<<endif>>\
 			Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that, $friendG.his_her hand up your\
-			<<if _outerwear.skirt>>skirt<<else>>dress<<endif>>\
+			<<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>>\
 			and caressing your <<if _waxed>>smooth, girly<<endif>> legs. The worst part is that however you look at it, you loved it and catch yourself wishing $friendG.he_she would carry on. Fortunately, or unfortunately, when $friend returns $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that from your mind. Fortunately, when $friend returns, $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<endif>>\
 	<<scene>>\
@@ -81,9 +85,9 @@
 		<<else>>\
 			<<RandomImageFromPack 'Friend/Stop_Hibari-Kun' 400 400 alignRight>>\
 		<<endif>>\
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			You snuggle back on the couch, pulling your legs up to tuck underneath you and arranging your skirt to cover your\
-			<<if _stockings>>stocking tops.<<else>>thighs.<<endif>>
+			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking tops.<<else>>thighs.<<endif>>
 
 			@@.friend;“You are so different to before,”@@ $friend says, coming back into the room with a tray loaded with goodies. @@.friend;“I almost feel it should be you making the food now, given how girly you are."@@
 

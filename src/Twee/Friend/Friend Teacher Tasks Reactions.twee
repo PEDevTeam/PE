@@ -2,23 +2,29 @@
 \
 <!-- <<set _wearingBoxers to playerCode.isWearing(itemsC.jocksLucky)>>\ -->
 <<set _wearingBoxers to window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <!-- <<set _wearingLacyBra to playerCode.isWearing(itemsC.braSexy)>>\ -->
 <<set _wearingLacyBra to window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
-<<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _wearingPanties to playerCode.isWearingOn(itemTypes.Underwear).female>>\
-<<set _wearingStockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<!-- <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!--<<set _wearingPanties to playerCode.isWearingOn(itemTypes.Underwear).female>>\ -->
+<<set _wearingPanties=window.wardrobeFuncs.getWornItem('underwear').isFemale>>\
+<!-- <<set _wearingStockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<set _shavedLegs to $body.bodyhair>>\
-<<set _wornBra to playerCode.isWearingOn(itemTypes.Bras)>>\
-<<if _wornBra>>\
+<!-- <<set _wornBra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
+<<set _wornBra=window.wardrobeFuncs.getWornItem('bra')>>\
+<!-- <<if _wornBra>>\
     <<set _bra to itemF.itemTwee(_wornBra.id)>>\
     <<set _braAlt to _bra.curAlt>>\
-<<endif>>\
+<<endif>>\ -->
 \
 \
 <<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status>>\
 \
-    <<if _wearingLacyBra and _braAlt eq 60 or _braAlt eq 61>>\
+    <!-- <<if _wearingLacyBra and _braAlt eq 60 or _braAlt eq 61>>\ -->
+    <<if _wearingLacyBra and (_wornBra.variant == 'bar_sexy_60' or _wornBra.variant == 'bar_sexy_61')>>\
         @@.friend;“Awesome, you are wearing the bra I gave you!” @@
     \
     <<elseif _wornBra>>\
@@ -97,7 +103,8 @@
 \
 <<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status or $tasksTeacherBody.legHairRemoval.status or $tasksTeacherwearStockingsstatus>>\
 \
-    <<if _wearingStockings>>\
+    <!-- <<if _wearingStockings>>\ -->
+    <<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>\
         <<if not $friendSeenStockings>>\
             @@.friend;“You are wearing stockings?”@@ $friend asks in awe.  $friendG.He_She reaches out and runs a finger around your upper thigh, making your breath catch in your throat. You groan as your penis quivers in tension. @@.friend;“They look great.”@@
             \

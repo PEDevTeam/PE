@@ -1,27 +1,31 @@
 ::Cheer Ep3 Pre3
 <<RandomImageFromPack "Cheerleader Downpour" 400 400 "alignRight">>\
 \
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<if _c>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<if _chastity>>\
 	<<set $therapistTalks.talkChastity.start=true>>\
 <<endif>>\
-<<if _b>>\
+<<if _buttplug>>\
 	<<set $therapistTalks.talkButtplug.start=true>>\
 <<endif>>\
-<<if _u and _u.female>>\
+<<if _underwear and _underwear.isFemale>>\
 	<<set $therapistTalks.talkUnderwear.start=true>>\
 <<endif>>\
 <!--<Misc events>-->\
 <<if $flags.chastityKey>>\
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		Remembering $teacher's warning, you return home, put on your chastity device and lock it.
 
 		<!-- <<wearClothing 'chastityDevice'>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
-		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher's warning, you quickly lock your chastity device.
 		
@@ -34,7 +38,7 @@
 	
 <<endif>>\
 \
-<<if $flags.laundryAccident and _u.female and _u.disabled>>\
+<<if $flags.laundryAccident and _underwear.isFemale and _underwear.disabled>>\
 	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
 
 <<endif>>\

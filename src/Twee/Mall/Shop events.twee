@@ -301,11 +301,11 @@
     @@.femvoice7;“and a son. Don’t forget, I do sell brassieres for a living. Now, top off. Chop, chop.”@@
 
     Faced with a choice between raising the ire of the towering British lady or potentially facing $bully as you leave a women’s wear shop, you feel your shoulders slump in submission. \
-    You remove your top and stand before her, your hands trying to cover up your <<if playerCode.isWearingOn(itemTypes.Bra)>>bra<<elseif $body.boobs>>breasts<<else>>flat chest<<endif>>.
+    You remove your top and stand before her, your hands trying to cover up your <<if window.wardrobeFuncs.getWornItem('bra')>>bra<<elseif $body.boobs>>breasts<<else>>flat chest<<endif>>.
 
     Mz. Knight looks at you with an expression of calm acceptance, as if she has seen boys coming for bra fittings every day. Her demeanour puts you at ease.
     
-    <<if playerCode.isWearingOn(itemTypes.Bra)>>\
+    <<if window.wardrobeFuncs.getWornItem('bra')>>\
         @@.femvoice7;“I see you already have one. It is not fitted correctly, though. You have made the mistakes that so many girls your age do. No matter, this can be easily rectified. Please remove it.”@@
 		
     <<endif>>\
@@ -431,7 +431,7 @@
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale>>\
         They will also be almost unnoticeable under your outer garments.<<endif>>@@
 
         @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she says, kindly, reaching out her hand and shaking yours. @@.femvoice7;“Feel free to ask for my advice on my products. \
@@ -452,10 +452,10 @@
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale>>\
         They will also be almost unnoticeable under your outer garments.<<endif>>@@
     <<endif>>\
-    <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female and not playerCode.isWearingOn(itemTypes.Stockings)>>\
+    <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale and not window.wardrobeFuncs.getWornItem('hosiery').masterItem == 'stockings'>>\
         Mz. Knight glances around the store, which is empty for the moment. @@.femvoice7;“I wonder, have you ever worn them before?”@@
 
         @@.heroT; "Not like these, no…”@@ you admit.
@@ -489,7 +489,7 @@
 
         Mz. Knight looks at your bare legs and feet.
 
-        <<if playerCode.isWearingOn(itemTypes.Underwear).female>>\
+        <<if window.wardrobeFuncs.getWornItem('underwear').isFemale>>\
             <<if not $items.pantiesCotton.ownAlt[40] and not $items.gString.ownAlt[40] and not $items.gString.ownAlt[41] and not $items.gString.ownAlt[60] and not $items.gString.ownAlt[61] and not not $items.pantiesLatex.ownAlt[40]>>\
                 @@.femvoice7;You are wearing our panties, I see. They do suit you.@@
             <<else>>\
@@ -502,7 +502,7 @@
             @@.femvoice7;Oh my! You don’t wear… Oh dear.@@
         <<endif>>\
         
-        <<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+        <<if window.wardrobeFuncs.getWornItem('chastity')>>\
             @@.femvoice7;Aww, a little cage, how quaint.@@
         
         <<endif>>\
@@ -543,7 +543,7 @@
         peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new stockings and head back into the mall.
         <<wearClothing _item.id _stockingsAlt>>\
     <<else>>
-        Mz. Knight looks at <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>your female clothing<<elseif playerCode.isWearingOn(itemTypes.Stockings)>>your feet, noticing your stockings<<endif>>.
+        Mz. Knight looks at <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>your female clothing<<elseif window.wardrobeFuncs.getWornItem('hosiery').masterItem == 'stockings'>>your feet, noticing your stockings<<endif>>.
 
         @@.femvoice7;“How wonderful, it seems that wearing such elegant hosiery is not a new experience for you. I do hope you enjoy wearing them. ”@@
 

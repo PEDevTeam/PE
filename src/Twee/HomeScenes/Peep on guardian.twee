@@ -1,7 +1,7 @@
 :: Peep on guardian [pos_1923_314]
 \
 	<!--<clothes check for guardian>-->\
-<<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\
+<<if window.wardrobeFuncs.getWornItem('nightwear') and window.wardrobeFuncs.getWornItem('nightwear').isFemale and (not $flags.nightieSleep)>>\
 	<<if $player.perversion.guardian lte 2>>\
 		<!-- <<wearClothing 'pyjamasMale'>>\ -->
 		<<wearRandomItemByMaster 'pyjamas'>>\
@@ -19,7 +19,7 @@
 			<<set $flags.nightieSleep = true>>\
 		<<endif>>\
 	<<endif>>\
-<<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\
@@ -31,7 +31,7 @@
 		You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 		
 	<<endif>>\
-<<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
 	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\

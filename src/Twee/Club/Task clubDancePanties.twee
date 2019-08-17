@@ -1,8 +1,8 @@
 :: Task clubDancePanties [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
 <!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
-<<set wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-<<set wornMasterItem=window.items.itemMasters[wornItem.itemMaster]>>\
+<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _wornMasterItem=window.items.itemMasters[wornItem.itemMaster]>>\
 \
 <<if $scene eq "step1">>\
 	<<if ($player.perversion.danceClub eq 2)>>\
@@ -102,7 +102,7 @@
 
 	He backs away a step or two, and his eyes try to read yours in confusion. You sink a little at his expression. You notice there are still numerous people around you here, too, and that just makes it worse, because you just won’t be able to explain anything.
 
-	You take a deep breath. In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything.
+	You take a deep breath. In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print _wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything.
 
 	At the last, completely awkward moment, you slide your panties around your shoes until the gusset slips past and they spring free into your palm. You stand up, and thrust your panties toward your dance partner.
 
@@ -182,7 +182,7 @@
 
 	You take a deep breath, exhaling as you try to control your trembling hands. As the last glow of endorphins dies away, you notice there are still numerous people around you, and that just makes it worse, because you just won’t be able to explain anything.
 
-	In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything. 
+	In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print _wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything. 
 
 	At the last, completely awkward moment, you slide your panties around your shoes until the gusset slips past and they spring free into your palm. You stand up, and thrust your panties toward your dance partner.
 
@@ -238,7 +238,7 @@
 
 	@@.heroT;“I’m sorry – I can’t explain, but I have to do this,”@@ you stammer.
 
-	You take a deep breath. In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything. 
+	You take a deep breath. In a single, quick motion, you reach under your dress, slip your thumbs through the fabric around your hips, and tug your <<print _wornMasterItem.name.toLowerCase()>> down. You kneel some as you pull, doing your best not to flash anything you don’t have to, though you can’t hide everything. 
 
 	At the last, completely awkward moment, you slide your panties around your shoes until the gusset slips past and they spring free into your palm. You stand up, and thrust your panties toward your dance partner.
 
@@ -344,7 +344,7 @@
 
 	[[You freeze up|Task clubDancePanties][$scene="ladyDress3"]]
 <<elseif $scene eq "ladyDress3">>\
-	With a swift and irresistible movement, she slips her thumbs through the fabric of your <<print wornMasterItem.name.toLowerCase()>>, and tugs them down. They slide off you in jerks, biting into your legs repeatedly with her rather forceful pull, but off they come.
+	With a swift and irresistible movement, she slips her thumbs through the fabric of your <<print _wornMasterItem.name.toLowerCase()>>, and tugs them down. They slide off you in jerks, biting into your legs repeatedly with her rather forceful pull, but off they come.
 
 	At the last, completely awkward moment, she tugs your panties down to your ankles and around your shoes, binding them like a bolo around your feet. You nearly lose your balance, but the gusset slips past and they spring free into her palm as you teeter to regain your footing.
 
@@ -388,7 +388,7 @@
 		<<set $items[_u.id].curAlt = _pantiesNewCur>>\
 	<<endif>>\ -->
 	<<removeClothingItem 'underwear'>>\
-	<<removeItemVariantFromInventory wornItem.variant>>\
+	<<removeItemVariantFromInventory _wornItem.variant>>\
 	<<if $scene eq "runAwayRestroom">>\
 		You quickly retreat to the ladies room.
 		
@@ -416,7 +416,7 @@
 		You flee the dance floor and then the club entirely, ready to burst with humiliation. The noticeable draft under your dress reminds you at every step what you’ve just done.
 		
 		As you head out into the night air beyond the club’s outer door, it’s even worse. The sudden chill against your warmed-up skin makes your\
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			exposed balls beneath your caged penis retract from the cold.
 		<<elseif $body.penisShrink gt 0>>\
 			little, exposed penis and balls shrink even further in the cold.

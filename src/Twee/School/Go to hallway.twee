@@ -1,24 +1,31 @@
 :: Go to hallway [pos_285_1882]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Hallway" 400 400>></div>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
-<<set _underwearAlt to $items[_u.id].curAlt >>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<!-- <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!-- <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\ -->
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<!-- <<set _underwearAlt to $items[_u.id].curAlt >>\ -->
 <<if _bra>>\
-	<<set _braAlt to $items[_bra.id].curAlt >>\
+	<!-- <<set _braAlt to $items[_bra.id].curAlt >>\ -->
 <<endif>>\
 <<set _deduction=0>>\
 <<set _textSwitch = true>>\
-<<if _o.female>>\
+<<if _outerwear.isFemale>>\
 	<<set $player.room.girljacket=1>>\
-	<<if not $items[_o.id].curAlt>><<set $items[_o.id].curAlt=0>><<endif>>\
+	<!-- <<if not $items[_o.id].curAlt>><<set $items[_o.id].curAlt=0>><<endif>>\ --> <!-- Not sure what this is doing??? -->
 	<<set $player.room.skirt=1+random(1)>>\
-	<<set $player.room.girlstie=1+$items[_o.id].curAlt>>\
+	<!-- <<set $player.room.girlstie=1+$items[_o.id].curAlt>>\ -->
 <<else>>\
 	<<set $player.room.jacket=1>>\
 	<<set $player.room.tie=1+random(2)>>\
@@ -189,7 +196,7 @@
 <!--</perversion progress events>-->\
 \
 <<if $player.daringFlag.bribe>>\
-	<<if (not $flags.femaleHall) and _o.female>>\
+	<<if (not $flags.femaleHall) and _outerwear.isFemale>>\
 		<<set $flags.femaleHall to true>>\
 		$teacher eyes you up and down with a smile. @@.teacher;"You look much better in this uniform than I thought you would. I am impressed."@@
 		
@@ -199,24 +206,24 @@
 	<<endif>>\
 	@@.teacher;"$player.name, time for your inspection,"@@ she says.
 	
-	<<if _o.female>>\
+	<<if _outerwear.isFemale>>\
 		<!-- You <<if playerCode.isWearing(itemsC.rookieUniform)>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\ -->
 		You <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>pull down your cheer shorts<<else>>lift up your skirt<<endif>> to expose your\
 	<<else>>\
 		You pull down your pants to expose your\
 	<<endif>>\
-	<<if not _u>>\
+	<<if not _underwear>>\
 		lack of\
 	<<endif>>\
 	underwear to\
-	<<if _c>>\
-		<<if _b>>\
+	<<if _chastity>>\
+		<<if _plug>>\
 			$teacher, as well as your caged penis. You then turn around and lean forward so she can see your butt-plug.
 		<<else>>\
 			$teacher, as well as your caged penis.	
 		<<endif>>\
 	<<else>>\
-		<<if _b>>\
+		<<if _plug>>\
 			$teacher. You then turn around and touch your toes so she can see your butt-plug.
 		<<else>>\
 			$teacher.
@@ -229,7 +236,7 @@
 \
 	<!--<perversion progress events2>-->\
 	<<if $player.perversion.teacher eq 4>>\
-		<<if _o.female and (not _u)>>\
+		<<if _outerwear.isFemale and (not _underwear)>>\
 			<<set $player.perversion.teacher to 5>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			She looks at you for a moment, smirking. 
@@ -247,7 +254,7 @@
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 3>>\
 		<<if $tasksTeacher.wearDressToSchool.canStart or $tasksTeacher.wearDressToSchool.status gte 1>>\
-			<<if _o and _o.female>>\
+			<<if _outerwear and _outerwear.isFemale>>\
 				<<set $tasksTeacher.wearDressToSchool.canStart = false>>\
 				<<set $tasksTeacher.wearDressToSchool.status = 0>>\
 				<<set $player.punishments.refusedToCrossdress = false>>\
@@ -274,7 +281,7 @@
 					<<set window.playerCode.disableMaleClothes()>>\
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@
-					<<if _u and (not _u.female)>>\
+					<<if _underwear and (not _underwear.isFemale)>>\
 						<!-- <<addToInv 'gString'>>\ -->
 						<<addItemVariantToInventory 'panties_sexy_40'>>\
 						<!-- <<wearClothing 'gString'>>\ -->
@@ -282,7 +289,7 @@
 						
 						She throws you a kinky looking lacy panties. @@.teacher;"There is no place for boring boxers now. Take them off and put on these panties."@@
 					<<endif>>\
-					<<if _f and (not _f.female)>>\
+					<<if _shoes and (not _shoes.isFemale)>>\
 						<!-- <<addToInv 'flats'>>\ -->
 						<<addItemVariantToInventory 'flats_00'>>\
 						<!-- <<wearClothing 'flats'>>\ -->
@@ -347,16 +354,16 @@
 			<<set $flags.friendBraTask = true>>\
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 1>>\
-		<<if (_u and _u.female and _u.slutty) or _c>>\
+		<<if (_underwear and _underwear.isFemale and window.inventoryFuncs.hasTag(_underwear, 'slutty')) or _chastity>>\
 			<<set $player.perversion.teacher to 2>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			<<set $tasksTeacher.trialChastity.canStart = true>>\
 			She looks at your underwear for a moment, frowning. 
 			
 			@@.teacher;"Really, $player.name?\
-			<<if _c>>\
+			<<if _chastity>>\
 				A chastity cage?\
-			<<elseif _u.id eq itemsC.gString.id>>\
+			<<elseif _underwear.masterItem = 'sexyPanties'>>\
 				<<set $flags.teacherSawPanties = true>>\
 				Lacy panties?\
 			<<else>>\
@@ -366,10 +373,10 @@
 
 			"I tell you to wear female underwear to show some humility, and you turn it into some perverted game! This is supposed to be your punishment, but it seems to me you're enjoying it far too much!@@
 			
-			<<if _c>>\
+			<<if _chastity>>\
 				<<set $flags.eagerStart to false>>\
 				@@.teacher;"I am changing our arrangement: I see you are already wearing a chastity cage. Good. You are going to wear it to school every day from now on, if you want your weekly debt decreased.@@\
-				<<if _b>>\
+				<<if _plug>>\
 					@@.teacher;You will continue wearing a butt-plug, too, just like you are now.@@
 				<<else>>\
 					@@.teacher;To show you understand this is a punishment, you must also wear a butt-plug.@@
@@ -582,14 +589,14 @@
 <<set $openQuote=false>>\
 @@.teacher;<<openQuote>>Ok, let us see what we have here, shall we?"@@ She looks you over thoroughly.\
 <<if $player.perversion.teacherCooldown gt 0>>\
-	<<if _u and (not _u.female) and ($player.perversion.teacher gte 3)>>\
+	<<if _underwear and (not _underwear.isFemale) and ($player.perversion.teacher gte 3)>>\
 		<<set teacherCode.addPenalty(1)>>\
 		@@.teacher;<<openQuote>>Boxers? I am disappointed, $player.name. This will count as misbehavior.@@\
 	<<endif>>\
-	<<if (not _b) and ($player.perversion.teacher gt 4)>>\
+	<<if (not _plug) and ($player.perversion.teacher gt 4)>>\
 		@@.teacher;<<openQuote>>No butt-plug? That's a shame. I thought you liked the feeling of something up your butt.@@\
 	<<endif>>\
-	<<if (not _o.female) and ($player.perversion.teacher gte 4)>>\
+	<<if (not _outerwear.isFemale) and ($player.perversion.teacher gte 4)>>\
 		<<if ($player.perversion.teacher eq 4)>>\
 			@@.teacher;<<openQuote>>Tsk, tsk. You are wearing the wrong uniform today, $player.name. I hope to see you in the proper school dress next time.@@\
 		<<elseif ($player.perversion.teacher gte 5)>>\
@@ -597,14 +604,14 @@
 			<<set teacherCode.addPenalty(1)>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _o.female and _f.female and (not (_f.slutty or _f.cheer))>>\
+	<<if ($cheerleaders.progress >=3) && ($player.perversion.teacher gte 6) and _outerwear.isFemale and _shoes.isFemale and (not (window.inventoryFuncs.hasTag(_shoes, 'slutty') or window.inventoryFuncs.hasTag(_shoes, 'cheer')))>>\
 		@@.teacher;<<openQuote>>I told you: if you are not going to wear your cheerleader uniform, you must wear heels. I will not tolerate disobedience.@@\
 		<<set teacherCode.addPenalty(1)>>\
 	<<endif>>\
 	<<if ($cheerleaders.progress == 3) and (window.timeCode.isWednesday()) and (not $cheerleaders.flags.skippedPractice) and ($player.perversion.teacher gte 6)>>\
 		@@.teacher;<<openQuote>>Rachel informed me that you were given a rookie uniform at last practice. Seeing as you are required to wear specific footwear with your uniform, I will grant an exception to the heels requirement I gave you earlier when you wear your cheer uniform. After all, I am sure if you wear your uniform, you won't need heels to attract the proper kind of attention.@@\
 	<<endif>>\
-	<<if (not _f.female) and _o.female>>\
+	<<if (not _shoes.isFemale) and _outerwear.isFemale>>\
 		<<if $player.perversion.teacher gte 5>>\
 			@@.teacher;<<openQuote>>These are not appropriate shoes for this dress. You would do well to wear the correct shoes next time."@@
 	
@@ -620,8 +627,8 @@
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
-<<if _u.female and ($player.perversion.teacher eq 4)>>\
-	<<if $flags.laundryAccident and _u.female and _u.disabled>>\
+<<if _underwear.isFemale and ($player.perversion.teacher eq 4)>>\
+	<<if $flags.laundryAccident and _underwear.isFemale and _underwear.disabled>>\
 		<<if $flags.laundryAccident2>>\
 			@@.teacher;<<openQuote>>You are wearing wet underwear //again?//"@@ She makes a mark about your misbehavior.\
 			<<set teacherCode.addPenalty(1)>>\
@@ -634,7 +641,8 @@
 <<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
 	<!-- <<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\ -->
 	<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
-		<<if (_underwearAlt == _braAlt)>>\
+		<!-- <<if (_underwearAlt == _braAlt)>>\ -->
+		<<if (_underwear.setName == _bra.setName)>>\
 			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
 			<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 		<<else>>\
@@ -644,13 +652,13 @@
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
 		@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
 	<!-- <<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\ -->
-	<<elseif _u.female and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
+	<<elseif _underwear.isFemale and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
 		@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
 	<<else>>\
 		@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
 	<<endif>>\
 <<endif>>\
-<<if _u.female and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
+<<if _underwear.isFemale and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
 	@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleUnderwear>> for wearing female underwear.@@\
 	<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 	<<set $player.daysInPanties++>>\
@@ -659,7 +667,7 @@
 		@@.teacher;"@@<br><br>@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
 	<<endif>>\
 <<endif>>\
-<<if _c and (not $flags.chastityKey) and ($player.perversion.teacher eq 2 and $player.perversion.teacherCooldown gt 0)>>\
+<<if _chastity and (not $flags.chastityKey) and ($player.perversion.teacher eq 2 and $player.perversion.teacherCooldown gt 0)>>\
 	<<if not $flags.schoolChastity>>\
 		@@.teacher;<<openQuote>>A chastity device, as ordered. Get used to wearing it every day. I will deduct $<<print rewardMoney.teacherChastity>> for it.@@\
 		<<set $flags.schoolChastity to true>>\
@@ -680,7 +688,7 @@
 	<<endif>>\
 	<<set _deduction+=rewardMoney.teacherChastity>>\
 <<endif>>\
-<<if _c and $flags.chastityKey>>\
+<<if _chastity and $flags.chastityKey>>\
 	@@.teacher;<<openQuote>>@@\
 	<<if $player.perversion.teacher lte 3>>\
 		@@.teacher;I hope you learn your lesson."@@\
@@ -697,8 +705,8 @@
 	<<endif>>\
 	She taps your chastity cage with her fingernail.\
 <<endif>>\
-<<if _b and ($player.perversion.teacher gte 2) and ($player.perversion.teacher lte 4)>>\
-	<<if _c>>\
+<<if _plug and ($player.perversion.teacher gte 2) and ($player.perversion.teacher lte 4)>>\
+	<<if _chastity>>\
 		<<if not $flags.schoolButtplug>>\
 			@@.teacher;<<openQuote>>A butt-plug! Very nice, $player.name. $<<print rewardMoney.teacherButtplug>> deduction for that.@@\
 			<<set $flags.schoolButtplug to true>>\
@@ -710,7 +718,7 @@
 		@@.teacher;<<openQuote>>A butt-plug does not count without a chastity cage. I simply will not tolerate your playing with yourself whenever you feel like it! No discount.@@\
 	<<endif>>\
 <<endif>>\
-<<if _o.female and ($player.perversion.teacher gte 4) and (($player.perversion.teacher eq 4) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher lte 5)))>>\
+<<if _outerwear.isFemale and ($player.perversion.teacher gte 4) and (($player.perversion.teacher eq 4) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher lte 5)))>>\
 	@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleClothing>> for wearing a female school uniform.@@\
 	<<set _deduction+=rewardMoney.teacherFemaleClothing>>\
 <<endif>>\
@@ -782,7 +790,7 @@
 	<<endif>>\
 	<<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
 		<<set $flags.slutWork = false>>\
-		<<if _o.slutty>>\
+		<<if window.inventoryFuncs.hasTag(_outerwear, 'slutty')>>\
 			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
 			<<set _deduction+=rewardMoney.teacherSchoolslut>>\
 		<<else>>\
@@ -1138,7 +1146,7 @@
 	
 	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $myguardian first?@@
 
-	<<if not ($flags.femaleSchool) and _o.female>>\
+	<<if not ($flags.femaleSchool) and _outerwear.isFemale>>\
 		<<set $flags.femaleSchool to true>>\
 		@@.teacher;"I am not going to ask why you are wearing the //girls'// school uniform.  All I will say is that as far as I know, it is not against the rules, and frankly, I think it suits you."@@
 		

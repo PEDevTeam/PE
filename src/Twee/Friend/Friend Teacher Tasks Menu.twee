@@ -1,15 +1,17 @@
 ::Friend Teacher Tasks Menu
 \
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <!-- <<set _wearingBoxers to playerCode.isWearing(itemsC.jocksLucky)>>\ -->
 <<set _wearingBoxers to window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
-<<set _wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<!-- <<set _wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _wornUnderwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
 <<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
-<<if _wornUnderwear.female>>\
+<!-- <<if _wornUnderwear.female>>\
     <<set _panties to itemF.itemTwee(_wornUnderwear.id)>>\
     <<set _pantiesAlt to _panties.curAlt>>\
-<<endif>>\
+<<endif>>\ -->
 \
 @@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
 
@@ -685,9 +687,10 @@
         down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs. 
 
 
-        <<if _wearingGString and _pantiesAlt eq 61>>\
+        <!-- <<if _wearingGString and _pantiesAlt eq 61>>\ -->
+        <<if _wearingGString and _wornUnderwear.variant == 'panties_sexy_61'>>
             @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
-        <<elseif _wornUnderwear.female>>\
+        <<elseif _wornUnderwear.isFemale>>\
             @@.friend;“You have different pairs of panties? I hope they didn’t come from another woman, I would hate competition.”@@
         <<else>>\
             @@.friend;“Boxer shorts? I’m disappointed. I gave you a pair of panties, you could at least wear some for me. All this help I am giving you too. And I doubt those will go with stockings, either.”@@
@@ -751,9 +754,10 @@
         You sigh as you realise you have no choice. It will be a shared experience with $friend, unlike any other. You unfasten your fly and slip your \
         <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
-        <<if _wearingGString and _pantiesAlt eq 60>>\
+        <!-- <<if _wearingGString and _pantiesAlt eq 60>>\ -->
+        <<if _wearingGString and _wornUnderwear.variant == 'panties_sexy_60'>>
                     @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
-        <<elseif _wornUnderwear.female>>\
+        <<elseif _wornUnderwear.isFemale>>\
                     @@.friend;“You have different pairs of panties? I hope they didn’t come from someone else, I would hate competition.”@@
         <<else>>\
                     @@.friend;“Boxer shorts? I’m disappointed. I gave you a pair of panties, you could at least wear some for me. All this help I am giving you too. And I doubt those will go with stockings, \
@@ -791,9 +795,10 @@
         <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> and realise they are too tight to even go over your calves. \
         You sigh and pull off your socks, then your pants. $friend returns a few seconds later.
 
-        <<if _wearingGString and _pantiesAlt eq 60>>\
+        <!--- <<if _wearingGString and _pantiesAlt eq 60>>\ -->
+        <<if _wearingGString and _wornUnderwear.variant == 'panties_sexy_60'>>
             @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
-        <<elseif _wornUnderwear.female>>\
+        <<elseif _wornUnderwear.isFemale>>\
             @@.friend;“You have different pairs of panties? I hope they weren’t a gift someone else, I would hate competition.”@@
         <<else>>\
             @@.friend;“Boxer shorts? I’m disappointed. I gave you a pair of panties, you could at least wear some for me. All this help I am giving you too. And I doubt those will go with stockings, either.”@@

@@ -1705,6 +1705,7 @@ $.extend(true, window.items, {
                 school:true,
                 red:true,
                 white:true,
+                shorts:true,
             }
         },
         

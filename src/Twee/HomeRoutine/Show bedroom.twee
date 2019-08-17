@@ -1,6 +1,7 @@
 :: Show bedroom [pos_1273_215]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set $bedroomRender=true>>\
 <<if $player.room.style eq 0>>\
 	<<set _roomImage = "room_boys_basic.jpg">>\
@@ -103,7 +104,7 @@
 		<<print '<<showRoomImage "boys_school_tie_0'+$player.room.tie+'.png">>'>>\
 	<<endif>>\
 <<endif>>\
-<<if (not _o) or (not _o.school) or (not _o.female)>>\
+<<if (not _outerwear) or (not window.inventoryFuncs.hasTag(_outerwear, 'school')) or (not _outerwear.isFemale)>>\
 	<<if $player.room.girljacket>>\
 		<<showRoomImage "girls_school_jacket_00.png">>\
 	<<endif>>\

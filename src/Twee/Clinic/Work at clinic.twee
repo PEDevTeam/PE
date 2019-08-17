@@ -2,9 +2,10 @@
 \
 <<CheckUnderwear>>\
 <<set $player.workLastDay to $time.day>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 
-<<if (not $flags.guardianWork) and (not _o.female)>>\
+<<if (not $flags.guardianWork) and (not _outerwear.isFemale)>>\
 	<<set $flags.guardianWork = true>>\
 	You walk over to the departement where $guardian works, and ask her if there's any work you can do.
 
@@ -24,7 +25,7 @@
 
 	[[Return to lobby|Go to clinic]]
 	<<display [[Travel]]>>
-<<elseif (not _o.female)>>\
+<<elseif (not _outerwear.isFemale)>>\
 	You walk over to the clinic where $guardian works, and it's more of the usual routine. 
 
 	You move stuff, help with trash, and so on. It's still ungratifying, hard work, but money is money. You're tired and sweaty by the time you're done.
@@ -37,7 +38,7 @@
 
 	[[Return to lobby|Go to clinic]]
 	<<display [[Travel]]>>
-<<elseif _o.female and ($player.perversion.guardian lte 4)>>\
+<<elseif _outerwear.isFemale and ($player.perversion.guardian lte 4)>>\
 	You walk over to the clinic where $guardian works, and sign up for work. \
 	The staff manager looks at you in confusion, then shrugs and hands you a pile of manila folders and gets you started on filing them in storage cabinets. \
 	<<if playerCode.isHorny()>>\

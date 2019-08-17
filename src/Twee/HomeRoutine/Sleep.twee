@@ -1,7 +1,9 @@
 :: Sleep [pos_1410_216]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 \
 /* START of Sleep interrupts - events that triggers before sleep */\
 <<if $flags.straponSurprise and window.timeCode.isFriday()>>\
@@ -27,7 +29,7 @@
 <<else>>\
 	/* Getting used to chastity, buttplug, after smoothened anus, special dreams */\
 \
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 3)>>\
+	<<if _chastity and ($player.exp.chastityExp lt 3)>>\
 		<<set _restlessDream = true>>\
 	<<endif>>\
 	<<if window.dreamsSelector.specialDreams(window.dreamsGuardian)>>\
@@ -68,28 +70,28 @@
 		<<if playerCode.isHorny()>>\
 			<<set _before to _before + "Too aroused, you have trouble going to sleep. You need to wait some time to relax.\n\n">>\
 		<<endif>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			<<set $therapistTalks.talkChastitySleep.start=true>>\
 			<<if $player.exp.chastityExp lte 2>>\
 				<<if $player.exp.chastityExp eq 0>>\
 					<<set _tt=10>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "The chastity cage feels uncomfortable and you find it hard to relax with it on. ">>\
-					<<if _b>>\
+					<<if _plug>>\
 						<<set _before to _before + "The buttplug in your anus only makes things worse, keeping you stimulated as your penis is locked away. ">>\
 					<<endif>>\
 				<<elseif $player.exp.chastityExp eq 1>>\
 					<<set _tt=8>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "You just can't get completely used to the chastity cage, although it does seem a little less troublesome easier tonight. ">>\
-					<<if _b>>\
+					<<if _plug>>\
 						<<set _before to _before + "The buttplug in your anus keeps distracting you, stimulating your insides each time you move. ">>\
 					<<endif>>\
 				<<elseif $player.exp.chastityExp eq 2>>\
 					<<set _tt=5>>\
 					<<set _tf=5>>\
 					<<set _before to _before + "You are getting used to your chastity cage, somehow its tugging on your penis doesn't feel wrong anymore. ">>\
-					<<if _b>>\
+					<<if _plug>>\
 						<<set _before to _before + "The buttplug in your anus gives you an interesting feeling of fullness, which doesn't help you to relax. ">>\
 					<<endif>>\
 				<<endif>>\
@@ -137,7 +139,7 @@
 			<<set document.getElementById('dreamImage_1').className="dream_image_fade">>\
 		<<next 2s>>\
 			<<set document.getElementById('sleepAltOptions').className="hidden">>\
-			<<if playerCode.isWearingOn(itemTypes.Chastity) and ($player.exp.chastityExp lt 100)>>\
+			<<if _chastity and ($player.exp.chastityExp lt 100)>>\
 				<<set $player.exp.chastityExp++>>\
 			<<endif>>\
 			<<if _dream.once>>\

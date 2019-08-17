@@ -1,9 +1,14 @@
 :: Special punishments [pos_2598_360]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 	<!--<complain>-->\
 <<if $scene eq "complain">>\
 	You start to rant about being tired, but you shut up as you look up and see $guardian looking back at you, obviously pissed.
@@ -55,13 +60,13 @@
 	
 	$Guardian tells you to bend forward, putting hands on the wall. Like the last time you assume required position, shifting your feet slightly away from the wall, so part of you weight transfers to your arms.
 	
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.isFemale)>>\
 		With one quick motion $guardian unbuckles and lower your pants.\
-	<<elseif _o and _o.female>>\
+	<<elseif _outerwear and _outerwear.isFemale>>\
 		With one quick motion $guardian lower your skirt.\
 	<<endif>>\
 	You let out surprised yelp as she\
-	<<if _b>>\
+	<<if _plug>>\
 		pulls out your plug and\
 	<<endif>>\
 	touches your anus with her fingers, covered by a rubber glove. Instinctively trying to back away from intrusion you realize that you are trapped in this position and you can't move without putting your foot forward, and $guardian prevents you from that.
@@ -69,7 +74,7 @@
 	@@.guardian;"I think you spend too much time playing with your //toys//, so this will keep you occupied and help you staying healthy."@@
 
 	You feel her fingers being slick with some kind of ointment and your anus starts tingling and heat up from the medicine.\
-	<<if _c>>\
+	<<if _chastity>>\
 	To your dismay your penis strains in it's cage from this weird stimulation.
 	<<else>>\
 	To your dismay your penis gets hard from this weird stimulation.
@@ -114,9 +119,9 @@
 		@@.hero;What the....?@@
 		
 			<!--<Baring PC butt>-->\
-		<<if _o>>\
+		<<if _outerwear>>\
 			$Guardian swiftly pulls your outermost clothes aside, revealing your\
-			<<if not _u>>\
+			<<if not _underwear>>\
 				naked,\
 			<<endif>>\
 			<<if ($body.ass eq 2)>>\
@@ -127,47 +132,47 @@
 				pert\
 			<<endif>>\
 			butt.\
-<!--		--><<if not _u>>\
+<!--		--><<if not _underwear>>\
 <!--		-->.\
 			<<else>>\
-				<<if _u.female>>\
+				<<if _underwear.isFemale>>\
 					She then slides your panties down until they're around your knees.\
 				<<else>>\
 					She then slides your boxers down until they're around your knees.\
 				<<endif>>\
 			<<endif>>\
-		<<elseif _u>>\
-			<<if _u.female>>\
+		<<elseif _underwear>>\
+			<<if _underwear.isFemale>>\
 				She slides your panties down until they're around your knees.\
 			<<else>>\
 				She slides your boxers down until they're around your knees.\
 			<<endif>>
 		<<endif>>\
 		<!--</Baring PC butt>-->\
-		<<if _b or _c>>\
-			<<if _c>>\
+		<<if _plug or _chastity>>\
+			<<if _chastity>>\
 				<<set $flags.guardianNoticeChastity = true>>\
 			<<endif>>\
 			<<if $player.perversion.guardian eq 3>>\
-				<<if _b>>Her eyes widen when she sees your butt-plug, and she<<else>>She<<endif>> gasps a little<<if _c>> when your dangling chastity cage brushes her tights a moment later<<endif>>.
+				<<if _plug>>Her eyes widen when she sees your butt-plug, and she<<else>>She<<endif>> gasps a little<<if _chastity>> when your dangling chastity cage brushes her tights a moment later<<endif>>.
 				
-				@@.guardian;"Oh, my god, $player.name, <<if _b>>what are these?<<else>>What is this?<<endif>>"@@
+				@@.guardian;"Oh, my god, $player.name, <<if _plug>>what are these?<<else>>What is this?<<endif>>"@@
 				
-				<<if _c>>\
+				<<if _chastity>>\
 					<<if (not $flags.guardianNoticeChastity)>>\
 						<<set $flags.guardianNoticeChastity = true>>\
 						@@.guardian;"I had no idea you were into this kind of thing."@@ 
 						
 						Her tone of voice is hard to gauge. With your head hung low, you wait in dread for her response.
 						
-						@@.guardian;"It's... <<if _b>>these<<else>>this<<endif>> actually looks cute on you. I guess there are some things I didn't know about you."@@
+						@@.guardian;"It's... <<if _plug>>these<<else>>this<<endif>> actually looks cute on you. I guess there are some things I didn't know about you."@@
 						
 						It isn't the response you were expecting, but at least she's not angry.
 						
 					<<else>>\
-						She pauses, and you feel her fingertips tap lightly against <<if _b>>the base of your plug and the plastic shell of your cage.<<else>>the plastic shell of your cage.<<endif>>
+						She pauses, and you feel her fingertips tap lightly against <<if _plug>>the base of your plug and the plastic shell of your cage.<<else>>the plastic shell of your cage.<<endif>>
 						
-						@@.guardian;"Hmm. <<if _b>>These<<else>>This<<endif>> actually <<if _b>>look<<else>>looks<<endif>> cute on you."@@
+						@@.guardian;"Hmm. <<if _plug>>These<<else>>This<<endif>> actually <<if _plug>>look<<else>>looks<<endif>> cute on you."@@
 						
 					<<endif>>\
 				<<else>>\
@@ -176,17 +181,17 @@
 					@@.guardian;"I wasn't expecting your butt to be... occupied like this."@@
 				<<endif>>\
 			<<else>>\
-				She <<if _b>>discovers your butt-plug and <<endif>>smirks<<if _c>> as your dangling chastity cage brushes her tights a moment later<<endif>>.
+				She <<if _plug>>discovers your butt-plug and <<endif>>smirks<<if _chastity>> as your dangling chastity cage brushes her tights a moment later<<endif>>.
 				
 				@@.guardian;"My my, $player.name.\
-				<<if _c>>\
+				<<if _chastity>>\
 					It is rather fitting, isn't it?
 				<<else>>\
 					I wasn't expecting your butt to be... occupied like this.
 				<<endif>>\
 				"@@
 			<<endif>>\
-			<<if _b>>\
+			<<if _plug>>\
 				She experimentally tugs the base of your butt-plug, sending a tingle from your anal ring through your groin, but she doesn't pull it out. Instead, you feel her slightly bated breath warming your cheek as she leans in to your ear.
 
 				@@.guardian;"I think I'll leave that in for now,"@@ she whispers. @@.guardian;"You seem to enjoy it."@@
@@ -264,13 +269,13 @@
 
 		<<if $kink.painPlay>>\
 			To your shame, you're teetering on the verge of orgasm.\
-			<<if _c>>\
+			<<if _chastity>>\
 				Your penis strains against its cage, precum oozing from its tip onto $guardian's tights in steady stream.
 			<<else>>\
 				Your penis is as hard as ever, pressing against $guardian's tights. You realize that you're leaking precum like a bitch. $guardian smirking knowingly.
 			<<endif>>\
 		<<else>>\
-			<<if _c>>\
+			<<if _chastity>>\
 				Your penis strains in its cage, completing your humiliation.
 			<<else>>\
 				Your penis is as hard as ever, and you try to awkwardly cover it with your hands. $guardian smirks at your belated attempt at modesty.
@@ -301,7 +306,7 @@
 			After $guardian stops talking, you sink into a deep and contented stillness while cradled under her arm. Her nails begin to gently sweep in long, gliding strokes over your shoulders, arms and down your back, leaving a trail of pleasantly tingling goosebumps behind them.
 			
 			Suddenly, you feel her fingers accidentally\
-			<<if _b>>\
+			<<if _plug>>\
 				stumble upon the base of your butt-plug.\
 			<<else>>\
 				touch your anus, which is still sensitive from the proximity of your spanking.\
@@ -310,11 +315,11 @@
 			
 			@@.guardian;"I... I think that should be enough for now."@@ $Guardian sounds very flustered with your reaction.
 			
-			Extremely embarrassed, you mumble an awkward acknowledgment<<if _o>> and fix your clothes.<<else>>.<<endif>> You skitter out of $guardian's room, avoiding her eyes.
+			Extremely embarrassed, you mumble an awkward acknowledgment<<if _outerwear>> and fix your clothes.<<else>>.<<endif>> You skitter out of $guardian's room, avoiding her eyes.
 		<<else>>\
 			@@.guardian;"I... I think that should be enough for now. Try to remember this lesson, next time."@@
 
-			Extremely embarrassed, you mumble an awkward acknowledgment<<if _o>> and fix your clothes.<<else>>.<<endif>> $Guardian dismisses you silently, sending you out of her room with a nod.
+			Extremely embarrassed, you mumble an awkward acknowledgment<<if _outerwear>> and fix your clothes.<<else>>.<<endif>> $Guardian dismisses you silently, sending you out of her room with a nod.
 		<<endif>>\
 		<!--</First time>-->\
 		<!--<Second and furher>-->\
@@ -345,13 +350,13 @@
 			$Guardian smiles and pulls you over her knees.\
 		<<endif>>\
 			<!--<Baring PC butt>-->\
-		<<if _o or $player.perversion.guardian eq 5>>\
+		<<if _outerwear or $player.perversion.guardian eq 5>>\
 			<<if $player.perversion.guardian eq 5>>\
 				She lifts the skirt of your maid uniform to reveal your\
 			<<else>>\
 				She displaces your clothes to reveal your\
 			<<endif>>\
-			<<if not _u>>\
+			<<if not _underwear>>\
 				naked,\
 			<<endif>>\
 			<<if ($body.ass eq 2)>>\
@@ -362,27 +367,27 @@
 				pert\
 			<<endif>>\
 			butt\
-<!--	--><<if not _u>>\
+<!--	--><<if not _underwear>>\
 <!--	-->.\
 			<<else>>\
-				<<if _u.female>>\
+				<<if _underwear.isFemale>>\
 					and slides your panties down around your knees.
 				<<else>>\
 					and slides your boxers down around your knees.
 				<<endif>>\
 			<<endif>>\
-		<<elseif _u>>\
-			<<if _u.female>>\
+		<<elseif _underwear>>\
+			<<if _underwear.isFemale>>\
 			She slides your panties down around your knees.
 			<<else>>\
 			She slides your boxers down around your knees.
 			<<endif>>\
 		<<endif>>\
 		<!--</Baring PC butt>-->\
-		<<if _b>>\
+		<<if _plug>>\
 			She touches the base of your butt-plug, but doesn't remove it. Instead she leans in to your ear and whispers, @@.guardian;"I guess this will make your //punishment// more interesting."@@
 		<<endif>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			<<if $player.perversion.guardian eq 3>>\
 				<<if (not $flags.guardianNoticeChastity)>>\
 					<<set $flags.guardianNoticeChastity = true>>\
@@ -504,14 +509,14 @@
 		<<endif>>\
 		<<if $kink.painPlay>>\
 			With shame you feel that you almost came from being spanked.\
-			<<if _c>>\
+			<<if _chastity>>\
 				Your penis strains against its cage, precum oozing from tip onto $guardian's tight in steady stream.
 			<<else>>\
 				Your penis is as hard as ever, pressing against $guardian's tight. You realize that you're leaking precum like a bitch and notice $guardian smirking knowingly.
 			<<endif>>\
 		<<else>>\
 			You swallow, feeling sore, but somehow fulfilled.\
-			<<if _c>>\
+			<<if _chastity>>\
 				Your penis strains in its cage, adding to the humiliation.\
 			<<else>>\
 				Your penis is as hard as ever, and you try to awkwardly cover it with your hands. $guardian simply smirks.\
@@ -522,7 +527,7 @@
 		@@.guardian;"I think that should be enough for now."@@
 
 		Extremely embarrassed, you mumble an awkward thanks\
-			<<if _o>>\
+			<<if _outerwear>>\
 			, fix you clothes\
 			<<endif>>\
 		and return to your room.
@@ -623,23 +628,23 @@
 	@@.guardian;"I'm bored. There's nothing interestin' on TV."@@ She slumps down and pouts, looking more like a small child than a grown-up. $Guardian can be adorable when she has some wine in her.
 	
 	She lifts her head and focuses her eyes on\
-	<<if _o and _o.sleepWear and _o.female>>\
+	<<if _nightwear and _nightwear.isFemale>>\
 		your frilly nightie.
 	
 		@@.guardian;"So pret-ty. You are like a doll. A big pretty doll."@@\
 	<<else>>\
-		<<if _o>>\
-			<<if _o.sleepWear>>\
+		<<if _nightwear or _outerwear>>\
+			<<if _nightwear>>\
 				your pajamas.
 			<<else>>\
 				your clothes.
 			<<endif>>\
 			
 			@@.guardian;"Booo..."@@ She looks disappointed\
-		<<elseif _u>>\
-			<<if (not _u.female)>>\
+		<<elseif _underwear>>\
+			<<if (not _underwear.isFemale)>>\
 				boxers.
-			<<elseif (not _u.slutty)>>\
+			<<elseif (not window.inventoryFuncs.hasTag(_underwear, 'slutty'))>>\
 				your hands as you try to cover up your panties.
 			<<else>>\
 				your hands as you try to cover up your fancy panties.
@@ -648,7 +653,7 @@
 			@@.guardian;"Booo..."@@ She looks disappointed\
 		<<else>>\
 			your hands covering\
-			<<if _c>>\
+			<<if _chastity>>\
 				your chastity cage.
 			<<else>>\
 				your penis.
@@ -921,7 +926,7 @@
 	
 	With dreadful fascination you feel your hand moving as on its own, steadily sliding the vibrator inside your anus in one slow motion. Letting out gasp you look at $guardian in shock. You did it, or rather she made you do it.
 	
-	Your penis pulses hard <<if _c>>within your chastity <<endif>>at the vivid image of $guardian's hand holding the vibrator as she pushes it inside you.
+	Your penis pulses hard <<if _chastity>>within your chastity <<endif>>at the vivid image of $guardian's hand holding the vibrator as she pushes it inside you.
 	
 	@@.guardian;"Good boy."@@ $Guardian purrs approvingly. Strange, comforting heat spreads from your painfully stretched anus through your body.
 
@@ -932,7 +937,7 @@
 	@@.guardian;"Slow and steady, sissy."@@ She seems more and more into it.
 	
 	There is some resistance as you move the vibrator, but you push it somewhat fiercely, as if trying to punish your traitorous body. And it loves this //punishment//. You can't stop moaning from the intense feeling of being penetrated by the thick toy.
-	<<if _c>>\
+	<<if _chastity>>\
 
 	Your chastity cage is crushing your swelling penis. Shifting your weight onto your head and shoulders, you try to reach the plastic prison in a desperate attempt to lessen the strain.
 	<<endif>>\

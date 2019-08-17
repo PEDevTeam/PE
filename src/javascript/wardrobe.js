@@ -170,6 +170,17 @@ window.wardrobeFuncs = {
         var itemVariantClothingSlot = masterItem.clothingSlot;
         actVar.player.clothingSlots[itemVariantClothingSlot] = null;
     },
+    removeClothing: function(clothingSlot){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
+        actVar.player.clothingSlots[params[0]] = null;
+        window.wardrobeFuncs.updateSidebar();
+    },
     removeClothingAndAccessories: function(){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

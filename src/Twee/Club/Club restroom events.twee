@@ -1,9 +1,13 @@
 :: Club restroom events [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set window.wordsCode.setwords()>>\
 \
 <<if $scene eq "keepWatching">>\
@@ -78,16 +82,16 @@
 	[[Lick her|Club restroom events][$scene="lickHer"]]
 <<elseif $scene eq "lickHer">>\
 	Her texture is a contrast of soft, velvety skin and spongy, pliant protrusions; of hot, syrupy moistness and firm, slickened surfaces. Your heartbeat races with the excitement of having unfettered access to a girl’s body like this, and your \
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		penis stiffens forcefully, with precum flowing freely\
-		<<if _u>>\
+		<<if _underwear>>\
 			into your panties\
 		<<else>>\
 			onto your thighs\
 		<<endif>>\
 		below your $skirt////.\
 	<<else>>\
-		imprisoned penis begins to drizzle precum through your chastity cage’s plastic tip, coating your <<if _u>>panties<<else>>thighs<<endif>> with wetness of your own.\
+		imprisoned penis begins to drizzle precum through your chastity cage’s plastic tip, coating your <<if _underwear>>panties<<else>>thighs<<endif>> with wetness of your own.\
 	<<endif>>\
 
 	You don’t really know what to do, but her hand rests on your hair, and she helps you find what pleases her best with light touches to guide you. You are granted a long and thrilling chance to explore her, and her body responds to your attention.

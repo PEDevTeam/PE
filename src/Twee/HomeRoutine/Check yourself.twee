@@ -1304,7 +1304,7 @@
 				<<set _in to _word>>\
 			<<endif>>\
 	&#9702; Your <<print _in>> \
-		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 			isn't covered by underwear in your pants.\
 				<<switch playerCode.isMind()>>\
@@ -1367,10 +1367,10 @@
 			<</switch>>\
 		<<endif>>\
 
-<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+<<elseif (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 	<<if playerCode.isNotHorny()>>\
 		&#9702; Your soft <<print _penis>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 			isn't covered by underwear, hanging freely in your pants.\
 				<<switch playerCode.isMind()>>\
@@ -1465,7 +1465,7 @@
 		<<endif>>\
 	<<elseif playerCode.isHalfHorny()>>\
 		&#9702; Your half-hard <<print _penis>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 				is unrestricted, without underwear on under your pants.\
 				<<switch playerCode.isMind()>>\
@@ -1563,7 +1563,7 @@
 		<<endif>>\
 	<<else>>\
 	&#9702; Your semi-erect <<print _penis>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 			is unrestricted by underwear in your pants.\
 			<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
@@ -1630,7 +1630,7 @@
 		<<set _in to _word>>\
 	<<endif>>\
 \
-	<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+	<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 		<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform') or window.wardrobeFuncs.isItemMasterWearing('tshirtJeans') or window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 		&#9702; Rubbing against the inside of your pants,\
 		<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
@@ -1872,7 +1872,7 @@
 \
 	<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
 		It feels weird to wear pants.\
-	<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+	<<elseif (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 		<<if playerCode.isNotHorny()>>\
 		You're not horny right now, so your flaccid member isn't noticeable under the\
 			<<if window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
@@ -1908,9 +1908,9 @@
 			This is inappropriate.
 			<<else>>\
 			This is so inappropriate.\
-				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Leaking precum leaves \
-					<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+					<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 					barely \
 					<<endif>>\
 				visible stains. @@.hero;This is so humiliating.@@
@@ -1936,9 +1936,9 @@
 			<<else>>\
 			pants.\
 			<<endif>>\
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 		But your leaking precum still leaves \
-			<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+			<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			barely \
 			<<endif>>\
 		visible stains. @@.hero;This is so humiliating.@@
@@ -1965,7 +1965,7 @@
 \
 	<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
 		It feels different now that you have a pussy instead of a penis.\
-	<<elseif (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+	<<elseif (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 		<<if playerCode.isNotHorny()>>\
 		You're not horny right now, so your flaccid member isn't noticeable under the fabric.\
 		<<elseif playerCode.isHalfHorny()>>\
@@ -1978,9 +1978,9 @@
 			This is inappropriate.
 			<<else>>\
 			This is so inappropriate.\
-				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Leaking precum leaves \
-					<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+					<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 					barely \
 					<<endif>>\
 				visible stains. @@.hero;This is so humiliating.@@
@@ -1999,9 +1999,9 @@
 		<<endif>>\
 \
 		<<print _penis>> is locked in its chastity cage, and isn't noticeable under your shorts.\
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 		But your leaking precum still leaves \
-			<<if (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+			<<if (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			barely \
 			<<endif>>\
 		visible stains. @@.hero;This is so humiliating.@@
@@ -2032,8 +2032,8 @@
 \
 	<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
 		It feels different now that you have a pussy instead of a penis.\
-	<<elseif playerCode.isWearingOn(itemTypes.Underwear)>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+	<<elseif window.wardrobeFuncs.getWornItem('underwear')>>\
+		<<if (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your flaccid <<print _penis>> is barely noticeable through your underwear.
 			<<elseif playerCode.isHalfHorny()>>\
@@ -2047,7 +2047,7 @@
 				<<else>>\
 				This is so inappropriate.\
 				<<endif>>\
-				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Leaking precum slowly soaks your underwear. @@.hero;This is so humiliating.@@
 				<<else>>\
 				
@@ -2062,7 +2062,7 @@
 			Aching from the pressure, your\
 			<<endif>>\
 			<<print _penis>> is locked in its chastity cage, and isn't noticeable under your skirt... unless something flips up your skirt, that is.\
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your leaking precum slowly soaks your underwear. @@.hero;This is so humiliating.@@
 			<<else>>\
 			
@@ -2070,7 +2070,7 @@
 		<<endif>>\
 	<<else>>\
 \
-		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your flaccid <<print _penis>> and balls feel the breeze under your \
 				<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
@@ -2113,7 +2113,7 @@
 				This is so inappropriate.
 				<<endif>>\
 \
-				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Your precum drips slowly down your upper leg, leaving noticeable traces on your \
 					<<if window.wardrobeFuncs.isItemMasterWearing('socks')>>\
 					thighs and socks.
@@ -2134,7 +2134,7 @@
 \
 			<<print _penis>> is locked in its chastity cage and hidden under skirt. It isn't noticeable... unless something flips up your skirt, of course.
 \
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			&#9702; Your precum drips slowly down your upper leg, leaving noticeable traces on your \
 				<<if window.wardrobeFuncs.isItemMasterWearing('socks')>>\
 					thighs and socks.
@@ -2196,8 +2196,8 @@
 \
 	<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
 		It feels different now that you have a pussy instead of a penis.
-	<<elseif playerCode.isWearingOn(itemTypes.Underwear)>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+	<<elseif window.wardrobeFuncs.getWornItem('underwear')>>\
+		<<if (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your male parts are hidden in underwear beneath your dress, unless you sit, or bend over, or... Well, you'd better just stand very still.
 			<<elseif playerCode.isHalfHorny()>>\
@@ -2212,7 +2212,7 @@
 				This is so inappropriate.\
 				<<endif>>\
 \
-				<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				You're leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
 				<<endif>>\
 			<<endif>>\
@@ -2226,12 +2226,12 @@
 			<<endif>>\
 			<<print _penis>> is locked in its chastity cage and hidden under your dress. No one should notice unless you sit, or bend over, or... Well, you'd better just stand very still.
 \
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			&#9702; You're leaking precum, which slowly soaks your underwear. @@.hero;This is so humiliating.@@
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+		<<if (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 			<<if playerCode.isNotHorny()>>\
 			Your bare <<print _penis>> and balls feel the breeze under your \
 				<<if window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
@@ -2290,7 +2290,7 @@
 			@@.hero;This is so inappropriate.@@
 			<<endif>>\
 \
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			&#9702; Precum drips down your thighs, leaving noticeable traces on your skin.\
 				<<if window.wardrobeFuncs.isItemMasterWearing('stockings') or window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
 				It also leaves stains on your stockings.\
@@ -2343,7 +2343,7 @@
 			kinky little secret.
 			<<endif>>\
 \
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			&#9702; Precum drips down your thighs, leaving streaks on your skin.\
 				<<if window.wardrobeFuncs.isItemMasterWearing('stockings') or window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
 				It also stains on your stockings.\
@@ -2698,7 +2698,7 @@
 <!--<summary_info>-->\
 <<set _sl = playerCode.slutScore()>>\
 <<if _sl lt 10>>\
-	<<if playerCode.isWearingOn(itemTypes.Outerwear)>>\
+	<<if window.wardrobeFuncs.getWornItem('outerwear')>>\
 		<<if _sl eq 0>>\
 			Overall, you look like an ordinary boy.
 		<<elseif _sl eq 1>>\

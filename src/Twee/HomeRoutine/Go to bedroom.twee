@@ -3,9 +3,9 @@
 <span id="bedroom">\
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-	<<if wornItem and wornItem.female>>\
+	<!--<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\-->
+	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<if _wornItem and _wornItem.female>>\
 		<!-- <<removeClothing _u.id>>\ -->
 		<<removeClothingItem 'underwear'>>
 	<<endif>>\
@@ -79,7 +79,7 @@
 			<<click "Ask to return vibrator">><<replace "#askreturnvibrator">>@@.done;You still have to fix your mess with your chores@@<</replace>><</click>> <span id="askreturnvibrator"></span>
 		<<endif>>\
 	<<elseif $flags.confiscatedVibrator and $flags.choreLazy>>\
-		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and playerCode.isWearingOn(itemTypes.Chastity) and $flags.chorePunKinky and $flags.guardianPunishDressUp>>\
+		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and window.wardrobeFuncs.getWornItem('chastity') and $flags.chorePunKinky and $flags.guardianPunishDressUp>>\
 		[[Try to steal vibrator|Ask to return things][$scene="steal vibrator"; $flags.guardianPunishVibrator=true]]
 		<<endif>>\
 	<<endif>>\

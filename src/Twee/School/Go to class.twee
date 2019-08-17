@@ -3,7 +3,8 @@
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Classroom" 400 400>></div>\
 <<set $player.schoolLastDay to $time.day>>\
 <<set $flags.schoolWalk = false>>\
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if $time.day eq 1>>\
 	You got lucky this year - $teacher is strict, but sexy as fuck.
 
@@ -28,7 +29,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	<<endif>>\
 <<endif>>\
 \
-<<if ($player.perversion.teacher eq 2) and playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.chastityKey) and ($tasksTeacher.trialChastity.status eq 0) and (not $flags.eagerStart)>>\
+<<if ($player.perversion.teacher eq 2) and _chastity and (not $flags.chastityKey) and ($tasksTeacher.trialChastity.status eq 0) and (not $flags.eagerStart)>>\
 	You go from daydream to fantasy as the rest of the class melts away until it's just you and her. She looks at you with a smile.
 
 	<<display "Teacher fantasy">>\
@@ -78,40 +79,40 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 		<<elseif _sl eq 17>>\
 			<!-- There's the usual laughter and mocking whistles from the boys as you walk into the classroom looking sexy in your <<if playerCode.isWearing(itemsC.rookieUniform) || playerCode.isWearing(itemsC.cheerDress)>>cheerleader uniform<<else>>school dress<<endif>>. As you go to your seat you get a slap on your butt from your most daring classmate. -->
 			There's the usual laughter and mocking whistles from the boys as you walk into the classroom looking sexy in your <<print _dressName>>. As you go to your seat you get a slap on your butt from your most daring classmate.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 			<<endif>>\
 		<<elseif _sl eq 18>>\
 			There's the usual mean laughter, mocking whistles, and murmured insults from boys and girls alike as you walk into the classroom looking slutty. As you go to your seat you get a slap on your butt from your most daring classmate.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 			<<endif>>\
 		<<elseif _sl eq 19>>\
 			There's the usual mean laughter, mocking whistles, and insulting comments from boys and girls alike as you walk into the classroom looking like a total whore. As you make your way to your seat you are constantly groped, spanked, and invited to crawl under their desks to suck them off.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				That treatment, and the feeling of your anus clenching around your butt-plug, makes you leak so much you leave a stain on your chair as you take your seat.
 			<<endif>>\
 		<<elseif _sl lte 24>>\
 			There's the usual laughter and mocking whistles from the boys as you walk into the classroom in your slutty school dress. As you take your seat you get a slap on your butt from your most daring classmate.
 		<<elseif _sl eq 25>>\
 			There's the usual mean laughter, mocking whistles, and murmured comments from boys and girls alike as you walk into the classroom looking slutty. As you go to your seat you get slapped on the butt from your more daring classmates.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 			<<endif>>\
 		<<elseif _sl eq 26>>\
 			There's the usual mean laughter, mocking whistles, and murmured comments from boys and girls alike as you walk into the classroom looking slutty and available. As you head to your seat you get several slaps on the butt from your more daring classmates.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Your anus clenches around your butt-plug each time, making you blush and leak a bit of precum in reaction.
 			<<endif>>\
 		<<elseif _sl gte 27>>\
 			There's the usual mean laughter, mocking whistles, and insulting comments from boys and girls alike as you walk into the classroom looking like a total whore. As you move to your seat you are constantly groped, spanked, and invited to crawl under the tables to suck them off.
-			<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				That treatment, and the feeling of your anus clenching around your butt-plug, makes you leak so much you leave a stain on your chair as you take your seat.
 			<<endif>>\
 		<<endif>>\
-		<<if (not playerCode.isWearingOn(itemTypes.Underwear)) and playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if (not window.wardrobeFuncs.getWornItem('underwear')) and window.wardrobeFuncs.getWornItem('buttplug')>>\
 			<!-- The feeling of the butt-plug in your ass<<if _c>> has caused your penis to leak precum, staining the front of your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone. -->
-			The feeling of the butt-plug in your ass<<if _c>> has caused your penis to leak precum, staining the front of your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone.
+			The feeling of the butt-plug in your ass<<if _chastity>> has caused your penis to leak precum, staining the front of your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone.
 		
 			You try to ignore the stares and snide comments from your classmates, and sit at your desk.  $teacher begins the class, and before long your mind starts to wander. 
 
@@ -154,7 +155,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 	The class giggles as you snap out of your daze with a jerk, your glazed eyes focusing. You hope you weren't drooling.  
 
-	<<if _c>>\
+	<<if _chastity>>\
 		@@.teacher;"I'll talk to you outside."@@ 
 		
 		You get up and are thankful for the chastity device stopping your penis from sticking out against your pants.
@@ -226,41 +227,41 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 	<<elseif _sl eq 17>>\
 		<!-- There's the usual laughter and mocking whistles from the boys as you walk into the classroom looking sexy in your <<if playerCode.isWearing(itemsC.rookieUniform) || playerCode.isWearing(itemsC.cheerDress)>>cheerleader uniform<<else>>school dress<<endif>>. As you go to your seat you get a slap on your butt from your most daring classmate. -->
 		There's the usual laughter and mocking whistles from the boys as you walk into the classroom looking sexy in your <<print _dressName>>. As you go to your seat you get a slap on your butt from your most daring classmate.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 		<<endif>>\
 	<<elseif _sl eq 18>>\
 		There's the usual mean laughter, mocking whistles, and murmured insults from boys and girls alike as you walk into the classroom looking slutty. As you go to your seat you get a slap on your butt from your most daring classmate.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 		<<endif>>\
 	<<elseif _sl eq 19>>\
 		There's the usual mean laughter, mocking whistles, and insulting comments from boys and girls alike as you walk into the classroom looking like a total whore. As you make your way to your seat you are constantly groped, spanked, and invited to crawl under their desks to suck them off.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			That treatment, and the feeling of your anus clenching around your butt-plug, makes you leak so much you leave a stain on your chair as you take your seat.
 		<<endif>>\
 	<<elseif _sl lte 24>>\
 		There's the usual laughter and mocking whistles from the boys as you walk into the classroom in your slutty school dress. As you take your seat you get a slap on your butt from your most daring classmate.
 	<<elseif _sl eq 25>>\
 		There's the usual mean laughter, mocking whistles, and murmured comments from boys and girls alike as you walk into the classroom looking slutty. As you go to your seat you get slapped on the butt from your more daring classmates.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your anus clenches around your butt-plug, making you blush and leak a bit of precum in reaction.
 		<<endif>>\
 	<<elseif _sl eq 26>>\
 		There's the usual mean laughter, mocking whistles, and murmured comments from boys and girls alike as you walk into the classroom looking slutty and available. As you head to your seat you get several slaps on the butt from your more daring classmates.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your anus clenches around your butt-plug each time, making you blush and leak a bit of precum in reaction.
 		<<endif>>\
 	<<elseif _sl gte 27>>\
 		There's the usual mean laughter, mocking whistles, and insulting comments from boys and girls alike as you walk into the classroom looking like a total whore. As you move to your seat you are constantly groped, spanked, and invited to crawl under the tables to suck them off.
-		<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+		<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			That treatment, and the feeling of your anus clenching around your butt-plug, makes you leak so much you leave a stain on your chair as you take your seat.
 		<<endif>>\
 	<<endif>>\
 	
-	<<if (not playerCode.isWearingOn(itemTypes.Underwear)) and playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+	<<if (not window.wardrobeFuncs.getWornItem('underwear')) and window.wardrobeFuncs.getWornItem('buttplug')>>\
 		<!-- The feeling of the butt-plug in your ass<<if _c>> has caused your penis to leak precum, staining the front of your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone. -->
-		The feeling of the butt-plug in your ass<<if _c>> has caused your penis to leak precum, staining the front of your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') >>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone.
+		The feeling of the butt-plug in your ass<<if _chastity>> has caused your penis to leak precum, staining the front of your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') >>cheer shorts<<else>>skirt<<endif>>,<<else>> plus the lack of restriction on your bare, rock-hard penis under your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>> has caused you to make a precum stain right where you're tenting,<<endif>> it is humiliating, and easily visible to everyone.
 		
 		You try to ignore the stares and snide comments from your classmates, and sit at your desk.  $teacher begins the class, and before long your mind starts to wander. 
 
@@ -270,7 +271,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 		The class giggles as you're brought out of your fantasy with a snap, and you hope you weren't drooling.  
 
-			<<if _c>>\
+			<<if _chastity>>\
 			<!-- @@.teacher;"I'll talk to you outside."@@ You get up, and are thankful for the chastity device stopping your penis from sticking out against your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>>. -->
 			@@.teacher;"I'll talk to you outside."@@ You get up, and are thankful for the chastity device stopping your penis from sticking out against your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>>.
 			
@@ -300,7 +301,7 @@ is dressed in her usual silky blouse that allows her ample tits to stand proudly
 
 		The class giggles as you're brought out of your fantasy with a snap and you hope you weren't drooling.  
 
-		<<if _c>>\
+		<<if _chastity>>\
 			<!-- @@.teacher;"I'll talk to you outside."@@ You get up and are thankful for the chastity device stopping your penis from sticking out against your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirt<<endif>>. -->
 			@@.teacher;"I'll talk to you outside."@@ You get up and are thankful for the chastity device stopping your penis from sticking out against your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirt<<endif>>.
 			

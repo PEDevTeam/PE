@@ -200,7 +200,8 @@
 	<<else>>\
 	<!--<regular start>*********************-->\
 		<!--<clothes check for guardian>-->\
-		<<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\
+		<!-- <<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\ -->
+		<<if window.wardrobeFuncs.getWornItem('nightwear') and window.wardrobeFuncs.getWornItem('nightwear').isFemale and (not $flags.nightieSleep)>>\
 			<<if $player.perversion.guardian lte 2>>\
 				<!-- <<wearClothing 'pyjamasMale'>>\ -->
 				<<wearRandomItemByMaster 'pyjamas'>>\
@@ -215,7 +216,8 @@
 					<<set $flags.nightieSleep = true>>\
 				<<endif>>\
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+		<!-- <<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\ -->
+		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
 			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<!-- <<wearClothing 'silkyTeddy'>>\ -->
 				<<wearRandomItemByMaster 'nightie'>>\
@@ -225,7 +227,8 @@
 				<<wearRandomItemByMaster 'pyjamas'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
+		<!-- <<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
 			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<!-- <<wearClothing 'silkyTeddy'>>\ -->
 				<<wearRandomItemByMaster 'nightie'>>\
@@ -1047,7 +1050,8 @@
 				@@.guardian;I don't like you watching me when I, uh... but I'd be a hypocrite to deny you that. I should show you yesterday's video. The look on your face when I came was priceless! I bet you dreamed of being fucked silly last night.@@\
 			<<elseif $player.masturbationType eq 4>><!--Spy cam wank-->\
 				@@.guardian;So you like to masturbate watching me undressed and erm...@@ \
-				<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+				<!-- <<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\ -->
+				<<if (not window.wardrobeFuncs.getWornItem('chastity'))>>\
 					@@.guardian;I hope it felt really good, as it will be the last time for you@@ \
 					<<if $player.perversion.guardian gte 5>>\
 						@@.guardian;until next weekend."@@\

@@ -1,6 +1,8 @@
 :: Cheer Ep1 Sc1
-<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<!-- <<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 \
 <<RandomImageFromPack "Cheerleader Practice Field" 400 400 "alignRight">>\
 You check the time as you run towards the practice field. It’s already ten minutes after the start of cheer practice. $teacher kept you late to clean the classroom, and now you are running through the halls trying to make up for lost time. 
@@ -22,13 +24,13 @@ She cuts you off.
 Gym clothes? You thought she just wanted you wearing a girl’s uniform. Who ever said anything about gym clothes?
 
 @@.cheerCaptain;"Don’t tell me you were planning on working out in \
-<<if _shoes.slutty>>\
+<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
     heels and \
 <<endif>>\
 your uniform."@@
 
 The sheepish look on your face is answer enough and Rachel sighs. @@.cheerCaptain;"Just go throw your jacket \
-<<if _shoes.slutty>>\
+<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
     and heels \
 <<endif>>\
 off to the side and get in line."@@

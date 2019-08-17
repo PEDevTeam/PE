@@ -1,10 +1,15 @@
 :: Chores [pos_1896_150]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <!-- <<set _m=playerCode.isWearing(itemsC.maidOutfit)>>\ -->
 <<set _maidCheck=window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 <<set _rew=true>>\
@@ -13,7 +18,7 @@
 <<set _choreJS = choresList[$player.currentChore]>>\
 <<set _choreV = $chores[$player.currentChore]>>\
 \
-<<if ($player.chorePunishmentHeels gte $time.day) and ((not _f) or (not _f.slutty))>>\
+<<if ($player.chorePunishmentHeels gte $time.day) and ((not _shoes) or (not window.inventoryFuncs.hasTag(_shoes, 'slutty')))>>\
 	<<if playerCode.owns(itemsC.highHeel3)>>\
 		You put on a pair of high heels, as part of your punishment.
 	
@@ -23,14 +28,16 @@
 		<!-- <<addToInv 'highHeel3' 40>>\ -->
 		<<addItemVariantToInventory 'heels_40'>>\
 	<<endif>>\
-	<<set _f=itemsC.highHeel3>>\
+	<!-- <<set _f=itemsC.highHeel3>>\ -->
+	<<wearItemVariant 'heels_40'>>
+	<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<endif>>\
 	<!--<Fail calculations>-->\
 <<if not $flags.choreCheck>>\
 	<<set $flags.choreCheck = true>>\
 	<<set $player.choreFailPercent=0>>\
 	<<if playerCode.isHorny()>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			<<if (random(2) eq 0)>>\
 				Being so horny and confined in a chastity cage\
 			<<elseif (random(1) eq 0)>>\
@@ -39,7 +46,7 @@
 				Desperate for release, but locked in a chastity cage\
 			<<endif>>\
 			<<set $player.choreFailPercent+=10>>\
-			<<if _b>>\
+			<<if _buttplug>>\
 				<<if (random(2) eq 0)>>\
 					while having a butt-plug pressing on your prostate\
 				<<elseif (random(1) eq 0)>>\
@@ -57,7 +64,7 @@
 				makes you want to cry.\
 			<<endif>>\
 		<<endif>>\
-		<<if _b and not _c>>\
+		<<if _buttplug and not _chastity>>\
 			<<if (random(2) eq 0)>>\
 				Each time you bend or take too big of a step, the butt-plug reminds you of its presence by pressing on your prostate.\
 			<<elseif (random(1) eq 0)>>\
@@ -68,7 +75,7 @@
 			<<set $player.choreFailPercent+=10>>\
 		<<endif>>\
 	<<else>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			<<if (random(2) eq 0)>>\
 				Being confined in a chastity cage\
 			<<elseif (random(1) eq 0)>>\
@@ -77,7 +84,7 @@
 				Having your penis locked tightly in a chastity cage\
 			<<endif>>\
 			<<set $player.choreFailPercent+=5>>\
-			<<if _b>>\
+			<<if _buttplug>>\
 				<<if (random(2) eq 0)>>\
 					while having a butt-plug pressing on your prostate\
 				<<elseif (random(1) eq 0)>>\
@@ -94,7 +101,7 @@
 			<<else>>\
 				makes you want to cry.\
 			<<endif>>\
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 			<<if (random(2) eq 0)>>\
 				Each time you bend or take too big of a step, the butt-plug reminds you of its presence by pressing on your prostate.\
 			<<elseif (random(1) eq 0)>>\
@@ -106,8 +113,8 @@
 			<<set $player.choreFailPercent+=5>>\
 		<<endif>>\
 	<<endif>>\
-	<<if (_f and _f.slutty)>>\
-		<<if _f.daringRec eq 13>>\
+	<<if (_shoes and window.inventoryFuncs.hasTag(_shoes, 'slutty'))>>\
+		<<if _shoes.daring eq 13>>\
 			<<if $player.heelsSkill lte 4>>\
 				You struggle with keeping your balance in such ridiculously high heels, stumbling constantly.\
 				<<set $player.choreFailPercent+=25>>\
@@ -121,7 +128,7 @@
 			<<else>>\
 				You expertly strut in your ballet heels.\
 			<<endif>>\
-		<<elseif _f.daringRec gte 6>>\
+		<<elseif _shoes.daring gte 6>>\
 			<<if $player.heelsSkill lte 4>>\
 				You struggle with keeping your balance in such ridiculously high heels, stumbling constantly.\
 				<<set $player.choreFailPercent+=15>>\
@@ -151,7 +158,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if _o and _o.female and (random(2) eq 0) and $player.perversion.teacher lte 7 and $player.perversion.guardian lte 4>>\
+	<<if _outerwear and _outerwear.isFemale and (random(2) eq 0) and $player.perversion.teacher lte 7 and $player.perversion.guardian lte 4>>\
 		<<if playerCode.isMind_0()>>\
 			<<if (random(2) eq 0)>>\
 				It feels a bit weird to do your chores while wearing a\
@@ -177,12 +184,12 @@
 				It feels proper to do your chores while wearing a\
 			<<endif>>\
 		<<endif>>\
-		<<if _o.skirt>>skirt<<else>>dress<<endif>>\
-<!-- --><<if not _u>>\
-<!--	-->, especially without underwear.\
-<!--	--><<set $player.choreFailPercent+=5>>\
-<!-- --><<else>>\
-<!--	-->.\
+		<<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>>\
+			<<if not _underwear>>\
+				, especially without underwear.\
+				<<set $player.choreFailPercent+=5>>\
+			<<else>>\
+				.\
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
@@ -207,7 +214,7 @@
 		<<set $player.choreFailPercent=100>>\
 	<<endif>>\
 <<endif>>\
-<<if _c or _b or ((_f and _f.slutty) or _maidCheck)>>\
+<<if _chastity or _buttplug or ((_shoes and window.inventoryFuncs.hasTag(_shoes, 'slutty')) or _maidCheck)>>\
 
 
 <<endif>>\

@@ -13,10 +13,14 @@
 		<<endif>>\
 	<</for>>\
 <<endif>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <!--<talkStealing>-->\
 <<if ($scene eq "talkStealing")>>\
 	You don't really want to talk about it, but she's been cool so far. The reason you're here still hangs unsaid, though. It eats at you, that she hasn't mentioned you being caught in $guardian's bedroom.
@@ -62,7 +66,7 @@
 	@@.therapist;"Let's forget about the whole //should or shouldn't//. Just describe how it felt, please."@@
 	
 	@@.heroT;"Well, it was soft to the touch and held me, instead of hanging loose like my usual boxers,"@@ you say,\
-	<<if _u and _u.female>>\
+	<<if _underwear and _underwear.isFemale>>\
 	trying to describe the feeling of wearing them. You almost use present tense, but stop yourself in time.
 	
 	<<else>>\
@@ -85,7 +89,7 @@
 	
 	You open you mouth, wanting to argue, but under her questioning gaze you slump back down. No point in arguing with her, given what you've just said.
 	
-	<<if _u and _u.female>>\
+	<<if _underwear and _underwear.isFemale>>\
 		Suddenly she asks: @@.therapist;"I'm curious. Are you wearing panties right now?"@@
 
 		Extremely embarrassed, you nod and mumble confirmation.
@@ -302,9 +306,9 @@
 	
 	@@.therapist;"When you sit in your class, watching your hot teacher, with your butt-plug continually pressing against your prostate.... Locked in your cage, you don't have a choice but to endure. You wait, and wait, but your thoughts must be constantly whirling in various fantasies... and what happens?"@@
 	
-	<<if _b>>\
+	<<if _plug>>\
 		You recall what happens in the classroom and your anus instinctively tightens around your butt-plug.\
-		<<if _c>>\
+		<<if _chastity>>\
 			Your penis strains against its cage and despite your desperate attempts to hold it you feel something oozing from tip of your chastity on your thighs.\
 		<<endif>>\
 		
@@ -365,7 +369,7 @@
 	
 	@@.therapist;"Well, do you get excited from being locked up in it? It isn't unusual to want what is denied, and the mere fact of being locked could be... stimulating,"@@ she explains, pausing and emphasizing certain words. She somehow makes the very idea sound erotic. @@.therapist;"Doesn't this constant pressure keep you on edge for hours? Maybe you even find it pleasurable from time to time to feel it tightly encompassing you?"@@
 	
-	<<if _c>>\
+	<<if _chastity>>\
 		Your penis strains in its cage as you listen to her. To your shame, nothing she says is untrue. You struggle for the words to reply.
 		
 	<<else>>\
@@ -376,7 +380,7 @@
 	
 	You're interrupted by $therapist raising her hand. @@.therapist;"No need to explain."@@ She smiles broadly. @@.therapist;"Just don't spoil your experience by focusing on the negative too much. I //know// you can enjoy it."@@
 	
-	<<if _c>>\
+	<<if _chastity>>\
 		She suddenly looks at you, studying you closely. @@.therapist;"Just to be sure, you are wearing it now, aren't you?"@@
 		
 		Knowing there is no point in arguing, you admit it.
@@ -435,7 +439,7 @@
 		
 		@@.therapist;"Well, do you get excited by being locked in it? It isn't unusual to want what's denied, and the mere fact of being locked could be... stimulating,"@@ she explains, pausing to emphasize certain words. She somehow makes the very idea sound erotic. @@.therapist;"Doesn't this constant pressure keep you on edge for hours? Maybe you even find it pleasurable from time to time, feeling it tightly encompassing you?"@@
 		
-		<<if _c>>\
+		<<if _chastity>>\
 			Your penis strains in its cage as you listen to her. To your shame, nothing she says is untrue and you struggle to find the words for a reply.
 			
 		<<else>>\
@@ -509,7 +513,7 @@
 	
 	@@.therapist;"Well, it seems you just have to endure, at least until such time as you have earned her //forgiveness//."@@
 	
-	<<if _c>>\
+	<<if _chastity>>\
 		@@.therapist;"Let me satisfy my curiosity. You're locked away right now, aren't you?"@@
 		
 		You gulp and confirm her guess. To your surprise, she smiles mischievously and reaches for her purse. Before your widening eyes, she checks her hair, applies a deep red lipstick and undoes a few buttons on her blouse. Leaning back in her seat, she draws her blouse tightly around her breasts, and crosses one leg over the other in a slow, seductive move.
@@ -563,17 +567,17 @@
 	
 	<<if playerCode.isMind_0()>>\
 		You feel very conflicted about this talk. She may be right about some things, but you still hate being locked up all the time.\
-		<<if _c>>\
+		<<if _chastity>>\
 			If anything, listening to her only made it worse as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from frustration.\
 		<<endif>>\
 	<<elseif playerCode.isMind_1()>>\
 		You feel a bit conflicted by this talk. She may be right about some things, but being locked up all the time is so frustrating.\
-		<<if _c>>\
+		<<if _chastity>>\
 			If anything, listening to her has only made it more intense as your penis is now straining madly against its cage. To your shame, you're on the verge of crying from pent up arousal.\
 		<<endif>>\
 	<<else>>\
 		You're glad you decided to talk with her. She was totally right about your fantasies of $teacher. It's also true that being locked up all the time is very invigorating, keeping you constantly horny.\
-		<<if _c>>\
+		<<if _chastity>>\
 			If anything, listening to her has made it much more intense - your penis is straining madly against its cage right now. You reach for it to shift to a more comfortable position and find you're oozing precum.\
 		<<endif>>\
 	<<endif>>\
@@ -586,7 +590,7 @@
 	
 	@@.therapist;"So, I have an idea. It is a bit unorthodox, so I'm not sure if you will agree to go along with it."@@
 	
-	<<if _c>>\
+	<<if _chastity>>\
 		You're not sure what to think, so you just tell her to continue. At the very least, you can listen to what she has to say.
 		
 		@@.therapist;"You know how the saying goes, //like cures like//. Well, my idea follows a similar principle: to deal with your sleeping troubles, you should face your chastity."@@
@@ -772,7 +776,7 @@
 <!--</talkVibratorCaught>-->\
 <!--<talkCrossdressing>-->\
 <<elseif ($scene eq "talkCrossdressing")>>\
-	<<if _o and _o.female>>\
+	<<if _outerwear and _outerwear.isFemale>>\
 		You notice $therapist eyeing your choice of clothes. She seems intrigued by your decision to visit her dressed like that.
 		
 		@@.therapist;"I suppose you like dressing that way, considering the obvious. Perhaps you want to add some details?"@@ $therapist lifts an eyebrow. With the fact of it in the open, you know you can't easily dodge her question.

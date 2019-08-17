@@ -57,8 +57,9 @@
 	[[Use Sissy Trainer|Therapist sleep][$scene="Therapist sleep3"]]
 <<else>>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Therapist Dildo Play" 400 400>></div>\
-	<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<if _b>>\
+	<!-- <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+	<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<if _plug>>\
 		You remove your butt-plug, give it a quick cleaning and put it to one side.
 
 	<<endif>>\

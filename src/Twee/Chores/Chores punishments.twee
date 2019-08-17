@@ -1,8 +1,11 @@
 :: Chores punishments [pos_1896_150]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _cf=window.choresFunc.choresFails()>>\
 <<set _pun = true>>\
 	<!--<confiscating vibrator>-->\
@@ -59,9 +62,9 @@
 	
 	$Guardian tells you to bend forward, putting hands on the wall. A bit confused, you do as she says, feeling a bit silly as $guardian makes you shift your feet slightly away from the wall, transfering part of your weight to your arms.
 	
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.isFemale)>>\
 		With one quick motion, $guardian unbuckles and lower your pants.\
-	<<elseif _o and _o.female>>\
+	<<elseif _outerwear and _outerwear.female>>\
 		With one quick motion, $guardian lower your skirt.\
 	<<endif>>\
 	You let out surprised yelp as she\
@@ -73,7 +76,7 @@
 	@@.guardian;"I think you spend too much time playing with your //toys//, so this will keep you occupied and help you stay healthy."@@
 
 	You feel her fingers probe outside of your back entrance, slick with some kind of ointment. Your anus starts tingling and heating up from the substance.\
-	<<if _c>>\
+	<<if _chastity>>\
 	To your dismay, your penis strains in it's cage from the growing stimulation it creates.
 	<<else>>\
 	To your dismay, your penis gets hard from the growing stimulation it creates.
