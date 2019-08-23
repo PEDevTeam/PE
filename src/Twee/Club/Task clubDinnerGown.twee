@@ -1,7 +1,8 @@
 :: Task clubDinnerGown [pos_216_1085]
 \
 <<if $scene eq "step1">>\
-	<<set playerCode.getNaked()>>\
+	<!--<<set playerCode.getNaked()>>\ -->
+	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
 	<!-- <<wearClothing 'sluttyDress' 30>>\ -->
 	<<wearItemVariant 'dress_slutty_30'>>\
 	<!-- <<wearClothing 'stilettoHeels' 4>>\ -->
@@ -148,7 +149,8 @@
 
 	The limo is, naturally, nowhere in sight. The walk home is one of the longest of your life.
 
-	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=2; playerCode.getNaked()]]
+	<!-- [[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=2; playerCode.getNaked()]] -->
+	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=2; wardrobeFuncs.removeAllClothingWithChastityCheck()]]
 <<elseif $scene eq "goExit">>\
 	You have been asked to do many things by $teacher, but this one takes the prize. There is no way you are going to give a blowjob to a stranger here, in front of everyone, in an upscale restaurant. While you know $teacher is going to punish you for walking away, you have a hard time imagining something that would surpass the degradation of going through with this task.
 
@@ -158,5 +160,6 @@
 
 	As you leave the club, the limo is, naturally, nowhere to be seen. You make your way home on your own and take quick shower.
 
-	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=3; playerCode.getNaked()]]
+	<!-- [[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=3; playerCode.getNaked()]] -->
+	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=3; wardrobeFuncs.removeAllClothingWithChastityCheck()]]
 <<endif>>\

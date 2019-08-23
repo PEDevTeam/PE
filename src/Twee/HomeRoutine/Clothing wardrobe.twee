@@ -272,7 +272,7 @@
 				
 		<<endif>>\
 	<</for>>\
-	<<click "Undress">><<set playerCode.getNaked()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
+	<<click "Undress">><<set wardrobeFuncs.removeAllClothingWithChastityCheck()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
 <div class="clothesDivider"></div>\
 <<else>>\
 <!--	<div class="clothesDivider"></div>\-->\
@@ -366,7 +366,7 @@
 			<<print '<<click " Put on chastity cage ">><<wearClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
 		<<endif>>\
 	<<endif>>\
-	<<click "Undress">><<set playerCode.getNaked()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
+	<<click "Undress">><<set wardrobeFuncs.removeAllClothingWithChastityCheck()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
 <!--</buttplug and chastity>-->\
 <div class="clothesDivider"></div>\
 <<endif>>\

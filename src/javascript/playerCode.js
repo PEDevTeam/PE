@@ -25,7 +25,7 @@ window.playerCode={
 		
 		return false;
 	},
-	getNaked: function() {
+	getNaked_d: function() {
 		//var c=this.isWearingOn(window.itemTypes.Chastity);
 		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var player=State.active.variables.player;

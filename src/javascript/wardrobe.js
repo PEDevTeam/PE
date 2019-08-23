@@ -192,6 +192,18 @@ window.wardrobeFuncs = {
         window.wardrobeFuncs.removeMainClothing();
         window.wardrobeFuncs.removeAccessories();
     },
+    removeAllClothingWithChastityCheck: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        window.wardrobeFuncs.removeMainClothing();
+        window.wardrobeFuncs.removeAccessories();
+        window.wardrobeFuncs.removeToysWithChastityCheck();
+    },
     removeMainClothing: function(){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
@@ -203,6 +215,7 @@ window.wardrobeFuncs = {
         for(var clothingSlotIdx in window.wardrobe.mainClothing){
             actVar.player.clothingSlots[window.wardrobe.mainClothing[clothingSlotIdx]] = null;
         }
+        window.wardrobeFuncs.updateSidebar();
     },
     removeAccessories: function(){
         if(SugarCube.State){
@@ -215,6 +228,7 @@ window.wardrobeFuncs = {
         for(var clothingSlotIdx in window.wardrobe.accessories){
             actVar.player.clothingSlots[window.wardrobe.accessories[clothingSlotIdx]] = null;
         }
+        window.wardrobeFuncs.updateSidebar();
     },
     removeToys: function(){
         if(SugarCube.State){
@@ -226,6 +240,21 @@ window.wardrobeFuncs = {
 
         for(var clothingSlotIdx in window.wardrobe.toys){
             actVar.player.clothingSlots[window.wardrobe.toys[clothingSlotIdx]] = null;
+        }
+        window.wardrobeFuncs.updateSidebar();
+    },
+    removeToysWithChastityCheck: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSlotIdx in window.wardrobe.toys){
+            if(!(window.wardrobe.toys[clothingSlotIdx] == "chastity" && (State.active.variables.flags.chastityKey || State.active.variables.flags.chastityLocked))){
+                actVar.player.clothingSlots[window.wardrobe.toys[clothingSlotIdx]] = null;
+            }
         }
     },
     isItemVariantWearing: function(itemVariant){
