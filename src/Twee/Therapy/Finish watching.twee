@@ -1,23 +1,25 @@
 :: Finish watching [pos_1976_1732]
 \
 <div><<RandomImageFromPack "Therapist Office" 400 400>></div>\	
-The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
+The television suddenly goes dark, and $therapist flips the lights on. You blink, realizing your mouth is dry. Was your jaw hanging open or something?
 
-@@.therapist;"Our hour is almost up,"@@ she says. @@.therapist;"How are you feeling?"@@
+@@.therapist;"Our hour is almost up,"@@ $therapist says. @@.therapist;"How are you feeling?"@@
 
-An hour?  You swear it was just a few moments ago that you started watching, but you check the clock on the wall, and she's right. You must have really zoned out watching... that... what were you watching again? It's hard to remember.
+An hour? But you had only just started watching the...uh, what were you watching again? You shake your head, trying to get rid of the static, and you eye the clock on the wall - she's right, almost an hour had passed. You must have really zoned out.
 
-You stumble towards the door of her office, still feeling dazed. You assure $therapist you're ok, and she makes some notes.
+@@.hero; "I, uh. I feel fine,"@@ you say, standing suddenly and staggering slightly. 
 
-@@.therapist;"Oh, $player.name, don't forget your participation payment."@@
+@@.therapist;"Are you sure?"@@ She gives you a curious once-over. @@.therapist;"You're looking a little dazed and confused."@@
 
-She winks, handing you an envelope with crisp, new currency in it.
+@@.hero; "I'm good,"@@ you lie. 
+
+@@.therapist;"Well, if you say so. Don't forget your participation payment,"@@ she says, handing you an envelope with crisp, new cash in it. 
 
 @@.reward;You earned $<<print rewardMoney.hypnosis>>!@@
 
 <<set $player.money+=rewardMoney.hypnosis>>\
 <<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 1)>>\
-	[[Go home|Hypnosis aftereffect]]
+	[[Stumble on out of the office and head home|Hypnosis aftereffect]]
 <<else>>\
 	<<display [[Travel]]>>\
 <<endif>>\
