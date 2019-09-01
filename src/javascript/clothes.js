@@ -207,9 +207,17 @@ window.clothes={
 				return false;
 			}
 			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
-				if (outerwear.female || shoes.female) {
-					State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
-					return false;
+				if (State.active.variables.flags.flatsFlag){
+					if (outerwear.female || (shoes.female && shoes.id != "flats")) {
+						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this wearing more female clothing than your flats.";
+						return false;
+					}
+				}
+				else{
+					if (outerwear.female || shoes.female) {
+						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
+						return false;
+					}
 				}
 			}
 			if (State.active.variables.flags.laundryAccident && underwear && underwear.female && playerCode.owns(itemsC.jocksLucky)) {
@@ -303,9 +311,11 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
-				if (shoes && shoes.schoolAlt && (shoes.schoolAlt < items[shoes.id].curAlt) && (items[shoes.id].curAlt != 40)) {
-					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
-					return false;
+				if (shoes && shoes.schoolAlt  && (items[shoes.id].curAlt != 40) && (items[shoes.id].curAlt <62) || items[shoes.id].curAlt >67) {
+					if (shoes.schoolAlt < items[shoes.id].curAlt){
+						State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
+						return false;
+					}
 				}
 				if (shoes && (shoes.daringRec >= 7)) {
 					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";

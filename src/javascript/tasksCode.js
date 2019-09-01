@@ -152,9 +152,9 @@ window.tasksTeacher={
 		canStart: false,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -198,8 +198,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -243,8 +243,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 2, max: 2 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -290,9 +290,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 1, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 1, max: 11 }
 		},
 		chance: 20,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -347,8 +347,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -392,8 +392,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -438,8 +438,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -484,8 +484,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -529,8 +529,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -574,8 +574,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -620,8 +620,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -665,8 +665,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -710,8 +710,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -756,8 +756,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -805,8 +805,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -854,8 +854,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -903,8 +903,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 3 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -954,8 +954,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -999,8 +999,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1044,8 +1044,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1090,9 +1090,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1135,9 +1135,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1180,9 +1180,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1225,9 +1225,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1270,9 +1270,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1315,9 +1315,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1369,8 +1369,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 5, max: 6 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1414,8 +1414,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 3, max: 4 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1459,8 +1459,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 4, max: 6 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1504,8 +1504,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 6, max: 9 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1550,8 +1550,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 6, max: 9 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 5,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1595,8 +1595,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 5, max: 8 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1640,8 +1640,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 5, max: 8 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1685,8 +1685,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 4, max: 8 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 5, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 5, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1731,9 +1731,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 5, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 5, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1778,9 +1778,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 8, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 8, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1823,9 +1823,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 8, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 8, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1869,8 +1869,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1914,8 +1914,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -1963,8 +1963,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2012,8 +2012,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2061,8 +2061,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2110,8 +2110,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2159,8 +2159,8 @@ window.tasksTeacher={
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 10, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2207,9 +2207,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2266,9 +2266,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 30,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2326,9 +2326,9 @@ window.tasksTeacher={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 1,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2374,9 +2374,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 20,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2421,9 +2421,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 4, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 20,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2468,9 +2468,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2518,9 +2518,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2565,9 +2565,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2615,9 +2615,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 3, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2686,9 +2686,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2757,9 +2757,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2804,9 +2804,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2851,9 +2851,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -2927,9 +2927,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3003,9 +3003,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3050,9 +3050,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3097,9 +3097,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3144,9 +3144,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3191,9 +3191,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3238,9 +3238,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 5, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 5, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3285,9 +3285,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 7, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 7, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3332,9 +3332,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 1, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 1, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3381,9 +3381,9 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
@@ -3424,8 +3424,8 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
 			guardian:	{ min: 4, max: 4 }
 		},
 		chance: 5,
@@ -3464,9 +3464,9 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
@@ -3504,9 +3504,9 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
@@ -3544,9 +3544,9 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 0, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 5, max: 10 }
+			teacher:	{ min: 0, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 5, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
@@ -3584,9 +3584,9 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
@@ -3624,9 +3624,9 @@ window.tasksEmail={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 6, max: 10 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			teacher:	{ min: 6, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 30,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
@@ -3665,8 +3665,8 @@ window.tasksEmail={
 		canStartDays: [1,2,3,4,5,6,7],  // weekday array when task can be picked
 		perversion: {
 			teacher:	{ min: 0, max: 5 },
-			therapist:	{ min: 0, max: 10 },
-			guardian:	{ min: 0, max: 10 }
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
 		},
 		chance: 10,
 		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Read, 3=Done.
