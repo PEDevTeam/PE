@@ -886,6 +886,7 @@ window.playerAddonsList={
 		analSkill: 0,
 		schoolSlut: 0,
 		penisFirst: 0, /* "slave girls", "guardian", "femFriend", "cheerCaptain", "cheerBitch", "photoGirl" */
+		ending: -1,
 	},
 	masturbate: {
 		lastDay: 0,
@@ -917,6 +918,13 @@ window.playerAddonsList={
 		analExp: 0,
 		penisFirst: 0,
 	},
+	ending: {
+		currentEnding: "none",
+		endingsCompleted: 0,
+		endingsTotal: 1,
+		genericEndings: ["Trophy Wife"],
+		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
+	},
 },
 
 window.friendList={
@@ -936,6 +944,9 @@ window.friendList={
 	admitWhatsWrong: 0,
 	admitLikingTrap: 0,
 	leave_message: '',	/* Printed in end of Hang Out or early in Leav friend's house */
+	adultBaby: false,
+	ageBehavior: false,
+	frilly: false,
 	
 	visit: {
         r2: 0,
@@ -1300,6 +1311,11 @@ window.flagsList={
 	teacherSawPanties: false,
 	friendBraTask: false,
 	ashleyTrained: false,
+	flatsFlag: false,
+	flatsDelay: false,
+	friendFlatsTask: false,
+	slutRoute: false,
+	bullyRoute: false,
 },
 
 window.kinkList={
