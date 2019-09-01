@@ -42,7 +42,7 @@ You watch as $friend heads back downstairs, then flop back onto the couch. It’
 $tasksTeacher.selfieFemaleClothes.status eq 1 or
 $tasksTeacher.selfieHomeMakeup.status eq 1 or 
 ($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0)or 
-($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0)>>\
+($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or ($flags.flatsFlag == true && not playerCode.owns(itemsC.flats)) or ($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0)>>\
 \
     <<set $tasksFriend.teacherFriendTask to 1>>\
 <<endif>>\

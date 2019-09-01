@@ -2586,6 +2586,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/F Changing Room",
+                           "path":  "Friend/FChangingRoom",
+                           "files":  [
+                                         {
+                                             "fileName":  "Friend Changing.jpg",
+                                             "height":  510,
+                                             "width":  680
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Friend/FemaleBedroom",
                            "path":  "Friend/FemaleBedroom",
                            "files":  [
@@ -2625,6 +2636,17 @@ window.imagePacks = {
                                              "fileName":  "Pink_Life.jpg",
                                              "height":  333,
                                              "width":  502
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Garage",
+                           "path":  "Friend/Garage",
+                           "files":  [
+                                         {
+                                             "fileName":  "Underground Car park.jpg",
+                                             "height":  634,
+                                             "width":  962
                                          }
                                      ]
                        },
@@ -2715,6 +2737,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/Indy",
+                           "path":  "Friend/Indy",
+                           "files":  [
+                                         {
+                                             "fileName":  "Changing Room Woman.jpg",
+                                             "height":  1044,
+                                             "width":  696
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Friend/MaleBedroom",
                            "path":  "Friend/MaleBedroom",
                            "files":  [
@@ -2789,6 +2822,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/M Changing Room",
+                           "path":  "Friend/MChangingRoom",
+                           "files":  [
+                                         {
+                                             "fileName":  "MFriend Changing 2.jpg",
+                                             "height":  599,
+                                             "width":  309
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Friend/Pool",
                            "path":  "Friend/Pool",
                            "files":  [
@@ -2839,6 +2883,17 @@ window.imagePacks = {
                                              "fileName":  "1Manga Level 3 Random 3 Male.gif",
                                              "height":  374,
                                              "width":  498
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/T Changing Room",
+                           "path":  "Friend/TChangingRoom",
+                           "files":  [
+                                         {
+                                             "fileName":  "TFriend Changing.jpg",
+                                             "height":  489,
+                                             "width":  407
                                          }
                                      ]
                        },
