@@ -1,0 +1,91 @@
+::Friend Teacher Tasks Flats p2
+<<if $flatsChoice == 5>>\
+	You hold the leather shoes with the bar and the bow in your hand. You expected to find them too fussy, but as you look at them you realize they have a cuteness about them.  
+
+	@@.friend;“Those ones?”@@ $friend asks, a quizzical smile playing on $friendG.his_her lips.
+
+	@@.heroT;“Yeah, they’re kinda cute?”@@
+<<elseif $flatsChoice == 6>>\
+	Who knew that massive bows and straps and thick soles could look so good. You pick up a pair and heft them in your fingers, surprised by how light they are.  
+
+	@@.friend;“Good choice!”@@ $friend exclaims, a warm smile playing on $friendG.his_her lips.
+
+	@@.heroT;“Um, thanks. They are kinda pretty.”@@
+<<else>>\
+	Of all the pairs laid out, you are drawn to those the most. They are simple enough that they shouldn’t stand out and… well you are curious to see how girl’s shoes, $friendsis’s shoes, will feel on your feet.  
+
+	@@.friend;“I like those!”@@ $friend exclaims, a warm smile playing on $friendG.his_her lips.
+
+	@@.heroT;“Me too, I guess.”@@
+<<endif>>\
+
+@@.friend;“They will suit you for sure. Try them on,”@@ $friend encourages.
+
+Encouraged by $friend’s enthusiasm, you plonk yourself down on the edge of the bed and slip your feet into the shoes. Unlike the others, these fit perfectly. Cautiously you stand up and walk across the carpeted floor. The shoes do not rub or pinch, and instead seem to mould themselves to your feet. 
+
+@@.heroT;“Like gloves for feet,”@@ you murmur. 
+
+<<if $friendG.gender == 'F'>>\
+	<<if $flatsChoice == 5>>\
+		@@.friend;“They do look cute. Like them?”@@ $friend asks.
+
+		@@.heroT;“Yeah, they’re comfortable, and cute. I can see why you used to like them.”@@
+	<<elseif $flatsChoice == 6>>\ 
+		@@.friend;“They are pretty. I remember when I wore them, to some wedding. It was during my girly phase, you know, when I was trying not to... admit I liked girls.”@@ $friend says.
+
+		@@.heroT;“When you wore all those dresses and hose?”@@
+
+		@@.friend;“Yeah. I don’t need them now. Anyway, how do they feel?”@@
+
+		@@.heroT;“Yeah, comfortable, and pretty. I like the ribbons,”@@ you hear yourself admit.
+	<<else>>\
+		@@.friend;“You look ready for school in those. Practical and pretty, but not too obvious. How does it feel?”@@ $friend asks.
+
+		@@.heroT;“Comfortable, and pretty in a way.”@@ 
+	<<endif>>\
+<<elseif $friendG.gender == 'T'>>\
+	@@.friend;“How do these look?”@@ $friend asks, twisting his heel back and forth to show you his white shoes with pink bows. You wonder why you didn’t see them to pick, then remember he has bigger feet than you and it’s likely the only pair that fit him. Even so, the sight of his white stockinged foot, and the white and pink shoes make your stomach do loops.
+
+	@@.heroT;“Cute,”@@ you admit.
+
+	<<if $flatsChoice == 5>>\
+		@@.friend;“We both look cute. How do yours feel?”@@ $friend asks.
+
+		@@.heroT;“Yeah, they’re comfortable, and cute. I can see why $friendsis used to like them.”@@
+	<<elseif $flatsChoice == 6>>\ 
+		@@.friend;“We both look cute in these frilly shoes. They almost make me want to learn how to curtsey. How do yours feel?”@@ $friend giggles.
+
+		@@.heroT;“Yeah, comfortable, and pretty. I like the ribbons,”@@ you hear yourself admit.
+	<<else>>\
+		@@.friend;“You look ready for school in those. Practical and pretty, but not too obvious. How does it feel?”@@ $friend asks.
+
+		@@.heroT;“Comfortable, and pretty in a way.”@@  
+	<<endif>>\
+<<else>>\
+	<<if $flatsChoice == 5>>\
+		@@.friend;“You look cute. How do they feel?”@@ $friend asks.
+
+		@@.heroT;“Yeah, they’re comfortable, and cute. I can see why $friendsis used to like them.”@@
+	<<elseif $flatsChoice == 6>>\ 
+		@@.friend;“You look cute in those frilly shoes. $friendsis used to wear them in her ultra-girly phase. How do they feel?”@@ $friend asks.
+
+		@@.heroT;“Yeah, comfortable, and pretty. I like the bows,”@@ you hear yourself admit.
+	<<else>>\
+		@@.friend;“You look ready for school in those. Practical and pretty, but not too obvious. How do they feel?”@@ $friend asks.
+
+		@@.heroT;“Comfortable, and pretty in a way.”@@  
+	<<endif>>\
+<<endif>>\
+
+$friend reaches over and grabs $friendG.his_her phone. You are used to it now, and allow $friendG.him_her to take several snaps as you walk up and down, and then take more on your phone too. $friend pockets $friendG.his_her phone and hands yours back to you. 
+
+@@.friend;“They suit you so much, I think you should keep them.”@@  $friend says heading off to get snacks. @@.friend;“Maybe you'll get really brave and wear them to school. They'd be covered by your uniform pants anyways.  I doubt anyone will really notice.”@@ 
+
+@@.hero;Wear them to school? Does $friendG.he_she know I am wearing stuff there? Does $friendG.he_she know about $teacher?@@
+
+Your mind is full of questions you dare not ask and it’s time to go home before you realize.  
+
+<<set $flags.friendFlatsTask == true>>\
+<<set _flatsAlt to $flatsChoice + 61>>\
+<<addToInv flats _flatsAlt>>\
+[[Leave friend's house][$time.addMinutes(90)]]
