@@ -69,7 +69,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You walk into the living room to find $guardian lying on her stomach, watching TV. Her short dress has risen up, exposing the lower curves of her bare ass. As you stand there, her thighs part a little, revealing her g-string. The tiny strip of material sparsely covers her pussy. She begins to spread her legs wider, turning her head to smile at you...",
+		description: "You walk into the living room to find $guardian lying on her stomach, watching TV. Her short dress has risen up, exposing the lower curves of her bare ass. As you stand there, her thighs part a little, revealing her g-string. The tiny strip of material sparsely covers her pussy. She begins to spread her legs wider, and she turns her head to smile at you...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -85,7 +85,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing.  As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you softly approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
+		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing.  As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you quietly approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -325,7 +325,7 @@ window.dreamsGuardian={
 		once: true,
 		chance: 10,
 		highestStartPriority: 1,
-		description: "You reach for the handle of the bathroom door, hoping to peek on $guardian in the shower, when suddenly the door opens all on its own.\n Still wet from the shower and wrapped in a towel, $guardian is standing there. @@.guardiandream;'I thought I heard someone out here.'@@ She takes you by the ear and pulls you into the bathroom. She looks at you harshly. @@.guardiandream;'I know you were trying to peek in on me, weren't you?'@@\n A sardonic look spreads across her face. @@.guardiandream;'Ok, fine, you want to watch? I got out of the shower early because I had to pee, so you can watch me do that.'@@ $Guardian pulls you over to the toilet, smiles, and drops her towel. She turns and sits on the seat, her legs spread.\n'Kneel!'\nYou fall to your knees as she pulls you down between her legs. She takes the back of your head and pulls you close to the seat, her clean-shaven pussy only an inch or two away from your mouth. Her other hand glides down her still wet body as she spreads her glistening pussy lips. You inhale her clean, tangy scent as she begins peeing into the bowl. You unconsciously open your mouth to lick your lips and look up into her eyes. Her evil smirk scares you. @@.guardiandream;'Oh is that what you want?'@@ She shifts on the toilet, and her golden stream begins spraying onto your open lips and face.\nYou sit there helpless as her piss fills your mouth. After a moment, she finishes, and she moves her hand to your mouth, closing it\n@@.guardiandream;'Swallow, piss whore'@@\nAs she calls you that, you feel your little cock twitch in its cage... ",
+		description: "You reach for the handle of the bathroom door, hoping to peek on $guardian in the shower, when suddenly the door opens all on its own.\n Still wet from the shower and wrapped in a towel, $guardian is standing there. @@.guardiandream;'I thought I heard someone out here.'@@ She takes you by the ear and pulls you into the bathroom. She looks at you harshly. @@.guardiandream;'I know you were trying to peek in on me, weren't you?'@@\n A sardonic look spreads across her face. @@.guardiandream;'Ok, fine, you want to watch? I got out of the shower early because I had to pee, so you can watch me do that.'@@ $Guardian pulls you over to the toilet, smiles, and drops her towel. She turns and sits on the seat, her legs spread.\n'Kneel!'\nYou fall to your knees as she pulls you down between her legs. She takes the back of your head and pulls you close to the seat, her clean-shaven pussy only an inch or two away from your mouth. Her other hand glides down her still wet body as she spreads her glistening pussy lips. You inhale her clean, tangy scent as she begins peeing into the bowl. You unconsciously open your mouth to lick your lips and look up into her eyes. Her evil smirk scares you. @@.guardiandream;'Oh is that what you want?'@@ She shifts on the toilet, and her golden stream begins spraying onto your open lips and face.\nYou sit there helpless as her piss fills your mouth. After a moment, she finishes, and she moves her hand to your mouth, closing it\n@@.guardiandream;'Swallow, piss whore.'@@\nAs she calls you that, you feel your little cock twitch in its cage... ",
 		check: function() {
 			return true;
 		}
@@ -552,7 +552,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher calls you up to the front, then kneels down in front of you and <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifts up your dress<<else>>unzips your pants<<endif>>.  You look back at the class who seemed stunned, <<if playerCode.isWearingOn(itemTypes.Chastity)>>and you hear her cry with frustration as she taps on your chastity device, then stands up and shrugs.  Your penis strains against its cage...<<else>><<if playerCode.isWearingOn(itemTypes.Underwear)>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth.  She sucks harder and harder...<<endif>>",
+		description: "$teacher calls you up to the front, then kneels down in front of you and <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifts up your dress<<else>>unzips your pants<<endif>>.  You look back at the rest of the class, who seem stunned, <<if playerCode.isWearingOn(itemTypes.Chastity)>>and then you hear her grumble in frustration as she pulls on the lock of your chastity device before standing p with a shrug. Your penis strains against its cage...<<else>><<if playerCode.isWearingOn(itemTypes.Underwear)>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth.  She sucks harder and harder...<<endif>>",
 		check: function() {
 			return [6].includes(State.active.variables.player.perversion.teacher);
 		}
