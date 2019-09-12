@@ -465,7 +465,7 @@ window.tasksTeacher={
 		text: {
 			given: "I have a task for you today. I think you need to experiment more. Film yourself trying on dresses at one of local clothing stores.",
 			perform: "",
-			finish: "$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@",
+			finish: "<<if $friendG.tasks.mall>><<set $friendG.tasks.mall = false>>$teacher examines the video on your phone which shows you trying on a couple of dresses, albeit with some sections of film missing.\n\n@@.teacher;\"Did you have recording problems? And who did the other shadow belong to? No need to answer, you were no doubt so comfortable you had one of the shop assistants bring you the right size and do your zips up.\"@@ she says, an ironic smirk playing on her lips.<<else>>$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@<<endif>>",
 			fail: "I suppose your schedule was probably too busy to do what I asked. Take a mark for forgetting your trip to the clothing store.",
 			reminder: "Don't forget to go and try on dresses.",
 			checkMe: {
