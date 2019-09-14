@@ -236,9 +236,17 @@ window.clothes={
 				return false;
 			}
 			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
-				if (outerwear.isFemale || shoes.isFemale) {
-					State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
-					return false;
+				if (State.active.variables.flags.flatsFlag){
+					if (outerwear.isFemale || (shoes.isFemale && shoes.masterItem != "flats")) {
+						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this wearing more female clothing than your flats.";
+						return false;
+					}
+				}
+				else{
+					if (outerwear.isFemale || shoes.isFemale) {
+						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
+						return false;
+					}
 				}
 			}
 			if (State.active.variables.flags.laundryAccident && underwear && underwear.isFemale && window.inventoryFuncs.isItemVariantOwned('lucky_jocks_00')) {

@@ -1267,35 +1267,3 @@ Macro.add('reactOnce', {
         catch (ex) { return this.error('unknown error ' + ex.message); }
     }
 });
-
-
-Macro.add('ScrollTo', {
-	skipArgs : false,
-	handler  : function () {
-		if (this.args.length > 0) {
-			var Value = this.args[0];
-			if (typeof Value === "string" || Value instanceof String) {
-				var element = null, params = undefined;
-				if (this.args.length > 1) {
-					params = this.args[1];
-				}
-				// wait for element
-				var elementWaitID = setInterval(function () {
-					element = document.getElementById(Value);
-					if (element != null) {
-						// stop waiting and set scroll position
-						clearInterval(elementWaitID);
-						if (params != undefined) {
-							element.scrollIntoView(params);
-						} else {
-							element.scrollIntoView();
-						}
-					}
-				}, 100);
-			}
-		}
-	}
-});
-
-
-

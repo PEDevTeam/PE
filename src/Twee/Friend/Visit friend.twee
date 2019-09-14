@@ -12,34 +12,34 @@
 <<endif>>\
 \
 <<if not $flags.friendNamed>>\
-	<<goto [[Name friend]]>>\
+	<<include [[Name friend]]>>\
 \
 <<elseif $friendG.catchUp gt 0>>\
-	<<goto [[Friend Mid Visit]]>>\
+	<<include [[Friend Mid Visit]]>>\
 \
 <<elseif _femAppearance and $tasksFriend.pantieSelfie.status gt 0>>\
-	<<goto [[Friend Catch-up 05]]>>\
+	<<include [[Friend Catch-up 05]]>>\
 \
 <<elseif _femAppearance>>\
-	<<goto [[Friend Catch-up 03]]>>\
+	<<include [[Friend Catch-up 03]]>>\
 \
 <<elseif $player.daring eq 3 and $friendG.snoop eq 0>>\
-	<<goto [[Friend Chapter 1-3]]>>\
+	<<include [[Friend Chapter 1-3]]>>\
 \
 <<elseif $friendG.snoop gt 0 and $tasksFriend.manga.status eq 0 and $player.daysInPanties gt 0>>\
-	<<goto [[Friend Chapter 1-1]]>>\
+	<<include [[Friend Chapter 1-1]]>>\
 \
 <<elseif $tasksFriend.manga.status eq 1 or $tasksFriend.manga.status eq 2>>\
-	<<goto [[Friend Task Manga Cont]]>>\
+	<<include [[Friend Task Manga Cont]]>>\
 \
 <<elseif $player.daring eq 5 and $player.perversion.teacher gte 3>>\
     <<if $friendG.visit.r2 eq 0>>\
-        <<goto [[Friend Intro Teacher Tasks]]>>\
+        <<include [[Friend Intro Teacher Tasks]]>>\
     <<elseif $friendG.visit.r2 eq 1>>\
-        <<goto [[Friend Basic Teacher Tasks]]>>\
+        <<include [[Friend Basic Teacher Tasks]]>>\
     <<endif>>\
 \
 <<else>>
-	<<goto [[Friend Basic Visit]]>>\
+	<<include [[Friend Basic Visit]]>>\
 <<endif>>\
 \

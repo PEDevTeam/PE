@@ -8,7 +8,100 @@
 	<<Daring 3>>\
 	<<set $flags.daring3Add = false>>\
 <<endif>>\
-<<if window.timeCode.isFriday() && (($player.punishments.penalty == 0 && $flags.difficulty == 3)||($player.punishments.penalty <=3 && $flags.difficulty < 3)) && $player.perversion.teacher == 10 && $player.perversion.schoolSlut > 10 && $flags.slutGoodEnd == 0 && $flags.slutBadEnd == 0>>\
+<<if window.timeCode.isMonday() && $player.perversion.ending == -1 && ($flags.bullyRoute || $flags.slutRoute)>>\
+	<<if $choseEnding == true>>\
+		<<set $player.perversion.ending = 0>>\
+		<<set $choseEnding = false>>\
+		@@.teacher;"Good choice.@@\
+		<<if $player.ending.currentEnding == "Trophy Wife">>\
+			@@.teacher;Being shown off and fucked well is the appropriate future for an insatiable slut such as your self. Perhaps you already have a future partner in mind?"@@ 
+			
+			Your face turns red as you think about the many women <<if playerCode.isMind() > 0>>, and men, <<endif>>you've desired, and $teacher laughs. 
+			
+			@@.teacher;"Not that you really have a choice in who will be standing across from you at the altar. I will consider your preferences, but the decision will ultimately be mine, understood?@@
+			
+			You nod timidly, a bit dismayed that your marriage seems pre-arranged.
+			
+			@@.teacher;Very good.@@\
+		<<endif>>\
+		@@.teacher;We shall start tomorrow."@@
+		
+		<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+			The decision made, $teacher's bright attitude instantly vanishes.
+			
+			@@.teacher;"Now, $player.name, I believe there is the matter of some punishment you are owed...  Come with me."@@
+			
+			[[Take your punishment|TeacherPunishment]]
+		<<else>>\
+			She dismisses you with a wave of her hand and you head for the school exit, concerned about just how intense this "training" will be.
+			
+			<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE !=9>>\
+				<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+			<<else>>\
+				<<display [[Travel]]>>\
+			<<endif>>\
+		<<endif>>\
+	<<elseif $player.perversion.teacher < 11>>\
+		<<set $player.perversion.teacher = 11>>\
+		You return to $teacher, excited, but nervous to see exactly what she has planned for you now. 
+		
+		She smiles as you walk in the classroom, her countenance more predatory than cheeful. @@.teacher;"Come in, $player.name. We have a lot to discuss. <<if $flags.slutBadEnd == 2>>Despite some setbacks, your<<else>>Your<<endif>> training has been progressing well. However, over the course of the past several weeks, it has become apparent that your obsession with sex will likely be a hindrance towards living an normal life. It is time to face facts, my dear. You are a sissy, and you always will be.@@
+
+		<<if playerCode.isMind() == 0>>\
+			@@.hero;What is she talking about? It's her fault for making me this way. I could go back to how I was before if she'd just leave me alone, couldn't I?@@
+			
+			For some reason, your internal protest feels a bit hollow.
+		<<elseif playerCode.isMind() == 1>>\
+			Something inside of you whispers that $teacher's observation is the truth, and no matter how much you try to silent it, the thought never quiet goes away.
+		<<else>>\
+			$teacher's words are like gospel truth to you. Your time under her instruction has certainly awakened parts of you that you never knew existed, but now, you can't imagine living a non-feminized life.
+		<<endif>>\
+		
+		@@.teacher;"Because of this, I have decided to personally train you for the future.  I have created a few curriculums appropriate for a sissy such as yourself. Select one, and when your training is complete, we will see about placing you in your desired profession. Of course, if you decide that you are feeling called down a different path, you are welcome to try a new training curriculum.
+		
+		I have spoken with your <<if $kink.incest>>mother<<else>>guardian<<endif>> and she agrees that this special instruction is the best path forward and has offered to help in any way she can.
+
+		Your prospective courses are:@@
+		<<for _i to 0; _i lt $player.ending.endingsTotal; _i++>>\
+			<<print '[[' + $player.ending.genericEndings[_i] + '|Finish school][$player.ending.currentEnding = "' + $player.ending.genericEndings[_i] + '"; $choseEnding = true]]'>> - <<print $player.ending.endingDescriptions[_i]>>
+		<</for>>\
+	<<else>>\
+		You return to $teacher, ready to choose your next "occupational training."
+		
+		@@.teacher;So, $player.name, what path for your future would you like to work on?"@@
+		
+		<<for _i to 0; _i lt $player.ending.endingsTotal; _i++>>\
+			<<print '[[' + $player.ending.genericEndings[_i] + '|Finish school][$player.ending.currentEnding = "' + $player.ending.genericEndings[_i] + '"; $choseEnding = true]]'>> - <<print $player.ending.endingDescriptions[_i]>>
+		<</for>>\
+	<<endif>>\
+<<elseif $flags.bullyDoubleteam == true && $flags.bullyRoute == false>>\
+	<<set $flags.bullyRoute = true>>\
+	$teacher spots you as leave the gymnasium and calls you over to her. @@.teacher;"Well, you certainly seem to be enjoying your 'reward,'"@@ she says with a satisfied grin. @@.teacher;"Are you enjoying playing with your new sissy friend?"@@
+	
+	You nod hesitantly, wondering if $teacher has something up her sleeve.
+	
+	@@.teacher;"Good. Of course, now that you've gotten your reward, I believe it is time that we focused back on your own studies."@@
+	
+	You sigh. With $teacher focusing on $bully's sissification, you had hoped she had moved on from feminizing you now that she had a new target. It seems that isn't the case.
+	
+	@@.teacher;"I still have a few things to get in order, but we will begin the next step of your training next Monday. Assuming you do well in your studies, I think you will enjoy what I have planned for you. We might even find some way for you to properly flex that dominant streak you seem to have developed."@@
+	
+	<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+		She takes you by the hand hand begins leading you to the classroom.
+		
+		@@.teacher;"Now, $player.name, I believe there is the matter of some punishment you are owed...  Come with me."@@
+		
+		[[Take your punishment|TeacherPunishment]]
+	<<else>>\
+		She dismisses you with a wave of her hand and continues down the hall, the sight of her full hips sashying back and forth as she walks causing your cock to swell in its cage.
+		
+		<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE !=9>>\
+			<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+		<<else>>\
+			<<display [[Travel]]>>\
+		<<endif>>\
+	<<endif>>\
+<<elseif window.timeCode.isFriday() && (($player.punishments.penalty == 0 && $flags.difficulty == 3)||($player.punishments.penalty <=3 && $flags.difficulty < 3)) && $player.perversion.teacher == 10 && $player.perversion.schoolSlut > 10 && $flags.slutGoodEnd == 0 && $flags.slutBadEnd == 0>>\
 	<<if $player.perversion.teacherPermChastity < 6>>\
 		You return to $teacher, only to find her hurriedly rushing out of her room. She looks through the bundle of papers in her arms, then sighs, turning back until she spots you from further down the hall.
 

@@ -42,6 +42,15 @@
 		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
 <<endif>>\
+<<if playerCode.isWearing(itemsC.stockings)>>\
+	<<if $tasksTeacher.wearStockings.status == 1>>\
+		<<set $tasksTeacher.wearStockings.status = 2>>\
+	<<endif>>\
+	<<set $tasksTeacher.wearStockings.progress++>>\
+	<<if ($player.perversion.crossdressing lte 1)>>\
+		<<set $player.perversion.crossdressing++>>\
+	<<endif>>\
+<<endif>>\
 \
 <<if window.timeCode.isMonday() and $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
 	Still a bit hazy from your weird dream, you feel like you have forgotten something important.

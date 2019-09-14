@@ -842,6 +842,21 @@
 	Finally, she gets you up by tugging on the chain. She removes the chain and the collar, gives you a slap on your butt and sends you home.
 	<<else>>\
 	<<endif>>\
+<<elseif ($scene eq "walkOfShame")>>\
+	<<set _defaultPunishmentEnd to false>>\
+	<<if $player.punishments.penalty < 10>>\
+		<<include "walkOfShame1">>\
+	<<else>>\
+		<<include "walkOfShame3">>\
+	<<endif>>\
+<<elseif ($scene eq "walkOfShame2")>>\
+	<<include "walkOfShame2">>
+	
+<<elseif ($scene eq "abandonment")>>\
+	<<set _defaultPunishmentEnd to false>>\
+	<<include "abandonment1">>\
+<<elseif ($scene eq "abandonment2")>>\
+	<<include "abandonment2">>\	
 <<else>>\
 	<<if $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
 		You desperately try to explain that you forgot your wallet, but $teacher doesn't want to listen.

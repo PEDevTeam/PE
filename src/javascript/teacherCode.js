@@ -270,7 +270,45 @@ window.teacherPunishments = {
 		onlyOnce:	false,
 		chance:		20,
 		priority:	0,
-		baseReq:	{ teacher: [6, 10], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
+		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
+		extraReq:	function () {
+					return true;
+				},
+		cooldown:	1,
+		start:		function () {},
+		end:		function () {},
+	},
+	
+	walkOfShame: {
+		id:	"walkOfShame",
+		punType:	window.punTypes.Friday + window.punTypes.Willing,
+		description:'Teachers description of what you are to do',
+		text:		'Teacher has you walk through the school in a compromised state',
+		passage:	'walkOfShame',
+		active:		true,
+		onlyOnce:	false,
+		chance:		10,
+		priority:	0,
+		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 10] },
+		extraReq:	function () {
+					return true;
+				},
+		cooldown:	1,
+		start:		function () {},
+		end:		function () {},
+	},
+	
+	abandonment: {
+		id:	"abandonment",
+		punType:	window.punTypes.Friday + window.punTypes.Willing,
+		description:'Teachers description of what you are to do',
+		text:		'Teacher leaves you cuffed in public',
+		passage:	'abandonment',
+		active:		true,
+		onlyOnce:	false,
+		chance:		10,
+		priority:	0,
+		baseReq:	{ teacher: [10, 10], guardian: [0, 10], therapist: [0, 10], penalties: [2, 10] },
 		extraReq:	function () {
 					return true;
 				},
