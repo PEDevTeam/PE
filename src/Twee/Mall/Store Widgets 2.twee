@@ -42,7 +42,8 @@
             [[Ask about the tester job|Task Trials][$tasksTeacher.penaltyTrials.progress=0]]<br>
         <<endif>>
         
-        <<if ($player.perversion.bullies gte 3) and (not playerCode.owns(itemsC.stunGun)) and ($player.perversion.teacher eq 6) and ($player.money lt itemsC.stunGun.cost)>>
+        <!-- <<if ($player.perversion.bullies gte 3) and (not playerCode.owns(itemsC.stunGun)) and ($player.perversion.teacher eq 6) and ($player.money lt itemsC.stunGun.cost)>> -->
+        <<if ($player.perversion.bullies gte 3) and (not $player.hasStunGun) and ($player.perversion.teacher eq 6) and ($player.money lt itemsC.stunGun.cost)>>
             You could try to steal the stun gun if you are desperate. [[Steal stungun]]<br>
         <<endif>>
         

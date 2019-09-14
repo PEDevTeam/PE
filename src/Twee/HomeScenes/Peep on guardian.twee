@@ -20,24 +20,28 @@
 		<<endif>>\
 	<<endif>>\
 <<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
-	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+	<!-- <<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\ -->
+	<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\
 		You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
 		
-	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+	<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
+	<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
 		<!-- <<wearClothing 'pyjamasMale'>>\ -->
 		<<wearRandomItemByMaster 'pyjamas'>>\
 		You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 		
 	<<endif>>\
 <<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
-	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+	<!-- <<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\ -->
+	<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\
 		You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
 		
-	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+	<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
+	<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
 		<!-- <<wearClothing 'pyjamasMale'>>\ -->
 		<<wearRandomItemByMaster 'pyjamas'>>\
 		You don't feel comfortable having only your underwear on around $guardian, so you put on your pajamas.

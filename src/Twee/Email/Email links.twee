@@ -6,11 +6,13 @@
 	
 	<<endif>>\
 	<<set $tasksEmail.PinkRollers.status = 2>>\
-	<<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
+	<!-- <<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\ -->
+	<<if $player.hasVibrator and (not $flags.confiscatedVibrator)>>\
 		[[Masturbate]]
 	<<endif>>\
 <<endif>>\
-<<if ($tasksEmail.WebcamDildoAss.status eq 1) and playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
+<!-- <<if ($tasksEmail.WebcamDildoAss.status eq 1) and playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\ -->
+<<if ($tasksEmail.WebcamDildoAss.status eq 1) and $player.hasVibrator and (not $flags.confiscatedVibrator)>>\
 	<<set $tasksEmail.WebcamDildoAss.status = 2>>\
 	[[Masturbate]]
 <<endif>>\
@@ -22,7 +24,8 @@
 <<endif>>\
 <<if ($tasksEmail.WebcamDeepthroat.status eq 1)>>\
 	<<set $tasksEmail.WebcamDeepthroat.status = 2>>\
-	<<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\
+	<!-- <<if playerCode.owns(itemsC.vibrator) and (not $flags.confiscatedVibrator)>>\ -->
+	<<if $player.hasVibrator and (not $flags.confiscatedVibrator)>>\
 		[[Film yourself practicing with a dildo|Film practicing with a dildo]]
 	<<endif>>\
 <<endif>>\

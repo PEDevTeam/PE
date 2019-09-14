@@ -34,20 +34,28 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>>
+	<!-- <<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>> -->
+	<<if inventoryFuncs.isItemVariantOwned('room_gamer')>>
 		<!-- <<removeFromInv 'roomGamer'>> -->
+		<<addItemVariantToInventory 'room_gamer_girl'>>\
 		<<removeItemVariantFromInventory 'room_gamer'>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>>
+	<!-- <<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>> -->
+	<<if inventoryFuncs.isItemVariantOwned('room_punk')>>
 		<!-- <<removeFromInv 'roomPunk'>> -->
+		<<addItemVariantToInventory 'room_punk_girl'>>\
 		<<removeItemVariantFromInventory 'room_punk'>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>>
+	<!-- <<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>> -->
+	<<if inventoryFuncs.isItemVariantOwned('room_geek')>>
 		<!-- <<removeFromInv 'roomGeek'>> -->
+		<<addItemVariantToInventory 'room_geek_girl'>>\
 		<<removeItemVariantFromInventory 'room_geek'>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>>
+	<!-- <<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>> -->
+	<<if inventoryFuncs.isItemVariantOwned('room_sport')>>
 		<!-- <<removeFromInv 'roomSport'>> -->
+		<<addItemVariantToInventory 'room_sport_girl'>>\
 		<<removeItemVariantFromInventory 'room_sport'>>\
 	<<endif>>\
 	<<set $player.room.junk=[]>>\
@@ -661,7 +669,8 @@
 			
 			@@.guardian;"Oh my..."@@ She looks embarrassed\
 		<<endif>>\
-		<<if playerCode.owns(itemsC.silkyTeddy) and $therapistTalks.talkNightwear.start>>\
+		<!-- <<if playerCode.owns(itemsC.silkyTeddy) and $therapistTalks.talkNightwear.start>>\ -->
+		<<if inventoryFuncs.ownsMasterItem('nightie') and $therapistTalks.talkNightwear.start>>\
 			@@.guardian;"I thought you would be wearing that cute nightie of yours."@@\
 		<<else>>\
 			@@.guardian;"I thought you would be wearing something cute."@@\
@@ -850,11 +859,13 @@
 	<<endif>>\
 	
 	Not ready to face any more crazy today, you\
-	<<if playerCode.owns(itemsC.silkyTeddy) and $flags.nightieSleep>>\
+	<!-- <<if playerCode.owns(itemsC.silkyTeddy) and $flags.nightieSleep>>\ -->
+	<<if inventoryFuncs.ownsMasterItem('nightie') and $flags.nightieSleep>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\
 		change into your nightie\
-	<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+	<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
+	<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
 		<!-- <<wearClothing 'pyjamasMale'>>\ -->
 		<<wearRandomItemByMaster 'pyjamas'>>\
 		change into your pajamas\
@@ -1016,7 +1027,8 @@
 	
 	You jerk your hands away from your anus, and try your best to calm down and think about something else.\
 	<<if playerCode.isMind_0()>>\
-		<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Imagination instantly paints you pictures of muscular men holding you down and fu...
 		<<else>>\
 			An image of a busty cheerleader comes to your mind. She smiles at you and takes off her blouse, revealing huge breasts that are barely restrained by her push-up bra. She takes off her skirt, and there is a huge strap-on, waiting to fu...
@@ -1026,7 +1038,8 @@
 		
 		You jump off the bed and go to the bathroom to take a cold shower.
 	<<elseif playerCode.isMind_1()>>\
-		<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Your imagination instantly paints you pictures of muscular men holding you down and fu...
 			
 			@@.hero;Oh, for fuck's sake...!@@
@@ -1040,7 +1053,8 @@
 			You drop your head back on your pillow and let out a sigh. Resigning to the quirks of your imagination, you slowly massage your anus, fantasizing about girls, $guardian and $teacher fucking you with vibrators and strap-ons.
 		<<endif>>\
 	<<elseif playerCode.isMind_2()>>\
-		<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Your imagination instantly paints you pictures of muscular men holding you down and fucking your tender anus.
 			
 			@@.hero;Oh, for fuck's sake...!@@

@@ -235,7 +235,8 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (!playerCode.owns(itemsC.chastityDevice));
+			//return (!playerCode.owns(itemsC.chastityDevice));
+			return (!inventoryFuncs.ownsMasterItem('chastity'));
 		},
 		image: "",
 		startPriority: 2,  // see priority system above
@@ -283,7 +284,8 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
+			//return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
+			return (!inventoryFuncs.ownsMasterItem('nightie')) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above

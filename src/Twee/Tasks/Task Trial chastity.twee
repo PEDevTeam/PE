@@ -17,7 +17,8 @@
 	[[Refuse|Go to the mall]]
 	
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
-	<<if (not playerCode.owns(itemsC.chastityDevice))>>\
+	<!-- <<if (not playerCode.owns(itemsC.chastityDevice))>>\ -->
+	<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
 		<<set _item=$items.chastityDevice>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'chastity_cb6000'>>\
@@ -26,7 +27,8 @@
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
+	<!-- <<if (not playerCode.owns(itemsC.buttPlugHeart))>>\ -->
+	<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
 		<<set _item=$items.buttPlugHeart>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'buttplug_heart'>>\
@@ -218,12 +220,14 @@
 	@@.reward;You got a <<print itemsC.chastityDevice.name>>!@@
 	@@.reward;You got a <<print itemsC.buttPlugHeart.name>>!@@
 	
-	<<if playerCode.owns(itemsC.chastityDevice)>>\
+	<!-- <<if playerCode.owns(itemsC.chastityDevice)>>\ -->
+	<<if inventoryFuncs.ownsMasterItem('chastity')>>\
 		<<set _item=itemsC.chastityDevice>>\
 		<!-- <<wearClothing _item.id>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.buttPlugHeart)>>\
+	<!-- <<if playerCode.owns(itemsC.buttPlugHeart)>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('buttplug_heart')>>\
 		<<set _item=itemsC.buttPlugHeart>>\
 		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'buttplug_heart'>>\

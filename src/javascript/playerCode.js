@@ -406,7 +406,7 @@ window.playerCode={
 	owns: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;
 	},
-	ownsType: function(clothingType) {
+	ownsType_d: function(clothingType) {
 		var items=window.itemsC;
 		for (var j=0; j < Object.keys(items).length; j++) {
 			o=items[Object.keys(items)[j]];

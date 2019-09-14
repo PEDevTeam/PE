@@ -264,7 +264,8 @@
 				<<set $player.perversion.crossdressing = 10>>\
 				She looks at you for a moment, self-gratified. 
 				
-				<<if (playerCode.isMaid()) and not playerCode.owns(itemsC.schoolMale)>>\
+				<!-- <<if (playerCode.isMaid()) and not playerCode.owns(itemsC.schoolMale)>>\ -->
+				<<if (playerCode.isMaid()) and not inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					@@.teacher;"I am so glad that you //decided// to wear it to school. It looks great on you. I think you should keep it up."@@ $teacher smirks at you, knowing that you have no other options.
 
 					@@.hero;It's her fault that $myguardian threw away my normal school uniform.@@
@@ -276,7 +277,8 @@
 				
 				@@.teacher;"Don't worry, I'm sure that you'll get used to it in no time."@@
 
-				<<if (playerCode.isMaid()) and playerCode.owns(itemsC.schoolMale)>>\
+				<!-- <<if (playerCode.isMaid()) and playerCode.owns(itemsC.schoolMale)>>\ -->
+				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					<<set window.playerCode.purgeMaleClothes()>>\
 					<<set window.playerCode.disableMaleClothes()>>\
 					
@@ -384,7 +386,8 @@
 
 				@@.teacher;"Given how you came prepared, this may be not be such a big punishment for you, but at least it will keep things under control."@@
 				
-				<<if (not playerCode.owns(itemsC.gString)) and (not playerCode.owns(itemsC.pantiesLatex)) and (not playerCode.owns(itemsC.pantiesCotton))>>\
+				<!-- <<if (not playerCode.owns(itemsC.gString)) and (not playerCode.owns(itemsC.pantiesLatex)) and (not playerCode.owns(itemsC.pantiesCotton))>>\ -->
+				<<if (not inventoryFuncs.ownsMasterItem('sexyPanties')) and (not inventoryFuncs.ownsMasterItem('latexPanties')) and (not inventoryFuncs.ownsMasterItem('plainPanties'))>>\
 					@@.teacher;"There is one more minor detail."@@
 					
 					She throws you a pair of frilly-looking panties, telling you to put them on. As you reluctantly comply, she continues.
@@ -456,27 +459,32 @@
 		<<if ($body.ass eq 2) and (not $flags.teacherNoticeAssEnhancingXL)>>\
 			<<set $flags.teacherNoticeAssEnhancingXL = true>>\
 		<<endif>>\
-		<<if playerCode.owns(itemsC.PiercingLips) and (not $flags.teacherNoticePiercingLips)>>\
+		<!-- <<if playerCode.owns(itemsC.PiercingLips) and (not $flags.teacherNoticePiercingLips)>>\ -->
+		<<if $body.lipsPierced and (not $flags.teacherNoticePiercingLips)>>\
 		<<set $flags.teacherNoticePiercingLips = true>>\
 			@@.teacher;"Lip rings make you look easy."@@
 			
 		<<endif>>\
-		<<if playerCode.owns(itemsC.PiercingNose) and (not $flags.teacherNoticePiercingNose)>>\
+		<!-- <<if playerCode.owns(itemsC.PiercingNose) and (not $flags.teacherNoticePiercingNose)>>\ -->
+		<<if $body.nosePierced and (not $flags.teacherNoticePiercingNose)>>\
 		<<set $flags.teacherNoticePiercingNose = true>>\
 			@@.teacher;"A piercing in your nose? How distasteful. It makes you look slutty."@@
 			
 		<<endif>>\
-		<<if playerCode.owns(itemsC.PiercingBelly) and (not $flags.teacherNoticePiercingBelly)>>\
+		<!-- <<if playerCode.owns(itemsC.PiercingBelly) and (not $flags.teacherNoticePiercingBelly)>>\ -->
+		<<if $body.bellyPierced and (not $flags.teacherNoticePiercingBelly)>>\
 		<<set $flags.teacherNoticePiercingBelly = true>>\
 			@@.teacher;"Not obvious, but a belly piercing is eye candy when you are less clothed."@@
 			
 		<<endif>>\
-		<<if playerCode.owns(itemsC.PiercingTongue) and (not $flags.teacherNoticePiercingTongue)>>\
+		<!-- <<if playerCode.owns(itemsC.PiercingTongue) and (not $flags.teacherNoticePiercingTongue)>>\ -->
+		<<if $body.tonguePierced and (not $flags.teacherNoticePiercingTongue)>>\
 		<<set $flags.teacherNoticePiercingTongue = true>>\
 			@@.teacher;"Do you love how your tongue piercing makes you lisp like the slut you are?"@@
 			
 		<<endif>>\
-		<<if playerCode.owns(itemsC.PiercingNipples) and (not $flags.teacherNoticePiercingNipples)>>\
+		<!-- <<if playerCode.owns(itemsC.PiercingNipples) and (not $flags.teacherNoticePiercingNipples)>>\ -->
+		<<if $body.nipplesPierced and (not $flags.teacherNoticePiercingNipples)>>\
 		<<set $flags.teacherNoticePiercingNipples = true>>\
 			@@.teacher;"I bet you enjoy these nipple rings."@@
 			

@@ -45,7 +45,8 @@
 				<<set $flags.confiscatedVibratorSpy = true>>\
 			<<endif>>\
 			<<if _scst eq 0>>\
-				<<if playerCode.owns(itemsC.vibrator) and $items.vibrator.stolen and (not $flags.confiscatedVibrator)>>\
+				<!-- <<if playerCode.owns(itemsC.vibrator) and $items.vibrator.stolen and (not $flags.confiscatedVibrator)>>\ -->
+				<<if $player.hasVibrator and $items.vibrator.stolen and (not $flags.confiscatedVibrator)>>\
 					She opens her bedside table drawer, and rummages around in it for a few moments before standing up and looking around confused.
 					
 					<<set _scst to 2>>\
@@ -83,7 +84,8 @@
 					<<endif>>\
 				<<endif>>\
 			<<elseif _scst eq 1>>\
-				<<if playerCode.owns(itemsC.playgirlMagazine)>>\
+				<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+				<<if $player.hasPlaygirl>>\
 					She reaches under the bed as if searching for something, then gets down on all fours and looks underneath. After a moment, she gets up with a confused look on her face.
 					
 					<<set _scst to 2>>\

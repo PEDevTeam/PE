@@ -570,7 +570,8 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\
+	<!-- <<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\ -->
+	<<if $player.hasSpyCamera and (not $flags.cameraBedroom)>>\
 		<<print '[[Install camera in '+$guardian+'\'s bedroom|Install camera in bedroom]]'>>
 	<<endif>>\
 	<<if $flags.chorePunOffer>>\

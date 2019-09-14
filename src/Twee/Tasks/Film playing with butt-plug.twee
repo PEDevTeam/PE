@@ -2,7 +2,8 @@
 \
 <<if not window.wardrobeFuncs.getWornItem('chastity')>>\
 	You aren't wearing chastity.
-<<elseif not (playerCode.owns(itemsC.buttPlugHeart) or playerCode.owns(itemsC.buttPlugDildo) or playerCode.owns(itemsC.buttPlugVibro))>>\
+<!-- <<elseif not (playerCode.owns(itemsC.buttPlugHeart) or playerCode.owns(itemsC.buttPlugDildo) or playerCode.owns(itemsC.buttPlugVibro))>>\ -->
+<<elseif not (inventoryFuncs.isItemVariantOwned('buttplug_heart') or inventoryFuncs.isItemVariantOwned('buttplug_dildo') or inventoryFuncs.isItemVariantOwned('buttplug_vibro'))>>\
 	You don't have any butt-plugs.
 <<else>>\
 	<div><<RandomImageFromPack "Task Plug Play" 400 400>></div>\	

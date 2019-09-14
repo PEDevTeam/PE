@@ -115,7 +115,8 @@
 <<elseif $random.stored eq 103>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialGiantVibroPlug = true>>\
-	<<if not playerCode.owns(itemsC.buttPlugVibro)>>\
+	<!-- <<if not playerCode.owns(itemsC.buttPlugVibro)>>\ -->
+	<<if not inventoryFuncs.isItemVariantOwned('buttplug_vibro')>>\
 		<!-- <<addToInv 'buttPlugVibro'>>\ -->
 		<<addItemVariantToInventory 'buttplug_vibro'>>\
 		<!-- <<wearClothing 'buttPlugVibro'>>\ -->

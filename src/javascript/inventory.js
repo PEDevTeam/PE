@@ -265,6 +265,23 @@ window.inventoryFuncs= {
         return ownedItemVariantNames.indexOf(itemVariant.variant) > -1
     },
 
+    ownsMasterItem: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var owned = window.inventoryFuncs.getChildItemsForMaster(itemMaster);
+        if(owned){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+
     addTag: function(itemVariant, tag, value){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

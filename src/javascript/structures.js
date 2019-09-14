@@ -1040,6 +1040,7 @@ window.bodyList={
 	nipplesPierced:false,
 	nosePierced:false,
 	tonguePierced:false,
+	surgerySexualReassignment:false,
 	
 	boobs: 0,
 	lips: 0, //0 = normal, 1 = enhanced, 2 = enhanced more

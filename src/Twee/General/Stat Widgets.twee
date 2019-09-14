@@ -257,7 +257,8 @@
 		<<set _bs=0>>
 	<<endif>>
 	
-	<<if playerCode.owns(itemsC.surgerySexualReassignment)>>
+	<!-- <<if playerCode.owns(itemsC.surgerySexualReassignment)>> -->
+	<<if $body.surgerySexualReassignment>>
 		<<set _groin="groin_pussy.png">>
 	<!-- <<elseif playerCode.isWearingOn(itemTypes.Chastity)>> -->
 	<<elseif window.wardrobeFuncs.getWornItem('chastity')>>\
@@ -658,27 +659,32 @@
 	<<print "[[Beauty salon|Go to clinic]]">>\
 	<<if $player.debugN eq 2>>\
 		<<set $player.debugN = 0>>\
-		<<if (not playerCode.owns(itemsC.gString))>>\
+		<!-- <<if (not playerCode.owns(itemsC.gString))>>\ -->
+		<<if (not inventoryFuncs.ownsMasterItem('sexyPanties'))>>\
 			<!-- <<addToInv $items.gString.id>>\ -->
 			<<addItemVariantToInventory 'panties_sexy_40'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 3>>\
 		<<set $player.debugN = 0>>\
-		<<if (not playerCode.owns(itemsC.chastityDevice))>>\
+		<!-- <<if (not playerCode.owns(itemsC.chastityDevice))>>\ -->
+		<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
 			<!-- <<addToInv $items.chastityDevice.id>>\ -->
 			<<addItemVariantToInventory 'chastity_cb6000'>>\
 		<<endif>>\
-		<<if (not playerCode.owns(itemsC.buttPlugHeart))>>\
+		<!-- <<if (not playerCode.owns(itemsC.buttPlugHeart))>>\ -->
+		<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
 			<!-- <<addToInv $items.buttPlugHeart.id>>\ -->
 			<<addItemVariantToInventory 'buttplug_heart'>>\
 		<<endif>>\
 	<<elseif $player.debugN eq 4>>\
 		<<set $player.debugN = 0>>\
-		<<if (not playerCode.owns(itemsC.schoolFemale))>>\
+		<!-- <<if (not playerCode.owns(itemsC.schoolFemale))>>\ -->
+		<<if (not inventoryFuncs.ownsMasterItem('schoolDress'))>>\
 			<!-- <<addToInv $items.schoolFemale.id>>\  -->
 			<<addItemVariantToInventory 'school_female_00'>>\
 		<<endif>>\
-		<<if (not playerCode.owns(itemsC.highHeel3))>>\
+		<!-- <<if (not playerCode.owns(itemsC.highHeel3))>>\ -->
+		<<if (not inventoryFuncs.ownsMasterItem('heels'))>>\
 			<!-- <<addToInv $items.highHeel3.id>>\ -->
 			<<addItemVariantToInventory 'heels_03'>>\
 		<<endif>>\
@@ -737,7 +743,8 @@
 		<<addItemVariantToInventory 'hairbow_43'>>\
 		<<addItemVariantToInventory 'cheer_sneakers'>>\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
-	<<elseif $cheerleaders.progress == 11 && (not playerCode.owns(itemsC.cheerDress))>>\
+	<!-- <<elseif $cheerleaders.progress == 11 && (not playerCode.owns(itemsC.cheerDress))>>\ -->
+	<<elseif $cheerleaders.progress == 11 && (not inventoryFuncs.ownsMasterItem('cheerUniform'))>>\
 		<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>>\
 		<!-- <<removeFromInv 'rookieUniform'>>\ -->
 		<<removeItemVariantFromInventory 'rookie_uniform'>>\

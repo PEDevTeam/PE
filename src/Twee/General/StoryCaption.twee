@@ -92,7 +92,8 @@
 	<<endif>>\
 	\
 	<<if (not $player.secondInvLine)>>\
-		<<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\
+		<!-- <<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\ -->
+		<<if inventoryFuncs.ownsMasterItem('chastity') or inventoryFuncs.ownsMasterItem('bras') or inventoryFuncs.ownsMasterItem('latexBras') or inventoryFuncs.ownsMasterItem('sexyBras')>>\
 			<<set $player.secondInvLine=true>>\
 		<<endif>>\
 	<<endif>>\

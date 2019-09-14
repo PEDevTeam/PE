@@ -116,20 +116,6 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        maidUniform:{
-            itemType:"outerwear",
-            clothingSlot:"outerwear",
-            name: "Maid Uniform",
-            daring:13,
-            disabled:false,
-            hasWorn:false,
-            isMale:true,
-            isFemale:false,
-            tags:{
-                school:true,
-                plain:true,
-            }
-        },
         sluttyCheerUniform:{
             itemType:"outerwear",
             clothingSlot:"outerwear",

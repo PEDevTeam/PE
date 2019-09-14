@@ -14,7 +14,7 @@
 	<<if playerCode.isMaid()>>\
 	<!--<maid start>*********************-->\
 		<!-- <<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\ -->
-		<<if playerCode.owns(itemsC.maidOutfit) and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
+		<<if inventoryFuncs.ownsMasterItem('maid') and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
 			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
@@ -31,7 +31,8 @@
 			<<endif>>\
 			heels and a cute headband.
 			<<if $flags.gTrialGiantVibroPlug>>\
-				<<if playerCode.owns(itemsC.buttPlugVibro)>>\
+				<!-- <<if playerCode.owns(itemsC.buttPlugVibro)>>\ -->
+				<<if inventoryFuncs.isItemVariantOwned('buttplug_vibro')>>\
 					<!-- <<wearClothing 'buttPlugVibro'>>\ -->
 					<<wearItemVariant 'buttplug_vibro'>>\
 				<<endif>>\
@@ -218,22 +219,26 @@
 			<<endif>>
 		<!-- <<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\ -->
 		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
-			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+			<!-- <<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\ -->
+			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<!-- <<wearClothing 'silkyTeddy'>>\ -->
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
-			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+			<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
+			<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
 				<!-- <<wearClothing 'pyjamasMale'>>\ -->
 				<<wearRandomItemByMaster 'pyjamas'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 			<<endif>>
 		<!-- <<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
-			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+			<!-- <<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\ -->
+			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<!-- <<wearClothing 'silkyTeddy'>>\ -->
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
-			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+			<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
+			<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
 				<!-- <<wearClothing 'pyjamasMale'>>\ -->
 				<<wearRandomItemByMaster 'pyjamas'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your pajamas.
@@ -410,7 +415,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingLips)>>\
+	<!-- <<if playerCode.owns(itemsC.PiercingLips)>>\ -->
+	<<if $body.lipsPierced>>\
 		<<if (not $flags.guardianNoticePiercingLips)>>\
 			<<set $flags.guardianNoticePiercingLips = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -427,7 +433,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingNose)>>\
+	<!-- <<if playerCode.owns(itemsC.PiercingNose)>>\ -->
+	<<if $body.nosePierced>>\
 		<<if (not $flags.guardianNoticePiercingNose)>>\
 			<<set $flags.guardianNoticePiercingNose = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -446,7 +453,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.PiercingTongue)>>\
+	<!-- <<if playerCode.owns(itemsC.PiercingTongue)>>\ -->
+	<<if $body.tonguePierced>>\
 		<<if (not $flags.guardianNoticePiercingTongue)>>\
 			<<set $flags.guardianNoticePiercingTongue = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -723,7 +731,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<!-- <<if playerCode.owns(itemsC.tattooHeart)>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 		<<if (not $flags.guardianNoticetattooHeart)>>\
 			<<set $flags.guardianNoticetattooHeart = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -756,7 +765,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.beautyMark)>>\
+	<!-- <<if playerCode.owns(itemsC.beautyMark)>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('beauty_mark')>>\
 		<<if (not $flags.guardianNoticebeautyMark)>>\
 			<<set $flags.guardianNoticebeautyMark = true>>\
 			@@.guardian;"Is that a beauty mark? That's unusual."@@

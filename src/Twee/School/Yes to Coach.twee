@@ -164,7 +164,8 @@
 	<<set $player.perversion.teacherCooldown=0>>\
 	<<set $items.nailPolish.disabled=true>>\
 	<<set $items.nailPolish.cost=0>>\
-	<<if playerCode.owns(itemsC.nailPolish)>>\
+	<!-- <<if playerCode.owns(itemsC.nailPolish)>>\ -->
+	<<if $player.hasNailPolish>>\
 		<!-- <<removeFromInv 'nailPolish'>>\ -->
 		<<set $player.hasNailPolish=false>>
 	<<endif>>\

@@ -10,10 +10,14 @@
 <<updateClothes>>\
 \
 <<set _boughtList to []>>\
-<<if playerCode.owns($items.bra)>><<set _boughtList.push("a bra")>><<endif>>\
-<<if playerCode.owns($items.stockings)>><<set _boughtList.push("stockings")>>\
-<<elseif playerCode.owns($items.socks)>><<set _boughtList.push("girls socks")>><<endif>>\
-<<if playerCode.owns($items.gString)>><<set _boughtList.push("lacy panties")>><<endif>>\
+<!-- <<if playerCode.owns($items.bra)>><<set _boughtList.push("a bra")>><<endif>>\ -->
+<!-- <<if playerCode.owns($items.stockings)>><<set _boughtList.push("stockings")>>\ -->
+<!-- <<elseif playerCode.owns($items.socks)>><<set _boughtList.push("girls socks")>><<endif>>\ -->
+<!-- <<if playerCode.owns($items.gString)>><<set _boughtList.push("lacy panties")>><<endif>>\ -->
+<<if inventoryFuncs.ownsMasterItem('bras')>><<set _boughtList.push("a bra")>><<endif>>\
+<<if inventoryFuncs.ownsMasterItem('stockings')>><<set _boughtList.push("stockings")>>\
+<<elseif inventoryFuncs.ownsMasterItem('socks')>><<set _boughtList.push("girls socks")>><<endif>>\
+<<if inventoryFuncs.ownsMasterItem('sexyPanties')>><<set _boughtList.push("lacy panties")>><<endif>>\
 <<if _boughtList.length gt 1>>\
 	<<set _boughtList.push("and " + _boughtList.pop())>>\
 <<endif>>\

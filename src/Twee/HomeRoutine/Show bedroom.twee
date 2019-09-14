@@ -86,7 +86,8 @@
 	<<showRoomImage "psbox_controller_00.png">>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.alarmClock)>>\
+<!-- <<if playerCode.owns(itemsC.alarmClock)>>\ -->
+<<if $player.hasAlarmClock>>\
 	<<showRoomImage "clock.png">>\
 	<<if $time.hour gte 10>>\
 	<<print '<<showRoomImage "clock_1_'+Math.floor($time.hour/10)+'.png">>'>>\

@@ -24,7 +24,8 @@
 	[[Open the bathroom door|Peep into bathroom][$scene="Open the bathroom door"]]
 	<<if $flags.cameraBathroom>>\
 	[[Retrieve spy camera]]
-	<<elseif playerCode.owns(itemsC.spyCamera)>>\
+	<!-- <<elseif playerCode.owns(itemsC.spyCamera)>>\ -->
+	<<elseif $player.hasSpyCamera>>\
 	[[Install camera in bathroom]]
 	<<endif>>\
 	[[Give up and go have some breakfast|Have breakfast]]

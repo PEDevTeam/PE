@@ -251,7 +251,8 @@
 			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week. Give it a chance and I'm sure you'll come to love it."@@
 
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-		<<elseif (not playerCode.owns(itemsC.hoopsEarrings))>>\
+		<!-- <<elseif (not playerCode.owns(itemsC.hoopsEarrings))>>\ -->
+		<<elseif (not inventoryFuncs.isItemVariantOwned('earrings_flashy_00'))>>\
 			<<set _item=itemsC.hoopsEarrings>>\
 			<!-- <<addToInv _item.id>>\ -->
 			<<addItemVariantToInventory 'earrings_flashy_00'>>\

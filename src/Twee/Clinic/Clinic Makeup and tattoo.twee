@@ -8,7 +8,8 @@
 <<if (not $flags.salonMakeup)>>\
 	Nancy offers to apply makeup and shows you a list of various designs she can tattoo on you.
 
-	<<if playerCode.owns(itemsC.beautyMark) and playerCode.owns(itemsC.tattooButterfly) and playerCode.owns(itemsC.tattooBunny) and playerCode.owns(itemsC.tattooHeart) and playerCode.owns(itemsC.tattooSlut) and playerCode.owns(itemsC.tattooSissy) and playerCode.owns(itemsC.tattooStupidWhore) and playerCode.owns(itemsC.tattooStockings)>>\
+	<!--<<if playerCode.owns(itemsC.beautyMark) and playerCode.owns(itemsC.tattooButterfly) and playerCode.owns(itemsC.tattooBunny) and playerCode.owns(itemsC.tattooHeart) and playerCode.owns(itemsC.tattooSlut) and playerCode.owns(itemsC.tattooSissy) and playerCode.owns(itemsC.tattooStupidWhore) and playerCode.owns(itemsC.tattooStockings)>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('tattoo_bunny') and inventoryFuncs.isItemVariantOwned('tattoo_butterfly') and inventoryFuncs.isItemVariantOwned('tattoo_heart') and inventoryFuncs.isItemVariantOwned('tattoo_sissy') and inventoryFuncs.isItemVariantOwned('tattoo_slut') and inventoryFuncs.isItemVariantOwned('tattoo_stockings') and inventoryFuncs.isItemVariantOwned('tattoo_stupidwhore')>>\
 		You already got all the tattoos on the list.
 		
 	<<endif>>\
@@ -81,56 +82,64 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooSissy))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooSissy))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_sissy'))>>\
 <<set _item=itemsC.tattooSissy>>\
 	<<set _sceneName="tattooSissy">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooStockings))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooStockings))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_stockings'))>>\
 <<set _item=itemsC.tattooStockings>>\
 	<<set _sceneName="tattooStockings">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooStupidWhore))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooStupidWhore))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_stupidwhore'))>>\
 <<set _item=itemsC.tattooStupidWhore>>\
 	<<set _sceneName="tattooStupidWhore">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooSlut))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooSlut))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_slut'))>>\
 <<set _item=itemsC.tattooSlut>>\
 	<<set _sceneName="tattooSlut">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooHeart))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooHeart))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_heart'))>>\
 <<set _item=itemsC.tattooHeart>>\
 	<<set _sceneName="tattooHeart">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooBunny))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooBunny))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_bunny'))>>\
 <<set _item=itemsC.tattooBunny>>\
 	<<set _sceneName="tattooBunny">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.tattooButterfly))>>\
+<!-- <<if (not playerCode.owns(itemsC.tattooButterfly))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('tattoo_butterfly'))>>\
 <<set _item=itemsC.tattooButterfly>>\
 	<<set _sceneName="tattooButterfly">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.beautyMark))>>\
+<!-- <<if (not playerCode.owns(itemsC.beautyMark))>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('beauty_mark'))>>\
 <<set _item=itemsC.beautyMark>>\
 	<<set _sceneName="beautyMark">>\
 	<<set _override=false>>\
