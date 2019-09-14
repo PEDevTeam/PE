@@ -43,7 +43,7 @@
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy bra">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyStockings) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
+			<<elseif (not ($flags.firstBuyStockings || $tasksTeacher.wearStockings.progress > 0)) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyStockings = true>>\
 				<<set $scene = "first buy stockings">>\
@@ -185,6 +185,8 @@
         @@.femvoice7;“...if those are not for your sister, <<if $intimateBoyBrowse or $intimateFirstTime>> and I have seen you in here before,<<endif>> then next time try to be a little less deceitful, \
         or at least be proud of the choices you make.@@
 
+        <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+        \
         Lecture over, she smiles and holds out her hand. @@.femvoice7;“My name is Zara Knight, Mz. Knight. Feel free to ask for my advice on my products. \
         I am more than happy to help anyone with their needs<<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
 
@@ -263,6 +265,8 @@
 
         You gulp. @@.hero;Does she know?@@
 
+        <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+        \
         She smiles and holds out her hand. @@.femvoice7;“My name is Zara Knight, Mz. Knight. Feel free to ask for my advice on my products. \
         I am more than happy to help anyone with their needs<<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
 
@@ -373,16 +377,20 @@
     Oh, please wear it out; just put your clothing over the top. You need to get used to it, after all.”@@
     
 	<<if $player.perversion.teacher == 3>>\
-		<<switch _item.id>>
-		<<case "bra">>
+		<<switch _item.id>>\
+		<<case "bra">>\
 			@@.hero;I have a bra, but $teacher wanted a sexy one. I should see if they have one of those too and some matching panties.@@
-		<<case "braSexy">>
-			<<if not $items.gString.ownAlt[_braAlt]>>@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@<<endif>>
-		<<case "braLatex">>
+			
+		<<case "braSexy">>\
+			<<if not $items.gString.ownAlt[_braAlt]>>\
+				@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@
+				
+			<<endif>>\
+		<<case "braLatex">>\
 			@@.hero;I have a bra, but $teacher wanted one that went with lacy panties. I should see if they have one of those too and some matching panties.@@
-		<</switch>>
+			
+		<</switch>>\
 	<<endif>>\
- 
     With a shrug, you decide that it might be better to hide the bra under your clothing rather than take it back out of the changing rooms in your hands. \
     You hurriedly get dressed, peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new bra and head back into the mall.
 
@@ -395,7 +403,7 @@
 	<<set $mallLingerieIntro to 1>>\
 <<elseif $scene eq "first buy stockings">>\
     <<set _stockingsAlt to itemF.itemTwee(_item.id).storeCur>>\
-    <<if $wearStockingsTaskTemp>>\
+    <<if $tasksTeacher.wearStockings.status == 1>>\
         @@.hero;Stockings I can wear with a uniform? What’s wrong with socks?@@ you ponder as you peruse the displays of stockings, tights and other items of hosiery.
     <<else>>\
         @@.hero;Stockings, and so many different types and colours. Perhaps I could...@@
@@ -434,6 +442,8 @@
         @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
         They will also be almost unnoticeable under your outer garments.<<endif>>@@
 
+        <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+        \
         @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she says, kindly, reaching out her hand and shaking yours. @@.femvoice7;“Feel free to ask for my advice on my products. \
         I am more than happy to help anyone with their needs <<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
 
@@ -551,6 +561,9 @@
     @@.statUp;You bought your first stockings@@
 
     [[Return to Mall|Go to the mall]]
+	<<if $tasksTeacher.wearStockings.progress == 0>>\
+		<<set $tasksTeacher.wearStockings.progress++>>\
+	<<endif>>\
     <<set $scene = "general">>\
     <<set $player.bought="">>\
     <<set $mallLingerieIntro to 1>>\
@@ -590,6 +603,8 @@
 
         @@.hero;Eh? Why would I do that?@@
 
+        <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+        \
         @@.femvoice7;“My name is Zara Knight, Mz. Knight,”@@ she states, offering her hand.  @@.femvoice7;“Feel free to ask for my advice on my products. I am more than happy to help anyone with their needs\
         <<if $kinkAllow.agePlay or $kinkAllow.diapering or $kinkAllow.adultBaby or $kinkAllow.ageBehavior>>, no matter age or preference<<endif>>.”@@
 

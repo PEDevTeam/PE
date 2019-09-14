@@ -483,17 +483,18 @@ window.cheerMinigame = {
 		cheerGame.correct = false;
 		if (roundId==actionId) {
 			cheerGame.correct = true;
-		}
-		else {
-			cheerGame.failCount++;
-		}
-		if (!cheerGame.ignoreModesty && uniform == 1){
+			
+			if (!cheerGame.ignoreModesty && uniform == 1){
 			var chance = Math.random();
 			if (chance >= 0.8){
 				cheerGame.failedMove = true;
 				cheerGame.failCount++;
 				cheerGame.correct = false;
 			}
+		}
+		}
+		else {
+			cheerGame.failCount++;
 		}
 		cheerGame.turn++;
 		cheerGame.lastActionId=actionId;
