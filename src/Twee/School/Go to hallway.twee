@@ -279,7 +279,8 @@
 
 				<!-- <<if (playerCode.isMaid()) and playerCode.owns(itemsC.schoolMale)>>\ -->
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
-					<<set window.playerCode.purgeMaleClothes()>>\
+					<!-- <<set window.playerCode.purgeMaleClothes()>>\ -->
+					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', 'true')>>
 					<<set window.playerCode.disableMaleClothes()>>\
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@

@@ -600,7 +600,7 @@ window.playerCode={
 			}
 		}
 	},
-	purgeMaleClothes: function() {
+	purgeMaleClothes_d: function() {
 		var itemsC=window.itemsC;
 		for (var i=0; i < Object.keys(itemsC).length; i++) {
 			var o=itemsC[Object.keys(itemsC)[i]];
