@@ -168,7 +168,10 @@ window.wardrobeFuncs = {
         }
         var masterItem = window.items.itemMasters[itemVariant.masterItem];
         var itemVariantClothingSlot = masterItem.clothingSlot;
-        actVar.player.clothingSlots[itemVariantClothingSlot] = null;
+
+        if(actVar.player.clothingSlots[itemVariantClothingSlot].variant == itemVariant.variant){
+            actVar.player.clothingSlots[itemVariantClothingSlot] = null;
+        }
     },
     removeClothing: function(clothingSlot){
         if(SugarCube.State){
@@ -178,7 +181,7 @@ window.wardrobeFuncs = {
             var actVar = State.active.variables;
         }
         
-        actVar.player.clothingSlots[params[0]] = null;
+        actVar.player.clothingSlots[clothingSlot] = null;
         window.wardrobeFuncs.updateSidebar();
     },
     removeClothingAndAccessories: function(){

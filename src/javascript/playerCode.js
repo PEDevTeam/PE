@@ -449,7 +449,7 @@ window.playerCode={
 			}
 		}
 	},
-	wearClothesJS: function(id) {
+	wearClothesJS_d: function(id) {
 		if (!id) {
 			return;
 		}
@@ -469,7 +469,7 @@ window.playerCode={
 			state.active.variables.player.clothes=state.active.variables.player.clothes.sort();
 		}
 	},
-	removeClothesJS: function(id) {
+	removeClothesJS_d: function(id) {
 		if (!id) {
 			return;
 		}
