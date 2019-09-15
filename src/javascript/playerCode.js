@@ -582,7 +582,7 @@ window.playerCode={
 		
 		window.playerCode.clothesOverride();
 	},
-	wearPajamas: function() {
+	wearPajamas_d: function() {
 		//var c=this.isWearingOn(window.itemTypes.Chastity);
 		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var player=State.active.variables.player;
