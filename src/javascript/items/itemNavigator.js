@@ -794,6 +794,14 @@ window.itemNavigator = {
             }
         }
         return setExists;
+    },
+
+    newOrUpdatedClothingSetFromWorn: function(setName){
+        if(!(this.checkClothingSetExists(setName))){
+            this.addClothingSet(setName);
+            
+        }
+        this.updateClothingSet(setName);
     }
 }
 

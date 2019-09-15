@@ -752,7 +752,8 @@
 		<<addItemVariantToInventory 'cheer_dress'>>\
 		<!-- <<wearClothing 'cheerDress'>>\ -->
 		<<wearItemVariant 'cheer_dress'>>
-		<<set playerCode.saveQuickSlot(11)>>\
+		<!-- <<set playerCode.saveQuickSlot(11)>>\ -->
+		<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Cheerleader')>>
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++]]\
 	<<else>>\
 		[[Cheer +1|Go to bedroom][$cheerleaders.progress++; $cheerleaders.active=true]]\

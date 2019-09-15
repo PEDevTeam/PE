@@ -403,7 +403,7 @@ window.playerCode={
 		
 		player.bribeIncrease = 30*State.active.variables.flags.bribeFactor;
 	},
-	owns: function(item) {
+	owns_d: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;
 	},
 	ownsType_d: function(clothingType) {
@@ -418,7 +418,7 @@ window.playerCode={
 		}
 		return false;
 	},
-	saveQuickSlot: function(slot) {
+	saveQuickSlot_d: function(slot) {
 		var player=State.active.variables.player;
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
