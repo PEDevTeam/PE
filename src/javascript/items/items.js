@@ -418,7 +418,21 @@ window.itemFuncs= {
         }
     },
 
-    
+    disableItemVariantsByProperty: function(propertyName, propertyValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var arrIdx = window.items.itemChildren - 1; arrIdx >= 0; arrIdx--){
+            var item = window.items.itemChildren[arrIdx];
+            if(typeof item == 'object' && item[propertyName] == propertyValue){
+                window.itemFuncs.disableItemVariant(item);
+            }
+        }
+    }
 }
 
 

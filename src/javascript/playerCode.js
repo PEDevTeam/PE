@@ -609,7 +609,7 @@ window.playerCode={
 			}
 		}
 	},
-	disableMaleClothes: function() {
+	disableMaleClothes_d: function() {
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
 		for (var i=0; i < Object.keys(itemsC).length; i++) {

@@ -281,7 +281,8 @@
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					<!-- <<set window.playerCode.purgeMaleClothes()>>\ -->
 					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', 'true')>>
-					<<set window.playerCode.disableMaleClothes()>>\
+					<!-- <<set window.playerCode.disableMaleClothes()>>\ -->
+					<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@
 					<<if _underwear and (not _underwear.isFemale)>>\

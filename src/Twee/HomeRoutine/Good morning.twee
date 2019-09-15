@@ -311,8 +311,9 @@
 
 	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
 	<!-- <<set window.playerCode.purgeMaleClothes()>>\ -->
-	<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', 'true')>>
-	<<set window.playerCode.disableMaleClothes()>>\
+	<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>
+	<!-- <<set window.playerCode.disableMaleClothes()>>\ -->
+	<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>
 	<<set $flags.clothesPurged to true>>\
 	<!-- <<addToInv 'maidOutfit'>>\ -->
 	<<addItemVariantToInventory 'maid_outfit_00'>>\
