@@ -46,7 +46,8 @@
 		
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Go to sleep@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>\
-		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Sleep)>><<set $player.quickSet=quickSlotSets.Sleep>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<!-- @@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Sleep)>><<set $player.quickSet=quickSlotSets.Sleep>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
+		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set itemNavigator.wearClothingSet('Nightwear')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 		
 	<<endif>>\
 	<<if $therapistTalks.talkChastitySleep.finished and (not $therapistTalks.talkVibrator.start)>>\

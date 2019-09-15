@@ -14,7 +14,8 @@
 <</switch>>\
 <<if $flags.maidUniform>>\
 	<<set $flags.maidUniform = false>>\
-	<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+	<!-- <<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\ -->
+	<<set itemNavigator.wearClothingSet('Maid')>>
 	<<set window.playerCode.clothesOverride()>>\
 	<<updateClothes>>\
 <<endif>>\
@@ -151,7 +152,8 @@ The chores available to you are:
 	[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 <<endif>>\
 <<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check()) or (not window.clothes.dressedGuardian.check()))>>\
-	<<print '<<click " Change to casual clothes ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<goto [[Perform chores]]>><</click>>'>>
+	<!-- <<print '<<click " Change to casual clothes ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<goto [[Perform chores]]>><</click>>'>> -->
+	<<print '<<click " Change to casual clothes ">>>><<set itemNavigator.wearClothingSet('Casual')>><<goto [[Perform chores]]>><</click>>'>>
 <<endif>>\
 [[Return|Go to bedroom]]
 <</widget>>\

@@ -552,7 +552,7 @@ window.playerCode={
 			quickS[Object.keys(quickS)[n]].clothes=quickS[Object.keys(quickS)[n2]].clothes;
 		}
 	},
-	loadQuickSlot: function(slot) {
+	loadQuickSlot_d: function(slot) {
 		//var ch=this.isWearingOn(window.itemTypes.Chastity);
 		var chastity=window.wardrobeFuncs.getWornItem('chastity');
 		var itemsC=window.itemsC;

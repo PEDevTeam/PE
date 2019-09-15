@@ -15,7 +15,8 @@
 	<!--<maid start>*********************-->\
 		<!-- <<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\ -->
 		<<if inventoryFuncs.ownsMasterItem('maid') and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
-			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<!-- <<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\ -->
+			<<set itemNavigator.wearClothingSet('Maid')>>
 			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
 			You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
@@ -38,7 +39,8 @@
 				<<endif>>\
 			After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
 			<<endif>>\
-			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<!-- <<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\ -->
+			<<set itemNavigator.wearClothingSet('Maid')>>
 			<<set window.playerCode.clothesOverride()>>\
 			<<updateClothes>>\
 		<<endif>>\
