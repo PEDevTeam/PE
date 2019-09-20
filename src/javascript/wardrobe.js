@@ -155,6 +155,14 @@ window.wardrobeFuncs = {
         var itemVariantClothingSlot = masterItem.clothingSlot;
         actVar.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
     },
+    wearRandomItemByMaster: function(itemMaster){
+        var itemVariants = window.inventoryFuncs.getChildItemsForMaster(itemMaster);
+        if(itemVariants){
+            var itemVariant = itemVariants[Math.floor(Math.random()*itemVariants.length)];
+            window.wardrobeFuncs.wearItemVariant(itemVariant);
+            window.wardrobeFuncs.updateSidebar();
+        }
+    },
     removeItemVariant: function(itemVariant){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

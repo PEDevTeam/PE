@@ -2081,7 +2081,7 @@ $.extend(true, window.items, {
         },
         heels04:{
             masterItem:"heels",
-            variant:"heels_00",
+            variant:"heels_04",
             name:"Red Leather High Heels",
             price:100,
             daring:5,

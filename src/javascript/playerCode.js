@@ -479,54 +479,63 @@ window.playerCode={
 		}
 	},
 	clothesOverride: function() {
-		var itemsC=window.itemsC;
+		//var itemsC=window.itemsC;
 		/* Check for wet panties */
 		if (State.active.variables.flags.laundryAccident) {
-			var itemsC=window.itemsC;
-			var player=State.active.variables.player;
+			// var itemsC=window.itemsC;
+			// var player=State.active.variables.player;
 			
-			var i=player.clothes.indexOf(itemsC.pantiesCotton.id);
-			if (i >= 0) {
-				player.clothes.splice(i, 1);
-			}
-			var i=player.clothes.indexOf(itemsC.gString.id);
-			if (i >= 0) {
-				player.clothes.splice(i, 1);
-			}
-			var i=player.clothes.indexOf(itemsC.pantiesLatex.id);
-			if (i >= 0) {
-				player.clothes.splice(i, 1);
-			}
+			// var i=player.clothes.indexOf(itemsC.pantiesCotton.id);
+			// if (i >= 0) {
+			// 	player.clothes.splice(i, 1);
+			// }
+			// var i=player.clothes.indexOf(itemsC.gString.id);
+			// if (i >= 0) {
+			// 	player.clothes.splice(i, 1);
+			// }
+			// var i=player.clothes.indexOf(itemsC.pantiesLatex.id);
+			// if (i >= 0) {
+			// 	player.clothes.splice(i, 1);
+			// }
+			window.wardrobeFuncs.removeItemMaster('plainPanties');
+			window.wardrobeFuncs.removeItemMaster('sexyPanties');
+			window.wardrobeFuncs.removeItemMaster('latexPanties');
 		}
 		/* Forcing on Maid stuff */
 		//if (playerCode.isWearing(window.itemsC.maidOutfit)) {
 		if (window.wardrobeFuncs.isItemMasterWearing('maid')) {
 			if (State.active.variables.flags.gTrialBalletHeels) {
-				this.wearClothesJS('balletHeels');
+				window.wardrobeFuncs.wearRandomItemByMaster('balletHeels');
+				//this.wearClothesJS('balletHeels');
 			} else {
 				if (State.active.variables.flags.gTrialLatexMaid) {
-					State.active.variables.items.stilettoHeels.curAlt=39;
-					this.wearClothesJS('stilettoHeels');
+					//State.active.variables.items.stilettoHeels.curAlt=39;
+					//this.wearClothesJS('stilettoHeels');
+					window.wardrobeFuncs.wearRandomItemByMaster('stripperHeels');
 				} else {
-					State.active.variables.items.highHeel3.curAlt=39;
-					this.wearClothesJS('highHeel3');
+					//State.active.variables.items.highHeel3.curAlt=39;
+					//this.wearClothesJS('highHeel3');
+					window.wardrobeFuncs.wearItemVariant('heels03');
 				}
 			}
 			
 			if (State.active.variables.flags.gTrialLatexMaid) {
 				//if (!playerCode.isWearing(window.itemsC.stockingsLatex)) {
 				if (!window.wardrobeFuncs.isItemMasterWearing('latexStockings')) {
-					State.active.variables.items.stockingsLatex.curAlt=39;
-					this.wearClothesJS('stockingsLatex');
+					//State.active.variables.items.stockingsLatex.curAlt=39;
+					//this.wearClothesJS('stockingsLatex');
+					window.wardrobeFuncs.wearRandomItemByMaster('latexStockings');
 				}
 			} else {
-				State.active.variables.items.stockings.curAlt=39;
-				this.wearClothesJS('stockings');
+				// State.active.variables.items.stockings.curAlt=39;
+				// this.wearClothesJS('stockings');
+				window.wardrobeFuncs.wearRandomItemByMaster('stockings');
 			}
 
 			//if (playerCode.isWearing(window.itemsC.cheerBriefs)) {
 			if (window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')) {
-				this.removeClothesJS('cheerBriefs');
+				//this.removeClothesJS('cheerBriefs');
+				window.wardrobeFuncs.removeItemMaster('cheerBriefs');
 			}
 		}
 	},
