@@ -280,7 +280,7 @@
 				<!-- <<if (playerCode.isMaid()) and playerCode.owns(itemsC.schoolMale)>>\ -->
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					<!-- <<set window.playerCode.purgeMaleClothes()>>\ -->
-					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', 'true')>>
+					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>
 					<!-- <<set window.playerCode.disableMaleClothes()>>\ -->
 					<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>
 					

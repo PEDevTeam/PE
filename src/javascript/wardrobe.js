@@ -173,6 +173,23 @@ window.wardrobeFuncs = {
             actVar.player.clothingSlots[itemVariantClothingSlot] = null;
         }
     },
+    removeItemMaster: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
+        if(typeof itemMaster !== 'object'){
+            itemMaster = window.items.itemMasters[itemMaster];
+        }
+        var activeMasterItem = window.items.itemMasters[actVar.player.clothingSlots[itemMaster.clothingSlot].masterItem];
+
+        if(activeMasterItem == masterItems){
+            actVar.player.clothingSlots[itemMaster.clothingSlot] = null;
+        }
+    },
     removeClothing: function(clothingSlot){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
