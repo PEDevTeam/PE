@@ -31,7 +31,7 @@ window.stores=[
 		name: "Fashion Central",
 		image: "clothes_shop.jpg",
 		imagePack: "Fashion Central",
-		description: "Don't be fooled, it's the only clothing store in this area.",
+		description: "A place where girls get their clothes.",
 		daringRequired: 0
 	},
 	{
@@ -47,6 +47,13 @@ window.stores=[
 		image: "shoe_shop.jpg",
 		imagePack: "Klip Klops",
 		description: "Selling noisy foot things since 1985!",
+		daringRequired: 0
+	},
+	{
+		name: "Urbane Menswear",
+		image: "StoreLogo_Urbane.jpg",
+		imagePack: "Urbane Menswear",
+		description: "The only men's clothing store in the mall.",
 		daringRequired: 0
 	}
 ];
