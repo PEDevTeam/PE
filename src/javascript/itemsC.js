@@ -114,7 +114,7 @@ window.itemF={
 window.itemsC={
 	pyjamasMale : {
 		id : "pyjamasMale",
-		name: "Comfy boy's pajamas",
+		name: "Comfy pajamas",
 		clothingType: window.itemTypes.Outerwear,
 		cantWearWith: window.itemTypes.Underwear + window.itemTypes.Shoes + window.itemTypes.Stockings + window.itemTypes.Bras,
 		ward: false,
