@@ -177,10 +177,10 @@ window.playerCode={
 		return (State.active.variables.body.bodyhair >= 2);
 	},
 	isInChastity: function() {
-	    return this.isWearingOn(itemTypes.Chatisty);
+	    return this.isWearingOn(itemTypes.Chastity);
 	},
 	isLockedInChastity: function() {
-		return (this.isWearingOn(itemTypes.Chatisty) &&
+		return (this.isWearingOn(itemTypes.Chastity) &&
 		        State.active.variables.flags.chastityLocked);
 	},
 	haveHaircut: function() {
