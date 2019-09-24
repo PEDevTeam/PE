@@ -31,7 +31,7 @@ window.stores=[
 		name: "Fashion Central",
 		image: "clothes_shop.jpg",
 		imagePack: "Fashion Central",
-		description: "A place where girls get their clothes.",
+		description: "Your first stop for fabulous feminine fashions!",
 		daringRequired: 0
 	},
 	{
