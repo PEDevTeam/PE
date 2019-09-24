@@ -53,7 +53,7 @@ window.stores=[
 		name: "Urbane Menswear",
 		image: "StoreLogo_Urbane.jpg",
 		imagePack: "Urbane Menswear",
-		description: "The only men's clothing store in the mall.",
+		description: "Your favorite men's clothing store, and the only one in town.",
 		daringRequired: 0
 	}
 ];
