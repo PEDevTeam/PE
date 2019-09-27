@@ -111,11 +111,13 @@ It's just too much, and after begging to her accept, you hurriedly stuff $<<prin
 
 <!-- <<buyItem "schoolFemale">>\ -->
 <<buyItemVariant 'school_female_00'>>
-<<if (not $items.socks.ownAlt[0])>>\
+<!-- <<if (not $items.socks.ownAlt[0])>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('socks_00'))>>\
 	<!-- <<addToInv 'socks'>>\ -->
     <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
-<<if (not $items.flats.ownAlt[0])>>\
+<!-- <<if (not $items.flats.ownAlt[0])>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('flats_00'))>>\
 	<!-- <<addToInv 'flats'>>\ -->
     <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\
@@ -172,11 +174,13 @@ Thanking you once more for your help, Susan has you gather up your things and bi
 <<set $flags.metClothesClerk = true>>\
 <!-- <<addToInv 'schoolFemale'>>\ -->
 <<addItemVariantToInventory 'school_female_00'>>\
-<<if (not $items.socks.ownAlt[0])>>\
+<!-- <<if (not $items.socks.ownAlt[0])>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('socks_00'))>>\
 	<!-- <<addToInv 'socks'>>\ -->
     <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
-<<if (not $items.flats.ownAlt[0])>>\
+<!-- <<if (not $items.flats.ownAlt[0])>>\ -->
+<<if (not inventoryFuncs.isItemVariantOwned('flats_00'))>>\
 	<!-- <<addToInv 'flats'>>\ -->
     <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\

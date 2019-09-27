@@ -23,7 +23,7 @@
 			<<endif>>\
 			You put on your sexy\
 			<<if $flags.gTrialLatexMaid>>\
-			<<set $items.maidOutfit.curAlt=1>>\
+			<!-- <<set $items.maidOutfit.curAlt=1>>\ -->
 			latex\
 			<<endif>>\
 			maid uniform, stockings,\
@@ -261,11 +261,14 @@
 					@@.guardian;"I've decided you need to see a therapist to work out why you would invade my privacy like you did.@@\
 				<<else>>\
 					@@.guardian;"I've decided you need to see a therapist to help you work out your new interests.@@\
-					<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen or $items.playgirlMagazine.stolen>>\
+					<!-- <<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen or $items.playgirlMagazine.stolen>>\ -->
+					<<if $player.stolenPanties or $player.stolenLatexPanties or $player.stolenPlaygirl>>\
 						@@.guardian;You know, I've found my\
-						<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen>>\
+						<!-- <<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen -->
+						<<if $player.stolenPanties or $player.stolenLatexPanties>>\
 							panties\
-						<<elseif $items.playgirlMagazine.stolen>>\
+						<!-- <<elseif $items.playgirlMagazine.stolen>>\ -->
+						<<elseif $player.stolenPlaygirl>>\
 							magazine\
 						<<endif>>\
 						in your room. You have to know that some things are private.@@\
@@ -1093,7 +1096,8 @@
 					<<if $player.perversion.guardian eq 7>>
 						@@.guardian;Did you imagine one of your classmates fucking you raw? Or was it $teacher with huge strap-on? Maybe you could give me a hint at the next parental meeting so I would know your taste?@@\
 					<<endif>>\
-				<<elseif _rc lte 1 and $items.vibrator.stolen>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\
+				<!-- <<elseif _rc lte 1 and $items.vibrator.stolen>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\ -->
+				<<elseif _rc lte 1 and $player.stolenVibrator>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\
 				<<elseif _rc lte 2>>@@.guardian;Oh, my. You looked so sweet fucking yourself with a dildo.@@\
 				<<elseif _rc lte 3>>@@.guardian;Do you think I should show last night’s footage to friends at work? Just kidding, I'm keeping you to myself.@@\
 				<<elseif _rc lte 4>>@@.guardian;Maybe next time, you could stick the dildo on a stool and ride it cowgirl.@@\

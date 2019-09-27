@@ -55,6 +55,7 @@ window.structures={
 		this.setupCheerFriend();
 		this.setupClothingSets();
 		this.setupItemVariantOverrides();
+		this.setupItemMasterOverrides();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -747,6 +748,13 @@ window.structures={
 		if(vars.itemVariantsOverrides == null){
 			vars.itemVariantsOverrides = [];
 		}
+	},
+
+	setupItemMasterOverrides: function(){
+		var vars=State.active.variables;
+		if(vars.itemMasterOverrides == null){
+			vars.itemMasterOverrides = [];
+		}
 	}
 },
 
@@ -826,6 +834,14 @@ window.playerList={
 	hasMassageOil: false,
 	hasNailPolish: false,
 	hasRemoteButtplug: false,
+	stolenPlaygirl: false,
+	stolenPanties: false,
+	stolenSexyPanties: false,
+	stolenLatexPanties: false,
+	stolenVibrator: false,
+	stolenStungun: false,
+	canBuyStunGun: false,
+	canBuyNailPolish: false,
 	canVisitTestLab: false,
 },
 

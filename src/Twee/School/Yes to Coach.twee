@@ -20,7 +20,8 @@
 	You do as $futa.he_she says and with that, you're finished. $futa.He_She shuts down the photographic lighting, and then you're free to go.
 	
 	<<if (not $flags.nailGloss) and (not ($body.manicure eq 1))>>\
-		<<set $items.nailPolish.disabled=false>>\
+		<!-- <<set $items.nailPolish.disabled=false>>\ -->
+		<<set $player.canBuyNailPolish = true>>\
 		Just before you exit the door, $futa.he_she adds: @@.coach;"For the next shoot, make sure you have your fingernails and toenails manicured before you arrive. It can really make a big difference between getting great images and just good images."@@ 
 		
 		Unfortunately, that sounded more like a demand than a request.
@@ -162,8 +163,8 @@
 	<<set $player.perversion.coach=0>>\
 	<<set $player.perversion.teacher=6>>\
 	<<set $player.perversion.teacherCooldown=0>>\
-	<<set $items.nailPolish.disabled=true>>\
-	<<set $items.nailPolish.cost=0>>\
+	<!-- <<set $items.nailPolish.disabled=true>>\ -->
+	<!-- <<set $items.nailPolish.cost=0>>\ -->
 	<!-- <<if playerCode.owns(itemsC.nailPolish)>>\ -->
 	<<if $player.hasNailPolish>>\
 		<!-- <<removeFromInv 'nailPolish'>>\ -->

@@ -20,15 +20,18 @@
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.gString)>>\ -->
 	<<if inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-		<<set $items.gString.disabled=true>>\
+		<!-- <<set $items.gString.disabled=true>>\ -->
+		<<set itemFuncs.disableItemMaster('sexyPanties')>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.pantiesLatex)>> -->
 	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>
-		<<set $items.pantiesLatex.disabled=true>>\
+		<!-- <<set $items.pantiesLatex.disabled=true>>\ -->
+		<<set itemFuncs.disableItemMaster('latexPanties')>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.pantiesCotton)>> -->
 	<<if inventoryFuncs.ownsMasterItem('plainPanties')>>
-		<<set $items.pantiesCotton.disabled=true>>\
+		<!-- <<set $items.pantiesCotton.disabled=true>>\ -->
+		<<set itemFuncs.disableItemMaster('plainPanties')>>\
 	<<endif>>\
 	
 <<endif>>\

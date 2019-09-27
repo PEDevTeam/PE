@@ -9,6 +9,7 @@ $.extend(true, window.items, {
             itemType:"mouthpeice",
             clothingSlot:"mouth",
             name:"Gags",
+            itemMaster: "gag",
             daring:0,
             disabled:false,
             hasWorn:false,

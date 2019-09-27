@@ -9,6 +9,7 @@ $.extend(true, window.items, {
             itemType:"chastity",
             clothingSlot:"chastity",
             name:"Chastity Device",
+            itemMaster: "chastity",
             daring:4,
             disabled:false,
             hasWorn:false,

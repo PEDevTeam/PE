@@ -229,6 +229,44 @@ window.itemFuncs= {
         }
     },
 
+    getItemMaster: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof itemMaster !== 'object'){
+            for(var itemIdx in actVar.itemMasterOverrides){
+                var item = actVar.itemMasterOverrides[itemIdx]
+                if(item.itemMaster == itemMaster){
+                    return item;
+                }
+            }
+            for(var itemIdx in window.items.itemMasters){
+                var item = window.items.itemMasters[itemIdx];
+                if(typeof item == 'object' && item.itemMaster == itemMaster){
+                    return item;
+                }
+            }
+        }
+        else{            
+            for(var itemIdx in actVar.itemMasterOverrides){
+                var item = actVar.itemMasterOverrides[itemIdx]
+                if(item.itemMaster == itemMaster.itemMaster){
+                    return item;
+                }
+            }
+            for(var itemIdx in window.items.itemMasters){
+                var item = window.items.itemMasters[itemIdx];
+                if(typeof item == 'object' && item.itemMaster == itemMaster.itemMaster){
+                    return item;
+                }
+            }
+        }
+    },
+
     buyItemVariant: function(itemVariant){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
@@ -432,6 +470,93 @@ window.itemFuncs= {
                 window.itemFuncs.disableItemVariant(item);
             }
         }
+    },
+
+    disableItemMaster: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        window.itemFuncs.overrideItemMasterProperty(item, 'disabled', true);
+    },
+
+    enableItemMaster: function(itemMaster){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        window.itemFuncs.overrideItemMasterProperty(item, 'disabled', false);
+    },
+
+    overrideItemMasterProperty: function(item, propertyName, propertyValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.itemFuncs.getItemMaster(item);
+        }
+        item[propertyName] = propertyValue;
+        for(var itemIdx in actVar.itemMasterOverrides){
+            var overrideItem = actVar.itemMasterOverrides[itemIdx]
+            if(overrideItem.itemMaster == item.itemMaster){
+                actVar.itemMasterOverrides.splice(itemIdx, 1);
+            }
+        }
+        actVar.itemMasterOverrides.push(item);
+    },
+
+    addTagToItemMaster: function(item, tag, value){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.itemFuncs.getItemMaster(item);
+        }
+
+        $.extend(true, item.tags, {[tag]: value});
+        for(var itemIdx in actVar.itemMasterOverrides){
+            var overrideItem = actVar.itemMasterOverrides[itemIdx]
+            if(overrideItem.itemMaster == item.itemMaster){
+                actVar.itemMasterOverrides.splice(itemIdx, 1);
+            }
+        }
+        actVar.itemMasterOverrides.push(item);
+    },
+    
+    addTagToItemVariant: function(item, tag, value){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.itemFuncs.getItemVariant(item);
+        }
+
+        $.extend(true, item.tags, {[tag]: value});
+        for(var itemIdx in actVar.itemVariantsOverrides){
+            var overrideItem = actVar.itemVariantsOverrides[itemIdx]
+            if(overrideItem.variant == item.variant){
+                actVar.itemVariantsOverrides.splice(itemIdx, 1);
+            }
+        }
+        actVar.itemVariantsOverrides.push(item);
     }
 }
 

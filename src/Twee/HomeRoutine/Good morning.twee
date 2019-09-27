@@ -101,7 +101,7 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 2>>\
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
+	<!-- <<set $items.alarmClock.disabled=true>>\ -->
 	<!-- <<if playerCode.owns(itemsC.alarmClock)>>\ -->
 	<<if $player.hasAlarmClock>>\
 		<!-- <<removeFromInv 'alarmClock'>>\ -->
@@ -232,7 +232,7 @@
 		<!-- <<removeFromInv 'alarmClock'>>\ -->
 		<<set $player.hasAlarmClock = false>>
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
+	<!-- <<set $items.alarmClock.disabled=true>>\ -->
 	<<if $flags.guardianFuckedByStrapon>>\
 		You open your eyes. $Guardian is there. Unusually, she is lying next to you, her hair draped across the sheets. She is watching you intently. @@.hero;Why is $guardian here?@@
 
@@ -321,12 +321,12 @@
 	<<wearItemVariant 'maid_outfit_00'>>\
 	<!-- <<addToInv 'stockings' 39>>\ -->
 	<<addItemVariantToInventory 'stockings_39'>>\
-	<<set $items.stockings.curAlt=39>>\
+	<!-- <<set $items.stockings.curAlt=39>>\ -->
 	<!-- <<wearClothing 'stockings'>>\ -->
 	<<wearItemVariant 'stockings_39'>>\
 	<!-- <<addToInv 'highHeel3' 39>>\ -->
 	<<addItemVariantToInventory 'heels_39'>>\
-	<<set $items.highHeel3.curAlt=39>>\
+	<!-- <<set $items.highHeel3.curAlt=39>>\ -->
 	<!-- <<wearClothing 'highHeel3'>>\ -->
 	<<wearItemVariant 'heels_39'>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
@@ -356,11 +356,13 @@
 		<!-- <<addToInv 'gString' 40>>\ -->
 		<<addItemVariantToInventory 'panties_sexy_40'>>\ 
 	<<endif>>\
-	<<if $items.gString.ownAlt[40]>>\
+	<!-- <<if $items.gString.ownAlt[40]>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('panties_sexy_40') >>\ 
 		<!-- <<addToInv 'braSexy' 40>>\ -->
 		<<addItemVariantToInventory 'bra_sexy_40'>>\ 
 	<<endif>>\
-	<<if $items.pantiesCotton.ownAlt[40]>>\
+	<!-- <<if $items.pantiesCotton.ownAlt[40]>>\ -->
+	<<if inventoryFuncs.isItemVariantOwned('panties_cotton_40') >>\ 
 		<!-- <<addToInv 'bra' 40>>\ -->
 		<<addItemVariantToInventory 'bra_40'>>\ 
 	<<endif>>\
@@ -371,7 +373,7 @@
 		<<addItemVariantToInventory 'school_female_00'>>\ 
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.flats)) and (not $items.highHeel3.ownAlt[0])>>\ -->
-	<<if (not inventoryFuncs.ownsMasterItem('flats')) and (not $items.highHeel3.ownAlt[0])>>\
+	<<if (not inventoryFuncs.ownsMasterItem('flats')) and (not inventoryFuncs.isItemVariantOwned('heels_00'))>>\
 		<!-- <<if playerCode.owns(itemsC.schoolShoes)>>\ -->
 		<<if inventoryFuncs.ownsMasterItem('blackShoes')>>\
 			@@.guardian;I brought you my old shoes since you need something to go with your new clothes.@@\
@@ -458,18 +460,18 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<if $flags.guardianEvil>>\
 		<<set $player.perversion.guardian to 7>>\
-		<<set $items.maidOutfit.curAlt=1>>\
-		<<set $items.maidOutfit.ownAlt[0]=false>>\
-		<<set $items.maidOutfit.ownAlt[1]=true>>\
+		<!-- <<set $items.maidOutfit.curAlt=1>>\ -->
+		<!-- <<set $items.maidOutfit.ownAlt[0]=false>>\ -->
+		<!-- <<set $items.maidOutfit.ownAlt[1]=true>>\ -->
 		<<set $flags.gTrialLatexMaid=true>>\
 		<!-- <<addToInv 'stockingsLatex' 39>>\ -->
 		<<addItemVariantToInventory 'stockings_latex_39'>>\
-		<<set $items.stockingsLatex.curAlt=39>>\
+		<!-- <<set $items.stockingsLatex.curAlt=39>>\ -->
 		<!-- <<wearClothing 'stockingsLatex'>>\ -->
 		<<wearItemVariant 'stockings_latex_39'>>\
 		<!-- <<addToInv 'stilettoHeels' 39>>\ -->
 		<<addItemVariantToInventory 'heels_stripper_00'>>\
-		<<set $items.stilettoHeels.curAlt=39>>\
+		<!-- <<set $items.stilettoHeels.curAlt=39>>\ -->
 		<!-- <<wearClothing 'stilettoHeels'>>\ -->
 		<<wearItemVariant 'heels_stripper_00'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\

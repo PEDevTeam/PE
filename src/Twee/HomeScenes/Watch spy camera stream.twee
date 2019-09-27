@@ -46,7 +46,7 @@
 			<<endif>>\
 			<<if _scst eq 0>>\
 				<!-- <<if playerCode.owns(itemsC.vibrator) and $items.vibrator.stolen and (not $flags.confiscatedVibrator)>>\ -->
-				<<if $player.hasVibrator and $items.vibrator.stolen and (not $flags.confiscatedVibrator)>>\
+				<<if $player.hasVibrator and $player.stolenVibrator and (not $flags.confiscatedVibrator)>>\
 					She opens her bedside table drawer, and rummages around in it for a few moments before standing up and looking around confused.
 					
 					<<set _scst to 2>>\
@@ -54,7 +54,8 @@
 					She opens her bedside table drawer and takes out a vibrator.\
 					<<if $flags.confiscatedVibrator>>\
 						It's the one she confiscated from you! Is she going to use your vibrator?!\
-						<<if $items.vibrator.stolen>>\
+						<!-- <<if $items.vibrator.stolen>>\ -->
+						<<if $player.stolenVibrator>>\
 							Your indignation doesn't last long when you remember you actually stole it from //her// first.
 						<<endif>>\
 						

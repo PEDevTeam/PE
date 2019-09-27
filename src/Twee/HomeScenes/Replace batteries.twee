@@ -16,14 +16,16 @@ This should stop her from sleeping in.
 	<!-- <<removeFromInv 'batteries'>>\ -->
 	<<set $player.hasBatteries = false>>
 	<<set $player.batteryExpireDay=$time.day+2>>\
-	<<set $items.batteries.disabled=true>>\
+	<!-- <<set $items.batteries.disabled=true>>\ -->
+	<<set $player.hasBatteries = false>>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.batteriesQuality)>>\ -->
 <<if $player.hasQualityBatteries>>\
 	<!-- <<removeFromInv 'batteriesQuality'>>\ -->
 	<<set $player.hasQualityBatteries = false>>
 	<<set $player.batteryExpireDay=$time.day+3>>\
-	<<set $items.batteriesQuality.disabled=true>>\
+	<!-- <<set $items.batteriesQuality.disabled=true>>\ -->
+	<<set $player.hasQualityBatteries = false>>\
 <<endif>>\
 \
 [[Return to your bedroom|Go to bedroom]]

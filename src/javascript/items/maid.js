@@ -9,6 +9,7 @@ $.extend(true, window.items, {
             itemType:"maid",
             clothingSlot:"maid",
             name: "Maid Outfit",
+            itemMaster: "maid",
             daring:0,
             disabled:false,
             hasWorn:false,

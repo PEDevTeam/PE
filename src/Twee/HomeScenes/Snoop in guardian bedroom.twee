@@ -9,14 +9,19 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 	<<set _item=_snoopItems[random(_snoopItems.length - 1)]>>\
 	<<if _item.item eq 'panties_cotton_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
+		<<set $player.stolenPanties = true>>\
 	<<elseif _item.item eq 'panties_sexy_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her dresser drawer. You picture her wearing them, and instinctively rub your fingers over the fabric, imagining what her pussy and ass feel like against it.
+		<<set $player.stolenSexyPanties = true>>\
 	<<elseif _item.item eq 'hasVibrator'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her bedside table drawer. You imagine it deep in her wet pussy as she coaxes herself to one orgasm after another.  You bring it up to your nose and inhale deeply, catching a hint of her scent before opening your mouth and licking the tip.
+		<<set $player.stolenVibrator = true>>\
 	<<elseif _item.item eq 'hasPlaygirl'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> hidden under her bed.  You imagine her idly stroking her pussy, turning herself on more and more as she fantasizes about the hunks within these glossy pages.  You start to flip through it, curious how these beefcake men and their erect penises compare to yourself.
+		<<set $player.stolenPlaygirl = true>>\
 	<<elseif _item.item eq 'panties_latex_40'>>\
 		You find $guardian's <<print _item.name.toLowerCase()>> in her laundry basket.  There's some residue in the crotch, and you can't stop yourself bringing them to your nose and sniffing.  They smell lightly of perfume... and sex.  You're hard immediately.  Do you dare lick?  You extend your tongue...
+		<<set $player.stolenLatexPanties = true>>\
 	<<endif>>\
 <<else>>\
 	<<set _item = null>>\
@@ -77,7 +82,8 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 			<<set $flags.guardianSnoopingCaught to true>>\
 		<<endif>>\
 		<<set $player.alarmClockGuardian=false>>\
-		<<set $items.batteriesQuality.disabled=true>>\
+		<!-- <<set $items.batteriesQuality.disabled=true>>\ -->
+		<<set $player.hasQualityBatteries = false>>\
 		<<print "[[Run out holding " + $guardian + "'s " + _item.name.toLowerCase() + "|Go to bedroom]]">>
 	<<endif>>\
 <<else>>\

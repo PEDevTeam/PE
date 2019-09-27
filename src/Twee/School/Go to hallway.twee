@@ -37,7 +37,8 @@
 	<!-- <<removeFromInv 'buttPlugHeart'>>\ -->
 	<<removeClothingItem 'buttplug'>>\
 	<<removeItemVariantFromInventory 'buttplug_heart'>>\
-	<<set $items.buttPlugHeart.disabled=true>>\
+	<!-- <<set $items.buttPlugHeart.disabled=true>>\ -->
+	<<set window.itemFuncs.disableItemVariant('buttplug_heart')>>\
 	<<set $flags.buttplugLost=false>>\
 <<endif>>\
 <!--<perversion progress events>-->\
@@ -321,7 +322,8 @@
 
 			@@.hero;Oh man, I'm so fucked.@@
 
-			<<set $items.schoolFemale.disabled to false>>\
+			<!-- <<set $items.schoolFemale.disabled to false>>\ -->
+			<<set window.itemFuncs.enableItemMaster('schoolDress')>>\
 		<<elseif $player.perversion.crossdressing > 1 && $flags.flatsFlag == false>>\
 			<<set $flags.flatsFlag = true>>\
 			<<set $flags.flatsDelay = true>>\

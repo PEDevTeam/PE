@@ -16,7 +16,8 @@ Alright! How do you want to do this?
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.vibrator)>>\ -->
 <<if $player.hasVibrator>>\
-	<<if $items.vibrator.stolen>>\
+	<!-- <<if $items.vibrator.stolen>>\ -->
+	<<if $player.stolenVibrator>>\
 		<<set _stol=$guardian +"'s">>\
 	<<else>>\
 		<<set _stol="">>\

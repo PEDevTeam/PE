@@ -9,6 +9,7 @@ $.extend(true, window.items, {
             itemType:"bluttplug",
             clothingSlot:"buttplug",
             name:"Buttplugs",
+            itemMaster: "buttplugs",
             daring:4,
             disabled:false,
             hasWorn:false,
