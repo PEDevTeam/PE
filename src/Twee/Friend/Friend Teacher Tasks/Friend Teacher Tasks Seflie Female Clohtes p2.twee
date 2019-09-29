@@ -61,7 +61,8 @@ Unsure what to do, you stand there and hold the dress in bemusement, wondering i
 \
 <<endif>>\
 
-You lay the dress back down and remove your <<if playerCode.isWearing(itemsC.casualMale)>>shirt and jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>uniform<<endif>>.
+<!-- You lay the dress back down and remove your <<if playerCode.isWearing(itemsC.casualMale)>>shirt and jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>uniform<<endif>>. -->
+You lay the dress back down and remove your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>shirt and jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>uniform<<endif>>.
 
 <<display [[Friend Teacher Tasks Reactions]]>>\
 \

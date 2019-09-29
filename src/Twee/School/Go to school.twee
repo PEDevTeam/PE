@@ -42,7 +42,8 @@
 		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
 <<endif>>\
-<<if playerCode.isWearing(itemsC.stockings)>>\
+<!-- <<if playerCode.isWearing(itemsC.stockings)>>\ -->
+<<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
 	<<if $tasksTeacher.wearStockings.status == 1>>\
 		<<set $tasksTeacher.wearStockings.status = 2>>\
 	<<endif>>\

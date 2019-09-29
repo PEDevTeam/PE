@@ -257,8 +257,8 @@ window.playerCode={
 	},    
 	slutScoreBasic: function() {
 		var score=0;
-		var items=window.itemsC;
-		var itemTypes=window.itemTypes;
+		// var items=window.itemsC;
+		// var itemTypes=window.itemTypes;
 		var body=State.active.variables.body;
 		//var s=this.isWearingOn(itemTypes.Shoes);
 		var shoes=window.wardrobeFuncs.getWornItem('shoes');

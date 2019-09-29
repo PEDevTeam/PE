@@ -107,8 +107,9 @@ Your need for release is overwhelming and you groan to yourself in frustration.
 
 You are just about to admit to $friend how good it feels feel when $friendG.he_she suddenly steps back, mumbles an apology and scurries off to the hidden room. You lay back in complete frustration. \
 To add to your unhappiness, very distinct noises of $friend resolving $friendG.his_her own pent up frustration echo from the back room.
-<<set _item=itemsC.Waxing>>\
-<<buyItem _item.id>>\
+<!--<<set _item=itemsC.Waxing>>\ -->
+<!-- <<buyItem _item.id>>\ -->
+<<set $player.money -= $body.bodyhairCosts>>\
 <<set $body.bodyhair = 1>>\
 <<set $flags.salonHairRemoval to true>>\
 <<set $player.money += 20>>\

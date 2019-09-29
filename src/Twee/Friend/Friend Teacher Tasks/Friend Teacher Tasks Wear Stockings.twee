@@ -1,7 +1,9 @@
 ::Friend Teacher Tasks Wear Stockings
 \
-<<set _wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\
+<!-- <<set _wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
+<<set _wornUnderwear to window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties'))>>\
 <<if _wornUnderwear.female>>\
     <<set _panties to itemF.itemTwee(_wornUnderwear.id)>>\
     <<set _pantiesAlt to _panties.curAlt>>\
@@ -94,15 +96,18 @@ You thumb through the choice, not really sure which one to try. While the idea o
     $friend tugs off her socks, revealing her delicate feet, with ten neatly trimmed nails, all painted red like little cherries. She unfastens her belt, unzips her fly and peels her tight jeans down her \
     slender, smooth and toned legs. As she bends over to pull them over her feet you get the perfect view of her cute butt encased in the red lacy panties you saw in the selfie she sent.
 
-    @@.friend;“Stop watching me, and take your  <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> off. \
-    Your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are  too tight and will get in the way.  \
+    <!-- @@.friend;“Stop watching me, and take your  <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> off. \ -->
+    @@.friend;“Stop watching me, and take your  <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> off. \
+    <!-- Your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are  too tight and will get in the way.  \ -->
+    Your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> are  too tight and will get in the way.  \
     Stockings are longer, it’s not like socks.”@@  $friend winks at you and wiggles her butt once before sitting down.
 
     @@.heroT;“I thought it would be like putting on socks, only longer?”@@
 
     $friend giggles at your seemingly inspired joke. @@.friend;“Well a bit, maybe, but stockings go up to your thigh. You’ll need to put them on first, silly, then pantsover the top.”@@
 
-    You sigh as you realise you have no choice. You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> \
+    <!-- You sigh as you realise you have no choice. You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> \ -->
+    You sigh as you realise you have no choice. You unfasten your fly and slip your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> \
     down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
 
@@ -153,17 +158,21 @@ You thumb through the choice, not really sure which one to try. While the idea o
     <<set $pcSeenPlug to 1>>\
     <<set $pcSeenLegs to 1>>\
     \
-    @@.friend;“Stop watching me, and take your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> off. \
-    Your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are  too tight and will get in the way.  \
+    <!-- @@.friend;“Stop watching me, and take your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> off. \ -->
+    @@.friend;“Stop watching me, and take your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> off. \
+    <!-- Your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are  too tight and will get in the way.  \ -->
+    Your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> are  too tight and will get in the way.  \
     Stockings are longer, it’s not like socks.”@@ $friend winks at you and wiggles his pantied butt once before sitting down.
 
     @@.heroT;“I thought it would be like putting on socks, only longer?”@@
 
-    @@.friend;“How are you going to tug them on underneath your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>>? \
+    <!-- @@.friend;“How are you going to tug them on underneath your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>>? \ -->
+    @@.friend;“How are you going to tug them on underneath your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>>? \
     Stockings go up to your thigh, so you’ll need to put them on first, silly, then pants over the top.”@@
 
     You sigh as you realise you have no choice. It will be a shared experience with $friend, unlike any other. You unfasten your fly and slip your \
-    <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
+    <!-- <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs. -->
+    <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
     <<if _wearingGString and _pantiesAlt eq 60>>\
                 @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
@@ -199,7 +208,8 @@ You thumb through the choice, not really sure which one to try. While the idea o
     @@.heroT;“I guess,”@@ you say, feeling a little dumb but appreciating the help.
 
     @@.friend;“Cool. I’ll get the tablet, you get ready.”@@ $friend hurries back to his room and fetches his tablet. While he’s gone you tug up your \
-    <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> and realise they are too tight to even go over your calves. \
+    <!-- <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> and realise they are too tight to even go over your calves. \ -->
+    <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> and realise they are too tight to even go over your calves. \
     You sigh and pull off your socks, then your pants. $friend returns a few seconds later.
 
     <<if _wearingGString and _pantiesAlt eq 60>>\

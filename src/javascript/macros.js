@@ -314,7 +314,7 @@ macros.payForItem_d = {
 	}
 };
 
-function getItem(id) {
+function getItem_d(id) {
 	var ca=window.itemsC;
 	
 	for (var i=0; i<Object.keys(ca).length; i++) {
@@ -341,7 +341,7 @@ function getItemObject(id) {
 	return false;
 }
 
-function getItemName(id) {
+function getItemName_d(id) {
 	var ca=state.active.variables.items;
 	var w=window.itemsC[id];
 	var wV=window.itemF.itemTwee(id);

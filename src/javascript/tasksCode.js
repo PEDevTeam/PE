@@ -3696,4 +3696,4 @@ window.tasksFriend={
 	startDay: 0,
 	status: 0,
     },
-},
+}

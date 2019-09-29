@@ -26,56 +26,56 @@
 <<if (not $flags.salonMakeup)>>\
 \
 	<<if ($body.makeup lte 1) and ($body.permMakeup lte 0) and ($body.semiMakeup lte 0)>>\
-	<<set _item=itemsC.SubtleMakeup>>\
+		<!-- <<set _item=itemsC.SubtleMakeup>>\ -->
 		<<set _sceneName="SubtleMakeup">>\
 		<<set _override=($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.makeup lte 2) and ($body.permMakeup lte 1) and ($body.semiMakeup lte 1)>>\
-	<<set _item=itemsC.NormalMakeup>>\
+		<!-- <<set _item=itemsC.NormalMakeup>>\ -->
 		<<set _sceneName="NormalMakeup">>\
 		<<set _override=(($tasksTeacherBody.makeup.status gt 0) or ($tasksTeacherBody.makeup_renewal.status gt 0)) and ($player.perversion.teacher gte 4)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.makeup lte 3) and ($body.permMakeup lte 2) and ($body.semiMakeup lte 2)>>\
-	<<set _item=itemsC.BimboMakeup>>\
+		<!-- <<set _item=itemsC.BimboMakeup>>\ -->
 		<<set _sceneName="BimboMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.permMakeup lte 3) and ($body.semiMakeup lte 3)>>\
-	<<set _item=itemsC.HeavyMakeup>>\
+		<!-- <<set _item=itemsC.HeavyMakeup>>\ -->
 		<<set _sceneName="HeavyMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.makeup lte 1) and ($body.permMakeup lte 0) and ($body.semiMakeup lte 1)>>\
-	<<set _item=itemsC.PermanentSubtleMakeup>>\
+		<!-- <<set _item=itemsC.PermanentSubtleMakeup>>\ -->
 		<<set _sceneName="PermanentSubtleMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.makeup lte 2) and ($body.permMakeup lte 1) and ($body.semiMakeup lte 2)>>\
-	<<set _item=itemsC.PermanentNormalMakeup>>\
+		<!-- <<set _item=itemsC.PermanentNormalMakeup>>\ -->
 		<<set _sceneName="PermanentNormalMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.makeup lte 3) and ($body.permMakeup lte 2) and ($body.semiMakeup lte 3)>>\
-	<<set _item=itemsC.PermanentBimboMakeup>>\
+		<!-- <<set _item=itemsC.PermanentBimboMakeup>>\ -->
 		<<set _sceneName="PermanentBimboMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if ($body.permMakeup lte 3)>>\
-	<<set _item=itemsC.PermanentHeavyMakeup>>\
+		<!-- <<set _item=itemsC.PermanentHeavyMakeup>>\ -->
 		<<set _sceneName="PermanentHeavyMakeup">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
@@ -84,7 +84,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooSissy))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_sissy'))>>\
-<<set _item=itemsC.tattooSissy>>\
+	<!-- <<set _item=itemsC.tattooSissy>>\ -->
 	<<set _sceneName="tattooSissy">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -92,7 +92,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooStockings))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_stockings'))>>\
-<<set _item=itemsC.tattooStockings>>\
+	<!-- <<set _item=itemsC.tattooStockings>>\ -->
 	<<set _sceneName="tattooStockings">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -100,7 +100,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooStupidWhore))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_stupidwhore'))>>\
-<<set _item=itemsC.tattooStupidWhore>>\
+	<!-- <<set _item=itemsC.tattooStupidWhore>>\ -->
 	<<set _sceneName="tattooStupidWhore">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -108,7 +108,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooSlut))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_slut'))>>\
-<<set _item=itemsC.tattooSlut>>\
+	<!-- <<set _item=itemsC.tattooSlut>>\ -->
 	<<set _sceneName="tattooSlut">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -116,7 +116,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooHeart))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_heart'))>>\
-<<set _item=itemsC.tattooHeart>>\
+	<!-- <<set _item=itemsC.tattooHeart>>\ -->
 	<<set _sceneName="tattooHeart">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -124,7 +124,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooBunny))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_bunny'))>>\
-<<set _item=itemsC.tattooBunny>>\
+	<!-- <<set _item=itemsC.tattooBunny>>\ -->
 	<<set _sceneName="tattooBunny">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -132,7 +132,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.tattooButterfly))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('tattoo_butterfly'))>>\
-<<set _item=itemsC.tattooButterfly>>\
+	<!-- <<set _item=itemsC.tattooButterfly>>\ -->
 	<<set _sceneName="tattooButterfly">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -140,7 +140,7 @@
 \
 <!-- <<if (not playerCode.owns(itemsC.beautyMark))>>\ -->
 <<if (not inventoryFuncs.isItemVariantOwned('beauty_mark'))>>\
-<<set _item=itemsC.beautyMark>>\
+	<!-- <<set _item=itemsC.beautyMark>>\ -->
 	<<set _sceneName="beautyMark">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -157,8 +157,9 @@
 \
 	<<if $scene eq "SubtleMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
-		<<set _item=itemsC.SubtleMakeup>>\
+		<!-- <<set _item=itemsC.SubtleMakeup>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
+		<<set $player.money -= $body.makeupCosts[0]>>\
 		<<set $body.makeup = 1>>\
 		Nancy leads you over to a spa chair, and asks you to have a seat.
 		
@@ -190,8 +191,9 @@
 		<<endif>>\
 	<<elseif $scene eq "NormalMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
-		<<set _item=itemsC.NormalMakeup>>\
+		<!-- <<set _item=itemsC.NormalMakeup>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
+		<<set $player.money -= $body.makeupCosts[1]>>\
 		<<set $body.makeup = 2>>\
 		Nancy invites you to sit in one of her cushy spa chairs, and then pulls over a rolling tray full of makeup and styling tools. She adds a small table on her opposite side with a few extra items, including some flesh-colored palettes, brushes, tubes of liners and lip colors, a half-dozen powder sifters, and other items you can't immediately identify except that they're obviously beauty products.
 		
@@ -218,8 +220,9 @@
 		<<endif>>\
 	<<elseif $scene eq "BimboMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
-		<<set _item=itemsC.BimboMakeup>>\
+		<!-- <<set _item=itemsC.BimboMakeup>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
+		<<set $player.money -= $body.makeupCosts[2]>>\
 		<<set $body.makeup = 3>>\
 		Nancy has you sit in a spa chair, seeing that you're comfortable before pushing a medium-sized table covered with makeup and styling tools over by your side. A carousel of beauty products occupies the table's center, surrounded by a suite of grooming instruments and a large variety of colors, containers, sifters, brushes, puffs, sponges and other tools of the trade.
 		
@@ -260,8 +263,9 @@
 		<<endif>>\
 	<<elseif $scene eq "HeavyMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Application" 400 400>></div>\
-		<<set _item=itemsC.HeavyMakeup>>\
+		<!-- <<set _item=itemsC.HeavyMakeup>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
+		<<set $player.money -= $body.makeupCosts[3]>>\
 		<<set $body.makeup = 4>>\
 		Nancy leads you over to a spa chair, and is doubly attentive in seeing to your complete comfort. She even gives you a special, heart-shaped pillow from her personal locker, tucking it under your head with a pat on your cheek.
 		
@@ -302,8 +306,8 @@
 		<<endif>>\
 	<<elseif $scene eq "PermanentSubtleMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
-		<<set _item=itemsC.PermanentSubtleMakeup>>\
-		<<set $player.money -= _item.cost>>\
+		<!-- <<set _item=itemsC.PermanentSubtleMakeup>>\ -->
+		<<set $player.money -= $body.permanentMakeupCosts[0]>>\
 		<<set $body.permMakeup = 1>>\
 		<<set $body.makeup = 1>>\
 		Nancy sits you in the spa chair. She begins laying out and preparing the applicators, makeup colors, and other items she needs for the procedure, though disturbingly, some of them look more appropriate for a tattoo parlor than a beauty salon. She slides a tall rolling stool over to your side, and takes a seat on it.
@@ -325,8 +329,8 @@
 		@@.reward;You now have permanent, subtle makeup tattooed on your face!@@
 	<<elseif $scene eq "PermanentNormalMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
-		<<set _item=itemsC.PermanentNormalMakeup>>\
-			<<set $player.money -= _item.cost>>\
+		<!-- <<set _item=itemsC.PermanentNormalMakeup>>\ -->
+		<<set $player.money -= $body.permanentMakeupCosts[1]>>\
 		<<set $body.permMakeup = 2>>\
 		<<set $body.makeup = 2>>\
 		Nancy guides you into a spa chair and begins preparing for the procedure. Shifting a work tray into place at your side, she begins taking out an assortment of applicators, makeup pigments and a variety of tools, some which are clearly taken from the tattoo trade and not the beauty profession. After briefly sorting and preparing everything, she scoots a tall, rolling stool over to you and has a seat.
@@ -358,8 +362,8 @@
 		@@.reward;You now have a permanently made-up, sexy, feminine look!@@
 	<<elseif $scene eq "PermanentBimboMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
-		<<set _item=itemsC.PermanentBimboMakeup>>\
-			<<set $player.money -= _item.cost>>\
+		<!-- <<set _item=itemsC.PermanentBimboMakeup>>\ -->
+		<<set $player.money -= $body.permanentMakeupCosts[2]>>\
 		<<set $body.permMakeup = 3>>\
 		<<set $body.makeup = 3>>\
 		Nancy invites you to a spa chair, and you recline in it as she starts to prep for the procedure. She gathers her tools, colors and other accessories together on a rolling tray, and moves it alongside you before grabbing a tall stool and taking a seat. She spends a few moments lining everything up neatly, prepping pigment mixtures and other sundry preparation tasks, before turning to you. 
@@ -391,8 +395,8 @@
 		@@.reward;You now have permanently made-up face with a sexy, bimbo look!@@
 	<<elseif $scene eq "PermanentHeavyMakeup">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Makeup Tatooing" 400 400>></div>\
-		<<set _item=itemsC.PermanentHeavyMakeup>>\
-			<<set $player.money -= _item.cost>>\
+		<!-- <<set _item=itemsC.PermanentHeavyMakeup>>\ -->
+		<<set $player.money -= $body.permanentMakeupCosts[3]>>\
 		<<set $body.permMakeup = 4>>\
 		<<set $body.makeup = 4>>\
 		Nancy takes you over to a spa chair and makes a huge fuss over you. She even gets a heart-shaped pillow from her personal locker, and tucks it under your head before giving you a peck on the cheek. She then slides a tray over to your bedside with visible anticipation, and goes about her prep work with a cheerful vigor. After placing her instruments, colors and other items neatly on her workspace, she pulls a rolling stool near you and takes a seat.
@@ -431,7 +435,7 @@
 	<!--<Clinic tattoos>-->\
 <<elseif $scene eq "tattooSissy">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooSissy>>\
+	<!-- <<set _item=itemsC.tattooSissy>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_sissy'>>
 	@@.heroT;"I'd like to have a 'sissy' tattoo,"@@ you whisper to Nancy.
@@ -463,7 +467,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooStockings">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooStockings>>\
+	<!-- <<set _item=itemsC.tattooStockings>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_stockings'>>
 	@@.heroT;"I'd like to have the stockings tattoos,"@@ you whisper to Nancy.
@@ -487,7 +491,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooStupidWhore">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooStupidWhore>>\
+	<!-- <<set _item=itemsC.tattooStupidWhore>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_stupidwhore'>>
 	@@.heroT;"I'd like to get a lower back tattoo,"@@ you whisper to Nancy.
@@ -517,7 +521,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooSlut">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooSlut>>\
+	<!-- <<set _item=itemsC.tattooSlut>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_slut'>>
 	@@.heroT;"I'd like to have a 'slut' tattoo,"@@ you whisper to Nancy.
@@ -543,7 +547,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooHeart">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooHeart>>\
+	<!-- <<set _item=itemsC.tattooHeart>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_heart'>>
 	@@.heroT;"I'd like to have a heart tattoo,"@@ you tell Nancy.
@@ -563,7 +567,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooBunny">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooBunny>>\
+	<!-- <<set _item=itemsC.tattooBunny>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_bunny'>>
 	@@.heroT;"I'd like to get a bunny symbol tattoo,"@@ you tell Nancy.
@@ -593,7 +597,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "tattooButterfly">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.tattooButterfly>>\
+	<!-- <<set _item=itemsC.tattooButterfly>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'tattoo_butterfly'>>
 	@@.heroT;"I'd like to get a butterfly tattoo,"@@ you tell Nancy.
@@ -617,7 +621,7 @@
 	[[Return|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]
 <<elseif $scene eq "beautyMark">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Tatooing" 400 400>></div>\
-	<<set _item=itemsC.beautyMark>>\
+	<!-- <<set _item=itemsC.beautyMark>>\ -->
 	<!-- <<buyItem _item.id>>\ -->
 	<<buyItemVariant 'beauty_mark'>>
 	@@.heroT;"I'd like to have a beauty mark,"@@ you tell Nancy.

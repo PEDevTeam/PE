@@ -13,18 +13,18 @@
 
 	<img id="item_preview" class="hidden">\
 	<<if $body.bodyhair eq 0>>\
-		<<set _item=itemsC.Waxing>>\
+		<!-- <<set _item=itemsC.Waxing>>\ -->
 		<<set _sceneName="Waxing">>\
 		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<set _item=itemsC.Depilatory>>\
+	<!-- <<set _item=itemsC.Depilatory>>\ -->
 	<<set _sceneName="Depilatory">>\
 	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
 	<<display "Clinic buy menu">>
 \
-	<<set _item=itemsC.LaserHairRemoval>>\
+	<!-- <<set _item=itemsC.LaserHairRemoval>>\ -->
 	<<set _sceneName="LaserHairRemoval">>\
 	<<set _override=($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
 	<<display "Clinic buy menu">>
@@ -43,7 +43,7 @@
 			<<set _first=false>>\
 		<<endif>>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Waxing" 400 400>></div>\
-		<<set _item=itemsC.Waxing>>\
+		<!-- <<set _item=itemsC.Waxing>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.bodyhair = 1>>\
 		<<set $flags.salonHairRemoval to true>>\
@@ -75,7 +75,7 @@
 	
 	<<elseif $scene eq "Depilatory">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Depilatory" 400 400>></div>\
-		<<set _item=itemsC.Depilatory>>\
+		<!-- <<set _item=itemsC.Depilatory>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.bodyhair = 2>>\
 		<<set $flags.salonHairRemoval to true>>\
@@ -103,7 +103,7 @@
 
 	<<elseif $scene eq "LaserHairRemoval">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Laser" 400 400>></div>\
-		<<set _item=itemsC.LaserHairRemoval>>\
+		<!-- <<set _item=itemsC.LaserHairRemoval>>\ -->
 		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.bodyhair = 3>>\
 		Nancy takes you to a private spa room, and asks you to take off your clothes. You do, and she invites you to lay down on the procedure table.

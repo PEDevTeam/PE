@@ -823,6 +823,7 @@ window.playerList={
 	clubPassword: '',
 	clubPasswordFailed: false,
 	tattoos: [],
+
 	hasAlarmClock: false,
 	hasBatteries: false,
 	hasQualityBatteries: false,
@@ -834,14 +835,25 @@ window.playerList={
 	hasMassageOil: false,
 	hasNailPolish: false,
 	hasRemoteButtplug: false,
+
 	stolenPlaygirl: false,
 	stolenPanties: false,
 	stolenSexyPanties: false,
 	stolenLatexPanties: false,
 	stolenVibrator: false,
 	stolenStungun: false,
+
 	canBuyStunGun: false,
 	canBuyNailPolish: false,
+
+	alarmClockCost: 20,
+	batteriesCost: 5,
+	qualityBatteriesCost: 10,
+	playgirlCost: 100,
+	vibratorCost: 40,
+	spyCameraCost: 40,
+	stunGunCost: 200,
+
 	canVisitTestLab: false,
 },
 
@@ -1058,7 +1070,7 @@ window.futaList={
 window.bodyList={
 	bodyhair: 0,
 	penisShrink: 0,
-	hairstyle: 0,
+	hairstyle: 0, // 0 = short, 1 = medium, 2 = long, 3 = curly, 4 = pigtails
 	hairColor: 1,
 	nose: 0, // 0 = none, 1 = classic, 2 = button, 3 = piggy
 	earsPierced: false,
@@ -1118,6 +1130,35 @@ window.bodyList={
 	analNoticedFriend: 0,
 	
 	boobsNoticedDJ: 0,
+
+	permanentBoobsCosts: [10,20,30,40],
+	permanentLipsCosts: [10,20,30,40],
+	permanentAssCosts: [10,20,30,40],
+	permanentFaceCosts: [10,20,30,40],
+	permanentManicureCosts: [10,20,30,40],
+	permanentMakeupCosts: [10,20,30,40],
+	permanentAnalCosts: [10,20,30,40],
+	
+	boobsCosts: [10,20,30,40],
+	lipsCosts: [10,20,30,40],
+	assCosts: [10,20,30,40],
+	faceCosts: [10,20,30,40],
+	manicureCosts: [10,20,30,40],
+	makeupCosts: [10,20,30,40],
+	analCosts: [10,20,30,40],
+
+	earsPiercedCost: 10,
+	bellyPiercedCost: 10,
+	lipsPiercedCost: 10,
+	nipplesPiercedCost: 10,
+	nosePiercedCost: 10,
+	tonguePiercedCost: 10,
+
+	penisShrinkCost: 10,
+	hairColorCost: 20,
+	bodyhairCosts: [10,20,30,40],
+	hairstyleCosts: [10,20,30,40,50],
+	noseCosts: [10,20,30,40]
 },
 
 window.flagsList={

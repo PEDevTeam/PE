@@ -940,9 +940,9 @@
 		$teacher looks at the catalog for a while, and then speaks:
 	<<endif>>\
 	<<if ($scene eq "PenisShrinking")>>\
-		<<set _item=itemsC.PenisShrinking>>\
+		<!-- <<set _item=itemsC.PenisShrinking>>\ -->
 		<<set $body.penisShrink = 1>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.penisShrinkCost>>\
 		<<set $flags.penisShrinkSleep = true>>\
 		<<set $flags.penisShrinkPunishment = true>>\
 		<<set $flags.penisShrinkProgress = true>>\
@@ -1027,7 +1027,7 @@
 		
 		@@.reward;You now have a smaller-than-average penis!@@
 	<<elseif ($scene eq "Waxing")>>\
-		<<set _item=itemsC.Waxing>>\
+		<!-- <<set _item=itemsC.Waxing>>\ -->
 		@@.teacher;"I think $player.name would benefit from help with personal grooming,"@@ says $teacher. @@.teacher;"After all, good grooming is the foundation of confidence and self-respect. I think you agree, right Nancy?"@@
 		
 		@@.nurse;"Oh, definitely!"@@ Nancy replies with a cheerful smile.
@@ -1055,9 +1055,9 @@
 		<<set $player.punishments.penaltyWaxed = true>>\
 		<<set $tasksTeacherBody.legHairRemoval.status = 0>>\
 		<<set $body.bodyhair = 1>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.bodyhairCosts[1]>>\
 	<<elseif ($scene eq "LaserHairRemoval")>>\
-		<<set _item=itemsC.LaserHairRemoval>>\
+		<!-- <<set _item=itemsC.LaserHairRemoval>>\ -->
 		@@.teacher;"Self image is such a vital part of how we relate to the world. Our daily habits as we tend to ourselves in private greatly affect how we carry ourselves in public. I believe they often guide our other social behaviors, even without our realizing it.
 		
 		"Nancy, I think $player.name's attitude would improve with some help on his self-care. I would like this to be a //lasting// benefit."@@
@@ -1098,10 +1098,12 @@
 		<<set $tasksTeacherBody.hairRemoval_renewal.status = 0>>\
 		<<set $flags.teacherNoticeHairRemovalPerm = true>>\
 		<<set $body.bodyhair = 3>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.bodyhairCosts[2]>>\
 	<<elseif ($scene eq "Haircut")>>\
 		<<if $player.perversion.teacher lte 3>>\
-			<<set _item=itemsC.HairMedium>>\
+			<!-- <<set _item=itemsC.HairMedium>>\ -->
+			<<set $body.hairstyle = 1>>\
+			<<set $player.bribeDiscount -= $body.hairstyleCosts[1]>>\
 			@@.teacher;"I think a fresh hairstyle often leads to a fresh attitude,"@@ $teacher muses. @@.teacher;"I believe $player.name is decidedly in need of both. Nancy, would you be able to help?"@@
 			
 			@@.nurse;"No problem!"@@ the nurse replies.
@@ -1139,7 +1141,9 @@
 			
 			@@.reward;You now have a beautiful, shoulder-length hairstyle!@@
 		<<else>>\
-			<<set _item=itemsC.HairCurly>>\
+			<!-- <<set _item=itemsC.HairCurly>>\ -->
+			<<set $body.hairstyle = 3>>\
+			<<set $player.bribeDiscount -= $body.hairstyleCosts[3]>>\
 			$teacher looks pensively through the salon catalog, pausing as she glances your way.
 			
 			@@.teacher;"Perhaps what we need, $player.name,"@@ she says, @@.teacher;"is a novel approach to your disobedience. In my lessons to you, I have only tried to instill the values of maturity: responsibility, self-discipline and follow-through. Yet, here we are.
@@ -1179,12 +1183,10 @@
 			@@.reward;You now have a medium-length hairstyle, done up in swirly ringlets!@@
 		<<endif>>\
 		<<set $tasksTeacherBody.getHaircut.status = 0>>\
-		<<set $body.hairstyle = 5>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
 	<<elseif ($scene eq "PiercingEars")>>\
-		<<set _item=itemsC.PiercingEars>>\
+		<!-- <<set _item=itemsC.PiercingEars>>\ -->
 		<<set $body.earsPierced = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.earsPiercedCost>>\
 		@@.teacher;"Let’s get your ears pierced. Every girl needs to do that, and sissies like you, even more so!"@@
 		
 		Before you know it, Nancy has pierced both of your ears and snapped\
@@ -1207,12 +1209,12 @@
 		<<endif>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory _item>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= window.itemFuncs.getItemByVariant(_item).price>>\
 		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant _item>>\
 
 	<<elseif ($scene eq "AssEnhancing")>>\
-		<<set _item=itemsC.AssEnhancing>>\
+		<!-- <<set _item=itemsC.AssEnhancing>>\ -->
 		@@.teacher;"Your butt is too bony for a slut such as yourself. We should address that."@@
 		
 		Nancy starts working on your butt and soon you have a big, bouncy ass. $teacher smirks and slaps you on your butt, making you yelp in surprise.
@@ -1238,9 +1240,9 @@
 		<<set $tasksTeacherBody.assMaintain.status = 0>>\
 		<<set $tasksTeacherBody.assMaintainXL.status = 0>>\
 		<<set $flags.teacherNoticeAssEnhancing = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.assCosts[0]>>\
 	<<elseif ($scene eq "LipsEnhancing")>>\
-		<<set _item=itemsC.LipsEnhancing>>\
+		<!-- <<set _item=itemsC.LipsEnhancing>>\ -->
 		@@.teacher;"You look so cute when you pout. I know what would be perfect for you."@@
 		
 		She points to something in the catalog and Nancy nods her head approvingly.
@@ -1264,9 +1266,9 @@
 		<<set $tasksTeacherBody.lipsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.lipsMaintain.status = 0>>\
 		<<set $flags.teacherNoticeLipsEnhancing = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.lipsCosts[0]>>\
 	<<elseif ($scene eq "AssEnhancingXL")>>\
-		<<set _item=itemsC.AssEnhancingXL>>\
+		<!-- <<set _item=itemsC.AssEnhancingXL>>\ -->
 		@@.teacher;"Your butt is too bony for a slut such as yourself. Let's change that."@@
 		
 		Nancy starts working on your butt and soon you have a big, bouncy ass. $teacher smirks and slaps you on your butt, making you yelp in surprise.
@@ -1292,9 +1294,9 @@
 		<<set $tasksTeacherBody.assMaintain.status = 0>>\
 		<<set $tasksTeacherBody.assMaintainXL.status = 0>>\
 		<<set $flags.teacherNoticeAssEnhancingXL = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.assCosts[1]>>\
 	<<elseif ($scene eq "LipsEnhancingXL")>>\
-		<<set _item=itemsC.LipsEnhancingXL>>\
+		<!-- <<set _item=itemsC.LipsEnhancingXL>>\ -->
 		@@.teacher;"I think you need to be reminded of your place. Fat, fake lips will let know everyone who you really are."@@
 		
 		Despite your protests, Nancy starts working on your lips. When she finishes, you look in the mirror and freeze in shock from the sight of how vulgar your new lips look.
@@ -1325,35 +1327,35 @@
 		<<set $tasksTeacherBody.lipsMaintain.status = 0>>\
 		<<set $tasksTeacherBody.lipsMaintainXL.status = 0>>\
 		<<set $flags.teacherNoticeLipsEnhancingXL = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.lipsCosts[1]>>\
 	
 	<<elseif ($scene eq "SubtleMakeup")>>\
-	<<set _item=itemsC.SubtleMakeup>>\
-	@@.teacher;"I think $player.name needs to look a little fancier."@@
-	
-	@@.nurse;"Great idea! Don't worry, you'll love it."@@
-
-	Nancy starts working on your face. After some time, she presents you with a mirror. The changes are subtle and you can't tell at first glance that you're wearing a makeup, but the little details definitely change your face.
+		<!-- <<set _item=itemsC.SubtleMakeup>>\ -->
+		@@.teacher;"I think $player.name needs to look a little fancier."@@
 		
-	<<display "semiPermWarning">>\
-	
-	@@.reward;Your face is now subtly made up in a feminine way!@@
-	
-	<<set $body.semiMakeup = 1>>\
-	<<set $body.makeup = 1>>\
-	<<if $tasksTeacher.selfieHomeMakeup.status gt 0>>\
-		<<set $tasksTeacher.selfieHomeMakeup.status = 0>>\
-	<<endif>>\
-	<<set $tasksTeacher.selfieHomeMakeup.progress++>>\
-	<<if ($player.perversion.crossdressing lte 1)>>\
-		<<set $player.perversion.crossdressing++>>\
-	<<endif>>\
-	<<set $tasksTeacherBody.makeup.status = 0>>\
-	<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
-	<<set $flags.teacherNoticeSubtleMakeup = true>>\
-	<<set $player.bribeDiscount -= _item.cost>>\
+		@@.nurse;"Great idea! Don't worry, you'll love it."@@
+
+		Nancy starts working on your face. After some time, she presents you with a mirror. The changes are subtle and you can't tell at first glance that you're wearing a makeup, but the little details definitely change your face.
+			
+		<<display "semiPermWarning">>\
+		
+		@@.reward;Your face is now subtly made up in a feminine way!@@
+		
+		<<set $body.semiMakeup = 1>>\
+		<<set $body.makeup = 1>>\
+		<<if $tasksTeacher.selfieHomeMakeup.status gt 0>>\
+			<<set $tasksTeacher.selfieHomeMakeup.status = 0>>\
+		<<endif>>\
+		<<set $tasksTeacher.selfieHomeMakeup.progress++>>\
+		<<if ($player.perversion.crossdressing lte 1)>>\
+			<<set $player.perversion.crossdressing++>>\
+		<<endif>>\
+		<<set $tasksTeacherBody.makeup.status = 0>>\
+		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
+		<<set $flags.teacherNoticeSubtleMakeup = true>>\
+		<<set $player.bribeDiscount -= $body.makeupCosts[0]>>\
 	<<elseif ($scene eq "NormalMakeup")>>\
-		<<set _item=itemsC.NormalMakeup>>\
+		<!-- <<set _item=itemsC.NormalMakeup>>\ -->
 		@@.teacher;"I think $player.name needs flashier makeup."@@
 		
 		@@.nurse;"That's great! Don't worry, you'll love it."@@
@@ -1376,9 +1378,9 @@
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
 		<<set $flags.teacherNoticeNormalMakeup = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.makeupCosts[1]>>\
 	<<elseif ($scene eq "HeavyMakeup")>>\
-		<<set _item=itemsC.HeavyMakeup>>\
+		<!-- <<set _item=itemsC.HeavyMakeup>>\ -->
 		@@.teacher;"I think $player.name needs more provocative makeup."@@
 		
 		@@.nurse;"Hmm, I know some techniques that would be perfect for that."@@
@@ -1413,9 +1415,9 @@
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
 		<<set $flags.teacherNoticeHeavyMakeup = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.makeupCosts[2]>>\
 	<<elseif ($scene eq "PermanentHeavyMakeup")>>\
-		<<set _item=itemsC.HeavyMakeup>>\
+		<!-- <<set _item=itemsC.HeavyMakeup>>\ -->
 		@@.teacher;"This slut wants makeup, to look like the whore she is. And she wants it on permanently, tattooed in her skin so deep it won't be possible to undo."@@
 		
 		Nancy looks surprised. 
@@ -1448,10 +1450,10 @@
 		<<set $body.makeup = 4>>\
 		<<set $tasksTeacherBody.makeup.status = 0>>\
 		<<set $tasksTeacherBody.makeup_renewal.status = 0>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.permanentMakeupCosts[2]>>\
 
 	<<elseif ($scene eq "Manicure")>>\
-		<<set _item=itemsC.Manicure>>\
+		<!-- <<set _item=itemsC.Manicure>>\ -->
 		@@.teacher;"I think You need a manicure."@@
 		
 		Nancy has you sit in the spa chair, soaking your feet in some water while she works on your nails.
@@ -1471,9 +1473,9 @@
 		<<set $tasksTeacherBody.manicure.status = 0>>\
 		<<set $tasksTeacherBody.manicure_renewal.status = 0>>\
 		<<set $flags.teacherNoticeManicure = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.manicureCosts[0]>>\
 	<<elseif ($scene eq "GarishManicure")>>\
-	<<set _item=itemsC.GarishManicure>>\
+		<!--<<set _item=itemsC.GarishManicure>>\ -->
 		@@.teacher;"I think You need a manicure. And, I think you need it in the sluttiest style possible."@@
 		
 		<<set $body.semiManicure = 2>>\
@@ -1481,10 +1483,10 @@
 		<<set $tasksTeacherBody.manicure.status = 0>>\
 		<<set $tasksTeacherBody.manicure_renewal.status = 0>>\
 		<<set $flags.teacherNoticeManicurePerm = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.manicureCosts[1]>>\
 
 	<<elseif ($scene eq "breastImplantsA")>>\
-		<<set _item=itemsC.breastImplantsA>>\
+		<!-- <<set _item=itemsC.breastImplantsA>>\ -->
 		@@.teacher;"I think what you need are nice, perky breasts."@@
 		
 		After a quick and embarrassing procedure, you become the owner of two small breasts.
@@ -1504,9 +1506,9 @@
 		<<set $tasksTeacherBody.breastsIncrease.status = 0>>\
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
 		<<set $flags.teacherNoticeBreastsA = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.boobsCosts[0]>>\
 	<<elseif ($scene eq "breastImplantsB")>>\
-		<<set _item=itemsC.breastImplantsB>>\
+		<!-- <<set _item=itemsC.breastImplantsB>>\ -->
 		@@.teacher;"Though they say a woman's hair is her crowning glory, I feel a lovely bust often draws more attention. Perhaps that might help $player.name understand the feminine perspective a little better."@@
 		
 		It doesn't take much time, and soon you have two very firm, average sized breasts.
@@ -1527,9 +1529,9 @@
 		<<set $tasksTeacherBody.breastsMaintain.status = 0>>\
 		<<set $flags.teacherNoticeBreastsB = true>>\
 		<<set $flags.teacherNoticeBreastsA = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.boobsCosts[1]>>\
 	<<elseif ($scene eq "breastImplantsC")>>\
-		<<set _item=itemsC.breastImplantsC>>\
+		<!-- <<set _item=itemsC.breastImplantsC>>\ -->
 		@@.teacher;"Let’s get you nice big boobs. You need to be an eye-candy sissy."@@
 		
 		Nurse looks happy as she works on your chest, and soon you have two perfect big breasts.
@@ -1551,9 +1553,9 @@
 		<<set $flags.teacherNoticeBreastsC = true>>\
 		<<set $flags.teacherNoticeBreastsB = true>>\
 		<<set $flags.teacherNoticeBreastsA = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.boobsCosts[2]>>\
 	<<elseif ($scene eq "breastImplantsDD")>>\
-		<<set _item=itemsC.breastImplantsDD>>\
+		<!-- <<set _item=itemsC.breastImplantsDD>>\ -->
 		@@.teacher;"A sissy slut like you needs much bigger boobs. Guys're gonna love titty-fucking you."@@
 		
 		It takes some time for the procedure to end, but finally you stare in shock at your huge breasts.
@@ -1578,9 +1580,9 @@
 		<<set $flags.teacherNoticeBreastsC = true>>\
 		<<set $flags.teacherNoticeBreastsB = true>>\
 		<<set $flags.teacherNoticeBreastsA = true>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.boobsCosts[3]>>\
 	<<elseif ($scene eq "softeningFacial")>>\
-		<<set _item=itemsC.softeningFacial>>\
+		<!-- <<set _item=itemsC.softeningFacial>>\ -->
 		@@.teacher;"I think your face could look more girly. Let's give you a nice face-softening treatment."@@
 		
 		It doesn't take long, and soon you're looking in the mirror, studying the reflection staring back at you. The change is really subtle, but your features have definitely gotten softer and more delicate.
@@ -1588,15 +1590,15 @@
 		@@.reward;You now have a smoother, more feminine face!@@
 
 		<<set $body.face = 1>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.faceCosts[0]>>\
 	<<elseif ($scene eq "surgeryFacial")>>\
-		<<set _item=itemsC.surgeryFacial>>\
+		<!-- <<set _item=itemsC.surgeryFacial>>\ -->
 		@@.teacher;"It's time to make your face truly feminine. Don't worry, You will look like a total Barbie."@@
 		
 		<<set $body.face = 2>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.faceCosts[1]>>\
 	<<elseif ($scene eq "nosePiggy")>>\
-		<<set _item=itemsC.nosePiggy>>\
+		<!-- <<set _item=itemsC.nosePiggy>>\ -->
 		@@.nurse;"May I suggest a special nose job?"@@ She points to the piggy nose option.
 		
 		@@.teacher;"Hmm. A piggy nose? Well normally, I would find that a bit distasteful, but this //is// a punishment, after all. I think it would do him good to have to walk around like a little piggy."@@
@@ -1615,9 +1617,10 @@
 		
 		<<set $flags.teacherNoticeNosePiggy = true>>\
 		<<set $body.nose = 3>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.noseCosts[3]>>\
 	<<elseif ($scene eq "tattooBunny")>>\
-		<<set _item=itemsC.tattooBunny>>\
+		<!-- <<set _item=itemsC.tattooBunny>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_bunny')>>\
 		@@.teacher;"Oh, that bunny tattoo design would be quite fetching on you. Nancy, can you help $player.name select a suitable placement?"
 
 		$teacher turns to you as you stammer, trying to protest.
@@ -1632,9 +1635,10 @@
 		
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_bunny'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooButterfly")>>\
-		<<set _item=itemsC.tattooButterfly>>\
+		<!-- <<set _item=itemsC.tattooButterfly>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_butterfly')>>\
 		@@.teacher;"This butterfly design is very pretty. I think we would do well to enhance your feminine side a little."@@
 
 		Nancy readily agrees. The two of them usher you to one of the salon's spa chairs and guide you onto your belly. Nancy shifts your clothing aside to expose your shoulder, and goes to work.
@@ -1645,9 +1649,10 @@
 		
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_butterfly'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooStockings")>>\
-		<<set _item=itemsC.tattooStockings>>\
+		<!-- <<set _item=itemsC.tattooStockings>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_stockings')>>\
 		@@.teacher;"A woman's legs are a potent source of attraction and femininity. Would you not agree, Nancy?"@@
 
 		@@.nurse;"Of course! I have a lot of regulars who come in just to keep their legs looking pretty."@@
@@ -1663,9 +1668,10 @@
 		@@.reward;You now have a stocking tattoo around your thighs!@@
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_stockings'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooStupidWhore")>>\
-		<<set _item=itemsC.tattooStupidWhore>>\
+		<!-- <<set _item=itemsC.tattooStupidWhore>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_stupidwhore')>>\
 		@@.teacher;"Nancy, we both know $player.name is a sissy, but how can we help him come to grips with that identity? After all, the labels we assign ourselves in our thoughts can be so fleeting. It would be in his best interest to help him accept things as they are."@@
 		
 		@@.nurse;"I might have an idea!"@@
@@ -1684,72 +1690,75 @@
 
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_stupidwhore'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooSlut")>>\
-		<<set _item=itemsC.tattooSlut>>\
+		<!-- <<set _item=itemsC.tattooSlut>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_slut')>>\
 		@@.teacher;"I liked the Slut tattoo, we should mark you as what you are, my little slut, to avoid future confusions."@@
 		
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_slut'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooSissy")>>\
-		<<set _item=itemsC.tattooSissy>>\
+		<!-- <<set _item=itemsC.tattooSissy>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_sissy')>>\
 		@@.teacher;"I liked the 'sissy' tattoo. We should mark you as what you are, sissy boy, to avoid future confusion."@@
 		
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_sissy'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "tattooHeart")>>\
-		<<set _item=itemsC.tattooHeart>>\
+		<!-- <<set _item=itemsC.tattooHeart>>\ -->
+		<<set _item=window.itemFuncs.getItemByVariant('tattoo_heart')>>\
 		@@.teacher;"I think it is time for a more obvious tattoo. We’ll get the heart tattoo! This will make you look a very easy lay, don’t you think?"@@
 		
 		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'tattoo_heart'>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= _item.price>>\
 	<<elseif ($scene eq "PiercingTongue")>>\
-		<<set _item=itemsC.PiercingTongue>>\
+		<!-- <<set _item=itemsC.PiercingTongue>>\ -->
 		@@.teacher;"Let’s get your tongue pierced! I usually don't approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you. It may also have other benefits."@@
 		
 		<<set $flags.teacherNoticePiercingTongue = true>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<set $body.tonguePierced = true>>
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.tonguePiercedCost>>\
 	<<elseif ($scene eq "PiercingNipples")>>\
-		<<set _item=itemsC.PiercingNipples>>\
+		<!-- <<set _item=itemsC.PiercingNipples>>\ -->
 		@@.teacher;"Oh, nipple piercings will look so sexy on you. I’m sure you’ll just love it when they're tugged."@@
 		
 		<<set $flags.teacherNoticePiercingNipples = true>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<set $body.nipplesPierced = true>>
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.nipplesPiercedCost>>\
 	<<elseif ($scene eq "PiercingLips")>>\
-		<<set _item=itemsC.PiercingLips>>\
+		<!-- <<set _item=itemsC.PiercingLips>>\ -->
 		@@.teacher;"Let’s get your lips pierced! I usually do not approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you."@@
 		
 		<<set $flags.teacherNoticePiercingLips = true>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<set $body.lipsPierced = true>>
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.lipsPiercedCost>>\
 	<<elseif ($scene eq "PiercingBelly")>>\
-		<<set _item=itemsC.PiercingBelly>>\
+		<!-- <<set _item=itemsC.PiercingBelly>>\ -->
 		@@.teacher;"Oh - a belly piercing would look so sexy on you. Make sure you wear some revealing clothes to show it off."@@
 		
 		<<set $flags.teacherNoticePiercingBelly = true>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<set $body.bellyPierced = true>>
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.bellyPiercedCost>>\
 	<<elseif ($scene eq "PiercingNose")>>\
-		<<set _item=itemsC.PiercingNose>>\
+		<!-- <<set _item=itemsC.PiercingNose>>\ -->
 		@@.teacher;"Let’s get your nose pierced! I usually do not approve of such things, but it’s meant to be a punishment, and that should be humiliating enough for you."@@
 		
 		<<set $flags.teacherNoticePiercingNose = true>>\
 		<!-- <<addToInv _item.id>>\ -->
 		<<set $body.nosePierced = true>>
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<<set $player.bribeDiscount -= $body.nosePiercedCost>>\
 
 	<<elseif ($scene eq "analSmoothing1")>>\
-		<<set _item=itemsC.analSmoothing1>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<!-- <<set _item=itemsC.analSmoothing1>>\ -->
+		<<set $player.bribeDiscount -= $body.analCosts[0]>>\
 		<<set $body.semiAnal = 1>>\
 		<<set $body.anal = 1>>\
 		@@.teacher;"This slut wants something special."@@
@@ -1815,8 +1824,8 @@
 		
 		<<endif>>\
 	<<elseif ($scene eq "analSmoothing2")>>\
-		<<set _item=itemsC.analSmoothing2>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<!-- <<set _item=itemsC.analSmoothing2>>\ -->
+		<<set $player.bribeDiscount -= $body.analCosts[1]>>\
 		<<set $body.semiAnal = 2>>\
 		<<set $body.anal = 2>>\
 		@@.teacher;"This slut wants something special."@@
@@ -2027,8 +2036,8 @@
 		<<endif>>\
 		<<set $body.semiAnal = 3>>\
 		<<set $body.anal = 3>>\
-		<<set _item=itemsC.analSmoothing3>>\
-		<<set $player.bribeDiscount -= _item.cost>>\
+		<!-- <<set _item=itemsC.analSmoothing3>>\ -->
+		<<set $player.bribeDiscount -= $body.analCosts[2]>>\
 	<<elseif ($scene eq "analSmoothingPermanent")>>\
 		<<set $body.permAnal = 3>>\
 		@@.teacher;"This slut wants your special treatment. She is enjoying it so much, that she wants it to be permanented"@@

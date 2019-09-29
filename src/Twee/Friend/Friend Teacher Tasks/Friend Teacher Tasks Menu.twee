@@ -14,7 +14,8 @@
 <<if $tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0>>\
 	[[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
 <<endif>>\
-<<if $flags.flatsFlag == true && not playerCode.owns(itemsC.flats)>>\
+<!-- <<if $flags.flatsFlag == true && not playerCode.owns(itemsC.flats)>>\ -->
+<<if $flags.flatsFlag == true && not window.inventoryFuncs.ownsMasterItem('flats')>>\
 	[[Wearing Flats|Friend Teacher Tasks Flats]]
 <<endif>>\
 <<if $tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0>>\
