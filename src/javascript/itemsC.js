@@ -110,7 +110,7 @@ window.itemF={
 		return daringRec;
 	},
 },
-
+//Room list; electronics store 0, general store 1, CLINIC store/ doctor's office(?) 2, adult store 3, fashion central 4, intimate store 5, klip klops 6, 
 window.itemsC={
 	pyjamasMale : {
 		id : "pyjamasMale",
@@ -127,7 +127,7 @@ window.itemsC={
 		school: false,
 		cheer: false,
 		disabled: false,
-		store: 5,
+		store: 7,
 		cost: 20,
 		maxAlt: 1,
 		curAlt: 0,
@@ -175,7 +175,7 @@ window.itemsC={
 		daringRec: 0,
 		stolen: false,
 		disabled: false,
-		store: 4,
+		store: 7,
 		cost: 0,
 		maxAlt: 3,
 		curAlt: 0,
@@ -200,7 +200,7 @@ window.itemsC={
 		daringRec: 0,
 		disabled: false,
 		stolen: false,
-		store: 4,
+		store: 7,
 		cost: 0,
 		image: "school_male.jpg"
 	},
@@ -428,7 +428,7 @@ window.itemsC={
 		stolen: false,
 		surgery: false,
 		daringRec: 0,
-		store: 5,
+		store: 7,
 		cost: 10,
 		maxAlt: 7,
 		curAlt: 0,
@@ -984,7 +984,7 @@ window.itemsC={
 		disabled: false,
 		surgery: false,
 		daringRec: 0,
-		store: 6,
+		store: 7,
 		cost: 40,
 		maxAlt: 3,
 		curAlt: 0,
@@ -1008,7 +1008,7 @@ window.itemsC={
 		surgery: false,
 		daringRec: 0,
 		disabled: false,
-		store: 6,
+		store: 7,
 		cost: 40,
 		maxAlt: 2,
 		curAlt: 0,
