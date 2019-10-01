@@ -1,99 +1,115 @@
-:: Beauty Salon [pos_2592_876]
-\
+:: Beauty Salon [pos_2592_876]\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Beauty Salon" 400 400>></div>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<if ($time.hour > 5) and ($time.hour < 21)>>\
-	<<if (not $flags.salonVisited)>>\
-		<<set $flags.salonVisited to true>>\
-		<<set $flags.salonVisitedFirst to true>>\
-		You enter the Beauty salon and are greeted by an enthusiastic young woman dressed in a barely decent version of a //"sexy nurse"// uniform. Her name tag reads, "Nancy."
-
-		She looks over your\
-		<<if (_o and _o.female)>>\
-			dress and flashes a knowing smile, making you realize that she is not fooled for a minute, before listing a number of options available from the salon.
-		<<else>>\
-			outfit with barely hidden amusement before listing a number of options available from the salon.
-		<<endif>>\
-		<<if playerCode.isMind_0()>>\
-			Your cheeks flush hot with embarrassment, as you read through the various feminizing procedures.\
-		<<elseif playerCode.isMind_1()>>\
-			Your cheeks flush hot with embarrassment, but you also find yourself getting excited as you read through the various feminizing procedures.\
-		<<else>>\
-			You notice that Nancy offers several permanent solutions. 
+	<<set _o=playerCode.isWearingOn (itemTypes.Outerwear)>>\
+	<<if ($time.hour > 5) and ($time.hour < 21)>>\
+		<<if ($flags.salonVisited == false)>>\
+			<<set $flags.salonVisited == true>>\
+			<<set $flags.salonVisitedFirst == true>>\
+				A bell rings loud as you push open he door to the Beauty and Body Clinic. It's got a nice little waiting area, with only a few customers around, some of which glance up and eye your arrival with curiosity. After all, this isn't the kind of place a teenage boy would go willingly. As the door swings shut behind you, a young woman - dressed in a barely decent version of a nurse's uniform - perks up from behind the counter, giving you a big grin and waving for you to approach. 
 			
-			You're not sure why, but an image flashes in your mind of your chest, heavy with huge, permanent breasts, your skin smooth and hairless, your face tattooed with flawless makeup. Your body breaks out in a cold sweat and your heart hammers with excitement. You have no idea why that happened.\
-		<<endif>>\
-	<<else>>\
-		Nancy smiles to you, waiting for you to choose any of the treatments.\
-	<<endif>>\
-
-	<<if $player.salonTab gt 0>>\
-		You owe $<<print $player.salonTab>>\
-		<<if $player.money lt $player.salonTab>>\
-			You don't have enough money to pay up your tab.
-		<<else>>\
-			- [[Pay up your tab]]\
-		<<endif>>\
+				As you get near, you're able to see her name tag - it reads, "Nancy."
+			
+				@@.nurse;"Hi honey!"@@ Nancy greets, leaning forward with her hands clasped behind her back. Her chest winds up being right in front of your face, and you can't help but stare at her cleavage. @@.nurse;"Welcome to the Beauty and Body Clinic - I don't recognize you, so it must be your first time in here, huh? We're always happy to have new customers!"@@
 		
-	<<endif>>\
-
+				Nancy takes a moment to look over your\
+					<<if (_o and _o.female)>>\
+					attire, and her demeanor instantly shifts from bubbly to mischevious. You realize numbly that she isn't fooled for a minute by what you're wearing - but, as she dives right into listing off the options available from the clinic, she doesn't seem put off either. If anything, she seems even more interested to have your patronage.
+					<<else>>\
+					form, her expression subtly shifting to one of amusement before she giggles cutely. @@.heroT;What's so funny?@@ Once she's calmed herself, she enthusiastically lists the options available for purchase from the clinic. Is it just you, or is she really hoping you'll purchase a treatment?
+					<<endif>>\
+				<<if playerCode.isMind() 0>>\
+					Your cheeks flush hot with embarrassment as you listen to Nancy describe, in detail, each feminizing procedure offered by the facility.\
+				<<elseif playerCode.isMind() 1>>\
+					You find your face turning red as you listen to Nancy describe, in excessive detail, each and every feminizing procedure advertised by the facility. @@.heroT;I'm getting hard...but why?@@\
+				<<else>>\
+					Your face turns as red as a tomato as you attenively hang on Nancy's every word. She talks about each and every procedure in extreme detail, and each possible purchase plays out in your head like a scene from a movie. Then, you hear the word 'permanent.'
+				
+					@@.hero;"Permanent?"@@ You say aloud, then zip your lips shut. Nancy giggle at your expression.
+				
+					@@.nurse;"That's right. We can make almost every procedure we perform completely irreversible, if you're willing to pay for it."@@
+				
+					An image flashes in your mind, of yourself - but altered beyond recognition. Your chest is no longer flat, but with huge, heavy, permanent breasts. Your skin is smooth like silk, and completely hairless. Your butt is a fleshy pillow that jiggles with every step you take. Your face is tattooed with flawless makeup that will never fade away. 
+				
+					Your body breaks out in a cold sweat, and your heart hammers against your ribcage with excitement. Nancy just smiles.\
+				<<endif>>
+			<<else>>\
+			Nancy gives you a smile that's both darling and daring, waiting for you to make a selection from the available treatments.\
+			<<endif>>\
+		
+			<<if $player.salonTab gt 0>>\
+				You owe the clinic $<<print $player.salonTab>>. \
+					<<if $player.money lt $player.salonTab>>\
+						Unfortunately, you don't have enough money to pay your tab.
+					<<else>>\
+						- [[Pay up your tab]]\
+					<<endif>>\
+			<<endif>>\
+		
 	<<if ($player.daring gt 2)>>\
-		<<print '[[Body hair removal|Clinic Hair removal][$scene=""; $random.stored=0]]'>>
+		<<print '[[Body Hair Removal|Clinic Hair removal][$scene=""; $random.stored=0]]'>>
 	<<else>>\
-		<<click "Body hair removal">><<replace "#Hair_removal_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Hair_removal_deny"></span>
+		<<click "Body Hair Removal">><<replace "#Hair_removal_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Hair_removal_deny"></span>
 	<<endif>>\
 \
 	<<if ($player.daring gt 2)>>\
-		<<print '[[Manicure and Hair styling|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]'>>
+		<<print '[[Nail Treatments and Hair Styling|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]'>>
 	<<else>>\
-		<<click "Manicure and Hair styling">><<replace "#Manicure_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Manicure_deny"></span>
+		<<click "Nail Treatments and Hair Styling">><<replace "#Manicure_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Manicure_deny"></span>
 	<<endif>>\
 \
 	<<if ($player.daring gt 2)>>\
-		<<print '[[Makeup and Tattoo|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]'>>
+		<<print '[[Makeup Applications and Tattoos|Clinic Makeup and tattoo][$scene=""; $random.stored=0]]'>>
 	<<else>>\
-		<<click "Makeup and Tattoo">><<replace "#Makeup_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Makeup_deny"></span>
+		<<click "Makeup Applications and Tattoos">><<replace "#Makeup_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Makeup_deny"></span>
 	<<endif>>\
 \
 	<<if ($player.daring gt 2)>>\
-		<<print '[[Piercing|Clinic Piercing][$scene=""; $random.stored=0]]'>>
+		<<print '[[Piercing Procedures|Clinic Piercing][$scene=""; $random.stored=0]]'>>
 	<<else>>\
-		<<click "Piercing">><<replace "#Piercing_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Piercing_deny"></span>
+		<<click "Piercing Procedures">><<replace "#Piercing_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="Piercing_deny"></span>
 	<<endif>>\
 \
 	<<if ($player.daring gt 2)>>\
-		<<print '[[Body enhancing|Clinic Body enhancing][$scene=""; $random.stored=0]]'>>   
+		<<print '[[Body Enhancing Modifications|Clinic Body enhancing][$scene=""; $random.stored=0]]'>>   
 	<<else>>\
-		<<click "Body enhancing">><<replace "#BodyEnhancing_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="BodyEnhancing_deny"></span>
+		<<click "Body Enhancing Modifications">><<replace "#BodyEnhancing_deny">>@@.deny;You don't feel daring enough@@<</replace>><</click>> <span id="BodyEnhancing_deny"></span>
 	<<endif>>\
 \
 	<<if ($body.semiAss gt $body.permAss) or ($body.semiLips gt $body.permLips) or ($body.semiManicure gt $body.permManicure) or ($body.semiBoobs gt $body.permBoobs) or ($body.semiMakeup gt $body.permMakeup)>>\
-		<<print '[[Semi permanent treatments reversal|Clinic semi-perm][$scene=""; $random.stored=0]]'>>
+		<<print '[[Reversal of Semi-Permanent Treatments|Clinic semi-perm][$scene=""; $random.stored=0]]'>>
 	<<endif>>\
 \
 	<<if (($tasksTeacherBody.semiPermCheckUp.status eq 1) or ($player.salonTab gt 0)) and (not $flags.salonSemiPerm)>>\
-		<<print '[[Semi permanent treatments check up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0]]'>>   
+		<<print '[[Check-Up and Maintenance of Semi-Permanent Treatments|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0]]'>>   
 	<<endif>>\
 \
 	<<if ($kink.penisShrinkProgress eq 1) and (not $player.flags.salonPenisShrinkTalk)>>\
-		[[Talk about your shrunk penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $player.flags.salonPenisShrinkTalk=true]]
+		[[Talk to Nancy about shrinking your penis|Clinic Body enhancing][$scene="shrunkPenisTalk"; $random.stored=0; $player.flags.salonPenisShrinkTalk=true]]
+	<<endif>>\
+\	
+	<<if ($kink.penisShrinkProgress eq 2) and (not $player.flags.salonPenisShrinkTalk2)>>\
+		[[Talk to Nancy about shrinking your penis a second time|Clinic Body enhancing][$scene="shrunkPenisTalk2"; $random.stored=0; $player.flags.salonPenisShrinkTalk2=true]]
+	<<endif>>\
+\
+	<<if ($kink.penisShrinkProgress eq 3) and (not $player.flags.salonPenisShrinkTalk3)>>\
+		[[Talk to Nancy about diminshing your already miniscule penis|Clinic Body enhancing][$scene="shrunkPenisTalk3"; $random.stored=0; $player.flags.salonPenisShrinkTalk3=true]]
 	<<endif>>\
 \
 	<<if $flags.nancyChastTalk>>\
-		[[Talk to Nancy about getting your chastity device off|Nancy Chastity Talk][$flags.nancyChastTalk = false]]
+		[[Ask Nancy if she can help you get your chastity device off|Nancy Chastity Talk][$flags.nancyChastTalk = false]]
 	<<endif>>\
-
+	
 	[[Check yourself][$player.checkPlace=2]]
 	[[Return to the clinic lobby|Go to clinic]]
 <<else>>\
-	Nancy informs you that the beauty salon is closing and ask you to come again\
+	Nancy informs you that the clinic is closed, and asks you to come again\
 	<<if window.timeCode.isSaturday()>>\
 		tomorrow.
 	<<else>>\
-		next Monday.
+		next weekend.
 	<<endif>>\
-	
 <<endif>>\
+	
 <<display [[Travel]]>>
 <<if $player.debugA and false>>\/* Disabled */\
 
