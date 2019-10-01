@@ -1,0 +1,216 @@
+:: Urbane_Menswear_events
+<<set $currOuter = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set $currShoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set $currStockings = playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<if $flags.clothesPurged == false>>\
+   	<<if ($player.daring < 3) or (($player.daring < 6) and ($player.daysInPanties lte 0))>>\
+   		There's a unique atmosphere to the menswear shop as you walk in - it's organized in a utilitarian way, and it smells faintly of cologne.<<if playerCode.isMind() > 0>> Something about the scent makes you aroused, and you try to ignore the heady feeling as you wander the shelves.<<endif>>
+
+   		<<if not $flags.mallUrbaneIntro>>\
+   			The man behind the counter notices you come in, and he wanders over to greet you. He's tall, muscular, and moves with a confidence you wish you had. <<if playerCode.isMind() gt 0>>@@.hero; He's kind of hot...@@ You blush profusely, shaking the thought out of your head. <<endif>>
+
+   			@@.malevoice2;"Welcome to Urbane,"@@ He says, holding out a hand for you to shake. You take it, finding your fingers disappearing in his strong grip. @@.malevoice2;"I'm the owner, Tyrone Jackson. What's your name?"@@
+   			 
+   			@@.heroT;"$player.name,"@@ you say, not quite able to meet his eyes.
+   			 
+   			@@.malevoice2;"Nice to meet you, $player.name. Let me know if I can help you find anything."@@ He gives you a winning smile<<if playerCode.isMind() gt 0>>, making your heart flutter.<<else>>.<<endif>>
+   			 
+   		<<elseif $flags.mallUrbaneIntro>>\
+   			@@.malevoice2;"Welcome back, $player.name,"@@ Tyrone says with a grin. @@.malevoice2;"It's good to see you."@@
+
+   		<<endif>>\
+   		<<set $flags.mallUrbaneIntro = true>>\
+   	<<elseif (($player.daring < 6) and ($player.daysInPanties gte 1))>>\
+   		As you enter the shop, you can't help but compare the selection on the shelves to the girl's clothing you <<if $currOuter.female == true>>are wearing. <<else>>have worn. <<endif>>The material looks coarser, somehow, and the colors less vibrant. There's also less choice - everything looks the same.
+
+   		<<if not $flags.mallUrbaneIntro>>\
+   			The man behind the counter notices you come in, and he wanders over to greet you. He's tall, muscular, and moves with a confidence you wish you had. <<if playerCode.isMind() gt 0>>@@.hero; He's kind of hot...@@ You blush profusely, shaking the thought out of your head. <<endif>>\
+
+   			@@.malevoice2;"Welcome to Urbane,"@@ He says, holding out a hand for you to shake. You take it, finding your fingers disappearing in his strong grip. @@.malevoice2;"I'm the owner, Tyrone Jackson. What's your name?"@@
+   			 
+   			@@.heroT;"$player.name,"@@ you say, not quite able to meet his eyes.
+   			 
+   			@@.malevoice2;"Nice to meet you, $player.name. Let me know if I can help you find anything."@@ He gives you a winning smile<<if playerCode.isMind() gt 0>>, making your heart flutter.<<else>>.<<endif>>
+   			 
+   		<<elseif $flags.mallUrbaneIntro>>\
+   			@@.malevoice2;"Welcome back, $player.name,"@@ Tyrone says with a grin. @@.malevoice2;"It's good to see you."@@
+
+   		<<endif>>\
+   		You shiver, almost certain that Tyrone somehow knows that you <<if $currOuter.female == true>>are wearing <<else>>have worn <<endif>>girls' clothing. You sigh in relief when he smiles at you and wanders away to server another customer.
+
+   		<<set $flags.mallUrbaneIntro = true>>\
+	<<elseif $player.daring > 5>>\
+
+   		<<if $currOuter.female == false>>\
+   			You revel in the opportunity to enter a menswear store without worrying about your current outfit. Despite everything that has happened, you still appreciate what the shelves have to offer.
+
+   			<<if not $flags.mallUrbaneIntro>>\
+   				The man behind the counter notices you come in, and he wanders over to greet you. He's tall, muscular, and moves with a confidence you wish you had. <<if playerCode.isMind() gt 0>>@@.heroT; He's kind of hot...@@ You blush profusely, shaking the thought out of your head. <<endif>>
+
+   				@@.malevoice2;"Welcome to Urbane,"@@ He says, holding out a hand for you to shake. You take it, finding your fingers disappearing in his strong grip. @@.malevoice2;"I'm the owner, Tyrone Jackson. What's your name?"@@
+   			 
+   				@@.hero;"$player.name,"@@ you say, not quite able to meet his eyes.
+   			 
+   				@@.malevoice2;"Really? I thought...nevermind. It's nice to meet you, $player.name. Let me know if I can help you find anything."@@ He gives you a charming smile<<if playerCode.isMind() gt 0>>, making your heart flutter.<<else>>.<<endif>>
+   			 
+			<<elseif $flags.mallUrbaneIntro>>\
+					@@.malevoice2;"Welcome back, $player.name,"@@ Tyrone says, eyeing you curiously before shaking his head. @@.malevoice2;"It's good to see you."@@
+
+			<<endif>>\
+			<<set _noticeType to []>>\
+			<<set _chance = 0>>\
+			<<if playerCode.haveHaircut()>>\
+				<<set _noticeType.push("haircut")>>\
+			<<endif>>\
+			<<if playerCode.scoreBoobs() > 0>>\
+				<<set _noticeType.push("boobs")>>\
+			<<endif>>\
+			<<if playerCode.haveMakeup()>>\
+				<<set _noticeType.push("makeup")>>\
+			<<endif>>\
+			<<if $currShoes.female>>\
+				<<set _noticeType.push("shoes")>>\
+			<<endif>>\
+			<<if _noticeType.length > 0>>\
+				<<set _noticedNum = random(0, _noticeType.length-1)>>\
+				<<set _noticed = _noticeType[_noticedNum]>>\
+				<<switch _noticed>>\
+					<<case "haircut">>\
+						@@.malevoice2;"Interesting style you have there, $player.name,"@@ Tyrone says, running his fingers over his fashionably smooth shaven head as he eyes your hairdo.
+
+					<<case "boobs">>\
+						<<if playerCode.haveBplus lte 2>>\
+							@@.malevoice2;"You'd better look for something loose to hide those...assets. I mean, man - my girl would be jealous of those, $player.name,"@@ Tyrone says, staring at your chest. You guess if you could see his eyes behind his sunglasses they'd be wide as dinner plates.
+
+						<<else>>\
+							@@.malevoice2;"Looks like you've been putting on some weight in the chest area, $player.name,"@@ Tyrone says, pointing at your chest and then flexing his own pecs for emphasis.
+
+						<<endif>>\
+					<<case "makeup">>\
+						<<if playerCode.scoreMakeup() == 1>>\
+							@@.malevoice2;"If I didn't know any better, $player.name, I'd say you were wearing makeup,"@@ Tyrone says, peering at your face.
+
+						<<else>>\
+							@@.malevoice2;"I didn't think you were so metrosexual. I mean, $player.name, makeup? You need to be careful, or people are gonna start to think - and then they're gonna start to talk, if you catch my drift,"@@ Tyrone says, staring at your face. Then he smirks. @@.malevoice2;"It does look good on you, though."@@
+
+						<<endif>>\
+					<<case "shoes">>\
+						@@.malevoice2;"Now I know you didn't get that kind of footwear here, $player.name,"@@ Tyrone says, crossing his arms and nodding to your shoes. @@.malevoice2;"On a girl, those might be cute - but they don't look too bad on you either. Maybe it's because of your tiny feet?"@@
+
+					<<case "girl jeans">>\
+						@@.malevoice2;"Those are some pretty tight jeans you're wearing, $player.name. I'm damn sure I don't sell anything like that here - where you been shopping recently? You cheating on me with some other store?"@@ Tyrone asks, teasingly.
+
+				<</switch>>\
+			<<endif>>\
+			<<set $flags.mallUrbaneIntro = true>>\
+		<<else>>\
+			You wander into the store, intent on looking around, and then you realize what you're wearing. Perhaps it's not such a good idea to try to browse for boys' clothing dressed en femme as you are. You could always claim it was for a dare...
+			 
+			Before you can make up your mind, Tyrone spots you, and he does a double take.
+			 
+			@@.malevoice2;"Holy fu - is that you, $player.name? Someone challenge you to a bet? You're gonna win it, damn, look at you!"@@ The commotion attracts the attention of a few other customers, and Tyrone quickly escorts you out of the store. @@.malevoice2;"Sorry dude, but you're going to have to go change before you come in here - people will make a fuss if I sell anything to you while you're looking like that."@@
+
+		<<endif>>\
+	<<endif>>\
+<<else>>\
+	<<set $toggleStoreMenu to 1>>\
+   	You stare at the shelves with a dismal sense of longing - you used to own several items from Urbane’s, at least until $guardian threw them all out. You bite your lip. Perhaps you could buy some now, sneak them home and hide them - just like you used to hide the girl’s clothing you now wear openly.
+
+	<<if not $flags.mallUrbaneIntro>>\
+		There's a unique atmosphere to the menswear shop as you walk in - it's organized in a utilitarian way, and it smells faintly of cologne.<<if playerCode.isMind() > 0>> Something about the scent makes you aroused, and you try to ignore the heady feeling as you wander the shelves.<<endif>> The man behind the counter notices you come in, and he wanders over to greet you.
+  	 
+		He's tall, muscular, and moves with a confidence you wish you had. <<if playerCode.isMind() gt 0>>@@.heroT; He's kind of hot...@@ You blush profusely, shaking the thought out of your head. <<endif>>
+
+		@@.malevoice2;"Welcome to Urbane,"@@ He says, holding out a hand for you to shake. You take it, finding your fingers disappearing in his strong grip. @@.malevoice2;"I'm the owner, Tyrone Jackson. What's your name, darling?"@@
+  	 
+		@@.hero;"$player.name,"@@ you say, not quite able to meet his eyes.@@.heroT; Darling?@@
+  	 
+		@@.malevoice2;"Nice to meet you, $player.name. I’m guessing you’re shopping for your boyfriend? Let me know if I can help you find anything - I’m always happy to help a cute little thing like you."@@ He gives you a charming smile<<if playerCode.isMind() gt 0>>, making your heart flutter.<<else>>.<<endif>>
+
+    <<elseif $flags.mallUrbaneIntro>>\
+   		@@.malevoice2;"$player.maleName - fuck me sideways, is that you?"@@ Tyrone exclaims in disbelief.
+   	
+		<<set _noticeType to []>>\
+		<<if playerCode.haveHaircut()>>\
+			<<set _noticeType.push("haircut")>>\
+		<<endif>>\
+		<<if playerCode.scoreBoobs() > 0>>\
+			<<set _noticeType.push("boobs")>>\
+		<<endif>>\
+		<<if playerCode.haveMakeup()>>\
+			<<set _noticeType.push("makeup")>>\
+		<<endif>>\
+		<<if $currShoes.female>>\
+			<<set _noticeType.push("shoes")>>\
+		<<endif>>\
+		<<if $currOuter.female>>\
+			<<set _noticeType.push("dress")>>\
+		<<endif>>\
+		<<if $currStockings>>\
+			<<set _noticeType.push("stockings")>>\
+		<<endif>>\
+		<<if _noticeType.length > 0>>\
+			<<set _noticedNum = random(0, _noticeType.length-1)>>\
+			<<set _noticed = _noticeType[_noticedNum]>>\
+			<<switch _noticed>>\
+			<<case "haircut">>\
+				@@.malevoice2;"You really went all the way with your hair, huh $player.name?"@@ Tyrone asks, even though the answer is plain to see. @@.malevoice2;"Such a sissy. Do you like it when a real man holds onto it, and yanks it when they fuck you?"@@
+
+			<<case "boobs">>\
+				<<if playerCode.haveCPlus()>>\
+					@@.malevoice2;"Those things are huge,"@@ Tyrone says, pointing at your tits. @@.malevoice2;"A lot of real women would be jealous. If I didn't have a girlfriend, I just might be tempted to fuck those with my huge cock."@@
+
+				<<else>>\
+					@@.malevoice2;"Real breasts, not just falsies? You sure are one committed sissy, $player.name,"@@ Tyrone says, eyeing your chest. @@.malevoice2;“I bet you love when a real man sucks and pulls on your nipples.@@
+
+				<<endif>>\
+			<<case "makeup">>\
+				<<if playerCode.havePermanentMakeup()>>\
+					@@.malevoice2;"You got that makeup tattooed on?"@@ Tyrone asks, waving a finger at your face. @@.malevoice2;"I can see your reasoning - less time putting makeup on and more time sucking cock like a good sissy, huh?"@@   
+
+				<<else>>\
+					@@.malevoice2;"I bet you love putting makeup on, looking like a cute sissy for your man. Or is it men, in the plural sense? Do you think about cocks going into your mouth when you put your lipstick on?"@@ Tyrone asks, meaningfully grasping the large bulge in the front of his pants.
+
+				<<endif>>\
+			<<case "shoes">>\
+				<<if $currShoes.slutty>>\
+					@@.malevoice2;"Heels - now we're talking. No sissy should ever be seen in anything else. I hope you've practiced bending over in them - never know when someone might just grab you by the hips and slam a cock up your ass,"@@ Tyrone teases, smirking at your worried expression.
+
+				<<else>>\
+					@@.malevoice2;"I'm disappointed - what the hell are those shoes? Go get yourself some heels, and learn to strut in them too. The only footwear for a sissy is a pair of heels,"@@ Tyrone states, with an air of finality.
+
+				<<endif>>\
+			<<case "dress">>\
+				<<if $currOuter.slutty>>\
+					@@.malevoice2;"Yeah, now you're showing what you're made of - putting it all in the open like a good sissy would. I bet you're dripping in between your legs while I'm looking at you. Scratch that - I bet you're struggling not to drop to your knees and rub your face against my crotch. Well, sissy, I've already got a girl - but hell if she dresses like you. No, no - she has taste,"@@ Tyrone brags, smirking at the way you squirm.
+
+				<<else>>\
+					@@.malevoice2;"What's with the clothes? Trying to look modest? You don't fool me for a second, sissy. Bet you're struggling to stay up on your feet and not drop to your knees to try and suck my dick. You got to be honest in the way you dress, sissy,"@@ Tyrone says, admondishingly.
+
+				<<endif>>\
+			<<case "stockings">>\
+				 <<if $currStockings.slutty>>\
+					<<if playerCode.isHairless() or playerCode.isWaxed()>>\
+						@@.malevoice2;"Fancy stockings? Damn, those girly legs of yours look mighty luxurious, sissy. I bet you love parting those sweet thighs of yours when a real man comes 'a knockin',"@@ Tyrone teases, then whistles loudly. @@.malevoice2;"Hot damn!"@@
+
+					<<else>>\
+						@@.malevoice2;"What kind of game are you playing, sissy? Stockings, with hairy legs? No real man is gonna fuck you when you're looking like that. You better take care of that, cause that shit is ugly,"@@ Tyrone mutters, shaking his head.
+					
+					<<endif>>\
+				<<else>>\
+					<<if playerCode.isHairless() or playerCode.isWaxed()>>\
+						@@.malevoice2;"Stockings? Damn, those girly legs of yours look mighty fine, sissy. I bet you love parting those sweet thighs of yours when a real man comes 'a knockin',"@@ Tyrone teases, then whistles loudly. @@.malevoice2;"Hot damn!"@@
+
+					<<else>>\
+						 @@.malevoice2;"What kind of game are you playing, sissy? Stockings, with hairy legs? No real man is gonna fuck you when you're looking like that. You better take care of that, cause that shit is ugly,"@@ Tyrone mutters, shaking his head.
+
+					<<endif>>\
+				<<endif>>\
+			<</switch>>\
+		<<else>>\
+			@@.malevoice2;"Here comes the sissy,"@@ Tyrone calls, loud enough that the entire store can hear him. @@.malevoice2;"All dressed up, and on the prowl for cock. Well sissy, sorry to disappoint you, but my meat is reserved for my woman. Try the bathroom gloryhole,"@@ he laughs.
+
+		<<endif>>\
+	<<endif>>\
+	[[Return to the mall|Go to the mall][$toggleStoreMenu = false]]
+<<endif>>\
