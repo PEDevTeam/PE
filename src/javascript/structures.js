@@ -1325,6 +1325,7 @@ window.flagsList={
 	flatsDelay: false,
 	slutRoute: false,
 	bullyRoute: false,
+	mallUrbaneIntro: false,
 },
 
 window.kinkList={

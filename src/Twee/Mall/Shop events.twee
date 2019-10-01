@@ -719,7 +719,7 @@
            The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
            With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
 
-           @@.heroT;“Cotton panties?”
+           @@.heroT;“Cotton panties?”@@
 
            <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
 
@@ -729,4 +729,24 @@
            @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
        <<endif>>\
    <<endif>>\
+<<endif>>\
+<<if $curStore == "Urbane Menswear" && $flags.clothesPurged == true>>\
+	<<set $toggleStoreMenu to 1>>\
+	You look longingly at the shelves, knowing that you own several items from the store, at least you used to until $guardian threw them all out. Perhaps you could buy some now, sneak them home and hide them, like you used to do with the girl’s stuff forced upon you.
+	
+	<<if not $flags.mallUrbaneIntro>>\
+		The tall store owner, with rippling pecs and muscular thighs bulging his tight jeans, wanders over to you.<<if playerCode.isMind() > 0>> @@.hero;He looks kinda hot... you muse, before realize what you just thought and blush profusely.@@<<endif>>
+
+		@@.malevoice2;“Welcome to my store. I am Tyrone Jacks. You are?”@@
+
+		@@.heroT;"$player.name,”@@ you say<<if playerCode.isMind() > 0>> unable to look him in the eye<<endif>>.
+			
+		@@.malevoice2;“Well if you see anything for your boyfriend, come find me. I am always happy to help such a cute little thing.”@@ Tyrone flashes you his winningest smile.
+		
+	<<endif>>\
+	The owner's eyes linger upon you, and you're unsure if he's checking you out or trying to remember where he recognizes you from. Already a wreck, your nerves overcome you and you go rushing from the store back into the mall.
+	
+	@@.hero;There's no way I can go in there dressed like this. What if he realizes I'm a boy wearing girl's clothes?@@
+	
+	[[Return to the mall|Go to the mall][$toggleStoreMenu = false]]
 <<endif>>\

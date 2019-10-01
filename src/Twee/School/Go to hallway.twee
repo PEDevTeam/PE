@@ -25,6 +25,9 @@
 	<<set $player.room.jacket=1>>\
 	<<set $player.room.tie=1+random(2)>>\
 <<endif>>\
+<<if _u.female and ((($player.perversion.teacherCooldown gt 0) and ($player.perversion.teacher eq 2)) or ($player.perversion.teacher gt2))>>\
+	<<set $player.daysInPanties++>>\
+<<endif>>\
 <<if $flags.buttplugLost>>\
 	@@.teacher;"Oh, $player.name, that was hilarious. I have not laughed like that for a very long time. Still, as much as I would like to see that expression on your face again, I need to confiscate this butt-plug. Word of advice - find a bigger one. A much bigger one."@@
 
