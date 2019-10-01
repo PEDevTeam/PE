@@ -2182,6 +2182,54 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
+	goOnDate: {	// perv 11
+		id: "goOnDate",
+		name:"Task Go On Date",
+		hasPassage: true,
+		text: {
+			given: "I think you need some practice being arm candy for a night. Find someone and convince them to take you on a date. Make sure you tell them to contact me after so I will know you completed my task.",
+			perform: "",
+			finish: "@@.teacher;\"Did you enjoy your romantic dinner? It sounded like your date certainly did.@@",
+			fail: "I didn't hear that you went on a date over the weekend. Did everyone shoot you down or did your evening go so poorly your date refused to call it in?  Either way, you have earned a mark.",
+			reminder: "I'm still waiting for that phone call from your date.",
+			checkMe: {
+				given: "$teacher told you to have someone take you on a date.",
+				finish: "Yeah, you did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return (State.active.variables.player.perversion.teacherCooldown > 3);
+		},
+		image: "",
+		startPriority: 1,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 11, max: 11 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 6,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 25,
+		failPenalty: 1,
+		events: {
+			start: function() {
+				State.active.variables.tasksTeacher.goOnDate.startPriority = 0;
+			},
+			finish: function() { return true; },
+			success: function() {
+			},
+			fail: function() { return false; }
+		}
+	},
 	penaltySissyShow: {	// perv 4-10
 		id: "penaltySissyShow",
 		name:"Task Sissy Show",

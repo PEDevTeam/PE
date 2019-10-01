@@ -54,6 +54,7 @@ window.stores=[
 		image: "StoreLogo_Urbane.jpg",
 		imagePack: "Urbane Menswear",
 		description: "Your favorite men's clothing store, and the only one in town.",
-		daringRequired: 0
+		daringRequired: 0,
+		logo: "<img src=\"./Images/general/Urbane.jpg\" style=\"width: 150px; height: auto; margin-left: 8vw;\">"
 	}
 ];
