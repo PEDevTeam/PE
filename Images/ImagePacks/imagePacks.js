@@ -3653,6 +3653,17 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Urbane Menswear",
+                           "path":  "Mall/Urbane",
+                           "files":  [
+                                         {
+                                             "fileName":  "Urbane Store.jpg",
+                                             "height":  675,
+                                             "width":  1164
+                                         }
+                                     ]
+                       },
+                       {
                            "name":  "Porn Mind 0",
                            "path":  "Porn/Mind_0",
                            "files":  [
@@ -4227,6 +4238,17 @@ window.imagePacks = {
                                              "fileName":  "modest_schoolgirl.jpg",
                                              "height":  295,
                                              "width":  295
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Anime_Plugsuit",
+                           "path":  "School/Anime Club Task/Plugsuit",
+                           "files":  [
+                                         {
+                                             "fileName":  "anime_plugsuit.jpg",
+                                             "height":  640,
+                                             "width":  640
                                          }
                                      ]
                        },
@@ -4939,6 +4961,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Tasks/Dates",
+                           "path":  "Tasks/Dates",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Task Dildo BJ",
                            "path":  "Tasks/Dildo_BJ",
                            "files":  [
@@ -5071,6 +5100,75 @@ window.imagePacks = {
                                              "fileName":  "used_condom.jpg",
                                              "height":  470,
                                              "width":  500
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Tasks/Dates/Guardian",
+                           "path":  "Tasks/Dates/Guardian",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
+                           "name":  "Tasks/Dates/Roxy",
+                           "path":  "Tasks/Dates/Roxy",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
+                           "name":  "Finger Cut",
+                           "path":  "Tasks/Dates/Guardian/Finger Cut",
+                           "files":  [
+                                         {
+                                             "fileName":  "finger cut.jpg",
+                                             "height":  1414,
+                                             "width":  2121
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Roxy Cum Drip",
+                           "path":  "Tasks/Dates/Roxy/Cum Drip",
+                           "files":  [
+                                         {
+                                             "fileName":  "02.gif",
+                                             "height":  302,
+                                             "width":  378
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Waiter Dan",
+                           "path":  "Tasks/Dates/Roxy/Dan",
+                           "files":  [
+                                         {
+                                             "fileName":  "0005393_waiters-apron.jpeg",
+                                             "height":  800,
+                                             "width":  800
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Diner",
+                           "path":  "Tasks/Dates/Roxy/Diner",
+                           "files":  [
+                                         {
+                                             "fileName":  "images.jpg",
+                                             "height":  720,
+                                             "width":  960
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Roxy",
+                           "path":  "Tasks/Dates/Roxy/Roxy",
+                           "files":  [
+                                         {
+                                             "fileName":  "ebyltr-l-610x610-skirt-black+dress-black-goth-lace-black+skirt-jewels-jewelry-necklace-choker+necklace-black+choker-velvet-black+skater+skirt-black-knee+high+socks-lace+sk.jpg",
+                                             "height":  465,
+                                             "width":  321
                                          }
                                      ]
                        },
