@@ -1,22 +1,22 @@
 :: Clinic noseWager [pos_3408_2588]
 \
 <<if $scene eq "AcceptTrick">><!--<NoseAcceptOrRefuse>-->\
-	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+	@@.nurse;"Heads or tails?"@@ Nancy asks, pulling a coin out of her cleavage.
 
 	[[Pick heads|Clinic noseWager][$scene="headsTrick"; $random.stored=0]]
 	[[Pick tails|Clinic noseWager][$scene="tailsTrick"; $random.stored=0]]
 <<elseif $scene eq "AcceptTrickBack">>\
-	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+	@@.nurse;"Heads or tails?"@@ Nancy asks, pulling a coin out of her cleavage.
 
 	[[Pick heads|Clinic noseWager][$scene="headsTrickBack"; $random.stored=0]]
 	[[Pick tails|Clinic noseWager][$scene="tailsTrickBack"; $random.stored=0]]
 <<elseif $scene eq "AcceptPiggy">>\
-	@@.nurse;"Pick side,"@@ Nancy rifles through her pockets, searching for a coin.
+	@@.nurse;"Pick a side,"@@ Nancy says, as she pulls a coin out of her cleavage.
 
 	[[Pick heads|Clinic noseWager][$scene="headsPiggy"; $random.stored=0]]
 	[[Pick tails|Clinic noseWager][$scene="tailsPiggy"; $random.stored=0]]
 <<elseif $scene eq "Accept">>\
-	@@.nurse;"Heads or tails?"@@ Nancy says, rifling through her pockets for a coin.
+	@@.nurse;"Heads or tails?"@@ Nancy asks, pulling a coin out of her cleavage.
 
 	[[Pick heads|Clinic noseWager][$scene="heads"; $random.stored=0]]
 	[[Pick tails|Clinic noseWager][$scene="tails"; $random.stored=0]]
@@ -25,7 +25,7 @@
 
 	@@.nurse;"Well, if that's how you feel..."@@ she says, pointing to a big sign that reads: 
 	
-	@@.bully;We reserve the right to refuse service to anyone.@@
+	@@.bully;We reserve the right to refuse service to anyone, for any reason, at any time.@@
 	
 	She gives you a beautiful, toothy smile, full of flowery cheerfulness.
 	
@@ -36,14 +36,14 @@
 <<elseif $scene eq "headsTrick" or $scene eq "tailsTrick" or $scene eq "headsPiggy" or $scene eq "tailsPiggy">><!--<NoseFail>-->\
 	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
 		You call 'heads.'
-		
+
 		Nancy retrieves a coin from her //left// pocket.\
 	<<else>>\
 		You call 'tails.'
-		
+
 		Nancy retrieves a coin from her //right// pocket.\
 	<<endif>>\
-	She flips a coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, before revealing the result.
+	She flips the coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, before revealing the result.
 
 	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
 		Tails! Damn, you lose.
@@ -62,16 +62,16 @@
 <<elseif $scene eq "headsTrickBack" or $scene eq "tailsTrickBack">><!--<NoseAutoWin>-->\
 	<<if $scene eq "headsTrick" or $scene eq "headsPiggy">>\
 		You call 'heads.'
-		
+
 		Nancy retrieves a coin from her //left// pocket.\
 	<<else>>\
 		You call 'tails.'
-		
+
 		Nancy retrieves a coin from her //right// pocket.\
 	<<endif>>\
-	She flips a coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, but before she reveals the result you quickly say that you reconsidered.
+	She flips the coin into the air with her thumb. She catches it on the back of her left hand, trapping it with her right, but before she reveals the result you quickly say that you reconsidered.
 
-	Nancy looks like she sucked on a lemon, but she can't find a reason to deny you to change your pick.
+	She gives you a look like she'd sucked on a lemon, but she can't find a reason to deny you to change your pick.
 
 	<<if $scene eq "headsTrickBack">>\
 		Heads!\
@@ -120,15 +120,15 @@
 	<<addToInv _item.id>>\
 	<<set $flags.salonNose=true>>\
 
-	@@.nurse;"You won't regret it!"@@  She exclaims and her eyes beam with such excitement, that it feels almost scary to be the focus of her attention.
+	@@.nurse;"You won't regret this!"@@  Nancy exclaims, and her eyes beam with a level of excitement that it feels almost scary to be the focus of her attention. 
 	
-	Nancy quickly takes you to the back room of the salon.
+	She quickly drags you to the back room of the salon.
 	
-	@@.nurse;"Now, this may hurt a little bit,"@@ she blurts, her arms flashing through gear with immense speed, @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
+	@@.nurse;"Now, this may hurt a little bit,"@@ she mentions, before dropping a pill in a cup and handing it to you. @@.nurse;"So here, take this. It'll help you relax, and you won't notice the pain as much."@@
 	
 	You gratefully swallow the tablet while she sets you up beneath a large, clinical-looking machine. As Nancy fastens a number of restraints around you, you look up to see a cylindrical aperture a bit larger than your head slowly descending.
 
-	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
+	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. Nancy sits you up, and holds a mirror in front of your face, giving you full view of the results of the procedure. 
 	
 	@@.reward;You now have a big upturned nose, that gives your face a piggy look!@@
 	
@@ -147,11 +147,11 @@
 	<<set $flags.salonNose=true>>\
 	Nancy takes you to the back room of the salon.
 
-	@@.nurse;"Now, this may hurt a little bit,"@@ she states.  @@.nurse;"Here, take this pill.  It will help you relax and not notice the pain so much."@@
-
+	@@.nurse;"Now, this may hurt a little bit,"@@ she mentions, before dropping a pill in a cup and handing it to you. @@.nurse;"So here, take this. It'll help you relax, and you won't notice the pain as much."@@
+	
 	You gratefully swallow the tablet while she sets you up beneath a large, clinical-looking machine. As Nancy fastens a number of restraints around you, you look up to see a cylindrical aperture a bit larger than your head slowly descending.
 
-	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. You take a look in the mirror.
+	The pill's effects come surprisingly quickly, and you space out before the procedure starts. By the time the pill wears off, you are amazed to see the machine has already retracted. Nancy sits you up, and holds a mirror in front of your face, giving you full view of the results of the procedure. 
 
 	<<if $flags.salonPickNose>>\
 		@@.reward;You now have a beautiful classic straight nose!@@
