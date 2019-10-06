@@ -1,0 +1,71 @@
+:: Therapist stimulation preference reassignment intro
+<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _locked to playerCode.isLockedInChastity()>>\
+<<set _permLocked to $player.perversion.teacherPermChastity gte 7>>\
+
+This passage is not finished.
+
+<<if not playerCode.isButtslut()>>\
+This scene requires the player character to be a butt-slutt. This is a bug.
+<<endif>>\
+
+You mention that you rarely use your penis anymore.
+
+@@.therapist;"So you after all you have been through, you still <i>want</i> to use your penis, but since you are locked away most of the time you <i>cannot</i>."@@
+
+You nod and squirm in your seat, feeling uncomfortable due to both, the topic in general and the statement in particular.
+
+@@.therapist;"Can you describe your feelings, not being able to use your penis?"@@
+
+You do not need to think long for an answer. @@.hero;"It's frustrating. I do so many very sexual things, yet my penis does not see much action."@@
+
+@@.therapist;"Of course."@@ She answers and thinks for a short while.\
+\
+/* check for any kink which may allow this actual scene to be played */\
+<<set _startable = false>>\
+<<set _possible = $kinkAllow.bdsm or $kinkAllow.bondage or $kinkAllow.painPlay or $kinkAllow.questionable or $kinkAllow.abusive>>\
+<<if $kink.bdsm>>\
+	<<set _sufficientKink = "BDSM">>\
+<<elseif $kink.bondage>>>\
+	<<set _sufficientKink = "bondage">>\
+<<elseif $kink.painPlay>>\
+	<<set _sufficientKink = "pain play">>\
+<<elseif $kink.questionable>>\
+	<<set _sufficientKink = "questionable consent">>\
+<<elseif $kink.abusive>>\
+	<<set _sufficientKink = "abusive behaviour">>\
+<<endif>>\
+\
+@@.therapist;"Predicting you would raise this issue eventually, I prepared a therapy session\
+<<if not _sufficientKink>>\
+	tailor-made for you. Unfortunately, you are not ready for\
+	<<if _possible>>\
+		it, yet. We should explore other parts of your personality, first.\
+	<<else>>\
+		it. And based on the survey we took on our very first session, you never will be.\
+	<<endif>>\
+<<else>>\
+	based on your particular interest in _sufficientKink. It will most likely help you instantly and permanently.\
+	<<if not _chastity>>\
+		I need you to bring your chastity cage, though.\
+	<<else>>\
+		<<if _locked>>\
+			<<if _permLocked>>\
+				Your chastity cage would need to be unlocked, though. Since you have permanently lost access to your own penis, unfortunately we cannot proceed.\
+			<<else>>\
+				Your chastity cage needs to be unlocked, though.\
+			<<endif>>\
+		<<else>>\
+			You brought your chastity cage and you can take it off. Perfect. We can start right away.\
+			<<set _startable = true>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
+"@@
+
+<<if _startable>>\
+[[Start special therapy session|Therapist stimulation preference reassignment]]
+<<else>>\
+Since you cannot accept her offer, you have no other option but to \
+<<endif>>\
+[[Talk about something else|Visit therapist][$flags.therapistTalk=true]]

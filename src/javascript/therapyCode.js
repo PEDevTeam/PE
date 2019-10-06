@@ -526,6 +526,16 @@ window.therapistTalks={
 		check: function() {
 			return State.active.variables.kinkAllow.penisShrink;
 		}
+	},
+	talkPenisShrinkingEnd: {
+		id: "talkButsluttery",
+		name: "Talk about using your butt for pleasure",
+		passage: "talkButsluttery",
+		time: 5,
+		start: true,
+		check: function() {
+			return playerCode.isButtslut();
+		}
 	}
 },
 
