@@ -20,7 +20,7 @@ macros.getInventoryList = {
 
         for(var sidebarInventoryIdx in window.inventory.sidebarInventory){
             var br = document.createElement('br');
-            sidebarItem = window.inventory.sidebarInventory[sidebarInventoryIdx];
+            var sidebarItem = window.inventory.sidebarInventory[sidebarInventoryIdx];
             switch(sidebarItem.itemType){
                 case "variable":
                     if(actVar.player[sidebarItem.variableName]){
