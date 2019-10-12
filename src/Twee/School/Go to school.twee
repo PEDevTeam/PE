@@ -43,6 +43,7 @@
 	<<endif>>\
 <<endif>>\
 <!-- <<if playerCode.isWearing(itemsC.stockings)>>\ -->
+<!-- <<endif>> -->
 <<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
 	<<if $tasksTeacher.wearStockings.status == 1>>\
 		<<set $tasksTeacher.wearStockings.status = 2>>\
@@ -87,10 +88,12 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<<if window.wardrobeFuncs.isItemMasterWearing('stripperHeels')>>\
 			Still not used to walking in stiletto heels, you stumble and fall, arms flailing, before you face-plant on the road.\
 		<!-- <<elseif playerCode.isWearing(itemsC.highHeel3)>>\ -->
+		<!-- <<endif>> -->
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('heels')>>\
 			Still not used to walking in high heels, you stumble and fall, arms flailing, before you face-plant on the road.\
 		<<endif>>\
 		<!-- <<if _o.female && not (_o.shorts)>>\ -->
+		<!-- <<endif>> -->
 		<<if _outerwear.isFemale>>\
 			Your skirt drags up, exposing your \
 			<<if _underwear>>\
@@ -168,6 +171,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<!-- Your penis strains against your chastity device, fortunately hidden beneath your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>.\ -->
 		Your penis strains against your chastity device, fortunately hidden beneath your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>.\
 		<!-- <<if not _u and (not _o.shorts)>>\ -->
+		<!-- <<endif>> -->
 		<<if not _underwear>>\
 			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
 			<<if not $player.daringFlag.noUnderwear>>\

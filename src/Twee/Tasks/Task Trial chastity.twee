@@ -18,6 +18,7 @@
 	
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
 	<!-- <<if (not playerCode.owns(itemsC.chastityDevice))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
 		<!-- <<set _item=$items.chastityDevice>>\ -->
 		<!-- <<addToInv _item.id>>\ -->
@@ -28,6 +29,7 @@
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.buttPlugHeart))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
 		<!-- <<set _item=$items.buttPlugHeart>>\ -->
 		<!-- <<addToInv _item.id>>\ -->
@@ -223,12 +225,14 @@
 	@@.reward;You got a <<print itemFuncs.getItemByVariant('buttplug_heart').name>>!@@
 	
 	<!-- <<if playerCode.owns(itemsC.chastityDevice)>>\ -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('chastity_cb6000')>>\
 		<!-- <<set _item=itemsC.chastityDevice>>\ -->
 		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'chastity_cb6000'>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.buttPlugHeart)>>\ -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('buttplug_heart')>>\
 		<!-- <<set _item=itemsC.buttPlugHeart>>\ -->
 		<!-- <<wearClothing _item.id>>\ -->

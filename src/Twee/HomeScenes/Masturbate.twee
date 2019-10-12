@@ -15,8 +15,10 @@ Alright! How do you want to do this?
 	
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.vibrator)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasVibrator>>\
 	<!-- <<if $items.vibrator.stolen>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.stolenVibrator>>\
 		<<set _stol=$guardian +"'s">>\
 	<<else>>\
@@ -64,6 +66,7 @@ Alright! How do you want to do this?
 	<<endif>>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasPlaygirl>>\
 	<<if _chastity and playerCode.masturbate.isTeased() and playerCode.isHorny()>>\
 		<div class="tooltip">@@.halftransparent;Read Playgirl magazine@@ <span id="test_surv" class="tooltiptext">You are too horny to do that while being locked in chastity</span></div>

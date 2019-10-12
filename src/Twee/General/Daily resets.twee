@@ -81,16 +81,19 @@
 <<if $flags.laundryAccident>>\
 	<<set $flags.laundryAccident to false>>\
 	<!-- <<if playerCode.owns(itemsC.gString)>>\ -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('sexyPanties')>>\
 		<!-- <<set $items.gString.disabled=false>>\ -->
 		<<set itemFuncs.enableItemMaster('sexyPanties')>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.pantiesLatex)>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>
 		<!-- <<set $items.pantiesLatex.disabled=false>>\ -->
 		<<set itemFuncs.enableItemMaster('latexPanties')>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.pantiesCotton)>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('plainPanties')>>
 		<!-- <<set $items.pantiesCotton.disabled=false>>\ -->
 		<<set itemFuncs.enableItemMaster('plainPanties')>>\
@@ -138,11 +141,13 @@
 	<!-- <<set $items.batteriesQuality.disabled=true>>\ -->
 	<!-- <<set $items.batteries.disabled=true>>\ -->
 	<!-- <<if playerCode.owns(itemsC.batteriesQuality)>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.hasQualityBatteries >>\
 		<!-- <<removeFromInv $items.batteriesQuality.id>>\ -->
 		<<set $player.hasQualityBatteries = false>>
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.batteries)>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.hasBatteries>>\
 		<!-- <<removeFromInv $items.batteries.id>>\ -->
 		<<set $player.hasBatteries = false>>

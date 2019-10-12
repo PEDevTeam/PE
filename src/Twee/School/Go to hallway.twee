@@ -272,6 +272,7 @@
 				She looks at you for a moment, self-gratified. 
 				
 				<!-- <<if (playerCode.isMaid()) and not playerCode.owns(itemsC.schoolMale)>>\ -->
+				<!-- <<endif>> -->
 				<<if (playerCode.isMaid()) and not inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					@@.teacher;"I am so glad that you //decided// to wear it to school. It looks great on you. I think you should keep it up."@@ $teacher smirks at you, knowing that you have no other options.
 
@@ -285,6 +286,7 @@
 				@@.teacher;"Don't worry, I'm sure that you'll get used to it in no time."@@
 
 				<!-- <<if (playerCode.isMaid()) and playerCode.owns(itemsC.schoolMale)>>\ -->
+				<!-- <<endif>> -->
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					<!-- <<set window.playerCode.purgeMaleClothes()>>\ -->
 					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>
@@ -371,6 +373,7 @@
 			
 			You nod, already dreading the trip to the lingerie store.
 			<!-- <<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\ -->
+			<!-- <<endif>> -->
 			<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and (_underwear.variant eq 'sexy_panties_60' or _underwear.variant eq 'sexy_panties_61')>>\
 				
 				@@.hero;But I got my panties from $friend. Is there even a bra to match?@@
@@ -417,6 +420,7 @@
 				@@.teacher;"Given how you came prepared, this may be not be such a big punishment for you, but at least it will keep things under control."@@
 				
 				<!-- <<if (not playerCode.owns(itemsC.gString)) and (not playerCode.owns(itemsC.pantiesLatex)) and (not playerCode.owns(itemsC.pantiesCotton))>>\ -->
+				<!-- <<endif>> -->
 				<<if (not inventoryFuncs.ownsMasterItem('sexyPanties')) and (not inventoryFuncs.ownsMasterItem('latexPanties')) and (not inventoryFuncs.ownsMasterItem('plainPanties'))>>\
 					@@.teacher;"There is one more minor detail."@@
 					
@@ -490,30 +494,35 @@
 			<<set $flags.teacherNoticeAssEnhancingXL = true>>\
 		<<endif>>\
 		<!-- <<if playerCode.owns(itemsC.PiercingLips) and (not $flags.teacherNoticePiercingLips)>>\ -->
+		<!-- <<endif>> -->
 		<<if $body.lipsPierced and (not $flags.teacherNoticePiercingLips)>>\
 		<<set $flags.teacherNoticePiercingLips = true>>\
 			@@.teacher;"Lip rings make you look easy."@@
 			
 		<<endif>>\
 		<!-- <<if playerCode.owns(itemsC.PiercingNose) and (not $flags.teacherNoticePiercingNose)>>\ -->
+		<!-- <<endif>> -->
 		<<if $body.nosePierced and (not $flags.teacherNoticePiercingNose)>>\
 		<<set $flags.teacherNoticePiercingNose = true>>\
 			@@.teacher;"A piercing in your nose? How distasteful. It makes you look slutty."@@
 			
 		<<endif>>\
 		<!-- <<if playerCode.owns(itemsC.PiercingBelly) and (not $flags.teacherNoticePiercingBelly)>>\ -->
+		<!-- <<endif>> -->
 		<<if $body.bellyPierced and (not $flags.teacherNoticePiercingBelly)>>\
 		<<set $flags.teacherNoticePiercingBelly = true>>\
 			@@.teacher;"Not obvious, but a belly piercing is eye candy when you are less clothed."@@
 			
 		<<endif>>\
 		<!-- <<if playerCode.owns(itemsC.PiercingTongue) and (not $flags.teacherNoticePiercingTongue)>>\ -->
+		<!-- <<endif>> -->
 		<<if $body.tonguePierced and (not $flags.teacherNoticePiercingTongue)>>\
 		<<set $flags.teacherNoticePiercingTongue = true>>\
 			@@.teacher;"Do you love how your tongue piercing makes you lisp like the slut you are?"@@
 			
 		<<endif>>\
 		<!-- <<if playerCode.owns(itemsC.PiercingNipples) and (not $flags.teacherNoticePiercingNipples)>>\ -->
+		<!-- <<endif>> -->
 		<<if $body.nipplesPierced and (not $flags.teacherNoticePiercingNipples)>>\
 		<<set $flags.teacherNoticePiercingNipples = true>>\
 			@@.teacher;"I bet you enjoy these nipple rings."@@
@@ -680,6 +689,7 @@
 	<!-- <<if playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)>>\ -->
 	<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
 		<!-- <<if (_underwearAlt == _braAlt)>>\ -->
+		<!-- <<endif>> -->
 		<<if (_underwear.setName == _bra.setName)>>\
 			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
 			<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
@@ -690,6 +700,7 @@
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
 		@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
 	<!-- <<elseif _u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))>>\ -->
+	<!-- <<endif>> -->
 	<<elseif _underwear.isFemale and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
 		@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
 	<<else>>\
@@ -701,6 +712,7 @@
 	<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 	<<set $player.daysInPanties++>>\
 	<!-- <<if (not playerCode.isWearing(itemsC.gString)) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\ -->
+	<!-- <<endif>> -->
 	<<if (not window.wardrobeFuncs.isItemMasterWearing('sexyPanties')) and $player.perversion.teacher eq 1 and ($player.daysInPanties gte 3)>>\
 		@@.teacher;"@@<br><br>@@.hero;$teacher wants me to wear panties... maybe if I wear fancier ones she'll forgive the rest of my debt?@@
 	<<endif>>\

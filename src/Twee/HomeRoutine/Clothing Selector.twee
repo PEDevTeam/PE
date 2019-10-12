@@ -32,6 +32,7 @@
 		
 	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
 		<!-- <<if window.clothes.dressedOutside.check() or playerCode.isWearing(itemsC.maidOutfit)>>\ -->
+		<!-- <<endif>> -->
 		<<if window.clothes.dressedOutside.check() or window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 			[[Go hunting for used condoms]]\
 		<<else>>\
@@ -71,6 +72,7 @@
 <<endif>>\
 \
 <!-- <<if (playerCode.owns(itemsC.batteries) or playerCode.owns(itemsC.batteriesQuality)) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\ -->
+<!-- <<endif>> -->
 <<if ($player.hasBatteries or $player.hasQualityBatteries) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\
 	<<if window.clothes.dressedGuardian.check()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
@@ -92,6 +94,7 @@
 <<endif>>\
 \
 <!-- <<if ($tasksTeacher.selfieNightwear.status eq 1) and playerCode.owns(itemsC.silkyTeddy)>>\ -->
+<!-- <<endif>> -->
 <<if ($tasksTeacher.selfieNightwear.status eq 1) and inventoryFuncs.ownsMasterItem('nightie')>>\
 	[[Take a selfie in your nightie|Task Nightwear selfie]]
 <<endif>>\
@@ -139,6 +142,7 @@
 	[[Film yourself putting on makeup|Task selfieHomeMakeup]]
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.summerDress) or playerCode.owns(itemsC.skirtTop)>>\ -->
+<!-- <<endif>> -->
 <<if inventoryFuncs.ownsMasterItem('casualDress') or inventoryFuncs.ownsMasterItem('skirtTop')>>\
 	<<if ($tasksTeacher.selfieFemaleClothes.status eq 1)>>\
 		[[Take a photo of yourself in female clothes|Task selfieFemaleClothes]]

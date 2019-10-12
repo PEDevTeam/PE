@@ -93,6 +93,7 @@
 	\
 	<<if (not $player.secondInvLine)>>\
 		<!-- <<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\ -->
+		<!-- <<endif>> -->
 		<<if inventoryFuncs.ownsMasterItem('chastity') or inventoryFuncs.ownsMasterItem('bras') or inventoryFuncs.ownsMasterItem('latexBras') or inventoryFuncs.ownsMasterItem('sexyBras')>>\
 			<<set $player.secondInvLine=true>>\
 		<<endif>>\
@@ -115,12 +116,12 @@
 		<<script>>document.getElementById("sidebarWindow").className="sidebar_window_short" <</script>>\
 	<<endif>>\
 	\
-	<<updateClothes>>\
+	<<ClothingSlotSidebar>>\
 	<<updateStats>>\
 	<<if $player.debugA>>\
 		<<updateDebug>>\
 	<<endif>>\
-	\
+	\ 
 <<endif>>\
 \
 \

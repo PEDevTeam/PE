@@ -20,6 +20,7 @@
 <<showRoomImage "private_drawer_base.jpg">>\
 \
 <!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasPlaygirl>>\
 	<<showRoomImage "00_playgirl_magazine.png">>\
 <<endif>>\
@@ -27,6 +28,7 @@
 	<<showRoomImage "01_sph_ruler.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.stunGun) or $player.daringFlag.stunBully>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasStunGun or $player.daringFlag.stunBully>>\
 	<<showRoomImage "02_stun_gun.png">>\
 <<endif>>\
@@ -40,8 +42,10 @@
 	<<showRoomImage "05_cat_items.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.vibrator)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasVibrator>>\
 	<!-- <<if $items.vibrator.stolen>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.stolenVibrator>>\
 		<<showRoomImage "06_guardians_vibrator.png">>\
 	<<else>>\
@@ -61,6 +65,7 @@
 	<<showRoomImage "10_spycam_box.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.chastityDevice) and (not $flags.chastityKey)>>\ -->
+<!-- <<endif>> -->
 <<if inventoryFuncs.ownsMasterItem('chastity') and (not $flags.chastityKey)>>\
 	<<showRoomImage "12_chastity_key.png">>\
 <<endif>>\
@@ -68,10 +73,12 @@
 	<<showRoomImage "13_broken_key.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.buttPlugDildo) and (not playerCode.isWearing(itemsC.buttPlugDildo))>>\ -->
+<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('buttplug_dildo') and (not window.wardrobeFuncs.isItemVariantWearing('buttplug_dildo'))>>\
 	<<showRoomImage "14_butt_plug_dildo.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.nailPolish)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasNailPolish>>\
 	<<showRoomImage "15_nail_polish.png">>\
 <<endif>>\
@@ -85,15 +92,18 @@
 	<<showRoomImage "17_specimen_jar.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.buttPlugHeart) and (not playerCode.isWearing(itemsC.buttPlugHeart))>>\ -->
+<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('buttplug_heart') and (not window.wardrobeFuncs.isItemVariantWearing('buttplug_heart'))>>\
 	<<showRoomImage "18_jeweled_heart_plug.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.buttPlugVibro) and (not playerCode.isWearing(itemsC.buttPlugVibro))>>\ -->
+<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('buttplug_vibro') and (not window.wardrobeFuncs.isItemVariantWearing('buttplug_vibro'))>>\
 	<<showRoomImage "19_remote_control.png">>\
 	<<showRoomImage "20_remote_plug.png">>\
 <<endif>>\
 <!-- <<if playerCode.owns(itemsC.massageOil)>>\ -->
+<!-- <<endif>> -->
 <<if $player.hasMassageOil>>\
 	<<showRoomImage "21_massage_oil.png">>\
 <<endif>>\

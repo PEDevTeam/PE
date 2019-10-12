@@ -103,6 +103,7 @@
 	<<endif>>\
 	<!-- <<set $items.alarmClock.disabled=true>>\ -->
 	<!-- <<if playerCode.owns(itemsC.alarmClock)>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.hasAlarmClock>>\
 		<!-- <<removeFromInv 'alarmClock'>>\ -->
 		<<set $player.hasAlarmClock = false>>
@@ -117,6 +118,7 @@
 			Luckily, your frilly nightie stays hidden under the covers.
 			
 		<!-- <<elseif (_u and _u.female)>>\ -->
+		<!-- <<endif>> -->
 		<<elseif (_underwear and _underwear.isFemale)>>\
 			Luckily, your frilly underwear stays hidden under the covers.
 			
@@ -183,6 +185,7 @@
 	<<set $player.perversion.guardian to 4>>\
 	<<set $player.masturbationType = 0>>\
 	<!-- <<if (not playerCode.owns(itemsC.vibrator))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not $player.hasVibrator)>>\
 		<!-- <<addToInv 'vibrator'>>\ -->
 		<<set $player.hasVibrator = true>>
@@ -228,6 +231,7 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 5>>\
 	<!-- <<if playerCode.owns(itemsC.alarmClock)>>\ -->
+	<!-- <<endif>> -->
 	<<if $player.hasAlarmClock>>\
 		<!-- <<removeFromInv 'alarmClock'>>\ -->
 		<<set $player.hasAlarmClock = false>>
@@ -339,42 +343,50 @@
 		<<addItemVariantToInventory 'black_shoes_00'>>\
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.silkyTeddy))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('nightie'))>>\
 		@@.guardian;I got you something new to sleep in. I'm sure you'll love it.@@\
 		<!-- <<addToInv 'silkyTeddy'>>\ -->
 		<<addItemVariantToInventory 'nightie_00'>>\ 
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.summerDress)) and (not playerCode.owns(itemsC.sluttyDress))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('casualDress')) and (not inventoryFuncs.ownsMasterItem('sluttyDress'))>>\
 		@@.guardian;I got you a dress as a little present from me.@@\
 		<!-- <<addToInv 'summerDress'>>\ -->
 		<<addItemVariantToInventory 'dress_casual_00'>>\ 
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.gString))>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('sexyPanties'))>>\
 		@@.guardian;Also I've got you some underwear.@@\
 		<!-- <<addToInv 'gString' 40>>\ -->
 		<<addItemVariantToInventory 'panties_sexy_40'>>\ 
 	<<endif>>\
 	<!-- <<if $items.gString.ownAlt[40]>>\ -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('panties_sexy_40') >>\ 
 		<!-- <<addToInv 'braSexy' 40>>\ -->
 		<<addItemVariantToInventory 'bra_sexy_40'>>\ 
 	<<endif>>\
 	<!-- <<if $items.pantiesCotton.ownAlt[40]>>\ -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('panties_cotton_40') >>\ 
 		<!-- <<addToInv 'bra' 40>>\ -->
 		<<addItemVariantToInventory 'bra_40'>>\ 
 	<<endif>>\
 	<!-- <<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not playerCode.owns(itemsC.schoolFemale))>>\ -->
+	<!-- <<endif>> -->
 	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not inventoryFuncs.ownsMasterItem('schoolDress'))>>\
 		@@.guardian;I even got you a new school uniform.@@\
 		<!-- <<addToInv 'schoolFemale'>>\ -->
 		<<addItemVariantToInventory 'school_female_00'>>\ 
 	<<endif>>\
 	<!-- <<if (not playerCode.owns(itemsC.flats)) and (not $items.highHeel3.ownAlt[0])>>\ -->
+	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('flats')) and (not inventoryFuncs.isItemVariantOwned('heels_00'))>>\
 		<!-- <<if playerCode.owns(itemsC.schoolShoes)>>\ -->
+		<!-- <<endif>> -->
 		<<if inventoryFuncs.ownsMasterItem('blackShoes')>>\
 			@@.guardian;I brought you my old shoes since you need something to go with your new clothes.@@\
 		<<else>>\
@@ -396,24 +408,28 @@
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_gamer')>>
 		<!-- <<removeFromInv 'roomGamer'>> -->
 		<<addItemVariantToInventory 'room_gamer_girl'>>\
 		<<removeItemVariantFromInventory 'room_gamer'>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_punk')>>
 		<!-- <<removeFromInv 'roomPunk'>> -->
 		<<addItemVariantToInventory 'room_punk_girl'>>\
 		<<removeItemVariantFromInventory 'room_punk'>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_geek')>>
 		<!-- <<removeFromInv 'roomGeek'>> -->
 		<<addItemVariantToInventory 'room_geek_girl'>>\
 		<<removeItemVariantFromInventory 'room_geek'>>\
 	<<endif>>\
 	<!-- <<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>> -->
+	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_sport')>>
 		<!-- <<removeFromInv 'roomSport'>> -->
 		<<addItemVariantToInventory 'room_sport_girl'>>\
@@ -788,6 +804,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 			You open your eyes slowly, gradually becoming aware of $guardian gently shaking you awake.
 			
 			<!-- <<if _u.female or (_o.female and _o.sleepWear) or _br>>\ -->
+			<!-- <<endif>> -->
 			<<if _underwear.isFemale or (_nightwear and _nightwear.isFemale) or _bra>>\
 				She pulls the covers back a little and sees what you're wearing. 
 				

@@ -202,13 +202,15 @@
 				<<if _shoes.itemVariant == 'heels_stripper_01'>>
 					<<set _feets="feets_stripper_b.png">>
 				<!-- <<elseif $items[_f.id].curAlt eq 2>> -->
+				<!-- <<endif>> -->
 				<<if _shoes.itemVariant == 'heels_stripper_02'>>
 					<<set _feets="feets_stripper_c.png">>
 				<<else>>
 					<<set _feets="feets_stripper_d.png">>
 				<<endif>>
 			<!-- <<elseif _f.cheer>> -->
-			<<if window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
+			<!-- <<endif>> -->
+			<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
 				<<set _feets="feets_shoes_socks_cheer.png">>
 			<<else>>
 				<!-- <<if $items[_f.id].curAlt eq 0>> -->
@@ -218,6 +220,7 @@
 				<<if _shoes.itemVariant == 'heels_02'>>
 					<<set _feets="feets_heels_b.png">>
 				<!-- <<elseif $items[_f.id].curAlt eq 3>> -->
+				<!-- <<endif>> -->
 				<<if _shoes.itemVariant == 'heels_03'>>
 					<<set _feets="feets_heels_c.png">>
 				<<else>>
@@ -226,6 +229,7 @@
 			<<endif>>
 		<<else>>
 			<!-- <<if _f.school>> -->
+			<!-- <<endif>> -->
 			<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>
 				<<set _feets="feets_shoes.png">>
 			<<else>>
@@ -261,6 +265,7 @@
 	<<if $body.surgerySexualReassignment>>
 		<<set _groin="groin_pussy.png">>
 	<!-- <<elseif playerCode.isWearingOn(itemTypes.Chastity)>> -->
+	<!-- <<endif>> -->
 	<<elseif window.wardrobeFuncs.getWornItem('chastity')>>\
 		<<if ($body.penisShrink eq 1)>>
 			<<set _groin="groin_chastity_1.png">>
@@ -277,6 +282,7 @@
 	
 	<<if playerCode.haveHeavyMakeup()>>
 		<!-- <<if playerCode.owns(itemsC.tattooHeart)>> -->
+		<!-- <<endif>> -->
 		<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 		<<set _face="face_makeup_3_heart.png">>
 		<<else>>
@@ -284,6 +290,7 @@
 		<<endif>>
 	<<elseif playerCode.haveBimboMakeup()>>
 		<!-- <<if playerCode.owns(itemsC.tattooHeart)>> -->
+		<!-- <<endif>> -->
 		<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 		<<set _face="face_makeup_2_heart.png">>
 		<<else>>
@@ -291,6 +298,7 @@
 		<<endif>>
 	<<elseif playerCode.haveMakeup()>>
 		<!-- <<if playerCode.owns(itemsC.tattooHeart)>> -->
+		<!-- <<endif>> -->
 		<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 		<<set _face="face_makeup_1_heart.png">>
 		<<else>>
@@ -298,6 +306,7 @@
 		<<endif>>
 	<<else>>
 		<!-- <<if playerCode.owns(itemsC.tattooHeart)>> -->
+		<!-- <<endif>> -->
 		<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 		<<set _face="face_makeup_0_heart.png">>
 		<<else>>
@@ -468,6 +477,7 @@
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
 		<!-- <<elseif playerCode.isWearing(itemsC.cheerDress)>> -->
+		<!-- <<endif>> -->
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 			<<set _chest="clothes_cheer_uniform_br_">>
 			<<set _chest+=_bs>>
@@ -502,6 +512,7 @@
 			<<set _groin+=_hs>>
 			<<set _groin+=".png">>
 		<!-- <<elseif playerCode.isWearing(itemsC.gString)>> -->
+		<!-- <<endif>> -->
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
 			<<if playerCode.isWearingOn(itemTypes.Chastity)>>
 				<<set _groin="underwear_gstring_chastity_hips_">>
@@ -519,6 +530,7 @@
 	<!-- <<set _b = playerCode.isWearingOn(itemTypes.Hairband)>> -->
 	<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
 	<!-- <<if _b.id == "hairbow" && $items[_b.id].curAlt eq 43>> -->
+	<!-- <<endif>> -->
 	<<if _headwear.itemVariant == 'hairband_43'>>
 		<<if playerCode.haveHaircut()>>
 			<<if ($body.hairstyle eq 1)>>
@@ -572,6 +584,7 @@
 	<<endif>>
 	
 	<!-- <<if playerCode.owns(itemsC.PiercingLips)>>-->
+	<!-- <<endif>> -->
 	<<if $body.lipsPierced>>
 		<<showAvatarImage "piercing_lips.png">>
 	<<endif>>
@@ -588,6 +601,7 @@
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
 			<<showAvatarImage "earrings_ruby.png">>
 		<!-- <<elseif playerCode.isWearing(itemsC.hoopsEarrings)>> -->
+		<!-- <<endif>> -->
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('flashyEarrings')>>\
 			<<showAvatarImage "earrings_hoops.png">>
 		<<endif>>
@@ -660,6 +674,7 @@
 	<<if $player.debugN eq 2>>\
 		<<set $player.debugN = 0>>\
 		<!-- <<if (not playerCode.owns(itemsC.gString))>>\ -->
+		<!-- <<endif>> -->
 		<<if (not inventoryFuncs.ownsMasterItem('sexyPanties'))>>\
 			<!-- <<addToInv $items.gString.id>>\ -->
 			<<addItemVariantToInventory 'panties_sexy_40'>>\
@@ -667,11 +682,13 @@
 	<<elseif $player.debugN eq 3>>\
 		<<set $player.debugN = 0>>\
 		<!-- <<if (not playerCode.owns(itemsC.chastityDevice))>>\ -->
+		<!-- <<endif>> -->
 		<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
 			<!-- <<addToInv $items.chastityDevice.id>>\ -->
 			<<addItemVariantToInventory 'chastity_cb6000'>>\
 		<<endif>>\
 		<!-- <<if (not playerCode.owns(itemsC.buttPlugHeart))>>\ -->
+		<!-- <<endif>> -->
 		<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
 			<!-- <<addToInv $items.buttPlugHeart.id>>\ -->
 			<<addItemVariantToInventory 'buttplug_heart'>>\
@@ -679,11 +696,13 @@
 	<<elseif $player.debugN eq 4>>\
 		<<set $player.debugN = 0>>\
 		<!-- <<if (not playerCode.owns(itemsC.schoolFemale))>>\ -->
+		<!-- <<endif>> -->
 		<<if (not inventoryFuncs.ownsMasterItem('schoolDress'))>>\
 			<!-- <<addToInv $items.schoolFemale.id>>\  -->
 			<<addItemVariantToInventory 'school_female_00'>>\
 		<<endif>>\
 		<!-- <<if (not playerCode.owns(itemsC.highHeel3))>>\ -->
+		<!-- <<endif>> -->
 		<<if (not inventoryFuncs.ownsMasterItem('heels'))>>\
 			<!-- <<addToInv $items.highHeel3.id>>\ -->
 			<<addItemVariantToInventory 'heels_03'>>\
