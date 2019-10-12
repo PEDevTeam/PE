@@ -199,7 +199,7 @@ window.itemNavigator = {
             }
             var masterItem = window.items.itemMasters[category.masterItems[masterItemIdx]];
         
-            if(filterMasterItems.includes(category.masterItems[masterItemIdx])){
+            if(filterMasterItems.includes(category.masterItems[masterItemIdx]) && !masterItem.disabled){
 
                 var masterItemTr = document.createElement('tr');
                 var masterItemTd = document.createElement('td');
