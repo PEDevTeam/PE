@@ -4,10 +4,10 @@
 <!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
 <<set _wornUnderwear to window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties'))>>\
-<<if _wornUnderwear.female>>\
-    <<set _panties to itemF.itemTwee(_wornUnderwear.id)>>\
-    <<set _pantiesAlt to _panties.curAlt>>\
-<<endif>>\
+<!-- <<if _wornUnderwear.female>>\ -->
+    <!-- <<set _panties to itemF.itemTwee(_wornUnderwear.id)>>\ -->
+    <!-- <<set _pantiesAlt to _panties.curAlt>>\ -->
+<!-- <<endif>>\ -->
 \
 For some reason, the thought of wearing stockings feels like a whole new level compared to just wearing panties. Sure, you can still hide them under pants, \
 but when you handle the ones that $guardian wears when doing the laundry, they definitely feel different to your socks. Sadly, $guardian has too few pairs for you to just swipe some during your chores.
@@ -111,7 +111,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
     down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
 
-    <<if _wearingGString and _pantiesAlt eq 61>>\
+    <<if _wearingGString and _wornUnderwear.variant eq 'panties_sexy_60'>>\
         @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
     <<elseif _wornUnderwear.female>>\
         @@.friend;“You have different pairs of panties? I hope they didn’t come from another woman, I would hate competition.”@@
@@ -174,7 +174,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
     <!-- <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs. -->
     <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
 
-    <<if _wearingGString and _pantiesAlt eq 60>>\
+    <<if _wearingGString and  _wornUnderwear.variant eq 'panties_sexy_61'>>\
                 @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
     <<elseif _wornUnderwear.female>>\
                 @@.friend;“You have different pairs of panties? I hope they didn’t come from someone else, I would hate competition.”@@
@@ -212,7 +212,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
     <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> and realise they are too tight to even go over your calves. \
     You sigh and pull off your socks, then your pants. $friend returns a few seconds later.
 
-    <<if _wearingGString and _pantiesAlt eq 60>>\
+    <<if _wearingGString and  _wornUnderwear.variant eq 'panties_sexy_60'>>\
         @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
     <<elseif _wornUnderwear.female>>\
         @@.friend;“You have different pairs of panties? I hope they weren’t a gift someone else, I would hate competition.”@@

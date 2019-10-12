@@ -243,7 +243,7 @@
 
 			@@.reward;You got a set of hoop earrings!@@
 			<<if ($body.makeup eq 2)>>\
-				<<set $player.salonTab += window.itemF.cost(_item)>>\
+				<<set $player.salonTab += $body.makeupCosts[1]>>\
 				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 

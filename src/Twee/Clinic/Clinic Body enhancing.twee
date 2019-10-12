@@ -477,7 +477,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<elseif $body.lips eq 1>>\
 		<<set $body.permLips = 1>>\
 	<<endif>>\
-	<<set $player.money -= window.itemF.cost(itemsC.LipsPermanent)>>\
+	<<set $player.money -= $body.permanentLipsCosts[0]>>\
 	<<set $flags.salonLips=true>>\
 	Nancy examines your enhanced lips.  @@.nurse;"Yes, this will work nicely to stabilize your current lip size.  Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in your lips.
 	
@@ -573,7 +573,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<elseif ($body.ass eq 1)>>\
 		<<set $body.permAss = 1>>\
 	<<endif>>\
-	<<set $player.money -= window.itemF.cost(itemsC.AssPermanent)>>\
+	<<set $player.money -= $body.permanentAssCostt[0]>>\
 	<<set $flags.salonAss=true>>\
 	Nancy examines your ass.  @@.nurse;"Yes, this will work nicely to stabilize your current butt size.  Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in each butt cheek.
 	
