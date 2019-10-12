@@ -160,6 +160,8 @@ You pull your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jean
 material of your pants brushing your skin through the sensual material. You <<if $friendG.gender eq 'F'>>hug<<else>>shoulder bump<<endif>> $friend and get ready to leave.
 
 <<addToInv 'stockings'>>\
+<<set $friendG.tasks.stockings = true>>\
+<<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.wearStockings.status = 2>>\
 <<set $tasksTeacher.wearStockings.progress++>>\
 <<if ($player.perversion.crossdressing lte 1)>>\

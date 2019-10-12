@@ -65,21 +65,21 @@ window.clothes={
 				return false;
 			}
 			if (collar && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing choker";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a choker";
 				if (collar.masterItem == "collar") {
-					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a collar";
 				}
 				if (collar.daring >=  8) {
-					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such a collar";
 				}
 				return false;
 			}
 			if (hairband && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing feminine hair acessorry";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a feminine hair accessory";
 				return false;
 			}
 			if ((eyewear || mouthwear) && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing extra acessorry";
+				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing an extra accessory";
 				return false;
 			}
 			if (!outerwear && player.perversion.guardian <= 4) {
@@ -102,7 +102,7 @@ window.clothes={
 			//var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
 			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
 			if (outerwear && window.inventoryFuncs.hasTag(outerwear, 'school')) {
-				State.active.variables.reason.dressedGuardianWork="Clinic policy forbids wearing a school uniform on a part time job";
+				State.active.variables.reason.dressedGuardianWork="Clinic policy forbids wearing a school uniform while on a part time job";
 				return false;
 			}
 			return true;
@@ -220,19 +220,19 @@ window.clothes={
 				return false;
 			}
 			if (collar && collar.masterItem == "choker" && (player.daring < window.daringValues.daringCollar)) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing choker";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing a choker";
 				return false;
 			}
 			if (collar && collar.masterItem == "collar" && (player.daring < collar.daring) && !State.active.variables.flags.collarLocked) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing such collar";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing such a collar";
 				return false;
 			}
 			if (hairband && (player.daring < window.daringValues.daringHairband)) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing feminine hair acessorry";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing a feminine hair accessory";
 				return false;
 			}
 			if ((eyewear || mouthwear) && (player.daring < window.daringValues.daringExtra)) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing extra acessorry";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra acessorry";
 				return false;
 			}
 			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
@@ -359,11 +359,11 @@ window.clothes={
 					return false;
 				}
 				if (shoes && window.inventoryFuncs.hasTag(shoes, 'school')) {
-					State.active.variables.reason.dressedSchool="Such style of shoes is against school uniform regulations, I need more conservative looking model";
+					State.active.variables.reason.dressedSchool="This style of shoes is against school uniform regulations, I need a more conservative looking type";
 					return false;
 				}
 				if (shoes && (shoes.daring >= 7)) {
-					State.active.variables.reason.dressedSchool="Such heeled shoes are against school uniform regulations";
+					State.active.variables.reason.dressedSchool="Heeled shoes are against school uniform regulations";
 					return false;
 				}
 			}

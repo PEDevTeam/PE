@@ -706,6 +706,8 @@
 	[[Teach perv 6 to 7|Go to bedroom][$player.perversion.teacher++;$player.daring=9; $player.daringFlag.coachGame=true]] \
 	<<elseif $player.perversion.teacher eq 7>>\
 	[[Teach perv 7 to 8|Go to bedroom][$player.perversion.teacher++;$player.daring=10; $player.perversion.coach=9; $player.daringFlag.coachGameWin=true]] \
+	<<elseif $player.perversion.teacher gt 7 && $player.perversion.teacher lt 11>>\
+	[[Teach perv to 11|Go to bedroom][$player.perversion.teacher++;$flags.bullyRoute = true]]\
 	<<endif>>\
 	
 	<<if $player.perversion.guardian eq 0>>\

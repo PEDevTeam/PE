@@ -16,6 +16,12 @@
 <!-- <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <!-- <<set _underwearAlt to $items[_u.id].curAlt >>\ -->
+<<if _underwear>>\
+	<!-- <<set _underwearAlt to $items[_u.id].curAlt >>\ -->
+	<<if _underwear.isFemale and ((($player.perversion.teacherCooldown gt 0) and ($player.perversion.teacher eq 2)) or ($player.perversion.teacher gt 2))>>\
+		<<set $player.daysInPanties++>>\
+	<<endif>>\
+<<endif>>\
 <<if _bra>>\
 	<!-- <<set _braAlt to $items[_bra.id].curAlt >>\ -->
 <<endif>>\
@@ -365,7 +371,7 @@
 			
 			You nod, already dreading the trip to the lingerie store.
 			<!-- <<if playerCode.isWearing(itemsC.gString) and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\ -->
-			<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and (_underwearAlt eq 60 or _underwearAlt eq 61)>>\
+			<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and (_underwear.variant eq 'sexy_panties_60' or _underwear.variant eq 'sexy_panties_61')>>\
 				
 				@@.hero;But I got my panties from $friend. Is there even a bra to match?@@
 				\

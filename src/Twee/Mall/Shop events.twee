@@ -732,7 +732,7 @@
            The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
            With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
 
-           @@.heroT;“Cotton panties?”
+           @@.heroT;“Cotton panties?”@@
 
            <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
 
@@ -742,4 +742,7 @@
            @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
        <<endif>>\
    <<endif>>\
+<<endif>>\
+<<if $curStore == "Urbane Menswear">>\
+	<<include [[Urbane_Menswear_events]]>>\
 <<endif>>\

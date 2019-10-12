@@ -384,7 +384,7 @@
 	
 <!--</Feet and sweat kink survey>-->\
 <<elseif $player.therapistSurvey eq 5>><!--<Clothes kink dream>-->\
-	<<set _clothes = [$kink.leather, $kink.latex, $kink.nylon, $kink.frilly]>>\
+	<<set _clothes = [$kinkAllow.leather, $kinkAllow.latex, $kinkAllow.nylon, $kinkAllow.frilly]>>\
 	<<set _clothesNum = 0>>\
 	<<for _i to 0; _i lt _clothes.length; _i++>>\
 		<<if _clothes[_i]>>\
@@ -1139,64 +1139,64 @@ Yes \
 7) Does wearing or feeling garments made of certain materials have an especially sensual or erotic appeal to you?
 	<!--<Clothes kink survey>-->\
 <!-- Note, clothes kinks activate right in survey, no need for separate therapy -->
-<<set $scene = window.misc.toggleKink( not $kink.clothing )>>\
+<<set $scene = window.misc.toggleKink( not $kinkAllow.clothing )>>\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
-<<set $kink.clothing = false>>\
+<<set $kinkAllow.clothing = false>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
 No – I am not aroused by any specific clothing material.\
 
-<<set $scene = window.misc.toggleKink( $kink.clothing )>>\
+<<set $scene = window.misc.toggleKink( $kinkAllow.clothing )>>\
 <<click '<<checkbox "_temp" false true $scene>>'>><<replace "#quickTherapistSurveyDetailed">>\
-<<set $kink.clothing = true>>\
+<<set $kinkAllow.clothing = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
 Yes \
-<<if not $kink.clothing>>\
-	<<set $kink.latex = false>>\
-	<<set $kink.leather = false>>\
-	<<set $kink.nylon = false>>\
-	<<set $kink.frilly = false>>\
+<<if not $kinkAllow.clothing>>\
+	<<set $kinkAllow.latex = false>>\
+	<<set $kinkAllow.leather = false>>\
+	<<set $kinkAllow.nylon = false>>\
+	<<set $kinkAllow.frilly = false>>\
 <<endif>>\
 <<click ' - mark everything'>><<replace "#quickTherapistSurveyDetailed">>\
-<<set $kink.clothing = true>>\
-	<<set $kink.latex = true>>\
-	<<set $kink.leather = true>>\
-	<<set $kink.nylon = true>>\
-	<<set $kink.frilly = true>>\
+<<set $kinkAllow.clothing = true>>\
+	<<set $kinkAllow.latex = true>>\
+	<<set $kinkAllow.leather = true>>\
+	<<set $kinkAllow.nylon = true>>\
+	<<set $kinkAllow.frilly = true>>\
 <<display "TherapistSurvey">><</replace>><</click>> \
 
 &#9702; \
 <<set _kinkDesc = "Latex">>\
 <<set _tooltip = window.kinkTooltip.latex>>\
-<<set $scene = window.misc.toggleKink( $kink.latex )>>\
-<<if $kink.clothing>>\
-<<checkbox "$kink.latex" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<set $scene = window.misc.toggleKink( $kinkAllow.latex )>>\
+<<if $kinkAllow.clothing>>\
+<<checkbox "$kinkAllow.latex" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
 <<endif>>\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 &#9702; \
 <<set _kinkDesc = "Leather">>\
 <<set _tooltip = window.kinkTooltip.leather>>\
-<<set $scene = window.misc.toggleKink( $kink.leather )>>\
-<<if $kink.clothing>>\
-<<checkbox "$kink.leather" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<set $scene = window.misc.toggleKink( $kinkAllow.leather )>>\
+<<if $kinkAllow.clothing>>\
+<<checkbox "$kinkAllow.leather" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
 <<endif>>\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 &#9702; \
 <<set _kinkDesc = "Nylon">>\
 <<set _tooltip = window.kinkTooltip.nylon>>\
-<<set $scene = window.misc.toggleKink( $kink.nylon )>>\
-<<if $kink.clothing>>\
-<<checkbox "$kink.nylon" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<set $scene = window.misc.toggleKink( $kinkAllow.nylon )>>\
+<<if $kinkAllow.clothing>>\
+<<checkbox "$kinkAllow.nylon" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
 <<endif>>\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 
 &#9702; \
 <<set _kinkDesc = "Frilly">>\
 <<set _tooltip = window.kinkTooltip.frilly>>\
-<<set $scene = window.misc.toggleKink( $kink.frilly )>>\
-<<if $kink.clothing>>\
-<<checkbox "$kink.frilly" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
+<<set $scene = window.misc.toggleKink( $kinkAllow.frilly )>>\
+<<if $kinkAllow.clothing>>\
+<<checkbox "$kinkAllow.frilly" false true $scene>> <<else>>@@.halftransparent; &#x2610; @@\
 <<endif>>\
 <<print _kinkDesc>> @@.halftransparent;(<<print _tooltip>>)@@\
 

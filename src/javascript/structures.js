@@ -1045,6 +1045,16 @@ window.friendList={
         r2: 0,
         c3: 0,
     },
+	tasks: {
+		timesHelped: 0,
+		bra: false,
+		flats: false,
+		legHair: false,
+		mall: false,
+		selfieFemaleClothes: false,
+		selfieMakeup: false,
+		stockings: false,
+	},
     seenPanties: [],
 },
 
@@ -1441,9 +1451,9 @@ window.flagsList={
 	ashleyTrained: false,
 	flatsFlag: false,
 	flatsDelay: false,
-	friendFlatsTask: false,
 	slutRoute: false,
 	bullyRoute: false,
+	mallUrbaneIntro: false,
 },
 
 window.kinkList={
