@@ -22,7 +22,6 @@ You do not need to think long for an answer. @@.hero;"It's frustrating. I do so 
 @@.therapist;"Of course."@@ She answers and thinks for a short while.\
 \
 /* check for any kink which may allow this actual scene to be played */\
-<<set _startable = false>>\
 <<set _possible = $kinkAllow.bdsm or $kinkAllow.bondage or $kinkAllow.painPlay or $kinkAllow.questionable or $kinkAllow.abusive>>\
 <<if $kink.bdsm>>\
 	<<set _sufficientKink = "BDSM">>\
@@ -36,36 +35,23 @@ You do not need to think long for an answer. @@.hero;"It's frustrating. I do so 
 	<<set _sufficientKink = "abusive behaviour">>\
 <<endif>>\
 \
-@@.therapist;"Predicting you would raise this issue eventually, I prepared a therapy session\
+@@.therapist;"I expected you would raise this issue eventually. That is why I devised a therapy method to help you.\
 <<if not _sufficientKink>>\
-	tailor-made for you. Unfortunately, you are not ready for\
+	Unfortunately, you are not ready for\
 	<<if _possible>>\
 		it, yet. We should explore other parts of your personality, first.\
 	<<else>>\
 		it. And based on the survey we took on our very first session, you never will be.\
 	<<endif>>\
 <<else>>\
-	based on your particular interest in _sufficientKink. It will most likely help you instantly and permanently.\
-	<<if not _chastity>>\
-		I need you to bring your chastity cage, though.\
-	<<else>>\
-		<<if _locked>>\
-			<<if _permLocked>>\
-				Your chastity cage would need to be unlocked, though. Since you have permanently lost access to your own penis, unfortunately we cannot proceed.\
-			<<else>>\
-				Your chastity cage needs to be unlocked, though.\
-			<<endif>>\
-		<<else>>\
-			You brought your chastity cage and you can take it off. Perfect. We can start right away.\
-			<<set _startable = true>>\
-		<<endif>>\
-	<<endif>>\
+	It is based on your particular interest in _sufficientKink. It will most likely help you instantly and permanently. However, I will not be performing the procedure myself. You will have to see a specialist.
 <<endif>>\
-"@@
+"@@<<if _sufficientKink and _possible>>\
 
-<<if _startable>>\
-[[Start special therapy session|Therapist stimulation preference reassignment]]
-<<else>>\
-Since you cannot accept her offer, you have no other option but to \
+$therapist hands you a piece of paper. The address is $guardian's place of work.
+<<set $stimulationPreferenceTherapy = "enabled">>
 <<endif>>\
+
 [[Talk about something else|Visit therapist][$flags.therapistTalk=true]]
+
+/* ($player.perversion.guardian ge 6) or ($flags.guardianCumDrink) from [Work at clinic] could be used for forshadowing (PC knows the "pervert's wing") */

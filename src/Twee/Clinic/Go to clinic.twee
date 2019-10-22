@@ -9,6 +9,9 @@ You walk over to the clinic where $guardian works.
 		<<print '<<notDressed "Go to '+$guardian+'\'s clinic" $reason.dressedTherapy>>'>>
 	<<endif>>\
 <<endif>>\
+<<if $stimulationPreferenceTherapy == "enabled" >>\
+	<<print '[[Clinic stimulation preference reassignment|'+$therapist+'s Special Therapy Session]]'>>
+<<endif>>\
 <<if ($player.daring gt 0)>>\
 	<<print "[[Enter the Beauty salon|Beauty Salon]]">>
 <<else>>\
