@@ -1,0 +1,29 @@
+::Friend Teacher Tasks Menu
+\
+@@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
+
+<<if $tasksTeacher.selfieFemaleClothes.status eq 1>>\
+    [[Wearing a Dress|Friend Teacher Tasks Selfie Female Clothes]]
+<<endif>>\
+<<if $tasksTeacher.posingSeductively.status eq 1>>\
+    [[Posing Seductively|Friend Teacher Tasks Posing Seductively]]
+<<endif>>\
+<<if $tasksTeacher.danceAtHome.status eq 1>>\
+    [[Dancing|Friend Teacher Tasks Dancing At Home]]
+<<endif>>\
+<<if $tasksTeacher.selfieHomeMakeup.status eq 1>>\
+    [[Putting on Makeup|Friend Teacher Tasks Selfie Makeup]]
+<<endif>>\
+<<if $tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress == 0>>\
+    [[Wearing Stockings|Friend Teacher Tasks Wear Stockings]]
+<<endif>>\
+<<if $tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0>>\
+	[[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
+<<endif>>\
+<<if $flags.flatsFlag == true && not playerCode.owns(itemsC.flats)>>\
+	[[Wearing Flats|Friend Teacher Tasks Flats]]
+<<endif>>\
+<<if $tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0>>\
+	[[Trying on Clothes at the Mall|Friend Teacher Tasks Mall]]
+<<endif>>\
+[[Nothing Right Now|Friend Basic Teacher Tasks]]

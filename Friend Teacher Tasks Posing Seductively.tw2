@@ -1,0 +1,190 @@
+::Friend Teacher Tasks Posing Seductively
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<if $tasksTeacher.posingSeductively.status eq 1>>\
+    <<if $friendG.posingAttempt gte 1>>\
+       \$friend gives you an expectant look.
+
+        @@.friend;"I hope you put some effort into getting ready this time,"@@ $friendG.he_she says. 
+        <<if (_u.female = 0 or _c = 0 or _p.female = 0 or $player.bodyhair = 0) set $friendG.posingFail = 1>>\
+            <<if $friendG.posingFail = 1>>\
+                @@.heroT;"Sorry, $friend. I kinda forgot."@@
+
+                @@.friend;"Oh, well - it's your choice,"@@ $friend says sadly, before pushing you back out onto the steps and slamming the door in your face. 
+                <<set $friendG.friendTaskFrustration eq ($friendG.friendTaskFrustration + 3)>>\
+
+                [[Go home|Go Home]]
+
+            <<else>>\
+                @@.heroT;"I did as you asked,"@@ you say, looking down at yourself and blushing. @@.heroT;"Girl's underwear, smooth legs, stockings..."@@
+
+                @@.friend;"And did you put on the little cage?"@@
+
+                @@.heroT;"Yes," you answer, reaching down to touch your waist, unsure if $friend wants to check.
+
+                @@.friend;"You are too cute," $friend says, before grabbing your hand excitedly and leading you upstairs to $friendG.his_her sister's room. $friendG.he_she goes into the walk-in closet and pulls out the same clothes as last time, arranging them on the bed. @@.friend;"I had hoped you would come back - and you did! Now we can have some fun.
+
+                You take the first dress, a simple blue ruched-sleeved summer dress and pull it over your head. You struggle with the rear zip, but $friend is immediately there to help, $friendG.his_her fingers brushing your skin as $friend.he_she does so. <!--Should there be an image of the dress here?-->
+
+                [[Time to pose|Time to Pose]]
+            <<endif>>\
+    <<elseif $friend.posingAttempt = 0>>\
+        You open your mouth to reply, and then close it, unsure how to say what you need to do. Wordlessly, you turn and trudge upstairs to $friend's room. $friend follows you from behind, practically vibrating with curiosity, but you ignore them and flop onto $friendG.his_her bed. 
+
+        @@.friend;"Alright, what's up?"@@ $friend asks, their curiosity giving way to concern. 
+
+        @@.hero;"Oh nothing. I just need to dress up like a girl and pose like a photo shoot." Yeah, that won't be awkward.@@
+
+        You brainstorm for a moment, a few ideas crossing your mind, and one in particular sticks out. It's the best one you've gotten so far. 
+
+        @@.heroT;"You've been saving pictures, haven't you?"@@
+
+        @@.friend;"Of..."@@
+
+        @@.heroT;"Of me. You know...//wearing girl's stuff,\\"@@ you hiss. @@.heroT;"I saw you take a couple."@@
+
+        @@.friend;"Er...one or two, I guess,"@@ $friend says, blushing sheepishly.
+
+        @@.heroT;"How about I, uh...pose. For you, for a couple of shots?"@@ 
+
+        @@.friend;"Really?"@@ Did $friendG.he_she have to sound so excited about it?
+
+        <<if $friendG.trans = 1>>\
+            @@.hero;"Um, sure - but only if you use my phone, and if I get some of you, too."@@
+        <<else>>\
+            @@.hero;"Um, sure - but only if you use my phone."@@
+        <<endif>>\
+            Without hesitation, $friend races into $friendG.his_her sister's walk-in closet and begins sorting through it. Knowing that you need to do this to avoid upsetting $teacher, and remembering that this was technically your idea, you go ahead and strip down to your underwear.
+        <<set _o = 0>>\
+            Once you're exposed, $friend comes back out with a selection of clothes, and eyes you up and down.
+        <<if (playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy)) or (_u.female and _bra and (playerCode.isWearing(itemsC.pantiesCotton) or playerCode.isWearing(itemsC.bra))) and (_underwearAlt == _braAlt)>>\
+            @@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
+                <<if $friendG.friendTaskFrustration gt 0 then set $friendGfriendTaskFrustration = ($friendG.friendTaskFrustration - 1)>>\
+        <<elseif (_underwearAlt ==! _braAlt)>>\
+            @@.friend;"Cool, you're wearing a bra and panties... but they aren't matching. Oh well, I guess it's good enough."
+        <<elseif _bra = 0>>\
+            @@.friend;"No bra?"@@ $friend cocks their head to the side in confusion, mingled with frustration. @@.friend;"Why would you ask me to help you if you aren't even going to wear the right kind of underwear?"@@
+
+            @@.heroT;"I, uh..."@@ You mumble, covering your bare chest with your arms. @@.heroT;"Sorry, I guess."@@
+            <<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
+            <<set $friendG.posingFail = 1>>\
+        <<elseif _u.male = 1>>\
+            @@.friend;"Boxers? Really?"@@ $friend shakes their head, looking disappointed. @@.friend;"I thought you were way past boxers."@@
+            <<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
+            <<set $friendG.posingFail = 1>>\
+        <<endif>>\
+        <<if (_c = 1 and $friendG.friendseenchastity = 0>>\
+            @@.friend;"Wait a second,"@@ $friend says, pointing down at your crotch. @@.friend;"What is that?"@@
+            
+            You look down, wondering what $friend is talking about, and blink dumbly at the sight of the telltale bulge of the chastity cage in your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>>. With a girlish squeak, your cover up with your hands, but $friend rushes over to you and grabs your wrists. $friendG.he_she is too strong for you to resist, and $friendG.he_she easily pulls your arms apart to expose your secret. 
+
+            @@.friend;"I've never seen something like that before," $friend whispers, their breath hot against your neck. 
+            
+            You find yourself going limp in defeat, and when they let go of your arms you just let them fall to your sides. Your eyes close and you whimper as $friend gently tugs down the front of your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>>, revealing exactly what lies beneath. 
+
+            @@.friend;"Huh...so it's some kind of cage? Looks really uncomfortable."@@ $friendG.he_she tugs on the tiny padlock, causing a gentle tinkling sound.
+
+            @@.heroT;"Y-Yeah..."@@ You mumble, then let out a sigh as $friend pulls your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>> back up and gently rubs your thigh. 
+
+            @@.friend;"It's so cute!" $friend says, grinning. <<if $player.kink.sph = true>>@@.friend;"It really suits your teeny thingy, to be honest. Keeps it safe and sound, huh? Like the shell of a baby turtle."@@<<endif>>\
+            
+            <<if $friendG.trans = 1>>\
+                As $friend steps back to continue assessing you, their expression turns speculative.
+
+                @@.friend;"Maybe I should get one, too..."@@
+                <<set $friendG.friendGetChastity = 1>>\
+            <<endif>>\
+        <<set $friendG.friendseenchastity = 1>>\
+        <<elseif (_c = 1 and $friendG.friendseenchastity = 1>>\ 
+            $friend eyes your crotch, grinning when they recognize a particular bulge.
+
+            @@.friend;"You're still wearing that cage, huh? Good."@@
+                <<if $friendG.trans = 1>>\
+                    @@.friend;"Maybe I should get one, too, then we'll match..."@@
+                <<set $friendG.friendGetChastity = 1>>\
+            <<endif>>\
+
+        <<elseif (_c = 0 and $friendG.friendseenchastity = 1>>\ 
+            $friend eyes your crotch, looking for a specific plastic bulge, but they don't find it.
+
+            @@.friend;"No cage? But I thought..."@@
+                <<set $friendG.posingFail = 1>>\
+        <<elseif (_c = 0 and $friendG.friendseenchastity = 0>>\
+            $friend stares at your crotch, frowning.
+
+            @@.friend;"There's something missing here...I think we should do this some other time."@@
+                <<set $friendG.posingFail = 1>>\
+        <<endif>>\      
+        <<if _p.female = 1>>\
+            <<if ($playerCode.isWearingOn.stockings or $playerCode.isWearingOn.stockingsLatex)>>\
+                @@.friend;"OK, do a little spin for me," $friend says, making a motion with their finger like they're stirring a pot. You do as $friendG.he_she says, feeling silly.
+                
+                @@.friend;"I love your stockings, $playername. They really suit you."@@ $friendG.he_she peers closely at your thighs. <<if $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 0>>@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@<<set $friendG.seenWaxedLeg = 1>><<elseif $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 1>>@@.friend;"You've been keeping your legs smooth and hairless, too? Good job."@@<<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 0>>@@.friend;"It's a shame you've got such hairy legs. That kind of just ruins the whole thing."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 1>>@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<endif>>
+                <<if $friend.friendTaskFrustration gt 0 then set $friend.friendTaskFrustration = ($friend.friendTaskFrustration - 1)>>\
+                <<set $friendG.friendseenstockings = 1>>\
+            <<elseif $playerCode.isWearingOn.socks = 1>>\
+                @@.friend;"OK, do a little spin for me," $friend says, making a motion with their finger like they're stirring a pot. You do as $friendG.he_she says, feeling silly.
+
+
+                @@.friend;"Are those girl’s socks? They look kinda cute, but I think stockings would suit you more."@@ $friendG.he_she peers closely at your thighs. <<if $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 0>>@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@<<set $friendG.seenWaxedLeg = 1>><<elseif $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 1>>@@.friend;"You've been keeping your legs smooth and hairless, too? Good job."@@<<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 0>>@@.friend;"It's a shame you've got such hairy legs. That just kind of ruins the whole thing."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 1>>@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<endif>>
+            <<endif>>\
+        <<else>>\
+            @@.friend;"OK, do a little spin for me," $friend says, making a motion with their finger like they're stirring a pot. You do as $friendG.he_she says, feeling silly.
+            
+            @@.friend;"No stockings? Not even girl's socks? Come on, $playername - really?"@@ $friend sighs, then steps forward and slides a hand up the back of your thigh. \<<if $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 0>>@@.friend;"Oooo...well, at least you got your legs waxed, so that's something. Good initiative, $playername."@@<<set $friendG.seenWaxedLeg = 1>><<elseif $player.body.bodyhair gte 1 and $friendG.seenWaxedLeg = 1>>@@.friend;"At least you've got your legs waxed, so that's something."@@<<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 0>>@@.friend;"Your legs are too hairy, too! Ugh. You definitely need to go get them waxed."@@<<elseif $player.body.bodyhair = 0 and $friendG.seenWaxedLeg = 1>>@@friend;"You haven't even waxed your legs! I know you've done it before, why aren't you getting it done on a regular basis?"@@<<endif>>
+            <<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
+            <<set $friendG.posingFail = 1>>\
+        <<endif>>\
+
+            $friend takes a second to look closely at your behind.
+
+        <<if ((_b = 1) and ($friendG.friendseenplug = 1))>>\
+            @@.friend;"Nice to see you're still plugged."@@ $friendG.he_she comments. @@friend." Is it comfy?"@@
+
+            @@.heroT;"Um...I guess?"@@ You answer, suddenly overwhelmingly aware of the object lodged in your butt.
+
+            <<if $friendG.trans = 1>>\
+                @@.friend;"So's mine!"@@
+            <<else>>
+                @@.friend;"Excellent."@@
+            <<endif>>
+        <<elseif ((_b = 0) and ($friendG.friendseenplug = 1))>>\
+            @@.friend;"Where's your buttplug?"@@ $friendG.he_she asks, curious.
+
+            @@.heroT;"Somewhere,"@@ you mutter, looking away with a blush.
+
+            @@.friend;"You should definitely wear it all the time, if you can - but I guess it doesn't matter if you have it for this or not."@@
+        <<elseif ((_b = 1) and ($friendG.friendseenplug = 0))>>\
+            @@.friend;"Is that what I think it is?"@@ $friend asks, coming in close and sliding a finger between your buttcheeks to gently press against your buttplug. You jolt at the sensation, and let out a soft groan in pleasure. @@.friend;"Wow, $playername...you're kind of kinky, aren't you? Is it comfortable?"@@
+
+            @@.heroT;"You get used to it," you mumble, as $friend steps back.
+        <<endif>>\
+    <<endif>>\
+    <<if $friendG.posingFail = 1>>\
+        @@.friend;"Tell you what,"@@ $friend says, snatching up all of the clothes they'd laid out and throwing them back in the closet. They sound angry, annoyed, and disappointed. @@.friend;"If you're not going to put the effort in to get ready for a photoshoot, then I'm not going to help. Think about it tonight, $playername, and if yu decide you want to actually model some shots, then put some effort into your outfit. If you do, I'll take as many pictures as you want - but until then, nothing."@@
+
+        Before you can protest, $friend walks out of the room. You hear a few footsteps down the hall, and then jump in place when you hear their $friendG.his_her bedroom door slam shut. 
+        
+        Dejected, you get dressed, and show yourself out. 
+
+        @@.hero;I'd better check my outfit before I come and ask again, to make sure I'm up to snuff.@@
+
+        [[Go home|Go home]]
+        <<set $friendG.posingAttempt = 1>>\
+        <<set $friend.visitingRights = 1>>\ <!--note to ~x~ - not sure what the timeframe for this whole scene should be or if it just gets added during the actual posing scene-->
+    <<elseif $friendG.posingFail = 0>>\
+        You watch in bemusement as $friend heaps a pile of clothes onto the vanity and chair. Looking at how sheer or short some of them are, you wonder if $friend is about to play out one of $friendG.his_her dreams or something.  
+
+        You take the first dress $friendG.he_she holds out, a simple blue ruched-sleeved summer dress, and pull it over your head. You struggle with the rear zip, but $friend is immediately there to help, $friendG.his_her fingers brushing your skin as $friendG.his_her does so.
+
+        <<image of dress>>
+        <!--dress should be in the currently worn items area as well-->
+
+        [[Time to pose|Time to Pose]]
+    <<endif>>\
+<<endif>>\
