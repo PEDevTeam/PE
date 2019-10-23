@@ -527,9 +527,9 @@ window.therapistTalks={
 			return State.active.variables.kinkAllow.penisShrink;
 		}
 	},
-	talkPenisShrinkingEnd: {
+	talkButsluttery: {
 		id: "talkButsluttery",
-		name: "Talk about using your butt for pleasure",
+		name: "Talk about not using your penis for pleasure",
 		passage: "talkButsluttery",
 		time: 5,
 		start: true,

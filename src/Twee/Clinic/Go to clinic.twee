@@ -13,7 +13,7 @@ You walk over to the clinic where $guardian works.
 	<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 	<<set _locked to playerCode.isLockedInChastity()>>\
 	<<if _chastity and not _locked>>\
-		<<print '[[Clinic stimulation preference reassignment|'+$therapist+'s Special Therapy Session]]'>>
+		<<print '[['+$therapist+'s Special Therapy Session|Clinic stimulation preference reassignment]]'>>
 	<<else>>\
 		<<click "$therapist's Special Therapy Session">><<replace "#sts_deny">>@@.deny;You need to wear an unlocked chastity cage.@@<</replace>><</click>> <span id="sts_deny"></span>
 	<<endif>>\
