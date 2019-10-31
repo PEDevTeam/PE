@@ -150,13 +150,13 @@ window.playerCode={
 		return 0;
 	},
 	isMind_0: function() {
-		return (State.active.variables.player.perversion.therapist < 4);
+		return (State.active.variables.player.perversion.therapist < 4);//Unaffected mind, PC tries to resist feminization, but being pervy teenager any lewd stuff makes him horny. After getting some sexual experience learns to enjoy being fucked, but still resists and object that he likes it even just for a show.
 	},
 	isMind_1: function() {
-		return (State.active.variables.player.perversion.therapist == 4);
+		return (State.active.variables.player.perversion.therapist == 4);//Curious/Tempted - PC acts curious, but object too direct lewd stuff. After getting some sexual experience might behave flirty and admits that he enjoys his new sex life.
 	},
 	isMind_2: function() {
-		return (State.active.variables.player.perversion.therapist > 4);
+		return (State.active.variables.player.perversion.therapist > 4);//Corrupted - PC's deepest desires are brought to surface and amplified. Mostly welcomes feminization, except for too extreme stuff. After experiencing various types of sexual intercourse becomes cock-addicted.
 	},
 	isMind: function() {
 		if (this.isMind_0()) {return 0;}
