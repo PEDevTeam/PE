@@ -110,7 +110,7 @@ window.itemF={
 		return daringRec;
 	},
 },
-
+//Room list; electronics store 0, general store 1, CLINIC store/ doctor's office(?) 2, adult store 3, fashion central 4, intimate store 5, klip klops 6, 
 window.itemsC={
 	pyjamasMale : {
 		id : "pyjamasMale",
