@@ -2887,6 +2887,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/Tasks",
+                           "path":  "Friend/Tasks",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Friend/T Changing Room",
                            "path":  "Friend/TChangingRoom",
                            "files":  [
@@ -2894,6 +2901,17 @@ window.imagePacks = {
                                              "fileName":  "TFriend Changing.jpg",
                                              "height":  489,
                                              "width":  407
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Posing_Pose",
+                           "path":  "Friend/Tasks/Posing_Pose",
+                           "files":  [
+                                         {
+                                             "fileName":  "Pose .jpg",
+                                             "height":  486,
+                                             "width":  322
                                          }
                                      ]
                        },
@@ -5166,7 +5184,7 @@ window.imagePacks = {
                            "path":  "Tasks/Dates/Roxy/Roxy",
                            "files":  [
                                          {
-                                             "fileName":  "ebyltr-l-610x610-skirt-black+dress-black-goth-lace-black+skirt-jewels-jewelry-necklace-choker+necklace-black+choker-velvet-black+skater+skirt-black-knee+high+socks-lace+sk.jpg",
+                                             "fileName":  "roxy.jpg",
                                              "height":  465,
                                              "width":  321
                                          }
