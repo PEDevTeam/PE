@@ -2887,6 +2887,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/Tasks",
+                           "path":  "Friend/Tasks",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Friend/T Changing Room",
                            "path":  "Friend/TChangingRoom",
                            "files":  [
@@ -2894,6 +2901,17 @@ window.imagePacks = {
                                              "fileName":  "TFriend Changing.jpg",
                                              "height":  489,
                                              "width":  407
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Posing_Pose",
+                           "path":  "Friend/Tasks/Posing_Pose",
+                           "files":  [
+                                         {
+                                             "fileName":  "Pose .jpg",
+                                             "height":  486,
+                                             "width":  322
                                          }
                                      ]
                        },
@@ -5111,6 +5129,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Tasks/Dates/Jogger",
+                           "path":  "Tasks/Dates/Jogger",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Tasks/Dates/Roxy",
                            "path":  "Tasks/Dates/Roxy",
                            "files":  [
@@ -5125,6 +5150,50 @@ window.imagePacks = {
                                              "fileName":  "finger cut.jpg",
                                              "height":  1414,
                                              "width":  2121
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "closet_sex",
+                           "path":  "Tasks/Dates/Jogger/closet_sex",
+                           "files":  [
+                                         {
+                                             "fileName":  "closet_sex.JPG",
+                                             "height":  540,
+                                             "width":  671
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "heels_running",
+                           "path":  "Tasks/Dates/Jogger/heels_running",
+                           "files":  [
+                                         {
+                                             "fileName":  "heels_crop.jpg",
+                                             "height":  420,
+                                             "width":  335
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "jogger_date",
+                           "path":  "Tasks/Dates/Jogger/jogger_date",
+                           "files":  [
+                                         {
+                                             "fileName":  "jogger_crop.jpg",
+                                             "height":  921,
+                                             "width":  792
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "juice_bar",
+                           "path":  "Tasks/Dates/Jogger/juice_bar",
+                           "files":  [
+                                         {
+                                             "fileName":  "juice_bar.jpg",
+                                             "height":  317,
+                                             "width":  500
                                          }
                                      ]
                        },
@@ -5166,7 +5235,7 @@ window.imagePacks = {
                            "path":  "Tasks/Dates/Roxy/Roxy",
                            "files":  [
                                          {
-                                             "fileName":  "ebyltr-l-610x610-skirt-black+dress-black-goth-lace-black+skirt-jewels-jewelry-necklace-choker+necklace-black+choker-velvet-black+skater+skirt-black-knee+high+socks-lace+sk.jpg",
+                                             "fileName":  "roxy.jpg",
                                              "height":  465,
                                              "width":  321
                                          }
