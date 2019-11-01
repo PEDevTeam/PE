@@ -506,7 +506,6 @@ window.itemsC={
 	corset: {
 		id: "corset",
 		name: "Corset",
-		store: 5,
 		clothingType: window.itemTypes.Bras,
 		cantWearWith: 0,
 		female: true,
