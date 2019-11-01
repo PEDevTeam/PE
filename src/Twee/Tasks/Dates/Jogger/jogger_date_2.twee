@@ -1,0 +1,41 @@
+:: jogger_date_2
+<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<if _shoes.heels>>\
+	<<RandomImageFromPack 'heels_running' 400 400 alignRight>>\
+	He smiles and trots off, leaving you to follow behind. You try to keep up with the jogger, but he is forced to slow down to accommodate your frequent stumbles as you discover that as hard as walking in heels can be, jogging is far worse. Although he seems concerned with your struggles, you notice him glancing down, appraising your body as you stagger.
+
+	<<if playerCode.isMind() == 0>>\
+		The attention is a bit unnerving, but you push it out of your mind, choosing instead to concentrate on your run.
+	<<elseif playerCode.isMind() == 1>>\
+		You blush, unused to the attention, but your precarious jog keeps you from dwelling on his leering.
+	<<else>>\
+		Something in you is hungry for his attention, and even as difficult as running is, you can’t help but move in a way that draws him to your best assets.
+	<<endif>>\
+	By the time you make it to the Better Berry Juice Bar, you are not only winded, but your calves feel as if they are on fire.
+<<elseif $player.fitness < 10>>\
+	You fall in next to the jogger and try to match his pace. Unfortunately, your general lack of exercise has left you woefully unprepared for this kind of extended running. Although he seems concerned with your struggles, you notice him glancing down, appraising your body as you stagger.\
+	<<if playerCode.isMind() == 0>>\
+		The attention is a bit unnerving, but you push it out of your mind, choosing instead to concentrate on your run.
+	<<elseif playerCode.isMind() == 1>>\
+		You blush, unused to the attention, but your exhausting jog keeps you from dwelling on his leering.
+	<<else>>\
+		Something in you is hungry for his attention, and even as difficult as running is, you can’t help but move in a way that draws him to your best assets.
+	<<endif>>\
+
+	Despite the Better Berry Juice Bar being little more than a block away, you are quite winded by the time you walk in the door.
+<<else>>\
+	Falling in next to the jogger, you are able to keep up with no major difficulties. As your run, you notice him glancing over, appraising your body as you keep pace beside him.\
+	<<if playerCode.isMind() == 0>>\
+		The attention is a bit unnerving, but you push it out of your mind, choosing instead to concentrate on your run.
+	<<elseif playerCode.isMind() == 1>>\
+		You blush, unused to the attention, but your invigorating jog keeps you from dwelling on his leering.
+	<<else>>\
+		Something in you is hungry for his attention, and even as you run alongside him, you can’t help but move in a way that draws him to your best assets.
+	<<endif>>\
+
+	He leads the way up the street, around the corner and in the front door of the Berry Juice Bar.
+<</if>>\
+
+As you walk in, the <<if playerCode.isMind() > 0>>cute, <<endif>>teenaged attendant behind the counter waves in greeting. The jogger walks over and orders a pair of drinks: a pineapple smoothie boosted with a laundry list of supplements for him and a strawberry-lychee-banana blend for yourself. Once the order is placed, he gestures to one of the booths for the two of you to sit while you wait for your drinks to be prepared.
+
+[[Join him in the booth|jogger_date_3]]
