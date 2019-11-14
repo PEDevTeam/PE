@@ -982,7 +982,6 @@ window.friendList={
 	girlinessFail: 0, /* whether PC failed girliness check before */
 	danceAttempt: [],
 	friendTaskFrustration: 0,
-	trans: 0,
 	friendGetChastity: 0,
 	friendKiss: 0,
 },
