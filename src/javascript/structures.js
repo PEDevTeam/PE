@@ -978,8 +978,8 @@ window.friendList={
     seenPanties: [],
     seenPlug: [],
 	seenWaxedLeg: [],
-	posingAttempt: 0,
-	girlinessFail: 0,
+	girlinessAttempt: 0, /* whether friend checked PC's girliness */
+	girlinessFail: 0, /* whether PC failed girliness check before */
 	danceAttempt: [],
 	friendTaskFrustration: 0,
 	trans: 0,
