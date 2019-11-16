@@ -1,7 +1,7 @@
 :: Friend Intro Teacher Tasks
 <<set $player.clothesTmp to clone($player.clothes)>>\
 <<removeClothingType 4>><<updateClothes>>\
-<<set $wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set $wornUnderwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\
@@ -35,11 +35,11 @@ You stand on the doorstep nervously pondering how to broach the bra dilemma. Thi
 
 You follow $friendG.him_her up to $friendG.his_her bedroom, but your heart isn’t in it.
 
-<<if $wearingChastity and not _wearingPlug>>\
+<<if _c and not _wearingPlug>>\
     _chastityText
-<<elseif not $wearingChastity and _wearingPlug>>\
+<<elseif not _c and _wearingPlug>>\
     @@.hero;At least it’s the weekend, and I got the damned key back! Why did I keep the buttplug in though?@@ you ask yourself. _plugText
-<<elseif $wearingChastity and _wearingPlug>>\
+<<elseif _c and _wearingPlug>>\
     _plugText _chastityText
 <<else>>\
     @@.hero;At least it’s the weekend, and I got the damned key back!@@

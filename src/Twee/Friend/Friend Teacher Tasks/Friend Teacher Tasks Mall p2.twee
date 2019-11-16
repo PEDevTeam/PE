@@ -160,8 +160,6 @@ You both remain silent on the death-defying drive home. You distract yourself by
 
 @@.friend;“Sure,”@@ $friend says, still apparently distracted. <<if _friendKiss>>@@.friend;“Oh, this is for you,”@@ $friendG.he_she says, handing over a bag. $friend drives away before you can say anything. You check the contents and inside is the black dress $friendG.he_she loved seeing you in.<<endif>>
 
-You head inside to edit the video for $teacher. After making a copy, of course.
-
 <<set $friendG.tasks.mall = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<addToInv summerDress 68>>\
@@ -171,14 +169,5 @@ You head inside to edit the video for $teacher. After making a copy, of course.
 	<<set $player.perversion.crossdressing++>>\
 <<endif>>\
 \
-<<unset $wearingChastity>>\
-<<unset $wornUnderwear>>\
-<<unset $underwearAlt>>\
-<<unset $friendUnderwear>>\
-\
-<<if $player.clothesTmp>>\
-	<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
-	<<set $player.clothesTmp to null>>\
-<<endif>>\
-<<if $friendG.leave_message>><<set $friendG.leave_message to ''>><<endif>>\
-[[Go to bedroom][$time.addMinutes(120); $player.location = "home"]]
+<<run $time.addMinutes(120)>>\
+<<display [[Leave friend's house]]>>
