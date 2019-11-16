@@ -1,4 +1,5 @@
 ::Friend Teacher Tasks Girliness Check
+/* TODO: check for overlap with Friend Teacher Tasks Reactions */\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -21,16 +22,8 @@
 		
 		@@.hero;I need to return with appropriate underwear, legwear, smooth legs and the cage.@@
 		<<set $friendG.friendTaskFrustration =+ 3>>\
-		<<unset $wearingChastity>>\
-		<<unset $wornUnderwear>>\
-		<<unset $underwearAlt>>\
-		<<unset $friendUnderwear>>\
-		\
-		<<if $player.clothesTmp>>\
-			<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
-			<<set $player.clothesTmp to null>>\
-		<<endif>>\
-		<<display [[Travel]]>>
+		<<set $friendG.wordlessGoodbye to true>>\
+		<<display [[Leave friend's house]]>>
 	<<else>>\
 		@@.heroT;"I did as you asked,"@@ you say, looking down at yourself and blushing. @@.heroT;"Girl's underwear, smooth legs, <<if _p.slutty>>stockings<<else>>girl's socks<<endif>>..."@@
 
