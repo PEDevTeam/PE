@@ -41,8 +41,9 @@ window.itemNavigator = {
             else{
                 var filterMasterItems = []
                 for(var storeMasterItemIdx in window.mall.stores[actVar.currentStore].masterItems){
-                    var storeMasterItem = window.mall.stores[actVar.currentStore].masterItems[storeMasterItemIdx]
-                    if(window.items.itemMasters[storeMasterItem].daring <= actVar.player.daring){
+                    var storeMasterItem = window.mall.stores[actVar.currentStore].masterItems[storeMasterItemIdx];
+                    var itemMaster = window.itemFuncs.getItemMaster(window.items.itemMasters[storeMasterItem]);
+                    if(typeof itemMaster === 'object' && itemMaster.daring <= actVar.player.daring){
                         filterMasterItems.push(storeMasterItem);
                     }
                 }
@@ -191,14 +192,13 @@ window.itemNavigator = {
                 var filterMasterItems = []
                 for(var storeMasterItemIdx in window.mall.stores[actVar.currentStore].masterItems){
                     var storeMasterItem = window.mall.stores[actVar.currentStore].masterItems[storeMasterItemIdx]
-                    var itemVariant = window.itemFuncs.getItemByVariant(window.items.itemMasters[storeMasterItem])
-                    if(window.items.itemMasters[storeMasterItem].daring <= actVar.player.daring && !itemVariant.disabled){
+                    var itemMaster = window.itemFuncs.getItemMaster(window.items.itemMasters[storeMasterItem])
+                    if(itemMaster.daring <= actVar.player.daring && !itemMaster.disabled){
                         filterMasterItems.push(storeMasterItem);
                     }
                 }
             }
             var masterItem = window.items.itemMasters[category.masterItems[masterItemIdx]];
-        
             if(filterMasterItems.includes(category.masterItems[masterItemIdx]) && !masterItem.disabled){
 
                 var masterItemTr = document.createElement('tr');

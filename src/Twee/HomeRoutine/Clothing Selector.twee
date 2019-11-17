@@ -1,7 +1,6 @@
 :: Clothing Selector [pos_1276_820]
 \
-<<wardrobe>>
-<<display [[Clothing wardrobe]]>>\
+<<wardrobe>>\
 \
 [[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
 \
@@ -15,8 +14,10 @@
 	<<if window.timeCode.schoolRequired()>>\
 		<div class="tooltip">@@.halftransparent;Have a nap@@ <span id="test_surv" class="tooltiptext">I need to go to school</span></div>
 	<<else>>\
-		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]\
-		<<if ($time.hour lt 15)>> @@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] <<endif>>
+		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]
+		<<if ($time.hour lt 15)>> \
+			@@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] 
+		<<endif>>\
 	<<endif>>\
 <<endif>>\
 <<if $flags.guardianCondomsAsk and (not $flags.guardianCondoms) and (not $flags.guardianCondomsDone)>>\
@@ -28,28 +29,24 @@
 		<<set $dreams.PenisShrinking.active=true>>\
 	<<endif>>\
 	<<if $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>\
-		[[Accept the punishment|Special punishments][$scene="spanking"]]\
-		
+		[[Accept the punishment|Special punishments][$scene="spanking"]]
+\		
 	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
-		<!-- <<if window.clothes.dressedOutside.check() or playerCode.isWearing(itemsC.maidOutfit)>>\ -->
-		<!-- <<endif>> -->
 		<<if window.clothes.dressedOutside.check() or window.wardrobeFuncs.isItemMasterWearing('maid')>>\
-			[[Go hunting for used condoms]]\
+			[[Go hunting for used condoms]]
 		<<else>>\
 			<<notDressed "Go hunting for used condoms" $reason.dressedOutside>>\
 		<<endif>>\
-		
+		\
 	<<elseif window.clothes.dressedSleep.check()>>\
 		[[Go to sleep|Sleep]]\
 		<<if $flags.choreDildoAlarm and not $flags.trainingCockSuck>>\
-			- [[Suck training cock][$scene="suckSleep"]]\
+			- [[Suck training cock][$scene="suckSleep"]]
 		<<endif>>\
-		
+\		
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Go to sleep@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>\
-		<!-- @@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set playerCode.loadQuickSlot(quickSlotSets.Sleep)>><<set $player.quickSet=quickSlotSets.Sleep>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
-		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">>>><<set itemNavigator.wearClothingSet('Nightwear')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
-		
+		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">><<set itemNavigator.wearClothingSet("Nightwear")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
 	<<endif>>\
 	<<if $therapistTalks.talkChastitySleep.finished and (not $therapistTalks.talkVibrator.start)>>\
 		<<if window.clothes.dressedSleep.check()>>\
@@ -62,7 +59,7 @@
 <!--</go to sleep>-->\
 \
 \
-	<!--<misc tasks>-- Misc -->\
+<!--<misc tasks>-- Misc -->\
 <<if window.timeCode.canWhore() and ($tasksTeacher.whoring.status eq 1)>>\
 	<<if window.clothes.dressedWhore.check()>>\
 		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
@@ -71,8 +68,6 @@
 	<<endif>>\
 <<endif>>\
 \
-<!-- <<if (playerCode.owns(itemsC.batteries) or playerCode.owns(itemsC.batteriesQuality)) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\ -->
-<!-- <<endif>> -->
 <<if ($player.hasBatteries or $player.hasQualityBatteries) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\
 	<<if window.clothes.dressedGuardian.check()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
@@ -93,8 +88,6 @@
 	<<endif>>\
 <<endif>>\
 \
-<!-- <<if ($tasksTeacher.selfieNightwear.status eq 1) and playerCode.owns(itemsC.silkyTeddy)>>\ -->
-<!-- <<endif>> -->
 <<if ($tasksTeacher.selfieNightwear.status eq 1) and inventoryFuncs.ownsMasterItem('nightie')>>\
 	[[Take a selfie in your nightie|Task Nightwear selfie]]
 <<endif>>\
@@ -141,8 +134,6 @@
 <<if ($tasksTeacher.selfieHomeMakeup.status eq 1)>>\
 	[[Film yourself putting on makeup|Task selfieHomeMakeup]]
 <<endif>>\
-<!-- <<if playerCode.owns(itemsC.summerDress) or playerCode.owns(itemsC.skirtTop)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.ownsMasterItem('casualDress') or inventoryFuncs.ownsMasterItem('skirtTop')>>\
 	<<if ($tasksTeacher.selfieFemaleClothes.status eq 1)>>\
 		[[Take a photo of yourself in female clothes|Task selfieFemaleClothes]]
@@ -175,5 +166,3 @@
 <<endif>>\
 <!--</misc tasks>-- Misc -->\
 \
-
-

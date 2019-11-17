@@ -184,14 +184,10 @@
 			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
 		<<endif>>\
 		<<if _quickDressForSchool>>\
-			<!-- <<if $cheerleaders.active and (playerCode.owns(itemsC.rookieUniform) or playerCode.owns(itemsC.cheerDress)) and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\ -->
-			<!-- <<endif>> -->
 			<<if $cheerleaders.active and (inventoryFuncs.ownsMasterItem('cheerUniform')) and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
-				<!-- @@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>><<set $player.quickSet=quickSlotSets.Cheerleader>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
-				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet('Cheerleader')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ 
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">><<set itemNavigator.wearClothingSet("Cheerleader")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ 
 			<<else>>\
-				<!-- @@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set playerCode.loadQuickSlot(quickSlotSets.School)>><<set $player.quickSet=quickSlotSets.School>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
-				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet('School')>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">><<set itemNavigator.wearClothingSet("School")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<endif>>\
 		<<endif>>\
 

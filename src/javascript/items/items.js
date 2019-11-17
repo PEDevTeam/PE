@@ -480,7 +480,7 @@ window.itemFuncs= {
             var actVar = State.active.variables;
         }
 
-        window.itemFuncs.overrideItemMasterProperty(item, 'disabled', true);
+        window.itemFuncs.overrideItemMasterProperty(itemMaster, 'disabled', true);
     },
 
     enableItemMaster: function(itemMaster){
@@ -491,7 +491,7 @@ window.itemFuncs= {
             var actVar = State.active.variables;
         }
 
-        window.itemFuncs.overrideItemMasterProperty(item, 'disabled', false);
+        window.itemFuncs.overrideItemMasterProperty(itemMaster, 'disabled', false);
     },
 
     overrideItemMasterProperty: function(item, propertyName, propertyValue){

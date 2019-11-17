@@ -354,11 +354,11 @@ window.clothes={
 					}
 					return false;
 				}
-				if (hairband && window.inventoryFuncs.hasTag(hairband, 'school')) {
+				if (hairband && !window.inventoryFuncs.hasTag(hairband, 'school')) {
 					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
-				if (shoes && window.inventoryFuncs.hasTag(shoes, 'school')) {
+				if (shoes && !window.inventoryFuncs.hasTag(shoes, 'school')) {
 					State.active.variables.reason.dressedSchool="This style of shoes is against school uniform regulations, I need a more conservative looking type";
 					return false;
 				}
