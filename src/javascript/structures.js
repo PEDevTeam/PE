@@ -1445,6 +1445,7 @@ window.flagsList={
 	poiseRemedialGuardian: false,
 	bimboLessonPartner: "none",
 	lessonMultiFail: false,
+	playerChoseChastity: false, // whether PC eagerly chose to wear the chastity cage (non-blackmail route)
 },
 
 window.kinkList={
