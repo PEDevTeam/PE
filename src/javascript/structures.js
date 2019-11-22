@@ -1349,6 +1349,7 @@ window.flagsList={
 	bullyRoute: false,
 	mallUrbaneIntro: false,
 	visitedCountyClub:false,
+	playerChoseChastity: false, // whether PC eagerly chose to wear the chastity cage (non-blackmail route)
 },
 
 window.kinkList={
