@@ -938,6 +938,7 @@ window.friendList={
 	His_Hers: 'His',
 	gender: 'M',
 
+	/* TODO: discuss whether these should indeed end up in "friendG" */
 	snoop: 0,
 	daysSinceLastVisit: 0,
 	catchUp: 0,
@@ -947,7 +948,6 @@ window.friendList={
 	adultBaby: false,
 	ageBehavior: false,
 	frilly: false,
-	
 	visit: {
         r2: 0,
         c3: 0,
@@ -970,22 +970,21 @@ window.friendList={
 		manicure: false,
 		stockings: false,
 	},
-    seenBra: [],
-    seenChastity: [],
-    seenFlatShoes: [],
-    seenMakeupClinic: [],
-    seenManicure: [],
-    seenPanties: [],
-    seenPlug: [],
-	seenWaxedLeg: [],
-	posingAttempt: [],
-	posingFail: [],
-	danceAttempt: [],
-	friendTaskFrustration: [],
-	trans: [],
-	friendGetChastity: [],
-	visitingRights: [],
-	friendKiss: [],
+    seenBra: 0,
+    seenChastity: 0, /* whether friend saw PC's chastity cage */
+    seenFlatShoes: 0,
+    seenMakeupClinic: 0,
+    seenManicure: 0,
+    seenPanties: 0,
+    seenPlug: 0, /* whether friend saw PC's plug */
+	seenWaxedLeg: 0,
+	girlinessAttempt: 0, /* whether friend checked PC's girliness */
+	girlinessFail: 0, /* whether PC failed girliness check before */
+	friendTaskFrustration: 0,
+	friendGetChastity: 0, /* whether friend wants to get a chastity cage himself */
+	wearsChastity: 0, /* whether friend wears a chastity cage (unused) */
+	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
+	friendKiss: 0, /* how often PC and friend kissed */
 },
 
 window.futaList={
@@ -1349,6 +1348,7 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
+	visitedCountyClub:false,
 },
 
 window.kinkList={
