@@ -1348,6 +1348,7 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
+	visitedCountyClub:false,
 },
 
 window.kinkList={

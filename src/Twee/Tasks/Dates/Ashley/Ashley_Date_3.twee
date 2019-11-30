@@ -1,0 +1,18 @@
+::Ashley_date_3
+<<set $price = random(2,5)*100>>\
+Ashley does most of the talking over the course of the quite tasty dinner, but you do manage to get in a question towards the end, just as you finish with dessert, when you ask how she knows so much about everyone.
+
+@@.cheerBitch;“Rich people love to get all up in other people’s business. I’ve been around these silver-spoon stick-up-the-asses for my whole life. Soon as they smell weakness, they’re on you like fucking hyenas. Best defense is to know more dirt about them than they do about you. Everyone’s got a weak point, and I’m really good at finding it, ”@@ She laughs. @@.cheerBitch;”Though I’m pretty sure I don’t have to tell you that.”@@
+
+You gulp, regretting how your comment has re-focused Ashley’s attention on yourself only to let out a sigh of relief when Arden re-appears to bus the table. @@.cheerBitch;”$player.name will be handling the bill tonight, right? You’re the one who asked me out after all. The way I see it, covering the bill is the least you can do to thank me for even giving you the time of day.”@@
+
+You gulp as you try to mentally calculate how much the total comes to, only to discover that you still underestimated when Arden re-appears with the check and your gaze traces down to the eye-popping total of $<<print $price>>.
+
+@@.hero;God damn it. Ashley must have intentionally run up the tab.@@
+
+<<if $player.money >= $price>>\
+	[[Pay the bill|Ashley_date_4a][$pay_first_time=true;$cheerleaders.bitchAffinity +=1]]
+<<else>>\
+	[[Admit you cannot afford to pay|Ashley_date_4b][$style='poor']]
+<</if>>\
+[[Object to having to pay so much|Ashley_date_4b][$style='object';$cheerleaders.bitchAffinity -=1]]
