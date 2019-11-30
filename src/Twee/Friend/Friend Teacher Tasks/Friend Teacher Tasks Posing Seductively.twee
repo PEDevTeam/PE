@@ -46,6 +46,8 @@
 <<else>>\
 	You open your mouth to reply, and then close it, unsure how to say what you need to do. Wordlessly, you turn and trudge upstairs to $friend's room and flop onto $friendG.his_her bed. 
 
+        You open your mouth to reply, and then close it, unsure how to say what you need to do. Wordlessly, you turn and trudge upstairs to $friend's room. $friend follows you from behind, practically vibrating with curiosity, but you ignore them and flop onto $friendG.his_her bed. 
+
 	@@.friend;"Alright, what's up?"@@ $friend asks, their curiosity giving way to concern. 
 
 	@@.hero;"Oh nothing. I just need to dress up like a girl and pose like a photo shoot." Yeah, that won't be awkward.@@
@@ -146,7 +148,7 @@
 	<<endif>>\      
 	<<if _p.female == 1>>\
 		<<if (playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex))>>\
-			@@.friend;"I love your stockings, $player.name. They really suit you."@@ $friendG.he_she peers closely at your thighs. <<if $body.bodyhair gte 1 and $friendG.seenWaxedLeg = 0>>@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@<<set $friendG.seenWaxedLeg = 1>><<elseif $body.bodyhair gte 1 and $friendG.seenWaxedLeg = 1>>@@.friend;"You've been keeping your legs smooth and hairless, too? Good job."@@<<elseif $body.bodyhair = 0 and $friendG.seenWaxedLeg == 0>>@@.friend;"It's a shame you've got such hairy legs. That kind of just ruins the whole thing."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<elseif $body.bodyhair = 0 and $friendG.seenWaxedLeg = 1>>@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<endif>>
+			@@.friend;"I love your stockings, $player.name. They really suit you."@@ $friendG.he_she peers closely at your thighs. <<if $body.bodyhair gte 1 and $friendG.seenWaxedLeg == 0>>@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@<<set $friendG.seenWaxedLeg = 1>><<elseif $body.bodyhair gte 1 and $friendG.seenWaxedLeg = 1>>@@.friend;"You've been keeping your legs smooth and hairless, too? Good job."@@<<elseif $body.bodyhair = 0 and $friendG.seenWaxedLeg == 0>>@@.friend;"It's a shame you've got such hairy legs. That kind of just ruins the whole thing."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<elseif $body.bodyhair = 0 and $friendG.seenWaxedLeg = 1>>@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>><<set $friendG.posingFail = 1>><<endif>>
 			<<if $friend.friendTaskFrustration gt 0>><<set $friend.friendTaskFrustration = ($friend.friendTaskFrustration - 1)>><<endif>>\
 			<<set $friendG.friendseenstockings = 1>>
 			
