@@ -5217,6 +5217,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Tasks/Dates/Ashley",
+                           "path":  "Tasks/Dates/Ashley",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Tasks/Dates/Guardian",
                            "path":  "Tasks/Dates/Guardian",
                            "files":  [
@@ -5235,6 +5242,94 @@ window.imagePacks = {
                            "path":  "Tasks/Dates/Roxy",
                            "files":  [
 
+                                     ]
+                       },
+                       {
+                           "name":  "date blowbang",
+                           "path":  "Tasks/Dates/Ashley/Blowbang",
+                           "files":  [
+                                         {
+                                             "fileName":  "caddie blowbang.jpg",
+                                             "height":  479,
+                                             "width":  1135
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "caddies",
+                           "path":  "Tasks/Dates/Ashley/Caddies",
+                           "files":  [
+                                         {
+                                             "fileName":  "bushwood-caddy-group-costume-1-lg_666x.jpg",
+                                             "height":  410,
+                                             "width":  666
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "chastity creampie",
+                           "path":  "Tasks/Dates/Ashley/chastity creampie",
+                           "files":  [
+                                         {
+                                             "fileName":  "757.gif",
+                                             "height":  195,
+                                             "width":  360
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "country club",
+                           "path":  "Tasks/Dates/Ashley/Country Club",
+                           "files":  [
+                                         {
+                                             "fileName":  "country club.jpg",
+                                             "height":  1521,
+                                             "width":  2446
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "country club restaurant",
+                           "path":  "Tasks/Dates/Ashley/Country Club Restaurant",
+                           "files":  [
+                                         {
+                                             "fileName":  "country club restaurant.jpg",
+                                             "height":  1362,
+                                             "width":  2048
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "restaurant bill",
+                           "path":  "Tasks/Dates/Ashley/Restaurant bill",
+                           "files":  [
+                                         {
+                                             "fileName":  "restaurant bill crop.jpg",
+                                             "height":  277,
+                                             "width":  333
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "waiter",
+                           "path":  "Tasks/Dates/Ashley/Waiter",
+                           "files":  [
+                                         {
+                                             "fileName":  "waiter.jpg",
+                                             "height":  326,
+                                             "width":  659
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "waiter sex",
+                           "path":  "Tasks/Dates/Ashley/Waiter Sex",
+                           "files":  [
+                                         {
+                                             "fileName":  "waiter sex crop.jpg",
+                                             "height":  266,
+                                             "width":  428
+                                         }
                                      ]
                        },
                        {
