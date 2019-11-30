@@ -48,7 +48,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 	<<if _friendBonusDress>>\
 		<img src='Images/items/dress_casual_68.jpg' style="float: right; width: auto; height: 250px;">\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. She closes to you in two steps and pins you against the wall, kissing you on the lips and squeezing your butt. She nibbles along your jawline, holding your hands high over your head with her left hand, her right tapping at your cage. @@.friend;“Oops,”@@ $friend says breathily before kissing you again, her tongue trailing across your lips and dipping back into your mouth. Her weight pushes you against the wall, and you couldn’t escape, even if you wanted to. @@.friend;“We’d better go…”@@ she says, backing away and leaving the cubicle as suddenly as she kissed you.
-		<<set _friendKiss = true>>\
+		<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. She closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter,”@@ she says with a wink @@.friend;“and who knows...”@@ 
 	<<endif>>\
@@ -97,7 +97,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<<endif>>\
 
 		@@.friend;“We’d better go…”@@ he says, backing away and leaving the cubicle as suddenly as he kissed you, grabbing his boy clothes on the way.
-		<<set _friendKiss = true>>\
+		<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter, like me,”@@ he says with a wink @@.friend;“and who knows...”@@
 	<<endif>>\
@@ -144,7 +144,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<<endif>>\
 
 		@@.friend;“We’d better go…”@@ he says, backing away and leaving the cubicle as suddenly as he kissed you.
-		<<set _friendKiss = true>>\
+		<<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter,”@@ he says with a wink @@.friend;“and who knows...”@@ 
 	<<endif>>\
@@ -160,8 +160,6 @@ You both remain silent on the death-defying drive home. You distract yourself by
 
 @@.friend;“Sure,”@@ $friend says, still apparently distracted. <<if _friendKiss>>@@.friend;“Oh, this is for you,”@@ $friendG.he_she says, handing over a bag. $friend drives away before you can say anything. You check the contents and inside is the black dress $friendG.he_she loved seeing you in.<<endif>>
 
-You head inside to edit the video for $teacher. After making a copy, of course.
-
 <<set $friendG.tasks.mall = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<addToInv summerDress 68>>\
@@ -171,14 +169,5 @@ You head inside to edit the video for $teacher. After making a copy, of course.
 	<<set $player.perversion.crossdressing++>>\
 <<endif>>\
 \
-<<unset $wearingChastity>>\
-<<unset $wornUnderwear>>\
-<<unset $underwearAlt>>\
-<<unset $friendUnderwear>>\
-\
-<<if $player.clothesTmp>>\
-	<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
-	<<set $player.clothesTmp to null>>\
-<<endif>>\
-<<if $friendG.leave_message>><<set $friendG.leave_message to ''>><<endif>>\
-[[Go to bedroom][$time.addMinutes(120); $player.location = "home"]]
+<<run $time.addMinutes(120)>>\
+<<display [[Leave friend's house]]>>
