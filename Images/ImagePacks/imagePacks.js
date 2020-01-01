@@ -2905,6 +2905,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Friend/Tasks/Dance",
+                           "path":  "Friend/Tasks/Dance",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Friend/Posing_Pose",
                            "path":  "Friend/Tasks/Posing_Pose",
                            "files":  [
@@ -2912,6 +2919,94 @@ window.imagePacks = {
                                              "fileName":  "Pose .jpg",
                                              "height":  486,
                                              "width":  322
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Dress_Body",
+                           "path":  "Friend/Tasks/Dance/Dress_Body",
+                           "files":  [
+                                         {
+                                             "fileName":  "Body dance dress.jpg",
+                                             "height":  300,
+                                             "width":  300
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Dress_Frilly",
+                           "path":  "Friend/Tasks/Dance/Dress_Frilly",
+                           "files":  [
+                                         {
+                                             "fileName":  "Frilly dance dress.jpg",
+                                             "height":  300,
+                                             "width":  300
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Dress_Latin",
+                           "path":  "Friend/Tasks/Dance/Dress_Latin",
+                           "files":  [
+                                         {
+                                             "fileName":  "Latin Dance dress.jpg",
+                                             "height":  300,
+                                             "width":  300
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Friend_F",
+                           "path":  "Friend/Tasks/Dance/Friend_F",
+                           "files":  [
+                                         {
+                                             "fileName":  "f friend dance.jpg",
+                                             "height":  337,
+                                             "width":  200
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Friend_M",
+                           "path":  "Friend/Tasks/Dance/Friend_M",
+                           "files":  [
+                                         {
+                                             "fileName":  "m friend dance.jpg",
+                                             "height":  300,
+                                             "width":  200
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Friend_T",
+                           "path":  "Friend/Tasks/Dance/Friend_T",
+                           "files":  [
+                                         {
+                                             "fileName":  "t friend dance.jpg",
+                                             "height":  300,
+                                             "width":  200
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Shoes_Red",
+                           "path":  "Friend/Tasks/Dance/Shoes_Red",
+                           "files":  [
+                                         {
+                                             "fileName":  "Red dance shoes.jpg",
+                                             "height":  1000,
+                                             "width":  1000
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "Friend/Tasks/Dance/Studio",
+                           "path":  "Friend/Tasks/Dance/Studio",
+                           "files":  [
+                                         {
+                                             "fileName":  "Dance Studio.jpg",
+                                             "height":  435,
+                                             "width":  544
                                          }
                                      ]
                        },
@@ -5122,6 +5217,13 @@ window.imagePacks = {
                                      ]
                        },
                        {
+                           "name":  "Tasks/Dates/Ashley",
+                           "path":  "Tasks/Dates/Ashley",
+                           "files":  [
+
+                                     ]
+                       },
+                       {
                            "name":  "Tasks/Dates/Guardian",
                            "path":  "Tasks/Dates/Guardian",
                            "files":  [
@@ -5140,6 +5242,94 @@ window.imagePacks = {
                            "path":  "Tasks/Dates/Roxy",
                            "files":  [
 
+                                     ]
+                       },
+                       {
+                           "name":  "date blowbang",
+                           "path":  "Tasks/Dates/Ashley/Blowbang",
+                           "files":  [
+                                         {
+                                             "fileName":  "caddie blowbang.jpg",
+                                             "height":  479,
+                                             "width":  1135
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "caddies",
+                           "path":  "Tasks/Dates/Ashley/Caddies",
+                           "files":  [
+                                         {
+                                             "fileName":  "bushwood-caddy-group-costume-1-lg_666x.jpg",
+                                             "height":  410,
+                                             "width":  666
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "chastity creampie",
+                           "path":  "Tasks/Dates/Ashley/chastity creampie",
+                           "files":  [
+                                         {
+                                             "fileName":  "757.gif",
+                                             "height":  195,
+                                             "width":  360
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "country club",
+                           "path":  "Tasks/Dates/Ashley/Country Club",
+                           "files":  [
+                                         {
+                                             "fileName":  "country club.jpg",
+                                             "height":  1521,
+                                             "width":  2446
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "country club restaurant",
+                           "path":  "Tasks/Dates/Ashley/Country Club Restaurant",
+                           "files":  [
+                                         {
+                                             "fileName":  "country club restaurant.jpg",
+                                             "height":  1362,
+                                             "width":  2048
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "restaurant bill",
+                           "path":  "Tasks/Dates/Ashley/Restaurant bill",
+                           "files":  [
+                                         {
+                                             "fileName":  "restaurant bill crop.jpg",
+                                             "height":  277,
+                                             "width":  333
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "waiter",
+                           "path":  "Tasks/Dates/Ashley/Waiter",
+                           "files":  [
+                                         {
+                                             "fileName":  "waiter.jpg",
+                                             "height":  326,
+                                             "width":  659
+                                         }
+                                     ]
+                       },
+                       {
+                           "name":  "waiter sex",
+                           "path":  "Tasks/Dates/Ashley/Waiter Sex",
+                           "files":  [
+                                         {
+                                             "fileName":  "waiter sex crop.jpg",
+                                             "height":  266,
+                                             "width":  428
+                                         }
                                      ]
                        },
                        {
