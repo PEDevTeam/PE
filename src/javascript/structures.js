@@ -1007,11 +1007,14 @@ window.friendList={
 	seenWaxedLeg: 0,
 	girlinessAttempt: 0, /* whether friend checked PC's girliness */
 	girlinessFail: 0, /* whether PC failed girliness check before */
+	blockAttempt: 0,
+	blockFail: 0,
 	friendTaskFrustration: 0,
 	friendGetChastity: 0, /* whether friend wants to get a chastity cage himself */
 	wearsChastity: 0, /* whether friend wears a chastity cage (unused) */
 	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
 	friendKiss: 0, /* how often PC and friend kissed */
+	bonusDress: 0,
 },
 
 window.futaList={
