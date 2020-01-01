@@ -337,6 +337,11 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
 					return false;
 				}
+				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isMonday() && State.active.variables.cheerleaders.flags.prank2) && timeCode.haveSchool() && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
+					State.active.variables.reason.dressedSchool="Ashley ordered you to wear your cheer uniform to school today.";
+					return false;
+				}
+				
 				else if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (outerwear.cheer || shoes.cheer || (stockings && stockings.cheer && (items[stockings.id].curAlt == 43))) && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
 					State.active.variables.reason.dressedSchool="You cannot mix school clothes with cheer clothes";
 					return false;
