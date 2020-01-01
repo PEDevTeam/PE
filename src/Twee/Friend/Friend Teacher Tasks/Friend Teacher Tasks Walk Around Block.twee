@@ -1,0 +1,166 @@
+::Friend Teacher Tasks Walk Around Block
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<if blockAttempt == 1 then>>\
+	@@.friend;“I hope you put some effort into it this time,”@@ $friend states.
+	<<if (_u.female == 0 or _c == 0 or _p == 0 or (_p and _p.female == 0) or $body.bodyhair == 0)>>\ 
+		<<set $friendG.posingFail = 1>>\
+	<<endif>>\
+
+	<<if blockFail == 1 then>>\
+		@@.heroT;“Sorry, $friend. I kinda forgot.”@@
+
+		@@.friend;“Oh well. It’s your choice,”@@ $friend says sadly, pushing you back out onto the steps and slamming the door in your face. 
+
+		<<set $friendG.friendTaskFrustration eq ($friendG.friendTaskFrustration + 3)>>\
+		<<unset $wearingChastity>>\
+		<<unset $wornUnderwear>>\
+		<<unset $underwearAlt>>\
+		<<unset $friendUnderwear>>\
+		\
+		<<if $player.clothesTmp>>\
+			<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
+			<<set $player.clothesTmp to null>>\
+		<<endif>>\
+		<<display [[Travel]]>>
+	<<else>>\
+		[[Change to go out|Friend Teacher Tasks Walk Around Block p2]] 
+	<<endif>>\
+
+<<else if blockAttempt == 0>>\
+	Going out in a dress seems like a big step, but in addition to fear you feel an inner thrill inside, lessening your resistance. At least going for a walk from $friend’s house means none of your neighbours will recognise you. 
+
+	@@.friend;“What’s on your mind?”@@ $friend asks.
+
+	@@.hero;Oh nothing. I just need to dress up like a girl and go for a walk outside!@@
+
+	@@.heroT;“Do you want to go out?”@@
+
+	@@.friend;“Like on a date?”@@ $friend asks, suddenly curious. 
+
+	@@.heroT;“No, not a date. Like, outside?”@@
+
+	@@.friend;“Oh okay. Sure, I guess.”@@ $friend says, picking up  $friendG.his_her keys.  
+
+	@@.heroT;“No. I meant, go out. With me, you know, in a dress or something?”@@
+
+	@@.friend;“Now you’re talking! <<if $friendG.gender>>Hey, we can both get dressed up!<<endif>>”@@
+
+	Without pausing, $friend tears upstairs into  $friendG.his_her sister’s walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you need to do this to avoid upsetting teacher, and remembering this was your idea, you strip down to your underwear.
+
+	<<if (playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy))>>\
+		<<if (_underwearAlt == _braAlt)>>\
+		“Awesome, you’re wearing a matched set<<if $friendG != 'M'>> like me<<endif>>!” 
+		<<if $friendG.friendTaskFrustration gt 0>>\
+			<<set $friendGfriendTaskFrustration = ($friendG.friendTaskFrustration - 1)>>\
+		<<endif>>\
+		<<elseif (_underwearAlt != _braAlt)>>\
+			“Cool, you’re wearing a bra. Shame it doesn’t match your panties, though/[if friend is female or trans -, like me]/.”
+		<<endif>>\
+	[else] // no bra // 
+		“No bra? Not good $playername. Why are you wanting to pose for photos dressed as a girl when you don’t wear a bra?” $friend hisses in frustration. “Why are we even doing this if you don’t take this seriously?”
+
+		“I, um…” you mumble, “Sorry, I guess.”
+					set friendTaskFrustration = friendTaskFrustration +1
+		set blockFail to 1
+	[end if]
+	/
+	/
+	[if boxers] 
+		“Boxers? Seriously? I thought /[if friend is trans - we / else you]/ were way past boxers.”
+
+		set friendTaskFrustration = friendTaskFrustration +1
+		set blockFail to 1
+	[end if]
+	/
+	// Chastity & Seen Chastity Check - FORtryingClothesMall, posingSeductively, danceAtHome NOT wearFlats (outer, done elsewear), manicure //
+	/
+	[if chastity and friendseenchastity = 0] 
+		“Wait, what’s that?” $friend squeals. You look down at the cage bulging your [panties/boxers]. You squeak and try to cover yourself up with your hands. “No, don’t…”  [he/she] instructs, rushing over to you and pulling your hands away. [He/She] taps it with a fingernail.  ”What’s that?”
+
+		“I, um…” you mumble, “It’s a kind of cage, you know, it’s um…”
+
+		“It’s so cute! /[if sph - And it suits your teeny thingy so much.]/” 
+	[if chastity and friendseenchastity = 1] 
+		“You still have that cute little cage on… /[if friend is trans - Maybe I should get one?]/”
+		if friend = trans set friendGetChastity = 1
+	[else if no chastity]
+		“No cage? But I thought…” 
+		set blockFail to 1
+	[end if]
+	if chastity then set friendseenchastity = 1
+	/
+	// Stockings & Seen Stockings Check  - FOR tryingClothesMall, posingSeductively, danceAtHome NOT wearFlats (outer, done elsewear), manicure //
+	/
+	[if stockings] 
+		“I love your stockings, they really suit you. /[if waxed - And they look awesome with your smooth legs. So cute!]/” $friend says, smiling at you. For a moment it almost looks like [he/she] might stroke your leg, then [he/she] remembers what you are about to do and returns his/her] attention to the wardrobe.  
+		if friendTaskFrustration > 0 then set friendTaskFrustration = friendTaskFrustration -1
+	[else if girl socks] 
+		“Are those girl’s socks? They look kinda cute, but I think stockings, would suit you more /[if waxed -, especially with your smooth legs]/.” $friend says, smiling at you.
+	[elseif boy socks/no socks] 
+		“No stockings? Not even girl’s socks? I was expecting more…” $friend huffs. 
+		set friendTaskFrustration = friendTaskFrustration +1
+			set blockFail to 1
+	[end if]
+	if stockings set friendseenstockings = 1
+	/
+	// Plug & Seen Plug Check - FOR, posingSeductively, danceAtHome NOT tryingClothesMall, wearFlats (outer, done elsewear), manicure //
+	/
+	[if buttplug and friendseenplug = 0] 
+		“What the hell is that?” $friend asks, tapping your buttplug with  $friendG.his_her fingernail. The jolt makes you groan in pleasure. “Is it comfortable?” [he/she] asks.
+
+		“I guess you get used to it,” you mumble.
+		[if buttplug and friendseenplug = 1] 
+		“Great, you are still wearing the plug. /[if friend is trans - Me too!]/”
+	[end if]
+	[if plug set friendseenplug = 1]
+	/ 
+	// Waxed Legs & Seen Waxed Legs Check  - FOR tryingClothesMall, posingSeductively, danceAtHome NOT wearFlats (outer, done elsewear), manicure //
+	/
+	[if friendHelpWaxing is true]
+		[if waxed] 
+			“Your legs look so attractive this smooth, I am so happy you’re keeping them looking so good.” 
+			if friendTaskFrustration > 0 then set friendTaskFrustration = friendTaskFrustration -1
+		[else if hairy] 
+			“After the effort to wax your legs, you revert to awful hairy ones again.” /[if friend is trans - $friend sighs “I keep mine smooth, you know….”]/ 
+			set friendTaskFrustration = friendTaskFrustration +1
+			set blockFail to 1
+		[end if]
+	[else if friendHelpWaxing is false]
+		[if waxed] 
+			“Wow! You had your legs waxed?”
+
+			“Um, yeah. What do you think?”
+
+			“They’re lovely! /[if friend is trans - I need to get mine done, too.]/” 
+			if friendTaskFrustration > 0 then set friendTaskFrustration = friendTaskFrustration -1
+		[else]
+			[if friendseenlegs = 1]
+				“What happened to your legs. They used to be waxed.” /[if friend is trans - $friend sighs “I keep mine smooth, you know….”]/  
+				set friendTaskFrustration = friendTaskFrustration +1
+				set blockFail to 1
+			[else]
+				“You should really think about waxing your legs. It will really make a difference when we do fun stuff.   
+				set blockFail to 1
+			[end if]
+		[end if]
+		[if waxed set friendseenlegs  to 1]
+	[end if]
+	/
+	[if blockFail = 1 then]
+		“Tell you what,” $friend says, throwing the bag back into the wardrobe and slamming the door. “If you are not even doing the basics, I don’t know why you would want to go outside in a dress. This is not some game for me, and if you are not going to put the effort in, then I am not going to help. Think about it tonight, $playername, and if you decide you want to continue having fun, put some effort into your appearance. If you do, we can go for a walk if you want.” $friend sounds angry and annoyed and somewhat disappointed. 
+
+		@@.hero;I’d better check my outfit before I ask again, $friend wants me to wear things to put some effort in for [him/her]@@
+
+		With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
+			posingAttempt = 1
+	[else]
+		Change to go out 
+	[end if]
+<<endif>>\		
+blockFail = 0

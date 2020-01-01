@@ -601,50 +601,56 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			
 		<<endif>>\
 	<<endif>>\
-	<<if ($tasksTeacher.schoolPublicToilet.status eq 1) or ($tasksTeacher.schoolPublicToilet.progress gte 1)>>\
-		<<if ($tasksTeacher.schoolPublicToilet.progress gte 2)>>\
-			[[Give bj at toilets|School public toilets][$random.stored=0]] or [[Serve as a public toilet|School public toilets][$random.stored=1]]
-		<<else>>\
-			[[Give bj at toilets|School public toilets][$random.stored=0]]
-		<<endif>>\
-	<<endif>>\
-	<<if ($tasksTeacher.cleanLounge.status eq 1) or ($tasksTeacher.cleanLounge.progress gte 1)>>\
-		[[Clean the teacher’s lounge|Teachers lounge task]]
-	<<endif>>\
-	<<if ($tasksTeacher.principalSecretary.status eq 1) or ($tasksTeacher.principalSecretary.progress gte 1)>>\
-		[[Work as the principal’s secretary|Principal secretary task]]
-	<<endif>>\
-	<<if $time.day eq 1>>\
-	[[You think the name of the bully is actually ...|Naming Bully][$random.stored=0]]
-	<<endif>>\
-	<<if ($tasksTeacher.askAdvice.status eq 1)>>\
-		[[Ask a girl for advice|Task Ask advice]]
-	<<endif>>\
-	<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 4>>\
-		Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
+	<<if $cheerleaders.flags.prank2 && timeCode.isMonday()>>\
+		Ashley wanted you to meet her at the gym before school.
 		
-		<<set $cheerFriend.flags.acceptInvite = true>>\
-		<<if $cheerFriend.progress < 1>>\
-			<<set $cheerFriend.currentSE = 1>>\
-		<<elseif $cheerFriend.progress < 4>>\
-			<<selectScene SESelector234 RND2RND>>\
-			<<scene>>\
-				<<set $cheerFriend.currentSE = 2>>\
-			<<scene>>\
-				<<set $cheerFriend.currentSE = 3>>\
-			<<scene>>\
-				<<set $cheerFriend.currentSE = 4>>\
-			<</selectScene>>\
-		<<elseif $cheerFriend.progress > 4 && $cheerFriend.progress < 8>>\
+		[[Go meet Ashley|Cheer SE11 Sc1]]
+	<<else>>
+		<<if ($tasksTeacher.schoolPublicToilet.status eq 1) or ($tasksTeacher.schoolPublicToilet.progress gte 1)>>\
+			<<if ($tasksTeacher.schoolPublicToilet.progress gte 2)>>\
+				[[Give bj at toilets|School public toilets][$random.stored=0]] or [[Serve as a public toilet|School public toilets][$random.stored=1]]
+			<<else>>\
+				[[Give bj at toilets|School public toilets][$random.stored=0]]
+			<<endif>>\
 		<<endif>>\
-	<<endif>>\
-	[[Go to class]]
-	<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
-		<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
-	<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
-		[[Meet Miss Willow’s assistant|School assistant][$random.stored=0]]
-	<<elseif ($player.perversion.teacher gt 0) and ($player.perversion.teacher lt 6)>>\
-		<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>
+		<<if ($tasksTeacher.cleanLounge.status eq 1) or ($tasksTeacher.cleanLounge.progress gte 1)>>\
+			[[Clean the teacher’s lounge|Teachers lounge task]]
+		<<endif>>\
+		<<if ($tasksTeacher.principalSecretary.status eq 1) or ($tasksTeacher.principalSecretary.progress gte 1)>>\
+			[[Work as the principal’s secretary|Principal secretary task]]
+		<<endif>>\
+		<<if $time.day eq 1>>\
+		[[You think the name of the bully is actually ...|Naming Bully][$random.stored=0]]
+		<<endif>>\
+		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
+			[[Ask a girl for advice|Task Ask advice]]
+		<<endif>>\
+		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 4>>\
+			Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
+			
+			<<set $cheerFriend.flags.acceptInvite = true>>\
+			<<if $cheerFriend.progress < 1>>\
+				<<set $cheerFriend.currentSE = 1>>\
+			<<elseif $cheerFriend.progress < 4>>\
+				<<selectScene SESelector234 RND2RND>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 2>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 3>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 4>>\
+				<</selectScene>>\
+			<<elseif $cheerFriend.progress > 4 && $cheerFriend.progress < 8>>\
+			<<endif>>\
+		<<endif>>\
+		[[Go to class]]
+		<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
+			<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
+		<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
+			[[Meet Miss Willow’s assistant|School assistant][$random.stored=0]]
+		<<elseif ($player.perversion.teacher gt 0) and ($player.perversion.teacher lt 6)>>\
+			<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>
+		<<endif>>\
 	<<endif>>\
 <<else>>\
 	<<print window.timeCode.schoolMessage()>>

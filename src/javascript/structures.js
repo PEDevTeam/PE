@@ -53,6 +53,7 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
+		this.setupTeam();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -718,6 +719,32 @@ window.structures={
 				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
 				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
 				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
+	
+	setupTeam: function (){
+		var vars=State.active.variables;
+		var TeamList=window.teamList;
+		if (vars.team == null) {
+			vars.team = {};
+		}
+		for (var i=0; i < Object.keys(teamList).length; i++) {
+			if (vars.team[Object.keys(teamList)[i]] == null) {
+				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(teamList.flags).length; i++) {
+			if (vars.team[Object.keys(teamList.flags)[i]] == null) {
+				vars.team[Object.keys(teamList.flags)[i]] = {};
+				var object = vars.team[Object.keys(teamList.flags)[i]];
+				var listObject = teamList.flags[Object.keys(teamList.flags)[i]];
 				for (var j=0; j < Object.keys(listObject).length; j++) {
 					if (object[Object.keys(listObject)[j]] == null) {
 						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
@@ -1558,6 +1585,7 @@ window.cheerList={
 		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
 		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
 		prankBeg: false,	//PC begs for mercy to end prank
+		prank2: false,	//controls access to gym prank
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables
@@ -1599,7 +1627,7 @@ window.cheerList={
 		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
 		practiced: false, //practiced ashley's cheer before tryout.
 	}
-}
+},
 
 window.cheerFriendList={
 	progress: 0,	//current progress in side events, [int]
@@ -1621,4 +1649,12 @@ window.cheerFriendList={
 		visitedHouse: false, //visited house in SE 5
 		genderPref: "", //stated preferred gender
 	}
-}
+},
+
+window.teamList={
+	sport: "football",
+	mean: "Rich",
+	nice: "Mike",
+	center: "Carl",
+	voice: "malevoice",
+},
