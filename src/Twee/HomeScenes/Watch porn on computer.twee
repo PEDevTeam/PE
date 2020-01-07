@@ -92,13 +92,18 @@
 		[[Look for some other options to masturbate|Masturbate][$scene=""]]
 		[[Do something else|Go to bedroom]]
 	<<else>>\
-		<<set playerCode.masturbate.cum()>>\
-		You cum after a couple of minutes watching the porn, but are left feeling no less horny than you did before.
+		<<if playerCode.masturbate.penileDisinterest()>>\
+			<<display "Penile Disinterest Syndrome">>
 		
-		<<if $player.perversion.guardian gte 4>>\
-			<<set $player.masturbationType = 2>>\
-			After some time a familiar *bing* from your computer notifies you of a recording of you masturbating on porn.
-			
+		<<else>>\
+			<<set playerCode.masturbate.cum()>>\
+			You cum after a couple of minutes watching the porn, but are left feeling no less horny than you did before.
+		
+			<<if $player.perversion.guardian gte 4>>\
+				<<set $player.masturbationType = 2>>\
+				After some time a familiar *bing* from your computer notifies you of a recording of you masturbating on porn.
+				
+			<<endif>>\
 		<<endif>>\
 		[[Do something else|Go to bedroom]]
 	<<endif>>\
