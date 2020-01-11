@@ -199,37 +199,14 @@
 
 	Finally, you stumble on the erotic fiction section, and <<if not _c>>you start idly playing with yourself as <<endif>>you allow yourself to get lost in the fantasies.
 
-	<<if _c>>\
-	You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you \
-	<<else>>\
-		You come hard, clean up quickly and \
-	<<endif>>\
-	put the magazine away, glad that $guardian didn't walk in on you.
-
-	<<if _c>>\
-		<<set playerCode.changeArousal(5)>>\
-		<<set playerCode.upArousalTo(50,50)>>\
-		<<if $player.perversion.guardian gte 4>>\
-			<<set $player.masturbationType = 5>>\
-			After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
-			
-		<<endif>>\
-		[[Do something else|Go to bedroom]] 
-	<<else>>\
-		<<if $player.perversion.guardian gte 4>>\
-			<<set $player.masturbationType = 6>>\
-			After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
-			
-		<<endif>>\
-		[[Do something else|Go to bedroom][playerCode.masturbate.cum()]] 
-	<<endif>>\
-<<elseif $flags.quizState != "question">>\
+<<endif>>\
+<<if $flags.quizState != "question">>\
 	<<if _c>>\
 		You rub the plastic prison around your penis as it strains to be free, but despite how horny you are, you\
 	<<else>>\
 		You come hard, clean up quickly and \
 	<<endif>>\
-	<<if _c and $flags.playerChoseChastity and $player.perversion.guardian eq 0 and not $flags.guardianNoticeChastity>>\
+	<<if _c and ($flags.playerChoseChastity or $player.perversion.teacher lt 1) and $player.perversion.guardian eq 0 and not $flags.guardianNoticeChastity>>\
 		keep enjoying the magazine despite being unable to cum. Or rather //because// you cannot cum right now.
 		
 		Lost in your fantasies, you barely register a knock on your door. Your lust-addled mind fails to process the events in time, so you jump scared as $guardian barges into your room. There is no time to cover yourself.
