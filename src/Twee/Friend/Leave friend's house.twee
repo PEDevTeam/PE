@@ -1,6 +1,5 @@
 :: Leave friend's house [pos_4208_331]
 \
-<<unset $wearingChastity>>\
 <<unset $wornUnderwear>>\
 <<unset $underwearAlt>>\
 <<unset $friendUnderwear>>\
@@ -11,10 +10,14 @@
 <<endif>>\
 <<if $friendG.leave_message>><<print $friendG.leave_message>> \
 <<set $friendG.leave_message to ''>><<endif>>\
-You head outside and say goodbye.
+<<if $friendG.wordlessGoodbye>>\
+	<<set $friendG.wordlessGoodbye to false>>\
+<<else>>\
+	You head outside and say goodbye.
 
-@@.friend;"See you next time, $player.name!"@@
+	@@.friend;"See you next time, $player.name!"@@
 
+<<endif>>\
 <<display [[Travel]]>>
 
 

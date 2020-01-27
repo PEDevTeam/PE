@@ -382,6 +382,11 @@ window.clothes={
 					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
 					return false;
 				}
+				if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && (timeCode.isMonday() && State.active.variables.cheerleaders.flags.prank2) && timeCode.haveSchool() && (!window.inventoryFuncs.hasTag(outerwear, 'cheer') || !window.inventoryFuncs.hasTag(shoes, 'cheer') || (stockings && !window.inventoryFuncs.hasTag(stockings, 'cheer') && (stockings.variant != "socks_43")) || (hairband && !window.inventoryFuncs.hasTag(hairband, 'cheer') && (!hairband.variant == "hairbow_43")) || (underwear && !window.inventoryFuncs.hasTag(underwear, 'cheer')))) {
+					State.active.variables.reason.dressedSchool="Ashley ordered you to wear your cheer uniform to school today.";
+					return false;
+				}
+				
 				else if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && (window.inventoryFuncs.hasTag(outerwear, 'cheer') || window.inventoryFuncs.hasTag(shoes, 'cheer') || (stockings && stockings.variant == "socks_43")) && (!outerwear.cheer || !window.inventoryFuncs.hasTag(shoes, 'cheer') || (stockings && !stockings.variant == "socks_43") || (hairband && !hairband.variant == "hairbow_43") || (underwear && !window.inventoryFuncs.hasTag(underwear, 'cheer')))) {
 					State.active.variables.reason.dressedSchool="You cannot mix school clothes with cheer clothes";
 					return false;

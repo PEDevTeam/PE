@@ -12,18 +12,11 @@
 <!-- <<set _wearingGString to playerCode.isWearing(itemsC.gString)>>\ -->
 <<set _wearingGString to window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
 \
-<!-- <<if $wornUnderwear>>\
-    <<set _underwear to itemF.itemTwee($wornUnderwear.id)>>\
-    <<set $underwearAlt to _underwear.curAlt>>\
-<<endif>>\ -->
 \
 <<if _wearingGString>>\
-    <!-- <<if $underwearAlt eq 60>>\ -->
     <<if $wornUnderwear.variant == 'panties_sexy_60'>>
         <<set $friendUnderwear to 1>>\
     <<elseif $wornUnderwear.variant == 'panties_sexy_61'>>
-    <!-- <<elseif $underwearAlt eq 61>>\ -->
-    <!-- <<endif>> -->
         <<set $friendUnderwear to 2>>\
     <<endif>>\
 <<endif>>\

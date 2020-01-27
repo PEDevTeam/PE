@@ -56,6 +56,7 @@ window.structures={
 		this.setupClothingSets();
 		this.setupItemVariantOverrides();
 		this.setupItemMasterOverrides();
+		this.setupTeam();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -755,7 +756,33 @@ window.structures={
 		if(vars.itemMasterOverrides == null){
 			vars.itemMasterOverrides = [];
 		}
-	}
+	},
+	
+	setupTeam: function (){
+		var vars=State.active.variables;
+		var TeamList=window.teamList;
+		if (vars.team == null) {
+			vars.team = {};
+		}
+		for (var i=0; i < Object.keys(teamList).length; i++) {
+			if (vars.team[Object.keys(teamList)[i]] == null) {
+				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
+			}
+		}
+		
+		for (var i=0; i < Object.keys(teamList.flags).length; i++) {
+			if (vars.team[Object.keys(teamList.flags)[i]] == null) {
+				vars.team[Object.keys(teamList.flags)[i]] = {};
+				var object = vars.team[Object.keys(teamList.flags)[i]];
+				var listObject = teamList.flags[Object.keys(teamList.flags)[i]];
+				for (var j=0; j < Object.keys(listObject).length; j++) {
+					if (object[Object.keys(listObject)[j]] == null) {
+						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
+					}
+				}
+			}
+		}
+	},
 },
 
 window.playerList={
@@ -1031,6 +1058,7 @@ window.friendList={
 	His_Hers: 'His',
 	gender: 'M',
 
+	/* TODO: discuss whether these should indeed end up in "friendG" */
 	snoop: 0,
 	daysSinceLastVisit: 0,
 	catchUp: 0,
@@ -1040,7 +1068,6 @@ window.friendList={
 	adultBaby: false,
 	ageBehavior: false,
 	frilly: false,
-	
 	visit: {
         r2: 0,
         c3: 0,
@@ -1052,10 +1079,35 @@ window.friendList={
 		legHair: false,
 		mall: false,
 		selfieFemaleClothes: false,
-		selfieMakeup: false,
+        selfieMakeup: false,
+        selfieNightwear: false,
+		posingSeductively: false,
+		selfiePracticeHeels: false,
+		crossdressAtPark: false,
+		crossdressAroundBlock: false,
+		danceAtHome: false,
+		manicure_renewal: false,
+		manicure: false,
 		stockings: false,
 	},
-    seenPanties: [],
+    seenBra: 0,
+    seenChastity: 0, /* whether friend saw PC's chastity cage */
+    seenFlatShoes: 0,
+    seenMakeupClinic: 0,
+    seenManicure: 0,
+    seenPanties: 0,
+    seenPlug: 0, /* whether friend saw PC's plug */
+	seenWaxedLeg: 0,
+	girlinessAttempt: 0, /* whether friend checked PC's girliness */
+	girlinessFail: 0, /* whether PC failed girliness check before */
+	blockAttempt: 0,
+	blockFail: 0,
+	friendTaskFrustration: 0,
+	friendGetChastity: 0, /* whether friend wants to get a chastity cage himself */
+	wearsChastity: 0, /* whether friend wears a chastity cage (unused) */
+	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
+	friendKiss: 0, /* how often PC and friend kissed */
+	bonusDress: 0,
 },
 
 window.futaList={
@@ -1454,6 +1506,7 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
+	visitedCountyClub:false,
 },
 
 window.kinkList={
@@ -1663,6 +1716,7 @@ window.cheerList={
 		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
 		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
 		prankBeg: false,	//PC begs for mercy to end prank
+		prank2: false,	//controls access to gym prank
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables
@@ -1704,7 +1758,7 @@ window.cheerList={
 		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
 		practiced: false, //practiced ashley's cheer before tryout.
 	}
-}
+},
 
 window.cheerFriendList={
 	progress: 0,	//current progress in side events, [int]
@@ -1726,4 +1780,12 @@ window.cheerFriendList={
 		visitedHouse: false, //visited house in SE 5
 		genderPref: "", //stated preferred gender
 	}
+},
+
+window.teamList={
+	sport: "football",
+	mean: "Rich",
+	nice: "Mike",
+	center: "Carl",
+	voice: "malevoice",
 }

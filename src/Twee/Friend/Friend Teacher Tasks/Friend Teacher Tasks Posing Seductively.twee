@@ -1,0 +1,63 @@
+::Friend Teacher Tasks Posing Seductively
+<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<if not $friendG.girlinessAttempt>>\
+    You open your mouth to reply, and then close it, unsure how to say what you need to do. Wordlessly, you turn and trudge upstairs to $friend's room and flop onto $friendG.his_her bed. 
+
+    @@.friend;"Alright, what's up?"@@ $friend asks, their curiosity giving way to concern. 
+
+    @@.hero;"Oh nothing. I just need to dress up like a girl and pose like a photo shoot." Yeah, that won't be awkward.@@
+
+    You brainstorm for a moment, a few ideas crossing your mind, and one in particular sticks out. It's the best one you've gotten so far. 
+
+    @@.heroT;"You've been saving pictures, haven't you?"@@
+
+    @@.friend;"Of what?"@@
+
+    @@.heroT;"Of me. You know...//wearing girl's stuff,//"@@ you whisper. @@.heroT;"I saw you take a couple."@@
+
+    @@.friend;"Er...one or two, I guess,"@@ $friend says, blushing sheepishly.
+
+    @@.heroT;"How about I, uh...pose. For you, for a couple of shots?"@@ 
+
+    @@.friend;"Really?"@@ Did $friendG.he_she have to sound so excited about it?
+
+    <<if $friendG.gender eq 'T'>>\
+        @@.heroT;"Um, sure - but only if you send some to me, and if I get some of you, too."@@
+    <<else>>\
+        @@.heroT;"Um, sure - but only if you send some of them to me, too."@@
+    <<endif>>\
+
+    Without hesitation, $friend races into $friendG.his_her sister's walk-in closet and begins sorting through it. Knowing that you need to do this to avoid upsetting $teacher, and remembering that this was technically your idea, you go ahead and strip down to your underwear.
+
+<<endif>>\
+<<set $friendG.girlinessFail = 0>>\
+<<include "Friend Teacher Tasks Girliness Check">>\
+
+<<if $friendG.girlinessFail>>\
+    <<if $friendG.girlinessAttempt>>\
+        /* Girliness Check covers this case */\
+    <<else>>\
+        @@.friend;"You know,"@@ $friend says, annoyedly snatching up all of the clothes they'd laid out and throwing them back in the closet, @@.friend;"if you're not going to put the effort in to get ready for a photoshoot, then I'm not going to help. Think about it tonight, $player.name, and if you decide you want to actually do some modeling, then put some effort into your outfit. If you do, I'll take as many pictures as you want - but until then, nothing."@@
+
+        Before you can protest, $friend walks out of the room. You hear a few footsteps down the hall, and then jump in place when you hear their $friendG.his_her bedroom door slam shut. 
+        
+        Dejected, you get dressed, and show yourself out. 
+
+        @@.hero;I'd better check my outfit before I come and ask again, to make sure I'm up to snuff.@@
+
+        <<set $friendG.wordlessGoodbye to true>>\
+        <<display [[Leave friend's house]]>>
+    <<endif>>\
+<<else>>\
+    You watch in bemusement as $friend heaps a pile of clothes onto the vanity and chair. Looking at how sheer or short some of them are, you wonder if $friend is about to play out one of $friendG.his_her dreams or something.  
+
+    You take the first dress $friendG.he_she holds out, a simple blue ruched-sleeved summer dress, and pull it over your head. You struggle with the rear zip, but $friend is immediately there to help, $friendG.his_her fingers brushing your skin as $friendG.his_her does so.
+
+    [[Time to pose|Friend Teacher Tasks Posing Seductively p2]]
+<<endif>>\

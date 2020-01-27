@@ -1,0 +1,21 @@
+:: jogger_date_3
+<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<RandomImageFromPack 'juice_bar' 400 400 alignRight>>\
+The two of you exchange introductions followed by some simple pleasantries as you wait for your drinks to arrive. Despite having, apparently, just finished a five mile jog he seems more energetic than you usually are at the start of the day! You get a brief respite from his exuberance when your drinks arrive but, after a quick, large, sip he launches back into discussion.
+
+@@.malevoice6;“So, what made you decide to join me today?,”@@ he asks. @@.malevoice6;“I mean, don’t get me wrong, jogging is great; I think everyone should do it, but…”@@ he looks over your decidedly unathletic attire, @@.malevoice6;“...you don’t really seem like the type.”@@
+
+@@.malevoice6;“Well,”@@ you say, a bit sheepishly, @@.malevoice6;“I saw you running and realized how much I needed to get in shape. They say exercise is better with a partner, so I thought maybe you might want to build up a sweat together...”@@
+
+You cringe inwardly at the cheesy line<<if playerCode.isMind() > 0>>, but for some reason the implication of your offer causes a twitch down below<<endif>>.
+
+@@.malevoice6;“What made you want to train?”@@ the jogger asks, seemingly unaware of your innuendo. @@.malevoice6;“Need to just get outdoors? Want to improve your cardio? Maybe work up to a 5k, marathon?”@@
+
+You open your mouth to correct him, but his flow of conversation will not be interrupted.
+
+@@.malevoice6;“First off, I’d recommend some new shoes. <<if _shoes.heels>>Probably something flat. <<endif>>You want something supportive, but that still lets you feel the ground. Of course that varies depending on where you plan to jog. Do you prefer pavement or are you thinking of trail jogging? It really is a great way to see the outdoors...”@@
+
+Your eyes start to glaze over as you realize that, unless you do something, he’s liable to drone on like this for awhile...
+
+[[Just sip your drink and let him babble on|jogger_date_4a]]
+[[Try to derail the jogging lecture by being more forward with him|jogger_date_4b]]

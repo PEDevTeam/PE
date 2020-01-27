@@ -3362,7 +3362,7 @@ window.tasksTeacherBody={
 		name:"Task semi-permanent treatments check up",
 		hasPassage: false,
 		text: {
-			given: "You need to keep your body well cared, so sign for the semi-permanent treatments check up this weekend. Nancy would be delightful to see you.",
+			given: "You need to keep your body well cared, so sign for the semi-permanent treatments check up this weekend. Nancy would be delighted to see you.",
 			perform: "",
 			finish: "$teacher nods to you. @@.teacher;\"I hope you enjoyed your //check up// at the Salon.\"@@",
 			fail: "You decided to skip your check up at the Salon? I'm adding cost of the check up to your weekly payment.",

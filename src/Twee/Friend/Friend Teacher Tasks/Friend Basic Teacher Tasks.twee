@@ -38,20 +38,18 @@ You watch as $friend heads back downstairs, then flop back onto the couch. It’
 \
 <<set $tasksFriend.teacherFriendTask to 0>>\
 \
-<!-- <<if $tasksTeacher.selfieFemaleClothes.status eq 1 or $tasksTeacher.selfieHomeMakeup.status eq 1 or  ($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0)or  ($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or  ($flags.flatsFlag == true && not playerCode.owns(itemsC.flats)) or  ($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0) >>\ -->
-<!-- <<endif>> -->
 <<if
-    $tasksTeacher.selfieFemaleClothes.status eq 1 or
-    $tasksTeacher.selfieHomeMakeup.status eq 1 or 
-    ($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0)or 
-    ($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or 
-    ($flags.flatsFlag == true && not window.inventoryFuncs.ownsMasterItem('flats')) or 
-    ($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0)
->>\
-\
+$tasksTeacher.selfieFemaleClothes.status eq 1 or
+$tasksTeacher.selfieHomeMakeup.status eq 1 or 
+($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0) or 
+($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or 
+($flags.flatsFlag == true && not window.inventoryFuncs.ownsMasterItem('flats')) or 
+($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0) or 
+$tasksTeacher.posingSeductively.status eq 1 or
+$tasksTeacher.danceAtHome.status eq 1 or
+$tasksTeacher.crossdressAroundBlock.status eq 1>>\
     <<set $tasksFriend.teacherFriendTask to 1>>\
 <<endif>>\
-\
 
 <<if $tasksFriend.teacherFriendTask eq 1>>\
     [[Teacher Tasks|Friend Teacher Tasks Menu]]\
