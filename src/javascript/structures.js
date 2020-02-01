@@ -739,19 +739,6 @@ window.structures={
 				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
 			}
 		}
-		
-		for (var i=0; i < Object.keys(teamList.flags).length; i++) {
-			if (vars.team[Object.keys(teamList.flags)[i]] == null) {
-				vars.team[Object.keys(teamList.flags)[i]] = {};
-				var object = vars.team[Object.keys(teamList.flags)[i]];
-				var listObject = teamList.flags[Object.keys(teamList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
 	},
 },
 
@@ -996,6 +983,7 @@ window.friendList={
 		manicure_renewal: false,
 		manicure: false,
 		stockings: false,
+		park: false,
 	},
     seenBra: 0,
     seenChastity: 0, /* whether friend saw PC's chastity cage */
@@ -1015,6 +1003,7 @@ window.friendList={
 	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
 	friendKiss: 0, /* how often PC and friend kissed */
 	bonusDress: 0,
+	parkAttempt:0,
 },
 
 window.futaList={

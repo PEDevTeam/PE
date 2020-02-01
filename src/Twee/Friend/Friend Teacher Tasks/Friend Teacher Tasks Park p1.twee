@@ -1,4 +1,4 @@
-::Friend Teacher Tasks Walk Around Block
+::Friend Teacher Tasks Crossdress at Park p1
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
@@ -6,16 +6,14 @@
 <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
-<<if $friendG.blockAttempt == 1>>\
-	@@.friend;“I hope you put some effort into it this time,”@@ $friend states.
+<<if $friendG.parkAttempt == 1>>\
 	<<if (_u.female == 0 or _c == 0 or _p == 0 or (_p and _p.female == 0) or $body.bodyhair == 0)>>\ 
 		<<set $friendG.posingFail = 1>>\
 	<<endif>>\
+	<<if $friendG.parkFail == 1>>\
+		@@.heroT;“Sorry, $friend. My mind’s been on other things.”@@
 
-	<<if blockFail == 1>>\
-		@@.heroT;“Sorry, $friend. I kinda forgot.”@@
-
-		@@.friend;“Oh well. It’s your choice,”@@ $friend says sadly, pushing you back out onto the steps and slamming the door in your face. 
+		@@.friend;“More important than me, and us? Fine. It’s your choice,”@@ $friend says, sad and annoyed. $friendG.he_she pushes you back outside and slams the door in your face. 
 
 		<<set $friendG.friendTaskFrustration eq ($friendG.friendTaskFrustration + 3)>>\
 		<<unset $wearingChastity>>\
@@ -29,28 +27,29 @@
 		<<endif>>\
 		<<display [[Travel]]>>
 	<<else>>\
-		[[Change to go out|Friend Teacher Tasks Walk Around Block p2]] 
+		[[Change for Park|Friend Teacher Tasks Crossdress at Park p2]]
 	<<endif>>\
-<<elseif $friendG.blockAttempt == 0>>\
-	Going out in a dress seems like a big step, but in addition to fear, you feel an inner thrill inside, lessening your resistance. At least going for a walk from $friend’s house means none of your neighbors will recognise you. 
 
-	@@.friend;“What’s on your mind?”@@ $friend asks.
+<<elseif $friendG.parkAttempt == 0>>\
+	The thought of going out in a dress and to such a public place makes your stomach flip a little, a mixture of nausea and something else. Something you can’t quite put your finger on, almost like a hidden anticipation. For the first time you are going to be dressed far away from the sanctity and safety of your home. Having $friend with you might be the only way you can get through this. 
 
-	@@.hero;Oh nothing. I just need to dress up like a girl and go for a walk outside!@@
+	@@.friend;“What are you thinking of doing today?”@@ $friend asks.
 
-	@@.heroT;“Do you want to go out?”@@
+	@@.hero;Oh nothing. I just need to dress up like a girl and go to a fucking park!@@
 
-	@@.friend;“Like on a date?”@@ $friend asks, suddenly curious. 
+	@@.heroT;“Um. Can we go out?”@@
 
-	@@.heroT;“No, not a date. Like, outside?”@@
+	@@.friend;“On a date?”@@ $friend asks, seemingly more curious than usual. 
 
-	@@.friend;“Oh okay. Sure, I guess.”@@ $friend says, picking up $friendG.his_her keys.  
+	@@.heroT;“No, not a date. Like, to the park?”@@
 
-	@@.heroT;“No. I meant, go out. With me, you know, in a dress or something?”@@
+	@@.friend;“Not a date, but to the park? You mean play ball or something?”@@ $friend asks. 
 
-	@@.friend;“Now you’re talking!<<if $friendG.gender == "T">>Hey, we can both get dressed up!<<endif>>”@@
+	@@.heroT;“I’d look pretty stupid throwing a ball in a dress and heels,”@@ you mutter to yourself. 
 
-	Without pausing, $friend tears upstairs into $friendG.his_her sister’s walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you need to do this to avoid upsetting teacher, and remembering this was your idea, you strip down to your underwear.
+	@@.friend;“Oh, in a dress! So, you want to go out to the park, with me. And you want to look all pretty, but it’s not a date?<<if $friendG.gender == "T">> Tell you what, we can both go dressed up! It’ll be fun.<<endif>>"@@
+
+	Without pausing, $friend rushes upstairs to <<if $friendG.gender == "F">>her<<else>>his sister’s<<endif>> walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you suggested it, thanks to another task from $teacher, you don’t argue and strip down to your underwear.
 
 	<<if (playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy))>>\
 		<<if (_underwearAlt == _braAlt)>>\
@@ -67,12 +66,12 @@
 
 			@@.heroT;"I, uh..."@@ You mumble, covering your bare chest with your arms. @@.heroT;"Sorry, I guess."@@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
-			<<set $friendG.blockFail = 1>>\
+			<<set $friendG.parkFail = 1>>\
 		<<endif>>\
 		<<if _u.male == 1>>\
 			@@.friend;"Boxers? Really?"@@ $friend shakes their head, looking disappointed. @@.friend;"I thought you were way past boxers."@@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
-			<<set $friendG.blockFail = 1>>\
+			<<set $friendG.parkFail = 1>>\
 		<<endif>>\
 	<<endif>>\
 
@@ -108,12 +107,12 @@
 		$friend eyes your crotch, looking for a specific plastic bulge, but they don't find it.
 
 		@@.friend;"No cage? But I thought..."@@
-		<<set $friendG.blockFail = 1>>\
+		<<set $friendG.parkFail = 1>>\
 	<<elseif (not _c and not $friendG.seenChastity)>>\
 		$friend stares at your crotch, frowning.
 
 		@@.friend;"There's something missing here... I think we should do this some other time."@@
-		<<set $friendG.blockFail = 1>>\
+		<<set $friendG.parkFail = 1>>\
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
@@ -142,7 +141,7 @@
 			<<endif>>
 		<<else>>
 			<<set $friendG.friendTaskFrustration += 1>>\
-			<<set $friendG.blockFail = 1>>\
+			<<set $friendG.parkFail = 1>>\
 			<<if $friendG.seenWaxedLeg == 1>>\
 				@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@\
 			<<else>>\
@@ -152,7 +151,7 @@
 	<<else>>\
 		$friend sighs, then steps forward and slides a hand up the back of your thigh.\ 
 		<<set $friendG.friendTaskFrustration += 1>>\
-		<<set $friendG.blockFail = 1>>\
+		<<set $friendG.parkFail = 1>>\
 		<<if $body.bodyhair gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
@@ -198,18 +197,15 @@
 		<<endif>>\
 	<<endif>>\
 	
-	<<if $friendG.blockFail>>\
-		$friend sighs and throws the bag back into the wardrobe, slamming the door. “If you can't even the basics, I don’t know why you would want to go outside in a dress. This isn't some game for me, and if you aren't going to put the effort in, then I'm not going to help. Think about it tonight, $player.name, and if you decide you want to keep having fun, try putting some effort into your appearance. If you do, then we can go for a walk.” $friend sounds angry and annoyed and somewhat disappointed. 
+	<<if $friendG.parkFail == 1>>\
+	“You know,” $friend says, throwing the bag back into the wardrobe and slamming the door. “If you’re not even doing the basics, I don’t know why you would want to go outside in a dress. This is not some game for me, and if you are not going to put the effort in, then I am not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun, put some effort into your appearance. If you do, we can go for a walk if you want.” $friend sounds angry and annoyed and somewhat disappointed. 
 
-		@@.hero;I’d better check my outfit before I ask again, $friend won't go on a walk with me unless I look the part first.@@
+	I’d better check my outfit before I ask again, $friend wants me to wear things to put some effort in for [him/her]
 
-		With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
-		
-		<<set $friendG.wordlessGoodbye to true>>\
-        <<display [[Leave friend's house]]>>
-		<<set $friendG.blockAttempt = 1>>\
+	With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
+		<<set $friendG.parkAttempt = 1>>\
 	<<else>>\
-		[[Change to go out|Friend Teacher Tasks Walk Around Block p2]] 
+		[[Change for Park|Friend Teacher Tasks Crossdress at Park p2]]
 	<<endif>>\
-<<endif>>\		
-<<set $friendG.blockFail = 0>>\
+<<endif>>\
+<<set $friendG.parkFail = 0>>\
