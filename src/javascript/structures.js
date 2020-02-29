@@ -1003,6 +1003,8 @@ window.friendList={
 	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
 	friendKiss: 0, /* how often PC and friend kissed */
 	bonusDress: 0,
+	parkAttempt: 0,
+	parkFail: 0,
 },
 
 window.futaList={
