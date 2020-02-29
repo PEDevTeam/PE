@@ -1,13 +1,13 @@
 ::Friend Teacher Tasks Park p2
-<<set _chas playerCode.isWearingOn(Chastity)>>\
-<<set _under playerCode.isWearingOn(Underwear)>>\
+<<set _chas = playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
 @@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, [stockings/girl socks]. I even kept the little cage on.”@@
 
 @@.friend;“You are too cute.”@@ $friend grabs you excitedly and squeezes you tight, $friendG.his_her hands slipping down to caress your butt cheeks through your pants. You gasp in surprise but $friend steps back before you can comment. @@.friend;“So, you still want to go out?”@@
 
 @@.hero;No!@@ @@.heroT;“I guess.”@@
 
-<<if parkAttempt == 1>>\
+<<if $friendG.parkAttempt == 1>>\
 	$friend races upstairs to [her/his sister’s] walk-in wardrobe and pulls out a bag that has Indy’s Closet Clothing Emporium written on the side.
 
 	“What is it?”
@@ -37,7 +37,7 @@
 
 	@@.friend;“Yeah, come on, let’s go.”@@
 	<<set $blockDress = "black">>\
-<<else if $friendG.tasks.mall true and friendBonusDress = 1>>\
+<<elseif $friendG.tasks.mall == true && $friendG.bonusDress == 1>>\
 <img src='Images/items/dress_casual_70.jpg' style="float: right; width: auto; height: 250px;">\
 	@@.friend;“You remember when we were at the store before?”@@
 		
@@ -74,7 +74,7 @@
 
 		$friend grins and starts to dress. You shake your head to clear your thoughts, but you continue to stare despite your <<if $kink.sph>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _chas>>cage<<elseif _under>><<if _under.female>>panties<<else>>boxers<<endif>><<endif>> at the memory of seeing him naked.
 	<<endif>>\	
-<<elseif $friendG.gender = "T">>\
+<<elseif $friendG.gender == "T">>\
 	<<RandomImageFromPack 'Friend/WalkBlock/TFriend' 400 400 alignRight>>\
 	$friend opens his sister’s wardrobe and flicks through the rails for something to wear as you pull on the matching shoes he provided. They are a little big but manageable. However the 3” heel is a bit of a challenge on the shiny floors. 
 
