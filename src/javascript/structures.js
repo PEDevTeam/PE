@@ -502,7 +502,7 @@ window.structures={
 			var found = false;
 			
 			for (var j=0; j < Object.keys(talksList).length; j++) {
-				if (talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
+				if (talksNewList[Object.keys(talksList)[i]] && talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
 					var found = true;
 					break;
 				}
