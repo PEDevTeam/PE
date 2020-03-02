@@ -1,0 +1,31 @@
+:: Receive private tutoring
+/*
+This is a variant of "Agree to extra instruction" for the "consensual" route.
+*/\
+<<set $bribeAmount=50*$flags.bribeFactor>>\
+<<set $player.bribeDiscount=(10*$time.weekDay()-10)*$flags.bribeFactor>>\
+<<set _nb = $bribeAmount-$player.bribeDiscount>>\
+<<set $player.perversion.teacher=1>>\
+<<set $player.perversion.teacherCooldown=0>>\
+<<set $player.daringFlag.bribe=true>>\
+
+Overwhelmed by this turn of events, you mumble a positive response.
+
+@@.teacher;“Good. I respect your decision to submit to me. In a way, I need to submit to you, too. I know your performance at school is mediocre. I need to adapt my teaching methods to your particular lack of determination. Though it looks like you can handle your finances. That is why we need to play a game: Every monday, you will give me $bribeAmount. Keep in mind that you are not paying me – my services are far more valuable. I want to see the weekly payment as an incentive. An investment in the future of your sexuality, if you will.”@@ she smirks.
+
+@@.teacher;“<<if $player.bribeDiscount gt 0>>\
+Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>. \
+<<endif>>\
+<<if $flags.bullySteal>>\
+I will stop those $futa.boy_girl////s from stealing your money in the morning. \
+<<endif>>\
+As a first lession, I challenge you to wear female underwear to school. I will deduct $<<print rewardMoney.teacherFemaleUnderwear>> from the week’s amount for each day you do.”@@
+
+@@.hero;What? I have to wear panties to school?@@
+
+@@.teacher;“I hope this helps in improving your problem-solving skills.”@@ she explains, @@.teacher;“Maybe you can obtain one from your mother or a friend. Buy your own from the shops if you are feeling brave. Who knows, you might even be able to borrow some from a //girlfriend//...”@@ she adds with a slight smile playing on her lips. @@.teacher;"What's important is that you show some determination."@@
+
+<<set $player.detention=false>>\
+<<set $flags.bribePaid=true>>\
+[[Agree|Finish school][$flags.daring3Add = true]]
+[[I won’t wear panties|Reject private tutoring]]
