@@ -5,7 +5,7 @@ window.randomCode={
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	},
 	percent: function(percent) {
-		return ((Math.floor(Math.random() * 100)) > percent);
+		return ((Math.floor(Math.random() * 100)) < percent);
 	},
 	rand100: function(percent) {
 		return Math.floor(Math.random() * 100);
