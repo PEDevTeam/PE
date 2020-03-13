@@ -861,15 +861,21 @@ window.playerAddonsList={
 		ending: -1,
 	},
 	masturbate: {
-		lastDay: 0,
-		lastHour: 0,
-		lastMinute: 0,
-		DayTemp: 0,
-		HourTemp: 0,
-		MinuteTemp: 0,
-		DayTease: 0,
-		HourTease: 0,
-		MinuteTease: 0
+		last : {
+			day: 0,
+			hour: 0,
+			minute: 0
+		},
+		temp : {
+			day: 0,
+			hour: 0,
+			minute: 0
+		},
+		tease : {
+			day: 0,
+			hour: 0,
+			minute: 0
+		}
 	},
 	exp: {
 		crossdressingExp: 0,

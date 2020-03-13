@@ -1,4 +1,4 @@
-window.playerCode={
+window.playerCode = {
 	activateTherapist: function(numDays) {
 		var player=State.active.variables.player;
 		player.therapistMode=true;
@@ -38,34 +38,34 @@ window.playerCode={
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
 			var refractoryMinutes=180;
-			return ((time.day * 1440 + time.hour * 60 + time.minute) - (masturbate.lastDay * 1440 + masturbate.lastHour * 60 + masturbate.lastMinute)) >= refractoryMinutes;
+			if (masturbate.lastDay && masturbate.lastHour && masturbate.lastMinute) {
+				/* convert structure – for compatibility with old saves */
+				masturbate.last = {day: masturbate.lastDay, hour: masturbate.lastHour, minute: masturbate.lastMinute};
+				delete masturbate.lastDay; delete masturbate.lastHour; delete masturbate.lastMinute;
+			}
+			return timeCode.minutesSince(masturbate.last, time) >= refractoryMinutes;
 		},
 		isCalm: function() {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
-			return (time.day * 1440 + time.hour * 60 + time.minute) <= (masturbate.DayTemp * 1440 + masturbate.HourTemp * 60 + masturbate.MinuteTemp);
+			return timeCode.minutesSince(masturbate.temp, time) < 0;
 		},
 		isTeased: function() {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
-			return (time.day * 1440 + time.hour * 60 + time.minute) <= (masturbate.DayTease * 1440 + masturbate.HourTease * 60 + masturbate.MinuteTease);
+			return timeCode.minutesSince(masturbate.tease, time) < 0;
 		},
 		sinceLastCum: function() {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
-			return (time.day * 1440 + time.hour * 60 + time.minute) - (masturbate.lastDay * 1440 + masturbate.lastHour * 60 + masturbate.lastMinute);
+			return timeCode.minutesSince(masturbate.last, time);
 		},
 		tease: function(hours) {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
-			masturbate.DayTease=time.day;
-			masturbate.HourTease=time.hour;
-			masturbate.MinuteTease=time.minute;
-			masturbate.HourTease+=hours;
-			while (masturbate.HourTease >= 24) {
-				masturbate.DayTease++;
-				masturbate.HourTease-=24;
-			}
+			masturbate.tease = timeCode.currentTime();
+			masturbate.tease.hour+=hours;
+			timeCode.rollover(masturbate.tease);
 		},
 		tempRelief: function(hours) {
 			var time=State.active.variables.time;
@@ -75,14 +75,9 @@ window.playerCode={
 			}
 			window.playerCode.changeArousal(5);
 			State.active.variables.flags.forcedHorny=false;
-			masturbate.DayTemp=time.day;
-			masturbate.HourTemp=time.hour;
-			masturbate.MinuteTemp=time.minute;
-			masturbate.HourTemp+=hours;
-			while (masturbate.HourTemp >= 24) {
-				masturbate.DayTemp++;
-				masturbate.HourTemp-=24;
-			}
+			masturbate.temp = timeCode.currentTime();
+			masturbate.temp.hour+=hours;
+			timeCode.rollover(masturbate.temp);
 		},
 		cum: function() {
 			var time=State.active.variables.time;
@@ -90,9 +85,8 @@ window.playerCode={
 			window.playerCode.changeArousal(-100);
 			window.playerCode.setStatus("Satisfied",3,0);
 			State.active.variables.flags.forcedHorny=false;
-			masturbate.lastDay=time.day;
-			masturbate.lastHour=time.hour;
-			masturbate.lastMinute=time.minute;
+			masturbate.last = timeCode.currentTime();
+			console.log(masturbate);
 		}
 	},
 	changeArousal: function(Delta) {
@@ -620,4 +614,4 @@ window.playerCode={
 		player.gameSkill = skillLevel + skillImprove;
 		return skillImprove;
 	},
-}
+};
