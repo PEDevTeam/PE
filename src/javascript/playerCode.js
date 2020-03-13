@@ -97,11 +97,11 @@ window.playerCode = {
 			State.active.variables.flags.forcedHorny=false;
 			masturbate.last = timeCode.currentTime();
 		},
-		abusePenis: function() {
+		abusePenis: function(daysOfDisinterest) {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
 			masturbate.disinterest = timeCode.currentTime();
-			masturbate.disinterest.day+=2; /* penile disinterest for two days */
+			masturbate.disinterest.day+=daysOfDisinterest;
 		},
 		penileDisinterest :function() {
 			var time=State.active.variables.time;
