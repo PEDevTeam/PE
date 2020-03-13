@@ -12,7 +12,12 @@
 		Your penis strains hard against your chastity cage. You're so horny you can barely stand it.
 		
 	<<else>>\
-		The silent eroticism is what you needed to reach your own orgasm, and you cum all over yourself, knowing you're about to clean up in the shower anyway.
+		<<if playerCode.masturbate.penileDisinterest()>>\
+			<<display "Penile Disinterest Syndrome">>
+			<<set playerCode.changeArousal(5)>>\
+		<<else>>\
+			The silent eroticism is what you needed to reach your own orgasm, and you cum all over yourself, knowing you're about to clean up in the shower anyway.
+		<<endif>>\
 		
 	<<endif>>\
 	You watch as $guardian gives her body a final once over with the shower head, then turns off the water and steps out, relaxed and smiling.
@@ -62,13 +67,18 @@
 					Unable to stand it any longer, she finally plunges the vibrator deep into her pussy, using her hands to both move it swiftly in and out of her wet hole and tease her clit.
 					
 					<<if random(1) eq 0>>\
-						She suddenly pulls the vibrator out, rolls onto her side and brings a leg up to her chest. She places the vibrator at the entrance to her asshole, and pushes firmly, letting it slide in deep.  These moans you can hear, and she quickly rubs herself to a squirting orgasm, \
+						She suddenly pulls the vibrator out, rolls onto her side and brings a leg up to her chest. She places the vibrator at the entrance to her asshole, and pushes firmly, letting it slide in deep. These moans you can hear, and she quickly rubs herself to a squirting orgasm, \
 						<<if _c>>\
-							increasing your horniness to an insane level. Your penis struggles to find a way out of its cage, but all you can do is \
+							increasing your horniness to an insane level. Your penis struggles to find a way out of its cage, but all you can do is watch $guardian removing the toy from her ass and lying there, gently quivering.
 						<<else>>\
-							the sight of which pushes you to your own shuddering orgasm.  As you come down, you \
+							<<if playerCode.masturbate.penileDisinterest()>>\
+								spurring you on even more.\
+								<<display "Penile Disinterest Syndrome">>
+								<<set playerCode.changeArousal(5)>>\
+							<<else>>\
+								the sight of which pushes you to your own shuddering orgasm.  As you come down, you watch $guardian removing the toy from her ass and lying there, gently quivering.
+							<<endif>>\
 						<<endif>>\
-						watch $guardian removing the toy from her ass and lying there, gently quivering.
 						
 					<<else>>\
 						The fingers on her clit now move to her asshole, where they gently circle before pushing one then two fingers in. She moves the vibrator and her fingers in and out in unison, faster and faster before climaxing in a quivering orgasm.  You hear her cry out through the wall as she cums, \
@@ -76,7 +86,13 @@
 							and you feel tears brewing in frustration as you clutch your caged penis, desperate for any touch.
 							
 						<<else>>\
-							and you quietly do the same, hoping she won't hear you.
+							<<if playerCode.masturbate.penileDisinterest()>>\
+								increasing your own masturbation.\
+								<<display "Penile Disinterest Syndrome">>
+								<<set playerCode.changeArousal(5)>>\
+							<<else>>\
+								and you quietly do the same, hoping she won't hear you.
+							<<endif>>\
 							
 						<<endif>>\
 					<<endif>>\
@@ -94,7 +110,13 @@
 						and making you wish you'd never laid eyes on your chastity cage. You're more horny now than you've ever been.
 						
 					<<else>>\
-						and sending you over the edge as well. After you've both relaxed, you clean up.
+						<<if playerCode.masturbate.penileDisinterest()>>\
+							and your hands move in a blur.\
+							<<display "Penile Disinterest Syndrome">>
+							<<set playerCode.changeArousal(5)>>\
+						<<else>>\
+							and sending you over the edge as well. After you've both relaxed, you clean up.
+						<<endif>>\
 						
 					<<endif>>\
 				<<endif>>\
@@ -102,13 +124,17 @@
 			<<if _scst eq 2>>\
 				She picks up a hairbrush from the bedside table, licks the plastic handle until it's glistening, then reaches down and pushes it slowly but steadily into her pussy.  When it's as deep as it will go, she starts pulling it in and out, while sucking on the fingers of her other hand. 
 					
-				Before long, she picks up the pace, thrusting the hairbrush harder and harder into herself, biting her fingers, then finally cumming as her whole body shivers uncontrollably.  \
+				Before long, she picks up the pace, thrusting the hairbrush harder and harder into herself, biting her fingers, then finally cumming as her whole body shivers uncontrollably. \
 				<<if _c>>\
-					You pull uselessly at your caged penis, feeling nothing but horny and plastic. You grit your teeth and \
+					You pull uselessly at your caged penis, feeling nothing but horny and plastic. You grit your teeth and watch as $guardian pulls the hairbrush out and licks it clean before putting it back on her bedside table.
 				<<else>>\
-					This pushes you over the edge, and you cum hard. As your recover you \
+					<<if playerCode.masturbate.penileDisinterest()>>\
+						<<display "Penile Disinterest Syndrome">>
+						<<set playerCode.changeArousal(5)>>\
+					<<else>>\
+						This pushes you over the edge, and you cum hard. As your recover you watch as $guardian pulls the hairbrush out and licks it clean before putting it back on her bedside table.
+					<<endif>>\
 				<<endif>>\
-				watch as $guardian pulls the hairbrush out and licks it clean before putting it back on her bedside table.
 				
 			<<endif>>\
 		<<else>>\
@@ -124,7 +150,7 @@
 
 <<endif>>\
 <<if _mf>>\
-	<<if _c>>\
+	<<if _c or playerCode.masturbate.penileDisinterest()>>\
 		<<if $player.perversion.guardian gte 4>>\
 		<<set $player.masturbationType = 3>>\
 		After some time, a familiar *bing* from your computer alerts you that your attempt to masturbate while watching the spy cam was recorded.
