@@ -94,7 +94,12 @@
 	<<else>>\
 		<<if playerCode.masturbate.penileDisinterest()>>\
 			<<display "Penile Disinterest Syndrome">>
-		
+			<<set playerCode.changeArousal(5)>>\
+			<<if $player.perversion.guardian gte 4>>\
+				/*<<set $player.masturbationType = 2>>*/\
+				After some time a familiar *bing* from your computer notifies you of a recording of you trying to masturbate on porn.
+				
+			<<endif>>\
 		<<else>>\
 			<<set playerCode.masturbate.cum()>>\
 			You cum after a couple of minutes watching the porn, but are left feeling no less horny than you did before.

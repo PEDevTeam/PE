@@ -1,23 +1,41 @@
 :: Penile Disinterest Syndrome
-\
-TODO: write playerCode.masturbate.penileDisinterest()
-TODO: create an object for $player.masturbationType, adjust guardian reactions
+/*TODO: create an object for $player.masturbationType, adjust guardian reactions, offer fuck after checking <<if $flags.guardianStrapon and $flags.choreReward and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and window.timeCode.isWeekend()>>\*/\
+You work your penis, stroking and jerking like you usually do. For some reason, it does not do it for you, this time. You only manage to work yourself up more and more. You are really close to orgasm, but cannot quite reach it. Your penis is dripping pre like a leaky faucet. The clear fluid coats your entire shaft and makes your fingers extra slippery. It turns you on even more, but it does not really help.
 
-You keep working your penis, stroking and jerking like you are use to do. 
-For some reason, it does not do it for you, this time. 
-You only manage to work yourself up more and more.
-You are really close to orgasm, but cannot quite reach it.
-Your penis is dripping pre like a leaky faucet. The clear fluid coats your entire shaft and makes your fingers extra slippery. It turns you on even more, but it does not help.
+<<set _cancum = false>>\
+<<if not playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+    Your butt-hole clenches around nothing, feeling empty and oddly… left out. You reach around with one hand, touching your twitching sphincter, circling your finger around it. The feeling does encite you, but it is not enough to make you cum.
+<<else>>\
+    You reach around with one hand, putting pressure on the base of your plug. \
+    <<if $body.anal >= 3>>\
+        <<if playerCode.isWearing(itemsC.buttPlugDildo)>>Although the butt-plug dildo is sizable, the<<else>>The<<endif>> toy is far too small for your well-stretched fuck-hole to provide any meaningful stimulation.
+    <<elseif playerCode.isWearing(itemsC.buttPlugHeart) && $body.anal >= 2>>\
+        Now that you actually try to use it for masturbation you realize, the toy is too small for your experienced butt to provide any meaningful stimulation.
+    <<else>>\
+        You push and pull, eventually moving the plug around in circles.
+        <<set _cancum = true>>\
+    <<endif>>\
+    /*playerCode.isWearing(itemsC.buttPlugVibro), playerCode.isWearing(itemsC.buttPlugInflate)*/\
+<<endif>>\
 
-Your butt-hole clenches around nothing, feeling empty and oddly… left out. 
-You reach around with one hand, touching your twitching sphincter, circling your finger around it.
-
-You reach around with one hand, putting pressure on the base of your plug.
-
-The toy is far too small for your stretched hole to provide any meaningful stimulation.
-
-You push and pull, eventually moving the plug around in circles.
-Oh yeah, that hit's the spot!
-You concentrate on how the plug stretches your sphincter and puts pressure on your insides. You keep masturbating your penis while you play with the plug. Each time you manage to push the plug against your prostate, you are rewarded by a bigger squirt of pre onto your hand. With the focus of the stimulation moved away from your penis and to your asshole, you finally reach the orgasm which eluded you for so long. It feels particularly intense as you concentrate more on your butt-hole clenching around the base of the plug and less on your twitching dick.
-
-Despite your frantic stroking you feel your penis getting soft. You are losing your erection mid-masturbation! It looks like you cannot even cum without something up your ass.
+<<if _cancum>>\
+    @@.hero;Oh yeah, that hit's the spot!@@
+    
+    You concentrate on how the plug stretches your sphincter and puts pressure on your insides. You keep masturbating your penis while you play with the plug. Each time you manage to push the plug against your prostate, you are rewarded by a bigger squirt of pre onto your hand. With the focus of the stimulation moved away from your penis and to your asshole, you finally reach the orgasm which eluded you for so long. It feels particularly intense as you concentrate more on your butt-hole clenching around the base of the plug and less on your twitching dick.
+    
+    <<set playerCode.masturbate.cum()>>\
+<<else>>\
+    <<set playerCode.masturbate.tease(3)>>\
+    <<set playerCode.upArousalTo(50,75)>>\
+    <<if $player.arousal >=75>>\
+        You are desperately horny and your penis is so hard it hurts. You have reached a point where the pain is worse than the need and you stop touching yourself. Your penis is twitching madly, but you cannot bear the ineffective stimulation any longer. \
+    <<else>>\
+        Despite your frantic stroking your erection is waning. 
+        
+        @@.hero;No way! I am getting soft while I am jacking off. What is wrong with me?
+        
+    <<endif>>\
+    It looks like the milking has taken its toll on your body and mind. You now cannot even cum without something up your ass.
+    
+    [[Look for some other options to masturbate|Masturbate][$scene=""]]
+<<endif>>\

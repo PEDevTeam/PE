@@ -48,11 +48,21 @@ window.playerCode = {
 		isCalm: function() {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
+			if (masturbate.DayTemp && masturbate.HourTemp && masturbate.MinuteTemp) {
+				/* convert structure – for compatibility with old saves */
+				masturbate.temp = {day: masturbate.DayTemp, hour: masturbate.HourTemp, minute: masturbate.MinuteTemp};
+				delete masturbate.DayTemp; delete masturbate.HourTemp; delete masturbate.MinuteTemp;
+			}
 			return timeCode.minutesSince(masturbate.temp, time) < 0;
 		},
 		isTeased: function() {
 			var time=State.active.variables.time;
 			var masturbate=State.active.variables.player.masturbate;
+			if (masturbate.DayTease && masturbate.HourTease && masturbate.MinuteTease) {
+				/* convert structure – for compatibility with old saves */
+				masturbate.tease = {day: masturbate.DayTease, hour: masturbate.HourTease, minute: masturbate.MinuteTease};
+				delete masturbate.DayTease; delete masturbate.HourTease; delete masturbate.MinuteTease;
+			}
 			return timeCode.minutesSince(masturbate.tease, time) < 0;
 		},
 		sinceLastCum: function() {
@@ -86,7 +96,17 @@ window.playerCode = {
 			window.playerCode.setStatus("Satisfied",3,0);
 			State.active.variables.flags.forcedHorny=false;
 			masturbate.last = timeCode.currentTime();
-			console.log(masturbate);
+		},
+		abusePenis: function() {
+			var time=State.active.variables.time;
+			var masturbate=State.active.variables.player.masturbate;
+			masturbate.disinterest = timeCode.currentTime();
+			masturbate.disinterest.day+=2; /* penile disinterest for two days */
+		},
+		penileDisinterest :function() {
+			var time=State.active.variables.time;
+			var masturbate=State.active.variables.player.masturbate;
+			return masturbate.disinterest && timeCode.minutesSince(masturbate.disinterest, time) < 0;
 		}
 	},
 	changeArousal: function(Delta) {
