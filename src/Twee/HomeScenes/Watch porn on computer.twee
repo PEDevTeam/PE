@@ -84,8 +84,8 @@
 			You chose to watch porn with your chastity cage still confining your penis, so in the end you feel even hornier than before.
 		<<endif>>\
 		
+		<<set $player.masturbationType = {tool: "Porn", orgasm: "denied"}>>\
 		<<if $player.perversion.guardian gte 4>>\
-			<<set $player.masturbationType = 1>>\
 			After some time a familiar *bing* from your computer notifies you of a recording of you trying to masturbate to porn.
 			
 		<<endif>>\
@@ -96,7 +96,7 @@
 			<<display "Penile Disinterest Syndrome">>
 			<<set playerCode.changeArousal(5)>>\
 			<<if $player.perversion.guardian gte 4>>\
-				/*<<set $player.masturbationType = 2>>*/\
+				<<set $player.masturbationType = {tool: "Porn", orgasm: "unable"}>>\
 				After some time a familiar *bing* from your computer notifies you of a recording of you trying to masturbate on porn.
 				
 			<<endif>>\
@@ -104,8 +104,8 @@
 			<<set playerCode.masturbate.cum()>>\
 			You cum after a couple of minutes watching the porn, but are left feeling no less horny than you did before.
 		
+			<<set $player.masturbationType = {tool: "Porn", orgasm: "penile"}>>\
 			<<if $player.perversion.guardian gte 4>>\
-				<<set $player.masturbationType = 2>>\
 				After some time a familiar *bing* from your computer notifies you of a recording of you masturbating on porn.
 				
 			<<endif>>\

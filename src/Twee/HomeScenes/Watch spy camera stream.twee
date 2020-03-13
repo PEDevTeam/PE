@@ -2,6 +2,7 @@
 \
 <<set _mf to false>>\
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _d to playerCode.masturbate.penileDisinterest()>>\
 <<if ($random.stored eq 0) and $flags.cameraBathroom>>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Guardian Shower Spycam" 400 400>></div>\
 	<<set _mf to true>>\
@@ -128,7 +129,7 @@
 				<<if _c>>\
 					You pull uselessly at your caged penis, feeling nothing but horny and plastic. You grit your teeth and watch as $guardian pulls the hairbrush out and licks it clean before putting it back on her bedside table.
 				<<else>>\
-					<<if playerCode.masturbate.penileDisinterest()>>\
+					<<if _d>>\
 						<<display "Penile Disinterest Syndrome">>
 						<<set playerCode.changeArousal(5)>>\
 					<<else>>\
@@ -150,9 +151,13 @@
 
 <<endif>>\
 <<if _mf>>\
-	<<if _c or playerCode.masturbate.penileDisinterest()>>\
+	<<if _c or _d>>\
+		<<if _c>>\
+			<<set $player.masturbationType = {tool: "Spycam", orgasm: "denied"}>>\
+		<<else>>\
+			<<set $player.masturbationType = {tool: "Spycam", orgasm: "unable"}>>\
+		<<endif>>\
 		<<if $player.perversion.guardian gte 4>>\
-		<<set $player.masturbationType = 3>>\
 		After some time, a familiar *bing* from your computer alerts you that your attempt to masturbate while watching the spy cam was recorded.
 		
 		<<endif>>\
@@ -163,7 +168,7 @@
 		<<endif>>\
 	<<else>>\
 		<<if $player.perversion.guardian gte 4>>\
-		<<set $player.masturbationType = 4>>\
+	<<set $player.masturbationType = {tool: "Spycam", orgasm: "penile"}>>\
 		After some time, a familiar *bing* from your computer notifies you that of a recording of you masturbating while watching the spy cam.
 		
 		<<endif>>\

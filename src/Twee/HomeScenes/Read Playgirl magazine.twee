@@ -1,6 +1,7 @@
 :: Read Playgirl magazine [pos_478_935]
 \
 <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _d to playerCode.masturbate.penileDisinterest()>>\
 <<if $flags.quizState == "question">>\
 	<<set $flags.quizState = "answer">>\
 <<else>>\
@@ -198,10 +199,9 @@
 	You continue perusing the magazine, frantically turning past pages with prominent penis, but taking time to enjoy the articles that include recommendations for sex toys, erotic travel tips and sex advice. Even the mundane topics are written with erotic undertones, and with each paragraph, you can feel your arousal growing. 
 
 	Finally, you stumble on the erotic fiction section, and <<if not _c>>you start idly playing with yourself as <<endif>>you allow yourself to get lost in the fantasies.
-
 <<endif>>\
 <<if $flags.quizState != "question">>\
-	<<if not _c && playerCode.masturbate.penileDisinterest()>>\
+	<<if not _c && _d>>\
 		<<display "Penile Disinterest Syndrome">>\
 	<<else>>\
 		<<if _c>>\
@@ -231,18 +231,21 @@
 			put the magazine away, glad that $guardian didn't walk in on you.
 		<<endif>>\
 
-		<<if _c or playerCode.masturbate.penileDisinterest()>>\
+		<<if _c or _d>>\
+			<<if _c>>\
+				<<set $player.masturbationType = {tool: "Playgirl", orgasm: "denied"}>>\
+			<<else>>\
+				<<set $player.masturbationType = {tool: "Playgirl", orgasm: "unable"}>>\
+			<<endif>>\
 			<<set playerCode.changeArousal(5)>>\
 			<<set playerCode.upArousalTo(50,50)>>\
 			<<if $player.perversion.guardian gte 4>>\
-				<<set $player.masturbationType = 5>>\
 				After some time a familiar *bing* from your computer notifies you that a recording of you trying to masturbate to the playgirl magazine has been saved.
 				
 			<<endif>>\
 			[[Do something else|Go to bedroom]] 
 		<<else>>\
 			<<if $player.perversion.guardian gte 4>>\
-				<<set $player.masturbationType = 6>>\
 				After some time a familiar *bing* from your computer notifies you that a recording of you masturbating to the playgirl magazine is saved.
 				
 			<<endif>>\

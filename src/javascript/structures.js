@@ -725,7 +725,10 @@ window.playerList={
 	shoppingType: 0,
 	uploadType: 0,
 	checkPlace: 0,
-	masturbationType: 0,
+	masturbationType: { 
+		tool: undefined, /* may be "HorseDildo" "Playgirl" "Porn" "Spycam" "TrainingCock" "VibratorOnAss" "VibratorOnPenis" */
+		orgasm: undefined /* may be "denied" (due to cage), "anal", "penile", "unable" (due to PDS) */
+	}, 
 	buttplugInflate: 0,
 	alarmProgress: 0,
 	bjDildoProgress: 0,
