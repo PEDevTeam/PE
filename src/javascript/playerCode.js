@@ -13,7 +13,7 @@ window.playerCode={
 		}
 	},	
 	isWearing: function(item) {
-		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
+		return State.active.variables.player.clothes.indexOf(item.id) != -1;
 	},
 	isWearingOn: function(type) {
 		for (var j=0; j < State.active.variables.player.clothes.length; j++) {
