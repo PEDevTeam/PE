@@ -115,11 +115,12 @@
 	<<else>>\
 		@@.friend;"No stockings? Not even girl's socks? Come on, $player.name - really?"@@\
 	<<endif>>\
+	
 	<<if _femaleLegWear>>\
 		<<if $friend.friendTaskFrustration gt 0>>\
 			<<set $friend.friendTaskFrustration -= 1>>\
 		<<endif>>\
-		$friendG.he_she peers closely at your thighs.\
+		$friendG.He_She peers closely at your thighs.\
 		<<if $body.bodyhair gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
@@ -127,7 +128,7 @@
 			<<else>>\
 				@@.friend;"You've been keeping your legs smooth and hairless, too? Good job."@@\
 			<<endif>>
-		<<else>>
+		<<else>>\
 			<<set $friendG.friendTaskFrustration += 1>>\
 			<<set $friendG.girlinessFail = 1>>\
 			<<if $friendG.seenWaxedLeg == 1>>\
@@ -154,7 +155,7 @@
 				@@.friend;"You haven't even waxed your legs! I know you've done it before, why aren't you getting it done on a regular basis?"@@\
 			<<endif>>\
 		<<endif>>\
-	<<endif>>
+	<<endif>>\
 
 	$friend takes a second to look closely at your behind. \
 	<<if $friendG.seenPlug>>\
@@ -180,6 +181,8 @@
 			@@.friend;"Is that what I think it is?"@@ $friend asks, coming in close and sliding a finger between your buttcheeks to gently press against your buttplug. You jolt at the sensation, and let out a soft groan in pleasure. @@.friend;"Wow, $player.name... you're kind of kinky, aren't you? Is it comfortable?"@@
 
 			@@.heroT;"You get used to it,"@@ you mumble, as $friend steps back.
+		<<else>>\
+			$friendG.He_She does not comment on the absence of a buttplug.
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
