@@ -1,5 +1,6 @@
 ::Friend Teacher Tasks Wear Heels
 <<if not $friendG.girlinessAttempt>>\
+    /* Intro */\
     $teacher’s requirement was very specific; wearing heels in the mall. No dresses, no skirts, no pantyhose, just heels. You could even wear them with your school uniform on, although as you peer at your uniform it’s not as manly as it used to be. And someone might recognise you, in your uniform wearing heels. 
 
     @@.hero;A dress again then,@@ you think, sighing in resignation. Despite everything, filming yourself in heels, in the mall feels like another large leap. Mixed with trepidation is an inner thrill. @@.hero;What if people see me in them? If heels really are as noticeable as $teacher says, there's no way I'll live this down.@@
@@ -40,40 +41,20 @@
 
 <<if $friendG.girlinessFail>>\
     <<if $friendG.girlinessAttempt>>\
-        /* Girliness Check covers this case */\
+        /* Clothes still not girly enough – Girliness Check covers this case */\
     <<else>>\
         <<set $friendG.girlinessAttempt = 1>>\
-        @@.friend;“Tell you what,”@@ $friend says, slamming the wardrobe door closed. @@.friend;“If you are not going to put the effort in, then I am not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun, put some effort into your outfit. If you do, I will take as many pictures as you want.”@@ $friend sounds angry and annoyed and somewhat disappointed. 
+        /* Clothes not girly enough (first time) */\
+        @@.friend;“Tell you what,”@@ $friend says, throwing the bag back into the wardrobe and slamming the door. @@.friend;“You are not even doing the basic stuff. This is not some game for me, and I thought you knew that. If you refuse to put the effort in, I’m not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun together, put some effort into your appearance. If you do, we can go to the mall, or a walk or something.”@@ $friend sounds angry and annoyed and somewhat disappointed. 
 
-        @@.hero;I’d better check my outfit before I ask again, $friend wants me to wear things for put some effort for $friendG.him_her.@@
+        @@.hero;I’d better check my outfit before I ask again, $friend wants me to wear things, and put some effort in for [him/her]@@
 
-        With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding.
-        
+        With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
+
         <<set $friendG.wordlessGoodbye to true>>\
         <<display [[Leave friend's house]]>>
     <<endif>>\
 <<else>>\
-    You watch in bemusement as $friend scoops a few outfits from the wardrobe and hangs them on the back of the chair. 
-
-    @@.friend;"Those should fit, pick whichever you like."@@
-
-    <<RandomImageFromPack 'Friend/Tasks/Dance/Dress_Frilly' 250 250>><<RandomImageFromPack 'Friend/Tasks/Dance/Dress_Latin' 250 250>><<RandomImageFromPack 'Friend/Tasks/Dance/Dress_Body' 250 250>><<RandomImageFromPack 'Friend/Tasks/Dance/Shoes_Red' 250 250>>\
-
-    You pick one, and the pair of red heeled shoes, and start to dress.
-    
-    <<set _img = 'Friend/Tasks/Dance/Friend_'+$friendG.gender>>\
-    <<RandomImageFromPack _img 400 400 alignRight>>\
-    <<if $friendG.gender eq 'T'>>\
-        $friend takes one for himself, no less revealing than the ones he laid out for you, and begins stripping off his clothes. His body is encased in white, in clothing you haven’t seen before. He is wearing a white bra, matching suspender belt and a lacy bodysuit over the top. You cannot help but notice how smooth his skin is, and how girly his long, smooth legs look encased in the sheen of his white stockings. He keeps his underwear on, his sizeable cock bulging against the lace, and shrugs the sky blue dress over the top. You are mesmerized by the vision and your penis twitches in its cage as you gaze at his silky skin.
-    <<elseif $friendG.gender eq 'F' >>\
-        $friend opens a different section of wardrobe and removes a suit. She strips off her jeans and top, revealing a deep red bra and panties set which hugs her curves perfectly. You cannot help but notice how smooth and alluring her skin is, and how enticed you are by her thigh gap. You glance at the mirror and realize your thighs have the same shape. You blush at the realization and your gaze switches between you and $friend. You are mesmerized by the vision and your penis twitches in its cage as you gaze at her body.
-    <<elseif $friendG.gender eq 'M' >>\
-        $friend heads back to his room, returning later with smart pants and a shirt, as well as shiny dress shoes. He strips down to his underwear, pulling his t-shirt over his head, revealing his smooth, toned and sculpted body. You cannot help but look as he removes his top, mesmerized by the bulge in his speedos. You are mesmerized by the vision and your penis twitches in its cage as you gaze at his toned physique, then remember where you are and blush.
-    <<else>>\
-    //Unknown friend gender "$friendG.gender". This is a bug.//
-    <<endif>>\
-
-    You drag your eyes away from watching $friendG.him_her change, and finish dressing yourself. The indecently short length of the skirt barely covers the bottom of your panties and you feel exposed, adding to the pressure of your penis in your cage.
-     
-    [[Time to Dance|Friend Teacher Tasks Dance p2]]
+    /* Girliness Check succeeded */\
+    [[Get Changed|Friend Teacher Tasks Wear Heels Get Changed]]
 <<endif>>\
