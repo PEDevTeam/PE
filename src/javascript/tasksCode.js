@@ -639,7 +639,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	crossdressAtPark: {	// perv 3-3, cross 4-5
+	crossdressAtPark: {	// perv 3-3, cross 6
 		id: "crossdressAtPark",
 		name:"Task Crossdress at the park",
 		hasPassage: true,
@@ -657,7 +657,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAtPark.progress == 0);
+			return [6].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAtPark.progress == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -730,7 +730,53 @@ window.tasksTeacher={
 		}
 	},
 	
-	windowshopping: {	// perv 3-4, cross 6-7
+	practiceHeels: {	// perv 3-3, cross 4-5
+		id: "practiceHeels",
+		name:"Task Practice heels",
+		hasPassage: true,
+		text: {
+			given: "Have you worn heels yet?"@@\n\n<<if $player.heelsSkill == 0>>@@.heroT;"No. Why would I?"@@\n\n@@.teacher;"Then it is a wonderful time for you to learn. You must experience the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<else>>You stand silently looking at the floor, not willing to admit that you have.\n\n@@.teacher;"I will take your silence as confirmation you have. I am not surprised. It's normal for you to experiment. However, you must experience the joy of heels outside, where others can admire how elegant they make your legs look and your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<endif>>",
+			perform: "",
+			finish: "$teacher looks at the video on your phone and smiles. @@.teacher;You most certainly needed the practice, and yet you started to learn another essential skill. Interesting camera angle,”@@ she says, smiling widely.",
+			fail: "You failed to do as requested. It cannot be that hard to practice walking in heels. Take a mark.",
+			reminder: "You seem to have forgotten to practice walking in heels. I expect proof next time we speak.",
+			checkMe: {
+				given: "to practice walking in heels.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.practiceHeels.progress == 0);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 3 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 2,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	
+	windowshopping: {	// perv 3-4, cross 7-8
 		id: "windowshopping",
 		name:"Task Windowshopping",
 		hasPassage: true,
@@ -748,7 +794,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -772,14 +818,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	suckPopsickle: {	// perv 3-4, cross 6-7
+	suckPopsickle: {	// perv 3-4, cross 7-8
 		id: "suckPopsickle",
 		name:"Task Suck popsickle",
 		hasPassage: true,
@@ -797,7 +843,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -821,14 +867,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	selfieMallToilets: {	// perv 3-5, cross 6-7
+	selfieMallToilets: {	// perv 3-5, cross 7-8
 		id: "selfieMallToilets",
 		name:"Task Mall kissy selfie",
 		hasPassage: true,
@@ -846,7 +892,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -870,14 +916,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	girlyDesert: {	// perv 3-3, cross 6-7
+	girlyDesert: {	// perv 3-3, cross 7,8
 		id: "girlyDesert",
 		name:"Task Girly desert",
 		hasPassage: true,
@@ -895,7 +941,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.girlyDesert.progress == 0);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.girlyDesert.progress == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -920,7 +966,7 @@ window.tasksTeacher={
 			finish: function() { return true; },
 			success: function() {
 				State.active.variables.tasksTeacher.girlyDesert.progress++;
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
@@ -928,7 +974,7 @@ window.tasksTeacher={
 		}
 	},
 	
-	selfiePublicChastity: {	// perv 3-4, cross 8+
+	selfiePublicChastity: {	// perv 3-4, cross 9+
 		id: "selfiePublicChastity",
 		name:"Task Public chastity",
 		hasPassage: true,
@@ -946,7 +992,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing > 8);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -973,7 +1019,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	trickGuy: {	// perv 3-4, cross 8+
+	trickGuy: {	// perv 3-4, cross 9+
 		id: "trickGuy",
 		name:"Task Trick guy",
 		hasPassage: true,
@@ -991,7 +1037,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1018,7 +1064,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	getHitOn: {	// perv 3-4, cross 8+
+	getHitOn: {	// perv 3-4, cross 9+
 		id: "getHitOn",
 		name:"Task Get hit on",
 		hasPassage: true,
@@ -1036,7 +1082,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1065,7 +1111,7 @@ window.tasksTeacher={
 	},
 
 	
-	TheClubIntro: { // perv 3+ cross 8+
+	TheClubIntro: { // perv 3+ cross 9+
 		id: "TheClubIntro",
 		name: "Task The Club Intro",
 		hasPassage: true,
@@ -1083,7 +1129,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (((State.active.variables.player.perversion.crossdressing >= 8) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
+			return (((State.active.variables.player.perversion.crossdressing >= 9) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
