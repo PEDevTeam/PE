@@ -206,7 +206,7 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra accessory";
 				return false;
 			}
-			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
+			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 7 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
 				if (State.active.variables.flags.flatsFlag){
 					if (outerwear.female || (shoes.female && shoes.id != "flats")) {
 						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this wearing more female clothing than your flats.";

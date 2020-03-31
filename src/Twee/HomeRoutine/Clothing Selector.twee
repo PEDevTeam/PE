@@ -129,6 +129,25 @@
 	<<endif>>\
 <<endif>>\
 \
+<<if window.timeCode.canWhore() and ($tasksTeacher.whoring.status eq 1)>>\
+	<<if window.clothes.dressedWhore.check()>>\
+		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
+	<<else>>\
+		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedWhore>></span></div>
+	<<endif>>\
+<<endif>>\
+<<if ($time.hour gte 15) and ($time.hour lt 21)>>\
+	<<if $tasksTeacher.goOnDate.status == 1 && $player.perversion.guardian > 5 && window.timeCode.isWeekend()>>\
+		<<print "[[Ask " + $guardian + " to have dinner with you|Guardian_Date_1]]">>
+	<<endif>>\
+	<<if $tasksTeacher.goOnDate.status == 1 && $flags.dramaTeacherDate>>\
+		<<if window.clothes.dressedFemale()>>\
+			<<print "[[Meet Ms. Ravensong at the theater|drama_teacher_date_3]]">>
+		<<else>>\
+			<div class="tooltip">@@.halftransparent;Meet Ms. Ravensong at the theater@@ <span id="test_surv" class="tooltiptext">You must be dressed like a girl to go on the date.</span></div>
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
 <!--Crossdressing tasks-->\
 <<if ($tasksTeacher.selfieHomeMakeup.status eq 1)>>\
 	[[Film yourself putting on makeup|Task selfieHomeMakeup]]
@@ -144,10 +163,10 @@
 		[[Film yourself dancing|Task danceAtHome]]
 	<<endif>>\
 	<<if $player.perversion.teacher lte 3>>\
-		<<if ($tasksTeacher.crossdressAroundBlock.status eq 1) or ($tasksTeacher.crossdressAroundBlock.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+		<<if ($tasksTeacher.crossdressAroundBlock.status eq 1) or ($tasksTeacher.crossdressAroundBlock.progress eq 0 and $player.perversion.crossdressing lte 6 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
 			[[Walk around the block dressed as a girl|Task crossdressAroundBlock][$scene="walk around block"]]
 		<<endif>>\
-		<<if ($tasksTeacher.crossdressAtPark.status eq 1) or ($tasksTeacher.crossdressAtPark.progress eq 0 and $player.perversion.crossdressing lte 5 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
+		<<if ($tasksTeacher.crossdressAtPark.status eq 1) or ($tasksTeacher.crossdressAtPark.progress eq 0 and $player.perversion.crossdressing eq 6 and (playerCode.isMind_2() or $flags.clothesPurged))>>\
 			[[Crossdress at a quiet place in the park|Task crossdressAtPark][$scene="walk at the park"]]
 		<<endif>>\
 		<<if ($tasksTeacher.crossdressOnline.status eq 1) or ($tasksTeacher.crossdressOnline.progress eq 0 and [4,5].includes($player.perversion.crossdressing) and (playerCode.isMind_2() or $flags.clothesPurged))>>\
@@ -165,5 +184,3 @@
 <<endif>>\
 <!--</misc tasks>-- Misc -->\
 \
-
-

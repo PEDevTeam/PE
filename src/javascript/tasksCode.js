@@ -729,13 +729,12 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	
 	practiceHeels: {	// perv 3-3, cross 4-5
 		id: "practiceHeels",
 		name:"Task Practice heels",
 		hasPassage: true,
 		text: {
-			given: "Have you worn heels yet?"@@\n\n<<if $player.heelsSkill == 0>>@@.heroT;"No. Why would I?"@@\n\n@@.teacher;"Then it is a wonderful time for you to learn. You must experience the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<else>>You stand silently looking at the floor, not willing to admit that you have.\n\n@@.teacher;"I will take your silence as confirmation you have. I am not surprised. It's normal for you to experiment. However, you must experience the joy of heels outside, where others can admire how elegant they make your legs look and your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<endif>>",
+			given: "Have you worn heels yet?\"@@\n\n<<if $player.heelsSkill == 0>>@@.heroT;\"No. Why would I?\"@@\n\n@@.teacher;\"Then it is a wonderful time for you to learn. You must experience the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<else>>You stand silently looking at the floor, not willing to admit that you have.\n\n@@.teacher;\"I will take your silence as confirmation you have. I am not surprised. It's normal for you to experiment. However, you must experience the joy of heels outside, where others can admire how elegant they make your legs look and your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<endif>>",
 			perform: "",
 			finish: "$teacher looks at the video on your phone and smiles. @@.teacher;You most certainly needed the practice, and yet you started to learn another essential skill. Interesting camera angle,”@@ she says, smiling widely.",
 			fail: "You failed to do as requested. It cannot be that hard to practice walking in heels. Take a mark.",
@@ -775,7 +774,6 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	
 	windowshopping: {	// perv 3-4, cross 7-8
 		id: "windowshopping",
 		name:"Task Windowshopping",
@@ -992,7 +990,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing > 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2236,7 +2234,7 @@ window.tasksTeacher={
 			given: "I think you need some practice being arm candy for a night. Find someone and convince them to take you on a date. Make sure you tell them to contact me after so I will know you completed my task.",
 			perform: "",
 			finish: "@@.teacher;\"Did you enjoy your romantic dinner? It sounded like your date certainly did.@@",
-			fail: "I didn't hear that you went on a date over the weekend. Did everyone shoot you down or did your evening go so poorly your date refused to call it in?  Either way, you have earned a mark.",
+			fail: "I didn't hear that you went on a date as I ordered. Did everyone shoot you down or did your evening go so poorly your date refused to call it in?  Either way, you have earned a mark.",
 			reminder: "I'm still waiting for that phone call from your date.",
 			checkMe: {
 				given: "$teacher told you to have someone take you on a date.",
