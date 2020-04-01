@@ -106,8 +106,10 @@
 	
 	<<if ($player.perversion.crossdressing lte 4)>>\
 		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
+	<<elseif ($player.perversion.crossdressing lte 5)>>\
 		<<set $player.perversion.crossdressing = 6>>\
+	<<elseif ($player.perversion.crossdressing eq 6)>>\
+		<<set $player.perversion.crossdressing = 7>>\
 		You feel much more confident in wearing female clothes. You still need to be careful and avoid neighbors or people who might recognize you, but at least you won't freeze at the thought of strangers seeing you in a dress.
 		
 		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@

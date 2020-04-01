@@ -806,6 +806,7 @@ window.playerList={
 	femaleName: false, //new flag
 	clubPassword: '',
 	clubPasswordFailed: false,
+	shoeSize: 0,
 },
 
 window.playerAddonsList={
@@ -983,7 +984,8 @@ window.friendList={
 		manicure_renewal: false,
 		manicure: false,
 		stockings: false,
-		park: true
+		park: false,
+		practiceHeels: false,
 	},
     seenBra: 0,
     seenChastity: 0, /* whether friend saw PC's chastity cage */
@@ -1122,6 +1124,8 @@ window.flagsList={
 	walletForgottenEnd: false,
 	firstBuyDress: false,
 	firstBuyShoes: false,
+	firstBuyFlats: false,
+	firstBuyHeels: false,
 	firstBuyPanties: false,
 	firstBuyBras: false,
 	firstBuyStockings: false,
@@ -1368,7 +1372,10 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
-	visitedCountyClub:false,
+	visitedCountyClub: false,
+	dramaTeacherDate: false,
+	mallKlipIntro: false,
+	talkSneakIn: false,
 },
 
 window.kinkList={
@@ -1578,6 +1585,7 @@ window.cheerList={
 		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
 		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
 		prankBeg: false,	//PC begs for mercy to end prank
+		prank1Finish: false, //PC completed tryout prank 
 		prank2: false,	//controls access to gym prank
 
 		//notice body mods flags for cheer captain and cheer friend 

@@ -130,7 +130,7 @@
 	<<endif>>\
 	[[Get up and have breakfast|Have breakfast]]
 		<!--</caught groping Guardian>-->\
-<<elseif ($player.perversion.guardian lte 2) and ($flags.talkClinicWork or $flags.guardianNoticeBreastsB or $flags.guardianNoticeLipsEnhancingXL)>>\
+<<elseif ($player.perversion.guardian lte 2) and ($flags.talkClinicWork or $flags.talkSneakIn or $flags.guardianNoticeBreastsB or $flags.guardianNoticeLipsEnhancingXL)>>\
 	<!--<caught crossdressing at work at clinic or breasts B cup or LipsXL noticed>-->\
 	<<set $time.guardian.wakeHour to 7>>\
 	<<set $player.perversion.guardianCooldown to 1>>\
@@ -141,6 +141,10 @@
 		@@.guardian;"You embarrassed me in front of my co-workers, wearing a dress to the clinic! 
 		
 		"You know what? It's fine. I'm not about to question your sexuality, $player.name, but this@@\
+	<<elseif $flags.talkSneakIn>>\
+		Your eyes slowly open. You see $guardian shaking you awake, looking concerned.
+
+		@@.guardian;"I'm not about to question your sexuality, $player.name, but discovering that you have been wearing women's clothing outside@@\
 	<<else>>\
 		Your eyes slowly open. You see $guardian shaking you awake, looking concerned.
 
