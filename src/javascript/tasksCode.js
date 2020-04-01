@@ -734,7 +734,7 @@ window.tasksTeacher={
 		name:"Task Practice heels",
 		hasPassage: true,
 		text: {
-			given: "Have you worn heels yet?\"@@\n\n<<if $player.heelsSkill == 0>>@@.heroT;\"No. Why would I?\"@@\n\n@@.teacher;\"Then it is a wonderful time for you to learn. You must experience the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<else>>You stand silently looking at the floor, not willing to admit that you have.\n\n@@.teacher;\"I will take your silence as confirmation you have. I am not surprised. It's normal for you to experiment. However, you must experience the joy of heels outside, where others can admire how elegant they make your legs look and your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.<<endif>>",
+			given: "I believe it is a wondeful time for you to learn the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels",
 			perform: "",
 			finish: "$teacher looks at the video on your phone and smiles. @@.teacher;You most certainly needed the practice, and yet you started to learn another essential skill. Interesting camera angle,”@@ she says, smiling widely.",
 			fail: "You failed to do as requested. It cannot be that hard to practice walking in heels. Take a mark.",

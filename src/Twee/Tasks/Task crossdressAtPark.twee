@@ -1,9 +1,7 @@
 :: Task crossdressAtPark [pos_2486_2904]
 \
 <<if $scene eq "walk at the park">>\
-	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
-	<<set $tasksTeacher.crossdressAtPark.progress++>>\
-	<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
+	<<if ($tasksTeacher.crossdressAtPark.status eq 1)>>\
 		<<if playerCode.isMind_0()>>\
 			You know a quiet place at the park where you won't be disturbed, and decide that's where you'll need to go to complete $teacher's task. It's still nerve-wracking to think of heading to such a public destination in girl's clothes, but taking a deep breath, you decide to go with it. Anyway, it will definitely be easier than whatever $teacher would probably make you do if you don't.
 		<<elseif playerCode.isMind_1()>>\
@@ -61,6 +59,9 @@
 	
 	You shudder, feeling a bit chilly from sitting on the ground so long. You get up, ready to go change back to your regular clothes, but find yourself hesitant about breaking the charm of your adventure. You even consider going home like that, feeling bold and oddly confident in yourself.
 	
+	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
+	<<set $tasksTeacher.crossdressAtPark.progress++>>\
+	<<set $player.perversion.crossdressing = 7>>\
 	[[Return to home while wearing the dress|Task crossdressAtPark][$scene="walk crossdressed"]]
 	[[Change back in the cabin|Task crossdressAtPark][$scene="change back"]]
 <<elseif $scene eq "walk crossdressed" or $scene eq "change back">>\
@@ -179,7 +180,8 @@
 	$guardian glares at you, examining you from your face to your <<if _shoes.heels>>heels<<else>>flats<<endif>> and everything in between. Without saying another word she grabs her keys and leaves. 
 
 	@@.hero;Well, if she didn’t know before, she sure knows now.@@
-
+	
+	<<set $flags.talkSneakIn = true>>\
 	[[Go to your bedroom|Go to bedroom]]
 <<endif>>\
 

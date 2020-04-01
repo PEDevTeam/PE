@@ -806,6 +806,7 @@ window.playerList={
 	femaleName: false, //new flag
 	clubPassword: '',
 	clubPasswordFailed: false,
+	shoeSize: 0,
 },
 
 window.playerAddonsList={
@@ -1123,6 +1124,8 @@ window.flagsList={
 	walletForgottenEnd: false,
 	firstBuyDress: false,
 	firstBuyShoes: false,
+	firstBuyFlats: false,
+	firstBuyHeels: false,
 	firstBuyPanties: false,
 	firstBuyBras: false,
 	firstBuyStockings: false,
@@ -1371,6 +1374,8 @@ window.flagsList={
 	mallUrbaneIntro: false,
 	visitedCountyClub: false,
 	dramaTeacherDate: false,
+	mallKlipIntro: false,
+	talkSneakIn: false,
 },
 
 window.kinkList={
