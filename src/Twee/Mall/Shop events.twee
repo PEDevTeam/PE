@@ -30,6 +30,9 @@
 		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
 			<<if (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
 				<<set $flags.firstBuyShoes = true>>\
+				<<if $player.bought eq itemsC.flats.id>>\
+					<<set $flags.firstBuyFlats = true>>\
+				<<endif>>
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
@@ -91,6 +94,7 @@
 			feminine garment you've chosen\
 		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
 			feminine footwear\
+			<<set _delayKlopsText = true>>\
 		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
 			unmistakably feminine underwear you're buying\
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
@@ -142,6 +146,7 @@
 			<<endif>>\
 		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
 			feminine footwear.\
+			<<set _delayKlopsText = true>>\
 		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
 			feminine underwear.\
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
@@ -734,3 +739,7 @@
 <<if $curStore == "Urbane Menswear">>\
 	<<include [[Urbane_Menswear_events]]>>\
 <<endif>>\
+<<if $curStore == "Klip Klops"&& _delayKlopsText == false>>\
+	<<include [[Klip_Klop_events]]>>\
+<<endif>>\
+<<set _delayKlopsText = false>>\
