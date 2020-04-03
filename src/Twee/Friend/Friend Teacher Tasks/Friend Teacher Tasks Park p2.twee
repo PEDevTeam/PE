@@ -1,7 +1,8 @@
 ::Friend Teacher Tasks Park p2
 <<set _chas = playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
-@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, [stockings/girl socks]. I even kept the little cage on.”@@
+<<set _socks = playerCode.isWearing(itemsC.socks)>>\
+@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, <<if _socks>>girl socks<<else>>stockings<<endif>>. I even kept the little cage on.”@@
 
 @@.friend;“You are too cute.”@@ $friend grabs you excitedly and squeezes you tight, $friendG.his_her hands slipping down to caress your butt cheeks through your pants. You gasp in surprise but $friend steps back before you can comment. @@.friend;“So, you still want to go out?”@@
 
@@ -23,7 +24,7 @@
 
 	@@.friend;“Yeah, come on, let’s go.”@@
 	<<set $blockDress = "black">>\
-<<elseif $friendG.tasks.mall == true and friendBonusDress == 0>>\
+<<elseif $friendG.tasks.mall == true and $friendG.bonusDress == 0>>\
 	<img src='Images/items/dress_casual_68.jpg' style="float: right; width: auto; height: 250px;">\
 	@@.friend;“You remember when we were at the store before?”@@
 		
@@ -60,7 +61,7 @@
 @@.friend;“You seem to like pretty things, and I like seeing you in pretty things. And it’s only money. Let me change and we can go for a walk.”@@
 
 <<if $friendG.gender == "M">>\ 
-	<<RandomImageFromPack 'Friend/WalkBlock/MFriend' 400 400 alignRight>>\
+	<<RandomImageFromPack 'Friend/WalkBlock/Mfriend' 400 400 alignRight>>\
 	$friend leads you to his own room, leaving you to trot along behind him on some borrowed 3” heels. Once inside $friend strips off his clothes and, almost as though acting on an afterthought, he pulls down his boxers. His penis is thick and long. 
 
 	<<if playerCode.isMind() == 0>>\
@@ -75,7 +76,7 @@
 		$friend grins and starts to dress. You shake your head to clear your thoughts, but you continue to stare despite your <<if $kink.sph>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _chas>>cage<<elseif _under>><<if _under.female>>panties<<else>>boxers<<endif>><<endif>> at the memory of seeing him naked.
 	<<endif>>\	
 <<elseif $friendG.gender == "T">>\
-	<<RandomImageFromPack 'Friend/WalkBlock/TFriend' 400 400 alignRight>>\
+	<<RandomImageFromPack 'Friend/WalkBlock/Tfriend' 400 400 alignRight>>\
 	$friend opens his sister’s wardrobe and flicks through the rails for something to wear as you pull on the matching shoes he provided. They are a little big but manageable. However the 3” heel is a bit of a challenge on the shiny floors. 
 
 	He selects a dress, less revealing that the one he’s picked for you, and strips down to his underwear. As he turns, you see that instead of his usual pair of panties, he is wearing a pair with a crotchless front, allowing his penis to bounce into view. 
@@ -94,7 +95,7 @@
 		$friend grins and starts to dress. You shake your head to clear your thoughts but you continue to stare despite your <<if $kink.sph>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _chas>>cage<<elseif _under>><<if _under.female>>panties<<else>>boxers<<endif>><<endif>> at the memory of seeing him erect.
 	<<endif>>\
 <<else>>
-	<<RandomImageFromPack 'Friend/WalkBlock/FFriend' 400 400 alignRight>>\
+	<<RandomImageFromPack 'Friend/WalkBlock/Ffriend' 400 400 alignRight>>\
 	$friend leads you to her own room, leaving you to trot along behind her on some borrowed 3” heels. Once inside, $friend strips off her clothes and, almost as though acting on an afterthought, pulls down her panties. 
 
 	She turns and looks at you, her chest heaving slightly as she breathes, the sunlight bouncing off her luscious curves. Your breath catches in your throat and you cannot help but gape at her.

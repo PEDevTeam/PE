@@ -94,7 +94,7 @@
 			feminine garment you've chosen\
 		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
 			feminine footwear\
-			<<set _delayKlopsText = true>>\
+			<<set $delayKlopsText = true>>\
 		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
 			unmistakably feminine underwear you're buying\
 		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
@@ -739,7 +739,7 @@
 <<if $curStore == "Urbane Menswear">>\
 	<<include [[Urbane_Menswear_events]]>>\
 <<endif>>\
-<<if $curStore == "Klip Klops"&& _delayKlopsText == false>>\
+<<if $curStore == "Klip Klops"&& not $delayKlopsText>>\
 	<<include [[Klip_Klop_events]]>>\
 <<endif>>\
-<<set _delayKlopsText = false>>\
+<<set $delayKlopsText = false>>\

@@ -1,6 +1,26 @@
 ::task practiceHeels
 <<set _stock = playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>\
-You follow Phoebe, the shopkeeper, to the rear of the shop and out towards the stockroom. As she leaves the store, Phoebe waves to an assistant to take over while she assists you. Beside the door marked ‘Stock’ is another, unmarked door. You step inside and realize that it contains a small kitchenette, a toilet cubicle and a table and chairs. In the corner is a small platform surrounded by a couple of the new action cameras mounted on small tripods. You assume the platform is for customers to walk on.
+<<if not $flags.mallKlipIntro>>\
+	<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
+	@@.femvoice7;“Can I help you?”@@ 
+
+	You turn and spy an angelic woman sitting on a clear plexiglass seat, sorting through shoe boxes. As she looks up at you, you cannot help but notice her perfect makeup, flowing brunette hair and easy smile. But most of all you find yourself staring at her incredibly long legs, enhanced by knee-length leather boots and topped by an almost inappropriately short denim skirt.
+
+	@@.heroT;"Um,”@@ you ineloquently reply. Your heart threatens to burst from your chest, and your eyes ache from staring too much. You cough and quickly recover your manners, if not your composure. @@.heroT;“I need some shoes?”@@
+
+	@@.femvoice7;“I’m sorry, we only stock women’s shoes. Urbane has all kinds of menswear. Perhaps you can try there?”@@ she suggests helpfully. 
+
+	@@.heroT;"No. I, um, I need to try heels. It’s um, for a dare?”@@
+
+	The amazon climbs to her feet, her long, tanned, perfectly proportioned legs stretching enticingly as she stands. @@.femvoice7;“Oh wait, you must be the one…”@@ she mumbles to herself, although you hear her fine in the quiet store. @@.femvoice7;“I am Phoebe Starr, Phoebe to my friends. And you must be…”@@
+
+	@@.heroT;"$player.name.”@@
+
+	@@.femvoice7;“Indeed, $player.name. Yes. So you need some heels?”@@
+	
+	<<set $flags.mallKlipIntro = 1>>\
+<<endif>>\
+You follow Phoebe to the rear of the shop and out towards the stockroom. As she leaves the store, Phoebe waves to an assistant to take over while she assists you. Beside the door marked ‘Stock’ is another, unmarked door. You step inside and realize that it contains a small kitchenette, a toilet cubicle and a table and chairs. In the corner is a small platform surrounded by a couple of the new action cameras mounted on small tripods. You assume the platform is for customers to walk on.
 
 @@.femvoice7;“This is where, for a small fee, we assist young ladies with their deportment while wearing heels.”@@
 
