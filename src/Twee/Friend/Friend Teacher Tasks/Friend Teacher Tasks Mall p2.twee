@@ -144,7 +144,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<<endif>>\
 
 		@@.friend;“We’d better go…”@@ he says, backing away and leaving the cubicle as suddenly as he kissed you.
-		<<<set $friendG.friendKiss += 1>>\
+		<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter,”@@ he says with a wink @@.friend;“and who knows...”@@ 
 	<<endif>>\
@@ -165,9 +165,7 @@ You both remain silent on the death-defying drive home. You distract yourself by
 <<addToInv summerDress 68>>\
 <<set $tasksTeacher.tryingClothesMall.status = 2>>\
 <<set $tasksTeacher.tryingClothesMall.progress++>>\
-<<if ($player.perversion.crossdressing lte 1)>>\
-	<<set $player.perversion.crossdressing++>>\
-<<endif>>\
+<<set $player.perversion.crossdressing++>>\
 \
 <<run $time.addMinutes(120)>>\
 <<display [[Leave friend's house]]>>

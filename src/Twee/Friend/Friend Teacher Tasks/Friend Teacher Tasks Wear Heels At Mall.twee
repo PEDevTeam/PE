@@ -77,16 +77,14 @@ Feeling more confident<<if $player.heelsSkill > 3>> and more confident in heels<
 
 $friend opens the door for you to collect your stuff, kissing your cheek before driving off immediately to run errands. Alone in $friendG.his_her house you change back with a shrug, your heart still racing from your latest adventure and prepare to leave. 
 
-[[Travel]]
+<<set $player.perversion.crossdressing++>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<run $time.addMinutes(90)>>\
 <<set $player.heelsSkill == $player.heelsSkill + 1>>\
 <<set playerCode.changeArousal(30)>>\
-/* TODO:
 <<set $friendG.tasks.practiceHeels = true>>\
 <<set $tasksTeacher.practiceHeels.status = 2>>\
 <<set $tasksTeacher.practiceHeels.progress++>>\
-<<set $player.perversion.crossdressing++>>\
 <<addToInv summerDress 71>>\
 <<addToInv highHeel3 71>>\
-*/
+<<display [[Leave friend's house]]>>\

@@ -419,11 +419,11 @@ window.tasksTeacher={
 		text: {
 			given: "I have a task for you today. I want you to attend school wearing a pair of stockings. Worry not, they will be well hidden under your uniform, but I think you will enjoy just how exquisite they feel.",
 			perform: "",
-			finish: "You pull up your pants leg to reveal your stocking-clad thigh\n\n@@.teacher;\"Hmm, your first try was pitiful. The second too, but I see that you actually tried towards the end. You are clearly a beginner, $player.name, but you should keep at it - you'll learn eventually.  Until you do, you can always get help from the professionals if you want your makeup done right.@@",
+			finish: "You pull up your pants leg to reveal your stocking-clad thigh\n\n@@.teacher;\"How delicate. Make sure you do not put a run in them, as you are no doubt away, it’s the very worst thing for any girl. Perhaps you should carry a spare pair, just in case.@@",
 			fail: "Could you not even afford to buy a pair of stockings? I expect you to fulfill all of my requests, no matter what it takes.",
 			reminder: "Don't forget to wear stockings to school.",
 			checkMe: {
-				given: "try applying makeup.",
+				given: "wear stockings to school.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
@@ -465,7 +465,7 @@ window.tasksTeacher={
 		text: {
 			given: "I have a task for you today. I think you need to experiment more. Film yourself trying on dresses at one of local clothing stores.",
 			perform: "",
-			finish: "<<if $friendG.tasks.mall>><<set $friendG.tasks.mall = false>>$teacher examines the video on your phone which shows you trying on a couple of dresses, albeit with some sections of film missing.\n\n@@.teacher;\"Did you have recording problems? And who did the other shadow belong to? No need to answer, you were no doubt so comfortable you had one of the shop assistants bring you the right size and do your zips up.\"@@ she says, an ironic smirk playing on her lips.<<else>>$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@<<endif>>",
+			finish: "<<if $friendG.tasks.mall>>$teacher examines the video on your phone which shows you trying on a couple of dresses, albeit with some sections of film missing.\n\n@@.teacher;\"Did you have recording problems? And who did the other shadow belong to? No need to answer, you were no doubt so comfortable you had one of the shop assistants bring you the right size and do your zipper up.<<else>>$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@<<endif>>",
 			fail: "I suppose your schedule was probably too busy to do what I asked. Take a mark for forgetting your trip to the clothing store.",
 			reminder: "Don't forget to go and try on dresses.",
 			checkMe: {
