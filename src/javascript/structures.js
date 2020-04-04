@@ -1382,7 +1382,7 @@ window.kinkList={
 	incest: false,
 	futa: false,
 
-	semenConsumptionStart: false,	
+	semenConsumptionStarted: false,	
 	semenConsumption: false,
 	creampie: false,
 	bukkake: false,
