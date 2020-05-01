@@ -1,0 +1,39 @@
+:: comportment_etiquette_2_8
+<<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success">>\
+	$teacher smiles. @@.teacher;“Excellently done. Today you have demonstrated the exact sort of poise in public that I desired you to learn. For your next lesson, I would like you to join me at my home for a small get together this weekend.  It will be a good chance for you to practice these lessons in a situation that demands proper conduct.  If you fail to show, I will punish you severely, do you understand?”@@
+
+	You nod.
+
+	@@.teacher;“Very good.  Now, let us return to Pepperton,”@@ $teacher says as she leads you back to her car.
+	<<set $player.ending.comportment.etiquette.progress++>>\
+	<<set $player.ending.comportment.classStatus[0] = 2>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	She sighs deeply. @@.teacher;“Well, once again you have plumbed depths of failure that not even I could not have ever imagined. Your performance was the worst possible in all cases and, though I hope you still learned something, I certainly have my doubts. If you are determined that only corrective measures will beat a lesson into your thick skull, well...”@@
+
+	You gasp as the plug in your rear comes to life full-power, pulsing and rattling and letting out the occasional harsh shocks.
+	<<set $player.ending.comportment.etiquette.class2Fail = true>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
+    	She sighs and shakes her head. @@.teacher;“Your behavior continues to be wildly inconsistent.  On some  accounts you behave perfectly, yet on others you were an abject failure. Perhaps if you tried harder, you could make something of yourself.  I believe a nice walk back to school will help you focus your mind.”@@
+	<<else>>\
+    	$teacher sighs @@.teacher;“Today I saw nothing but failure. Perhaps you made some effort, but you still have a long way to go before your behavior becomes acceptable. We shall have to try this again sometime. For now, we will begin your punishment by having you walk back to school.”@@
+	<</if>>\
+
+	You jolt as the plug in your rear bursts to full power, your entire body shuddering and then jumping as a quick shock courses out to make you clench down and thus accentuate the feelings even further.
+<<elseif $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
+	@@.teacher;“Well, you did show some signs of success today, though there remains work for you to do. Remember you must remain poised and polite at all times, a beacon of decorum regardless of what is happening around or within.”@@ As she says the word “within,” your plug gives a final burst of vibration before falling silent. @@.teacher;“Now, let us return to Pepperton,”@@ $teacher says, leading you back to her car.
+<<else>>\
+	$teacher sighs in frustration @@.teacher;“That was a poor showing today. I saw the occasional hint that you were trying to do the right thing, and you avoided any truly catastrophic mistakes. However, you still have a ways to go before I have any confidence in your ability to conduct yourself properly in public. We shall have to repeat this lesson at a later date. Until then, focus on how best to remain poised, proper, and polite at all times. that you may be a proper beacon of ladylike decorum regardless of what is happening around... or within.”@@ With a tap of the remote, she turns off your plug and drives you back to school.
+<</if>>\
+
+<<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success">>\
+	[[Finish school day]]
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	@@.teacher;“The plug will deactivate when it detects that you have arrived back at the classroom. Isn’t GPS a wonder? Let me know when you are ready for another lesson, perhaps by next weekend you will have straightened up enough for it to be worthwhile.”@@
+
+	Gasping and staggering, you begin to make your way back to school, the plug tormenting you the entire distance.
+
+	[[Back to school|comportment_etiquette_2_walk]]
+<<else>>\
+	[[Finish school day]]
+<</if>>\
