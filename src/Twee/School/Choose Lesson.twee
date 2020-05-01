@@ -1,0 +1,30 @@
+::Choose Lesson
+<<set _scene = "none">>\
+<<set _lessonArr = []>>\
+<<for _i to 0; _i < $player.ending.comportment.classStatus.length-1; _i++>> <!-- need to remove -1 next release-->\
+	<<set _lessonArr.push(_i)>>\
+<</for>>\
+<<set _lessonArr.shuffle()>>\
+<<for _i, _classIndex range _lessonArr>>\
+	<<switch _classIndex>>\
+	<<case 0>>\
+		<<set _class = "etiquette">>\
+	<<case 1>>\
+		<<set _class = "poise">>\
+	<</switch>>\
+	<<if $player.ending.comportment.classStatus[_classIndex] == 0>>\
+		<<set $player.ending.comportment.classStatus[_classIndex] = 1>>\
+		<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment.etiquette.progress + 1) + "_1">>\
+		<<break>>\
+	<<elseif $player.ending.comportment.classStatus[_classIndex] == 1>>\
+		<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment.etiquette.progress + 1) + "_1">>\
+		<<break>>\
+	<<endif>>\
+<</for>>\
+<<if _scene != "none">>\
+	<<include _scene>>\
+<<else>>\
+	You do not have extra classes today.
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
+<<endif>>

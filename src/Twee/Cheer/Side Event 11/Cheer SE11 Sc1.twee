@@ -33,59 +33,58 @@ Your brow furrows as you think back over the plan. You realize that Ashley has d
 
 @@.hero;Wait, so I have to do all the work and they get to share the glory? Sounds like a bad deal to me.@@
 
-@@.heroT;“And what are you three supposed to be doing?” you ask, a bit more snidely than you intended.@@
+@@.heroT;“And what are you three supposed to be doing?”@@ you ask, a bit more snidely than you intended.
 
 Ashley looks over at you as if the answer was entirely obvious. @@.cheerBitch;“Duh. We’re the lookout. We’ll keep watch and warn you if anyone shows up, so you know when to hide. Then, once we’ve got the mascot, we go deliver it to Rachel and bask in the adoration of our fellow cheerleaders tomorrow after we win the spirit award.”@@
 
 Your mind conjures images of the entire squad of sexy cheerleaders fawning over your accomplishment. It’s enough to cause your cock to start throbbing and cloud your judgement.
 
 @@.heroT;“Ok. I’m in. Whose locker room are we sneaking into?”@@
-/*
-[if kinkAllowed.bondage OR (kinkAllowed.semenConsumption) OR OR ]
-	“Well, see, that’s the problem,” Ashley says, tapping lightly on her temple to aid her thinking. “We know it’s in a team’s locker room, we just don’t know which team locker room. We did manage to narrow it down to a few options: the [boys’ football/girls’ soccer] \
-	[if kinkAllow.bondage AND (kinkAllow.cumEating OR kinkAllow.footWorship OR kinkAllow.urineDrink) ]
-	team, the girls’ rhythmic gymnastics\
-	[elseif kinkAllow.bondage AND NOT (kinkAllow.cumEating OR kinkAllow.footWorship OR kinkAllow.urineDrink)]
-	team or the girls’ rhythmic gymnastics\
-	[end if]
-	[if kinkAllow.cumEating AND (kinkAllow.footWorship OR kinkAllow.urineDrink)]
-	team, the boys’ cross country\
-	[elseif kinkAllow.cumEating AND NOT ( kinkAllow.footWorship OR kinkAllow.urineDrink)]
-	team or the boys’ cross country\
-	[end if]
-	[if kinkAllow.footWorship AND kinkAllow.urineDrink]
-	team, the girls’ volleyball\
-	[elseif kinkAllow.footWorship AND NOT kinkAllow.urineDrink]
+
+<<if $kinkAllow.bondage || $kinkAllow.cumEating || $kinkAllow.footWorship || $kinkAllow.urineDrink>>\
+	@@.cheerBitch;“Well, see, that’s the problem,”@@ Ashley says, tapping lightly on her temple as she thinks. @@.cheerBitch;“We know it’s in a team’s locker room, we just don’t know which team locker room. We did manage to narrow it down to a few options: the <<if $kink.futa>>girls' soccer<<else>>boys’ football<<endif>> \
+	<<if $kinkAllow.bondage && ($kinkAllow.cumEating || $kinkAllow.footWorship || $kinkAllow.urineDrink)>>\
+		team, the girls’ gymnastics\
+	<<elseif $kinkAllow.bondage && not ($kinkAllow.cumEating || $kinkAllow.footWorship || $kinkAllow.urineDrink)>>\
+		team or the girls’ gymnastics\
+	<<endif>>\
+	<<if $kinkAllow.cumEating && ($kinkAllow.footWorship || $kinkAllow.urineDrink)>>\
+		team, the <<if $kink.futa>>girls'<<else>>boys'<<endif>> cross country\
+	<<elseif kinkAllow.cumEating && not ( $kinkAllow.footWorship || $kinkAllow.urineDrink)>>
+		team or the <<if $kink.futa>>girls'<<else>>boys'<<endif>> cross country\
+	<<endif>>\
+	<<if $kinkAllow.footWorship && $kinkAllow.urineDrink>>\
+		team, the girls’ volleyball\
+	<<elseif $kinkAllow.footWorship and not $kinkAllow.urineDrink>>\
 	team or the girls’ volleyball\
-	[end if]
-	[if kinkAllow.urineDrink]
-	or the girls’ swimming\
-	[end if]
+	<<endif>>\
+	<<if $kinkAllow.urineDrink>>\
+		team or the girls’ swimming\
+	<<endif>>\
 	team.
 
-	“My money’s on the [football/soccer] team since they’re the biggest on campus and have the best chance of actually getting the damn thing. Although, I suppose one of the smaller teams could have been more crafty and gotten to it first. The [football/soccer] team’s not really known for their intelligence.
+	“My money’s on the <<if $kink.futa>>soccer<<else>>football<<endif>> team since they’re the biggest on campus and have the best chance of actually getting the damn thing. Although, I suppose one of the smaller teams could have been more crafty and gotten to it first. The <<if $kink.futa>>soccer<<else>>football<<endif>> team’s not really known for their intelligence.
 
-	“Seeing as you’re the one doing the snooping, I guess we’ll leave the ultimate decision up to you. Who’s it gonna be?”
+	“Seeing as you’re the one doing the snooping, I guess we’ll leave the ultimate decision up to you. Who’s it gonna be?”@@
 
-	[if kink.futa]
-	The soccer team [ → side event 11 soccer, version1 = football]
-	[else]
-	The football team [ → side event 11 football, version1 = football]
-	[end if]
-	[if kinkAllow.bondage]
-	The rhythmic gymnastics team [ → side event 11 gymnastics, version1 = gymnastics]
-	[end if]
-	[if kinkAllow.cumEating]
-	The cross country team [ → side event 11 running, version1 = running]
-	[end if]
-	[if kinkAllow.footWorship]
-	The volleyball team [ → side event 11 volleyball, version1 = volleyball]
-	[end if]
-	[if kinkAllow.urineDrink]
-	The swimming team [ → side event 11 swimming, version1 = swimming]
-	[end if]
-[else]
-*/
+	<<if $kink.futa>>\
+		[[The soccer team|Cheer SE11 Sc2][$version1 = "football"]]
+	<<else>>\
+		[[The football team|Cheer SE11 Sc2][$version1 = "football"]]
+	<<endif>>\
+	<<if $kinkAllow.bondage>>\
+		[[The gymnastics team|Cheer SE11 Sc2][$version1 = "gymnastics"]]
+	<<endif>>\
+	<<if $kinkAllow.cumEating>>\
+		[[The cross-county team|Cheer SE11 Sc2][$version1 = "running"]]
+	<<endif>>\
+	<<if $kinkAllow.footWorship>>\
+		[[The volleyball team|Cheer SE11 Sc2][$version1 = "volleyball"]]
+	<<endif>>\
+	<<if $kinkAllow.urineDrink>>\
+		[[The swimming team|Cheer SE11 Sc2][$version1 = "swimming"]]
+	<<endif>>\
+<<else>>\
 	@@.cheerBitch;“The <<if $kink.futa>>girls’ soccer<<else>>boys’ football<<endif>> team,” Ashley replies with certainty. “According to my sources, the platypus is definitely in there.”@@
 
 	She turns to you.
@@ -100,11 +99,7 @@ Your mind conjures images of the entire squad of sexy cheerleaders fawning over 
 	
 	<<if $kink.futa>>\
 		[[Sneak into the soccer team’s locker room|Cheer SE11 Sc2][$version1 = "football"]]
-	
 	<<else>>\
 		[[Sneak into the football team’s locker room|Cheer SE11 Sc2][$version1 = "football"]]
-		
 	<<endif>>\
-	/*
-[end if]
-*/
+<<endif>>\

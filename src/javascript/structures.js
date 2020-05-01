@@ -502,7 +502,7 @@ window.structures={
 			var found = false;
 			
 			for (var j=0; j < Object.keys(talksList).length; j++) {
-				if (talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
+				if (talksNewList[Object.keys(talksList)[i]] && talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
 					var found = true;
 					break;
 				}
@@ -937,8 +937,23 @@ window.playerAddonsList={
 		currentEnding: "none",
 		endingsCompleted: 0,
 		endingsTotal: 1,
+		lessonSkip: false, /*toggles off daily lessons*/
 		genericEndings: ["Trophy Wife"],
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
+		
+		comportment:  {
+			classStatus: [0, 0], 	/*ettiquite, poise; 
+									0 = not started, 1 = active, 2 = on hold, 3 = passed*/
+			etiquette:  {
+				progress: 0,
+				class1Fail: false,
+				class2Fail: false,
+				class3Fail: false,
+			},
+			poise:	{
+				progress:0,
+			},
+		},
 	},
 },
 
@@ -1376,6 +1391,7 @@ window.flagsList={
 	dramaTeacherDate: false,
 	mallKlipIntro: false,
 	talkSneakIn: false,
+	bribedTeacher: false,
 },
 
 window.kinkList={

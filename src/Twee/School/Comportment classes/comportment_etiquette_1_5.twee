@@ -1,0 +1,37 @@
+:: comportment_etiquette_1_5
+<<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success">>\
+	She smiles at you and you feel a wave of relief wash over you even before she speaks. @@.teacher;“Well, it looks like you have quite well mastered this lesson. Remember to behave similarly throughout your day-to-day life. As for the next class, we will be going on a bit of a field trip.  As such, I expect you to show up for your lesson on time.”@@
+	<<set $player.ending.comportment.etiquette.progress++>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	She frowns. @@.teacher;“I can scarcely imagine how you could have performed worse. I should punish you for your failure immediately, but I am just so utterly disappointed that I do not wish to even look at you. Get out of my sight. We can attempt this lesson some other day, and I truly hope you apply yourself at that time.”@@
+	<<set $player.ending.comportment.etiquette.class1Fail = true>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
+    	She shakes her head. @@.teacher;“Once again, you seem to struggle with the lesson. On some points you behaved perfectly... then in other cases you failed as hard as possible, almost like you were acting at random.”@@
+	<<else>>\
+    	She sighs in obvious frustration. @@.teacher;“I suppose the fact that you only utterly failed some of the time should count for something... but the fact remains that you never demonstrated anything approaching success either.”@@
+	<</if>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
+	She sighs softly. @@.teacher;“On the upside, you show some signs of success and none of absolute failure, but, it does seem that you need to spend more time studying this sort of basic behavior before we can move on to more advanced lessons.”@@
+<<else>>\
+	She sighs. @@.teacher;“I could console myself that you did not UTTERLY fail at any point... but neither did you ever show proper understanding of how you should behave. It would seem you need quite a bit more practice at basic behavior before we can move on to more advanced lessons.”@@
+<</if>>\
+
+<<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success" ||
+	$player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	[[Finish school day]]
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail" && $player.ending.comportment.etiquette.scene3=='fail'>>\
+	She rises to her feet and motions for you to do the same. @@.teacher;“It seems a shame not to take advantage of that wonderful punishment you proposed. Now I do not have a classroom of peers handy to properly embarrass you, but I do have a nice flogger handy. Perhaps this will make things sufficiently interesting...”@@
+
+	She grabs your arms and soon has you hanging by the wrists from a hook on the ceiling with your back exposed to the cool air of the room. She turns on a projector and projects what looks like pages from an old-fashioned etiquette manual titled “Useful Phrases for Ladies of High Class Whoso Wish to Entice the Interest of a Quality Suitor into Proposing of Engagement.”
+    
+	@@.teacher;“If you would begin reading, we can get started.”@@ She unfurls the flogger with a flick of her wrist, swiping it through the air with a swishing sound to test it.  @@.teacher;“I will be here to correct any errors you might make.”@@
+
+	[[Start reading|comportment_etiquette_1_6_punish]]
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
+	She slowly spreads her legs and hikes up her skirt. @@.teacher;“Given your failure, I think it only fair that you spend some time using your other oral abilities to thank me for taking this time to teach you. God only knows that is all you seem to be good for, considering how badly you failed this lesson.”@@
+
+	[[Get down on your knees|comportment_etiquette_1_6_oral]]
+<<else>>\
+	[[Finish school day]]
+<</if>>\
