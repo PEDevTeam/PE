@@ -1,0 +1,28 @@
+:: comportment_etiquette_1_2
+<<switch $player.ending.comportment.etiquette.scene1>>\
+<<case "success">>\
+	You politely and formally introduce yourself. $Teacher smiles in approval and returns the favor, the two of you having a short conversation on the usual “small-talk” subjects.
+<<case "fail_noact">>\
+	You launch into asking her about what her plans for you are for after this training, and her gaze narrows. @@.teacher;“I give you such simple instructions and still you fail to understand them. $player.name, a large part of etiquette is about being cognizant of the situation and acting appropriately. You could not even manage that for a few minutes!”@@ She sighs.
+<<case "fail_overshare">>\
+	You introduce yourself and she nods approvingly,until you barrel forward, quickly moving past small talk to tell her, in detail, about some of your recent struggles. Her expression hardens and she holds up a hand to put a stop to your babbling.You realize you just failed the assignment. @@.teacher;“While being comfortable discussing things with others is to be commended. There is a time and a place. You were supposed to pretend we had just met and, well... some of your conversation topics were inappropriate for initial impressions or so-called polite company, wouldn’t you say?”@@ You wince at the verbal admonishment.
+<<case "crit_fail">>\
+	You make eyes at $teacher, introducing yourself in the suavest manner you can manage, a feat made quite hilarious given your feminine dress and appearance.  With a wink, you ask her, @@.heroT;“Hey, babe, want to blow this taco stand and head somewhere fun?”@@
+
+	She sighs and massages the bridge of her nose. @@.teacher;“It seems we have our work cut out for us,”@@ she says as she shakes her head.
+<<default>>\
+	ERROR: unexpected scene.style1: <<=$player.ending.comportment.etiquette.scene1>>\
+<</switch>>\
+
+@@.teacher;“Now, for the next exercise, you will be taking on the role of my colleague and confidant, just for this scene, of course. Your role is to listen to my problem, and react appropriately. Understood?”@@ 
+
+She waits for you to nod in understanding, then launches into a seemingly rehearsed monologue.
+
+@@.teacher;“It would seem one of my students is reluctant to accept proper instruction. I caught him with his hand down a female student’s bag, fishing for her panties. <<if $flags.bribedTeacher>>Then, when I confronted him for his perversion, he attempted to bribe me. <<endif>>Unable to ignore his transgressions, I took it upon myself to teach him proper behavior. However, he continues to be insolent, and even my continued instruction seems unable to get through to him. !”@@
+
+@@.hero;She is definitely talking about me...@@
+
+[[Express sympathy and recommend that, perhaps, she should show more leniency|comportment_etiquette_1_3][$player.ending.comportment.etiquette.scene2="fail_nice"]]
+[[Object to her characterization|comportment_etiquette_1_3][$player.ending.comportment.etiquette.scene2="crit_fail"]]
+[[Drop the act and apologize for upsetting her|comportment_etiquette_1_3][$player.ending.comportment.etiquette.scene2="fail_sorry"]]
+[[Express sympathy but say that she should probably continue to display a firm hand|comportment_etiquette_1_3][$player.ending.comportment.etiquette.scene2="success"]]
