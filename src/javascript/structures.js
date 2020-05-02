@@ -28,6 +28,26 @@ window.versionControl={
 },
 
 window.structures={
+	updateStructure: function(base, addon, debugPrefix) {
+		// adapted from https://stackoverflow.com/questions/14843815/#29563346
+		if (base === undefined) {
+			base = {};
+		}
+		for (var prop in addon) {
+			if (addon.hasOwnProperty(prop)) {
+				if (typeof addon[prop] === 'object') {
+					//console.log(`Descending into ${debugPrefix}.${prop}…`);
+					base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
+				} else if (!base.hasOwnProperty(prop)) {
+					//console.log(`Setting up ${debugPrefix}.${prop}…`);
+					base[prop] = addon[prop];
+				} else {
+					//console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+				}
+			}
+		}
+		return base;
+	},
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
@@ -60,29 +80,8 @@ window.structures={
 	},
 	setupPlayer: function() {
 		var vars=State.active.variables;
-		var playerList=window.playerList;
-		if (vars.player == null) {
-			vars.player = {};
-		}
-		for (var i=0; i < Object.keys(playerList).length; i++) {
-			if (vars.player[Object.keys(playerList)[i]] == null) {
-				vars.player[Object.keys(playerList)[i]] = playerList[Object.keys(playerList)[i]];
-			}
-		}
-		
-		var playerAddonsList=window.playerAddonsList;
-		for (var i=0; i < Object.keys(playerAddonsList).length; i++) {
-			if (vars.player[Object.keys(playerAddonsList)[i]] == null) {
-				vars.player[Object.keys(playerAddonsList)[i]] = {};
-				var object = vars.player[Object.keys(playerAddonsList)[i]];
-				var listObject = playerAddonsList[Object.keys(playerAddonsList)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		this.updateStructure(vars.player, window.playerList, "player");
+		this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
