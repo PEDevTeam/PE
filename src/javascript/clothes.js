@@ -102,23 +102,23 @@ window.clothes={
 			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
 			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
 			if (underwear) {
-				State.active.variables.reason.dressedGuardianWork="You don't need underwear for that";
+				State.active.variables.reason.dressedWhore="You don't need underwear for that";
 				return false;
 			}
 			if (!outerwear) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear something";
+				State.active.variables.reason.dressedWhore="You need to wear something";
 				return false;
 			}
 			if (!shoes) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear shoes";
+				State.active.variables.reason.dressedWhore="You need to wear shoes";
 				return false;
 			}
 			if (!outerwear.slutty || !shoes.slutty) {
-				State.active.variables.reason.dressedGuardianWork="You're not dressed slutty enough";
+				State.active.variables.reason.dressedWhore="You're not dressed slutty enough";
 				return false;
 			}
 			if (outerwear.sleepWear) {
-				State.active.variables.reason.dressedGuardianWork="You can't wear sleepwear for that";
+				State.active.variables.reason.dressedWhore="You can't wear sleepwear for that";
 				return false;
 			}
 			return true;

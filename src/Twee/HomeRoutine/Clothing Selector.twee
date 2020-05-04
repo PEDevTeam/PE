@@ -58,15 +58,7 @@
 <!--</go to sleep>-->\
 \
 \
-	<!--<misc tasks>-- Misc -->\
-<<if window.timeCode.canWhore() and ($tasksTeacher.whoring.status eq 1)>>\
-	<<if window.clothes.dressedWhore.check()>>\
-		[[Sell yourself on the street|Go streetwalking][window.timeCode.addMinutes(30);$random.store([10,10])]]
-	<<else>>\
-		<div class="tooltip">@@.halftransparent;Sell yourself on the street@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedWhore>></span></div>
-	<<endif>>\
-<<endif>>\
-\
+<!--<misc tasks>-- Misc -->\
 <<if (playerCode.owns(itemsC.batteries) or playerCode.owns(itemsC.batteriesQuality)) and (($time.hour gte 15) or window.timeCode.isWeekend()) and ($time.hour lt 20) and (not $flags.guardianSnoopingCaught)>>\
 	<<if window.clothes.dressedGuardian.check()>>\
 		[[Replace alarm clock batteries|Replace batteries]]
