@@ -80,9 +80,9 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
-		var vars=State.active.variables;
-		this.updateStructure(vars.player, window.playerList, "player");
-		this.updateStructure(vars.player, window.playerAddonsList, "player");
+		var vars = State.active.variables;
+		vars.player = this.updateStructure(vars.player, window.playerList, "player");
+		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -462,7 +462,8 @@ window.structures={
 	},
 	
 	setupFriendRiddles: function() {
-		this.updateStructure(State.active.variables.friendRiddles, window.friendRiddles, "friendRiddles");
+		var vars = State.active.variables;
+		vars.friendRiddles = this.updateStructure(vars.friendRiddles, window.friendRiddles, "friendRiddles");
 	},
 	
 	setupTalks: function() {
@@ -668,15 +669,18 @@ window.structures={
 		}
 	},
 	setupCheer: function (){
-		this.updateStructure(State.active.variables.cheerleaders, window.cheerList, "cheerleaders");
+		var vars = State.active.variables;
+		vars.cheerleaders = this.updateStructure(vars.cheerleaders, window.cheerList, "cheerleaders");
 	},
 	
 	setupCheerFriend: function () {
-		this.updateStructure(State.active.variables.cheerFriend, window.cheerFriendList, "cheerFriend");
+		var vars = State.active.variables;
+		vars.cheerFriend = this.updateStructure(vars.cheerFriend, window.cheerFriendList, "cheerFriend");
 	},
 	
 	setupTeam: function () {
-		this.updateStructure(State.active.variables.team, window.teamList, "team");
+		var vars = State.active.variables;
+		vars.team = this.updateStructure(vars.team, window.teamList, "team");
 	},
 },
 
