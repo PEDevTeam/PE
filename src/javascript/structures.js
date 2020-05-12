@@ -59,30 +59,9 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
-		var vars=State.active.variables;
-				var playerList=window.playerList;
-		if (vars.player == null) {
-			vars.player = {};
-		}
-		for (var i=0; i < Object.keys(playerList).length; i++) {
-			if (vars.player[Object.keys(playerList)[i]] == null) {
-				vars.player[Object.keys(playerList)[i]] = playerList[Object.keys(playerList)[i]];
-			}
-		}
-		
-		var playerAddonsList=window.playerAddonsList;
-		for (var i=0; i < Object.keys(playerAddonsList).length; i++) {
-			if (vars.player[Object.keys(playerAddonsList)[i]] == null) {
-				vars.player[Object.keys(playerAddonsList)[i]] = {};
-				var object = vars.player[Object.keys(playerAddonsList)[i]];
-				var listObject = playerAddonsList[Object.keys(playerAddonsList)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.player = this.updateStructure(vars.player, window.playerList, "player");
+		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -462,16 +441,8 @@ window.structures={
 	},
 	
 	setupFriendRiddles: function() {
-		var vars=State.active.variables;
-		var riddlesList=window.friendRiddles;
-		if (vars.friendRiddles == null) {
-			vars.friendRiddles = {};
-		}
-		for (var i=0; i < Object.keys(riddlesList).length; i++) {
-			if (vars.flags[Object.keys(riddlesList)[i]] == null) {
-				vars.flags[Object.keys(riddlesList)[i]] = false;
-			}
-		}
+		var vars = State.active.variables;
+		vars.friendRiddles = this.updateStructure(vars.friendRiddles, window.friendRiddles, "friendRiddles");
 	},
 	
 	setupTalks: function() {
@@ -677,68 +648,18 @@ window.structures={
 		}
 	},
 	setupCheer: function (){
-		var vars=State.active.variables;
-		var cheerList=window.cheerList;
-		if (vars.cheerleaders == null) {
-			vars.cheerleaders = {};
-		}
-		for (var i=0; i < Object.keys(cheerList).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
-				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
-				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.cheerleaders = this.updateStructure(vars.cheerleaders, window.cheerList, "cheerleaders");
 	},
 	
 	setupCheerFriend: function () {
-		var vars=State.active.variables;
-		var cheerFriendList=window.cheerFriendList;
-		if (vars.cheerFriend == null) {
-			vars.cheerFriend = {};
-		}
-		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
-				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
-				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.cheerFriend = this.updateStructure(vars.cheerFriend, window.cheerFriendList, "cheerFriend");
 	},
 	
 	setupTeam: function () {
-		var vars=State.active.variables;
-		var TeamList=window.teamList;
-		if (vars.team == null) {
-			vars.team = {};
-		}
-		for (var i=0; i < Object.keys(teamList).length; i++) {
-			if (vars.team[Object.keys(teamList)[i]] == null) {
-				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
-			}
-		}
+		var vars = State.active.variables;
+		vars.team = this.updateStructure(vars.team, window.teamList, "team");
 	},
 },
 
