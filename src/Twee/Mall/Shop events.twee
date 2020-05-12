@@ -675,7 +675,7 @@
 	<<set $player.bought="">>\
 <!--</Extra items for school dress>-->\ 
 <<endif>>\
-<<if $tasksTeacher.wearDressToSchool.status == 1 && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>
+<<if ($tasksTeacher.wearDressToSchool.status == 1 || $tasksTeacher.wearDressToSchool.canStart) && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>
 	Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
 
 	You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\

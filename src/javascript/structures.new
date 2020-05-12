@@ -28,6 +28,27 @@ window.versionControl={
 },
 
 window.structures={
+	updateStructure: function(base, addon, debugPrefix) {
+		// adapted from https://stackoverflow.com/questions/14843815/#29563346
+		// TODO: use this consistently to update all structures
+		if (base === undefined) {
+			base = {};
+		}
+		for (var prop in addon) {
+			if (addon.hasOwnProperty(prop)) {
+				if (typeof addon[prop] === 'object') {
+					//console.log(`Descending into ${debugPrefix}.${prop}…`);
+					base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
+				} else if (!base.hasOwnProperty(prop)) {
+					//console.log(`Setting up ${debugPrefix}.${prop}…`);
+					base[prop] = addon[prop];
+				} else {
+					//console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+				}
+			}
+		}
+		return base;
+	},
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
@@ -59,9 +80,12 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
-		var vars = State.active.variables;
-		vars.player = this.updateStructure(vars.player, window.playerList, "player");
-		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
+		var vars=State.active.variables;
+		if (vars.player === undefined){
+			vars.player = {};
+		}
+		this.updateStructure(State.active.variables.player, window.playerList, "player");
+		this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -441,8 +465,10 @@ window.structures={
 	},
 	
 	setupFriendRiddles: function() {
-		var vars = State.active.variables;
-		vars.friendRiddles = this.updateStructure(vars.friendRiddles, window.friendRiddles, "friendRiddles");
+		if (State.active.variables.friendRiddles === undefined){
+			State.active.variables.friendRiddles = {};
+		}
+		this.updateStructure(State.active.variables.friendRiddles, window.friendRiddles, "friendRiddles");
 	},
 	
 	setupTalks: function() {
@@ -648,18 +674,24 @@ window.structures={
 		}
 	},
 	setupCheer: function (){
-		var vars = State.active.variables;
-		vars.cheerleaders = this.updateStructure(vars.cheerleaders, window.cheerList, "cheerleaders");
+		if (State.active.variables.cheerleaders === undefined){
+			State.active.variables.cheerleaders = {};
+		}
+		this.updateStructure(State.active.variables.cheerleaders, window.cheerList, "cheerleaders");
 	},
 	
 	setupCheerFriend: function () {
-		var vars = State.active.variables;
-		vars.cheerFriend = this.updateStructure(vars.cheerFriend, window.cheerFriendList, "cheerFriend");
+		if (State.active.variables.cheerFriend === undefined){
+			State.active.variables.cheerFriend = {};
+		}
+		this.updateStructure(State.active.variables.cheerFriend, window.cheerFriendList, "cheerFriend");
 	},
 	
 	setupTeam: function () {
-		var vars = State.active.variables;
-		vars.team = this.updateStructure(vars.team, window.teamList, "team");
+		if (State.active.variables.team === undefined){
+			State.active.variables.team = {};
+		}
+		this.updateStructure(State.active.variables.team, window.teamList, "team");
 	},
 },
 
