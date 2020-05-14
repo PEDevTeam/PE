@@ -28,6 +28,32 @@ window.versionControl={
 },
 
 window.structures={
+	updateStructure: function(base, addon, debugPrefix) {
+		// adapted from https://stackoverflow.com/questions/14843815/#29563346
+		// TODO: use this consistently to update all structures
+		if (base === undefined) {
+			base = {};
+		}
+		for (var prop in addon) {
+			if (addon.hasOwnProperty(prop)) {
+				if (typeof addon[prop] === 'object') {
+					if (Array.isArray(addon[prop])){
+						base[prop] = addon[prop];
+					}
+					else{
+						//console.log(`Descending into ${debugPrefix}.${prop}…`);
+						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
+					}
+				} else if (!base.hasOwnProperty(prop)) {
+					//console.log(`Setting up ${debugPrefix}.${prop}…`);
+					base[prop] = addon[prop];
+				} else {
+					//console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+				}
+			}
+		}
+		return base;
+	},
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
