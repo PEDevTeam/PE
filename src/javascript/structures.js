@@ -40,6 +40,9 @@ window.structures={
 					if (Array.isArray(addon[prop])){
 						base[prop] = addon[prop];
 					}
+					else if (addon[prop] === null){
+						base[prop] = addon[prop];
+					}
 					else{
 						//console.log(`Descending into ${debugPrefix}.${prop}…`);
 						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
@@ -1339,6 +1342,7 @@ window.flagsList={
 	mallKlipIntro: false,
 	talkSneakIn: false,
 	bribedTeacher: false,
+	healthSocks: false,
 },
 
 window.kinkList={
