@@ -15,7 +15,7 @@
 		You quickly scan the shelves for a glimpse of the most basic, boyish-looking shoes you can find, when you hear a husky, alluring voice.
 
 		<<if $flags.mallKlipIntro>>\ 
-			@@.femvoice7;“Oh, it’s you $playername. Welcome back,”@@ Phoebe says warmly in her seductive voice.
+			@@.femvoice7;“Oh, it’s you $player.name. Welcome back,”@@ Phoebe says warmly in her seductive voice.
 
 			@@.heroT;"Oh thanks,”@@ you say, not quite sure how you feel being known by name in a women’s shoe shop. 
 
@@ -39,14 +39,12 @@
 
 			@@.heroT;"$player.name.”@@
 
-			@@.femvoice7;“Indeed, $playername. So you need some shoes?”@@
+			@@.femvoice7;“Indeed, $player.name. So you need some shoes?”@@
 				
 			@@.heroT;"I guess.”@@
 
-			@@.femvoice7;“Great. This way…”@@ Phoebe announces, walking towards the rear of the shop. 
-
-			Try on flat shoes  // Go to Try on Flat Shoes //
-			[[Return to Mall |Go to the mall]]
+			@@.femvoice7;“Great. This way…”@@ Phoebe announces, walking towards the rear of the shop.
+			<<set $flags.mallKlipIntro = 1>>\			
 		<<endif>>\
 		-->\
 	<<elseif (not $flags.flatsFlag) or $flags.firstBuyFlats == 1>>\
