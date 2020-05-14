@@ -1,5 +1,5 @@
 window.gameCode={
-	version: "0.9300"
+	version: "0.9302"
 };
 
 Config.history.maxStates=5;
