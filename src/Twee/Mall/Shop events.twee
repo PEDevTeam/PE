@@ -35,6 +35,7 @@
 				<<endif>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
+				<<set $delayKlopsText = true>>\
 				<<set _repeat=true>>\
 			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
 				<<set $flags.firstBuyPanties = true>>\
@@ -688,72 +689,73 @@
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 <!--</Extra items for school dress>-->\ 
-<<endif>>\
-<<if ($tasksTeacher.wearDressToSchool.status == 1 || $tasksTeacher.wearDressToSchool.canStart) && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>
-	Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
+<<else>>\
+	<<if ($tasksTeacher.wearDressToSchool.status == 1 || $tasksTeacher.wearDressToSchool.canStart) && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>\
+		Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
 
-	You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\
-	<<if $player.money < window.itemF.cost(itemsC.schoolFemale)>>\
-		Finding what you're looking for, you balk at the price - you don't even have that much money!
+		You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\
+		<<if $player.money < window.itemF.cost(itemsC.schoolFemale)>>\
+			Finding what you're looking for, you balk at the price - you don't even have that much money!
 
-		@@.hero;$teacher takes almost everything I earn, what am I expected to do now, steal?@@
-	<<else>>\
-		Finding what you're looking for, you wince slightly at the price; you could afford it, but...
+			@@.hero;$teacher takes almost everything I earn, what am I expected to do now, steal?@@
+		<<else>>\
+			Finding what you're looking for, you wince slightly at the price; you could afford it, but...
 
-		@@.hero;$teacher takes my money every week, and now she demands I spend even more. How's an honest guy supposed to keep up?@@
+			@@.hero;$teacher takes my money every week, and now she demands I spend even more. How's an honest guy supposed to keep up?@@
+		<<endif>>\
+
+		<<if $flags.metClothesClerk == true>>\
+			Looking around you spot $guardian's friend, Susan. Perhaps she could help you out?  Alternatively, you could always opt for the five-finger discount.
+		<<else>>\
+			Looking around you spot one of the clerks, you think you recognize her as one of $guardian's friends. Maybe she could help? Alternatively, you could always opt for the five-finger discount.
+		<<endif>>\
+
+		[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
+		[[See if the clerk can help you out|Uniform Punishment - Help]]
 	<<endif>>\
+	<<if $curStore == "Intimate Apparel" and not $shoppedBefore>>\
+	   <<set $toggleStoreMenu to 1>>\
+	   <<if $player.daring lt 3>>\
+		   <<set $intimateBoyBrowse to 1>>\
+		   You meander your way aimlessly through the mall, your mind drifting around how you can spend the <<print '$'+$player.money>> you have.\
+		   You look up and realise that you have almost wandered into the wrong shop and this one is full of…
 
-	<<if $flags.metClothesClerk == true>>\
-		Looking around you spot $guardian's friend, Susan. Perhaps she could help you out?  Alternatively, you could always opt for the five-finger discount.
-	<<else>>\
-		Looking around you spot one of the clerks, you think you recognize her as one of $guardian's friends. Maybe she could help? Alternatively, you could always opt for the five-finger discount.
+		   @@.hero;Panties?! @@
+
+		   <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+		   You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
+		   @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
+
+		   [[Leave | Go to the mall][$toggleStoreMenu = false]]
+	   <<else>>\
+		   <<if not $mallLingerieIntro>>\
+			   You spend several minutes in deliberation, walking up to, and then past the store, and then back again. \
+			   Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
+			   Two women, both extremely attractive and in their mid-twenties.
+
+			   Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
+			   loitering outside this shop, of all places. \
+			   You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
+
+			   The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
+			   With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
+
+			   @@.heroT;“Cotton panties?”@@
+
+			   <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+
+			   [[Return to the mall | Go to the mall][$toggleStoreMenu = false]]
+		   <<else>>\
+			   <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
+			   @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
+		   <<endif>>\
+	   <<endif>>\
 	<<endif>>\
-
-	[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
-	[[See if the clerk can help you out|Uniform Punishment - Help]]
-<<endif>>\
-<<if $curStore == "Intimate Apparel" and not $shoppedBefore>>\
-   <<set $toggleStoreMenu to 1>>\
-   <<if $player.daring lt 3>>\
-       <<set $intimateBoyBrowse to 1>>\
-       You meander your way aimlessly through the mall, your mind drifting around how you can spend the <<print '$'+$player.money>> you have.\
-       You look up and realise that you have almost wandered into the wrong shop and this one is full of…
-
-       @@.hero;Panties?! @@
-
-       <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
-       You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
-       @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
-
-       [[Leave | Go to the mall][$toggleStoreMenu = false]]
-   <<else>>\
-       <<if not $mallLingerieIntro>>\
-           You spend several minutes in deliberation, walking up to, and then past the store, and then back again. \
-           Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
-           Two women, both extremely attractive and in their mid-twenties.
-
-           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
-           loitering outside this shop, of all places. \
-           You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
-
-           The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
-           With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
-
-           @@.heroT;“Cotton panties?”@@
-
-           <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
-
-           [[Return to the mall | Go to the mall][$toggleStoreMenu = false]]
-       <<else>>\
-           <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
-           @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
-       <<endif>>\
-   <<endif>>\
-<<endif>>\
-<<if $curStore == "Urbane Menswear">>\
-	<<include [[Urbane_Menswear_events]]>>\
-<<endif>>\
-<<if $curStore == "Klip Klops"&& not $delayKlopsText>>\
-	<<include [[Klip_Klop_events]]>>\
+	<<if $curStore == "Urbane Menswear">>\
+		<<include [[Urbane_Menswear_events]]>>\
+	<<endif>>\
+	<<if $curStore == "Klip Klops"&& not $delayKlopsText>>\
+		<<include [[Klip_Klop_events]]>>\
+	<<endif>>\
 <<endif>>\
 <<set $delayKlopsText = false>>\

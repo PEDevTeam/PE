@@ -9,7 +9,6 @@
    [[Leave | Go to the mall][$toggleStoreMenu = false]]
 <<else>>\
    <<if $flags.flatsFlag and $flags.firstBuyFlats == 0>>\
-   <!--
 		With the latest demand of $teacher still ringing in your ears like some deafening tolling bell, you find yourself outside the women’s shoe shop, Klip Klops. As you peer into the window from across the concourse you wait for a quiet moment and slink into the shop, momentarily dazzled by the rows of colorful shoes, some bedecked with sequins or rhinestones.
 
 		You quickly scan the shelves for a glimpse of the most basic, boyish-looking shoes you can find, when you hear a husky, alluring voice.
@@ -46,10 +45,9 @@
 			@@.femvoice7;“Great. This way…”@@ Phoebe announces, walking towards the rear of the shop.
 			<<set $flags.mallKlipIntro = 1>>\			
 		<<endif>>\
-		-->\
 	<<elseif (not $flags.flatsFlag) or $flags.firstBuyFlats == 1>>\
 		<<if $tasksTeacher.practiceHeels.status == 1>>\ 
-			Even standing on the threshold of the shoe shop, you cannot feel anything other than daunted by the height of some of the heels in the store. [if own guardian’s shoes from tasks - Even having to wear $guardian’s shoes during your daily chores hasn’t prepared you for some of the skyscraper heels on the upper shelves.]
+			Even standing on the threshold of the shoe shop, you cannot feel anything other than daunted by the height of some of the heels in the store.
 
 			<<if $flags.mallKlipIntro == 1>>\
 				@@.femvoice7;“Hi $player.name. How lovely to see you. What can I do for you this time?”@@ Phoebe’s husky tones tickle your insides and, combined with her usual tiny skirt and lusciously long legs, you struggle to find your voice.
