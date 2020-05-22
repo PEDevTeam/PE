@@ -1625,4 +1625,4 @@ window.teamList={
 	nice: "Mike",
 	center: "Carl",
 	voice: "malevoice",
-},
+}
