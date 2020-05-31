@@ -1,11 +1,11 @@
 ::Friend CD Catch-up 02
 <<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _stock = playerCode.isWearingOn(itemTypes.stockings)>>\
+<<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<if $body.bodyhair == 0>>\
 	<<set _hairy = true>>\
 <<endif>>\
-<<if (_under && not _under.female) || not _chast || not _stock || (_stock && not _stock.slutty) || _hairy>>\
+<<if (_under && not _under.female) || not _chast || not _stock  || _hairy>>\
 	$friend welcomes you in, but as $friendG.he_she looks you over, $friendG.his_her face drops. Almost instantly, you intuit that $friend is disappointed about your appearance.
 	
 	The two of you spend some time watching TV, but neither of you do much talking. $friend continues to sulk, while your mind is on other matters.
