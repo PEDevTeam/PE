@@ -79,6 +79,9 @@ $friend opens the door for you to collect your stuff, kissing your cheek before 
 
 <<set $player.perversion.crossdressing++>>\
 <<set $friendG.tasks.timesHelped++>>\
+<<if $player.perversion.friend < 7>>\
+	<<set $player.perversion.friend = 7>>\
+<<endif>>\
 <<run $time.addMinutes(90)>>\
 <<set $player.heelsSkill == $player.heelsSkill + 1>>\
 <<set playerCode.changeArousal(30)>>\

@@ -4,17 +4,18 @@
 
 	You nod.
 
-	@@.teacher;“Very good.  Now, let us return to Pepperton,”@@ $teacher says as she leads you back to her car.
+	@@.teacher;“Very good.  Meet me at school on Satuday before 6pm, and I shall take you to my home.  Now, let us return to Pepperton,”@@ $teacher says as she leads you back to her car.
 	<<set $player.ending.comportment.etiquette.progress++>>\
 	<<set $player.ending.comportment.classStatus[0] = 2>>\
+	<<set $player.ending.comportment.etiquette.partyStart = true>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	She sighs deeply. @@.teacher;“Well, once again you have plumbed depths of failure that not even I could not have ever imagined. Your performance was the worst possible in all cases and, though I hope you still learned something, I certainly have my doubts. If you are determined that only corrective measures will beat a lesson into your thick skull, well...”@@
 
 	You gasp as the plug in your rear comes to life full-power, pulsing and rattling and letting out the occasional harsh shocks.
-	<<set $player.ending.comportment.etiquette.class2Fail = true>>\
+	<<set $player.ending.comportment.etiquette.lessonFail[1] = 1>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
-    	She sighs and shakes her head. @@.teacher;“Your behavior continues to be wildly inconsistent.  On some  accounts you behave perfectly, yet on others you were an abject failure. Perhaps if you tried harder, you could make something of yourself.  I believe a nice walk back to school will help you focus your mind.”@@
+    	She sighs and shakes her head. @@.teacher;“Your behavior continues to be wildly inconsistent.  On some  accounts you behave perfectly, yet on others you were an abject failure. Perhaps if you try harder on our next trip, you will manage to make something of yourself.  For now, though, I believe a nice walk back to school will help you focus your mind.”@@
 	<<else>>\
     	$teacher sighs @@.teacher;“Today I saw nothing but failure. Perhaps you made some effort, but you still have a long way to go before your behavior becomes acceptable. We shall have to try this again sometime. For now, we will begin your punishment by having you walk back to school.”@@
 	<</if>>\

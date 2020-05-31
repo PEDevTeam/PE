@@ -236,6 +236,9 @@ So instead of getting dressed, you reluctantly agree to sit as you are and watch
 <<set $flags.friendBraTask = false>>\
 <<set $friendG.tasks.bra = true>>\
 <<set $friendG.tasks.timesHelped = 0>>\
+<<if $player.perversion.friend < 5>>\
+	<<set $player.perversion.friend = 5>>\
+<<endif>>\
 [[Leave friend's house][$time.addMinutes(90); $friendG.visit.c3 = 1]]
 
 

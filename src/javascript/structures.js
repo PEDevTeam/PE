@@ -893,12 +893,12 @@ window.playerAddonsList={
 		
 		comportment:  {
 			classStatus: [0, 0], 	/*ettiquite, poise; 
-									0 = not started, 1 = active, 2 = on hold, 3 = passed*/
+									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
 			etiquette:  {
 				progress: 0,
-				class1Fail: false,
-				class2Fail: false,
-				class3Fail: false,
+				lessonFail:[0,0,0],
+				partyRepeat: false,
+				partyStart: false,
 			},
 			poise:	{
 				progress:0,
@@ -972,6 +972,7 @@ window.friendList={
 	bonusDress: 0,
 	parkAttempt: 0,
 	parkFail: 0,
+	seenDressUp: 0,
 },
 
 window.futaList={
@@ -1343,6 +1344,8 @@ window.flagsList={
 	talkSneakIn: false,
 	bribedTeacher: false,
 	healthSocks: false,
+	girlPants: false,
+	partyEars: false,
 },
 
 window.kinkList={

@@ -1,0 +1,66 @@
+::Friend CD Catch-up 02
+<<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _stock = playerCode.isWearingOn(itemTypes.stockings)>>\
+<<if $body.bodyhair == 0>>\
+	<<set _hairy = true>>\
+<<endif>>\
+<<if (_under && not _under.female) || not _chast || not _stock || (_stock && not _stock.slutty) || _hairy>>\
+	$friend welcomes you in, but as $friendG.he_she looks you over, $friendG.his_her face drops. Almost instantly, you intuit that $friend is disappointed about your appearance.
+	
+	The two of you spend some time watching TV, but neither of you do much talking. $friend continues to sulk, while your mind is on other matters.
+	
+	@@.hero;These tasks from $teacher are so frustrating, and demeaning, I wonder if $friend will help. $friendG.He_She seemed to want to before. Though, judging by how today is going, I should at least ensure I have smooth legs, panties, and stockings, and my chastity too, just in case…@@
+	
+	The show ends, and $friend sighs as he leads you to the door and bids you farewell.
+	
+	<<set $friendG.wordlessGoodbye = true>>\
+<<else>>\
+	<<if $friendG.seenDressUp == 1>>\
+		@@.friend;“I’ve been thinking…”@@ $friendG.he_she begins before pausing and taking a breath. @@.friend;“I gave you some panties and then…”@@ He’s about to finish the sentence, but hesitates before quickly shifting gears. @@.friend;“How about we do something fun? Have you seen the new part of the house I found?”@@
+
+		It takes a moment for your mind to recall what he means, with everything going on and clouding your mind. @@.heroT;“Oh, in the basement?”@@
+
+		@@.friend;“Come on.”@@
+
+		$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, and heads straight down to the basement. You pass through the cleaning supply closet until you reach the obscured panel at the back. $friend unlocks the door and it opens into a stone corridor with three doors off it. Ignoring the other two, $friend rushes to one of the doors and throws it open, revealing the amazing space which could only be described as a girl-cave.
+	<<else>>\
+		@@.friend;“I’ve been thinking…”@@ $friendG.he_she begins before pausing and taking a breath. @@.friend;“I gave you some panties and… How about we do something fun? I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;“Come on, let me show you.”@@
+
+		$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the door and reveals an amazing space which could only be described as a girl-cave.
+		<<set $friendG.seenDressUp = 1>>\
+	<<endif>>\
+
+	@@.heroT;“How did you get all this done without your folks knowing?”@@
+
+	@@.friend;“They’re never here, are they? Anyway, do you like it? I did it for <<if $friendG.gender == "M">>you<<else>>us<<endif>>.”@@ 
+			
+	@@.heroT;“What about these clothes?”@@ you ask, opening up a wardrobe door and seeing a small selection of dresses and skirts and tops all in <<if $friendG.gender == "T">>both your sizes<<else>>your size<<endif>>. Despite yourself, you are particularly drawn to a dress which would look good on you and you remove it from the rack and hold it in front of the mirror.
+
+	@@.friend;“If you want, you can try it on. I’d like to see how it looks on you.”@@
+
+	@@.hero;I guess it couldn’t do any harm, and $friendG.he_she has done all of this for me.@@
+
+	Feeling a little dumb, you take the dress to the attached bathroom and strip off your outerwear. The dress slides over your body and hugs all the right places. Despite your continued reticence, you can’t help but enjoy the fluttering inside your tummy at the risque thought of wearing such an item, and for $friend. You know you shouldn’t be doing it, certainly not enjoying it, but the temptation is too much to resist.
+
+	Once dressed, you peek out of the door and see $friend sitting comfortably on the sofa, watching something on cable. When you finally walk back in the room,  $friendG.he_she looks up and $friendG.his_her eyes widen. 
+
+	@@.heroT;“I look stupid…”@@ you complain, reflexively.
+
+	@@.friend;“No it’s just… I haven’t seen you, not in a dress and everything. $player.name, it really suits you. How does it feel?”@@
+
+	@@.heroT;“Okay, I guess. It fits well,”@@ you add, running your hand over the dress. 
+
+	@@.friend;“Why don’t you try some other things?”@@
+
+	You’ve never really had the time at home, not to try on so many things, and certainly not being able to ask for advice. <<if $friendG.gender == "M">>Sure, most of $friend’s comments are how pretty or cute you look, but he does let you know his favourite outfits and offers suggestions.<<else>>Comments range from how much a certain cut suits you, to the colors compliment you, and even sometimes how cute you look. $friendG.He_She lets you know $friendG.his_her favourite outfits and offers other suggestions.<<endif>>
+
+	Time skips along, and $friend takes a copious amount of images for your viewing pleasure. You end up on the sofa, taking a drink of soda and being quite blase when $friend arranges the skirt of your gingham dress for more photos. 
+
+	It’s not until the image pops up on your phone that you realise just how exposed you were with your skirt hiked up and your panties tugged down. Still, you can’t help but be struck by how girly you appear. If it weren’t for the cage, you’d swear they were girl’s legs peeking out from the skirt. Only, they are not girl’s legs but yours. The image, and the realization it’s you, makes your heart thump and you decide it’s time to go. 
+
+	$friend, who is leaning in a bit too close, seems a little saddened but agrees it is time to go. $friendG.He_She looks a little flushed and starts arranging their clothing as you head back to the bathroom to change into your mostly boy clothes. 
+
+	<<set $player.perversion.friend =6>>\
+<<endif>>\
+[[Leave friend's house][$time.addMinutes(90)]]

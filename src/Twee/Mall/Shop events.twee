@@ -30,11 +30,13 @@
 		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
 			<<if (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
 				<<set $flags.firstBuyShoes = true>>\
-				<<if $player.bought eq itemsC.flats.id>>\
+				<<if $player.bought eq itemsC.flats.id not $flags.firstBuyFlats>>\
 					<<set $flags.firstBuyFlats = true>>\
+					<<set $scene = "first buy flats">>\
+				<<else>>
+					<<set $scene = "first buy female">>\
 				<<endif>>\
 				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
 				<<set $delayKlopsText = true>>\
 				<<set _repeat=true>>\
 			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
@@ -69,13 +71,6 @@
 			<<set $scene = "female Uniform">>\
 			<<set _repeat=true>>\
 		<<endif>>\
-		<!--
-		<<if $player.bought eq itemsC.flats.id && not $flags.firstBuyFlats>>\
-				<<set $flags.firstBuyFlats = true>>\
-				<<set $scene = "first buy flats">>\
-				<<set _repeat=true>>\
-		<<endif>>\
-		-->
 		<<if _repeat>>\
 			<<goto [[Shop events]]>>\
 		<<endif>>\
@@ -173,13 +168,11 @@
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 <!--</First buy events>-->\
-<!--
 <<elseif $scene eq "first buy flats">>\
     <<include [[Try On Flats]]>>\
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 	<<set $delayKlopsText = true>>\
-	-->
 <<elseif $scene eq "first buy panties">>\
     Clutching the panties in your hands, you timidly approach <<if $mallLingerieIntro>>Mz. Knight<<endif>> the tall, imposing shopkeeper and put them in a scrunched bundle on the counter.
 

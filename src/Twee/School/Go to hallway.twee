@@ -309,6 +309,11 @@
 			@@.hero;Oh man, I'm so fucked.@@
 
 			<<set $items.schoolFemale.disabled to false>>\
+		<<elseif $player.perversion.crossdressing > 3 && $flags.girlPants == false>>\
+			@@.teacher;"$player.name. I want you to see me after school, there is something we need to discuss.”@@
+
+			@@.hero;Oh great, I need to stay behind again.@@
+			
 		<<elseif $player.perversion.crossdressing > 1 && $flags.flatsFlag == false>>\
 			<<set $flags.flatsFlag = true>>\
 			<<set $flags.flatsDelay = true>>\
@@ -328,7 +333,7 @@
 				@@.hero;I have to go to the mall and buy girl’s shoes?@@
 			<<endif>>\
 
-			$teacher smiles condescendingly at your reaction.	
+			$teacher smiles condescendingly at your reaction.
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 2>>\
 		<<if $player.daringFlag.toiletsMasturbating>>\
@@ -877,7 +882,6 @@
 			<<set $locations.jobFastfood.active = true>>\
 		<<endif>>\
 	<<endif>>\
-	
 	<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
 		<<if $flags.slutGoodEnd > 0>>\
 		

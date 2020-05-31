@@ -1,0 +1,45 @@
+:: comportment_etiquette_3_5
+<<switch $player.ending.comportment.etiquette.scene3>>\
+<<case "success">>\
+	You bow slightly and thank $teacher for the compliment before turning to the guest. @@.heroT;“I would be honored to <<if $etiquette1.fail>>offer the use of my mouth to relieve the turgidness in your loins<<else>>please you. We can go to another room if you would prefer privacy<<endif>>.”@@
+
+	The woman <<if $player.ending.comportment.etiquette.class1Fail>>laughs<<else>>smiles<<endif>> as she pulls up her skirt to reveal a bare, naked pussy, <<if $player.ending.comportment.etiquette.class1Fail>>@@.femvoice4;”Well how could I resist an offer such as that?”@@<<else>>@@.femvoice4;“I would rather not wait, as you can see I learned long ago not to bother with panties for $teacher’s parties.”@@<<endif>>
+
+	Gracefully dropping to your knees, your mouth is soon pressed between her legs as you start to nibble and lick.
+<<case 'fail'>>\
+	You sigh and drop to your knees, looking back to see $teacher shaking her head at your lack of enthusiasm. You hesitate and she gestures for you to continue. @@.teacher;“It seems my pupil has not been as receptive to my lessons as I thought. Perhaps I should arrange some additional instruction for her, if she continues to be such an insolent student.”@@
+
+	Wincing at the reprimand, you turn the guest and start licking.
+<<case 'fail_slut'>>\
+	Dropping to your knees, you greedily bury your face in Mrs. Copuletta’s delicious snatch. $teacher sighs, and you pause to look back at her. @@.teacher;“If you are so eager, go ahead,” she says with a flippant gesture, “but you really ought to show more decorum!”@@
+
+	Wincing at the reprimand, you turn back to licking.
+<<case 'crit_fail'>>\
+	Embarrassed by the thought of performing oral sex in the middle of a fancy party, shake your head, half hoping the whole thing is just a joke at your expense.
+
+	<<if $kinkAllow.questionable>>\
+		It turns out to not be a joke as $teacher sighs and forces you down to your knees before pressing your face into the waiting snatch. @@.teacher;“I am so sorry for my girl’s behaviour,” she apologizes. “She has been taught to be much more polite and well-mannered but it seem she has temporarily taken leave of her senses and forgotten all her training.”@@
+
+		With any objection you might make muffled, you have little choice but to start licking Mrs. Copuletta’s pussy, $teacher holding you for a few moments to ensure you are at work before releasing her grip and removing her hand.
+	<<else>>\
+		After a pregnant pause, $teacher laughs off your hesitation, placing a hand firmly on your shoulder. @@.teacher;“Well, words seem to be failing her, but I assure you, my tongue-tied student’s elocution is coming along quite well.”@@ You let out a sigh of relief as $teacher covers for you, but the intensity of her grip makes you wonder if it was actually a joke.
+	<</if>>\
+<<default>>\
+	ERROR: unexpected scene.style3 <<=$player.ending.comportment.etiquette.scene3>>
+<</switch>>\
+
+<<if $kink.questionable && $player.ending.comportment.etiquette.scene3 == 'crit_fail'>>\
+	The party slowly winds down without any further “excitement.” With the last guest departed, $teacher turns to you and sighs.
+
+	[[Assessment time|comportment_etiquette_3_7]]
+<<else>>\
+	The woman seems content to let you work without interference. By the time you have brought her to orgasm with your skilled tongue and she steps back with a satisfied gasp, you look around to find that you have gathered quite a crowd. 
+
+	<<if $kink.futa>>Another woman<<else>>A man<</if>> immediately stepping forth, pressing a hard cock into your face. You look to $teacher for guidance, and she nods, signalling for you to suck him. Glancing back up at the <<if $kink.futa>>woman<<else>>man<<endif>>, you do as ordered.
+
+	Distracted by the penis probing your throat, you soon find each of your hands guided to a new penis as a familiar voice asks behind you, “Don’t suppose I could start a fresh queue for this sweet ass?”
+
+	<<print "[[Agree, if it is alright with " + $teacher + "|comportment_etiquette_3_6][$player.ending.comportment.etiquette.scene4='success']]">>
+	<<print "[[Enthusiastically beg for " + $futa.him_her + " to fuck your ass|comportment_etiquette_3_6][$player.ending.comportment.etiquette.scene4='fail']]">>
+	[[Reply that you didn’t come here to be gang-banged!|comportment_etiquette_3_6][$player.ending.comportment.etiquette.scene4="crit_fail"]]
+<</if>>\
