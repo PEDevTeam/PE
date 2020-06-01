@@ -10,6 +10,7 @@ A dye pack, like you see banks use, bursts open. Something thick, stinky, and pi
 
 She tuts and carefully enters the cupboard, stepping over the drips of ink dotting the floor. @@.teacher;"I have a spare uniform you can wear home.”@@ She assures you. @@.teacher;“For now, however, I need to reset the trap for the real culprit.”@@ $teacher passes you a bag and ushers you back into the classroom.
 
+<<RandomImageFromPack 'Girl Pants' 400 400 alignRight>>\
 You take the bag and tip the contents onto a desk. Laying on top is a pair of pants that have a funny shape. You lift them, but you know before you check the label that they are girls’ pants. @@.heroT;“I can’t wear these!”@@
 
 @@.teacher;"Consider it a lesson on not snooping into other people’s things,”@@ $teacher says, arriving next to you. As you stand beside her in shock, you hear something rip and your left trouser leg tears off, sliding down your leg to pool at your feet, revealing your <<if playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.iswearing("socks")>>stockinged<<else>><<if playerCode.isWaxed()||playerCode.isHairless()>>hairless<<else>>bare<<endif>><<endif>> leg. A moment later the other leg falls away too. 
@@ -26,7 +27,7 @@ You race home in a panic, kick off all your clothes and shower as thoroughly as 
 
 <<set $flags.exhausted=true>>\
 <<set $time.hour = 19>>\
-<<set $time.hour = 0>>\
+<<set $time.minute = 0>>\
 <<set playerCode.loadQuickSlot(quickSlotSets.Casual)>>\
 <<set $flags.girlPants = true>>\
 <<set $player.location = "home">>\

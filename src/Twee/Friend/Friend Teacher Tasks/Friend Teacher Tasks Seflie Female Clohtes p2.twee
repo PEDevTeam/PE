@@ -180,8 +180,9 @@ leave. You shrug yourself out of the dress and pass it back to $friendG.him_her.
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
 <<set $tasksTeacher.selfieFemaleClothes.progress++>>\
-<<set $player.perversion.crossdressing++>>\
-<<if $player.perversion.crossdressing == 2>>\
+<<if ($player.perversion.crossdressing lte 1)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
 <<if $player.perversion.friend < 5>>\
 	<<set $player.perversion.friend = 5>>\
 <<endif>>\
