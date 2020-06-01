@@ -29,4 +29,7 @@ Your heart still racing from your latest adventure, you prepare to leave.
 <<set $tasksTeacher.crossdressAtPark.progress++>>\
 <<run $time.addMinutes(120)>>\
 <<set $friendG.wordlessGoodbye to true>>\
+<<if $player.perversion.friend < 8>>\
+	<<set $player.perversion.friend = 8>>\
+<<endif>>\
 <<display [[Leave friend's house]]>>

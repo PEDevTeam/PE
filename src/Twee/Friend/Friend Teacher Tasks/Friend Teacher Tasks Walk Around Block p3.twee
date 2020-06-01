@@ -45,7 +45,9 @@ $friend rushes upstairs, collects your things and slides them down on a tray, sh
 
 “Well that was strange,” you say to yourself.
 
-<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 6)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
 <<if $player.perversion.crossdressing == 7>>\
 	You pause in front of the massive hallway mirror, still in your new dress, your cheeks flushed. @@.heroT;“That didn’t go too bad. And I look kinda decent.”@@
 
@@ -56,6 +58,9 @@ You change with a shrug, your heart still racing from your latest adventure and 
 
 <<set $friendG.tasks.mall = true>>\
 <<set $friendG.tasks.timesHelped++>>\
+<<if $player.perversion.friend < 7>>\
+	<<set $player.perversion.friend = 7>>\
+<<endif>>\
 <<if $friendG.bonusDress>>\
 	<<addToInv summerDress 69>>\
 <<else>>\

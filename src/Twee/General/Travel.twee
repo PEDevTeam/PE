@@ -153,6 +153,11 @@
 				<<set _reason = $reason.dressedTherapy>>\
 			<<endif>>\
 		<<endif>>\
+		<<if (_to.id eq locationsJS.teacherParty.id)>>\
+			<<if (not window.timeCode.canTeacherParty())>>\
+				<<continue>>\
+				<<endif>>\
+		<<endif>>\
 		<<if (_from.id eq locationsJS.home.id) and (not window.clothes.dressedOutside.check())>>\
 			<<set _available = false>>\
 			<<set _reason = $reason.dressedOutside>>\
