@@ -1,5 +1,14 @@
 ::Choose Lesson
 <<set _scene = "none">>\
+<<if timeCode.isMonday() && $player.ending.comportment.etiquette.partyStart>>\
+	<<set $player.ending.comportment.etiquette.progress++>>\
+	<<set $player.ending.comportment.classStatus[0] = 3>>\
+	<<set $player.ending.comportment.etiquette.partyStart = false>>\
+	You nervously show up for your next etiquette class, knowing that you missed the party $teacher told you to attend. As you walk through the door, $teacher smiles at you in a way that only enhances your apprehension.
+	
+	@@.teacher;"$player.name, I gave you explicit instructions not to ignore the party on Saturday, and yet you seem to have willfully ignored my orders. Considering your blatant disregard for these classes, you will have a remedial class today. I have just the plan for how to drill it into your thick skull how a proper lady should behave. You may start by removing your clothes, I have a different outfit in mind to properly set the mood.”@@
+	
+<<endif>>\
 <<set _lessonArr = []>>\
 <<for _i to 0; _i < $player.ending.comportment.classStatus.length-1; _i++>> <!-- need to remove -1 next release-->\
 	<<set _lessonArr.push(_i)>>\
@@ -19,12 +28,28 @@
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 1>>\
 		<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment.etiquette.progress + 1) + "_1">>\
 		<<break>>\
+	<<elseif $player.ending.comportment.classStatus[_classIndex] == 2>>\
+		<<if _classIndex == 0>>\
+			<<if $player.ending.comportment.etiquette.progress == 2 && timeCode.isFriday()>>\
+				<<set $player.ending.comportment.etiquette.partyStart = true>>\
+				<<set _scene = "partyReminder">>\
+			<<endif>>\
+		<<endif>>\
+	<<elseif $player.ending.comportment.classStatus[_classIndex] == 3>>\
+		<<set _scene = "comportment_" + _class + "_penalty_1">>\
+		<<break>>\
 	<<endif>>\
 <</for>>\
-<<if _scene != "none">>\
+<<if _scene == "partyReminder">>\
+	@@.teacher;"Remember, I want you to attend my party on Saturday for your next lesson. Be at school before 6 pm, and I shall drive you to my house."@@
+	
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
+<<elseif _scene != "none">>\
 	<<include _scene>>\
 <<else>>\
 	You do not have extra classes today.
 	<<set $player.ending.lessonSkip = true>>\
+	
 	[[Finish school day]]
-<<endif>>
+<<endif>>\

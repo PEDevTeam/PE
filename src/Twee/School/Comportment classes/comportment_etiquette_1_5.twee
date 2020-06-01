@@ -4,7 +4,7 @@
 	<<set $player.ending.comportment.etiquette.progress++>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	She frowns. @@.teacher;“I can scarcely imagine how you could have performed worse. I should punish you for your failure immediately, but I am just so utterly disappointed that I do not wish to even look at you. Get out of my sight. We can attempt this lesson some other day, and I truly hope you apply yourself at that time.”@@
-	<<set $player.ending.comportment.etiquette.class1Fail = true>>\
+	<<set $player.ending.comportment.etiquette.lessonFail[0] = 1>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
     	She shakes her head. @@.teacher;“Once again, you seem to struggle with the lesson. On some points you behaved perfectly... then in other cases you failed as hard as possible, almost like you were acting at random.”@@
@@ -20,7 +20,7 @@
 <<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success" ||
 	$player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	[[Finish school day]]
-<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail" && $player.ending.comportment.etiquette.scene3=='fail'>>\
+<<elseif ($player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail") && $player.ending.comportment.etiquette.scene3=='fail'>>\
 	<<RandomImageFromPack 'Etiquette Cuffed' 400 400 alignRight>>\
 	She rises to her feet and motions for you to do the same. @@.teacher;“It seems a shame not to take advantage of that wonderful punishment you proposed. Now I do not have a classroom of peers handy to properly embarrass you, but I do have a nice flogger handy. Perhaps this will make things sufficiently interesting...”@@
 

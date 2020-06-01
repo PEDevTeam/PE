@@ -2,7 +2,7 @@
 <<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\
 <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set $friendG.bonusDress to true>>\
-<<if playerCode.isWaxed() || playerCode.isWearing("jocksLucky") || (not _chastity) || (not _bra)>>\
+<<if playerCode.isWaxed() || playerCode.isWearing(itemsC.jocksLucky) || (not _chastity) || (not _bra)>>\
 	<<set $friendG.bonusDress == false>>\
 <<endif>>\
 @@.hero;I made it!@@
@@ -165,7 +165,12 @@ You both remain silent on the death-defying drive home. You distract yourself by
 <<addToInv summerDress 68>>\
 <<set $tasksTeacher.tryingClothesMall.status = 2>>\
 <<set $tasksTeacher.tryingClothesMall.progress++>>\
-<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 5)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
+<<endif>>\
 \
 <<run $time.addMinutes(120)>>\
 <<display [[Leave friend's house]]>>

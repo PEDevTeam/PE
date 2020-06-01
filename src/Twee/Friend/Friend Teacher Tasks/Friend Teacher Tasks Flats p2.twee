@@ -89,4 +89,7 @@ Your mind is full of questions you dare not ask and it’s time to go home befor
 <<set $friendG.tasks.timesHelped++>>\
 <<set _flatsAlt to $flatsChoice + 61>>\
 <<addToInv flats _flatsAlt>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
+<<endif>>\
 [[Leave friend's house][$time.addMinutes(90)]]

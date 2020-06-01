@@ -160,6 +160,11 @@ material of your pants brushing your skin through the sensual material. You <<if
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.wearStockings.status = 2>>\
 <<set $tasksTeacher.wearStockings.progress++>>\
-<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 1)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 5>>\
+	<<set $player.perversion.friend = 5>>\
+<<endif>>\
 [[Go Home|Leave friend's house]]\
 
