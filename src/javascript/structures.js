@@ -899,6 +899,7 @@ window.playerAddonsList={
 				lessonFail:[0,0,0],
 				partyRepeat: false,
 				partyStart: false,
+				voicePunish: false,
 			},
 			poise:	{
 				progress:0,
