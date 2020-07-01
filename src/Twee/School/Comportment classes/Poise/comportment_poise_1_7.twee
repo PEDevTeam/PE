@@ -1,0 +1,25 @@
+:: comportment_poise_1_7
+<<set $stage2Sum = $positionStatus.head +
+	$positionStatus.straight +
+	$positionStatus.feet +
+	$positionStatus.knees +
+	$positionStatus.shoulders +
+	$positionStatus.arms>>\
+<<set $stage2Result = 0>>\
+<<if $stage2Sum == 0>>\
+	<<set $stage2Result = 1>>\
+	$teacher beams with pride. @@.teacher;“Perfection. This is how you should stand - a living breathing Galatea.”@@
+<<elseif $stage2Sum <= 3>>\
+	$teacher flashes a lopsided smile. @@.teacher;“You are so close... yet that only brings your scant failures into more stark relief. Still, this is a far sight better than I have seen you standing in the hallway. If you could implement this day to day it would be quite the improvement.”@@
+<<elseif $stage2Sum <= 6>>\
+	$teacher sighs. @@.teacher;“Very sloppy, it appears you yet have much to learn. In any case, let us move on to your next trial.”@@
+<<elseif $stage2Sum <= 9>>\
+	$teacher sighs. @@.teacher;“This is, frankly, terrible. It is like you barely paid attention and any aspect of correctness is an accident more than anything else. Let us hope you show better aptitude for your next trial...”@@
+<<elseif $stage2Sum < 12>>\
+	$teacher glowers at how you are standing - slouched, fidgeting and distracted. @@.teacher;“Your atrocious performance is giving me a headache, let us move to a different task and see if, by some miracle, you prove more adept.”@@
+<<else>>\
+	<<set $stage2Result = -1>>\
+	$teacher shake her head and pinches the bridge of her nose. @@.teacher;“It seems like you have literally learned nothing from my instruction today. You look like a total slob and I almost want to give up here... And yet, I am determined to shape you into the girl you need to be, so let us proceed and hope that you improve in the next lesson.”@@
+<</if>>\
+
+[[Continue.|comportment_poise_1_8]]
