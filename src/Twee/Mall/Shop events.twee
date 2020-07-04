@@ -30,7 +30,7 @@
 		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
 			<<if (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
 				<<set $flags.firstBuyShoes = true>>\
-				<<if $player.bought eq itemsC.flats.id not $flags.firstBuyFlats>>\
+				<<if $player.bought eq itemsC.flats.id && not $flags.firstBuyFlats>>\
 					<<set $flags.firstBuyFlats = true>>\
 					<<set $scene = "first buy flats">>\
 				<<else>>

@@ -899,9 +899,12 @@ window.playerAddonsList={
 				lessonFail:[0,0,0],
 				partyRepeat: false,
 				partyStart: false,
+				voicePunish: false,
 			},
 			poise:	{
 				progress:0,
+				lessonFail: [0,0,0],
+				
 			},
 		},
 	},
@@ -1557,6 +1560,8 @@ window.cheerList={
 		prankBeg: false,	//PC begs for mercy to end prank
 		prank1Finish: false, //PC completed tryout prank 
 		prank2: false,	//controls access to gym prank
+		guardianPractice: false, //allows player to practice cheerleading with guardian
+		dancePractice: false, //allows player to practice dancing
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables

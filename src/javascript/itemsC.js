@@ -292,6 +292,26 @@ window.itemsC={
 		cost: 0,
 		image: "cheer_dress.jpg"
 	},
+	retroCheer : {
+		id: "retroCheer",
+		name: "Retro cheerleader uniform",
+		clothingType: window.itemTypes.Outerwear,
+		cantWearWith: 0,
+		ward: false,
+		info: true,
+		female: true,
+		sleepWear: false,
+		slutty: false,
+		disabled: true,
+		surgery: false,
+		daringRec: 0,
+		school: false,
+		cheer: false,
+		stolen: false,
+		store: 4,
+		cost: 0,
+		image: "retro_uniform.jpg"
+	},
 	sluttyCheer : {
 		id: "sluttyCheer",
 		name: "Slutty cheerleader uniform",
