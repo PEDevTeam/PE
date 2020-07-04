@@ -1,0 +1,38 @@
+:: comportment_etiquette_1_3
+<<switch $player.ending.comportment.etiquette.scene2>>\
+<<case "success">>\
+	You express gentle sympathy for her frustration, as well as reassurance that she is doing the right thing. You begrudgingly add that, even if her student expresses displeasure, they must know it is what’s best for them, deep down.
+
+	@@.teacher;“Quite right, and something I obviously knew. However, it is nice to hear confirmation from a third party on the matter.”@@ 
+
+	Even $teacher’s kind words, you mentally kick yourself for having been manipulated into affirming $teacher’s harsh treatment of you so easily.
+<<case "fail_nice">>\
+	You point out that maybe she is being too hard on her student, and perhaps a more light touch that grants them more freedom would be better than forcing them to be something they are not..  
+
+	$teacher frowns. @@.teacher;“It seems you have missed the point of the lesson here.  It is not your place to question my judgement towards this student.  As his teacher, I clearly know what’s best for him.  Instead, you should be offering reassurance.  It is not your place to judge, only support.
+
+	Perhaps I should be even stricter on my wayward student, as it seems he still struggles to comprehend his lessons.”@@
+
+	$teacher’s knowing smirk, combined with her threat, makes the hairs on the back of your neck stand.
+
+<<case "fail_sorry">>\
+	You try to apologize for whatever misbehavior has frustrated her, almost immediately realizing that this was the wrong move as she frowns.
+
+	@@.teacher;“As much as I may appreciate you accepting fault for everything you have done wrong, you have completely forgotten the intent of the scene. Instead, you have twisted the conversation to being about yourself when you should instead be a properly passive, but supportive, conversation partner.”@@ She sighs and shakes her head in disappointment.
+<<case "crit_fail">>\
+	You start to object to $teacher’s characterization, only for the words to freeze in your throat as she gives you a cutting glare..
+
+	@@.teacher;“You would do well to keep such objections to yourself,” she says, crushing you under the weight of her diapproval. “This is not the time, nor place, to express your displeasure at my instruction. It is your role to listen quietly and provide proper support for your distressed colleague. Not only did you fail to do that, but you interrupted me, contradicted me, failed to understand the purpose of this lesson entirely. I can scarcely imagine how you could have done worse at this task.”@@ 
+
+	You wince, half expecting an immediate punishment but she instead moves on.
+<<default>>\
+	ERROR: unexpected scene.style2: <<=$player.ending.comportment.etiquette.scene2>>
+<</switch>>\
+
+@@.teacher;“Now, a final aspect of etiquette, you need to master, is how to retain composure even when the discussion takes a turn you did not expect.”@@ She takes a deep breath, and you can’t help but shuffle closer to the edge of your seat in anxious anticipation. @@.teacher;“So, what measures should I take to ensure this wanton pervert learns his lesson?”@@
+
+You think for a moment what would be the “proper” response, in both tone and content.
+
+[[Say she should go all out with humiliation and punishment to bring them in line|comportment_etiquette_1_4][$player.ending.comportment.etiquette.scene3="fail"]]
+[[Say if a student does not want to learn, perhaps he is truly a lost cause|comportment_etiquette_1_4][$player.ending.comportment.etiquette.scene3="crit_fail"]]
+[[Recommend staying the course but with even less tolerance of disobedience or failure|comportment_etiquette_1_4][$player.ending.comportment.etiquette.scene3="success"]]

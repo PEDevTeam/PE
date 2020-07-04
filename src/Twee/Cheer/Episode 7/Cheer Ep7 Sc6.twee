@@ -1,0 +1,59 @@
+::Cheer Ep7 Sc6
+<<set _underwear = playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<if $scene == "rookie">>\
+	<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>>\
+	You go upstairs and change into your rookie uniform before rushing back downstairs to $guardian. @@.guardian;“Shorts?”@@ she says, sounding disappointed. @@.guardian;“What’s the point of being a cheerleader if you can’t ‘accidentally’ flash your panties at cute guys during the routine?”@@
+
+	@@.heroT;“We don’t get uniforms with skirts until we make the full squad. I’m still a rookie.”@@
+
+	$guardian giggles. @@.guardian;“Of course. So, rookie, why don’t you do a cheer for me?”@@
+<<else>>\
+	<<if not $flags.guardianEvil>>\
+		@@.heroT;“I, uh, need to borrow your uniform,”@@ you say to $guardian. @@.heroT;"They haven't given me my own uniform yet."@@
+
+		@@.guardian;“Oh, sure,”@@ she says, pulling up the top to reveal her black, lacy bra underneath.
+
+		She drops the sweater on the table and steps out of the skirt, revealing that she is wearing a lacy g-string that matches her bra.
+
+		She places the skirt next to the sweater and takes a seat. The sight of $guardian in only her bra and panties makes your cock ache in its cage.
+		
+	<<endif>>\
+	<<if _bra || _underwear.female>>\
+		You strip out of your clothes in front of $guardian.
+
+		@@.guardian;“Cute undies,”@@ she says as you reveal your <<if _underwear.female>>panties<<endif>><<if _underwear.female && _bra>> and <<endif>><<if _bra>>bra<<endif>>, causing you to flush red and scramble to grab the cheer uniform. <<if not $flags.guardianEvil>>As you pull it on over your girly undergarments, you can’t help but notice that the uniform is still warm from $guardian’s body heat.<<endif>>
+	<<else>>\
+		You strip out of your clothes in front of $guardian and hurriedly put on the uniform on the table<<if not $flags.guardianEvil>>, noticing that the clothes are still warm from being next to $guardian’s body<<endif>>.
+	<<endif>>\
+	
+	@@.guardian;“So,”@@ $guardian says with a smile, @@.guardian;“you ready to do your cheer for me?”@@
+<<endif>>\
+
+You quickly pull up the music player on your phone, but then remember that the music for the squad’s cheer is still on the flashdrive Rachel gave you. The only music you have that you can do a cheer to is… Ashley’s cheer.
+
+Not seeing any other option, you start the music and dance your way through Ashley’s cheer. $guardian grins in delight at every twist, roll, and shake of the illicit cheer, laughing and clapping as you break into the chant. Oddly, you find yourself getting aroused from putting on a slutty show as $guardian<<if $scene == "retro" && not $flags.guardianEvil>>, wearing only her bra and panties,<<endif>> watches.
+
+As you finish the cheer, $guardian <<if $flags.guardianEvil>>taunts<<else>>showers<<endif>> you with applause. @@.guardian;“Well, cheers certainly have gotten a lot more… explicit since I was a cheerleader.”@@
+
+@@.heroT;“One of the other cheerleaders made me perform that as a hazing,”@@ you admit.
+
+$Guardian laughs. @@.guardian;"Well, <<if $flags.guardianEvil>>I think it’s perfect for a slut like you.<<else>>I hope she didn’t share it with too many people.<<endif>> You know, I’m impressed by how far you’ve come in such a short time. If you ever want me to give you a few pointers, let me know. Maybe I can help you train.”@@
+
+@@.heroT;“Sure, thanks,”@@ you say, a bit hesitant to take her up on the offer immediately.
+
+<<if $scene == "retro">>\
+	@@.guardian;“And you can keep the uniform, if you want it. Maybe tell all your new cheer friends about who inspired you to be a cheerleader.”@@
+
+	<<addToInv "retroCheer">>\
+	<<wearClothing "retroCheer">>\
+<<endif>>\
+<<RandomImageFromPack 'Cheerleader Signing Form' 400 400 alignRight>>\
+$guardian takes a pen and fills out the blanks on the form. @@.guardian;“There you are, as promised,”@@ she says as she hands the paper back to you. @@.guardian;“I hope you have a good time at regionals. Tell the girls I said good luck.”@@
+
+You take the paper and snap up your bag, ensuring she can’t find anything else incriminating in it, before running back up to your room.
+
+<<set $cheerleaders.progress = 7>>\
+<<set $player.fitness++>>\
+<<set $cheerleaders.flags.guardianPractice = true>>\
+[[Go to bedroom][$time.addMinutes(30)]]

@@ -172,7 +172,7 @@ window.timeCode={
 	},
 	canTeacherParty: function() {
 		var time = State.active.variables.time;
-		return (window.timeCode.isSaturday() && time.hour < 18);
+		return (window.timeCode.isSaturday() && time.hour < 18 && State.active.variables.player.ending.comportment.etiquette.progress == 2);
 	},
 	haveSchool: function() {
 		var time=State.active.variables.time;
