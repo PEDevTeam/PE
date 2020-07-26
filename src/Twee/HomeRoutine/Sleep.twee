@@ -63,9 +63,8 @@
 \
 		<<if playerCode.masturbate.isCalm()>>\
 			<<set _tt=1>>\
-		<<endif>>\
-\
-		<<if playerCode.isHorny()>>\
+			<<set _before to _before + "You are aroused, but managed to pacify your lust. It only takes you a short time to fall asleep.\n\n">>\
+		<<elseif playerCode.isHorny()>>\
 			<<set _before to _before + "Too aroused, you have trouble going to sleep. You need to wait some time to relax.\n\n">>\
 		<<endif>>\
 		<<if _c>>\
