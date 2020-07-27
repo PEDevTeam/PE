@@ -326,7 +326,7 @@
 		<<else>>\
 			She smiles at you and picks up her morning coffee.
 		<<endif>>\
-\
+
 		<<if $time.day == 1 && !$kink.incest>>\
 			@@.guardian;"Don't forget - I'm going to be away for at least a few months doing my sales run,"@@ $guardian says, @@.guardian;"so $babysitter is on her way over here to look after you."@@
 
@@ -1024,6 +1024,7 @@
 				$Guardian whistles the song 'Satisfaction' and you know what she must be hinting. You try to ignore her, but your body language betrays you as you blush and sink lower into your seat.
 			<<else>>\
 				@@.guardian;"You know, I think you could benefit from some feedback on your performance during your 'almost private' time."@@
+				
 				@@.hero; Oh god, no. Kill me now.@@
 			<<endif>>\
 		<<else>>\
@@ -1059,9 +1060,12 @@
 						<<if $player.perversion.guardian gte 5>>\
 							@@.guardian;until next weekend."@@\
 						<<else>>\
-							@@.guardian;until tomorrow."@@ Damn... but you don't have the key so it is going to be until next weekend.\
+							@@.guardian;until tomorrow."@@
+							
+							Damn... but you don't have the key so it is going to be until next weekend.\
 						<<endif>>\
-						$Guardian hands you your chastity cage and you obediently put it on and lock it.\
+						$Guardian hands you your chastity cage and you obediently put it on and lock it.
+						
 						<<wearClothing 'chastityDevice'>>\
 						<<if (not $flags.chastityLocked)>>\
 							<<set $flags.chastityLocked=true>>\
@@ -1099,51 +1103,49 @@
 			<<elseif $player.masturbationType.tool eq "HorseDildo">>\
 				@@.guardian;Oh, my god, It was incredible you could fit that monstrosity in your ass, but I'd be careful, stretch it too much and the boys won't like your hole anymore.@@\
 			<<endif>>\
-		<<endif>>\
-		<<if $player.masturbationType.orgasm == "denied">>\
-			<<set _rc = random(10)>>\
-			<<if _rc lte 0>>@@.guardian;I just love how you kept yourself hot and bothered without achieving release. I bet you had really interesting dreams last night."@@\
-			<<elseif _rc lte 1>>@@.guardian;You tortured yourself nice and good, but nothing to show for it. Oh sweet sissy!"@@\
-			<<elseif _rc lte 2>>@@.guardian;I bet you are still horny, my little pervert."@@\
-			<<elseif _rc lte 3>>@@.guardian;Oh sad little sissy, no release for all that effort. I can feel the heat coming from you. Perhaps you need a cold shower to relax?"@@\
-			<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;So fitting for a little sissy maid to stay horny all the time."@@\
-			<<elseif _rc lte 5>>@@.guardian;I'm sure you love your little chastity cage."@@\
-			<<elseif _rc lte 6 and [5,7].includes($player.perversion.guardian)>>@@.guardian;No release for our sissy maid? I like it."@@\
-			<<elseif _rc lte 7>>@@.guardian;It was so sad, but also very hot to watch so much effort and no release."@@\
-			<<elseif _rc lte 8>>@@.guardian;I bet it's frustrating to be so horny, while wearing chastity. Good for you."@@\
-			<<elseif _rc lte 9 and [5,7].includes($player.perversion.guardian)>>@@.guardian;I think it was a rather fitting night for my sissy maid. Good job on keeping yourself horny and frustrated."@@\
-			<<else>>@@.guardian;I think I like how your chastity cage affects your behavior."@@\
-			<<endif>>\
-		<<elseif $player.masturbationType.orgasm == "anal">>\
-			<<set _rc = random(3)>>\
-			<<if _rc lte 0>>@@.guardian;You came without touching your penis even once. You've become a complete butt-slut, haven't you?"@@\
-			<<elseif _rc lte 1>>@@.guardian;I noticed how you leaked too! You were really enjoying yourself."@@\
-			<<elseif _rc lte 2>>@@.guardian;Oh and I love how you cum like a girl now."@@\
-			<<else>>@@.guardian;And you even came like a proper sissy."@@\
-			<<endif>>\
-		<<elseif $player.masturbationType.orgasm == "penile">>\
-			<<set _rc = random(3)>>\
-			<<if _rc lte 0>>@@.guardian;At least you got your release."@@\
-			<<elseif _rc lte 1>>@@.guardian;You make such funny face when you cum."@@\
-			<<elseif _rc lte 2>>@@.guardian;You're adorable when you slump after cumming."@@\
-			<<else>>@@.guardian;And don't forget to clean up after cumming."@@\
-			<<endif>>\
-		<<elseif $player.masturbationType.orgasm == "unable">>\
-			<<set _rc = random(1)>>\
-			<<if _rc lte 0>>@@.guardian;Can't cum from touching your penis? Good thing a pretty 'girl' like you does not need to have a penis yourself, there are plenty of dicks out there."@@\
-			<<else>>@@.guardian;I see you are such a butt-slut now you cannot even cum without a thorough ass-fucking. I like that."@@\
-			<<endif>>\
-			<<if $flags.guardianStrapon and $flags.choreReward and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and window.timeCode.isWeekend()>>\
-			
-				@@.guardian;"You have been a good boy lately. I can help you out. All you need to do is to ask."@@ she adds with a wink.
-			<<elseif playerCode.owns(itemsC.vibrator) and ($flags.confiscatedVibrator)>>
-			
-				@@.guardian;"Be on your best behaviour and you may ask me for that dildo of yours."@@ she adds.
+			<<if $player.masturbationType.orgasm == "denied">>\
+				<<set _rc = random(10)>>\
+				<<if _rc lte 0>>@@.guardian;I just love how you kept yourself hot and bothered without achieving release. I bet you had really interesting dreams last night."@@\
+				<<elseif _rc lte 1>>@@.guardian;You tortured yourself nice and good, but nothing to show for it. Oh sweet sissy!"@@\
+				<<elseif _rc lte 2>>@@.guardian;I bet you are still horny, my little pervert."@@\
+				<<elseif _rc lte 3>>@@.guardian;Oh sad little sissy, no release for all that effort. I can feel the heat coming from you. Perhaps you need a cold shower to relax?"@@\
+				<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;So fitting for a little sissy maid to stay horny all the time."@@\
+				<<elseif _rc lte 5>>@@.guardian;I'm sure you love your little chastity cage."@@\
+				<<elseif _rc lte 6 and [5,7].includes($player.perversion.guardian)>>@@.guardian;No release for our sissy maid? I like it."@@\
+				<<elseif _rc lte 7>>@@.guardian;It was so sad, but also very hot to watch so much effort and no release."@@\
+				<<elseif _rc lte 8>>@@.guardian;I bet it's frustrating to be so horny, while wearing chastity. Good for you."@@\
+				<<elseif _rc lte 9 and [5,7].includes($player.perversion.guardian)>>@@.guardian;I think it was a rather fitting night for my sissy maid. Good job on keeping yourself horny and frustrated."@@\
+				<<else>>@@.guardian;I think I like how your chastity cage affects your behavior."@@\
+				<<endif>>\
+			<<elseif $player.masturbationType.orgasm == "anal">>\
+				<<set _rc = random(3)>>\
+				<<if _rc lte 0>>@@.guardian;You came without touching your penis even once. You've become a complete butt-slut, haven't you?"@@\
+				<<elseif _rc lte 1>>@@.guardian;I noticed how you leaked too! You were really enjoying yourself."@@\
+				<<elseif _rc lte 2>>@@.guardian;Oh and I love how you cum like a girl now."@@\
+				<<else>>@@.guardian;And you even came like a proper sissy."@@\
+				<<endif>>\
+			<<elseif $player.masturbationType.orgasm == "penile">>\
+				<<set _rc = random(3)>>\
+				<<if _rc lte 0>>@@.guardian;At least you got your release."@@\
+				<<elseif _rc lte 1>>@@.guardian;You make such a funny face when you cum."@@\
+				<<elseif _rc lte 2>>@@.guardian;You're adorable when you slump after cumming."@@\
+				<<else>>@@.guardian;And don't forget to clean up after cumming."@@\
+				<<endif>>\
+			<<elseif $player.masturbationType.orgasm == "unable">>\
+				<<set _rc = random(1)>>\
+				<<if _rc lte 0>>@@.guardian;Can't cum from touching your penis? Good thing a pretty 'girl' like you does not need to have a penis yourself, there are plenty of dicks out there."@@\
+				<<else>>@@.guardian;I see you are such a butt-slut now you cannot even cum without a thorough ass-fucking. I like that."@@\
+				<<endif>>\
+				<<if $flags.guardianStrapon and $flags.choreReward and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and window.timeCode.isWeekend()>>\
+				
+					@@.guardian;"You have been a good boy lately. I can help you out. All you need to do is to ask."@@ she adds with a wink.
+				<<elseif playerCode.owns(itemsC.vibrator) and ($flags.confiscatedVibrator)>>
+				
+					@@.guardian;"Be on your best behaviour and you may ask me for that dildo of yours."@@ she adds.
+				<<endif>>\
 			<<endif>>\
 		<<endif>>\
 	<<set $player.masturbationType to {}>>\
-
-
 	<<endif>>\
 	<!--</commenting on masturbation>*********************-->\
 	<!--<commenting on chores>*********************-->\
@@ -1204,8 +1206,9 @@
 				@@.guardian;"I've noticed you haven't been taking care of your chores, and I'm disappointed. I'm taking away your vibrator until you stop getting so distracted. You can ask for it back after you've started acting like a proper maid."@@
 			<<endif>>\
 		<<endif>>\
-	<<endif>>
+	<<endif>>\
 	<<if ($time.weekDay() eq 1) and ($allowance gt 0)>>\
+	
 		<<if (not $flags.choreRewAllowance) and $flags.choreReward and (random(1) eq 0)>>\
 			<<set $flags.choreRewAllowance = true>>\
 			<<set $flags.choreReward = false>>\
@@ -1223,6 +1226,7 @@
 
 		<<set $player.money+=$allowance>>\
 	<<endif>>\
+
 	<!--</commenting on chores>*********************-->\
 	<<if (not _skipEnd)>>\
 		<!--<breakfast finish>*********************-->\
