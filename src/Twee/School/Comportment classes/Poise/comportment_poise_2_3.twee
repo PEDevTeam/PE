@@ -1,0 +1,52 @@
+:: comportment_poise_2_3
+@@.teacher;“Now that you have mastered how to look good while sitting, standing or posing, it is time to put things into motion. Of course, your physique will dictate your movements, so let me have a look at what you have to work with.”@@
+
+<<switch playerCode.scoreBoobs()>>\
+<<case 0>>\
+	She frowns as her gaze slides past your flat chest. @@.teacher;“It seems you’ve been disregarding your body modification tasks. That simply won’t do. These requests are for a district purpose. A lady’s breasts are an important feature to entice and attract. It’s almost pointless to teach you to move like a woman without them, but I suppose we will have to make the best of it.”@@
+<<case 1 2>>\
+	She purses her lips as she looks at your modest breasts. @@.teacher;“Hmm, this lesson will be important indeed if you are to make the most of your rather undersized chest.”@@
+<<case 3>>\
+	She nods as her gaze lingers on your full breasts. @@.teacher;“Yes, you have plenty to work with, but that is no reason to be lazy. You want to move with poise and grace so that they enhance your movements, rather than hinder whatever grace you have.”@@
+<<case 4>>\
+	She raises an eyebrow at your massive rack. @@.teacher;“While your breasts have developed wonderfully, their size will create additional challenges. Their weight may put you off balance or cause them to pop free at an inopportune moment.”@@
+<<default>>\
+	ERROR: unexpected breastsize
+<</switch>>\
+
+From your breasts, her gaze slides to your butt
+<<switch playerCode.scoreAss()>>\
+<<case 0>>\
+	@@.teacher;“I thought you had some work done? Unless you keep up with your required cosmetic enhancements, these lessons will have little measurable benefit.”@@
+<<case 1 2>>\
+	@@.teacher;“A well proportioned bottom indeed, now you just need to learn how to move it just right to really strut your stuff.”@@
+<<case 3>>\
+	@@.teacher;“Well, you definitely have plenty to work with, but there is more to feminine movement than just relying on a natural jiggle.”@@
+<<default>>\
+	ERROR: unexpected butt size
+<</switch>>\
+
+Continuing down your legs, she finishes off by staring at your shoes.
+
+<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<if not _shoes.heels>>\
+	@@.teacher;“Flats? No, no no. Anyone can shuffle around in flat shoes. I intend to teach you how to move like a proper woman, and that requires you to wear heels. Walking in heels is far different from your usual trudging, and is an essential skill for you to master. 
+
+	I expect you to be dressed properly for these lessons. Moreover, you have a lovely pair of legs that will garner far more attention if you show them off properly.  We will try again when you wear appropriate footwear to class.”@@
+<<elseif _shoes.heels and not _shoes.slutty>>\
+	@@.teacher;“What a lovely pair of heels. Nice and steep to show off your legs but not so high as to distract from the rest of your body.”@@
+<<elseif _shoes.heels and _shoes.slutty>>\
+	@@.teacher;Those heels of yours…”@@ She smiles. @@.teacher;They might be a bit much, but if you are up to the challenge of mastering them it will certainly serve to attract no shortage of attention.”@@
+<<else>>\
+	ERROR: unexpected heels
+<</if>>\
+
+<<if not _shoes.heels>>\
+	$teacher frowns. @@.teacher;“I am sorry but you are just not physically prepared for today’s lesson. Please address the flaws I pointed out before rescheduling.”@@
+
+	[[Finish school day]]
+<<else>>\
+	$teacher smiles. @@.teacher;“Well, it appears you are properly prepared for today’s lesson so; let us proceed.”@@
+
+	[[Continue.|comportment_poise_2_4]]
+<</if>>\

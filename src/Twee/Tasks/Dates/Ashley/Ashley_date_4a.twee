@@ -1,12 +1,28 @@
 :: Ashley_date_4a
 <<RandomImageFromPack 'restaurant bill' 400 400 alignRight>>\
 <<set $player.money -= $price>>\
-<<if $scene.pay_first_time>>\
+<<if $pay_first_time>>\
 	Wincing at the price, you nonetheless pay the bill. 
 
 	Ashley scoffs. @@.cheerBitch;“Well, well, who thought you had that kind of money on you. Maybe I’ll have to find some other ways to put those deep pockets of yours to use.”@@ Rising to her feet, she smirks down at you, and you’re certain that’s not an empty threat..
 
-	She flippantly says goodbye, almost more of a dismissal than a farewell, and walks out the restaurant, leaving you to release the breath you had not realized you were holding. You go to change back into the clothes you cam in
+	<<if $flags.findDancePartner>>\
+		You hesitate for a minute, pondering the best way to bring up $teacher's request to find someone to help with your next lesson, before deciding the most direct method is probably the best.
+		
+		@@.heroT;"So, I had more thing I need to ask you,"@@ you say.
+		
+		@@.cheerBitch;"What?"@@ Ashley asks with unusual curiosity.
+		
+		@@.heroT;"$teacher has been giving me lessons in proper poise, and she said I needed a partner for the next lesson. So, I was kind of wondering if you could help me out."@@
+		
+		Ashley chuckles. @@.cheerBitch;"What? Is she putting you through finishing school or something?"@@ She mulls it over a bit more before grinning mischeviously. @@.cheerBitch;"Sure. I think I could you out. I did take finishing classes, so I'm uniquely qualified, I suppose. I'll be there."@@
+		
+		@@.heroT;"Uh, thanks, Ashley,"@@ you respond, wondering if you just made a costly mistake.
+		
+		<<set $flags.danceLessonPartner = 'cheerbitch'>>\
+		<<set $flags.findDancePartner = false>>\
+	<<endif>>\
+	Ashley flippantly says goodbye, almost more of a dismissal than a farewell, and walks out the restaurant, leaving you to release the breath you had not realized you were holding. You go to change back into the clothes you cam in
 <<else>>\
 	Deciding that it is probably better not to find out what horrible thing she might have in mind for you to “work off” your debt, you hurriedly produce the money to cover the tab.
 
@@ -14,6 +30,22 @@
 
 	Rising to her feet, she glares down at you. @@.cheerBitch;“For now, however, this date is over. I’ll let $teacher know we went on a date. Oh, and I would recommend against hanging around here too long... some horny old guy might think you’re looking for a sugar daddy. See you at practice.”@@
 
+	<<if $flags.findDancePartner>>\
+		You suddenly remember $teacher's order to find a partner for your next poise lesson.
+		
+		@@.heroT;"Ashley, wait! I had more thing I need to ask you,"@@ you say with urgency.
+		
+		@@.cheerBitch;"What?"@@ Ashley asks, clearly frustrated with you.
+		
+		@@.heroT;"$teacher has been giving me lessons in proper poise, and she said I needed a partner for the next lesson. So, I was kind of wondering if you could help me out."@@
+		
+		Ashley stares at you indisbelief. @@.cheerBitch;"What? Is she putting you through finishing school or something?"@@ She mulls the idea over a bit more before grinning mischeviously. @@.cheerBitch;"Sure. I think I could you out. I did take finishing classes, so I'm uniquely qualified, I suppose. I'll be there."@@
+		
+		@@.heroT;"Uh, thanks, Ashley,"@@ you respond, wondering if you just made a costly mistake.
+		
+		<<set $flags.findDancePartner = false>>\
+		<<set $flags.danceLessonPartner = 'cheerbitch'>>\
+	<<endif>>\
 	Spinning on her heels with the grace of a ballet dancer, she strides away. You wait long enough for Arden to return with the receipt, thanking him, before hurrying out of the restaurant and on your way home.
 <</if>>\
 
