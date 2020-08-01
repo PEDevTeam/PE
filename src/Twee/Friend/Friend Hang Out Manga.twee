@@ -5,14 +5,6 @@
 <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
 <<set _waxed to playerCode.isWaxed()>>\
-<<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _femUnder = false>>\
-<<if _under>>\
-	<<if not _under.female>>\
-		<<set _maleUnder = true>>\
-	<<endif>>\
-<<endif>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
 \
 <<if $player.daring lt 5 and $tasksFriend.manga.status eq 0>>\
 	<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
@@ -38,18 +30,8 @@
 	
 	Soon you’re chatting about the latest manga and anime, not that you get chance to read much these days, or can afford any. $friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
 <<else>>\
-	<<if $player.perversion.crossdress < 2>>\
-		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
-		@@.friend;“Hey, I’ve got a new series. I’ve read it already. You can borrow it if you like.”@@
-
-		@@.heroT;“Awesome. What’s it about?”@@ you ask.
-
-		$friend gets a key from $friendG.his_her pocket and unlocks the bottom drawer of the desk. $friendG.He_She fumbles inside for a moment and retrieves a small pile of comics together with an opaque plastic bag. @@.friend;“For getting them home in.”@@
-
-		Even before $friend drops them in your lap you know what they are: more trap manga. Since telling you about $friendG.his_her liking for them, $friendG.he_she really has started to open up. Before you know it, $friend is listing a whole load of comics $friendG.he_she intends to get and what websites have great content.
-
-		$friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
-	<<elseif $player.perversion.crossdress < 4>>\
+	<<selectScene HangOutManga RND2RND>>\
+	<<scene>>\
 		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
 		@@.friend;“I thought you might like to look at this one,”@@ $friend says handing an issue over. @@.friend;“It’s new.”@@
 
@@ -69,174 +51,30 @@
 
 		<<if _outerwear.female>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings && _stockings.slutty>>stocking top\
+			<<if _stockings>>stocking top\
 			<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Your skin is all tingly, your cheeks flushed and your penis is\
-			<<if _chastity>>solid and painfully pressing against your cage.\
+			<<if _chatity>>solid and painfully pressing against your cage.\
 			<<else>>solid.<<endif>>\
 			Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that, $friendG.his_her hand up your\
 			<<if _outerwear.skirt>>skirt<<else>>dress<<endif>>\
 			and caressing your <<if _waxed>>smooth, girly<<endif>> legs. The worst part is that however you look at it, you loved it and catch yourself wishing $friendG.he_she would carry on. Fortunately, or unfortunately, when $friend returns $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings && _stockings.slutty>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that from your mind. Fortunately, when $friend returns, $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<endif>>\
-	<<elseif $player.perversion.crossdress < 6 >>\
-		<<if $friendG.seenDressUp == 1>>\
-			@@.friend;“You’ve seen the new part of the house I found?”@@
+	<<scene>>\
+		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
+		@@.friend;“Hey, I’ve got a new series. I’ve read it already. You can borrow it if you like.”@@
 
-			You take a moment before remembering. @@.heroT;“Oh, in the basement?”@@
+		@@.heroT;“Awesome. What’s it about?”@@ you ask.
 
-			@@.friend;“Come on.”@@
+		$friend gets a key from $friendG.his_her pocket and unlocks the bottom drawer of the desk. $friendG.He_She fumbles inside for a moment and retrieves a small pile of comics together with an opaque plastic bag. @@.friend;“For getting them home in.”@@
 
-			$friendG.He_She rushes to the basement, through the cleaning supply cupboard and you wait for $friend to unlock the door. $friend leads you straight to the girl-cave.
-		<<else>>
-			@@.friend;“I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;"Come on, let me show you.”@@
+		Even before $friend drops them in your lap you know what they are: more trap manga. Since telling you about $friendG.his_her liking for them, $friendG.he_she really has started to open up. Before you know it, $friend is listing a whole load of comics $friendG.he_she intends to get and what websites have great content.
 
-			$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the far door and reveals an amazing space which could only be described as a girl-cave.
-			<<set $friendG.seenDressUp = 1>>\
-		<<endif>>\
-		
-		<<RandomImageFromPack 'Friend/GirlCave' 400 400 alignRight>>\
-		$friend leads you through the room into a dressing area at the back. In addition to the mostly-empty wardrobe space and inbuilt vanity is a display area at the back with a couple of mannequins. One has an outfit which is obviously too big for you, but the other, the one with the tiny jacket and even smaller blue skirt is most certainly in your size.
-
-		@@.heroT;“Is that…?”@@
-
-		”@@.friend;It’s an Elizabeth Liones cosplay. You know, the girl from Seven Deadly Sins. And a <<if $friendG.gender == 'F'>>Diane<<elseif $friendG.gender == 'T'>>Gowther<<else>>Meliodas<<endif>> outfit for me.”@@
-		
-		$friend’s outfit is no less sexual than yours, but at least $friendG.he_she will have $friendG.his_her bottom covered. You are not sure about getting changed, but $friend is already changing around the corner. You take the clothing from the mannequin and start to undress.
-		
-		<<if _maleUnder || not _chastity || not _stockings  || not _waxed>>\
-			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not_waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
-
-			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
-			<<set $friendG.wordlessGoodbye = true>>\
-			<<set $friendG.friendTaskFrustration += 3>>\
-		<<else>>\
-			@@.friend;”Wow, those changes really suit you. Especially your waxed legs, they look so smooth. From behind, I thought I was looking at a girl.”@@
-
-			You glance up wearing nothing but the white cotton schoolgirl panties and bra that came with the outfit and see $friend is fully changed. The <<if $friendG.gender == 'F'>>Diane<<elseif $friendG.gender == 'T'>>Gowther<<else>>Meliodas<<endif>> suits $friendG.him_her perfectly. You continue dressing, pulling the skirt up your shaved legs and fastening it around your waist. The top shrugs over your shoulders, but it’s not until you pull it down you realise it fails to cover your navel. With nothing on your legs, and most of your upper body bare you feel incredibly exposed.<<if playerCode.scoreBoobs() <2>> Worse, the top is styled for a girl with an ample chest, and yours is <<if playerCode.scoreBoobs() > 0>>almost <<endif>>flat, making you blush as you realise your inadequacy in the chest department.<<endif>>
-
-			$friend, conversely, is overjoyed and leads you to the bed that dominates the far side of the room. $friendG.He_She presses a button on a tablet and a TV emerges from behind a panel. There’s already an episode of some Japanese anime you’ve never seen before playing. They seem to be just about at the point where the lead <<if $friendG.gender == "M">>boy<<elseif $friendG.gender == "F">>girl<<else>>larger trap<<endif>> is about to kiss the cute trap.
-
-			You sit besides $friend on the bed, and soon become engrossed in the film. The scene quickly progresses from a kiss to a little bit of fondling, then the trap’s small penis is exposed. @@.friend;”So cute, just like yours,”@@ $friendG.he_she says, turning to face you.
-
-			$friendG.His_Her eyes sparkle and then $friendG.he_she kisses you on the lips. Your eyes close as you feel $friendG.his_her tongue dancing on your lips, looking for a way to slip inside. 
-
-			You feel $friend’s fingertips brush the sensitive skin at the top of your inner thigh, causing your skin to tingle and a gasp to escape your lips. 
-
-			$friend’s tongue slips into your mouth, $friendG.his_her lips pressing more firmly. $friendG.His_Her hand caresses your inner thigh to the point that your skin is tingling and $friendG.his_her fingers are playing with the lacy hem of your panties, damp with precum.
-
-			$friend sits up abruptly, looking somewhat sheepish and abashed. @@.friend;“Um, is that the time? I need to finish the, um laundry. You’d better go,”@@ $friend mumbles, rolling off the bed and trying to adjust $friendG.his_her clothing. 
-
-			You nod in agreement. Dressing like a girl is one thing, but being kissed like one… You try and think of anything but what just happened as you change back, leaving the outfit on the dummy. The panties, mysteriously, have disappeared. 
-			@@.friend;”Wow, those changes really suit you. Especially your waxed legs, they look so smooth. From behind, I thought I was looking at a girl.”@@
-
-			You glance up wearing nothing but the white cotton schoolgirl panties and bra that came with the outfit and see $friend is fully changed. The <<if $friendG.gender == 'F'>>Diane<<elseif $friendG.gender == 'T'>>Gowther<<else>>Meliodas<<endif>> suits $friendG.him_her perfectly. You continue dressing, pulling the skirt up your shaved legs and fastening it around your waist. The top shrugs over your shoulders, but it’s not until you pull it down you realise it fails to cover your navel. With nothing on your legs, and most of your upper body bare you feel incredibly exposed.<<if playerCode.scoreBoobs() <2>> Worse, the top is styled for a girl with an ample chest, and yours is <<if playerCode.scoreBoobs() > 0>>almost <<endif>>flat, making you blush as you realise your inadequacy in the chest department.<<endif>>
-
-			$friend, conversely, is overjoyed and leads you to the bed that dominates the far side of the room. $friendG.He_She presses a button on a tablet and a TV emerges from behind a panel. There’s already an episode of some Japanese anime you’ve never seen before playing. They seem to be just about at the point where the lead <<if $friendG.gender == "M">>boy<<elseif $friendG.gender == "F">>girl<<else>>larger trap<<endif>> is about to kiss the cute trap.
-
-			You sit besides $friend on the bed, and soon become engrossed in the film. The scene quickly progresses from a kiss to a little bit of fondling, then the trap’s small penis is exposed. @@.friend;”So cute, just like yours,”@@ $friendG.he_she says, turning to face you.
-
-			$friendG.His_Her eyes sparkle and then $friendG.he_she kisses you on the lips. Your eyes close as you feel $friendG.his_her tongue dancing on your lips, looking for a way to slip inside. 
-
-			You feel $friend’s fingertips brush the sensitive skin at the top of your inner thigh, causing your skin to tingle and a gasp to escape your lips. 
-
-			$friend’s tongue slips into your mouth, $friendG.his_her lips pressing more firmly. $friendG.His_Her hand caresses your inner thigh to the point that your skin is tingling and $friendG.his_her fingers are playing with the lacy hem of your panties, damp with precum.
-
-			$friend sits up abruptly, looking somewhat sheepish and abashed. @@.friend;“Um, is that the time? I need to finish the, um laundry. You’d better go,”@@ $friend mumbles, rolling off the bed and trying to adjust $friendG.his_her clothing. 
-
-			You nod in agreement. Dressing like a girl is one thing, but being kissed like one… You try and think of anything but what just happened as you change back, leaving the outfit on the dummy. The panties, mysteriously, have disappeared. 
-		<<endif>>\
-	<<else>>\
-		<<if $friendG.seenDressUp == 1>>\
-			@@.friend;“You’ve seen the new part of the house I found?”@@
-
-			You take a moment before remembering. @@.hero;“Oh, in the basement?”@@
-
-			@@.friend;“Come on.”@@
-
-			$friendG.He_She rushes to the basement, through the cleaning supply cupboard and you wait for $friend to unlock the door. $friend leads you straight to the girl-cave.
-		<<else>>\
-			@@.friend;“I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;"Come on, let me show you.”@@
-
-			$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the far door and reveals an amazing space which could only be described as a girl-cave.
-			<<set $friendG.seenDressUp = 1>>\
-		<<endif>>\
-		
-		<<RandomImageFromPack 'Friend/GirlCave' 400 400 alignRight>>\
-		$friend leads you through the room into a dressing area at the back. In addition to the mostly-empty wardrobe space and inbuilt vanity is a display area at the back with a <<if $friendG.seenDressUp == 1>>few<<else>>growing line of<<endif>> mannequins. Some have outfits which are obviously too big for you, but most are certainly in your size.
-
-		@@.heroT;“Is that…?”@@
-
-		<img src='Images/items/cosplay_outfit_63.jpg' style='width:300px; height:auto; float:right'>\
-		@@.friend;“Hime Arikawa of Himegoto. Like it?”@@
-		 
-		You are not quite sure what to say. Apart from the fluffy red bow at the top, it could almost pass as a boy’s uniform, a white shirt and light brown sleeveless knitted sweater. Almost. The skirt, the incredibly short blue and white tartan skirt with it’s pleats and lack of length screams ‘cute girl’. What’s more, it is most certainly in your size.
-
-		@@.friend;“I got you these,”@@ $friend says, handing you some white thigh-high socks. @@.friend;“Try it on while I sort some snacks.”@@
-
-		Standing alone in the changing area, you could refuse. You could leave. But $friend has obviously made a real effort, and you’ve been asking for $friendG.his_her help with stuff. I guess trying it on won’t do any harm...
-
-		You strip down <<if _under || _bra>>to your <<if _bra>>bra<<endif>><<if _bra && _under>> and <<endif>><<if _under.female>>panties<<else>>boxers<<endif>> <<endif>>and pull on the white shirt, which is really a blouse as the buttons are on the wrong side. The tank top fits snugly around your torso, while the bow at your neck tickles your hairless chin, a subtle reminder that you haven’t needed to shave there, ever. You pull the skirt up your legs and fasten it around your waist. By the time you’ve rolled the thigh-highs up your slender legs, $friend is back in the other room. Curious as to what $friendG.he_she is wearing, you head through. 
-
-		<<if not _chastity || not _waxed || _maleUnder>>\
-			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>><<if _maleUnder>>boxers on<<endif>><<if not _chastity && (not _waxed || not _maleUnder)>> and <<endif>><<if not _chastity>>no cute little cage<<endif>>"@@ $friend says in a raised voice, sounding hurt. @@.friend;“Tell you what, $player.name, get changed, and come back another day when you’ve put some effort into what you’re wearing.”@@
-
-			$friend puts the snacks on a table, turns off the TV and stands impatiently, waiting for you to move. With the look of sadness and hurt on $friend’s face, you feel bad that you’ve let things slip, after all $friendG.he_she has done for you. You never wanted to dress like this but $friend has made it all seem less… wrong. 
-
-			@@.hero;Perhaps I should try harder, I don’t want to upset $friendG.him_her.@@
-
-			After ignoring you while you change back in silence, $friend leads you up from the girl-cave to the front door and almost pushes you out. 
-			<<set $friendG.friendTaskFrustration == $friendG.friendTaskFrustration +3>>\
-			<<set $friendG.wordlessGoodbye = true>>\
-		<<else>>\
-			@@.friend;”Wow, that outfit really suits you. And love that //zettai ryoiki//,”@@ $friendG.he_she says with a smile.
-
-			@@.heroT;“Zeta what?”@@
-
-			@@.friend;“The ring of naked, smooth thigh above your stocking tops,”@@ $friendG.he_she explains as $friendG.his_her hand grazes across the exposed patch of skin.
-
-			@@.friend;“How does it feel?”@@
-
-			You look into $friend’s face, your breath catching, before he notices your flushed cheeks and reluctantly pulls back his hand.
-
-			@@.friend;“The, uh, outfit I mean.”@@
-
-			As $friend hands you a snack - a pink strawberry yoghurt and dainty strawberry shortcakes - you realise that $friend has changed into a <<if $friendG.gender == "T">>bright pink<<else>>deep blue<<endif>> loose tracksuit, like the gym suits you’ve seen students in anime wear. $friendG.He_She has had a quick wash too and smells of <<if $friendG.gender == "M">>cologne<<else>>perfume<<endif>>. 
-
-			$friend taps the bed and leaps on, grabbing the remote and pressing play. It’s a new anime, another high school slice of life you’ve been hoping to watch. You settle on the bed, trying to keep the skirt down enough to hide your cage and panties. A short while in and the sexual tension grows between the characters, a super-cute diminutive blonde lead and a tall <<if $friendG.gender == "M">>boy<<else>>girl<<endif>> who at first seemed indifferent but is slowly falling for the heroine.
-
-			As the two kiss for the first time, you sense $friend’s fingers on your cheek. You turn to look at $friendG.him_her and catch the soft smile playing on $friendG.his_her lips a moment before $friendG.he_she leans forward for a kiss. $friend’s lips press to yours, not in a fumbling way, but a firm, determined kiss which makes your heart flutter and your legs go weak. $friend’s tongue dances along your mouth and you quickly submit, allowing it to press into your mouth.
-
-			As $friendG.he_she kisses you, $friendG.his_her hand caresses your leg through your thigh-highs, gradually creeping up until $friendG.his_her fingers reach bare skin. Your thigh tingles at the caresses, your mind awash with confusion at the touch, and the dominance of $friendG.his_her tongue filling your mouth. $friend, much to your surprise, rolls over until $friendG.he_she is laying on you, pinning you to the bed. Your <<if $kinkAllow.smallPenis>>small <<endif>>penis presses against your cage, desperate for release and soaking your panties with precum. 
-
-			Above you, $friend continues to kiss and caress you, kissing you deeply. Slowly, $friend manages to straddle your thigh, pinning your hand between you. You try to move it, but $friend is too heavy. 
-
-			<<if $friendG.gender == "F">>\
-				As you wiggle your fingers to free them, $friend groans a little through the kiss. She moves her hips again, crushing your hand. Through the explosion of sensations rushing through your body, you catch unmistakable sounds coming from the TV as the girl and the trap have sex, noises matched by $friend. She presses down more on your hand, the vague outline of her lips evident through the thin material of her tracksuit. With a gasp you realise she’s not wearing any panties underneath and your hand is almost touching a girl there for the first time.
-
-				As if emboldened by your realization, $friend rocks her hips faster, pressing harder. Her kiss softens and then stops, her head dropping besides yours as she pants and gasps and then…
-
-				She shudders, groaning in your ear as her whole body trembles. She gasps and collapses on you, pinning you in place. $friend half-gasps, half-giggles as she reaches between you, her hand sliding between your legs, towards your penis and relief. Only, instead of gripping your penis, her fingers find the cage. You sigh in frustration. 
-			<<else>>\
-				As you wiggle your fingers to free them, $friend groans a little through the kiss. She moves her hips again, crushing your hand. Through the explosion of sensations rushing through your body, you catch unmistakable sounds coming from the TV as the boy and the trap have sex, noises matched by $friend. He moves his hips and you feel the unmistakable sensation of his hard, hot cock pressing against your hand. Through the thin material of her tracksuit you can feel it twitch and the veins pulse. With a gasp you realise he’s not wearing anything underneath and your hand is almost touching another boy’s penis.
-
-				As if emboldened by your realization, $friend presses his hips harder, increasing his speed and pressure, thrusting against your pinned hand. His kiss grows harder, more desperate before his head drops besides yours. He grunts and gasps and then…
-
-				$friend shudders, groaning in your ear as he shoots cum into the tracksuit, his body trembling. He thrusts a couple of times more then collapses on you, pinning you in place. $friend half-grunts, half-chuckles as he reaches between you, his hand sliding between your legs, towards your penis and relief. Only, instead of gripping your penis, his fingers find the cage. You sigh in frustration. 
-			<<endif>>\
-
-			@@.friend;“Maybe we could…”@@ $friend begins, a moment before you hear noises coming from the hallway. @@.friend;“Fuck. I forgot the cleaners were coming. You’d better get changed. I’ll divert them.”@@
-
-			Totally frustrated you change back, bemoaning having to keep your sodden panties on. What is worse is that your penis is still hard in the cage, and you can smell  $friendG.his_her <<if $friendG.gender == "M">>cologne<<else>>perfume<<endif>> on you, a reminder of what you just did.
-
-			Changed again, you leave the girl cave and find your way upstairs. Just as you are leaving, $friend appears, gives you a quick kiss on the cheek and sends you on your way. 
-
-			<<set playerCode.changeArousal(30)>>\
-		<<endif>>\
-	<!--
+		$friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
 	<<scene>>\
 		<<if $friendG.gender eq 'F'>>\
 			<<RandomImageFromPack 'Friend/Himegoto' 400 400 alignRight>>\
@@ -292,7 +130,5 @@
 
 		You chat for a bit about the latest manga and anime. For some reason, all of $friend’s new favorites seem to involve traps.
 	<</selectScene>>\
-	-->
-	<<endif>>\
 <<endif>>\
 

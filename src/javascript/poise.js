@@ -124,15 +124,15 @@ macros['printPosition']= {
  
 const dance = {
     "slow" : {
-        "song" : "a slow country ballad",
-		"link" : "https://www.youtube.com/watch?v=JYZMT8otKdI",
+        "song" : "Girl Crush by Little Big Town",
+        "link" : "https://www.youtube.com/watch?v=JYZMT8otKdI",
         "stance" : "close body contact",
         "dance" : "waltz",
         "mood" : "romantic",
         "finish" : "dip"
     },
     "fast" : {
-        "song" : "a swinging rockabilly tune",
+        "song" : "Bad Things by Jace Everett",
         "link" : "https://www.youtube.com/watch?v=sMPNjPpdjKU",
         "stance" : "butterfly",
         "dance" : "swing",
@@ -140,8 +140,8 @@ const dance = {
         "finish" : "spin"
     },
     "slutty" : {
-        "song" : "an up-tempo club hit",
-		"link" : "https://www.youtube.com/watch?v=JYZMT8otKdI",
+        "song" : "My Humps by The Black Eyed Peas",
+        "link" : "https://www.youtube.com/watch?v=JYZMT8otKdI",
         "stance" : "separated",
         "dance" : "solo",
         "mood" : "slutty",
@@ -150,8 +150,7 @@ const dance = {
 }
 macros['printDance']= {
     handler:function(place, macroName, params){
-		var danceType = params[0];
-        var outStr = dance[danceType].song;
+        var outStr = "TODO: embed."
         new Wikifier(place, outStr);
     }
 };
@@ -187,9 +186,9 @@ macros['printDanceOptions']= {
  
         danceOptions[stage].forEach(element => {
             if (element == dance[danceType][stage]) {
-			outStr += "[[" +element + "|" + destPassage + "][$sceneAction='" + element + "';$sceneCorrect=true]]\n";
+                outStr += "[[" + element + "" + destPassage + "][$scene.action='" + element + "';$scene.correct=true]]\n";
             } else {
-                outStr += "[[" +element + "|" + destPassage + "][$sceneAction='" + element + "';$sceneCorrect=false]]\n";
+                outStr += "[[" + element + "" + destPassage + "][$scene.action='" + element + "';$scene.correct=false]]\n";
             }
         });
  
