@@ -1,0 +1,48 @@
+:: comportment_poise_3_final
+<<set $remedialGuardian = false>>\
+<<if $sceneDance1 == 4 && $sceneDance2 == 4 && $sceneDance3 == 4>>\
+	$teacher grins, her words confirming what you already knew. @@.teacher;“It should come as no surprise when I tell you that you were utterly perfect. Be it sensuous grace, flirty energy or a depraved, slutty offering you did it all. Thanks to my training, your body has become a finely tuned instrument, ready to inspire lust or love at any who beholds you. Very well done, you have proven your mastery of poise.”@@
+
+	You thank your partner for their time and they depart, leaving you to catch your breath, thank $teacher for her instruction, and then be on your way yourself.
+
+	<<set $player.ending.comportment.poise.progress++>>\
+	<<set $player.ending.comportment.classStatus[1] = 4>>\
+	[[Finish school day]]
+<<elseif $sceneDance1 == 0 && $sceneDance2 == 0 && $sceneDance3 == 0>>\
+	$teacher sighs as your partner shakes their head. @@.teacher;“What am I going to do with you? Timing, emotion, movement... everything you did today was completely wrong. For all your prior success if you cannot feel the rhythm and use that to amp up your femininity well...”@@ Glancing at your partner $teacher waves them off. 
+
+	<<set $player.ending.comportment.poise.lessonFail[2] = 1>>\
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if failedLessons > 1>>\
+		@@.teacher;“Thank you for your time, and I am sorry it was such a waste. It appears this pathetic thing is in need for some severe remedial training.”@@
+
+		<<switch _$flags.danceLessonPartner>>\
+		<<case 'guardian'>>\
+			$guardian shakes her head, shooting you a comforting glance as she walks past you towards the door. @@.guardian;“There, there. Just know that it really is for your own good. I will see you at home, and I had better not hear anything about you not doing your best at the next <<if $kink.incest>>parent<<else>>guardian<</if>>-teacher meeting!”@@
+		<<case 'evilguardian'>>\
+			$guardian leers at you but does not move. @@.guardian;“Let me know when the next lesson is. I would quite like to lend a hand in making sure my pet PROPERLY learns her lesson.”@@
+
+			@@.teacher;“But of course,”@@ $teacher replies with a grin.
+			<<set $poiseRemedialGuardian = true>>\
+		<<case 'cheerbitch'>>\
+			Ashley shakes her head and flashes you a cruel grin and heads for the door. Turning back just before stepping out of the room she smiles at $teacher. @@.cheerBitch;“Give it to her good. That pathetic bitch deserves it.”@@ Ashley’s laughter hangs in the room behind her as she leaves.
+		<<case 'coach'>>\
+			With a noncommittal shrug Coach shakes his head, squeezing your ass in passing as he leaves the room.
+		<<case 'drama'>>\
+			With a shrug Mrs. Ravensong departs, waving goodbye to $teacher and leaving you alone with your “instructor.”
+		<<default>>\
+			ERROR: unexpected partner: <<=_$flags.danceLessonPartner>>\
+		<</switch>>\
+
+		<<set $player.ending.comportment.classStatus[0] = 3>>\
+		[[Finish school]]
+	<<else>>\
+		@@.teacher;We shall try again next time.  Remember, you can not progress in your lessons until you properly complete this class.@@
+
+		You nod your understanding, quickly grab your things, and make an exit.
+		[[Finish school]]
+	<</if>>\
+<<endif>>\
