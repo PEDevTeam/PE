@@ -898,6 +898,7 @@ window.playerAddonsList={
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
 		
 		comportment:  {
+			numOfLessons: [3, 2, 0],
 			classStatus: [0, 0], 	/*ettiquite, poise; 
 									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
 			etiquette:  {
@@ -1356,6 +1357,9 @@ window.flagsList={
 	healthSocks: false,
 	girlPants: false,
 	partyEars: false,
+	findDancePartner: false,
+	danceLessonPartner: "none",
+	poiseRemedialGuardian: false,
 },
 
 window.kinkList={
