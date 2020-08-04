@@ -970,6 +970,7 @@ window.friendList={
     seenPanties: 0,
     seenPlug: 0, /* whether friend saw PC's plug */
 	seenWaxedLeg: 0,
+	seenStockings: 0,
 	girlinessAttempt: 0, /* whether friend checked PC's girliness */
 	girlinessFail: 0, /* whether PC failed girliness check before */
 	blockAttempt: 0,
@@ -1348,7 +1349,7 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
-	visitedCountyClub: false,
+	visitedCountryClub: false,
 	dramaTeacherDate: false,
 	mallKlipIntro: false,
 	talkSneakIn: false,

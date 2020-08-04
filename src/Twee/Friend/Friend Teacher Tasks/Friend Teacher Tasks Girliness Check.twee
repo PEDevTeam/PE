@@ -33,7 +33,7 @@
 
 		@@.friend;"You are too cute,"@@ $friend says, before grabbing your hand excitedly and leading you upstairs to $friendG.his_her sister's room. $friendG.He_She goes into the walk-in closet and pulls out the same clothes as last time, arranging them on the bed. @@.friend;"I had hoped you would come back - and you did! Now we can have some fun."@@
 
-		You take the first dress, a simple blue ruched-sleeved summer dress and pull it over your head. You struggle with the rear zip, but $friend is immediately there to help, $friendG.his_her fingers brushing your skin as $friend.he_she does so.
+		You take the first dress, a simple blue ruched-sleeved summer dress and pull it over your head. You struggle with the rear zip, but $friend is immediately there to help, $friendG.his_her fingers brushing your skin as $friendG.he_she does so.
 	<<endif>>\
 <<else>>\
 	<<set _o = 0>>\
@@ -43,7 +43,7 @@
 		<<if (_underwearAlt == _braAlt)>>\
 			@@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
 			<<if $friendG.friendTaskFrustration gt 0>>\
-				<<set $friendGfriendTaskFrustration -= 1>>\
+				<<set $friendG.friendTaskFrustration -= 1>>\
 			<<endif>>\
 		<<elseif (_underwearAlt != _braAlt)>>\
 			@@.friend;"Cool, you're wearing a bra and panties. Shame they aren't matching, but I guess it'll have to do."@@
@@ -108,7 +108,7 @@
 		<<set _femaleLegWear = true>>\
 		<<if (playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex))>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
-			<<set $friendG.friendseenstockings = 1>>
+			<<set $friendG.seenStockings = 1>>
 		<<elseif playerCode.isWearing(itemsC.socks) == 1>>\
 			@@.friend;"Are those girl’s socks? They look kinda cute."@@\
 		<<endif>>\
@@ -117,8 +117,8 @@
 	<<endif>>\
 	
 	<<if _femaleLegWear>>\
-		<<if $friend.friendTaskFrustration gt 0>>\
-			<<set $friend.friendTaskFrustration -= 1>>\
+		<<if $friendG.friendTaskFrustration gt 0>>\
+			<<set $friendG.friendTaskFrustration -= 1>>\
 		<<endif>>\
 		$friendG.He_She peers closely at your thighs.\
 		<<if $body.bodyhair gte 1>>\
