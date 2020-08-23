@@ -511,8 +511,8 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I have a task for you today. I want you to work on your posing skills, try to make it as seductive as possible. And I want photos as a proof.\"@@",
 			perform: "",
 			finish: "$teacher checks your photos, looking pleased. Suddenly her eyes widen and she shows a picture of you in a very compromising pose. You must have somehow missed the photo and haven't erased it like the rest.\n\n@@.teacher;\"Oh my, I didn't expect you to be so... enthusiastic about my task.\"@@\n\nEmbarrassed, you lower your eyes and curse your luck.\n\n@@.teacher;\"Good boy.@@",
-			fail: "@@.teacher;\"Ignoring my requests? You test my patience. Take a mark to refocus your attention.\"@@",
-			reminder: "@@.teacher;\"Don't forget about my task.\"@@",
+			fail: "$teacher checks your photos, failing to find any seductive poses. @@.teacher;\"Ignoring my requests? You test my patience. Take a mark to refocus your attention.\"@@",
+			reminder: "@@.teacher;\"Don't forget to take a nice seductive selfie.\"@@",
 			checkMe: {
 				given: "make photos of yourself posing seductively in female clothes.",
 				finish: "You did it.",
@@ -556,8 +556,8 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I have a task for you. I want you to put on a dress and dance on camera. But not just any kind of dance: do something slow and sensual.\"@@",
 			perform: "",
 			finish: "$teacher watches the video of you dancing. She raises an eyebrow and comments, @@.teacher;\"Better than I expected. Good, $player.name.@@",
-			fail: "@@.teacher;\"Too timid to make even a token attempt? What a disappointment. Take a mark for your cowardice.\"@@",
-			reminder: "@@.teacher;\"Don't forget about my task.\"@@",
+			fail: "$teacher checks your phone. @@.teacher;\"No dancing videos? Too timid to make even a token attempt? What a disappointment. Take a mark for your cowardice.\"@@",
+			reminder: "@@.teacher;\"Don't forget about your dancing video.\"@@",
 			checkMe: {
 				given: "film yourself dancing.",
 				finish: "You did it.",
@@ -691,9 +691,9 @@ window.tasksTeacher={
 		text: {
 			given: "@@.teacher;\"I have a task for you. I think you should learn more about taking care of your appearance. I want you to post a few of your selfies on an online discussion board, and ask how they look. You can keep it decent and leave your face out of the picture, but send me the link as proof.\"@@",
 			perform: "",
-			finish: "$teacher smirks.\n\n@@.teacher;\"I saw the comments. It seems you could be quite popular if you chose to. It feels good to be appreciated, right?@@",
-			fail: "@@.teacher;\"I missed your link. Oh, you skipped my assignment? Pathetic. Take a mark for it.\"@@",
-			reminder: "@@.teacher;\"Do not forget about my task.\"@@",
+			finish: "$teacher smirks.\n\n@@.teacher;\"I saw the comments on your photos. It seems you could be quite popular if you chose to. It feels good to be appreciated, right?@@",
+			fail: "@@.teacher;\"I missed your link. Oh, no photos online, you skipped my assignment? Pathetic. Take a mark for it.\"@@",
+			reminder: "@@.teacher;\"Do not forget to post some selfies online.\"@@",
 			checkMe: {
 				given: "to post your crossdressing selfies online.",
 				finish: "You did it.",
@@ -1069,7 +1069,7 @@ window.tasksTeacher={
 		text: {
 			given: "@@.teacher;\"I have a special task for you today. Record yourself getting hit on by some guy.\"@@",
 			perform: "",
-			finish: "$teacher checks your phone.\n\n@@.teacher;\"You loved it didn't you?@@",
+			finish: "$teacher checks your phone, finding the video of a guy hitting on you. \n\n@@.teacher;\"You loved it didn't you?@@",
 			fail: "@@.teacher;\"It's your fault that no one wants to hit on you. You put so little effort into your appearance. Take a mark.\"@@",
 			reminder: "@@.teacher;\"Don't forget to try and record yourself getting a guy's attention.\"@@",
 			checkMe: {
@@ -1396,8 +1396,8 @@ window.tasksTeacher={
 				'$teacher watches the video.\n@@.teacher;\"I bet someone saw you filming this, $player.name@@'
 			],
 			fail: [
-				"@@.teacher;\"No video? Is our little sissy ashamed? A mark for disobedience.\"@@", 
-				"@@.teacher;\"No video? Did you just forget? No matter. A mark for disobedience.\"@@"
+				"$teacher checks your phone, finding no video of you flashing. @@.teacher;\"No video? Is our little sissy ashamed? A mark for disobedience.\"@@", 
+				"$teacher checks your phone, finding no video of you flashing. @@.teacher;\"No video? Did you just forget? No matter. A mark for disobedience.\"@@"
 			],
 			reminder: "@@.teacher;\"Don't forget to record yourself flashing a stranger.",
 			checkMe: {
@@ -1488,8 +1488,8 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I have a special task for you today. Play with a butt-plug on camera while wearing a chastity cage.\"@@",
 			perform: "",
 			finish: "$teacher looks at the video of you playing with a butt-plug.\n\n@@.teacher;\"I bet you enjoyed it, sissy.@@",
-			fail: "@@.teacher;\"No video? Do you consider it a good idea to disappoint me? Take a mark.\"@@",
-			reminder: "@@.teacher;\"Don't forget to take the video I was talking about.\"@@",
+			fail: "$teacher checks your phone, finding no video of you playuing with your butt-plug. @@.teacher;\"No video? Do you consider it a good idea to disappoint me? Take a mark.\"@@",
+			reminder: "@@.teacher;\"Don't forget to take the video with your butt-plug.\"@@",
 			checkMe: {
 				given: "film yourself playing with a butt-plug while wearing a chastity cage.",
 				finish: "Yeah, you did it.",
@@ -1533,7 +1533,7 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I have a special task for you today. Film yourself asking a stranger to call you a sissy-slut, and having them write 'SISSY' on your back with a marker.\"@@",
 			perform: "",
 			finish: "$teacher looks at the smudged word on your back.\n\n@@.teacher;\"See, it wasn't that hard.@@",
-			fail: "@@.teacher;\"Too lazy to complete my requests. Such a sad little sissy. Take a mark.\"@@",
+			fail: "$teacher checks your phone, finding no video of you being called a sissy. @@.teacher;\"Too lazy to complete my requests. Such a sad little sissy. Take a mark.\"@@",
 			reminder: "@@.teacher;\"Don't forget to ask someone for an autograph.\"@@",
 			checkMe: {
 				given: "film yourself asking a stranger to call you a sissy-slut.",
@@ -1668,9 +1668,9 @@ window.tasksTeacher={
 		text: {
 			given: "@@.teacher;\"I have a special task for you today. Guide the hand of a stranger under your skirt at a public place while locked in chastity and going without underwear.\"@@",
 			perform: "",
-			finish: "$teacher looks at pictures you took.\n\n@@.teacher;\"I bet they were surprised.@@",
-			fail: "@@.teacher;\"No proof, no release. You will never understand humility without obedience. Take a mark.\"@@",
-			reminder: "@@.teacher;\"Don't forget about that task I mentioned...\"@@",
+			finish: "$teacher looks at pictures you took of the strangers hand up your skirt.\n\n@@.teacher;\"I bet they were surprised.@@",
+			fail: "$teacher checks your photos, none of which had a strangers hand being guided up your skit. @@.teacher;\"No proof, no release. You will never understand humility without obedience. Take a mark.\"@@",
+			reminder: "@@.teacher;\"Don't forget to guide the hand of a stranger up your naughty little skirt.\"@@",
 			checkMe: {
 				given: "let a stranger touch your chastity in a public place.",
 				finish: "Yeah, you did it.",
@@ -1713,8 +1713,8 @@ window.tasksTeacher={
 		text: {
 			given: "@@.teacher;\"I have a special task for you today. Ask $guardian to give you a spanking. Tell her you were a disobedient little girl.\"@@",
 			perform: "",
-			finish: "$teacher examines your butt.\n\n@@.teacher;\"I hope you learned your lesson.@@",
-			fail: "@@.teacher;\"Do you not respect me? We'll see how you like your punishment. Here's a mark against you.\"@@",
+			finish: "$teacher examines your red spanked butt.\n\n@@.teacher;\"I hope you learned your lesson.@@",
+			fail: "@@.teacher;\"No spanking? Do you not respect me? We'll see how you like your punishment. Here's a mark against you.\"@@",
 			reminder: "@@.teacher;\"Don't forget to ask for a spanking at home.\"@@",
 			checkMe: {
 				given: "ask $guardian for a spanking.",
@@ -1761,7 +1761,7 @@ window.tasksTeacher={
 			given: "@@.teacher;\"You were really obedient this week, just like a proper sissy should be. So your special task for today is to ask $guardian to fuck you with a strapon.\"@@",
 			perform: "",
 			finish: "$teacher smiles to you.\n\n@@.teacher;\"I've heard that you really enjoyed being fucked with that strapon.@@",
-			fail: "@@.teacher;\"Such a silly sissy, you don't even realize when I'm giving you a present. Such ungratefulness. Perhaps you can appreciate this mark?\"@@",
+			fail: "$teacher shakes her head, she knows you didn't ask $guardian to fuck you. @@.teacher;\"Such a silly sissy, you don't even realize when I'm giving you a present. Such ungratefulness. Perhaps you can appreciate this mark?\"@@",
 			reminder: "@@.teacher;\"Don't forget to ask $guardian fuck you.\"@@",
 			checkMe: {
 				given: "ask $guardian fuck you.",
@@ -1898,7 +1898,7 @@ window.tasksTeacher={
 			given: "@@.teacher;\"Film yourself servicing some men at a glory hole.\"@@",
 			perform: "",
 			finish: "$teacher checks the video of your depravity at the glory hole.\n\n@@.teacher;\"It seems you found your calling.@@",
-			fail: "@@.teacher;\"So, you decided you're above my instructions now? A mark barely covers it, but here is one nevertheless.\"@@",
+			fail: "$teacher checks your videos, not one of them show you servicing some cock at the glory hole. @@.teacher;\"So, you decided you're above my instructions now? A mark barely covers it, but here is one nevertheless.\"@@",
 			reminder: "@@.teacher;\"Don't forget to visit a glory hole.\"@@",
 			checkMe: {
 				given: "film yourself servicing men at a glory hole.",
@@ -2344,7 +2344,7 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I will give you a chance to write off a considerable amount from your penalty. There is a fresh vacancy for testing new products at the adult toy company. You can ask about it at the local adult store.\"@@",
 			perform: "",
 			finish: "$teacher smirks at you.\n\n@@.teacher;\"I've heard your trials were really interesting. I think my friend described you as //a natural sissy//.@@",
-			fail: "@@.teacher;\"So, you chose to ignore my generous offer. A mark is hardly all you deserve, but take one anyway.\"@@",
+			fail: "@@.teacher;\"So, you chose to ignore my generous offer. Those products won't test themselves you know... A mark is hardly all you deserve, but take one anyway.\"@@",
 			reminder: "@@.teacher;\"Don't forget about this testing job at the local adult store.\"@@",
 			checkMe: {
 				given: "go to the Mall and ask for a job testing new adult products.",
@@ -2499,7 +2499,7 @@ window.tasksTeacherBody={
 			given: "@@.teacher;\"I think it is time to get your ears pierced. Next week I want to see you with a lovely pair of earrings.\"@@",
 			perform: "",
 			finish: "$teacher looks at your ears.\n\n@@.teacher;\"I see you pierced your ears, like I asked you to, good.\"@@",
-			fail: "@@.teacher;\"Are you that afraid of a little pain so you ignore my request? Too bad. Take a mark.\"@@",
+			fail: "$teacher looks at your ears, you didn't get them pierced. @@.teacher;\"Are you that afraid of a little pain so you ignore my request? Too bad. Take a mark.\"@@",
 			reminder: "@@.teacher;\"Don't forget to get your ears pierced.\"@@",
 			checkMe: {
 				given: "get your ears pierced.",
