@@ -547,7 +547,7 @@
 			<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
 			<<set _sp = true>>\
 		<<else>>\
-			@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasksBody[_i].name, _activeTasksBody[_i].text, 'fail')>>"@@\
+			<<print window.tasksFunction.getTaskText(_activeTasksBody[_i].name, _activeTasksBody[_i].text, 'fail')>>
 			<<set _activeTasksBody[_i].events.fail()>>\
 			<<set teacherCode.addPenalty(_activeTasksBody[_i].failPenalty)>>\
 			<<set $tasksTeacherBody[_activeTasksBody[_i].id].status = 0>>\
@@ -566,20 +566,18 @@
 	<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
 		<<set _activeTasks[_i].events.success()>>\
 		<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'finish')>>\
-<!--	--><<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
-<!--		--><<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
-<!--		--><<if _rewardDebt gt 0>>\
-<!--			--><<set $player.bribeDiscount += _rewardDebt>>\
-<!--			-->@@.teacher; Minus $<<print _rewardDebt>> from debt."@@\
-<!--		--><<else>>\
-<!--			-->@@.teacher;"@@\
-<!--		--><<endif>>\
-<!--	--><<endif>>\
+		<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
+			<<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
+			<<if _rewardDebt gt 0>>\
+				<<set $player.bribeDiscount += _rewardDebt>>\
+				@@.teacher; Minus $<<print _rewardDebt>> from debt."@@\
+			<<endif>>\
+		<<endif>>\
 		<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
 		<<set $tasksTeacher[_activeTasks[_i].id].startDay = $time.day>>\
 		<<set _sp = true>>\
 	<<elseif (window.tasksFunction.isTaskOverDue(_activeTasks[_i]) or window.tasksFunction.isTaskFail(_activeTasks[_i]))>>\
-		@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'fail')>>"@@\
+		<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'fail')>>
 		<<set _activeTasks[_i].events.fail()>>\
 		<<set teacherCode.addPenalty(_activeTasks[_i].failPenalty)>>\
 		<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
@@ -588,7 +586,7 @@
 	<<elseif (random(2) eq 0)>>\
 		<<set _r = false>>\
 		<<set _sp = true>>\
-		@@.teacher;"<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'reminder')>>"@@\
+		<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'reminder')>>
 	<<endif>>\
 	<<if _sp>>\
 	
@@ -846,7 +844,7 @@
 	<<if (($player.perversion.teacherCooldown neq 0) and ($player.perversion.teacher gte 3)) or $tasksTeacher.trialChastity.canStart>>\
 		<<set _t = false>>\
 		<<set _task = window.tasksFunction.newTask(window.tasksTeacher)>>\
-		@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>"@@
+		<br><br><<print window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>
 		
 		<<if _task.name neq "No tasks">>\
 			<<set _task.events.start()>>\
@@ -857,7 +855,7 @@
 		<<endif>>\
 		<<set _taskBody = window.tasksFunction.newTask(window.tasksTeacherBody)>>\
 		<<if _taskBody.name neq "No tasks">>\
-			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
+			<br><br><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>
 			<<set _taskBody.events.start()>>\
 			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)>>\
 			<<set _t = true>>\
