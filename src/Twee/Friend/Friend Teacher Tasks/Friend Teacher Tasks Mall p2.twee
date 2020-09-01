@@ -2,7 +2,7 @@
 <<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\
 <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set $friendG.bonusDress to true>>\
-<<if playerCode.isWaxed() || playerCode.isWearing(itemsC.jocksLucky) || (not _chastity) || (not _bra)>>\
+<<if not playerCode.isHairy() || playerCode.isWearing(itemsC.jocksLucky) || (not _chastity) || (not _bra)>>\
 	<<set $friendG.bonusDress == false>>\
 <<endif>>\
 @@.hero;I made it!@@

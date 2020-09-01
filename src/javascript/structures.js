@@ -37,21 +37,27 @@ window.structures={
 		for (var prop in addon) {
 			if (addon.hasOwnProperty(prop)) {
 				if (typeof addon[prop] === 'object') {
-					if (Array.isArray(addon[prop])){
+					if (Array.isArray(addon[prop])) {
+						if (base[prop] === undefined) {
+							if (addon[prop].some(e => typeof e === 'object')) {
+								console.log(`WARNING: Array ${debugPrefix}.${prop} contains at least one object!`);
+							}
+							console.log(`Setting up array ${debugPrefix}.${prop}…`);
+							base[prop] = addon[prop];
+						} else {
+							console.log(`Array ${debugPrefix}.${prop} already exists:`, base[prop]);
+						}
+					} else if (addon[prop] === null) {
 						base[prop] = addon[prop];
-					}
-					else if (addon[prop] === null){
-						base[prop] = addon[prop];
-					}
-					else{
-						//console.log(`Descending into ${debugPrefix}.${prop}…`);
+					} else{
+						console.log(`Descending into ${debugPrefix}.${prop}…`);
 						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
 					}
 				} else if (!base.hasOwnProperty(prop)) {
-					//console.log(`Setting up ${debugPrefix}.${prop}…`);
+					console.log(`Setting up ${debugPrefix}.${prop}…`);
 					base[prop] = addon[prop];
 				} else {
-					//console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+					console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
 				}
 			}
 		}
@@ -892,8 +898,10 @@ window.playerAddonsList={
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
 		
 		comportment:  {
-			classStatus: [0, 0], 	/*ettiquite, poise; 
+			numOfLessons: [3, 3, 2],
+			classStatus: [0, 0, 0], 	/*ettiquite, poise; 
 									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
+			stepfordPath: false,
 			etiquette:  {
 				progress: 0,
 				lessonFail:[0,0,0],
@@ -905,6 +913,11 @@ window.playerAddonsList={
 				progress:0,
 				lessonFail: [0,0,0],
 				
+			},
+			bimbo:	{
+				progress: 0,
+				lessonFail:[0,0,0],
+				hotelBimboLesson: false,
 			},
 		},
 	},
@@ -1349,6 +1362,10 @@ window.flagsList={
 	healthSocks: false,
 	girlPants: false,
 	partyEars: false,
+	findDancePartner: false,
+	danceLessonPartner: "none",
+	poiseRemedialGuardian: false,
+	bimboLessonPartner: "none",
 },
 
 window.kinkList={

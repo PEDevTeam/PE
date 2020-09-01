@@ -1,16 +1,27 @@
 ::Choose Lesson
 <<set _scene = "none">>\
+<<set _forceFail = false>>\
 <<if timeCode.isMonday() && $player.ending.comportment.etiquette.partyStart>>\
 	<<set $player.ending.comportment.etiquette.progress++>>\
 	<<set $player.ending.comportment.classStatus[0] = 3>>\
 	<<set $player.ending.comportment.etiquette.partyStart = false>>\
+	<<set _forceFail = true>>\
 	You nervously show up for your next etiquette class, knowing that you missed the party $teacher told you to attend. As you walk through the door, $teacher smiles at you in a way that only enhances your apprehension.
 	
 	@@.teacher;"$player.name, I gave you explicit instructions not to ignore the party on Saturday, and yet you seem to have willfully ignored my orders. Considering your blatant disregard for these classes, you will have a remedial class today. I have just the plan for how to drill it into your thick skull how a proper lady should behave. You may start by removing your clothes, I have a different outfit in mind to properly set the mood.”@@
 	
 <<endif>>\
+<!--
+	Backwards compatability code.  Might delete later once most players have cleared it.
+-->\
+<<if $player.ending.comportment.classStatus[1] == 2 && $player.ending.comportment.poise.progress < 2>>\
+	<<set $player.ending.comportment.classStatus[1] = 0>>\
+<<endif>>\
+<!--
+	End backwards compatability code
+-->\
 <<set _lessonArr = []>>\
-<<for _i to 0; _i < $player.ending.comportment.classStatus.length; _i++>>
+<<for _i to 0; _i < $player.ending.comportment.classStatus.length; _i++>>\
 	<<set _lessonArr.push(_i)>>\
 <</for>>\
 <<set _lessonArr.shuffle()>>\
@@ -20,13 +31,17 @@
 		<<set _class = "etiquette">>\
 	<<case 1>>\
 		<<set _class = "poise">>\
+	<<case 2>>\
+		<<set _class = "bimbo">>\
 	<</switch>>\
 	<<if $player.ending.comportment.classStatus[_classIndex] == 0>>\
 		<<set $player.ending.comportment.classStatus[_classIndex] = 1>>\
 		<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment[_class].progress + 1) + "_1">>\
 		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 1>>\
-		<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment[_class].progress + 1) + "_1">>\
+		<<if $player.ending.comportment[_class].progress < $player.ending.comportment.numOfLessons[_classIndex]>>\
+			<<set _scene = "comportment_" + _class + "_" + ($player.ending.comportment[_class].progress + 1) + "_1">>\
+		<<endif>>\
 		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 2>>\
 		<<if _classIndex == 0>>\
@@ -34,14 +49,42 @@
 				<<set $player.ending.comportment.etiquette.partyStart = true>>\
 				<<set _scene = "partyReminder">>\
 			<<endif>>\
+		<<elseif _classIndex == 1>>\
+			<<if $player.ending.comportment[_class].progress == 2 && $flags.findDancePartner == false>>\
+				<<set $player.ending.comportment.classStatus[_classIndex] = 1>>\
+				<<set _scene = "comportment_poise_3_1">>\
+			<<else>>\
+				<<set _scene = "partnerReminder">>\
+			<<endif>>\
+		<<else>>\
+			<<set _scene = "coming soon">>\
 		<<endif>>\
+		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 3>>\
-		<<set _scene = "comportment_" + _class + "_penalty_1">>\
+		<<if _classIndex < 2>>\
+				<<set _scene = "comportment_" + _class + "_penalty_1">>\
+		<<else>>\
+				<<set _scene = "coming soon">>\
+		<<endif>>\
 		<<break>>\
 	<<endif>>\
 <</for>>\
 <<if _scene == "partyReminder">>\
 	@@.teacher;"Remember, I want you to attend my party on Saturday for your next lesson. Be at school before 6 pm, and I shall drive you to my house."@@
+	
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
+<<elseif _scene == "partnerReminder">>\
+	@@.teacher;"So, have you found a partner for your next poise lesson?"@@
+	
+	You shake your head sheepishly.
+	
+	@@.hero;The next time I go on a date, I should ask the person if they want to be my partner for $teacher's lesson.@@
+	
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
+<<elseif _scene == "coming soon">>\
+	To be continued in the next release!
 	
 	<<set $player.ending.lessonSkip = true>>\
 	[[Finish school day]]

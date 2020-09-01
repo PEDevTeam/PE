@@ -5,7 +5,12 @@
 <<if $body.bodyhair == 0>>\
 	<<set _hairy = true>>\
 <<endif>>\
-<<if (_under && not _under.female) || not _chast || not _stock || _hairy>>\
+<<if _under>>\
+	<<if not _under.female>>\
+		<<set _maleUnder = true>>\
+	<<endif>>\
+<<endif>>\
+<<if _maleUnder || not _chast || not _stock || _hairy>>\
 	$friend welcomes you in, but as $friendG.he_she looks you over, $friendG.his_her face drops. Almost instantly, you intuit that $friend is disappointed about your appearance.
 	
 	The two of you spend some time watching TV, but neither of you do much talking. $friend continues to sulk, while your mind is on other matters.
@@ -28,6 +33,7 @@
 		@@.friend;“I’ve been thinking… about, you know, what happened a few weeks back,”@@ $friendG.he_she begins before pausing and taking a breath. @@.friend;“How about we do something fun? I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;“Come on, let me show you.”@@
 
 		$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the door and reveals an amazing space which could only be described as a girl-cave.
+		<<set $friendG.seenDressUp = 1>>\
 	<<endif>>\
 
 	<<RandomImageFromPack 'Friend/GirlCave' 400 400 alignRight>>\
@@ -37,7 +43,7 @@
 
 	@@.hero;It couldn’t do any harm, and $friendG.he_she has done all of this for me.@@
 
-	<img src='Images/general/dress_casual_72.jpg' style='width:300px; height:auto; float: right'>\
+	<img src='Images/items/dress_casual_72.jpg' style='width:300px; height:auto; float: right'>\
 	Feeling a little dumb, you take a slightly revealing dress and a pair of matching heels to the attached bathroom and strip off your outerwear. The dress fits perfectly and floats enticingly around your legs while fitting snugly around your slender torso. You step out to check yourself in the full-length mirror and find $friend waiting patiently for you to return. $friendG.He_She’s brought some drinks and snacks down, and you can hear  soft music playing from a music system that you can’t see. 
 
 	@@.friend;“You… look so confident now. A short while ago, you were embarrassed about just wearing a pair of panties, and now look at you.”@@

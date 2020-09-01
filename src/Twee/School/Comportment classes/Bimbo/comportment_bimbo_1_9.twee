@@ -1,0 +1,33 @@
+:: comportment_bimbo_1_9
+<<if $curScene.fetish>>\
+	You walk out wearing one of the <<if $curScene.outfitName == "bondage">>bondage<<elseif $curScene.outfitName == "latex">>latex<<else>>baby<<endif>> outfit you found backstage.
+<<else>>\
+	<<include "comportment_bimbo_1_calc_outfit">>\
+	<<include "comportment_bimbo_1_outfit_assess">>\
+<<endif>>\
+
+<<set $curScene.stage3 = ['lingerie','bondage','latex','baby'].includes($curScene.outfitName)>>\
+<<if $curScene.stage3>>\
+	<<switch $curScene.outfitName>>\
+	<<case 'lingerie'>>\
+    	@@.teacher;“This is just the sort of sexy ensemble I had in mind - perfect for inspiring a wild night in the bedroom, well done.”@@
+	<<case 'bondage'>>\
+    	@@.teacher;“A bit kinky, but seeing you restrained is never a bad thing. Well selected... even if you did have to go a bit off-book to assemble this arrangement.”@@
+	<<case 'latex'>>\
+    	@@.teacher;“Well, well, well, isn’t someone just an eager rubber slut, where did you even find that outfit? No matter, such a shiny, sexy body would be eagerly welcomed into bed, well done.”@@
+	<<case 'baby'>>\
+    	@@.teacher;“Aww, look at the cute baby! <<if $kink.diapering>>And that diaper! <<endif>>You look the envy of littles all over<<if $kink.diapering>>... though I hope you do not expect me to change you<<endif>>.”@@
+	<</switch>>\
+	
+	She smiles. @@.teacher;“Now, if you could go change back into your original clothing, we are near the end of today’s lesson.”@@
+<<elseif 'naked' == $curScene.outfitName>>\
+	She sighs. @@.teacher;“My poor, innocent thing... certainly you have a lovely body, but it is all about presentation and packaging. You want to make an impression. In this case, that means lingerie, not revealing everything all at once! Now, if you could go change back into your original clothing, we are almost finished with the lesson.”@@
+<<elseif 'partial' == $curScene.outfitName>>\
+	She sighs. @@.teacher;“What is this? Partially changed? No, no, you need to dress to impress. Just sloughing off your clothing is sloppy and unattractive. You must strive to be a picture of enticing sexuality any time you are in the presence of another. Now, if you could go change back into your original clothing, we are almost finished with the lesson.”@@
+<<elseif 'underwear' == $curScene.outfitName>>\
+	She sighs. @@.teacher;“You need to be dressed for the bedroom. That means sexy and flirty, not boring old underwear, which really you should never be wearing anyways. Now, if you could go change back into your original clothing, we are almost finished with today’s lesson.”@@
+<<else>>\
+	She shakes her head. @@.teacher;“I said you were dressing for the bedroom, not to go out. I suppose a strip tease could be fun, but ultimately this did not meet my prompt. I shall thus be marking it down as a failure. If you could go change back into your original clothing, we are almost finished with today’s lesson.”@@
+<</if>>\
+
+[[Change back into your normal clothing|comportment_bimbo_1_10]]

@@ -1,0 +1,31 @@
+:: comportment_bimbo_2_2
+<<if $curScene.stage1a == 'obedient'>>\
+	<<set $curScene.stage1total += 1>>\
+<<elseif $curScene.stage1a == 'bad'>>\
+	<<set $curScene.stage1total -= 1>>\
+<</if>>\
+<<switch $curScene.stage1a>>\
+<<case 'good'>>\
+	You reply, @@.heroT;“I am doing well and enjoying your continuing instruction.”@@
+
+	@@.teacher;“That is good to hear,”@@ she responds. @@.teacher;“A positive attitude is always beneficial to education.”@@ Despite her words her expression remains neutral.
+
+	@@.hero;Hmm, was she expecting some other response?@@
+<<case 'bad'>>\
+	You respond to her question by noting your frustration with what seems like endless training requirements.
+
+	She sighs in obvious displeasure. @@.teacher;“Well then, you had better focus on your lessons. A poor attitude will do you no favors in making it through your required instruction.”@@
+<<case 'obedient'>>\
+	@@.heroT;“Of course I am doing wonderful,”@@ you respond. @@.heroT;“I only wish I might have begun my training sooner! But what about you? I hope all of this extra instruction is not a distraction from your other responsibilities.”@@
+
+	She smiles @@.teacher;“It is no trouble at all. I am rather enjoying helping you become who you are meant to be. If only all my students were as enthusiastic about my lessons.”@@
+<<default>>\
+	ERROR: unexpected scene.stage1 <<=$curScene.stage1a>>
+<</switch>>\
+
+$teacher falls silent, seemingly waiting for you to propose the next subject of conversation.
+
+[[Talk about the latest video game|comportment_bimbo_2_3][$curScene.stage1b='game']]
+[[Talk about politics|comportment_bimbo_2_3][$curScene.stage1b='politics']]
+[[Ask her how things have been at work|comportment_bimbo_2_3][$curScene.stage1b='work']]
+[[Remain silent|comportment_bimbo_2_3][$curScene.stage1b='none']]

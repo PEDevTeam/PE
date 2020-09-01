@@ -1,0 +1,32 @@
+:: comportment_bimbo_2_7
+<<if $curScene.stage2b == 'diplomatic'>>\
+	<<set $curScene.stage2total += 1>>\
+<<elseif $curScene.stage2b == 'willow' || $curScene.stage2b == 'none'>>\
+	<<set $curScene.stage2total -= 1>>\
+<</if>>\
+<<switch $curScene.stage2b>>\
+<<case 'teacher'>>\
+	You quickly agree with $teacher that random group assignments are the best way to do things. $teacher looks sideways at you, seemingly less than impressed at your reflexive, rather than reasoned, agreement.
+
+	Miss Willow waves off your response. @@.sexEd;“Of course $player.name would agree with your stance, so I’m not really sure his opinion is of much use here.”@@
+<<case 'willow'>>\
+	You agree with Miss Willow that being able to choose your own partners makes for more pleasant group projects. $teacher frowns, clearly disappointed.
+
+	@@.teacher;“While you must treat all superiors with the respect they deserve, it is important that you remember that your spouse should be your focus above all else.@@
+<<case 'diplomatic'>>\
+	You suggest that, perhaps, a hybrid approach might be used - students pairing off on their own, then randomly matching the pairs into groups of four.
+
+	$teacher smiles. @@.teacher;“A well reasoned response. You agreed with your spouse while simultaneously finding a way to avoid showing disrespect to another superior. Very diplomatic. This is the sort of behavior that can really vault a trophy wife up to being a prized tool as well.”@@
+<<case 'none'>>\
+	Slightly fearful you decline to express a preference. $teacher sighs. @@.teacher;“Such cowardice does not become you. Of course you must be meek and obedient, but you should respond when spoken to.  Failing to do so is shirking the responsibility of supporting your spouse in public, and also indirectly disrespecting another superior. Very disappointing.”@@
+<<default>>\
+	ERROR: unexpected scene.stage2b <<=$curScene.stage2b>>
+<</switch>>\
+
+Nodding to you $teacher continues. @@.teacher;“I have some additional materials I wish to show Miss Willow at my desk. How about you take some time to practice that third category of interaction - with a fellow subordinate.”@@
+
+The two women walk away leaving you alone with the $futa.boy_girl you once were tasked with “dealing with” on behalf of Miss Willow.
+
+<<print "[[Ask how " + $futa.he_she + " has been.|comportment_bimbo_2_8][$curScene.stage3a='chat']]">>
+<<print "[[Ask if " + $futa.he_she + " wants to fool around for old time’s sake|comportment_bimbo_2_8][$curScene.stage3a='sex']]">>
+[[Say nothing|comportment_bimbo_2_8][$curScene.stage3a='silent']]

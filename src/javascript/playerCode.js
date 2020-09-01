@@ -176,6 +176,9 @@ window.playerCode={
 	isHairless: function() {
 		return (State.active.variables.body.bodyhair >= 2);
 	},
+	isHairy: function() {
+		return (State.active.variables.body.bodyhair == 0);
+	},
 	isInChastity: function() {
 	    return this.isWearingOn(itemTypes.Chastity);
 	},

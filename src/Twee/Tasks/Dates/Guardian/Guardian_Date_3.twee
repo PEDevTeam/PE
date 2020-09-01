@@ -69,8 +69,17 @@ Double checking that everything is cooked through you gather things up and head 
 	<<else>>\
     	The meal is pleasant, but relatively uneventful, and you can’t help but feel as if something was missing.
 
-    	$Guardian thanks you for the meal and compliments your cooking before retreating to her bedroom while you take care of the dishes.
-
+		<<if $flags.findDancePartner>>\
+			$guardian thanks your for the dinner and is about to return to her room when you are reminded of $teacher's order to find a partner for you next poise class. You hurriedly grab $guardian's attention, and explain the situation.
+			
+			$guardian smiles, and tells you that she would be happy to help with your classes before finally retiring for the evening.
+			
+			<<set $flags.danceLessonPartner = 'guardian'>>\
+			<<set $flags.findDancePartner = false>>\
+		<<else>>
+			$Guardian thanks you for the meal and compliments your cooking before retreating to her bedroom while you take care of the dishes.
+			
+		<<endif>>
 		<<set $tasksTeacher.goOnDate.status = 2>>\
 		<<set $time.addMinutes(90)>>\
     	[[Go to bedroom]]
