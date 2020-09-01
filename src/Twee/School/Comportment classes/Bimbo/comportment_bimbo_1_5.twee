@@ -1,0 +1,14 @@
+:: comportment_bimbo_1_5
+<<include "comportment_bimbo_1_calc_outfit">>\
+<<include "comportment_bimbo_1_outfit_assess">>\
+<<set $curScene.stage1 = ($curScene.outfitName == 'club')>>\
+
+<<if $curScene.stage1>>\
+	$teacher nods in approval. @@.teacher;“It appears you are ready for a night on the town, though I expected my tasks sending you to the club to have prepared you for this. Let us see how you do for your next prompt - you are to accompany your spouse to a fancy cocktail party celebrating an important contract they were instrumental in closing at work.”@@
+<<elseif ['naked', 'lingerie', 'partial', 'underwear'].includes($curScene.outfitName)>>\
+	$teacher sighs. @@.teacher;“As you should recall, the prompt was to dress for a night at the club. This arrangement is quite unsuitable for that, wouldn’t you agree? Let us hope you can do better for your next prompt - you are to accompany your spouse to a fancy cocktail party celebrating an important contract they were instrumental in closing at work.”@@
+<<else>>\
+	$teacher shakes her head. @@.teacher;“As you should recall, the prompt was to dress for a night at the club, and you have not even assembled an outfit suitable for going in public! Let us hope you can do better for your next prompt - you are to accompany your spouse to a fancy cocktail party celebrating an important contract they were instrumental in closing at work.”@@
+<</if>>\
+
+[[Head back into the costume closet|comportment_bimbo_1_6]]

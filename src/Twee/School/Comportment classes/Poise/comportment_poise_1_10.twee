@@ -1,16 +1,16 @@
 :: comportment_poise_1_10
-<<if $stage3Result && $stage2Result && $stage1Result>>\
+<<if $stage3Result > 0 && $stage2Result > 0 && $stage1Result > 0>>\
 	@@.teacher;“Wonderful. It would seem that you have mastered... or should I say maidened? all of the static positions that would be expected of one in your position. Of course that is only part of the equation when it comes to poise - you must also look just as graceful and feminine whence you are in motion; but that is a task for another day.”@@
 
 	You beam with pride at the compliment, even if you feel a bit tense from all this posing. @@.teacher;“Until our next lesson; and remember to practice! You want to drill until feminine perfection is your natural state in all things. You have shown great promise today but to retain your progress you should keep what you have learned in mind whenever you are still.”@@
     
 	<<set $player.ending.comportment.poise.progress++>>\
 	[[Finish school day]]
-<<elseif $stage1Result && $stage2Result || $stage1Result && $stage3Result || $stage2Result && $stage3Result>>\
+<<elseif ($stage1Result > 0 && $stage2Result > 0) || ($stage1Result > 0 && $stage3Result > 0)|| ($stage2Result > 0) && ($stage3Result > 0)>>\
 	@@.teacher;“Well, you are certainly learning... and yet still short of the perfection I demand. Perhaps next time the final details will click, but until then I advise you to deploy what you have learned throughout your daily life so that it becomes totally natural and reflexive.”@@
     
 	[[Finish school day]]
-<<elseif $stage1Result || $stage2Result || $stage3Result>>\
+<<elseif ($stage1Result > 0) || ($stage2Result > 0) || ($stage3Result > 0)>>\
 	@@.teacher;“This is quite disappointing. Think about it, sissy, all you had to do was sit and look pretty, and yet you failed. I recommend you spend some time practicing on your own and really focus next time.”@@
     
 	[[Finish school day]]

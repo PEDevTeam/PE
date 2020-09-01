@@ -137,22 +137,28 @@ You thumb through the choice, not really sure which one to try. While the idea o
     @@.friend;“Let’s try some on together. It will be neat!”@@
 
     $friend tugs off his socks, revealing his surprisingly dainty feet, with ten neatly trimmed nails. He unfastens his belt, unzips his fly and peels his tight jeans down his toned, tanned \
-    <<if $friendSeenLegs>>, waxed<<endif>> legs. As he bends over to pull them over his feet, you get the perfect view of his cute butt encased in the red lacy panties you saw in the selfie he sent. \
-    <<if $friendG.wearsPlug>>You also see the unmistakable tiny bulge between his cheeks from a buttplug.<<endif>>
+    <<if $friendSeenLegs>>, waxed<<endif>> legs. As he bends over to pull them over his feet, you get the perfect view of his cute butt encased in the red lacy panties you saw in the selfie he sent.
+	
+	<<if not $pcSeenLegs && $friendSeenLegs>>\
+		@@.heroT;"You got your legs waxed?”@@
+	
+		@@.friend;“Your smooth legs looked so good, I wanted to try too. I love them, can’t believe I never tried before.”@@
+	
+	    <<set $pcSeenLegs to 1>>\
+	<<endif>>\
+    <<if $friendG.wearsPlug>>\
+		You also see the unmistakable tiny bulge between his cheeks from a buttplug.
+	
+		<<if not $pcSeenPlug>>\
+			@@.heroT;"You’re wearing a plug? How do you like it?”@@
 
+			@@.friend;“I saw your plug and got curious. I picked it up online. It’s… intense, isn’t it?”@@
+		
+		    <<set $pcSeenPlug to 1>>\
+		<<endif>>\
+	<<endif>>\
     As $friend turns around, you spy the outline of something hard in the front of his panties. You realise that he is aroused at the thought of trying on stockings, and you look away in embarrassment.
 
-    <<if not $pcSeenLegs>>\@@.heroT;"You got your legs waxed?”@@<<endif>>\
-
-    <<if not $pcSeenPlug>>@@.heroT;"You’re wearing a plug? How do you find it?”@@<<endif>>
-
-    <<if not $pcSeenLegs>>@@.friend;“Your smooth legs looked so good, I wanted to try too. I love them, can’t believe I never tried before.”@@<<endif>>
-
-    <<if not $pcSeenPlug>>@@.friend;“I saw your plug and got curious. I picked it up online. It’s… intense, isn’t it?”@@<<endif>>
-
-    <<set $pcSeenPlug to 1>>\
-    <<set $pcSeenLegs to 1>>\
-    \
     @@.friend;“Stop watching me, and take your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> off. \
     Your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are  too tight and will get in the way.  \
     Stockings are longer, it’s not like socks.”@@ $friend winks at you and wiggles his pantied butt once before sitting down.

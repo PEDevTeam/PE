@@ -9,9 +9,25 @@
 	<<else>>\
 		She pats you on the head - about the only part of you not dripping with cum - then sends you upstairs to clean up and change.
 	<</if>>\
-	She waits for you at the foot of the stairs, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
+	
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if failedLessons > 1>>\
+		As you come down the stairs, $teacher stops you. @@.teacher;"Now, don't think that your performance today erases your past failures,"@@ she says. @@.teacher;"Due to your previous issues with etiquette, we shall have one final remedial class. Only then will I consider your lessons in this subject complete. Is that understood?"@@
+		
+		You nod.
+		
+		@@.teacher;"Good.  Now, let us head back to school."@@
+		
+		$teacher walks you back out to her car and drives you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
+		<<set $player.ending.comportment.classStatus[0] = 3>>\
+	<<else>>
+		She waits for you at the foot of the stairs, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
+		<<set $player.ending.comportment.classStatus[0] = 4>>\
+	<<endif>>\
 	<<set $player.ending.comportment.etiquette.progress++>>\
-	<<set $player.ending.comportment.classStatus[0] = 4>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail" || $player.ending.comportment.etiquette.scene4=="crit_fail">>\
 	<<if $kink.questionable && $player.ending.comportment.etiquette.scene3 == 'crit_fail'>>\
 		The party winds down and the guests trickle out as $teacher finally looks down at you and sighs.
@@ -27,19 +43,9 @@
 	<<else>>\
 		@@.teacher;“Highly disappointing ”@@\
 	<</if>>\
-	<<set _failedLessons = 0>>\
-	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
-		<<set _failedLessons += _val>>\
-	<</for>>\
-	<<if _failedLessons > 1>>\
-		She sighs. @@.teacher;“Let it never be said that I give up on my students. It seems that it will take a drastic effort to get you back on the proper path; meet me after class when you are ready for a remedial lesson that will ensure you understand how to behave a proper lady.”@@
-		<<set $player.ending.comportment.etiquette.progress++>>\
-		<<set $player.ending.comportment.classStatus[0] = 3>>\
-	<<else>>\
-		She sighs. @@.teacher;“Let it never be said that I give up on my students. We shall try again next week with another party.”@@
-	<<endif>>\
+	She sighs. @@.teacher;“Let it never be said that I give up on my students. We shall try again next week with another party.”@@
 
-	Somewhat scared of what she has in mind, you are led upstairs to change. She watches you in silence, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, roughly shaking you awake.
+	You are led upstairs to change. $teacher watches you in silence, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, roughly shaking you awake.
 <<else>>\
 	You finish wiping your face off enough to meet $teacher’s gaze as she sighs.
 	

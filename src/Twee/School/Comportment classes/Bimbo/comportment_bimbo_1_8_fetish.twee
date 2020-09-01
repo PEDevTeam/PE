@@ -1,0 +1,20 @@
+:: comportment_bimbo_1_8_fetish
+You go scrounging through the costumes and accessories left over from previous shows for something perhaps a bit more “interesting” and come up with a few options.
+
+<<if $kink.bondage>>\
+	<<RandomImageFromPack 'Bimbo class/Bondage harness' 200 200 alignCenter>>
+	[[A set of leather restraints from some sort of prison scene|comportment_bimbo_1_9][$curScene.outfitName = 'bondage']]
+	<<endif>>\
+<<if $kink.latex>>\
+	<<RandomImageFromPack 'Anime_Plugsuit' 200 200 alignCenter>>
+	[[A latex plugsuit from a science fiction production|comportment_bimbo_1_9][$curScene.outfitName = 'latex']]
+<</if>>\
+<<if $kink.adultBaby>>\
+	<<RandomImageFromPack 'Bimbo class/Onesie' 200 200 alignCenter>><<if $kink.diapering>><<RandomImageFromPack 'Bimbo class/Diaper' 200 200 alignCenter>><<endif>>
+	<<if $kink.diapering>>\
+		[[A pink and white onesie with over-stuffed diaper from a new year's skit|comportment_bimbo_1_9][$curScene.outfitName = 'baby']]
+	<<else>>\
+		[[A pink and white onesie from a new year's skit|comportment_bimbo_1_9][$curScene.outfitName = 'baby']]
+	<<endif>>\
+<</if>>\
+[[Go back to your more mundane options|comportment_bimbo_1_8][$curScene.fetish = false]]
