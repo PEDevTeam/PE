@@ -4,6 +4,12 @@
 <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _socks = true>>\
+<<if _stockings>>\
+	<<if _stockings.slutty>>\
+		<<set _socks = false>>\
+	<<endif>>\
+<<endif>>\
 <<set _waxed to not playerCode.isHairy()>>\
 <<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _femUnder = false>>\
@@ -38,7 +44,7 @@
 	
 	Soon you’re chatting about the latest manga and anime, not that you get chance to read much these days, or can afford any. $friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
 <<else>>\
-	<<if $player.perversion.crossdress < 2>>\
+	<<if $player.perversion.crossdressing < 2>>\
 		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
 		@@.friend;“Hey, I’ve got a new series. I’ve read it already. You can borrow it if you like.”@@
 
@@ -49,7 +55,7 @@
 		Even before $friend drops them in your lap you know what they are: more trap manga. Since telling you about $friendG.his_her liking for them, $friendG.he_she really has started to open up. Before you know it, $friend is listing a whole load of comics $friendG.he_she intends to get and what websites have great content.
 
 		$friend says you can borrow anything any time. @@.friend;“As long as you bring it back!”@@ $friendG.he_she says as you are leaving, punching you on the arm.
-	<<elseif $player.perversion.crossdress < 4>>\
+	<<elseif $player.perversion.crossdressing < 4>>\
 		<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
 		@@.friend;“I thought you might like to look at this one,”@@ $friend says handing an issue over. @@.friend;“It’s new.”@@
 
@@ -69,7 +75,7 @@
 
 		<<if _outerwear.female>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings && _stockings.slutty>>stocking top\
+			<<if _stockings && not _socks>>stocking top\
 			<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Your skin is all tingly, your cheeks flushed and your penis is\
 			<<if _chastity>>solid and painfully pressing against your cage.\
@@ -79,10 +85,10 @@
 			and caressing your <<if _waxed>>smooth, girly<<endif>> legs. The worst part is that however you look at it, you loved it and catch yourself wishing $friendG.he_she would carry on. Fortunately, or unfortunately, when $friend returns $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings && _stockings.slutty>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings && not _socks>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that from your mind. Fortunately, when $friend returns, $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<endif>>\
-	<<elseif $player.perversion.crossdress < 6 >>\
+	<<elseif $player.perversion.crossdressing < 6 >>\
 		<<if $friendG.seenDressUp == 1>>\
 			@@.friend;“You’ve seen the new part of the house I found?”@@
 
@@ -108,7 +114,7 @@
 		$friend’s outfit is no less sexual than yours, but at least $friendG.he_she will have $friendG.his_her bottom covered. You are not sure about getting changed, but $friend is already changing around the corner. You take the clothing from the mannequin and start to undress.
 		
 		<<if _maleUnder || not _chastity || not _stockings  || not _waxed>>\
-			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not_waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
+			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not _waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
 
 			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
 			<<set $friendG.wordlessGoodbye = true>>\
@@ -192,7 +198,7 @@
 			<<set $friendG.friendTaskFrustration == $friendG.friendTaskFrustration +3>>\
 			<<set $friendG.wordlessGoodbye = true>>\
 		<<else>>\
-			@@.friend;”Wow, that outfit really suits you. And love that //zettai ryoiki//,”@@ $friendG.he_she says with a smile.
+			@@.friend;”Wow, that outfit really suits you. And love that //zettai ryouiki//,”@@ $friendG.he_she says with a smile.
 
 			@@.heroT;“Zeta what?”@@
 
@@ -200,7 +206,7 @@
 
 			@@.friend;“How does it feel?”@@
 
-			You look into $friend’s face, your breath catching, before he notices your flushed cheeks and reluctantly pulls back his hand.
+			You look into $friend’s face, your breath catching, before $friendG.he_she notices your flushed cheeks and reluctantly pulls back $friendG.his_her hand.
 
 			@@.friend;“The, uh, outfit I mean.”@@
 

@@ -1,9 +1,11 @@
 ::Choose Lesson
 <<set _scene = "none">>\
+<<set _forceFail = false>>\
 <<if timeCode.isMonday() && $player.ending.comportment.etiquette.partyStart>>\
 	<<set $player.ending.comportment.etiquette.progress++>>\
 	<<set $player.ending.comportment.classStatus[0] = 3>>\
 	<<set $player.ending.comportment.etiquette.partyStart = false>>\
+	<<set _forceFail = true>>\
 	You nervously show up for your next etiquette class, knowing that you missed the party $teacher told you to attend. As you walk through the door, $teacher smiles at you in a way that only enhances your apprehension.
 	
 	@@.teacher;"$player.name, I gave you explicit instructions not to ignore the party on Saturday, and yet you seem to have willfully ignored my orders. Considering your blatant disregard for these classes, you will have a remedial class today. I have just the plan for how to drill it into your thick skull how a proper lady should behave. You may start by removing your clothes, I have a different outfit in mind to properly set the mood.”@@
@@ -29,6 +31,8 @@
 		<<set _class = "etiquette">>\
 	<<case 1>>\
 		<<set _class = "poise">>\
+	<<case 2>>\
+		<<set _class = "bimbo">>\
 	<</switch>>\
 	<<if $player.ending.comportment.classStatus[_classIndex] == 0>>\
 		<<set $player.ending.comportment.classStatus[_classIndex] = 1>>\
@@ -52,13 +56,15 @@
 			<<else>>\
 				<<set _scene = "partnerReminder">>\
 			<<endif>>\
+		<<else>>\
+			<<set _scene = "coming soon">>\
 		<<endif>>\
 		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 3>>\
-		<<if _classIndex == 0>>\
-			<<set _scene = "comportment_" + _class + "_penalty_1">>\
+		<<if _classIndex < 2>>\
+				<<set _scene = "comportment_" + _class + "_penalty_1">>\
 		<<else>>\
-			<<set _scene = "coming soon">>\
+				<<set _scene = "coming soon">>\
 		<<endif>>\
 		<<break>>\
 	<<endif>>\
@@ -79,6 +85,9 @@
 	[[Finish school day]]
 <<elseif _scene == "coming soon">>\
 	To be continued in the next release!
+	
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
 <<elseif _scene != "none">>\
 	<<include _scene>>\
 <<else>>\
