@@ -14,8 +14,16 @@
 <!--
 	Backwards compatability code.  Might delete later once most players have cleared it.
 -->\
+<<if not Array.isArray($player.ending.comportment.classStatus)>>\
+	<<set _temp = $player.ending.comportment.classStatus>>\
+	<<set $player.ending.comportment.classStatus = [_temp, 0, 0]>>\
+<<endif>>\
 <<if $player.ending.comportment.classStatus[1] == 2 && $player.ending.comportment.poise.progress < 2>>\
 	<<set $player.ending.comportment.classStatus[1] = 0>>\
+<<endif>>\
+<<if $player.ending.comportment.classStatus.length < 3>>\
+	<<set $player.ending.comportment.classStatus[2] = 0>>\
+	<<set $player.ending.comportment.numOfLessons[2] = 2>>\
 <<endif>>\
 <!--
 	End backwards compatability code
