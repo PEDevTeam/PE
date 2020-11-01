@@ -1,0 +1,62 @@
+:: comportment_bimbo_3_9
+<<set $time.addMinutes(180)>>\
+<<set $player.ending.comportment.etiquette.partyStart = false>>\
+<<set $player.ending.comportment.etiquette.partyRepeat = true>>\
+You stand naked in front of $teacher, waiting for her assessment.
+
+<<if $curScene.stage1 == 'greet' && $curScene.stage2 == 'bedroom' && $curScene.stage3 == 'slow' && $curScene.stage4 == 'them' && ($curScene.stage5 == 'seductive' || $curScene.stage5 == 'focus' ) && $curScene.stage6 == 'serve'>>\
+	<<set $player.ending.comportment.etiquette.progress++>>\
+	She beams at you with pride. @@.teacher;“Mmm. After all this work I am almost tempted to claim you as my wife right now... at least for the bedroom.”@@ 
+	
+	A shiver runs up your spine as her fingers trace your shoulders and she walks a slow circle around you. 
+	
+	@@.teacher;“Needless to say, your performance today was perfect, but this was merely a lesson. There is still the real world beyond your schooling. Towards that end, I want you to cling to everything you have learned. You may not have a partner, yet, but you should focus on your future. Every action you take should be to make yourself a more perfect bride for your future spouse. As for today, well, your efforts were their own reward, congratulations.”@@
+
+	<<set $player.ending.comportment.bimbo.progress++>>\
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.bimbo.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if _failedLessons > 1>>\
+		<<set $player.ending.comportment.classStatus[2] = 5>>\
+		You turn to leave, stop when you hear $teacher clear her throat behind you.  @@.teacher;“That said, do not think that I have forgotten about your previous failures.  I believe some remedial instruction is in order, just to drive the point home.  Come with me.”@@
+
+		[[Follow|comportment_bimbo_remedial_2][$curScene.prev_stage=3]]
+	<<else>>\
+		<<set $player.ending.comportment.classStatus[2] = 4>>\
+		Trembling slightly you nod as she steps away. She gestures in the direction of your clothes, and you dress yourself and depart. Your heart thunders in your chest, until you finally make your way out of the hotel lobby's doors.
+		
+		<<display [[Travel]]>>\
+	<<endif>>\
+<<elseif $curScene.stage1 == 'wait' || $curScene.stage3 == 'clothes' || $curScene.stage4 == 'you' || $curScene.stage5 == 'surrender' || $curScene.stage6 == 'sleep'>>\
+	<<if $curScene.stage1 == 'wait' && $curScene.stage2 == 'relax' && $curScene.stage3 == 'clothes' && $curScene.stage4 == 'you' && ($curScene.stage5 == 'surrender' || $curScene.stage5 == 'self') && $curScene.stage6 == 'sleep'>>\
+    	She glares at you in annoyance. @@.teacher;“Such abject failure. At every turn you do the exact opposite of what you should...”@@ She sighs.
+	<<else>>\
+    	She frowns. @@.teacher;“You may not have completely failed today, but you certainly severely disappointed me with your performance.”@@ She sighs.
+	<</if>>\
+	<<set $player.ending.comportment.bimbo.lessonFail[2] = 1>>\
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.bimbo.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if _failedLessons > 1>>\
+		<<set $player.ending.comportment.classStatus[2] = 5>>\
+		@@.teacher;“Well you will certainly not improve if these errors are left to fester. Come. It is time for a remedial lesson.”@@
+
+		[[Follow|comportment_bimbo_remedial_2][$curScene.prev_stage=3]]
+		<<set $player.ending.comportment.etiquette.progress++>>\
+	<<else>>
+		@@.teacher;“We will repeat this lesson next weekend and again and again until you get it right.”@@
+		
+		<<display [[Travel]]>>
+	<<endif>>
+<<else>>\
+	<<if $curScene.stage1 == 'greet' || $curScene.stage2 == 'bedroom' || $curScene.stage3 == 'slow' || $curScene.stage4 == 'them' || $curScene.stage5 == 'seductive' || $curScene.stage5 == 'focus' || $curScene.stage6 == 'serve'>>\
+    	She sighs in frustration @@.teacher;“you showed the odd glimpse of understanding of how you ought to behave - and you managed to avoid ever completely botching things but... well it is clear you are far from ready for spousal responsibilities. Understand that you exist to please your partner, to bring pleasure to them in every way, if looking at you does not bring a smile to their face and a stirring in their loins you have failed! And once that promise is made well... you must then fulfill it!”@@\
+	<<else>>\
+    	She sighs @@.teacher;“well, today was certainly a disappointment. I could remark that you did not catastrophically fail at any point... but you also never showed full success. Please spend some time thinking about how a proper wife ought to behave before you make another attempt at this lesson - after all you are wasted three people’s time.”@@\
+	<</if>>\
+	She dismisses you with a wave, and you shiver, realizing you will need to repeat the lesson next week..
+
+	<<display [[Travel]]>>
+<</if>>\

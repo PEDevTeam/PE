@@ -1,0 +1,80 @@
+::comportment_bimbo_3_1
+<<set $curScene = {}>>\
+<<set _oWear = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set $player.ending.comportment.bimbo.hotelBimboLesson = false>>\
+<<switch $flags.bimboLessonPartner>>\
+<<case 'Coach'>>\
+	You arrive at the hotel and make your way to the front desk walking dutifully a half-step behind Coach. He grunts his name to the receptionist, is handed a key card, then leads the way to the elevator, up, and then down a hallway to a suite.
+
+	The door opens revealing $teacher,\
+	<<if not _oWear.female>>\
+    	who glances at you with a frown. @@.teacher;“Well, this is quite disappointing.”@@ She looks at Coach and shakes her head @@.teacher;“terribly sorry but she is utterly improperly dressed for today's lesson, so it seems you have wasted your time coming out here.”@@
+
+    	Coach snorts, @@.coach;“Well ain’t that a kick in the pants! Well I suppose I will be on my way, but know that I'll be taking it out of her ass sometime in the future!”@@
+
+    	@@.teacher;“Of course you will,”@@ $teacher replies.
+		
+		<<set $player.ending.comportment.bimbo.lessonFail[2] = 1>>\
+		<<set _failedLessons = 0>>\
+		<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+			<<set _failedLessons += _val>>\
+		<</for>>\
+		<<if _failedLessons >= 2>>\
+			You start to turn to follow Coach, out only for $teacher’s hand to dart forth and grab the front of your top. @@.teacher;“Ah, ah - the room is paid for so I am going to get my money’s worth, and you definitely need the remedial lesson.”@@
+
+			[[Continue|comportment_bimbo_penalty_1]]
+		<<else>>
+			Once Coach has left, $teacher turns to you and sighs. “I assumed you would know better than to show up in an outfit that failed to properly show your… availability.  You have failed this lesson, but we shall try again next week.
+			
+			<<set $player.ending.comportment.bimbo.hotelRepeat = true>>\
+			<<display [[Travel]]>>\
+		<<endif>>
+	<<else>>\
+		who nods at Coach in greeting. @@.teacher;“Wonderful, you made it. Come in, come in. I have an eventful lesson planned for today. Thank you in advance for volunteering to assist.”@@
+
+    	Coach leers at you. @@.coach;“Well I had some free time. Sounded like it’d be fun...”@@
+
+    	@@.teacher;“I can assure you, it will be. Well come on in, and let us commence.”@@
+
+    	[[Follow Coach into the room|comportment_bimbo_3_2]]
+	<</if>>\
+<<case 'Miss Ravensong'>>\
+	You arrive at the hotel and make your way to the front desk - dutifully a half-step behind Ms. Ravensong. She gives her name to the receptionist and is handed a key card then leads the way to the elevator, up, and then down a hallway to a suite.
+
+	The door opens revealing $teacher\
+	<<if not _oWear.female>>\
+    	who glances at your outfit with a frown. @@.teacher;“Well, this is quite disappointing.”@@ She looks to Ms. Ravensong with a note of apology and says, @@.teacher;“Terribly sorry to do this to you but... she is utterly improperly dressed for today’s lesson, so it seems you have wasted your time coming out here.”@@
+
+    	Ms. Ravensong sighs. @@.femvoice10;“I should have guessed - I knew her attire seemed drab but I figured she must have been obeying your instructions... apparently not, very improper.”@@
+
+    	@@.teacher;“Yes, once again, my apology, I really thought she on a better path but... well, you know how it is.”@@
+		
+		<<set $player.ending.comportment.bimbo.lessonFail[2] = 1>>\
+		<<set _failedLessons = 0>>\
+		<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+			<<set _failedLessons += _val>>\
+		<</for>>\
+		<<if _failedLessons >= 2>>\
+    		Ms. Ravensong nods and turns to go. You go to follow only for $teacher’s hand to dart forth and grab the front of your top. @@.teacher;“Ah, ah - the room is paid for so I am going to get my money’s worth, and you definitely need the remedial lesson.”@@
+
+    		[[Continue.|comportment_bimbo_penalty_1]]
+		<<else>>\
+			Once Ms. Ravensong has left, $teacher turns to you and sighs. “I assumed you would know better than to show up in an outfit that failed to properly show your… availability.  You have failed this lesson, but we shall try again next week.
+			
+			<<set $player.ending.comportment.bimbo.hotelRepeat = true>>\
+			<<display [[Travel]]>>\
+		<<endif>>\
+	<<else>>\
+		who smiles at Ms. Ravensong in greeting. @@.teacher;“Wonderful, you made it, well come in, come in, I have an eventful lesson planned for today. I am so glad you decided to assist.”@@
+
+    	<<if $cheerleaders.flags.prank1Finish>>\
+        	Ms. Ravensong smiles. @@.femvoice10;“Well, when she said that this would be a way for this unruly student to “make up” for that horrible misuse of my theater, well... my curiosity was piqued.”@@
+    	<<else>>\
+        	Ms. Ravensong smiles. @@.femvoice10;“Of course. It is always so enjoyable helping a student grow into their proper role.”@@
+    	<</if>>\
+
+    	@@.teacher;“Excellent, let us commence.”@@
+
+    	[[Follow Ms. Ravensong into the room|comportment_bimbo_3_2]]
+	<</if>>\
+<</switch>>

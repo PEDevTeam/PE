@@ -1,15 +1,56 @@
 ::Choose Lesson
 <<set _scene = "none">>\
 <<set _forceFail = false>>\
-<<if timeCode.isMonday() && $player.ending.comportment.etiquette.partyStart>>\
-	<<set $player.ending.comportment.etiquette.progress++>>\
-	<<set $player.ending.comportment.classStatus[0] = 3>>\
-	<<set $player.ending.comportment.etiquette.partyStart = false>>\
-	<<set _forceFail = true>>\
-	You nervously show up for your next etiquette class, knowing that you missed the party $teacher told you to attend. As you walk through the door, $teacher smiles at you in a way that only enhances your apprehension.
-	
-	@@.teacher;"$player.name, I gave you explicit instructions not to ignore the party on Saturday, and yet you seem to have willfully ignored my orders. Considering your blatant disregard for these classes, you will have a remedial class today. I have just the plan for how to drill it into your thick skull how a proper lady should behave. You may start by removing your clothes, I have a different outfit in mind to properly set the mood.”@@
-	
+<<if timeCode.isMonday()>>\
+	<<if $player.ending.comportment.etiquette.partyStart>>\
+		<<set $player.ending.comportment.etiquette.progress++>>\
+		<<set $player.ending.comportment.classStatus[0] = 3>>\
+		<<set $player.ending.comportment.etiquette.partyStart = false>>\
+		<<set _forceFail = true>>\
+		<<set _failClass = "etiquette">>\
+		You nervously show up for your next training class, knowing that you missed the party $teacher told you to attend. As you walk through the door, $teacher smiles at you in a way that only enhances your apprehension.
+		
+		@@.teacher;"$player.name, I gave you explicit instructions not to ignore the party on Saturday, and yet you seem to have willfully ignored my orders. Considering your blatant disregard for these classes, you will have a remedial class today. I have just the plan for how to drill it into your thick skull how a proper lady should behave. You may start by removing your clothes, I have a different outfit in mind to properly set the mood.”@@
+		
+	<<endif>>\
+	<<if $player.ending.comportment.bimbo.hotelBimboLesson>>\
+		<<set $player.ending.comportment.bimbo.progress++>>\
+		<<set $player.ending.comportment.classStatus[2] = 3>>\
+		<<set $player.ending.comportment.bimbo.hotelBimboLesson = false>>\
+		<<if _forceFail>>\
+			<<set $flags.lessonMultiFail = true>>\
+			Your hands go to the hem of your uniform.
+			
+			@@.teacher;"And don't think that I forgot about your failure to visit the hotel this weekend either. We shall address that issue tomorrow with a second remedial class. I can not begin to tell you how disappointed I am with you.  Now, strip!"@@
+			
+		<<else>>\
+			<<set _forceFail = true>>\
+			<<set _failClass = "bimbo">>\
+			You quietly knock on the door of the classroom, certain $teacher will give you a reaming for skipping the lesson at the hotel.
+			
+			She glares up at you from your desk then casually waves you in. @@.teacher;"$player.name, where were you this weekend? Not only did you ignore your lesson, but you disappointed $flags.bimboLessonPartner. By now, you should understand that skipping your classes is inexcusable. Perhaps a remedial lesson will drive the point into that empty head of yours."@@
+			
+		<<endif>>\
+	<<endif>>\
+<<elseif $flags.lessonMultiFail>>\
+	<<for _i to 0; _i < $player.ending.comportment.classStatus.length; _i++>>\
+		<<if $player.ending.comportment.classStatus[_i] == 3>>\
+			<<switch _i>>\
+			<<case 0>>\
+				<<set _failClass = "etiquette">>\
+			<<case 1>>\
+				<<set _failClass = "poise">>\
+			<<case 2>>\
+				<<set _failClass = "bimbo">>\
+			<</switch>>\
+			<<set _forceFail = true>>\
+			$teacher scowls as you walk into the classroom. @@.teacher;"If you recall, you have another remedial lesson today. Hopefully, this will drive the point home for good."@@
+			
+			You gulp and prepare for a strenuious lesson.
+		<<else>>\
+			<<set $flags.lessonMultiFail = false>>\
+		<<endif>>\
+	<</for>>\
 <<endif>>\
 <!--
 	Backwards compatability code.  Might delete later once most players have cleared it.
@@ -25,9 +66,13 @@
 	<<set $player.ending.comportment.classStatus[2] = 0>>\
 	<<set $player.ending.comportment.numOfLessons[2] = 2>>\
 <<endif>>\
+<<if $player.ending.endingsCompleted == 0>>\
+	<<set $player.ending.endingsCompleted = [0]>>\
+<<endif>>\
 <!--
 	End backwards compatability code
 -->\
+<<set _completeCount = 0>>\
 <<set _lessonArr = []>>\
 <<for _i to 0; _i < $player.ending.comportment.classStatus.length; _i++>>\
 	<<set _lessonArr.push(_i)>>\
@@ -53,7 +98,7 @@
 		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 2>>\
 		<<if _classIndex == 0>>\
-			<<if $player.ending.comportment[_class].progress == 2 && timeCode.isFriday()>>\
+			<<if $player.ending.comportment[_class].progress == 2>>\
 				<<set $player.ending.comportment.etiquette.partyStart = true>>\
 				<<set _scene = "partyReminder">>\
 			<<endif>>\
@@ -65,7 +110,10 @@
 				<<set _scene = "partnerReminder">>\
 			<<endif>>\
 		<<else>>\
-			<<set _scene = "coming soon">>\
+			<<if $player.ending.comportment[_class].progress == 2>>\
+				<<set $player.ending.comportment.bimbo.hotelBimboLesson = true>>\
+				<<set _scene = "hotelReminder">>\
+			<<endif>>\
 		<<endif>>\
 		<<break>>\
 	<<elseif $player.ending.comportment.classStatus[_classIndex] == 3>>\
@@ -75,8 +123,16 @@
 				<<set _scene = "coming soon">>\
 		<<endif>>\
 		<<break>>\
+	<<else>>\
+		<<set _completeCount +=1>>\
+		<<if _completeCount == $player.ending.comportment.numOfLessons.length>>\
+			<<set _scene = "finished">>\
+		<<endif>>\
 	<<endif>>\
 <</for>>\
+<<if _forceFail>>\
+	<<set _scene = "comportment_" + _failClass + "_penalty_1">>\
+<<endif>>\
 <<if _scene == "partyReminder">>\
 	@@.teacher;"Remember, I want you to attend my party on Saturday for your next lesson. Be at school before 6 pm, and I shall drive you to my house."@@
 	
@@ -87,7 +143,12 @@
 	
 	You shake your head sheepishly.
 	
-	@@.hero;The next time I go on a date, I should ask the person if they want to be my partner for $teacher's lesson.@@
+	@@.hero;The next time I go on a date, I should ask the person if they want to be my partner for $teacher's lesson."@@
+	
+	<<set $player.ending.lessonSkip = true>>\
+	[[Finish school day]]
+<<elseif _scene == "hotelReminder">>\
+	@@.teacher;"Remember, $flags.bimboLessonPartner will be waiting for you to contact <<if $player.ending.comportment.preferredGender == 0>>them<<elseif $player.ending.comportment.preferredGender == 1>>her<<else>>him<<endif>> over the weekend for your next lesson."@@
 	
 	<<set $player.ending.lessonSkip = true>>\
 	[[Finish school day]]
@@ -96,6 +157,16 @@
 	
 	<<set $player.ending.lessonSkip = true>>\
 	[[Finish school day]]
+<<elseif _scene == "finished">>\
+	<<set $player.ending.lessonSkip = true>>\
+	<<if $player.ending.endingsCompleted[0] == 0>>\
+		@@.teacher;"Congratulations on finishing the trophy wife lessons. I have spoken to a few possible spouses.  Let's see who is interested.@@
+		
+		<<include choose_partner>>\
+	<<else>>\
+		[[Ask teacher about getting married|choose_partner]]
+		[[Finish school day]]
+	<<endif>>\
 <<elseif _scene != "none">>\
 	<<include _scene>>\
 <<else>>\
