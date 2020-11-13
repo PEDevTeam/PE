@@ -14,7 +14,7 @@
 	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
 		<<set _failedLessons += _val>>\
 	<</for>>\
-	<<if failedLessons > 1>>\
+	<<if _failedLessons > 1>>\
 		As you come down the stairs, $teacher stops you. @@.teacher;"Now, don't think that your performance today erases your past failures,"@@ she says. @@.teacher;"Due to your previous issues with etiquette, we shall have one final remedial class. Only then will I consider your lessons in this subject complete. Is that understood?"@@
 		
 		You nod.
@@ -23,7 +23,7 @@
 		
 		$teacher walks you back out to her car and drives you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
 		<<set $player.ending.comportment.classStatus[0] = 3>>\
-	<<else>>
+	<<else>>\
 		She waits for you at the foot of the stairs, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
 		<<set $player.ending.comportment.classStatus[0] = 4>>\
 	<<endif>>\
