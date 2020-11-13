@@ -4,8 +4,11 @@
 <<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 \
+<<if $tasksTeacherBody.legHairRemoval.status eq 1>>\
+/* This intro is omitted if the leg waxing task has not been given by teacher (but repeated by MC due to $friend's expectations) */\
 @@.hero;Why does $teacher want me to remove my leg hair? It’s gonna look super weird. Maybe I can say I’m doing it for sports like swimmers and cyclists do.@@
 
+<<endif>>\
 <<if $friendG.gender eq "F">>\
     You spend a few seconds mulling your dilemma over on the couc before finally blurting out, “@@.heroT;$friend, what’s it like to have smooth legs?”@@
 
