@@ -2,7 +2,7 @@
 <<set $sceneRound += 1>>\
 <<if $sceneRound > 1>>\
 	<<if $sceneAction == -1>>\
-    	<<set $positionStatus[$scenePosition] = Math.max($positionStatus[$scenePosition]+1,2)>>\
+    	<<set $positionStatus[$scenePosition] = Math.min($positionStatus[$scenePosition]+1,2)>>\
 	<<elseif $sceneAction >0 >>\
 		<<set $positionStatus[$scenePosition] = $sceneAction - 1>>\
 	<<endif>>\

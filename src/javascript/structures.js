@@ -203,6 +203,7 @@ window.structures={
 		if (vars.avatar.start == null) { vars.avatar.start = 0; }
 		if (vars.avatar.help == null) { vars.avatar.help = 0; }
 		if (vars.avatar.active == null) { vars.avatar.active = 0; }
+		if (vars.avatar.classic == null) { vars.avatar.classic = false; }
 	},
 	setupFlags: function() {
 		var vars=State.active.variables;
@@ -898,10 +899,12 @@ window.playerAddonsList={
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
 		
 		comportment:  {
-			numOfLessons: [3, 3, 2],
-			classStatus: [0, 0, 0], 	/*ettiquite, poise; 
+			numOfLessons: [3, 3, 3],
+			classStatus: [0, 0, 0], 	/*ettiquite, poise, bimbo; 
 									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
 			stepfordPath: false,
+			preferredGender: 0, /*0 = none, 1 = female, 2 = male */
+			
 			etiquette:  {
 				progress: 0,
 				lessonFail:[0,0,0],
@@ -918,7 +921,82 @@ window.playerAddonsList={
 				progress: 0,
 				lessonFail:[0,0,0],
 				hotelBimboLesson: false,
+				hotelRepeat: false,
 			},
+			partners:{
+				guardian:	{
+					id: "guardian",
+					name: "",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [0, 1, 2],
+					lips: [0, 1, 2],
+					breasts: [0, 1, 2, 3, 4],
+					ass: [0, 1, 2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				coach:	{
+					id: "coach",
+					name: "Coach",
+					hair: [3, 4, 5, 6],
+					face: [2],
+					lips: [2],
+					breasts: [4],
+					ass: [2],
+					smoothing: [3],
+					numOfDates: 0,
+					gender: 2,
+				},
+				ashley:	{
+					id: "ashley",
+					name: "Ashley",
+					hair: [2, 3, 4, 5, 6],
+					face: [2],
+					lips: [2],
+					breasts: [2, 3, 4],
+					ass: [2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				roxy:	{
+					id: "roxy",
+					name: "Roxy",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [1, 2],
+					lips: [0],
+					breasts: [0],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				jogger:	{
+					id: "jogger",
+					name: "the Jogger",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3, 4],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 2,
+				},
+				dramaTeacher:	{
+					id: "dramaTeacher",
+					name: "Ms. Ravensong",
+					hair: [2, 3, 6],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3],
+					ass: [0],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+			}
 		},
 	},
 },
@@ -1366,6 +1444,7 @@ window.flagsList={
 	danceLessonPartner: "none",
 	poiseRemedialGuardian: false,
 	bimboLessonPartner: "none",
+	lessonMultiFail: false,
 },
 
 window.kinkList={

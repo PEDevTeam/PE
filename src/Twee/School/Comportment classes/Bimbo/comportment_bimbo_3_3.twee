@@ -1,0 +1,44 @@
+:: comportment_bimbo_3_3
+<<switch $curScene.stage1>>\
+<<case 'greet'>>\
+	You mince your way to the door and open it, greeting $flags.bimboLessonPartner with a smile. @@.heroT;“Welcome home!”@@ you state with a curtsey.
+
+	<<if $flags.bimboLessonPartner == "Coach">>\
+    	Coach grins and snatches you up off your feet, rough lips pressing against your own as you tremble in the strong grip of manliness. He\
+	<<else>>\
+    	Ravensong smiles back, @@.femvoice10;“it is good to be home,”@@ she states before leaning in for a kiss. She\
+	<</if>>\
+	steps into the room and you close the door as you feel all attention on you to make the next move.
+<<case 'wait'>>\
+	You just sit on the couch and wait. You note $teacher’s expression sour out of the corner of your eye as there is a second, firmer knock on the door before it opens.
+
+	<<if $flags.bimboLessonPartner == "Coach">>\
+    	@@.coach;“What are you doing?”@@ Coach demands as he steps into the room. @@.coach;“Here I come home from a hard day’s work and you are just laying around, not even greeting me at the door!”@@
+	<<else>>\
+    	@@.femvoice10;“Laying around rather than coming to greet me?”@@ Ms. Ravensong says as she shakes her head.
+	<</if>>\
+
+	The door closes and you rise to your feet, all eyes on you to make the next move.
+<<case 'call'>>\
+	You strike a seductive pose and, in your sexiest voice, call out @@.heroT;“Come in.”@@ in your sexiest voice.
+
+	The door opens to reveal\
+	<<if $flags.bimboLessonPartner == "Coach">>\
+    	Coach who immediately grins at the sight of you. @@.coach;“My my, now that is a sight to make a man eager to be home.”@@ Closing the door he walks towards you, one hand wrapping around your waist to pull you closer.
+   	 
+    	@@.heroT;“W-welcome home,”@@ you whisper, somewhat nervous in his grasp.
+
+    	@@.coach;“Welcome home indeed”@@ he states giving you a kiss. His large tongue invades your lips for a moment before he releases his grasp, and you realize you had risen up onto one foot.
+	<<else>>\
+    	@@.femvoice10;“My my,”@@ Ms. Ravensong states with a smile, @@.femvoice10;“such a lovely sight is almost enough to make me forget your failure to greet me at the threshold.”@@
+
+    	She steps closer, reaching out to gently brush an out of place hair back where it belongs @@.femvoice10;“lovely,”@@ she whispers.
+	<</if>>\
+
+	Trying to catch your breath you consider your next move.
+<<default>>\
+	ERROR: unexpected scene.stage1 <<=$curScene.stage1>>
+<</switch>>\
+
+[[Have a seat on the couch.|comportment_bimbo_3_4][$curScene.stage2='relax']]
+[[Take them by the hand and lead them to the bedroom.|comportment_bimbo_3_4][$curScene.stage2='bedroom']]

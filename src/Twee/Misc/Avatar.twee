@@ -1,7 +1,9 @@
 :: Avatar [pos_1273_215]
+<!--Using tab on page adds line breaks. Not sure why.-->\
 \
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 \
+<<if $avatar.classic>>\
 <<switch playerCode.isMind()>>\
 <<case 0>>\
 	<<set _arms="arms_relaxed.png">>\
@@ -406,6 +408,147 @@
 <<if _bow neq "none">>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _bow>>'>>\
 <<endif>>\
+<<else>>\
+<<if $body.ass eq 2>>\
+	<<set _hips="hips_2.png">>\
+	<<set _hs=2>>\
+<<elseif $body.ass eq 1>>\
+	<<set _hips="hips_1.png">>\
+	<<set _hs=1>>\
+<<else>>\
+	<<set _hs=0>>\
+	<<set _hips="none">>\
+<<endif>>\
+\
+<<if ($body.boobs eq 4)>>\
+	<<set _chest="chest_dd.png">>\
+	<<set _bs=4>>\
+<<elseif ($body.boobs eq 3)>>\
+	<<set _chest="chest_c.png">>\
+	<<set _bs=3>>\
+<<elseif ($body.boobs eq 2)>>\
+	<<set _chest="chest_b.png">>\
+	<<set _bs=2>>\
+<<elseif ($body.boobs eq 1)>>\
+	<<set _chest="chest_a.png">>\
+	<<set _bs=1>>\
+<<else>>\
+	<<set _chest="none">>\
+	<<set _bs=0>>\
+<<endif>>\
+\
+<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
+	<<set _groin="groin_pussy.png">>\
+<<elseif playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<if ($body.penisShrink eq 1)>>\
+		<<set _groin="groin_chastity_1.png">>\
+	<<else>>\
+		<<set _groin="groin_chastity_2.png">>\
+	<<endif>>\
+<<else>>\
+	<<if ($body.penisShrink eq 1)>>\
+		<<set _groin="groin_penis_1.png">>\
+	<<else>>\
+		<<set _groin="groin_penis_2.png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<if playerCode.haveHeavyMakeup()>>\
+	<<set _face="face_makeup_3.png">>\
+<<elseif playerCode.haveBimboMakeup()>>\
+	<<set _face="face_makeup_2.png">>\
+<<elseif playerCode.haveMakeup()>>\
+	<<set _face="face_makeup_1.png">>\
+<<else>>
+	<<set _face="none">>\
+<<endif>>\
+\
+<<if ($body.lips eq 2)>>\
+	<<set _lips="lips_2.png">>\
+<<elseif ($body.lips eq 1)>>\
+	<<set _lips="lips_1.png">>\
+<<else>>\
+	<<set _lips="none">>\
+<<endif>>\
+\
+<<if playerCode.haveHaircut()>>\
+	<<if ($body.hairstyle eq 1)>>\
+		<<set _hair="hair_short_">>\
+	<<elseif ($body.hairstyle eq 2)>>\
+		<<set _hair="hair_medium_">>\
+	<<elseif ($body.hairstyle eq 3)>>\
+		<<set _hair="hair_long_">>\
+	<<elseif ($body.hairstyle eq 4)>>\
+		<<set _hair="hair_tails_">>\
+	<<elseif ($body.hairstyle eq 5)>>\
+		<<set _hair="hair_curly_">>\
+	<<endif>>\
+	<<if $body.hairColor eq 0>>\
+		<<set _hair+="black.png">>\
+	<<elseif $body.hairColor eq 1>>\
+		<<set _hair+="brown.png">>\
+	<<elseif $body.hairColor eq 2>>\
+		<<set _hair+="red.png">>\
+	<<elseif $body.hairColor eq 3>>\
+		<<set _hair+="blonde.png">>\
+	<<elseif $body.hairColor eq 4>>\
+		<<set _hair+="silver.png">>\
+	<<else>>\
+		<<set _hair+="pink.png">>\
+	<<endif>>\
+<<else>>\
+	<<set _hair="hair_default_brown.png">>\
+<<endif>>\
+\
+<<set _sk=false>>\
+\
+\
+<<if $avatar.mode eq 0>>\
+	<<if playerCode.isWearing(itemsC.schoolMale)>>\
+		<<if _bs lte 2>>\
+			<<set _bs = 0>>\
+		<<endif>>\
+		<<set _chest="clothes_school_male_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
+		<<if _bs eq 2>>\
+			<<set _bs = 1>>\
+		<<endif>>\
+		<<set _chest="clothes_school_female_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+="_hips_">>\
+		<<set _chest+=_hs>>\
+		<<set _chest+=".png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<print '<<showMultiImage "avatar_' + $avatarSize + '" "torso.png">>'>>\
+\
+<<if _hips neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hips>>'>>\
+<<endif>>\
+\
+<<if _groin neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _groin>>'>>\
+<<endif>>\
+\
+<<if _chest neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _chest>>'>>\
+<<endif>>\
+\
+<<if _face neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _face>>'>>\
+<<endif>>\
+\
+<<if _lips neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _lips>>'>>\
+<<endif>>\
+\
+<<if _hair neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hair>>'>>\
+<<endif>>\
+<<endif>>\
 \
 <<if (not $flags.avatarHelp)>>\
 	<<set $flags.avatarHelp = true>>\
@@ -432,5 +575,4 @@
 @@.avatar_mode_1;<<print '<<click " U ">><<set $avatar.mode=1>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
 @@.avatar_mode_2;<<print '<<click " N ">><<set $avatar.mode=2>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
 \
-
 
