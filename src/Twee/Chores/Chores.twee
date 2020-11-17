@@ -27,8 +27,20 @@
 <<if not $flags.choreCheck>>\
 	<<set $flags.choreCheck = true>>\
 	<<set $player.choreFailPercent=0>>\
+	/* game mechanics first… */\
+	<<if _c>>\
+		<<set $player.choreFailPercent+=5>>\
+	<<endif>>\
+	<<if _b>>\
+		<<set $player.choreFailPercent+=5>>\
+	<<endif>>\
 	<<if playerCode.isHorny()>>\
-		<<if _c>>\
+		/* double effect when horny */\
+		<<set $player.choreFailPercent*=2>>\
+	<<endif>>\
+	/* …content generation second */\
+	<<if _c>>\
+		<<if playerCode.isHorny()>>\
 			<<if (random(2) eq 0)>>\
 				Being so horny and confined in a chastity cage\
 			<<elseif (random(1) eq 0)>>\
@@ -36,37 +48,7 @@
 			<<else>>\
 				Desperate for release, but locked in a chastity cage\
 			<<endif>>\
-			<<set $player.choreFailPercent+=10>>\
-			<<if _b>>\
-				<<if (random(2) eq 0)>>\
-					while having a butt-plug pressing on your prostate\
-				<<elseif (random(1) eq 0)>>\
-					while having a butt-plug stretching your anus\
-				<<else>>\
-					while having a butt-plug in your ass\
-				<<endif>>\
-				<<set $player.choreFailPercent+=5>>\
-			<<endif>>\
-			<<if (random(2) eq 0)>>\
-				is really distracting.\
-			<<elseif (random(1) eq 0)>>\
-				is maddening.\
-			<<else>>\
-				makes you want to cry.\
-			<<endif>>\
-		<<endif>>\
-		<<if _b and not _c>>\
-			<<if (random(2) eq 0)>>\
-				Each time you bend or take too big of a step, the butt-plug reminds you of its presence by pressing on your prostate.\
-			<<elseif (random(1) eq 0)>>\
-				The butt-plug constantly reminds you of its presence by pressing on your prostate and keeping you stimulated.\
-			<<else>>\
-				It is really distracting how the butt-plug keeps pressing on your prostate.\
-			<<endif>>\
-			<<set $player.choreFailPercent+=10>>\
-		<<endif>>\
-	<<else>>\
-		<<if _c>>\
+		<<else>>\
 			<<if (random(2) eq 0)>>\
 				Being confined in a chastity cage\
 			<<elseif (random(1) eq 0)>>\
@@ -74,36 +56,39 @@
 			<<else>>\
 				Having your penis locked tightly in a chastity cage\
 			<<endif>>\
-			<<set $player.choreFailPercent+=5>>\
-			<<if _b>>\
-				<<if (random(2) eq 0)>>\
-					while having a butt-plug pressing on your prostate\
-				<<elseif (random(1) eq 0)>>\
-					while having a butt-plug stretching your anus\
-				<<else>>\
-					while having a butt-plug in your ass\
-				<<endif>>\
-				<<set $player.choreFailPercent+=5>>\
-			<<endif>>\
+		<<endif>>\
+		<<if _b>>\
 			<<if (random(2) eq 0)>>\
-				is really distracting.\
+				while having a butt-plug pressing on your prostate\
 			<<elseif (random(1) eq 0)>>\
+				while having a butt-plug stretching your anus\
+			<<else>>\
+				while having a butt-plug in your ass\
+			<<endif>>\
+		<<endif>>\
+		<<if $flags.chastityLocked and $flags.chastityKey>>\
+			<<if $player.exp.chastityExp >= 28>>\
+				feels normal to you.\
+			<<elseif $player.exp.chastityExp >= 14>>\
+				is really distracting.\
+			<<elseif $player.exp.chastityExp >= 7>>\
 				is maddening.\
 			<<else>>\
 				makes you want to cry.\
 			<<endif>>\
-		<<elseif _b>>\
-			<<if (random(2) eq 0)>>\
-				Each time you bend or take too big of a step, the butt-plug reminds you of its presence by pressing on your prostate.\
-			<<elseif (random(1) eq 0)>>\
-				The butt-plug constantly reminds you of its presence by pressing on your prostate and keeping you stimulated.\
-			<<else>>\
-				It is really distracting how the butt-plug keeps pressing on your prostate.\
-			<<endif>>\
-			
-			<<set $player.choreFailPercent+=5>>\
+		<<else>>\
+			makes the dull chores way more interesting.\
+		<<endif>>\
+	<<elseif _b>>\
+		<<if (random(2) eq 0)>>\
+			Each time you bend or take too big of a step, the butt-plug reminds you of its presence by pressing on your prostate.\
+		<<elseif (random(1) eq 0)>>\
+			The butt-plug constantly reminds you of its presence by pressing on your prostate and keeping you stimulated.\
+		<<else>>\
+			It is really distracting how the butt-plug keeps pressing on your prostate.\
 		<<endif>>\
 	<<endif>>\
+	\
 	<<if (_f and _f.slutty)>>\
 		<<if _f.daringRec eq 13>>\
 			<<if $player.heelsSkill lte 4>>\
