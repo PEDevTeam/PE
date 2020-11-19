@@ -12,7 +12,7 @@
 
     @@.friend;"I hope you put some effort into getting ready this time,"@@ $friendG.he_she says. 
 	
-    <<if (_u.female == 0 or _c == 0 or _p == 0 or (_p and _p.female == 0) or _bra == 0 or ($body.bodyhair == 0 and $friendG.seenWaxedLeg == 1))>>\ 
+    <<if friendCode.missingAttire()>>\ 
 		<<set $friendG.girlinessFail = 1>>\
 	<<endif>>\
 	<<if $friendG.girlinessFail == 1>>\
