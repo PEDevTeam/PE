@@ -5,6 +5,7 @@
 <<set $player.friendLastVisit to $time.day>>\
 <<set _femAppearance to playerCode.obviousFemaleAppearance()>>\
 <<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
 \
 <<if _outerWear.female or $friendG.catchUp eq 1>>\
     <<set $friendG.visit.r2 to 2>>\
@@ -42,6 +43,12 @@
 \
 <<elseif $player.perversion.friend < 8 && $player.perversion.crossdressing > 5>>\
 	<<include [[Friend CD Catch-up 04]]>>\
+\
+<<elseif not _underwear && $friendG.noUnderwear == 0>>\
+	<<include [[Friend Commando First]]>>\
+\
+<<elseif not _underwear>>\
+	<<include [[Friend Commando Repeat]]>>\
 \
 <<elseif $player.daring eq 5 and $player.perversion.teacher gte 3>>\
     <<if $friendG.visit.r2 eq 0 and $tasksFriend.pantieSelfie.status gt 0>>\
