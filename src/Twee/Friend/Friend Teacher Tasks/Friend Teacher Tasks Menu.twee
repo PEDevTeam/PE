@@ -1,6 +1,12 @@
 ::Friend Teacher Tasks Menu
 /* NOTE: the conditionals in this menu items must be kept in sync with "Friend Basic Teacher Tasks" */\
 @@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
+\
+<<set _missingAttire = friendCode.missingAttire()>>\
+<<if _missingAttire>>\
+
+    //@@.hero;It looks like $friend wants me to be dressed up. For some of these tasks, I might be missing _missingAttire.@@//
+<<endif>>\
 
 <<if $tasksTeacher.selfieFemaleClothes.status eq 1>>\
     [[Wearing a Dress|Friend Teacher Tasks Selfie Female Clothes]]
