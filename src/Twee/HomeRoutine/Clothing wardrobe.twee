@@ -245,7 +245,7 @@
 					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 			<<elseif ((_o.clothingType & itemTypes.Chastity) && playerCode.isHorny()) >>\
-				<<set _in to _in + ' <div class="tooltip">//@@.halftransparent;cannot put on – too aroused@@//<span class="tooltiptext">You cannot fit your raging boner into the cage. Try masturbating.</span></div>'>>\
+				<<set _in to _in + ' <div class="tooltip">//@@.halftransparent;cannot put on – too aroused@@//<span class="tooltiptext">You cannot bring yourself to put the cage back on. Try masturbating first.</span></div>'>>\
 			<<elseif $flags.laundryAccident and ((_o.clothingType & itemTypes.Underwear) gt 0) and _o.female>>\
 				<<set _in to _in + " //@@.halftransparent;Wet@@//">>\
 			<<else>>\
