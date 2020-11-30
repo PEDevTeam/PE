@@ -1,6 +1,12 @@
 ::Friend Teacher Tasks Menu
-\
+/* NOTE: the conditionals in this menu items must be kept in sync with "Friend Basic Teacher Tasks" */\
 @@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
+\
+<<set _missingAttire = friendCode.missingAttire()>>\
+<<if _missingAttire>>\
+
+    //@@.hero;It looks like $friend wants me to be dressed up. For some of these tasks, I might be missing _missingAttire.@@//
+<<endif>>\
 
 <<if $tasksTeacher.selfieFemaleClothes.status eq 1>>\
     [[Wearing a Dress|Friend Teacher Tasks Selfie Female Clothes]]
@@ -18,21 +24,29 @@
     [[Wearing Stockings|Friend Teacher Tasks Wear Stockings]]
 <<endif>>\
 <<if $tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0>>\
-	[[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
+    [[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
+<<else>>\
+    /*
+    on Mondays, $tasksTeacherBody.legHairRemoval.status is reset to 0 "not assigned" and $body.bodyhair is reset to 0 "hairy legs" (if not made permanent by laser).
+    TODO: can $tasksTeacherBody.legHairRemoval.progress be abused to see whether friend helped once before?
+    */\
+    <<if $body.bodyhair == 0 && $friendG.seenWaxedLeg>>\
+        [[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]] – //@@.hero;I should probably have my body hair removed again or $friend will be disappointed.@@//
+    <<endif>>\
 <<endif>>\
 <<if $flags.flatsFlag == true && not playerCode.owns(itemsC.flats)>>\
-	[[Wearing Flats|Friend Teacher Tasks Flats]]
+    [[Wearing Flats|Friend Teacher Tasks Flats]]
 <<endif>>\
 <<if $tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0>>\
-	[[Trying on Clothes at the Mall|Friend Teacher Tasks Mall]]
+    [[Trying on Clothes at the Mall|Friend Teacher Tasks Mall]]
 <<endif>>\
 <<if $tasksTeacher.crossdressAroundBlock.status eq 1 && $tasksTeacher.crossdressAroundBlock.progress == 0>>\
-	[[Walk around the Block in a Dress|Friend Teacher Tasks Walk Around Block]]
+    [[Walk around the Block in a Dress|Friend Teacher Tasks Walk Around Block]]
 <<endif>>\
 <<if $tasksTeacher.crossdressAtPark.status eq 1 && $tasksTeacher.crossdressAtPark.progress == 0>>\
-	[[Crossdress at the park|Friend Teacher Tasks Crossdress at Park p1]]
+    [[Crossdress at the park|Friend Teacher Tasks Crossdress at Park p1]]
 <<endif>>\
 <<if $tasksTeacher.practiceHeels.status == 1 && $tasksTeacher.practiceHeels.progress == 0>>\
-	[[Wear heels at the mall|Friend Teacher Tasks Wear Heels]]
+    [[Wear heels at the mall|Friend Teacher Tasks Wear Heels]]
 <<endif>>\
 [[Nothing Right Now|Friend Basic Teacher Tasks]]

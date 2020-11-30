@@ -231,7 +231,7 @@
 		<!--</clothes check for guardian>-->\
 		You walk to the kitchen and pour yourself a bowl of your favorite cereal. You add milk from the fridge, then sit at the table.
 
-		As you begin to eat, $guardian enters looking fresh and warm from her shower. \
+		As you begin to eat, <<if $time.day == 1 && !$kink.incest>>your mother<<else>>$guardian<<endif>> enters looking fresh and warm from her shower. \
 		<<if $player.perversion.guardian eq 0>>\
 			She smiles at you and picks up her morning coffee.
 		<<elseif ($player.perversion.guardian eq 1) or (($player.perversion.guardian gt 1) and ($player.therapistMode eq false))>>\

@@ -4,8 +4,11 @@
 <<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
 <<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
 \
+<<if $tasksTeacherBody.legHairRemoval.status eq 1>>\
+/* This intro is omitted if the leg waxing task has not been given by teacher (but repeated by MC due to $friend's expectations) */\
 @@.hero;Why does $teacher want me to remove my leg hair? It’s gonna look super weird. Maybe I can say I’m doing it for sports like swimmers and cyclists do.@@
 
+<<endif>>\
 <<if $friendG.gender eq "F">>\
     You spend a few seconds mulling your dilemma over on the couc before finally blurting out, “@@.heroT;$friend, what’s it like to have smooth legs?”@@
 
@@ -84,7 +87,7 @@ the garment is like a pair of panties, and would offer the same amount of covera
 for people being waxed.
 
 You slip off your <<if _wearingBoxers>>boxers<<else>>panties<<endif>> with a huff and pull the paper g-string on <<if _wearingChastity>>over your chastity<<endif>>. <<if _wearingPlug>> \
-You are unsure of what to do with your butt plug, so you leave it in place and secure it with the back of the thong.>><<endif>>
+You are unsure of what to do with your butt plug, so you leave it in place and secure it with the back of the thong.<<endif>>
 
 $friend returns from behind a false wall, wheeling a cart which bears a small urn of melted wax, an array of potions and creams, and several strips of green cloth. $friendG.He_She notices your neat \
 pile of clothing.
