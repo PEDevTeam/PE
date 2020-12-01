@@ -1067,6 +1067,8 @@ window.friendList={
 	parkAttempt: 0,
 	parkFail: 0,
 	seenDressUp: 0,
+	evilFriend: 0,
+	noUnderwear: 0,
 },
 
 window.futaList={

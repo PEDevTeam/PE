@@ -14,6 +14,12 @@
 <<if not $flags.friendNamed>>\
 	<<include [[Name friend]]>>\
 \
+<<elseif not _underwear && $friendG.noUnderwear == 0 && _outerWear.female && not _outerWear.shorts>>\
+	<<include [[Friend Commando First]]>>\
+\
+<<elseif not _underwear && && $friendG.noUnderwear == 1 && _outerWear.female && not _outerWear.shorts>>\
+	<<include [[Friend Commando Repeat]]>>\
+\
 <<elseif $friendG.catchUp gt 0>>\
 	<<include [[Friend Mid Visit]]>>\
 \
@@ -44,12 +50,6 @@
 <<elseif $player.perversion.friend < 8 && $player.perversion.crossdressing >= 7>>\
 	<<include [[Friend CD Catch-up 04]]>>\
 \
-<<elseif not _underwear && $friendG.noUnderwear == 0>>\
-	<<include [[Friend Commando First]]>>\
-\
-<<elseif not _underwear>>\
-	<<include [[Friend Commando Repeat]]>>\
-\
 <<elseif $player.daring eq 5 and $player.perversion.teacher gte 3>>\
     <<if $friendG.visit.r2 eq 0 and $tasksFriend.pantieSelfie.status gt 0>>\
         <<include [[Friend Intro Teacher Tasks]]>>\
@@ -57,7 +57,7 @@
         <<include [[Friend Basic Teacher Tasks]]>>\
     <<endif>>\
 \
-<<else>>
+<<else>>\
 	<<include [[Friend Basic Visit]]>>\
 <<endif>>\
 \

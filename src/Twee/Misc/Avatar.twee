@@ -420,6 +420,22 @@
 	<<set _hips="none">>\
 <<endif>>\
 \
+<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _feets = "none">>\
+<<if _f>>\
+	<<if _f.female>>\
+		<<if playerCode.isWearing(itemsC.flats)>>\
+			<<set _feets="feets_flats.png">>\
+		<<elseif _f.cheer>>\
+			<<set _feets="feets_shoes_socks_cheer.png">>\
+		<<endif>>\
+	<<else>>\
+		<<if _f.school>>\
+		<<else>>\
+			<<set _feets="feets_male_sneakers.png">>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
 <<if ($body.boobs eq 4)>>\
 	<<set _chest="chest_dd.png">>\
 	<<set _bs=4>>\
@@ -502,7 +518,6 @@
 \
 <<set _sk=false>>\
 \
-\
 <<if $avatar.mode eq 0>>\
 	<<if playerCode.isWearing(itemsC.schoolMale)>>\
 		<<if _bs lte 2>>\
@@ -520,6 +535,46 @@
 		<<set _chest+="_hips_">>\
 		<<set _chest+=_hs>>\
 		<<set _chest+=".png">>\
+	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
+		<<set _chest="clothes_casual_dress_breasts_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+=".png">>\
+	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
+		<<set _chest="clothes_casual_br_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+="_hips_">>\
+		<<set _chest+=_hs>>\
+		<<set _chest+=".png">>\
+		<<set _arms="none">>\
+	<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
+		<<set _chest="clothes_cheer_rookie_br_">>\
+		<<set _chest+=_bs>>\
+		<<set _chest+="_hips_">>\
+		<<set _chest+=_hs>>\
+		<<set _chest+=".png">>\
+		<<set _groin="underwear_boxers_hips_">>\
+		<<set _groin+=_hs>>\
+		<<set _groin+=".png">>\
+	<<endif>>\
+<<endif>>\
+\
+<<set _bow = "none">>\
+<<set _b = playerCode.isWearingOn(itemTypes.Hairband)>>\
+<<if _b.id == "hairbow" && $items[_b.id].curAlt eq 43>>\
+	<<if playerCode.haveHaircut()>>\
+		<<if ($body.hairstyle eq 1)>>\
+			<<set _bow="bow_cheer_bow_short.png">>\
+		<<elseif ($body.hairstyle eq 2)>>\
+			<<set _bow="bow_cheer_bow_medium.png">>\
+		<<elseif ($body.hairstyle eq 3)>>\
+			<<set _bow="bow_cheer_bow_long.png">>\
+		<<elseif ($body.hairstyle eq 4)>>\
+			<<set _bow="bow_cheer_bow_tails.png">>\
+		<<elseif ($body.hairstyle eq 5)>>\
+			<<set _bow="bow_cheer_bow_curly.png">>\
+		<<endif>>\
+	<<else>>\
+		<<set _bow="bow_cheer_bow_default.png">>\
 	<<endif>>\
 <<endif>>\
 \
@@ -547,6 +602,14 @@
 \
 <<if _hair neq "none">>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hair>>'>>\
+<<endif>>\
+\
+<<if _bow neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _bow>>'>>\
+<<endif>>\
+\
+<<if _feets neq "none">>\
+	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _feets>>'>>\
 <<endif>>\
 <<endif>>\
 \
