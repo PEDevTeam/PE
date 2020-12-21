@@ -780,14 +780,16 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 			
 		<<endif>>\
 		<<if $time.day eq 1>>\
-			[[Get up and have breakfast|Have breakfast][$kink.incest=false]]
+			[[Get up and have breakfast|Have breakfast]]
 		<<else>>\
 			[[Get up and have breakfast|Have breakfast]]
 		<<endif>>\
 		<<if $flags.cameraBathroom>>\
 		[[Go to your room and watch spy camera stream|Watch spy camera stream][$random.stored=0; $player.room.laptop=true]]
 		<<endif>>\
-		[["Peep on "+$guardian+" in the shower"|Peep into bathroom][$scene="peep"]]
+		<<if $time.day > 1>>\
+			[["Peep on "+$guardian+" in the shower"|Peep into bathroom][$scene="peep"]]
+		<<endif>>\
 		<!--</schoolday>-->\
 	<<endif>>\
 	<!--</default morning>-->\

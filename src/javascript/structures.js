@@ -1450,7 +1450,6 @@ window.flagsList={
 },
 
 window.kinkList={
-	incest: false,
 	futa: false,
 
 	semenConsumptionStarted: false,	
