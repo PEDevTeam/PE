@@ -5,6 +5,7 @@
 <<set $player.friendLastVisit to $time.day>>\
 <<set _femAppearance to playerCode.obviousFemaleAppearance()>>\
 <<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
 \
 <<if _outerWear.female or $friendG.catchUp eq 1>>\
     <<set $friendG.visit.r2 to 2>>\
@@ -12,6 +13,12 @@
 \
 <<if not $flags.friendNamed>>\
 	<<include [[Name friend]]>>\
+\
+<<elseif not _underwear && $friendG.noUnderwear == 0 && _outerWear.female && not _outerWear.shorts>>\
+	<<include [[Friend Commando First]]>>\
+\
+<<elseif not _underwear && $friendG.noUnderwear == 1 && _outerWear.female && not _outerWear.shorts>>\
+	<<include [[Friend Commando Repeat]]>>\
 \
 <<elseif $friendG.catchUp gt 0>>\
 	<<include [[Friend Mid Visit]]>>\
@@ -50,7 +57,7 @@
         <<include [[Friend Basic Teacher Tasks]]>>\
     <<endif>>\
 \
-<<else>>
+<<else>>\
 	<<include [[Friend Basic Visit]]>>\
 <<endif>>\
 \

@@ -142,7 +142,9 @@
 		<<endif>>\
 	<<elseif $cheerleaders.active eq true and (timeCode.isTuesday() or timeCode.isThursday())>>\
 		<<if $cheerleaders.progress == -1>>\
-			[[Return to teacher|Cheer Ep0 Sc5]]
+			<<if timeCode.isThursday()>>\
+				[[Return to teacher|Cheer Ep0 Sc5]]
+			<<endif>>\
 		<<elseif $cheerleaders.flags.skippedPractice>>\
 			[[Go to Cheerleading Practice|Makeup Practice]]
 		<<else>>\
