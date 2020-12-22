@@ -191,7 +191,7 @@
 <<endif>>\
 <!--</perversion progress events>-->\
 \
-<<if $player.daringFlag.bribe>>\
+<<if $player.daringFlag.tuition>>\
 	<<if (not $flags.femaleHall) and _o.female>>\
 		<<set $flags.femaleHall to true>>\
 		$teacher eyes you up and down with a smile. @@.teacher;"You look much better in this uniform than I thought you would. I am impressed."@@
@@ -895,7 +895,7 @@
 <!--</tasks giving>-->\
 	<<set $player.tuitionDiscount+=_deduction>>\
 	<<if timeCode.isMonday()>>\
-		<!--<bribe check>-->\
+		<!--<tuition check>-->\
 			
 		Today is Monday, which means it's time\
 		<<if ($player.tuitionDiscount gte $tuitionAmount)>>\
@@ -914,21 +914,9 @@
 					<<case 2>>to see if $teacher thinks that you've been a proper sissy last week.
 				<</switch>>\
 			<<endif>>\
-		<<elseif ($player.perversion.teacher lte 3)>>\
-			<<switch playerCode.isMind()>>\
-				<<case 0>>to pay for $teacher's silence on your moment of weakness.
-				<<case 1>>to pay for $teacher's silence on your foolish attitude.
-				<<case 2>>to pay for $teacher's silence on your unforgivable behavior.
-			<</switch>>\
-		<<elseif ($player.perversion.teacher lte 6)>>\
-			<<switch playerCode.isMind()>>\
-				<<case 0>>to pay for $teacher's silence on your extra activities.
-				<<case 1>>to pay for $teacher's //guidance//.
-				<<case 2>>to pay for $teacher's //special// lessons.
-			<</switch>>\
 		<<else>>\
 			<<switch playerCode.isMind()>>\
-				<<case 0>>to pay your usual tribute.
+				<<case 0>>to pay your usual tuition.
 				<<case 1>>to pay for your //special// education.
 				<<case 2>>to pay for privilege of being properly trained by $teacher.
 			<</switch>>\
@@ -954,7 +942,7 @@
 				<<set $player.punishments.refusedToPay = false>>\
 				You tell $teacher that //you won't pay.// You wind up with righteous indignation, ready to argue down injustice, but she cuts you off before you even start and heads straight to the door. She pauses, door handle in hand.\
 				
-				@@.teacher;"If this is how you want things, you leave me no choice but to go to the principal. He will be delighted to see your confession video, I'm sure."@@
+				@@.teacher;"If this is how you want things, our 'special relationship' will have to end here."@@
 				
 				Panicking, you rush to her, fall on your knees and beg her to let you pay.
 			<<endif>>\
@@ -1012,7 +1000,7 @@
 		[[Go back to class|Finish school day]]
 	<<elseif window.timeCode.isFriday() and ($player.perversion.teacher gte 3)>>\
 		<<if $tuitionAmount-$player.tuitionDiscount gte 2000>>\
-			@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your confession will go public and I will have a chat with the principal."@@
+			@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your special instruction will come to an end."@@
 			
 		<<endif>>\
 		<<if ($player.punishments.penalty lte 1) and $player.daringFlag.toiletsMasturbating and ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown lte 2) and (not $flags.sissyConfession)>>\
@@ -1102,7 +1090,7 @@
 		<<else>>\
 			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 		<<endif>>\
-	<!--</bribe check>-->\
+	<!--</tuition check>-->\
 	<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
 		
 		@@.teacher;“I also need to speak with you about some distressing news I received in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
