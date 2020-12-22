@@ -138,7 +138,7 @@ P = $player.punishments.penalty , PL = $player.punishments.penaltyMonday \
 chPerc= $player.choresPercent - \
 chCalc= <<print window.choresFunc.choresPercentCalc()>>\
 , P = $player.punishments.penalty , PL = $player.punishments.penaltyMonday \
-<!-- , Br = $bribeAmount , Ds = $player.bribeDiscount \-->\
+<!-- , Br = $tuitionAmount , Ds = $player.tuitionDiscount \-->\
 <!-- , FriendPerv = $player.perversion.friend \-->\
 @@
 <!--TEST OPTIONS debug_a-->\
@@ -229,7 +229,7 @@ $punishments.punStool.text
 		<<endif>>\
 	<<endif>>\
 	<<if $player.perversion.teacher eq 0>>\
-	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $bribeAmount=50; $player.detention=false; $flags.bribePaid=true; $player.daringFlag.bribe=true]] \
+	[[Teach perv 0 to 1|Go to bedroom][$player.perversion.teacher++;$player.daring=3; $tuitionAmount=50; $player.detention=false; $flags.tuitionPaid=true; $player.daringFlag.bribe=true]] \
 	<<elseif $player.perversion.teacher eq 1>>\
 	[[Teach perv 1 to 2|Go to bedroom][$player.perversion.teacher++;$player.daring=4; $player.debugN=2; $player.daringFlag.femaleUnderwear=true]] \
 	<<elseif $player.perversion.teacher eq 2>>\

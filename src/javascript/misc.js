@@ -10,17 +10,10 @@ window.misc={
 		return;
 	},
 	resetGuardian: function() {
-		if (State.active.variables.kink.incest) {
-			State.active.variables.guardian="your mother";
-			State.active.variables.Guardian="Your mother";
-			State.active.variables.myguardian="my mother";
-			State.active.variables.Myguardian="My mother";
-		} else {
-			State.active.variables.guardian=State.active.variables.babysitter;
-			State.active.variables.Guardian=State.active.variables.babysitter;
-			State.active.variables.myguardian=State.active.variables.babysitter;
-			State.active.variables.Myguardian=State.active.variables.babysitter;
-		}
+		State.active.variables.guardian=State.active.variables.babysitter;
+		State.active.variables.Guardian=State.active.variables.babysitter;
+		State.active.variables.myguardian=State.active.variables.babysitter;
+		State.active.variables.Myguardian=State.active.variables.babysitter;
 	},
 	toggleKink: function(kink) {
 		if (kink) {return "checked"}

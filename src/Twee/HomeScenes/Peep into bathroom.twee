@@ -12,12 +12,6 @@
 
 	Damn it, you can't see anything! There must be a towel hanging on the back of the door obscuring the hole.
 
-	<<if $time.day eq 1>>\
-	For a moment you hesitate. Do you really want to peep on your mother?
-
-		[[Yes, it is exactly what you want - (activate incest content)|Peep into bathroom][$kink.incest=true; $scene="Open the bathroom door"]]
-		[[Not really. Go have some breakfast|Have breakfast][$kink.incest=false]]
-	<<else>>\
 	Do you want to gently open the bathroom door, or wait until she finishes in the shower and (hopefully) takes the towel off the door?
 		
 	[[Wait until she’s finished|Peep into bathroom][$scene="Wait"]] 
@@ -28,7 +22,6 @@
 	[[Install camera in bathroom]]
 	<<endif>>\
 	[[Give up and go have some breakfast|Have breakfast]]
-	<<endif>>\
 <<elseif $scene eq "Open the bathroom door">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Shower" 400 400>></div>\
 	You gently open the bathroom door, hoping the sound of the shower will mask any creaks the door makes. You have to open it a lot further than you thought before you can see around it.

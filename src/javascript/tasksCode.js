@@ -2292,7 +2292,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.bribeAmount-State.active.variables.player.bribeDiscount >= 800);
+			return (State.active.variables.tuitionAmount-State.active.variables.player.tuitionDiscount >= 800);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -2351,7 +2351,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.bribeAmount-State.active.variables.player.bribeDiscount >= 400);
+			return (State.active.variables.tuitionAmount-State.active.variables.player.tuitionDiscount >= 400);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -3442,7 +3442,7 @@ window.tasksTeacherBody={
 			finish: function()  { return false; },
 			success: function() {},
 			fail: function() {
-				State.active.variables.player.bribeDiscount-=window.misc.calcSemiPermCost();
+				State.active.variables.player.tuitionDiscount-=window.misc.calcSemiPermCost();
 				return false;
 			},
 		}

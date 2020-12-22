@@ -47,17 +47,17 @@
 	<<endif>>\
 
 	Money: $<span id="sidebar_money">$player.money</span>
-	<<if $bribeAmount gt 0>>\
-		<<if $bribeAmount-$player.bribeDiscount gt 0>>\
+	<<if $tuitionAmount gt 0>>\
+		<<if $tuitionAmount-$player.tuitionDiscount gt 0>>\
 			Debt owed\
 			<<if $time.day % 7 eq 0>>\
 				tomorrow:\
-			<<elseif ($time.day % 7 eq 1) and !$flags.bribePaid>>\
+			<<elseif ($time.day % 7 eq 1) and !$flags.tuitionPaid>>\
 				today:\
 			<<else>>\
 				on Monday:\
 			<<endif>>\
-			$<<print $bribeAmount-$player.bribeDiscount>>\
+			$<<print $tuitionAmount-$player.tuitionDiscount>>\
 		<<else>>\
 			You don't owe $teacher anything\
 		<<endif>>\

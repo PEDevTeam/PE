@@ -1,5 +1,4 @@
 window.kinkTooltip={
-	incest: "Toggles your main guardian to be your mother or a family friend, and includes sexual content",
 	futa: "Most essential males will be replaced by shemales",
 	
 	semenConsumption: "Sex play or sensory fetish directly involving cum",

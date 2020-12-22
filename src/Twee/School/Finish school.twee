@@ -24,7 +24,7 @@
 			
 			@@.teacher;Very good. I have added a new class period before the end of school and registered you for the class. Your new lessons shall start tomorrow."@@
 		<<endif>>\
-		<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+		<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 			The decision made, $teacher's bright attitude instantly vanishes.
 			
 			@@.teacher;"Now, $player.name, I believe there is the matter of some punishment you are owed...  Come with me."@@
@@ -57,7 +57,7 @@
 		
 		@@.teacher;"Because of this, I have decided to personally train you for the future.  I have created a few curriculums appropriate for a sissy such as yourself. Select one, and when your training is complete, we will see about placing you in your desired profession. Of course, if you decide that you are feeling called down a different path, you are welcome to try a new training curriculum.
 		
-		I have spoken with your <<if $kink.incest>>mother<<else>>guardian<<endif>> and she agrees that this special instruction is the best path forward and has offered to help in any way she can.
+		I have spoken with your guardian and she agrees that this special instruction is the best path forward and has offered to help in any way she can.
 
 		Your prospective courses are:@@
 		<<for _i to 0; _i lt $player.ending.endingsTotal; _i++>>\
@@ -84,7 +84,7 @@
 	
 	@@.teacher;"I still have a few things to get in order, but we will begin the next step of your training next Monday. Assuming you do well in your studies, I think you will enjoy what I have planned for you. We might even find some way for you to properly flex that dominant streak you seem to have developed."@@
 	
-	<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+	<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 		She takes you by the hand hand begins leading you to the classroom.
 		
 		@@.teacher;"Now, $player.name, I believe there is the matter of some punishment you are owed...  Come with me."@@
@@ -191,19 +191,19 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $flags.sissyConfessionStart or ((not $flags.sissyConfession) and $flags.bribeFail)>>\
+	<<if $flags.sissyConfessionStart or ((not $flags.sissyConfession) and $flags.tuitionFail)>>\
 		You need to return to $teacher.
 
-		<<if $flags.bribeFail>>\
+		<<if $flags.tuitionFail>>\
 			[[Return to teacher|SissyConfession][$scene="FailToPay"; $time.addMinutes(5)]]
 		<<else>>\
 			[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
 		<<endif>>\
-	<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.bribeFail)>>\
+	<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
 		[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
-	<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
+	<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
 		[[Return to teacher|TeacherPunishment]]

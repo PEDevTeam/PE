@@ -84,7 +84,7 @@
 
 		@@.teacher;"You know, I was thinking about how to reward you, and I think it is time to hear what ideas you have. Let us talk about the matter after classes."@@
 
-		The first thing that comes to mind is getting rid of your chastity cage and being freed from blackmail, but you realize she would never agree to that. But what else do you really want?
+		The first thing that comes to mind is getting rid of your chastity cage, but you realize she would never agree to that. But what else do you really want?
 		
 	<<endif>>\
 <<elseif $player.perversion.teacher eq 10 && ($flags.slutGoodEnd == 0 && $flags.slutGoodEnd == 0) && ($flags.endSchoolSlut > 0 || $flags.nancyChastTalk)>>\
@@ -253,7 +253,7 @@
 				<<set $tasksTeacher.wearDressToSchool.canStart = false>>\
 				<<set $tasksTeacher.wearDressToSchool.status = 0>>\
 				<<set $player.punishments.refusedToCrossdress = false>>\
-				<<set $player.bribeDiscount += window.tasksFunction.taskRewardDebt(tasksTeacher.wearDressToSchool)>>\
+				<<set $player.tuitionDiscount += window.tasksFunction.taskRewardDebt(tasksTeacher.wearDressToSchool)>>\
 				<<set $player.perversion.teacher = 4>>\
 				<<set $player.perversion.teacherCooldown = 0>>\
 				<<set $player.perversion.crossdressing = 10>>\
@@ -569,7 +569,7 @@
 <!--	--><<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
 <!--		--><<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
 <!--		--><<if _rewardDebt gt 0>>\
-<!--			--><<set $player.bribeDiscount += _rewardDebt>>\
+<!--			--><<set $player.tuitionDiscount += _rewardDebt>>\
 <!--			-->@@.teacher; Minus $<<print _rewardDebt>> from debt."@@\
 <!--		--><<else>>\
 <!--			-->@@.teacher;"@@\
@@ -837,9 +837,9 @@
 <!--</clothes check>-->\
 \
 <!----><<if _deduction gt 0>>\
-<!--	-->@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
+<!--	-->@@.teacher;<<openQuote>>That makes it <<if $player.tuitionDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
 <!----><<elseif $player.perversion.teacher lte 8>>\
-<!--	-->@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
+<!--	-->@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.tuitionDiscount+_deduction lt $tuitionAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
 <!----><<endif>>\
 \
 	<!--<tasks giving>-->\
@@ -893,12 +893,12 @@
 	<<endif>>\
 	
 <!--</tasks giving>-->\
-	<<set $player.bribeDiscount+=_deduction>>\
+	<<set $player.tuitionDiscount+=_deduction>>\
 	<<if timeCode.isMonday()>>\
 		<!--<bribe check>-->\
 			
 		Today is Monday, which means it's time\
-		<<if ($player.bribeDiscount gte $bribeAmount)>>\
+		<<if ($player.tuitionDiscount gte $tuitionAmount)>>\
 			<<if ($player.perversion.teacher lte 3)>>\
 				to see if $teacher is satisfied with your performance last week.
 			<<elseif ($player.perversion.teacher lte 6)>>\
@@ -935,7 +935,7 @@
 		<<endif>>\
 	
 		<<if $player.punishments.refusedToCrossdress>>\
-			<<if ($player.bribeDiscount gte $bribeAmount)>>\
+			<<if ($player.tuitionDiscount gte $tuitionAmount)>>\
 				Despite paying off the debt amount through your obedience last week, you still face punishment for refusing to wear a school dress.
 			<<else>>\
 				It no longer matters now whether you have the money or not. Your refusal to wear a school dress means you will face punishment.
@@ -943,14 +943,14 @@
 			
 			@@.teacher;"I thought we had an agreement. How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
 			
-			[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
-		<<elseif ($player.bribeDiscount gte $bribeAmount)>>\
+			[[Go back to class|Finish school day][playerCode.payTuitionRefusal()]]
+		<<elseif ($player.tuitionDiscount gte $tuitionAmount)>>\
 			@@.teacher;"Well done, $player.name, you've paid off this week's debt with your obedience.@@
 			
 		<<else>>\
-			@@.teacher;"So, $player.name, you owe me $<<print $bribeAmount-$player.bribeDiscount>> this week."@@
+			@@.teacher;"So, $player.name, you owe me $<<print $tuitionAmount-$player.tuitionDiscount>> this week."@@
 
-			<<if $player.punishments.refusedToPay and ($bribeAmount-$player.bribeDiscount gte 2000)>>\
+			<<if $player.punishments.refusedToPay and ($tuitionAmount-$player.tuitionDiscount gte 2000)>>\
 				<<set $player.punishments.refusedToPay = false>>\
 				You tell $teacher that //you won't pay.// You wind up with righteous indignation, ready to argue down injustice, but she cuts you off before you even start and heads straight to the door. She pauses, door handle in hand.\
 				
@@ -958,7 +958,7 @@
 				
 				Panicking, you rush to her, fall on your knees and beg her to let you pay.
 			<<endif>>\
-			<<if $player.money+2000 lt $bribeAmount-$player.bribeDiscount>>\
+			<<if $player.money+2000 lt $tuitionAmount-$player.tuitionDiscount>>\
 				You open your wallet, hoping it's been magically filled with some cash since you last looked, but you still don't have enough money to reduce your debt.
 	
 				[[Uh oh|Endgame teacher bribe]]
@@ -973,45 +973,45 @@
 				<<endif>>\
 				@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
 				
-				[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
-			<<elseif $player.money lt $bribeAmount-$player.bribeDiscount>>\
+				[[Go back to class|Finish school day][playerCode.payTuitionRefusal()]]
+			<<elseif $player.money lt $tuitionAmount-$player.tuitionDiscount>>\
 				You open your wallet, hoping it's been magically filled with more cash since you last looked, but you still don't have enough money to pay $teacher.
 	
 				@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
 	
-				[[Go back to class|Finish school day][playerCode.payBribePartial()]]
+				[[Go back to class|Finish school day][playerCode.payTuitionPartial()]]
 			<<else>>\
 				You pay $teacher her money.
 				
 			<<endif>>\
 		<<endif>>\
-		<<set window.playerCode.calculateBribeIncrease()>>\
-		<<if ($player.money gte $bribeAmount-$player.bribeDiscount) and ((not $player.punishments.refusedToPay) or ($player.bribeDiscount gte $bribeAmount)) and (not $player.punishments.refusedToCrossdress)>>\
+		<<set window.playerCode.calculateTuitionIncrease()>>\
+		<<if ($player.money gte $tuitionAmount-$player.tuitionDiscount) and ((not $player.punishments.refusedToPay) or ($player.tuitionDiscount gte $tuitionAmount)) and (not $player.punishments.refusedToCrossdress)>>\
 			<<set $player.punishments.refusedToPay = false>>\
-			<<if (playerCode.nextBribeAmount() gt $bribeAmount)>>\
-				@@.teacher;"Thank you, $player.name. That was a bit easy, was it not? I think I will increase your weekly payment to $<<print playerCode.nextBribeAmount()>>. I am sure an enterprising boy like yourself won't find that too difficult."@@
+			<<if (playerCode.nextTuitionAmount() gt $tuitionAmount)>>\
+				@@.teacher;"Thank you, $player.name. That was a bit easy, was it not? I think I will increase your weekly payment to $<<print playerCode.nextTuitionAmount()>>. I am sure an enterprising boy like yourself won't find that too difficult."@@
 				
 				@@.heroT;Fuck.@@
 				
 			<<else>>\
-				@@.teacher;"Thank you, $player.name. Do not forget - I want another $<<print $bribeAmount>> next Monday."@@
+				@@.teacher;"Thank you, $player.name. Do not forget - I want another $<<print $tuitionAmount>> next Monday."@@
 				
 				At least she didn't increase it again.
 				
 			<<endif>>\
-			[[Go back to class|Finish school day][playerCode.payBribe()]]
+			[[Go back to class|Finish school day][playerCode.payTuition()]]
 		<<endif>>\
 	<<elseif window.timeCode.isFriday() and ($player.perversion.teacherPermChastity gte 7)>>\
 		<<if ($player.punishments.penalty lte 3)>>\
 		@@.teacher;<<openQuote>>Since your chastity is permanent, I will just write off $<<print 100>> from your debt."@@
-		<<set $player.bribeDiscount+=100>>\
+		<<set $player.tuitionDiscount+=100>>\
 		<<else>>\
 		@@.teacher;<<openQuote>>Your behavior was unsatisfactory this week. No reduction of debt for you."@@
 		<<endif>>\
 			
 		[[Go back to class|Finish school day]]
 	<<elseif window.timeCode.isFriday() and ($player.perversion.teacher gte 3)>>\
-		<<if $bribeAmount-$player.bribeDiscount gte 2000>>\
+		<<if $tuitionAmount-$player.tuitionDiscount gte 2000>>\
 			@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your confession will go public and I will have a chat with the principal."@@
 			
 		<<endif>>\
@@ -1084,9 +1084,9 @@
 			[[Agree to remain in chastity][$flags.chastityAgree=true]]
 			[[Refuse to remain in chastity][$flags.chastityAgree=false]]
 		<<elseif ($player.perversion.teacher gte 4) and ($player.punishments.penalty lte 3) and (not $flags.lockedWeekend)>>\
-			<<if ($bribeAmount-$player.bribeDiscount gte 100)>>\
+			<<if ($tuitionAmount-$player.tuitionDiscount gte 100)>>\
 			@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off $<<print 100>> from your debt."@@
-			<<elseif ($bribeAmount-$player.bribeDiscount gt 0)>>\
+			<<elseif ($tuitionAmount-$player.tuitionDiscount gt 0)>>\
 			@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off the rest of your debt for this week."@@
 			<<else>>\
 			@@.teacher;"Wait - you //could// stay in chastity for the weekend. I will be //very// pleased if you choose to."@@

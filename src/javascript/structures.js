@@ -104,7 +104,7 @@ window.structures={
 		if (vars.itemsSize == null) { vars.itemsSize = 2; }
 		if (vars.roomSize == null) { vars.roomSize = 2; }
 		if (vars.sidebarTab == null) { vars.sidebarTab = 0; }
-		if (vars.bribeAmount == null) { vars.bribeAmount = 0; }
+		if (vars.tuitionAmount == null) { vars.tuitionAmount = 0; }
 		if (vars.showimages == null) { vars.showimages = true; }
 		if (vars.scene == null) { vars.scene = ""; }
 		if (vars.showStats == null) { vars.showStats = false; }
@@ -753,8 +753,8 @@ window.playerList={
 	alarmClockGuardian: false,
 	batteryExpireDay: 0,
 	batterySneakDay: 0,
-	bribeDiscount: 0,
-	bribeIncrease: 10,
+	tuitionDiscount: 0,
+	tuitionIncrease: 10,
 	friendLastVisit: 0,
 	clothes: [],
 	clothesTmp: null,
@@ -1155,9 +1155,9 @@ window.flagsList={
 	avatarHelp: false,
 	checkSelfHelp: false,
 	easyMinigames: false,
-	bribePaid: false,
+	tuitionPaid: false,
 	bribeTransfered: false,
-	bribeFail: false,
+	tuitionFail: false,
 	cameraBathroom: false,
 	cameraBedroom: false,
 	forcedHorny: false,
@@ -1410,7 +1410,7 @@ window.flagsList={
 	canGame: true,
 	difficulty: 2,
 	choreFactor: 1,
-	bribeFactor: 1,
+	tuitionFactor: 1,
 	metClothesClerk: false,
 	quizState: "none",
 	quiz: [0,0,0,0,0,0,0,0,0,0],
@@ -1450,7 +1450,6 @@ window.flagsList={
 },
 
 window.kinkList={
-	incest: false,
 	futa: false,
 
 	semenConsumptionStarted: false,	
