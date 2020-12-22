@@ -231,38 +231,7 @@
 		<<elseif ($player.perversion.guardian eq 1) or (($player.perversion.guardian gt 1) and ($player.therapistMode eq false))>>\
 			She frowns at you for a moment.
 			
-			<<if $player.therapistMode eq false>>\
-				<<set playerCode.activateTherapist(2)>>\
-				<<if ($player.perversion.guardian lte 2)>>\
-					@@.guardian;"I've decided you need to see a therapist to work out why you would invade my privacy like you did.@@\
-				<<else>>\
-					@@.guardian;"I've decided you need to see a therapist to help you work out your new interests.@@\
-					<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen or $items.playgirlMagazine.stolen>>\
-						@@.guardian;You know, I've found my\
-						<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen>>\
-							panties\
-						<<elseif $items.playgirlMagazine.stolen>>\
-							magazine\
-						<<endif>>\
-						in your room. You have to know that some things are private.@@\
-					<<endif>>\
-				<<endif>>\
-				@@.guardian;I've set up appointments for you every\
-				<<for _i to 0; _i lt $player.therapistDays.length; _i++>>\
-					<<if _i gt 0>>\
-						<<if $player.therapistDays.length - _i gt 1>>\
-							,\
-						<<else>>\
-							and\
-						<<endif>>\
-					<<endif>>\
-					<<print weekdaysCode[$player.therapistDays[_i]]>><</for>>."@@
-					
-				@@.guardian;"Also, I think you should do more housework."@@\
-				
-			<<else>>\
-				After a moment, she relaxes and her expression warms a bit.
-			<<endif>>\
+			After a moment, she relaxes and her expression warms a bit.
 		<<elseif $player.perversion.guardian eq 2>>\
 			With a calculating look in her eyes, she smiles and picks up her morning coffee, eyeing you closely.
 		<<elseif $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>\

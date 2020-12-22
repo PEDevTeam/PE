@@ -496,22 +496,12 @@
 <<set $scene = window.misc.toggleKink( $kinkAllow.spitting )>>\
 <div class="tooltip">\
 <<if $kinkAllow.degradation>>\
-	<<checkbox "$kinkAllow.spitting" false true $scene>> <<print _kinkDesc>> &#9702; \
+	<<checkbox "$kinkAllow.spitting" false true $scene>> <<print _kinkDesc>> \
 <<else>>\
-	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
+	@@.halftransparent; &#x2610; <<print _kinkDesc>> @@\
 <<endif>>\
 <span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
 \
-<<set _kinkDesc = "Abusive physical contact">>\
-<<set _tooltip = window.kinkTooltip.abusive>>\
-<<set $scene = window.misc.toggleKink( $kinkAllow.abusive )>>\
-<div class="tooltip">\
-<<if $kinkAllow.degradation>>\
-	<<checkbox "$kinkAllow.abusive" false true $scene>> <<print _kinkDesc>>\
-<<else>>\
-	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
-<<endif>>\
-<span id="test_surv" class="tooltiptext2"><<print _tooltip>></span></div> \
 
 <<set _kinkDesc = "Tattoo">>\
 <<set _tooltip = window.kinkTooltip.tattoo>>\
@@ -529,29 +519,7 @@
 <<set $scene = window.misc.toggleKink( $kinkAllow.piercing )>>\
 <div class="tooltip">\
 <<if $kinkAllow.degradation>>\
-	<<checkbox "$kinkAllow.piercing" false true $scene>> <<print _kinkDesc>> &#9702; \
-<<else>>\
-	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
-<<endif>>\
-<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
-\
-<<set _kinkDesc = "Mind control">>\
-<<set _tooltip = window.kinkTooltip.mindControl>>\
-<<set $scene = window.misc.toggleKink( $kinkAllow.mindControl )>>\
-<div class="tooltip">\
-<<if $kinkAllow.degradation>>\
-	<<checkbox "$kinkAllow.mindControl" false true $scene>> <<print _kinkDesc>> &#9702; \
-<<else>>\
-	@@.halftransparent; &#x2610; <<print _kinkDesc>> &#9702; @@\
-<<endif>>\
-<span id="test_surv" class="tooltiptext"><<print _tooltip>></span></div> \
-\
-<<set _kinkDesc = "Questionably consensual sex">>\
-<<set _tooltip = window.kinkTooltip.questionable>>\
-<<set $scene = window.misc.toggleKink( $kinkAllow.questionable )>>\
-<div class="tooltip">\
-<<if $kinkAllow.degradation>>\
-	<<checkbox "$kinkAllow.questionable" false true $scene>> <<print _kinkDesc>>\
+	<<checkbox "$kinkAllow.piercing" false true $scene>> <<print _kinkDesc>>\
 <<else>>\
 	@@.halftransparent; &#x2610; <<print _kinkDesc>>@@\
 <<endif>>\

@@ -1,45 +1,53 @@
 :: TeacherPunishment [pos_1800_2092]
 \
 <<if window.timeCode.isMonday()>>\
-	<<if $bribeAmount-$player.bribeDiscount lte 200>>\
+	<<if $tuitionAmount-$player.tuitionDiscount lte 200>>\
 		<<set teacherCode.addPenalty(2)>>\
-	<<elseif $bribeAmount-$player.bribeDiscount lte 500>>\
+	<<elseif $tuitionAmount-$player.tuitionDiscount lte 500>>\
 		<<set teacherCode.addPenalty(3)>>\
-	<<elseif $bribeAmount-$player.bribeDiscount lte 700>>\
+	<<elseif $tuitionAmount-$player.tuitionDiscount lte 700>>\
 		<<set teacherCode.addPenalty(4)>>\
-	<<elseif $bribeAmount-$player.bribeDiscount lte 1000>>\
+	<<elseif $tuitionAmount-$player.tuitionDiscount lte 1000>>\
 		<<set teacherCode.addPenalty(5)>>\
 	<<else>>\
 		<<set teacherCode.addPenalty(6)>>\
 	<<endif>>\
-	<<if $player.punishments.refusedToPay or $player.punishments.refusedToCrossdress>>\
-		@@.teacher;"You know our arrangement; I’ll have to punish you now. Come with me!"@@
-	<<else>>\
-		@@.teacher;"My, broke again? You know our arrangement. I will have to punish you now. Come with me!"@@
+	<<if $player.punishments.refusedToPay or $player.punishments.refusedToCrossdress and not $flags.punConsent>>\
+		<<set $flags.postConPassage = "TeacherPunishment">>\
+		<<include [[consent check]]>>\
+		
+	<<elseif not $flags.punConsent>>\
+		<<set $flags.postConPassage = "TeacherPunishment">>\
+		<<include [[consent check]]>>\
+		
 	<<endif>>\
-	
 <<endif>>\
 \
 <<set $player.punishments.penaltySkipped = false>>\
-<<set _pg = $player.punishments.penalty>>\
-<<if window.timeCode.isMonday()>>\
-	<<set _punish=window.teacherCode.selectPunishment( _pg, punTypes.FailToPay+punTypes.FailToPayBodyMod, true)>>\
-<<else>>\
-	<<set _punish=window.teacherCode.selectPunishment( _pg, punTypes.Friday, false)>>\
-<<endif>>\
-<<if _punish>>\
-	<<if _punish.passage>>\
-		<<set $scene=_punish.passage>>\
-		<<display [[TeacherPunishmentsScenes]]>>\
-	<<else>>\
-		<<print _punish.text>>\
+<<if $flags.punConsent>>\
+	<<if not $flags.permConsent>>\
+		<<set $flags.punConsent = false>>\
 	<<endif>>\
-	<<set _punish.end()>>\
-<<else>>\
+	<<set _pg = $player.punishments.penalty>>\
 	<<if window.timeCode.isMonday()>>\
-		<<set $scene="placeholderMonday">>\
+		<<set _punish=window.teacherCode.selectPunishment( _pg, punTypes.FailToPay+punTypes.FailToPayBodyMod, true)>>\
 	<<else>>\
-		<<set $scene="placeholder">>\
+		<<set _punish=window.teacherCode.selectPunishment( _pg, punTypes.Friday, false)>>\
 	<<endif>>\
-	<<display [[TeacherPunishmentsScenes]]>>\
+	<<if _punish>>\
+		<<if _punish.passage>>\
+			<<set $scene=_punish.passage>>\
+			<<display [[TeacherPunishmentsScenes]]>>\
+		<<else>>\
+			<<print _punish.text>>\
+		<<endif>>\
+		<<set _punish.end()>>\
+	<<else>>\
+		<<if window.timeCode.isMonday()>>\
+			<<set $scene="placeholderMonday">>\
+		<<else>>\
+			<<set $scene="placeholder">>\
+		<<endif>>\
+		<<display [[TeacherPunishmentsScenes]]>>\
+	<<endif>>\
 <<endif>>\

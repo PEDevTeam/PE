@@ -1,17 +1,4 @@
-window.playerCode={
-	activateTherapist: function(numDays) {
-		var player=State.active.variables.player;
-		player.therapistMode=true;
-		if (numDays < 4) {
-			var d=State.active.variables.time.day+1;
-			for (var i=0; i < numDays; i++) {
-				player.therapistDays.push(d % 7);
-				d+=Math.floor(7 / numDays);
-			}
-		} else {
-			player.therapistDays.push([1,2,3,4,5]);
-		}
-	},	
+window.playerCode={	
 	isWearing: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},
@@ -150,19 +137,16 @@ window.playerCode={
 		return 0;
 	},
 	isMind_0: function() {
-		return (State.active.variables.player.perversion.therapist < 4);//Unaffected mind, PC tries to resist feminization, but being pervy teenager any lewd stuff makes him horny. After getting some sexual experience learns to enjoy being fucked, but still resists and object that he likes it even just for a show.
+		return false;
 	},
 	isMind_1: function() {
-		return (State.active.variables.player.perversion.therapist == 4);//Curious/Tempted - PC acts curious, but object too direct lewd stuff. After getting some sexual experience might behave flirty and admits that he enjoys his new sex life.
+		return false;
 	},
 	isMind_2: function() {
-		return (State.active.variables.player.perversion.therapist > 4);//Corrupted - PC's deepest desires are brought to surface and amplified. Mostly welcomes feminization, except for too extreme stuff. After experiencing various types of sexual intercourse becomes cock-addicted.
+		return true;
 	},
 	isMind: function() {
-		if (this.isMind_0()) {return 0;}
-		if (this.isMind_1()) {return 1;}
-		if (this.isMind_2()) {return 2;}
-		return 0;
+		return 2;
 	},
 	isMaid: function() {
 		return (State.active.variables.player.perversion.guardian >= 5);
@@ -358,42 +342,42 @@ window.playerCode={
 		}
 		return false;
 	},
-	payBribe: function() {
+	payTuition: function() {
 		var player=State.active.variables.player;
-		player.money-=Math.max(0, State.active.variables.bribeAmount-player.bribeDiscount);
-		player.bribeDiscount=0;
-		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
-		State.active.variables.flags.bribePaid=true;
+		player.money-=Math.max(0, State.active.variables.tuitionAmount-player.tuitionDiscount);
+		player.tuitionDiscount=0;
+		State.active.variables.tuitionAmount=window.playerCode.nextTuitionAmount();
+		State.active.variables.flags.tuitionPaid=true;
 	},
-	payBribePartial: function() {
+	payTuitionPartial: function() {
 		var player=State.active.variables.player;
-		player.bribeDiscount+=player.money;
-		player.bribeDiscount-=State.active.variables.bribeAmount;
+		player.tuitionDiscount+=player.money;
+		player.tuitionDiscount-=State.active.variables.tuitionAmount;
 		player.money=0;
-		State.active.variables.flags.bribePaid=true;
-		State.active.variables.flags.bribeFail=true;
-		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
+		State.active.variables.flags.tuitionPaid=true;
+		State.active.variables.flags.tuitionFail=true;
+		State.active.variables.tuitionAmount=window.playerCode.nextTuitionAmount();
 	},
-	payBribeRefusal: function() {
+	payTuitionRefusal: function() {
 		var player=State.active.variables.player;
-		player.bribeDiscount-=State.active.variables.bribeAmount;
-		State.active.variables.flags.bribePaid=true;
-		State.active.variables.flags.bribeFail=true;
-		State.active.variables.bribeAmount=window.playerCode.nextBribeAmount();
+		player.tuitionDiscount-=State.active.variables.tuitionAmount;
+		State.active.variables.flags.tuitionPaid=true;
+		State.active.variables.flags.tuitionFail=true;
+		State.active.variables.tuitionAmount=window.playerCode.nextTuitionAmount();
 	},
-	nextBribeAmount: function() {
+	nextTuitionAmount: function() {
 		var player=State.active.variables.player;
-		return Math.min(State.active.variables.bribeAmount + player.bribeIncrease, 200*State.active.variables.flags.bribeFactor);
+		return Math.min(State.active.variables.tuitionAmount + player.tuitionIncrease, 200*State.active.variables.flags.tuitionFactor);
 	},
-	calculateBribeIncrease: function() {
+	calculateTuitionIncrease: function() {
 		var player=State.active.variables.player;
 		
-		if (player.perversion.teacher < 3) { player.bribeIncrease = 10*State.active.variables.flags.bribeFactor; return; }
-		if (player.perversion.teacher < 5) { player.bribeIncrease = Math.floor(15*State.active.variables.flags.bribeFactor); return; }
-		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.bribeIncrease = 0; return; }
-		if (player.perversion.teacher < 7) { player.bribeIncrease = 20*State.active.variables.flags.bribeFactor; return; }
+		if (player.perversion.teacher < 3) { player.tuitionIncrease = 10*State.active.variables.flags.tuitionFactor; return; }
+		if (player.perversion.teacher < 5) { player.tuitionIncrease = Math.floor(15*State.active.variables.flags.tuitionFactor); return; }
+		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.tuitionIncrease = 0; return; }
+		if (player.perversion.teacher < 7) { player.tuitionIncrease = 20*State.active.variables.flags.tuitionFactor; return; }
 		
-		player.bribeIncrease = 30*State.active.variables.flags.bribeFactor;
+		player.tuitionIncrease = 30*State.active.variables.flags.tuitionFactor;
 	},
 	owns: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;

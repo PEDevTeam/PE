@@ -1,7 +1,7 @@
 :: Agree to extra instruction
-<<set $bribeAmount=50*$flags.bribeFactor>>\
-<<set $player.bribeDiscount=(10*$time.weekDay()-10)*$flags.bribeFactor>>\
-<<set _nb = $bribeAmount-$player.bribeDiscount>>\
+<<set $tuitionAmount=50*$flags.tuitionFactor>>\
+<<set $player.tuitionDiscount=(10*$time.weekDay()-10)*$flags.tuitionFactor>>\
+<<set _nb = $tuitionAmount-$player.tuitionDiscount>>\
 <<set $player.perversion.teacher=1>>\
 <<set $player.perversion.teacherCooldown=0>>\
 <<set $player.daringFlag.bribe=true>>\
@@ -19,13 +19,13 @@ Not having a clue about what she said, you just nod once, your expression sullen
 
 She seems almost offended, but you’re unsure if it’s due to the fact that you just offered her money or <<if $player.money >0>>how little you offered<<else>>your current lack of it<<endif>>.
 
-@@.teacher;“$player.name, you know that no amount of money will cause me to look past your misdeed in the hallway, but I suppose we could come up with some sort of arrangement for my time as a //special// instructor. The rate for my help, as well as my discretion, is $bribeAmount dollars a week. This is to be paid each Monday. If you fail to make your payments, then our deal is off and the principal will hear about your actions.  Is that understood?@@
+@@.teacher;“$player.name, you know that no amount of money will cause me to look past your misdeed in the hallway, but I suppose we could come up with some sort of arrangement for my time as a //special// instructor. The rate for my help, as well as my discretion, is $tuitionAmount dollars a week. This is to be paid each Monday. If you fail to make your payments, then our deal is off and the principal will hear about your actions.  Is that understood?@@
 
 You nod timidly.
 
 @@.teacher;"Good. I would hate to see you expelled when you are clearly capable of redemption.\
-<<if $player.bribeDiscount gt 0>>\
-	Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.bribeDiscount>>, to $<<print _nb>>. \
+<<if $player.tuitionDiscount gt 0>>\
+	Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.tuitionDiscount>>, to $<<print _nb>>. \
 <<endif>>\
 <<if $flags.bullySteal>>\
 	I will also stop those $futa.boy_girl////s from stealing your money in the morning. \	
@@ -41,6 +41,6 @@ $teacher pauses for a moment longer, intently watching your expression as the gr
 @@.teacher;“The choice is clear, $player.name. You pay for my services and submit to my instruction, or we can discuss this matter with the principal…”@@
 
 <<set $player.detention=false>>\
-<<set $flags.bribePaid=true>>\
+<<set $flags.tuitionPaid=true>>\
 [[Agree|Finish school][$flags.daring3Add = true]]
 [[I won’t wear panties|I cant]]

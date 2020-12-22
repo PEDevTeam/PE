@@ -75,8 +75,8 @@ window.timeCode={
 			State.active.variables.flags.moreBlowjobs=false;		
 		}
 		player.blowjobsToday=0;
-		State.active.variables.flags.bribePaid=false;
-		State.active.variables.flags.bribeFail=false;
+		State.active.variables.flags.tuitionPaid=false;
+		State.active.variables.flags.tuitionFail=false;
 		window.dreamMinigame.reset();
 		window.coachMinigame.reset();
 	},
