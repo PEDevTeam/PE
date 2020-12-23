@@ -5,6 +5,29 @@ You go to the detention room. $teacher is waiting for you.
 
 @@.teacher;"Ok, $player.name. <<display "Detention Punishment">>"@@
 
-[[Do as you're told|Finish school][$time.addMinutes(30)]]
-
+<<if $player.perversion.teacher >1>>\
+<<if window.timeCode.isMonday()>>\
+		<<if $flags.walletForgottenStart>>\
+			<<set $flags.walletForgottenEnd = true>>\
+		<<endif>>\
+	<<else>>\
+		<<if playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
+			Finally, $teacher unlocks your chastity cage.
+			
+			<<set $flags.chastityLocked = false>>\
+		<<endif>>\
+	<<endif>>\
+	<<set $player.punishments.refusedToPay = false>>\
+	<<set $time.addMinutes(30)>>\
+	<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE != 9>>\
+		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
+	<<else>>\
+		<<if $tasksTeacher.goOnDate.status == 1>>\
+			[[Ask the jogger out on a date|jogger_date_1]]
+		<<endif>>\
+		<<display [[Travel]]>>\
+	<<endif>>\
+<<else>>\
+	[[Do as you're told|Finish school][$time.addMinutes(30)]]
+<<endif>>
 

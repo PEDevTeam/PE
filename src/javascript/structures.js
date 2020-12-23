@@ -1447,6 +1447,9 @@ window.flagsList={
 	poiseRemedialGuardian: false,
 	bimboLessonPartner: "none",
 	lessonMultiFail: false,
+	punConsent: false,
+	permConsent: false,
+	postConPassage: "",
 },
 
 window.kinkList={

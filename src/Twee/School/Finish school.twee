@@ -181,7 +181,7 @@
 				
 				@@.teacher;"Listen very carefully, as I shall say this only once. 
 				
-				"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off, and I will go straight to the principal."@@
+				"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off."@@
 			<<endif>>\
 		<<elseif $flags.lockedWeekend>>\
 			<<if ($player.punishments.penalty eq 0)>>\
@@ -195,14 +195,14 @@
 		You need to return to $teacher.
 
 		<<if $flags.tuitionFail>>\
-			[[Return to teacher|SissyConfession][$scene="FailToPay"; $time.addMinutes(5)]]
+			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="FailToPay"; $time.addMinutes(5)]]
 		<<else>>\
-			[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
+			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="ReturnToTeacher"; $time.addMinutes(5)]]
 		<<endif>>\
 	<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
-		[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
+		[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="SecondVisit"; $time.addMinutes(5)]]
 	<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
