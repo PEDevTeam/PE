@@ -1,6 +1,7 @@
 ::Choose Lesson
 <<set _scene = "none">>\
 <<set _forceFail = false>>\
+/*
 <<if timeCode.isMonday()>>\
 	<<if $player.ending.comportment.etiquette.partyStart>>\
 		<<set $player.ending.comportment.etiquette.progress++>>\
@@ -52,6 +53,7 @@
 		<<endif>>\
 	<</for>>\
 <<endif>>\
+*/\
 <!--
 	Backwards compatability code.  Might delete later once most players have cleared it.
 -->\
@@ -116,13 +118,6 @@
 			<<endif>>\
 		<<endif>>\
 		<<break>>\
-	<<elseif $player.ending.comportment.classStatus[_classIndex] == 3>>\
-		<<if _classIndex < 2>>\
-				<<set _scene = "comportment_" + _class + "_penalty_1">>\
-		<<else>>\
-				<<set _scene = "coming soon">>\
-		<<endif>>\
-		<<break>>\
 	<<else>>\
 		<<set _completeCount +=1>>\
 		<<if _completeCount == $player.ending.comportment.numOfLessons.length>>\
@@ -131,7 +126,7 @@
 	<<endif>>\
 <</for>>\
 <<if _forceFail>>\
-	<<set _scene = "comportment_" + _failClass + "_penalty_1">>\
+	/*<<set _scene = "comportment_" + _failClass + "_penalty_1">>\*/\
 <<endif>>\
 <<if _scene == "partyReminder">>\
 	@@.teacher;"Remember, I want you to attend my party on Saturday for your next lesson. Be at school before 6 pm, and I shall drive you to my house."@@

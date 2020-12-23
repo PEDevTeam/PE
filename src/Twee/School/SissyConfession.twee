@@ -3,32 +3,20 @@
 <<if ($scene eq "ReturnToTeacher") or ($scene eq "FailToPay")>>\
 	<<set $flags.sissyConfessionStart = false>>\
 	<<if $scene eq "ReturnToTeacher">>\
-		You return to $teacher, hoping to get free from the damned chastity cage.
-		
-		@@.teacher;"So, I can unlock you for the weekend if you prove to me that you truly regret your behavior."@@
+		@@.teacher;"So, I can unlock you for the weekend if you prove to me that you truly regret your behavior,"@@ $teacher says.
 	<<elseif $scene eq "FailToPay">>\
-		You return to $teacher, dreading the consequences of your little rebellion.
-
 		<<if $player.punishments.refusedToCrossdress>>\
-			@@.teacher;"So, I guess it is time for my talk with the principal."@@ 
-			
-			She walks toward the door and your heart sinks as you realize you're about to be expelled.
 		<<else>>\
-			@@.teacher;"So, you don't have enough money? It would seem the principal is owed a conversation then, instead."@@ 
-			
-			She walks toward the door and your heart sinks as you realize you're about to be expelled.\
 			<<if $player.punishments.refusedToPay>>\
-				Desperate, you run to her, telling her that you will pay, taking out the money, but $teacher just frowns at you.
+				Desperate, you run to $teacher, telling her that you will pay, taking out the money, but she just frowns at you.
 				
 				@@.teacher;"You had your chance! I won't accept it now, but there may be another way to earn my forgiveness this time."@@
 				
-				You really don't want to be expelled.
 			<<else>>\
 				$teacher stops near the door and turns around to look at you.
 				
 				@@.teacher;"Actually there might be one way for you to earn my forgiveness this time."@@
 				
-				You really don't want to be expelled.
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\

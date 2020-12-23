@@ -17,16 +17,9 @@ You stand naked in front of $teacher, waiting for her assessment.
 	<<for _val range $player.ending.comportment.bimbo.lessonFail>>\
 		<<set _failedLessons += _val>>\
 	<</for>>\
-	<<if _failedLessons > 1>>\
-		<<set $player.ending.comportment.classStatus[2] = 5>>\
-		You turn to leave, stop when you hear $teacher clear her throat behind you.  @@.teacher;“That said, do not think that I have forgotten about your previous failures.  I believe some remedial instruction is in order, just to drive the point home.  Come with me.”@@
-
-		[[Follow|comportment_bimbo_penalty_2][$curScene.prev_stage=3]]
-	<<else>>\
-		<<set $player.ending.comportment.classStatus[2] = 4>>\
-		Trembling slightly you nod as she steps away. She gestures in the direction of your clothes, and you dress yourself and depart. Your heart thunders in your chest, until you finally make your way out of the hotel lobby's doors.
+	<<set $player.ending.comportment.classStatus[2] = 4>>\
+	Trembling slightly you nod as she steps away. She gestures in the direction of your clothes, and you dress yourself and depart. Your heart thunders in your chest, until you finally make your way out of the hotel lobby's doors.
 		
-		<<display [[Travel]]>>\
 	<<endif>>\
 <<elseif $curScene.stage1 == 'wait' || $curScene.stage3 == 'clothes' || $curScene.stage4 == 'you' || $curScene.stage5 == 'surrender' || $curScene.stage6 == 'sleep'>>\
 	<<if $curScene.stage1 == 'wait' && $curScene.stage2 == 'relax' && $curScene.stage3 == 'clothes' && $curScene.stage4 == 'you' && ($curScene.stage5 == 'surrender' || $curScene.stage5 == 'self') && $curScene.stage6 == 'sleep'>>\
@@ -39,17 +32,9 @@ You stand naked in front of $teacher, waiting for her assessment.
 	<<for _val range $player.ending.comportment.bimbo.lessonFail>>\
 		<<set _failedLessons += _val>>\
 	<</for>>\
-	<<if _failedLessons > 1>>\
-		<<set $player.ending.comportment.classStatus[2] = 5>>\
-		@@.teacher;“Well you will certainly not improve if these errors are left to fester. Come. It is time for a remedial lesson.”@@
-
-		[[Follow|comportment_bimbo_penalty_2][$curScene.prev_stage=3]]
-		<<set $player.ending.comportment.etiquette.progress++>>\
-	<<else>>
-		@@.teacher;“We will repeat this lesson next weekend and again and again until you get it right.”@@
-		
-		<<display [[Travel]]>>
-	<<endif>>
+	@@.teacher;“We will repeat this lesson next weekend and again and again until you get it right.”@@
+	
+	<<display [[Travel]]>>
 <<else>>\
 	<<if $curScene.stage1 == 'greet' || $curScene.stage2 == 'bedroom' || $curScene.stage3 == 'slow' || $curScene.stage4 == 'them' || $curScene.stage5 == 'seductive' || $curScene.stage5 == 'focus' || $curScene.stage6 == 'serve'>>\
     	She sighs in frustration @@.teacher;“you showed the odd glimpse of understanding of how you ought to behave - and you managed to avoid ever completely botching things but... well it is clear you are far from ready for spousal responsibilities. Understand that you exist to please your partner, to bring pleasure to them in every way, if looking at you does not bring a smile to their face and a stirring in their loins you have failed! And once that promise is made well... you must then fulfill it!”@@\

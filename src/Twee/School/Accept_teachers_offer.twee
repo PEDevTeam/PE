@@ -1,0 +1,37 @@
+::Accept_teachers_offer
+<<set $tuitionAmount=50*$flags.tuitionFactor>>\
+<<set $player.tuitionDiscount=(10*$time.weekDay()-10)*$flags.tuitionFactor>>\
+<<set _nb = $tuitionAmount-$player.tuitionDiscount>>\
+<<set $player.perversion.teacher=1>>\
+<<set $player.perversion.teacherCooldown=0>>\
+<<set $player.daringFlag.tuition=true>>\
+The word almost explode out of your mouth. @@.heroT;"Yes!"@@
+
+$teacher chuckles at your enthusiasm.
+
+@@.teacher;"Well, if that's the case, I could be the one to provide you with some 'special' tutoring in that regard. I will warn you, you may not recognize yourself by the time we're through, and when things seem difficult, you will need to trust that I am giving you exactly what you need.  If you are willing do that, I think you will be pleased with the results, and, deep down, enjoy yourself every step of the way. Do you understand?"@@
+
+@@.heroT;"Yes, $teacher,"@@ you reply, trembling with anticipation.
+
+@@.teacher;"Good //girl//."@@ $teacher says, with a grin. Already, being addressed as a girl releases a flood of dopamine in your brain. @@.teacher;"Since this is extracurricular instruction, I will have to charge you tuition. The materials I need to train you will not be cheap, after all. You will pay me each Monday, and I reserve the right to adjust my rate as I see fit.\
+<<if $player.tuitionDiscount gt 0>>\
+	Since it's already <<print window.timeCode.weekDayText()>>, I will reduce this week's amount by $<<print $player.tuitionDiscount>>, to $<<print _nb>>. \
+<<endif>>\
+<<if $flags.bullySteal>>\
+	I will also stop those $futa.boy_girl////s from stealing your money in the morning. \	
+<<endif>>\
+
+To assist you with tuition costs and reward your for participating in your training, I will reduce your weekly tuition if you comply with specific tasks. However, if Monday comes and you are unable to pay, I shall require you to give me a show of your devotion for our training to continue. If you are uncomfortable with what I suggest, I will try to find some other, less-interesting remedy for your failure to pay for classes. Do you agree to those terms?"@@
+
+$<<print _nb>> isn't too much money. You're sure you can keep up with $teacher's tuition costs, especially if you do chores at home. And who knows? Depending on how enthusiastically you follow $teacher's instruction, you might not owe her anything at all.
+
+@@.heroT;Yes, ma'am!"@@ you enthusiastically respond, sure that submitting to this beautiful woman is what you want.
+
+@@.teacher;"Very good,"@@ $teacher says with a warm smile. @@.teacher;"Your first task will be to wear female underwear to school. If you do, I will reduce your tuition by $<<print rewardMoney.teacherFemaleUnderwear>>. 
+
+"I don’t care where you obtain them from, aside from that cheerleader's bag,”@@ she adds with a dismissive wave of her hand. @@.teacher;“Oerhaps your mother, a friend or buying your own from the shops if you are feeling brave. Who knows, you might even be able to borrow some from a //girlfriend//...”@@ she adds with a slight smile playing on her lips. @@.teacher;"What's important is that you take this first step. Are you comfortable with that?"@@
+
+<<set $player.detention=false>>\
+<<set $flags.tuitionPaid=true>>\
+[[Agree|Finish school][$flags.daring3Add = true]]
+[[Tell her this is too much for you to handle|Reject_teachers_offer]]

@@ -46,11 +46,11 @@
 		She smiles as you walk in the classroom, her countenance more predatory than cheeful. @@.teacher;"Come in, $player.name. We have a lot to discuss. <<if $flags.slutBadEnd == 2>>Despite some setbacks, your<<else>>Your<<endif>> training has been progressing well. However, over the course of the past several weeks, it has become apparent that your obsession with sex will likely be a hindrance towards living an normal life. It is time to face facts, my dear. You are a sissy, and you always will be.@@
 
 		<<if playerCode.isMind() == 0>>\
-			@@.hero;What is she talking about? It's her fault for making me this way. I could go back to how I was before if she'd just leave me alone, couldn't I?@@
+			@@.hero;What is she talking about? I could go back to how I was before if I stopped now, couldn't I?@@
 			
 			For some reason, your internal protest feels a bit hollow.
 		<<elseif playerCode.isMind() == 1>>\
-			Something inside of you whispers that $teacher's observation is the truth, and no matter how much you try to silent it, the thought never quiet goes away.
+			Something inside of you whispers that $teacher's observation is the truth, and no matter how much you try to silence it, the thought never quiet goes away.
 		<<else>>\
 			$teacher's words are like gospel truth to you. Your time under her instruction has certainly awakened parts of you that you never knew existed, but now, you can't imagine living a non-feminized life.
 		<<endif>>\
@@ -164,7 +164,7 @@
 			
 			You just tug the cage in disbelief. With the locking mechanism sealed, it's going nowhere.
 			
-			@@.teacher;"Oh, stop pretending. We both you know you moved deliberately, hoping exactly this would happen! Get used to it, sissy - if you haven't already. Anyway, since you will be wearing this cage permanently, I'll just write off $<<print 100>> from your debt if you behaved properly during the week."@@
+			@@.teacher;"Oh, stop pretending. We both you know you moved deliberately, hoping exactly this would happen! Get used to it, sissy - if you haven't already. Anyway, since you will be wearing this cage permanently, I'll just write off $<<print 100>> from your tuition if you behaved properly during the week."@@
 			
 			Sobbing, you walk away feeling despair as it slowly sinks in that you may never feel a touch on your penis again.
 		
@@ -181,7 +181,7 @@
 				
 				@@.teacher;"Listen very carefully, as I shall say this only once. 
 				
-				"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off, and I will go straight to the principal."@@
+				"If you are not wearing your chastity device when you come to school on Monday, then our whole arrangement is off."@@
 			<<endif>>\
 		<<elseif $flags.lockedWeekend>>\
 			<<if ($player.punishments.penalty eq 0)>>\
@@ -195,14 +195,14 @@
 		You need to return to $teacher.
 
 		<<if $flags.tuitionFail>>\
-			[[Return to teacher|SissyConfession][$scene="FailToPay"; $time.addMinutes(5)]]
+			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="FailToPay"; $time.addMinutes(5)]]
 		<<else>>\
-			[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
+			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="ReturnToTeacher"; $time.addMinutes(5)]]
 		<<endif>>\
 	<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
-		[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
+		[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="SecondVisit"; $time.addMinutes(5)]]
 	<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
