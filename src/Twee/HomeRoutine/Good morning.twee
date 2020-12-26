@@ -704,7 +704,8 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 		[[Get up and have breakfast|Have breakfast]]
 		<!--</weekend>-->\
 	<<else>><!--<schoolday>-->\
-		<<if $player.perversion.guardian eq 0>>\
+		<<set _femaleClothes = _u.female or (_o.female and _o.sleepWear) or _br>>\
+		<<if $player.perversion.guardian eq 0 and not _femaleClothes>>\
 			@@.guardian;"Good morning, sleepyhead."@@
 
 			You open your eyes to find $guardian gently rubbing your back to wake you up.
@@ -714,7 +715,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 
 			You open your eyes slowly, gradually becoming aware of $guardian gently shaking you awake.
 			
-			<<if _u.female or (_o.female and _o.sleepWear) or _br>>\
+			<<if _femaleClothes>>\
 				She pulls the covers back a little and sees what you're wearing. 
 				
 				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _u.female>>underwear<<else>>nightclothes<<endif>>?"@@

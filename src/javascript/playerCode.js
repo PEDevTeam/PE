@@ -1,4 +1,17 @@
-window.playerCode={	
+window.playerCode={
+	activateTherapist: function(numDays) {
+		var player=State.active.variables.player;
+		player.therapistMode=true;
+		if (numDays < 4) {
+			var d=State.active.variables.time.day+1;
+			for (var i=0; i < numDays; i++) {
+				player.therapistDays.push(d % 7);
+				d+=Math.floor(7 / numDays);
+			}
+		} else {
+			player.therapistDays.push([1,2,3,4,5]);
+		}
+	},	
 	isWearing: function(item) {
 		return State.active.variables.player.clothes.indexOf(item.id) >= 0;
 	},

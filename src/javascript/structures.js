@@ -14,8 +14,8 @@ window.rewardMoney={
 	teacherCoachWhoring: 15,
 	uploadDefault: 30,
 	uploadSpecial: 50,
-	hypnosis: 20,
-	specialHypnosis: 50,
+	therapistResearch: 20,
+	therapistResearchSpecial: 50,
 	cheerPractice: 20
 },
 
@@ -218,22 +218,11 @@ window.structures={
 		}
 	},
 	setupKinks: function() {
-		var vars=State.active.variables;
-		var kinkList=window.kinkList;
-		if (vars.kink == null) {
-			vars.kink = {};
-		}
-		if (vars.kinkAllow == null) {
-			vars.kinkAllow = {};
-		}
-		for (var i=0; i < Object.keys(kinkList).length; i++) {
-			if (vars.kink[Object.keys(kinkList)[i]] == null) {
-				vars.kink[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
-			}
-			if (vars.kinkAllow[Object.keys(kinkList)[i]] == null) {
-				vars.kinkAllow[Object.keys(kinkList)[i]] = kinkList[Object.keys(kinkList)[i]];
-			}
-		}
+		var vars = State.active.variables;
+		vars.kink = this.updateStructure(vars.kink, window.kinkList, "kink");
+		vars.kinkAllow = vars.kink;
+		// kinkAllow controls what is shown to the player
+		// kink describes what the PC likes (previously enabled by hypnotherapy, currently just a copy of kinkAllow)
 	},
 	setupBody: function() {
 		var bodyList=window.bodyList;
@@ -482,43 +471,8 @@ window.structures={
 	},
 	
 	setupTalks: function() {
-		var vars=State.active.variables;
-		var talksList=window.therapistTalks;
-		
-		if (vars.therapistTalks == null) {
-			vars.therapistTalks = {};
-		}
-		
-		for (var i=0; i < Object.keys(talksList).length; i++) {
-			if (vars.therapistTalks[Object.keys(talksList)[i]] == null) {
-				vars.therapistTalks[Object.keys(talksList)[i]] = {};
-				
-				var object = vars.therapistTalks[Object.keys(talksList)[i]];
-				var talksObj = talksList[Object.keys(talksList)[i]];
-
-				if (object.id == null) { object.id = talksObj.id; }
-				if (object.start == null) { object.start = talksObj.start; }
-				if (object.finished == null) { object.finished = false; }
-				if (object.progress == null) { object.progress = 0; }
-			}
-		}
-		
-		// deleting talks with no corresponding ID in JavaScript list
-		var talksNewList = State.active.variables.therapistTalks;
-		for (var i=0; i < Object.keys(talksNewList).length; i++) {
-			var found = false;
-			
-			for (var j=0; j < Object.keys(talksList).length; j++) {
-				if (talksNewList[Object.keys(talksList)[i]] && talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
-					var found = true;
-					break;
-				}
-			}
-			
-			if (!found) {
-				delete talksNewList[Object.keys(talksNewList)[i]];
-			}
-		}
+		var vars = State.active.variables;
+		vars.therapistTalks = this.updateStructure(vars.therapistTalks, window.therapistTalks, "therapistTalks");
 	},
 	
 	setupPunishments: function() {
@@ -744,10 +698,12 @@ window.playerList={
 	salonLimit: 1000,
 	schoolLastDay: 0,
 	schoolTruantDays: 0,
+	/* TODO: these should be in therapist-specific object rather than player */
 	therapistMode: false,
 	therapistLastDay: 0,
 	therapistDays: [],
 	therapistTime: 0,
+	therapistSexy: false,
 	wager: 0,
 	detention: false,
 	alarmClockGuardian: false,

@@ -1,23 +1,29 @@
 :: Finish watching [pos_1976_1732]
 \
 <div><<RandomImageFromPack "Therapist Office" 400 400>></div>\	
-The television suddenly goes dark and $therapist turns the lights on.  You blink, realizing your mouth is dry.
+The television goes dark and $therapist turns the lights on. You blink, realizing your mouth is dry.
 
-@@.therapist;"Our hour is almost up,"@@ she says. @@.therapist;"How are you feeling?"@@
+@@.therapist;"The time is up,"@@ she says. @@.therapist;"How are you feeling?"@@
 
-An hour?  You swear it was just a few moments ago that you started watching, but you check the clock on the wall, and she's right. You must have really zoned out watching... that... what were you watching again? It's hard to remember.
+Naturally, after watching porn without even touching your penis, you are incredibly horny. $therapist asks detailed questions about your feelings and whishes. Due to your lust, you struggle to answer in complete sentences. She listens closely and makes some notes.
 
-You stumble towards the door of her office, still feeling dazed. You assure $therapist you're ok, and she makes some notes.
+<<if $player.perversion.therapist >= therapistPerversion.noticedEffect && playerCode.isMind_2()>>\
+When you are finished, $therapist goes through her notes.
 
+@@.therapist;"Based on the data I gathered from, I would not expect any noticable developments in the near future. We can continue to test for long-term effects, though."@@
+
+//You have reached the end of the therapist research content. Game events however may unlock new personal topics to talk about.//
+
+<<endif>>\
 @@.therapist;"Oh, $player.name, don't forget your participation payment."@@
 
 She winks, handing you an envelope with crisp, new currency in it.
 
-@@.reward;You earned $<<print rewardMoney.hypnosis>>!@@
+@@.reward;You earned $<<print rewardMoney.therapistResearch>>!@@
 
-<<set $player.money+=rewardMoney.hypnosis>>\
-<<if ($player.perversion.therapist eq 3) and ($player.perversion.therapistCooldown eq 1)>>\
-	[[Go home|Hypnosis aftereffect]]
+<<set $player.money+=rewardMoney.therapistResearch>>\
+<<if $player.perversion.therapist == therapistPerversion.watchedPorn>>\
+	[[Go home|Therapist Research Aftereffect]]
 <<else>>\
 	<<display [[Travel]]>>\
 <<endif>>\
