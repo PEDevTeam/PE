@@ -12,7 +12,7 @@
 
     @@.friend;"I hope you put some effort into getting ready this time,"@@ $friendG.he_she says. 
 	
-    <<if (_u.female == 0 or _c == 0 or _p == 0 or (_p and _p.female == 0) or $body.bodyhair == 0)>>\ 
+    <<if friendCode.missingAttire()>>\ 
 		<<set $friendG.girlinessFail = 1>>\
 	<<endif>>\
 	<<if $friendG.girlinessFail == 1>>\
@@ -130,8 +130,8 @@
 			<<endif>>
 		<<else>>\
 			<<set $friendG.friendTaskFrustration += 1>>\
-			<<set $friendG.girlinessFail = 1>>\
 			<<if $friendG.seenWaxedLeg == 1>>\
+				<<set $friendG.girlinessFail = 1>>\
 				@@.friend;"Huh - I remember you had your legs waxed that other time. What a shame."@@\
 			<<else>>\
 				@@.friend;"It's a shame you've got such hairy legs. That kind of just ruins the whole thing."@@\

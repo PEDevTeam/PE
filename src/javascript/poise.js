@@ -89,7 +89,7 @@ macros['printCommand']= {
         var commandItems = commands[commandItemName].options;
         var outStr = "@@.teacher;“" + commands[commandItemName].command + "”@@\n\n"
 		
-        outStr += "[[Remain still|" + destPassage + "][$sceneAction=0]]\n";
+        outStr += "[[Remain still|" + destPassage + "][$sceneAction=0; ;$scenePosition='" + commandItemName + "']]\n";
         orders[random(5)].forEach(element => {
 			if (element != State.active.variables.positionStatus[commandItemName]){
 				outStr += "[[" + commandItems[element] + "|" + destPassage + "][$sceneAction=" + (element+1) + ";$scenePosition='" + commandItemName + "']]\n";

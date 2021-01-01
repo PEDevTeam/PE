@@ -203,7 +203,7 @@ window.structures={
 		if (vars.avatar.start == null) { vars.avatar.start = 0; }
 		if (vars.avatar.help == null) { vars.avatar.help = 0; }
 		if (vars.avatar.active == null) { vars.avatar.active = 0; }
-		if (vars.avatar.classic == null) { vars.avatar.classic = false; }
+		if (vars.avatar.classic == null) { vars.avatar.classic = 2; }
 	},
 	setupFlags: function() {
 		var vars=State.active.variables;
@@ -1067,6 +1067,8 @@ window.friendList={
 	parkAttempt: 0,
 	parkFail: 0,
 	seenDressUp: 0,
+	evilFriend: 0,
+	noUnderwear: 0,
 },
 
 window.futaList={
