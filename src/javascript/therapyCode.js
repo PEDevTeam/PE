@@ -43,7 +43,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Introduction, third scene, first porn movie
-		text: "@@.therapist;\"Come in, $player.name,\"@@ she says warmly. @@.therapist;\"Thank you for being a part of my research. I want to  how pornography can affect behaviour of young adults.\"\n\n\"You will be presented pornographic material, and I'll be here keeping a close eye on you to assess how they affect you. However, there is a catch: You may absolutely must not masturbate. You and I need to stay professional here.\"@@\n\nOn one hand, you are surprised, but on the other hand, you are not too keen about wanking in front of $therapist.\n\n@@.therapist;\"There's nothing to worry about, we've already had hundreds of volunteers participate with no ill effects.\"@@\n\nThat's good enough for you, and you sit in front of the wall-mounted big screen television to begin watching. $therapist turns off the lights and presses a button on the remote.",
+		text: "@@.therapist;\"Come in, $player.name,\"@@ she says warmly. @@.therapist;\"Thank you for being a part of my research. We are studying how pornography can affect behaviour of young adults.\"\n\n\"You will be presented pornographic material, and I'll be here keeping a close eye on you to assess how they affect you. However, there is a catch: You may absolutely must not masturbate. You and I must stay professional, after all.\"@@\n\nOn one hand, you are surprised by her request, but on the other hand, you are not too keen about wanking in front of $therapist.\n\n@@.therapist;\"There's nothing to worry about, we've already had hundreds of volunteers participate with no ill effects.\"@@\n\nThat's good enough for you, and you sit in front of the wall-mounted big screen television to begin watching. $therapist turns off the lights and presses a button on the remote.",
 		check() {
 			return State.active.variables.player.perversion.therapist < therapistPerversion.watchedPorn;
 		},
@@ -52,7 +52,7 @@ window.therapySessions=[
 		}
 	},
 	{	//start of routine
-		text: "Curious about your newfound interest in men, you ask if this research study could cause something like that?\n\n@@.therapist;\"Hmm, it seems you may have a very low resistance to this kind of material, which is interesting. Don't worry – if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the content to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\nWell, that last session definitely felt weird, but you have already seen so much porn in your life do not think participating in $therapist's research will affect you in the long run. It would surely make dealing with paying the tutition easier.\n\nNow that the immediate financial issues are sorted out, you can talk to $therapist about your personal experiences. I have allocated an additional time-slot so you can participate in my study after your personal councelling.",
+		text: "Curious about your seemingly newfound interest in men, you ask if this research study could cause something like that?\n\n@@.therapist;\"Hmm, it seems this kind of material may be awakening some latent desires, which is interesting. Don't worry – if you experience any side effects, they should be temporary. The first session was a probe, so to speak, meant to gauge your reaction so I can calibrate the content to suit you. If you choose to continue in future sessions, you shouldn't have those side effects, and we'll instead focus on helping you feel more relaxed, and making it easier to deal with the stress in your life.\"@@\n\nWell, that last session definitely felt weird, but you have already seen so much porn in your life that you do not think participating in $therapist's research will affect you in the long run. It would surely make dealing with paying your tutition easier.\n\nNow that the immediate financial issues are sorted out, you can talk to $therapist about your personal experiences. I have allocated an additional time-slot so you can participate in my study after your personal councelling.",
 		check() {
 			return State.active.variables.player.perversion.therapist < therapistPerversion.noticedEffect;
 		},
@@ -62,14 +62,14 @@ window.therapySessions=[
 	},
 	// Following sessions are essentially null-content sessions with no unique therapist content to allow selection of other talks
 	{	// Routine for high perversion
-		text: "$therapist calls you in, and the two of you pick up where you left off in the previous session.  It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to see another porn movie?\"@@\n\nYou still think it is odd to look at porn under professional supervision, but it pays good so you ignore your doubts.",
+		text: "$therapist calls you in, and the two of you pick up where you left off in the previous session.  It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to see another porn movie?\"@@\n\nYou still think it is odd to look at porn under professional supervision, but it pays good so you shrug off your concerns.",
 		check() {
 			return false; // prndev does not want to rewrite this right now
 		},
 		finishSession: function() {}
 	},
 	{	// Routine until Teacher route start
-		text: "$therapist calls you in, and the two of you pick up from where you left the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nThe hour whizzes by in no time, and the session finishes with one of the nice hugs that you're now looking forward to.",
+		text: "$therapist calls you in, and the two of you pick up from where you left the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nThe hour whizzes by in no time, and the session finishes with one of the nice hugs that you've started looking forward to.",
 		check() {
 			return false; // prndev does not want to rewrite this right now
 		},
