@@ -9,7 +9,7 @@
 <<if $flags.quizState == "none">>\
 	You open <<if $items.playgirlMagazine.stolen>>$guardian's<<else>>your<<endif>> Playgirl magazine and begin flipping through.
 
-	<<if playerCode.isMind_0()>>\
+	<<if playerCode.isMind_0(true)>>\
 		<<selectScene playgirl0 SEQ>>\
 		<<scene>>\
 			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Playgirl article" 400 400>></div>\
@@ -96,7 +96,7 @@
 			Finally, you stumble on the erotic fiction section, and <<if not _c>>you start idly playing with yourself as <<endif>>you allow yourself to get lost in the fantasies.
 			
 		<</selectScene>>\
-	<<elseif playerCode.isMind_1()>>\
+	<<elseif playerCode.isMind_1(true)>>\
 		<<selectScene playgirl1 SEQ>>\
 		<<scene>>\
 			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Playgirl army" 400 400>></div>\
