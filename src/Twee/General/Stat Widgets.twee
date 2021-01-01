@@ -1171,10 +1171,11 @@
 	<!-- <b>Sluttiness:</b> <<print playerCode.slutScore()>><br> -->
 	<b>Gamer:</b> $player.gameSkill<br>
 	<b>Fitness:</b> $player.fitness<br>
+	<b>Sexuality:</b> $player.sexualAcceptance <<if $player.sexualAcceptance >= 20 >>(maxed)<<endif>><br>
 	<b>Perversion:</b> <br>
 	<<print $guardian.toProperCase()>>:	$player.perversion.guardian<br>
 	$teacher: $player.perversion.teacher<br>
-	$therapist: $player.perversion.therapist<br>
+	$therapist: $player.perversion.therapist <<if $player.perversion.therapist >= therapistPerversion.noticedEffect >>(maxed)<<endif>><br>
 	<<if $flags.friendNamed>>
 		$friend: $player.perversion.friend<br>
 	<<endif>>

@@ -12,7 +12,7 @@
 	
 	[[Read the survey|TherapistSurvey]]
 <<elseif $scene eq "Therapist survey completed">>\
-	<<unset $player.therapistSurvey>>/* unset variable to counter save bloat*/\
+	<<run delete $player.therapistSurvey>>/* unset variable to counter save bloat*/\
 	Finally, you hand the filled-out survey to $therapist. To your relief, she doesn't read it and just puts it in her desk
 	
 	She thanks you for your help, gives you a hug and wishes you good luck as you walk out. You wonder what kind of research $therapist is conducting that could require such survey.
