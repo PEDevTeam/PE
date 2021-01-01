@@ -1,6 +1,6 @@
 :: TherapistSurvey [pos_128_224]
 \
-<<if $player.perversion.therapist eq 1>>\
+<<if $player.perversion.therapist == therapistPerversion.introduced>>\
 	<<for _i=0; _i lt therapySessions.length; _i++>>\
 		<<if therapySessions[_i].passage eq "TherapistSurvey">>\
 			<<break>>\
@@ -9,16 +9,16 @@
 	<<print therapySessions[_i].text>>\
 	<<set therapySessions[_i].finishSession()>>\
 	<<set $player.therapistSurvey = 0>>\
-
 	
 	[[Read the survey|TherapistSurvey]]
 <<elseif $scene eq "Therapist survey completed">>\
+	<<unset $player.therapistSurvey>>/* unset variable to counter save bloat*/\
 	Finally, you hand the filled-out survey to $therapist. To your relief, she doesn't read it and just puts it in her desk
 	
 	She thanks you for your help, gives you a hug and wishes you good luck as you walk out. You wonder what kind of research $therapist is conducting that could require such survey.
 
 	[[Go home|Go to bedroom][$scene=""]]
-<<elseif ($player.perversion.therapist eq 2)>>\
+<<elseif ($player.perversion.therapist eq therapistPerversion.tookSurvey)>>\
 <div id="surveyDream" class="dream">\
 <<if ($scene eq "SurveyDreams")>>\
 <<set _hideDreamOption = true>>\
@@ -1281,9 +1281,7 @@ Yes – I am turned on by the idea of having my sex organs transformed to the op
 <<endif>>\
 </span>\
 <<else>>\
-It's a bug. Please call bugs exterminators.
+It's a bug. Please call bug exterminators.
 
 [[Return home|Go to bedroom]]
 <<endif>>\
-\
-
