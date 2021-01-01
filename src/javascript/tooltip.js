@@ -46,7 +46,7 @@ window.kinkTooltip={
 	bimbo: "Conversion to a brainless, sexual playmate, with IQ loss/extreme feminization@@.halftransparent; Not implemented yet@@",
 	spitting: "Physical spitting on a person, as a way to degrade them",
 	abusive: "Acts of force such as slapping, shoving, mouth stretching or choking@@.halftransparent; Not implemented yet@@",
-	mindControl: "Being compelled to say or do things unwillingly by deep hypnosis",
+	mindControl: "Being compelled to say or do things unwillingly@@.halftransparent;disabled for Patreon complicance@@",
 	questionable: "Sex where consent is ambiguous or leveraged by another@@.halftransparent; Not implemented properly yet@@",
 	tattoo: "Being forced or leveraged to get a tattoo",
 	piercing: "Being forced or leveraged to get a piercing",
