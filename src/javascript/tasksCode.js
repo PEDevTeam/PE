@@ -283,7 +283,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
+			return (!playerCode.owns(itemsC.silkyTeddy)) || ((!State.active.variables.therapistTalks.talkNightwear.start) && [0,1,2].includes(State.active.variables.player.perversion.guardian)) || [0,1].includes(State.active.variables.player.perversion.crossdressing);
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -2560,7 +2560,7 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 4, max: 11 },
+			teacher:	{ min: 3, max: 11 },
 			therapist:	{ min: 0, max: 11 },
 			guardian:	{ min: 0, max: 11 }
 		},
