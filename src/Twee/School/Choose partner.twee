@@ -51,7 +51,7 @@
 				
 				Are you interested in marrying _partnerArr[_bestMatch].name?"@@
 			
-				[[Yes|get_married]]
+				[[Yes|get_married][$chosenPartner = _partnerArr[_bestMatch].id]]
 				
 			<<else>>\
 				@@.teacher;However, they requested you make changes to your body before they would offer marriage. What good is a trophy wife if she doesn't look like a proper trophy, after all.@@
@@ -107,7 +107,7 @@
 					<<set $partnerOffered = true>>\
 					@@.teacher;"Are you interested in marrying _partnerArr[_newBest].name?"@@
 					
-					[[Yes|get_married]]
+					[[Yes|get_married][$chosenPartner = _partnerArr[_newBest].id]]
 				<<else>>\
 					@@.teacher;"Perhaps if you had kept up with your treatments as I asked..."@@ $teacher lets the sentence trail off.
 					
@@ -137,7 +137,7 @@
 				<<set $partnerOffered = true>>\
 				@@.teacher;"Are you interested in _partnerArr[_newBest].name?"@@
 				
-				[[Yes|get_married]]
+				[[Yes|get_married][$chosenPartner = _partnerArr[_newBest].id]]
 			
 			<<endif>>\
 		<<endif>>\
@@ -290,6 +290,10 @@ You should alter your body to suit their tastes or try for a different partner. 
 [[Finish school day]]
 
 ::get_married
-Sorry.  We are still preparing the chapel.  For now, keep enjoying the game in sandbox mode.  You can talk to teacher again if you want to check for a new partner.
+<<if $chosenPartner == "guardian">>\
+	<<include [[Good Guardian Trophy Ending Sc1]]>>\
+<<else>>\
+	Sorry.  We are still preparing the chapel.  For now, keep enjoying the game in sandbox mode.  You can talk to teacher again if you want to check for a new partner.
 
-[[Finish school day]]
+	[[Finish school day]]
+<<endif>>\
