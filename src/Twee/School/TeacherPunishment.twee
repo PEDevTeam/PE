@@ -12,7 +12,8 @@
 	<<else>>\
 		<<set teacherCode.addPenalty(6)>>\
 	<<endif>>\
-	<<if $player.punishments.refusedToPay or $player.punishments.refusedToCrossdress and not $flags.punConsent>>\
+	<<print $flags.punConsent>>
+	<<if ($player.punishments.refusedToPay or $player.punishments.refusedToCrossdress) and not $flags.punConsent>>\
 		<<set $flags.postConPassage = "TeacherPunishment">>\
 		<<include [[consent check]]>>\
 		

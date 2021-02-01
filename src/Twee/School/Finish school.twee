@@ -191,18 +191,30 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $flags.sissyConfessionStart or ((not $flags.sissyConfession) and $flags.tuitionFail)>>\
+	<<if ($flags.sissyConfessionStart or ((not $flags.sissyConfession) and $flags.tuitionFail))and not $detentionSkip>>\
 		You need to return to $teacher.
 
-		<<if $flags.tuitionFail>>\
-			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="FailToPay"; $time.addMinutes(5)]]
+		<<if not $flags.punConsent>>\
+			<<if $flags.tuitionFail>>\
+				[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="FailToPay"; $time.addMinutes(5)]]
+			<<else>>\
+				[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="ReturnToTeacher"; $time.addMinutes(5)]]
+			<<endif>>\
 		<<else>>\
-			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="ReturnToTeacher"; $time.addMinutes(5)]]
+			<<if $flags.tuitionFail>>\
+				[[Return to teacher|SissyConfession][$scene="FailToPay"; $time.addMinutes(5)]]
+			<<else>>\
+				[[Return to teacher|SissyConfession][$scene="ReturnToTeacher"; $time.addMinutes(5)]]
+			<<endif>>\
 		<<endif>>\
-	<<elseif $flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.tuitionFail)>>\
+	<<elseif ($flags.sissyConfession and (not $flags.sissyConfessionShown) and (($player.punishments.penalty gt 3) or $flags.tuitionFail)) and not $detentionSkip>>\
 		You need to return to $teacher.
 		
-		[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="SecondVisit"; $time.addMinutes(5)]]
+		<<if not $flags.punConsent>>\
+			[[Return to teacher|consent check][$flags.postConPassage = "SissyConfession"; $scene="SecondVisit"; $time.addMinutes(5)]]
+		<<else>>\
+			[[Return to teacher|SissyConfession][$scene="SecondVisit"; $time.addMinutes(5)]]
+		<<endif>>
 	<<elseif $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.tuitionFail)>>\
 		You need to return to $teacher.
 		
@@ -235,6 +247,7 @@
 				<<endif>>\
 				
 			<<endif>>\
+			<<set $detentionSkip = false>>\
 			<<display [[Travel]]>>\
 		<<endif>>\
 	<<endif>>\
