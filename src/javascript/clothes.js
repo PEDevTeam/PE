@@ -265,7 +265,7 @@ window.clothes={
 			}
 			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
 			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-			if ((outerwear.female || shoes.female) && (player.perversion.therapist < 3) && (player.perversion.guardian < 5)) {
+			if ((outerwear.female || shoes.female) && (player.perversion.therapist < therapistPerversion.noticedEffect /* TODO: this should consider the "crossdressing score" rather than therapist progress */) && (player.perversion.guardian < 5)) {
 				State.active.variables.reason.dressedTherapy="You don't feel ready to visit $therapist dressed like that";
 				return false;
 			}

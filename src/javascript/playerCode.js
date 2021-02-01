@@ -149,17 +149,30 @@ window.playerCode={
 		if (this.isHorny()) {return 2;}
 		return 0;
 	},
-	isMind_0: function() {
-		return false;
+	isMind_0: function(patreonCompliant) {
+		// Innocent - PC is inexperienced and rather shy.
+		return this.isMind(patreonCompliant) == 0;
 	},
-	isMind_1: function() {
-		return false;
+	isMind_1: function(patreonCompliant) {
+		// Curious - PC acts curious, but is not comfortable with suggesting lewd stuff himself.
+		return this.isMind(patreonCompliant) == 1;
 	},
-	isMind_2: function() {
-		return true;
+	isMind_2: function(patreonCompliant) {
+		// Corrupted - PC's deepest desires are brought to surface and amplified. Welcomes feminization, except for too extreme stuff. After experiencing various types of sexual intercourse becomes cock-addicted.
+		return this.isMind(patreonCompliant) == 2;
 	},
-	isMind: function() {
-		return 2;
+	isMind: function(patreonCompliant) {
+		/* originally, isMind() had no parameter
+		 * then the team had to remove all instances of force, bribery and hypnosis from the game 
+		 * in order to comply with Paylal and Patreon standards
+		 * as a result, the player character is now enthusiastic (2) by default
+		 * only scenes in which the player character does not feel forced should call isMind(true)
+		 */
+		if (patreonCompliant) {
+			return Math.min(2, Math.floor(State.active.variables.player.sexualAcceptance / 10));
+		} else {
+			return 2;
+		}
 	},
 	isMaid: function() {
 		return (State.active.variables.player.perversion.guardian >= 5);

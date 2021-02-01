@@ -698,6 +698,7 @@ window.playerList={
 	salonLimit: 1000,
 	schoolLastDay: 0,
 	schoolTruantDays: 0,
+	sexualAcceptance: 0,
 	/* TODO: these should be in therapist-specific object rather than player */
 	therapistMode: false,
 	therapistLastDay: 0,

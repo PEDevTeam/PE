@@ -426,7 +426,7 @@ window.dreamsTeacher={
 		highestStartPriority: 1,
 		description: "The cute girl sitting in front of you suddenly turns around and whispers to you. //\"Psst, $player.name. I was just wondering... are you gay?\"// Your cheeks flush red in embarrassment at her bold question, and she smirks and turns away before you can fumble an answer...",
 		check: function() {
-			return [2,3].includes(State.active.variables.player.perversion.teacher) && (State.active.variables.player.perversion.therapist == 3) && (State.active.variables.player.perversion.therapistCooldown == 1);
+			return [2,3].includes(State.active.variables.player.perversion.teacher) && (State.active.variables.player.perversion.therapist == therapistPerversion.watchedPorn);
 		}
 	},
 	Teacher02_2: {

@@ -4,7 +4,7 @@
 <<if _talklist>>\
 	<<for _i to 0; _i lt Object.keys(_talklist).length; _i++>>\
 		<<set _talk=_talklist[Object.keys(_talklist)[_i]]>>\
-		<<print '[['+_talk.name+'|Therapist talk][$scene="'+_talk.passage+'";$player.therapistTime-='+_talk.time+';$time.addMinutes('+_talk.time+')]]'>>
+		<<print '[['+_talk.name+'|Therapist talk][$scene="'+_talk.passage+'";$player.therapistTime-='+_talk.time+';$time.addMinutes('+_talk.time+');$player.sexualAcceptance+=1]]'>>
 	<</for>>\
 <<endif>>\
 \
