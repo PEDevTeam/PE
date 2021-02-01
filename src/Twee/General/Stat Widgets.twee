@@ -1093,6 +1093,59 @@
 				<<set _groin="underwear_boxers_hips_">>
 				<<set _groin+=_hs>>
 				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
+				<<if _bs eq 2>>\
+					<<set _bs = 1>>\
+				<<endif>>\
+				<<set _chest="clothes_nightie_breasts_">>\
+				<<set _chest+=_bs>>\
+				<<set _chest+=".png">>\
+				<<set _arms="none">>\
+			<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>\
+				<<set _chest="clothes_pyjamas_breasts_">>\
+				<<set _chest+=_bs>>\
+				<<set _chest+=".png">>\
+				<<set _arms="none">>\
+			<<endif>>
+		<<endif>>
+		
+		<<set _bra = "none">>
+		<<if $avatar.mode lte 1>>
+			<<if playerCode.isWearing(itemsC.jocksLucky)>>
+				<<set _groin="underwear_boxers_hips_">>
+				<<set _groin+=_hs>>
+				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>
+				<<set _groin="underwear_cotton_hips_">>
+				<<set _groin+=_hs>>
+				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>
+				<<set _groin="underwear_satin_hips_">>
+				<<set _groin+=_hs>>
+				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>
+				<<set _groin="underwear_boxers_hips_">>
+				<<set _groin+=_hs>>
+				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.gString)>>
+				<<if playerCode.isWearingOn(itemTypes.Chastity)>>
+					<<set _groin="underwear_gstring_chastity_hips_">>
+				<<elseif playerCode.isHorny()>>
+					<<set _groin="underwear_gstring_alt_hips_">>
+				<<else>>
+					<<set _groin="underwear_gstring_hips_">>
+				<<endif>>
+				<<set _groin+=_hs>>
+				<<set _groin+=".png">>
+			<<endif>>
+			<<if playerCode.isWearing(itemsC.bra)>>
+				<<set _bra = "underwear_bra_cotton_breasts_">>
+				<<set _bra += _bs>>
+				<<set _bra += ".png">>
+			<<elseif playerCode.isWearing(itemsC.braLatex)>>
+				<<set _bra = "underwear_bra_satin_breasts_">>
+				<<set _bra += _bs>>
+				<<set _bra += ".png">>
 			<<endif>>
 		<<endif>>
 		
@@ -1122,6 +1175,10 @@
 		
 		<<if _groin neq "none">>
 			<<showAvatarImage _groin>>
+		<<endif>>
+		
+		<<if _bra neq "none">>
+			<<showAvatarImage _bra>>
 		<<endif>>
 		
 		<<if _chest neq "none">>
