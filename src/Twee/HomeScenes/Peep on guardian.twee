@@ -18,7 +18,7 @@
 		<<endif>>\
 	<<endif>>\
 <<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
-	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0(true)) and $flags.nightieSleep>>\
 		<<wearClothing 'silkyTeddy'>>\
 		You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
 		
@@ -28,7 +28,7 @@
 		
 	<<endif>>\
 <<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+	<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0(true)) and $flags.nightieSleep>>\
 		<<wearClothing 'silkyTeddy'>>\
 		You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
 		

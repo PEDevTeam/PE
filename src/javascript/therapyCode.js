@@ -1,3 +1,11 @@
+window.therapistPerversion = Object.freeze({
+	"notMet":0, 
+	"introduced":1, 
+	"tookSurvey":2, 
+	"watchedPorn":3,
+	"noticedEffect":4,
+});
+
 window.therapyArrivals= [
 	{
 		text: "You make it to the therapist's office a few minutes early and wait in the foyer for your session time."
@@ -12,14 +20,6 @@ window.therapyArrivals= [
 		text: "You arrive right on time at $therapist's office, but she's running a bit late with her current patient.  After a few minutes of waiting, she finally calls you in."
 	}
 ];
-
-window.therapistPerversion = Object.freeze({
-	"notMet":0, 
-	"introduced":1, 
-	"tookSurvey":2, 
-	"watchedPorn":3,
-	"noticedEffect":4,
-});
 
 // scenes at the top are preferred over the scenes at the bottom
 window.therapySessions=[
