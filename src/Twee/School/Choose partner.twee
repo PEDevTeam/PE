@@ -233,7 +233,7 @@ You ask $teacher about _partners[$id].name.
 
 	Are you interested in _partners[$id].name?
 
-	[[Yes|get_married]]
+	[[Yes|get_married][$chosenPartner = _partners[$id].id]]
 	[[No|choose_partner]]
 	[[I'm not interested in getting married yet]]
 <<else>>\
@@ -283,9 +283,10 @@ You ask $teacher about _partners[$id].name.
 	<<case "dramaTeacher">>\
 		@@.teacher;She said she wanted a 'classical beauty.' According to her, that means traditionally feminine hairstyle, girly face, breasts that aren't too large, and slender hips.@@
 	<</switch>>\
-<<endif>>\
+	
+	You should alter your body to suit their tastes or try for a different partner. You can talk to teacher again if you want to check for a new partner.
 
-You should alter your body to suit their tastes or try for a different partner. You can talk to teacher again if you want to check for a new partner.
+<<endif>>\
 
 [[Finish school day]]
 
