@@ -29,6 +29,20 @@
 \
 <<print window.timeCode.schoolMessage()>> You can change what you're wearing if you like.
 \
+<<if playerCode.isWearing(itemsC.buttPlugVibro)>>\
+
+	The vibrating butt plug is massaging your prostate.\
+	<<if not playerCode.isHorny()>>\
+		<<if playerCode.masturbate.isReady()>>\
+			There is no way to stop your body from reacting. //You will soon be horny again.//\
+			<<set playerCode.upArousalTo(70,70)>>\
+		<<else>>\
+			As you came just recently, it is only mildly annoying. At least for now.\
+		<<endif>>\
+	<<endif>>\
+
+<<endif>>\
+\
 <span id="clothing_selector"><<display "Clothing Selector">></span>\
 \
 	<!--<Chores and misc>--><!-- Chores and misc -->\
