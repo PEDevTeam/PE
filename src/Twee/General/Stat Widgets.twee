@@ -1093,6 +1093,19 @@
 				<<set _groin="underwear_boxers_hips_">>
 				<<set _groin+=_hs>>
 				<<set _groin+=".png">>
+			<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
+				<<if _bs eq 2>>\
+					<<set _bs = 1>>\
+				<<endif>>\
+				<<set _chest="clothes_nightie_breasts_">>\
+				<<set _chest+=_bs>>\
+				<<set _chest+=".png">>\
+				<<set _arms="none">>\
+			<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>\
+				<<set _chest="clothes_pyjamas_breasts_">>\
+				<<set _chest+=_bs>>\
+				<<set _chest+=".png">>\
+				<<set _arms="none">>\
 			<<endif>>
 		<<endif>>
 		
