@@ -4,7 +4,9 @@
 <<set _return=true>>\
 <<set _home=false>>\
 <<set _topic = window.therapyCode.topicsList().find(topic => topic.passage eq $scene)>>\
-<<set $therapistTalks[_topic.id].finished = true>>\
+<<if _topic>>/* do not try to set non-existant topics when showing two-passage talks (e.g. talkMaid_continue)*/\
+	<<set $therapistTalks[_topic.id].finished = true>>\
+<<endif>>\
 <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
 <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
 <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
