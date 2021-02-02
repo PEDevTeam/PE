@@ -29,6 +29,8 @@ window.versionControl={
 
 window.structures={
 	updateStructure: function(base, addon, debugPrefix) {
+		let debug_log = console.log;
+		debug_log = () => {}; // comment this to enable debug logging in updateStructure
 		// adapted from https://stackoverflow.com/questions/14843815/#29563346
 		// TODO: use this consistently to update all structures
 		if (base === undefined) {
@@ -40,24 +42,24 @@ window.structures={
 					if (Array.isArray(addon[prop])) {
 						if (base[prop] === undefined) {
 							if (addon[prop].some(e => typeof e === 'object')) {
-								console.log(`WARNING: Array ${debugPrefix}.${prop} contains at least one object!`);
+								debug_log(`WARNING: Array ${debugPrefix}.${prop} contains at least one object!`);
 							}
-							console.log(`Setting up array ${debugPrefix}.${prop}…`);
+							debug_log(`Setting up array ${debugPrefix}.${prop}…`);
 							base[prop] = addon[prop];
 						} else {
-							console.log(`Array ${debugPrefix}.${prop} already exists:`, base[prop]);
+							debug_log(`Array ${debugPrefix}.${prop} already exists:`, base[prop]);
 						}
 					} else if (addon[prop] === null) {
 						base[prop] = addon[prop];
 					} else{
-						console.log(`Descending into ${debugPrefix}.${prop}…`);
+						debug_log(`Descending into ${debugPrefix}.${prop}…`);
 						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
 					}
 				} else if (!base.hasOwnProperty(prop)) {
-					console.log(`Setting up ${debugPrefix}.${prop}…`);
+					debug_log(`Setting up ${debugPrefix}.${prop}…`);
 					base[prop] = addon[prop];
 				} else {
-					console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+					debug_log(`${debugPrefix}.${prop} already exists:`, base[prop]);
 				}
 			}
 		}
@@ -97,6 +99,19 @@ window.structures={
 		var vars = State.active.variables;
 		vars.player = this.updateStructure(vars.player, window.playerList, "player");
 		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
+		// backwards compatibility for versions without Patreon compliance
+		if (vars.player.daringFlag.tuition !== undefined) {
+			vars.player.daringFlag.tuition = vars.player.daringFlag.bribe;
+			delete vars.player.bribe;
+		}
+		if (vars.player.bribeDiscount !== undefined) {
+			vars.player.tuitionDiscount = vars.player.bribeDiscount;
+			delete vars.player.bribeDiscount;
+		}
+		if (vars.player.bribeIncrease !== undefined) {
+			vars.player.tuitionIncrease = vars.player.bribeIncrease;
+			delete vars.player.bribeIncrease;
+		}
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -104,7 +119,11 @@ window.structures={
 		if (vars.itemsSize == null) { vars.itemsSize = 2; }
 		if (vars.roomSize == null) { vars.roomSize = 2; }
 		if (vars.sidebarTab == null) { vars.sidebarTab = 0; }
-		if (vars.tuitionAmount == null) { vars.tuitionAmount = 0; }
+		if (vars.bribeAmount !== undefined) { 
+			vars.tuitionAmount = vars.bribeAmount;
+			delete vars.bribeAmount;
+		}
+		if (!vars.tuitionAmount) { vars.tuitionAmount = 0; }
 		if (vars.showimages == null) { vars.showimages = true; }
 		if (vars.scene == null) { vars.scene = ""; }
 		if (vars.showStats == null) { vars.showStats = false; }
@@ -206,15 +225,16 @@ window.structures={
 		if (vars.avatar.classic == null) { vars.avatar.classic = 2; }
 	},
 	setupFlags: function() {
-		var vars=State.active.variables;
-		var flagsList=window.flagsList;
-		if (vars.flags == null) {
-			vars.flags = {};
+		var vars = State.active.variables;
+		vars.flags = this.updateStructure(vars.flags, window.flagsList, "flags");
+		// backwards compatibility for versions without Patreon compliance
+		if (vars.flags.bribePaid !== undefined) {
+			vars.flags.tuitionPaid = vars.flags.bribePaid;
+			delete vars.flags.bribePaid;
 		}
-		for (var i=0; i < Object.keys(flagsList).length; i++) {
-			if (vars.flags[Object.keys(flagsList)[i]] == null) {
-				vars.flags[Object.keys(flagsList)[i]] = flagsList[Object.keys(flagsList)[i]];
-			}
+		if (vars.flags.bribeFail !== undefined) {
+			vars.flags.tuitionFail = vars.flags.bribeFail;
+			delete vars.flags.bribeFail;
 		}
 	},
 	setupKinks: function() {
@@ -740,7 +760,7 @@ window.playerAddonsList={
 	},
 	daringFlag: {
 		bathroomDoor: false,
-		bribe: false,
+		tuition: false,
 		snooping: false,
 		sleepingGrope: false,
 		femaleClothes: false,
@@ -1143,7 +1163,6 @@ window.flagsList={
 	checkSelfHelp: false,
 	easyMinigames: false,
 	tuitionPaid: false,
-	bribeTransfered: false,
 	tuitionFail: false,
 	cameraBathroom: false,
 	cameraBedroom: false,
@@ -1425,7 +1444,6 @@ window.flagsList={
 	dramaTeacherDate: false,
 	mallKlipIntro: false,
 	talkSneakIn: false,
-	bribedTeacher: false,
 	healthSocks: false,
 	girlPants: false,
 	partyEars: false,
