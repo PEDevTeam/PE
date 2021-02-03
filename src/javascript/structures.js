@@ -100,7 +100,7 @@ window.structures={
 		vars.player = this.updateStructure(vars.player, window.playerList, "player");
 		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
 		// backwards compatibility for versions without Patreon compliance
-		if (vars.player.daringFlag.tuition !== undefined) {
+		if (vars.player.daringFlag.bribe !== undefined) {
 			vars.player.daringFlag.tuition = vars.player.daringFlag.bribe;
 			delete vars.player.bribe;
 		}
