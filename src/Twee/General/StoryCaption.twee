@@ -11,6 +11,14 @@
 	<<replace ".passage">><<display _passage>><</replace>>\
 <<endif>>\
 \
+/* 
+Hypnosis was stripped from the Therapist for Patreon compliance. 
+$kink (player character kink) is now synchronized with $kinkAllow (player kink).
+This is set here so it affects both, a recently loaded game state and a currently active game state.
+Please also see setupKinks in structures.js
+*/\
+<<set $kink = $kinkAllow >>\
+\
 <span id="sidebar_time"></span><<updateTime>>
 \
 <<if $time.day gt 0>>\

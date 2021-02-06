@@ -240,9 +240,11 @@ window.structures={
 	setupKinks: function() {
 		var vars = State.active.variables;
 		vars.kinkAllow = this.updateStructure(vars.kinkAllow, window.kinkList, "kink");
-		vars.kink = vars.kinkAllow;
 		// kinkAllow controls what is shown to the player
-		// kink describes what the PC likes (previously enabled by hypnotherapy, currently just a copy of kinkAllow)
+		// kink describes what the PC likes
+		// kinkAllow is more permissive than kink
+		// vars.kink = vars.kinkAllow; – this happens StoryCaption
+		// kinka were previously enabled by hypnotherapy, currently just a copy
 	},
 	setupBody: function() {
 		var bodyList=window.bodyList;
