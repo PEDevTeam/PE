@@ -39,7 +39,7 @@
 			<<endif>>\
 		<</for>>\
 		<<if _matchFound>>\
-			@@.teacher;"<<print _partnerArr[_bestMatch].name>>, in particular, was very interested when I spoke to <<if _partnerArr[_bestMatch].gender == 1>>him<<else>>her<<endif>>.@@\
+			@@.teacher;"<<print _partnerArr[_bestMatch].name>>, in particular, was very interested when I spoke to <<if _partnerArr[_bestMatch].gender == 2>>him<<else>>her<<endif>>.@@\
 			<<if _partnerArr[_bestMatch].hair.includes($body.hairstyle) &&
 				_partnerArr[_bestMatch].face.includes($body.face) &&
 				_partnerArr[_bestMatch].lips.includes($body.lips) &&
@@ -47,7 +47,7 @@
 				_partnerArr[_bestMatch].ass.includes($body.ass) &&
 				_partnerArr[_bestMatch].smoothing.includes($body.anal)>>\
 				<<set $partnerOffered = true>>\
-				@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.
+				@@.teacher;"<<if _partnerArr[_bestMatch].gender == 2>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 2>>he<<else>>she<<endif>> finds you quite attractive.
 				
 				Are you interested in marrying _partnerArr[_bestMatch].name?"@@
 			
@@ -126,7 +126,7 @@
 				_partnerArr[_i].ass.includes($body.ass) &&
 				_partnerArr[_i].smoothing.includes($body.anal)>>\
 					<<if _i != _bestMatch || (_i == _bestMatch && _partnerArr[_i].gender != $player.ending.comportment.preferredGender)>>\
-						@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.@@
+						@@.teacher;"<<if _partnerArr[_bestMatch].gender == 2>>He<<else>>She<<endif>> said <<if _partnerArr[_bestMatch].gender == 2>>he<<else>>she<<endif>> finds you quite attractive.@@
 						<<set _newBest = _i>>\
 						<<set _newBestFound = true>>\
 						<<break>>\
@@ -293,6 +293,8 @@ You ask $teacher about _partners[$id].name.
 ::get_married
 <<if $chosenPartner == "guardian">>\
 	<<include [[Good Guardian Trophy Ending Sc1]]>>\
+<<elseif $chosenPartner == "coach">>\
+	<<include [[Coach Trophy Ending Sc1]]>>\
 <<else>>\
 	Sorry.  We are still preparing the chapel.  For now, keep enjoying the game in sandbox mode.  You can talk to teacher again if you want to check for a new partner.
 
