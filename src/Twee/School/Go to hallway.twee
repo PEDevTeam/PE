@@ -332,6 +332,11 @@
 
 			<!-- <<set $items.schoolFemale.disabled to false>>\ -->
 			<<set window.itemFuncs.enableItemMaster('schoolDress')>>\
+		<<elseif $player.perversion.crossdressing > 3 && $flags.girlPants == false>>\
+			@@.teacher;"$player.name. I want you to see me after school, there is something we need to discuss.”@@
+
+			@@.hero;Oh great, I need to stay behind again.@@
+			
 		<<elseif $player.perversion.crossdressing > 1 && $flags.flatsFlag == false>>\
 			<<set $flags.flatsFlag = true>>\
 			<<set $flags.flatsDelay = true>>\
@@ -351,7 +356,7 @@
 				@@.hero;I have to go to the mall and buy girl’s shoes?@@
 			<<endif>>\
 
-			$teacher smiles condescendingly at your reaction.	
+			$teacher smiles condescendingly at your reaction.
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 2>>\
 		<<if $player.daringFlag.toiletsMasturbating>>\
@@ -902,7 +907,6 @@
 			<<set $locations.jobFastfood.active = true>>\
 		<<endif>>\
 	<<endif>>\
-	
 	<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
 		<<if $flags.slutGoodEnd > 0>>\
 		
@@ -1085,7 +1089,7 @@
 			<<set $flags.lockedWeekend to false>>\
 			
 		<<endif>>\
-		<<if ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown gt 4) and ($player.perversion.crossdressing gte 6) and ($player.punishments.penalty lte 2) and (not $flags.lockedWeekend)>>\
+		<<if ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown gt 4) and ($player.perversion.crossdressing gte 7) and ($player.punishments.penalty lte 2) and (not $flags.lockedWeekend)>>\
 			$teacher stares at you for a long moment, before she nods to herself as though she has come to a decision. She places a hand on your shoulder and gently pushes you into a chair, forcing you to look up at her. @@.teacher;"How would you like to prove your dedication to correcting the behavior that got you into trouble in first place? 
 			
 			If you agree to remain in chastity for the weekend, I'll waive the rest of your debt for this week and I won't increase it Monday."@@ 
@@ -1192,7 +1196,7 @@
 
 	@@.teacher;"I've had enough of you distracting this class.  I'm giving you detention.  Hopefully, that will teach you to respect your education."@@
 
-	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimdating. 
+	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimidating. 
 	
 	@@.hero;If I ever want to get out of detention, I need to build up some nerve around women. Maybe if I experimented with $myguardian first?@@
 

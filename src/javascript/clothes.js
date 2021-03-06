@@ -118,25 +118,27 @@ window.clothes={
 			var shoes=window.wardrobeFuncs.getWornItem('shoes');
 			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
 			if (underwear) {
-				State.active.variables.reason.dressedGuardianWork="You don't need underwear for that";
+				State.active.variables.reason.dressedWhore="You don't need underwear for that";
 				return false;
 			}
 			if (nightwear) {
-				State.active.variables.reason.dressedGuardianWork="You can't wear sleepwear for that";
+				State.active.variables.reason.dressedWhore="You can't wear sleepwear for that";
 				return false;
 			}
 			if (!outerwear) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear something";
+				State.active.variables.reason.dressedWhore="You need to wear something";
 				return false;
 			}
 			if (!shoes) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear shoes";
+				State.active.variables.reason.dressedWhore="You need to wear shoes";
 				return false;
 			}
+
 			if (!window.inventoryFuncs.hasTag(outerwear, 'slutty') || !window.inventoryFuncs.hasTag(shoes, 'slutty')) {
-				State.active.variables.reason.dressedGuardianWork="You're not dressed slutty enough";
+				State.active.variables.reason.dressedWhore="You're not dressed slutty enough";
 				return false;
 			}
+
 			return true;
 		}
 	},
@@ -235,7 +237,7 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra acessorry";
 				return false;
 			}
-			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
+			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 7 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
 				if (State.active.variables.flags.flatsFlag){
 					if (outerwear.isFemale || (shoes.isFemale && shoes.masterItem != "flats")) {
 						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this wearing more female clothing than your flats.";

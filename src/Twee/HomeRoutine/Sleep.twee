@@ -65,9 +65,8 @@
 \
 		<<if playerCode.masturbate.isCalm()>>\
 			<<set _tt=1>>\
-		<<endif>>\
-\
-		<<if playerCode.isHorny()>>\
+			<<set _before to _before + "You are still aroused, but managed to dull your lust temporarily. It only takes you a short time before you are able to fall asleep.\n\n">>\
+		<<elseif playerCode.isHorny()>>\
 			<<set _before to _before + "Too aroused, you have trouble going to sleep. You need to wait some time to relax.\n\n">>\
 		<<endif>>\
 		<<if _chastity>>\
@@ -83,7 +82,7 @@
 				<<elseif $player.exp.chastityExp eq 1>>\
 					<<set _tt=8>>\
 					<<set _tf=5>>\
-					<<set _before to _before + "You just can't get completely used to the chastity cage, although it does seem a little less troublesome easier tonight. ">>\
+					<<set _before to _before + "You just can't get completely used to the chastity cage, although it does seem a little less troublesome tonight. ">>\
 					<<if _plug>>\
 						<<set _before to _before + "The buttplug in your anus keeps distracting you, stimulating your insides each time you move. ">>\
 					<<endif>>\

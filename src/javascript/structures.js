@@ -28,6 +28,41 @@ window.versionControl={
 },
 
 window.structures={
+	updateStructure: function(base, addon, debugPrefix) {
+		// adapted from https://stackoverflow.com/questions/14843815/#29563346
+		// TODO: use this consistently to update all structures
+		if (base === undefined) {
+			base = {};
+		}
+		for (var prop in addon) {
+			if (addon.hasOwnProperty(prop)) {
+				if (typeof addon[prop] === 'object') {
+					if (Array.isArray(addon[prop])) {
+						if (base[prop] === undefined) {
+							if (addon[prop].some(e => typeof e === 'object')) {
+								console.log(`WARNING: Array ${debugPrefix}.${prop} contains at least one object!`);
+							}
+							console.log(`Setting up array ${debugPrefix}.${prop}…`);
+							base[prop] = addon[prop];
+						} else {
+							console.log(`Array ${debugPrefix}.${prop} already exists:`, base[prop]);
+						}
+					} else if (addon[prop] === null) {
+						base[prop] = addon[prop];
+					} else{
+						console.log(`Descending into ${debugPrefix}.${prop}…`);
+						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
+					}
+				} else if (!base.hasOwnProperty(prop)) {
+					console.log(`Setting up ${debugPrefix}.${prop}…`);
+					base[prop] = addon[prop];
+				} else {
+					console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+				}
+			}
+		}
+		return base;
+	},
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
@@ -62,30 +97,9 @@ window.structures={
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
-		var vars=State.active.variables;
-		var playerList=window.playerList;
-		if (vars.player == null) {
-			vars.player = {};
-		}
-		for (var i=0; i < Object.keys(playerList).length; i++) {
-			if (vars.player[Object.keys(playerList)[i]] == null) {
-				vars.player[Object.keys(playerList)[i]] = playerList[Object.keys(playerList)[i]];
-			}
-		}
-		
-		var playerAddonsList=window.playerAddonsList;
-		for (var i=0; i < Object.keys(playerAddonsList).length; i++) {
-			if (vars.player[Object.keys(playerAddonsList)[i]] == null) {
-				vars.player[Object.keys(playerAddonsList)[i]] = {};
-				var object = vars.player[Object.keys(playerAddonsList)[i]];
-				var listObject = playerAddonsList[Object.keys(playerAddonsList)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.player = this.updateStructure(vars.player, window.playerList, "player");
+		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -194,6 +208,7 @@ window.structures={
 		if (vars.avatar.start == null) { vars.avatar.start = 0; }
 		if (vars.avatar.help == null) { vars.avatar.help = 0; }
 		if (vars.avatar.active == null) { vars.avatar.active = 0; }
+		if (vars.avatar.classic == null) { vars.avatar.classic = 2; }
 	},
 	setupFlags: function() {
 		var vars=State.active.variables;
@@ -467,16 +482,8 @@ window.structures={
 	},
 	
 	setupFriendRiddles: function() {
-		var vars=State.active.variables;
-		var riddlesList=window.friendRiddles;
-		if (vars.friendRiddles == null) {
-			vars.friendRiddles = {};
-		}
-		for (var i=0; i < Object.keys(riddlesList).length; i++) {
-			if (vars.flags[Object.keys(riddlesList)[i]] == null) {
-				vars.flags[Object.keys(riddlesList)[i]] = false;
-			}
-		}
+		var vars = State.active.variables;
+		vars.friendRiddles = this.updateStructure(vars.friendRiddles, window.friendRiddles, "friendRiddles");
 	},
 	
 	setupTalks: function() {
@@ -507,7 +514,7 @@ window.structures={
 			var found = false;
 			
 			for (var j=0; j < Object.keys(talksList).length; j++) {
-				if (talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
+				if (talksNewList[Object.keys(talksList)[i]] && talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
 					var found = true;
 					break;
 				}
@@ -682,55 +689,13 @@ window.structures={
 		}
 	},
 	setupCheer: function (){
-		var vars=State.active.variables;
-		var cheerList=window.cheerList;
-		if (vars.cheerleaders == null) {
-			vars.cheerleaders = {};
-		}
-		for (var i=0; i < Object.keys(cheerList).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
-				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
-				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.cheerleaders = this.updateStructure(vars.cheerleaders, window.cheerList, "cheerleaders");
 	},
 	
-	setupCheerFriend: function (){
-		var vars=State.active.variables;
-		var cheerFriendList=window.cheerFriendList;
-		if (vars.cheerFriend == null) {
-			vars.cheerFriend = {};
-		}
-		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
-				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
-				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+	setupCheerFriend: function () {
+		var vars = State.active.variables;
+		vars.cheerFriend = this.updateStructure(vars.cheerFriend, window.cheerFriendList, "cheerFriend");
 	},
 
 	setupClothingSets: function (){
@@ -758,30 +723,9 @@ window.structures={
 		}
 	},
 	
-	setupTeam: function (){
-		var vars=State.active.variables;
-		var TeamList=window.teamList;
-		if (vars.team == null) {
-			vars.team = {};
-		}
-		for (var i=0; i < Object.keys(teamList).length; i++) {
-			if (vars.team[Object.keys(teamList)[i]] == null) {
-				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(teamList.flags).length; i++) {
-			if (vars.team[Object.keys(teamList.flags)[i]] == null) {
-				vars.team[Object.keys(teamList.flags)[i]] = {};
-				var object = vars.team[Object.keys(teamList.flags)[i]];
-				var listObject = teamList.flags[Object.keys(teamList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+	setupTeam: function () {
+		var vars = State.active.variables;
+		vars.team = this.updateStructure(vars.team, window.teamList, "team");
 	},
 },
 
@@ -882,6 +826,7 @@ window.playerList={
 	stunGunCost: 200,
 
 	canVisitTestLab: false,
+	shoeSize: 0,
 },
 
 window.playerAddonsList={
@@ -1042,8 +987,110 @@ window.playerAddonsList={
 		currentEnding: "none",
 		endingsCompleted: 0,
 		endingsTotal: 1,
+		lessonSkip: false, /*toggles off daily lessons*/
 		genericEndings: ["Trophy Wife"],
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
+		
+		comportment:  {
+			numOfLessons: [3, 3, 3],
+			classStatus: [0, 0, 0], 	/*ettiquite, poise, bimbo; 
+									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
+			stepfordPath: false,
+			preferredGender: 0, /*0 = none, 1 = female, 2 = male */
+			
+			etiquette:  {
+				progress: 0,
+				lessonFail:[0,0,0],
+				partyRepeat: false,
+				partyStart: false,
+				voicePunish: false,
+			},
+			poise:	{
+				progress:0,
+				lessonFail: [0,0,0],
+				
+			},
+			bimbo:	{
+				progress: 0,
+				lessonFail:[0,0,0],
+				hotelBimboLesson: false,
+				hotelRepeat: false,
+			},
+			partners:{
+				guardian:	{
+					id: "guardian",
+					name: "",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [0, 1, 2],
+					lips: [0, 1, 2],
+					breasts: [0, 1, 2, 3, 4],
+					ass: [0, 1, 2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				coach:	{
+					id: "coach",
+					name: "Coach",
+					hair: [3, 4, 5, 6],
+					face: [2],
+					lips: [2],
+					breasts: [4],
+					ass: [2],
+					smoothing: [3],
+					numOfDates: 0,
+					gender: 2,
+				},
+				ashley:	{
+					id: "ashley",
+					name: "Ashley",
+					hair: [2, 3, 4, 5, 6],
+					face: [2],
+					lips: [2],
+					breasts: [2, 3, 4],
+					ass: [2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				roxy:	{
+					id: "roxy",
+					name: "Roxy",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [1, 2],
+					lips: [0],
+					breasts: [0],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				jogger:	{
+					id: "jogger",
+					name: "the Jogger",
+					hair: [1, 2, 3, 4, 5, 6],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3, 4],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 2,
+				},
+				dramaTeacher:	{
+					id: "dramaTeacher",
+					name: "Ms. Ravensong",
+					hair: [2, 3, 6],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3],
+					ass: [0],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+			}
+		},
 	},
 },
 
@@ -1089,6 +1136,38 @@ window.friendList={
 		manicure_renewal: false,
 		manicure: false,
 		stockings: false,
+		park: false,
+		practiceHeels: false,
+	},
+	reactions: {
+		hair: 0,
+		color: 0,
+		beautyMark: 0,
+		heart: 0,
+		butterfly: 0,
+		bunny: 0,
+		stockings: 0,
+		sissy: 0,
+		slut: 0,
+		whore: 0,
+		makeup: 0,
+		pEars: 0,
+		pNose: 0,
+		pTongue: 0,
+		pLip: 0,
+		pBelly: 0,
+		pNipples: 0,
+		nails: 0,
+		boobs: 0,
+		lips: 0,
+		butt: 0,
+		face: 0,
+		tattooOkCount: 0,
+		tattooBadCount: 0,
+		piercingBadCount: 0,
+	},
+	body:{
+		boobs: 0,
 	},
     seenBra: 0,
     seenChastity: 0, /* whether friend saw PC's chastity cage */
@@ -1108,6 +1187,11 @@ window.friendList={
 	wearsPlug: 0, /* whether friend wears a butt-plug (checked, but never set) */
 	friendKiss: 0, /* how often PC and friend kissed */
 	bonusDress: 0,
+	parkAttempt: 0,
+	parkFail: 0,
+	seenDressUp: 0,
+	evilFriend: 0,
+	noUnderwear: 0,
 },
 
 window.futaList={
@@ -1260,6 +1344,8 @@ window.flagsList={
 	walletForgottenEnd: false,
 	firstBuyDress: false,
 	firstBuyShoes: false,
+	firstBuyFlats: false,
+	firstBuyHeels: false,
 	firstBuyPanties: false,
 	firstBuyBras: false,
 	firstBuyStockings: false,
@@ -1506,14 +1592,26 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
-	visitedCountyClub:false,
+	visitedCountyClub: false,
+	dramaTeacherDate: false,
+	mallKlipIntro: false,
+	talkSneakIn: false,
+	bribedTeacher: false,
+	healthSocks: false,
+	girlPants: false,
+	partyEars: false,
+	findDancePartner: false,
+	danceLessonPartner: "none",
+	poiseRemedialGuardian: false,
+	bimboLessonPartner: "none",
+	lessonMultiFail: false,
 },
 
 window.kinkList={
 	incest: false,
 	futa: false,
 
-	semenConsumptionStart: false,	
+	semenConsumptionStarted: false,	
 	semenConsumption: false,
 	creampie: false,
 	bukkake: false,
@@ -1716,7 +1814,10 @@ window.cheerList={
 		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
 		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
 		prankBeg: false,	//PC begs for mercy to end prank
+		prank1Finish: false, //PC completed tryout prank 
 		prank2: false,	//controls access to gym prank
+		guardianPractice: false, //allows player to practice cheerleading with guardian
+		dancePractice: false, //allows player to practice dancing
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables

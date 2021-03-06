@@ -1,6 +1,7 @@
 ::Friend Teacher Tasks Leg Hair Removal p2
 \
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!--<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\-->
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 \
 You roll over onto your back and immediately notice how flushed $friend’s face is, You realize yours must be the same. $friend turns and prepares the next batch of wax, \
 perhaps taking longer than $friendG.he_she requires, but you’re thankful for the respite from the embarrassing scenario. You notice the damp patch in the front of your waxing \
@@ -111,13 +112,19 @@ To add to your unhappiness, very distinct noises of $friend resolving $friendG.h
 <!-- <<buyItem _item.id>>\ -->
 <<set $player.money -= $body.bodyhairCosts>>\
 <<set $body.bodyhair = 1>>\
-<<set $flags.salonHairRemoval to true>>\
-<<set $player.money += 20>>\
-<<set $tasksTeacherBody.legHairRemoval.progress++>>\
-<<set $tasksTeacherBody.legHairRemoval.status = 2>>\
-<<set $friendG.tasks.legHair = true>>\
+<<if $tasksTeacherBody.legHairRemoval.status eq 1>>\
+    /* 
+    Only track task progress if the task is actually active.
+    (Friend Teacher Tasks Leg Hair Removal is repeatable and can be accessed without the task given by teacher.)
+    */
+    <<set $flags.salonHairRemoval to true>>\
+    <<set $player.money += 20>>\
+    <<set $tasksTeacherBody.legHairRemoval.progress++>>\
+    <<set $tasksTeacherBody.legHairRemoval.status = 2>>\
+    <<set $friendG.tasks.legHair = true>>\
+    <<set $friendG.tasks.timesHelped++>>\
+<<endif>>\
 <<set $friendG.seenWaxedLeg = 1>>\
-<<set $friendG.tasks.timesHelped++>>\
 <<if not _wearingChastity or not $flags.chastityKey>>\
     [[Masturbate in the room|Friend Teacher Tasks Leg Hair Removal p3]]
 <<endif>>\

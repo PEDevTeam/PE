@@ -61,7 +61,7 @@ $friend hands you the corset. You wrap it around your torso, and $friend, ever t
 
 @@.hero;"What the heck?"@@ you exclaim in shock.  
 
-@@.friend;"A corset should be nice and tight,"@@ $friend says, far too cheerfully. You try to take a breath, but you can only pant and gasp. Your eyes catch sight of you in the mirror on the wall, and you let out a tiny squeal as $friend gives the laces one last good yank. Your waist is cinched several inches in, and the sweep of the corset implies the shape of womanly hips. You difficulty breathing is instantly forgotten.
+@@.friend;"A corset should be nice and tight,"@@ $friend says, far too cheerfully. You try to take a breath, but you can only pant and gasp. Your eyes catch sight of you in the mirror on the wall, and you let out a tiny squeal as $friend gives the laces one last good yank. Your waist is cinched several inches in, and the sweep of the corset implies the shape of womanly hips. You difficulty with breathing is instantly forgotten.
 
 @@.friend;"You look great,"@@ $friend says, encouragingly. @@.friend;"Let's get the rest on, and we'll finish up. I'm pretty sure my parents will be home soon, so we don't have much time."@@
 
@@ -124,5 +124,10 @@ $friend is standing in the kitchen doorway. $friendG.He_She blows you a kiss and
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.posingSeductively.status = 2>>\
 <<set $tasksTeacher.posingSeductively.progress++>>\
-<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 3)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
+<<endif>>\
 [[Go Home|Leave friend's house]]\

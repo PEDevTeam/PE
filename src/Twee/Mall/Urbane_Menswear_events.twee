@@ -1,7 +1,10 @@
 :: Urbane_Menswear_events
-<<set $currOuter = playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set $currShoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set $currStockings = playerCode.isWearingOn(itemTypes.Stockings)>>\
+<!-- <<set $currOuter = playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<<set $currOuter=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<!-- <<set $currShoes = playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set $currShoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<!-- <<set $currStockings = playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
+<<set $currStockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<if $flags.clothesPurged == false>>\
    	<<if ($player.daring < 3) or (($player.daring < 6) and ($player.daysInPanties lte 0))>>\
    		There's a unique atmosphere to the menswear shop as you walk in - it's organized in a utilitarian way, and it smells faintly of cologne.<<if playerCode.isMind() > 0>> Something about the scent makes you aroused, and you try to ignore the heady feeling as you wander the shelves.<<endif>>
@@ -21,7 +24,7 @@
    		<<endif>>\
    		<<set $flags.mallUrbaneIntro = true>>\
    	<<elseif (($player.daring < 6) and ($player.daysInPanties gte 1))>>\
-   		As you enter the shop, you can't help but compare the selection on the shelves to the girl's clothing you <<if $currOuter.female == true>>are wearing. <<else>>have worn. <<endif>>The material looks coarser, somehow, and the colors less vibrant. There's also less choice - everything looks the same.
+   		As you enter the shop, you can't help but compare the selection on the shelves to the girl's clothing you <<if $currOuter.isFemale == true>>are wearing. <<else>>have worn. <<endif>>The material looks coarser, somehow, and the colors less vibrant. There's also less choice - everything looks the same.
 
    		<<if not $flags.mallUrbaneIntro>>\
    			The man behind the counter notices you come in, and he wanders over to greet you. He's tall, muscular, and moves with a confidence you wish you had. <<if playerCode.isMind() gt 0>>@@.hero; He's kind of hot...@@ You blush profusely, shaking the thought out of your head. <<endif>>\
@@ -36,12 +39,12 @@
    			@@.malevoice2;"Welcome back, $player.name,"@@ Tyrone says with a grin. @@.malevoice2;"It's good to see you."@@
 
    		<<endif>>\
-   		You shiver, almost certain that Tyrone somehow knows that you <<if $currOuter.female == true>>are wearing <<else>>have worn <<endif>>girls' clothing. You sigh in relief when he smiles at you and wanders away to server another customer.
+   		You shiver, almost certain that Tyrone somehow knows that you <<if $currOuter.isFemale == true>>are wearing <<else>>have worn <<endif>>girls' clothing. You sigh in relief when he smiles at you and wanders away to server another customer.
 
    		<<set $flags.mallUrbaneIntro = true>>\
 	<<elseif $player.daring > 5>>\
 
-   		<<if $currOuter.female == false>>\
+   		<<if $currOuter.isFemale == false>>\
    			You revel in the opportunity to enter a menswear store without worrying about your current outfit. Despite everything that has happened, you still appreciate what the shelves have to offer.
 
    			<<if not $flags.mallUrbaneIntro>>\
@@ -68,7 +71,7 @@
 			<<if playerCode.haveMakeup()>>\
 				<<set _noticeType.push("makeup")>>\
 			<<endif>>\
-			<<if $currShoes.female>>\
+			<<if $currShoes.isFemale>>\
 				<<set _noticeType.push("shoes")>>\
 			<<endif>>\
 			<<if _noticeType.length > 0>>\
@@ -140,13 +143,13 @@
 		<<if playerCode.haveMakeup()>>\
 			<<set _noticeType.push("makeup")>>\
 		<<endif>>\
-		<<if $currShoes.female>>\
+		<<if $currShoes.isFemale>>\
 			<<set _noticeType.push("shoes")>>\
 		<<endif>>\
-		<<if $currOuter.female>>\
+		<<if $currOuter.isFemale>>\
 			<<set _noticeType.push("dress")>>\
 		<<endif>>\
-		<<if $currStockings>>\
+		<<if $currStockings.isFemale>>\
 			<<set _noticeType.push("stockings")>>\
 		<<endif>>\
 		<<if _noticeType.length > 0>>\
@@ -157,7 +160,7 @@
 				@@.malevoice2;"You really went all the way with your hair, huh $player.name?"@@ Tyrone asks, even though the answer is plain to see. @@.malevoice2;"Such a sissy. Do you like it when a real man holds onto it, and yanks it when they fuck you?"@@
 
 			<<case "boobs">>\
-				<<if playerCode.haveCPlus()>>\
+				<<if playerCode.haveCplus()>>\
 					@@.malevoice2;"Those things are huge,"@@ Tyrone says, pointing at your tits. @@.malevoice2;"A lot of real women would be jealous. If I didn't have a girlfriend, I just might be tempted to fuck those with my huge cock."@@
 
 				<<else>>\
@@ -173,7 +176,7 @@
 
 				<<endif>>\
 			<<case "shoes">>\
-				<<if $currShoes.slutty>>\
+				<<if indow.inventoryFuncs.hasTag($currShoes, 'slutty')>>\
 					@@.malevoice2;"Heels - now we're talking. No sissy should ever be seen in anything else. I hope you've practiced bending over in them - never know when someone might just grab you by the hips and slam a cock up your ass,"@@ Tyrone teases, smirking at your worried expression.
 
 				<<else>>\
@@ -181,7 +184,7 @@
 
 				<<endif>>\
 			<<case "dress">>\
-				<<if $currOuter.slutty>>\
+				<<if window.inventoryFuncs.hasTag($currOuter, 'slutty')>>\
 					@@.malevoice2;"Yeah, now you're showing what you're made of - putting it all in the open like a good sissy would. I bet you're dripping in between your legs while I'm looking at you. Scratch that - I bet you're struggling not to drop to your knees and rub your face against my crotch. Well, sissy, I've already got a girl - but hell if she dresses like you. No, no - she has taste,"@@ Tyrone brags, smirking at the way you squirm.
 
 				<<else>>\
@@ -189,7 +192,7 @@
 
 				<<endif>>\
 			<<case "stockings">>\
-				 <<if $currStockings.slutty>>\
+				 <<if window.inventoryFuncs.hasTag($currStockings, 'slutty')>>\
 					<<if playerCode.isHairless() or playerCode.isWaxed()>>\
 						@@.malevoice2;"Fancy stockings? Damn, those girly legs of yours look mighty luxurious, sissy. I bet you love parting those sweet thighs of yours when a real man comes 'a knockin',"@@ Tyrone teases, then whistles loudly. @@.malevoice2;"Hot damn!"@@
 

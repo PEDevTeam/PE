@@ -1,0 +1,122 @@
+::Klip_Klop_events
+<!-- <<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if $player.daring lt 5>>\
+  <<set $toggleStoreMenu to 1>>\
+   You find yourself outside the shoe store, only to discover that the contents are exclusively feminine. From the cut of the brogues, to the horrifying style of the dagger heels, everything they sell is aimed at women. And girls. 
+
+	With no reason to enter the shop, you turn on your heel and head for the mall. 
+
+   [[Leave | Go to the mall][$toggleStoreMenu = false]]
+<<else>>\
+   <<if $flags.flatsFlag and $flags.firstBuyFlats == 0>>\
+		With the latest demand of $teacher still ringing in your ears like some deafening tolling bell, you find yourself outside the women’s shoe shop, Klip Klops. As you peer into the window from across the concourse you wait for a quiet moment and slink into the shop, momentarily dazzled by the rows of colorful shoes, some bedecked with sequins or rhinestones.
+
+		You quickly scan the shelves for a glimpse of the most basic, boyish-looking shoes you can find, when you hear a husky, alluring voice.
+
+		<<if $flags.mallKlipIntro>>\ 
+			@@.femvoice7;“Oh, it’s you $player.name. Welcome back,”@@ Phoebe says warmly in her seductive voice.
+
+			@@.heroT;"Oh thanks,”@@ you say, not quite sure how you feel being known by name in a women’s shoe shop. 
+
+			@@.femvoice7;“What can I do for you today?”@@
+
+			@@.heroT;"I need some new shoes,”@@ you say.
+		<<else>>\
+			<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
+			@@.femvoice7;“Can I help you?”@@
+
+			You turn and spy an angelic woman sitting on a clear perspex seat, sorting through shoe boxes. As she looks up at you, you cannot help but notice her perfect makeup, flowing brunette hair and easy smile. But most of all you find yourself staring at her incredibly long legs, enhanced by knee-length leather boots and topped by an almost inappropriately short denim skirt.
+
+
+			@@.heroT;"Um,”@@ you eloquently reply as your heart threatens to burst from your chest and your eyes ache from staring too much. You cough and quickly recover your manners, if not your composure. @@.heroT;“I need some shoes?”@@
+
+			@@.femvoice7;“I’m sorry, we only stock women’s shoes. Urbane has all kinds of menswear. Perhaps you can try there?”@@ she suggests helpfully. 
+
+			@@.heroT;"I, um.”@@
+
+			The amazon climbs to her feet, her long, tanned, perfectly proportioned legs stretching enticingly as she stands. @@.femvoice7;“Oh wait, you must be the one…”@@ she mumbles to herself, although you hear her fine in the deserted store. @@.femvoice7;“I am Phoebe Starr, Phoebe to my friends. And you must be…”@@
+
+			@@.heroT;"$player.name.”@@
+
+			@@.femvoice7;“Indeed, $player.name. So you need some shoes?”@@
+				
+			@@.heroT;"I guess.”@@
+
+			@@.femvoice7;“Great. This way…”@@ Phoebe announces, walking towards the rear of the shop.
+			<<set $flags.mallKlipIntro = 1>>\			
+		<<endif>>\
+	<<elseif (not $flags.flatsFlag) or $flags.firstBuyFlats == 1>>\
+		<<if $tasksTeacher.practiceHeels.status == 1>>\ 
+			Even standing on the threshold of the shoe shop, you cannot feel anything other than daunted by the height of some of the heels in the store.
+
+			<<if $flags.mallKlipIntro == 1>>\
+				@@.femvoice7;“Hi $player.name. How lovely to see you. What can I do for you this time?”@@ Phoebe’s husky tones tickle your insides and, combined with her usual tiny skirt and lusciously long legs, you struggle to find your voice.
+
+				For once, you already have your reason prepared. In fact you spent the whole trip to the mall coming up with it. @@.heroT;"Someone dared me to wear heels,” you admit.@@
+
+				<<if _shoes.isFemale>>\
+					@@.femvoice7;“Hmm, okay $player.name. You are already wearing girl’s shoes. It’s not that much of a stretch to wear heels. Perhaps it’s time to be honest with yourself. Is this really a dare?”@@ Phoebe smiles at you curiously, her grey eyes sparkling.
+				<<else>>\
+					@@.femvoice7;“A dare or a bet? Not that it matters. You’ve [tried on/bought] girl’s shoes before, though. It’s not that much of a stretch for you to wear heels. Perhaps it’s time to be honest with yourself. Is this really a dare?”@@ Phoebe smiles at you curiously, her grey eyes sparkling.
+				<<endif>>\
+
+			<<else>>\
+				<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
+				@@.femvoice7;“Can I help you?”@@ 
+
+				You turn and spy an angelic woman sitting on a clear plexiglass seat, sorting through shoe boxes. As she looks up at you, you cannot help but notice her perfect makeup, flowing brunette hair and easy smile. But most of all you find yourself staring at her incredibly long legs, enhanced by knee-length leather boots and topped by an almost inappropriately short denim skirt.
+
+				@@.heroT;"Um,”@@ you ineloquently reply. Your heart threatens to burst from your chest, and your eyes ache from staring too much. You cough and quickly recover your manners, if not your composure. @@.heroT;“I need some shoes?”@@
+
+				@@.femvoice7;“I’m sorry, we only stock women’s shoes. Urbane has all kinds of menswear. Perhaps you can try there?”@@ she suggests helpfully. 
+
+				@@.heroT;"No. I, um, I need to try heels. It’s um, for a dare?”@@
+
+				The amazon climbs to her feet, her long, tanned, perfectly proportioned legs stretching enticingly as she stands. @@.femvoice7;“Oh wait, you must be the one…”@@ she mumbles to herself, although you hear her fine in the quiet store. @@.femvoice7;“I am Phoebe Starr, Phoebe to my friends. And you must be…”@@
+
+				@@.heroT;"$player.name.”@@
+
+				@@.femvoice7;“Indeed, $player.name. Yes. So you need some heels?”@@
+			<<endif>>\
+
+		@@.heroT;"I, um, just need to show I can walk in them,”@@ you reply, aware that your plans are going awry.  
+			
+		@@.femvoice7;“Of course I can help. We do lessons. Why don’t you follow me out back?”@@
+
+		<<set $flags.mallKlipIntro = 1>>\
+		[[Try on heels|task practiceHeels]]
+		[[Return to Mall | Go to the mall]]
+		<<else>>\
+			You stand in the doorway, looking at the displays of bright, shiny girl’s shoes, from low heels to soaring, from pumps to Mary Jane’s, from stilettos to strappy. So many different types. Despite your misgivings, you step into the domain reserved solely for women’s feet.
+
+			<<if $flags.mallKlipIntro>>\
+				@@.femvoice7;“Hi $player.name. How lovely to see you. What can I do for you this time?”@@ Phoebe’s husky tones tickle your insides and, combined with her usual tiny skirt and luscious long legs, leave you struggling to find your voice. 
+
+				@@.heroT;"Hi Phoebe. I need some new shoes,”@@ you say. 
+			<<else>>\
+				<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
+				@@.femvoice7;“Can I help you?”@@
+
+				You turn and spy an angelic woman sitting on a clear perspex seat, sorting through shoe boxes. As she looks up at you, you cannot help but notice her perfect makeup, flowing brunette hair and easy smile. But most of all you find yourself staring at her incredibly long legs, enhanced by knee-length leather boots and topped by an almost inappropriately short denim skirt.
+
+				@@.heroT;"Um,”@@ you eloquently reply as your heart threatens to burst from your chest and your eyes ache from staring too much. You cough and quickly recover your manners, if not your composure. @@.heroT;“I need some new shoes?”@@
+
+				@@.femvoice7;“I’m sorry, we only stock women’s shoes. Urbane has all kinds of menswear. Perhaps you can try there?”@@ she suggests helpfully. “
+
+				@@.heroT;"No. I, um, It’s um, for, you know?”@@
+
+				The amazon climbs to her feet, her long, tanned, perfectly proportioned legs stretching enticingly as she stands. @@.femvoice7;“Oh wait, you must be the one…”@@ she mumbles to herself, although you hear her fine in the quiet store. @@.femvoice7;“I am Phoebe Starr, Phoebe to my friends. And you must be…”@@
+
+				@@.heroT;"$player.name.”@@
+
+				@@.femvoice7;“Indeed, $player.name. Yes. So you need some shoes?”@@
+
+				@@.heroT;"I, yes, shoes.”@@ you reply, inwardly kicking yourself.  
+			<<endif>>\
+
+			@@.femvoice7;“Of course I can help.”@@
+			<<set $flags.mallKlipIntro = 1>>\
+		<<endif>>\
+	<<endif>>\
+<<endif>>\

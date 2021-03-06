@@ -1,0 +1,44 @@
+::Girl Pants p2b
+You stare at the box and consider opening it, but you know $teacher will be returning any moment. Instead, you pull yourself away from the enticement and finish tidying the cupboard. 
+
+@@.teacher;"Wonderful effort, $player.name.”@@ $teacher announces from behind you. @@.teacher;"I could not have done better myself. Perhaps you will become a perfect homemaker someday.”@@
+
+@@.hero;What’s a homemaker?@@ you ponder.
+
+@@.teacher;"I have one more task for you, a bit of assistance to help me catch the pilferer. I want you to reach up and open that box. Oh, and let me step back first.”@@
+
+You do as instructed and flip the lid of the box down. Green gunk, thick and stinky, pours out from inside the box and coats your pants, soaking through immediately to your <<if playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>stockings<<else>>skin<<endif>>. 
+
+@@.teacher;"Terrific, my plan worked. We will find the culprit in no time. Here, take this cloth and… Oh dear, it seems to have stained more than I thought it would,”@@ $teacher adds, staring at your stained pants. As she speaks, you hear something rip and your left trouser leg tears off, sliding down your leg to pool at your feet, revealing your <<if playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>stockinged<<else>><<if playerCode.isWaxed()||playerCode.isHairless()>>hairless<<else>>bare<<endif>><<endif>> leg. A moment later the other leg falls away too. @@.teacher;"How intriguing, it seems the liquid is stronger than expected, it’s dissolved some of the material. I may need to change the dose. Regardless, I need to go. I do feel somewhat responsible though.”@@
+
+She tuts and carefully enters the cupboard, stepping over the drips of gunk dotting the floor. @@.teacher;"I have some spare uniform pants you can wear home, and perhaps an item or two you can wear out should you wish. Now, go change and let me reset the trap.”@@ $teacher passes you a bag and ushers you back into the classroom.
+
+You take the bag and tip the contents onto a desk. There is a pair of school pants that have a funny shape, a pair of jeans that look too tight and a hoodie in Pepperton colours, without the logo. You lift the pants, but you know before you check the label that they are girls’ pants. @@.heroT;“I can’t wear these!”@@
+
+@@.teacher;"Of course you can, they look mostly like boys’ and no one will tell the difference. You might like them, too.”@@ 
+
+$teacher notices the worry in your expression. 
+
+@@.teacher;"Fret not, $player.name. I think they look quite fetching on you. In fact, I believe you should wear them to school from now on."@@
+
+You balk even harder at the suggestion to wear the feminine pants every day. 
+
+@@.teacher;"That is an order, not a request, in case it wasn't clear. Still, I should probably compensate you for the damaged uniform. Tell you what, I will deduct $30 from your fine for this week, in addition to giving you the pants.
+
+"Now, I would recommend you go straight home today I am sure that the mixture is safe, but just to err on the side of caution, perhaps you had best rush home and shower, just in case....”@@
+ 
+$teacher leaves the thought hanging, but you know what she means. It might dissolve other things too, like my skin? You remove what’s left of your trousers, pull the new girl pants on, feeling their tight fit around your butt and thighs. 
+
+You grab the other clothes and stuff them back in the bag, race home in a panic, kick off all your clothes and shower. With utmost concentration, you check every inch of your skin and heave a sigh of relief when you don’t notice a single mark. You dress in your casual clothes and consider going to the mall to replace your damaged uniform, but you remember $teacher's order about wearing the new pants with your uniform.  You sigh and examine the women's pants that you'll be wearing from now.  At least they are similar enough to your old pants that you don't think anyone will notice without close examination.
+
+@@.hero;Better safe than sorry...@@
+
+<<set $flags.exhausted=true>>\
+<<addToInv "casualMale" 62>>\
+<<set $time.hour = 19>>\
+<<set $time.minute = 0>>\
+<<set playerCode.loadQuickSlot(quickSlotSets.Casual)>>\
+<<set $flags.girlPants = true>>\
+<<set $player.location = "home">>\
+<<set itemsC.schoolMale.image = "school_girl_pants.jpg">>\ <!-- TODO update this so we can change the image... -->
+[[Put the uniform away|Go to bedroom]]

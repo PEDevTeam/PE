@@ -15,13 +15,13 @@
 	<<if $body.bodyhair eq 0>>\
 		<!-- <<set _item=itemsC.Waxing>>\ -->
 		<<set _sceneName="Waxing">>\
-		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
+		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0) or ($player.perversion.crossdressing > 3)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<!-- <<set _item=itemsC.Depilatory>>\ -->
 	<<set _sceneName="Depilatory">>\
-	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0) or ($body.bodyhair > 0 &&$player.perversion.crossdressing > 3)>>\
 	<<display "Clinic buy menu">>
 \
 	<!-- <<set _item=itemsC.LaserHairRemoval>>\ -->

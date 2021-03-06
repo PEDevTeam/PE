@@ -1,0 +1,83 @@
+::task practiceHeels
+<!-- <<set _stock = playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>\ -->
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if not $flags.mallKlipIntro>>\
+	<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
+	@@.femvoice7;“Can I help you?”@@ 
+
+	You turn and spy an angelic woman sitting on a clear plexiglass seat, sorting through shoe boxes. As she looks up at you, you cannot help but notice her perfect makeup, flowing brunette hair and easy smile. But most of all you find yourself staring at her incredibly long legs, enhanced by knee-length leather boots and topped by an almost inappropriately short denim skirt.
+
+	@@.heroT;"Um,”@@ you ineloquently reply. Your heart threatens to burst from your chest, and your eyes ache from staring too much. You cough and quickly recover your manners, if not your composure. @@.heroT;“I need some shoes?”@@
+
+	@@.femvoice7;“I’m sorry, we only stock women’s shoes. Urbane has all kinds of menswear. Perhaps you can try there?”@@ she suggests helpfully. 
+
+	@@.heroT;"No. I, um, I need to try heels. It’s um, for a dare?”@@
+
+	The amazon climbs to her feet, her long, tanned, perfectly proportioned legs stretching enticingly as she stands. @@.femvoice7;“Oh wait, you must be the one…”@@ she mumbles to herself, although you hear her fine in the quiet store. @@.femvoice7;“I am Phoebe Starr, Phoebe to my friends. And you must be…”@@
+
+	@@.heroT;"$player.name.”@@
+
+	@@.femvoice7;“Indeed, $player.name. Yes. So you need some heels?”@@
+	
+	<<set $flags.mallKlipIntro = 1>>\
+<<endif>>\
+You follow Phoebe to the rear of the shop and out towards the stockroom. As she leaves the store, Phoebe waves to an assistant to take over while she assists you. Beside the door marked ‘Stock’ is another, unmarked door. You step inside and realize that it contains a small kitchenette, a toilet cubicle and a table and chairs. In the corner is a small platform surrounded by a couple of the new action cameras mounted on small tripods. You assume the platform is for customers to walk on.
+
+@@.femvoice7;“This is where, for a small fee, we assist young ladies with their deportment while wearing heels.”@@
+
+@@.heroT;"Walking lessons is a thing?"@@
+
+@@.femvoice7;“Of course. Wearing heels is completely different to flat shoes. We’ll go through the basics together, then it’s just practice, practice, practice.”@@
+
+@@.hero;Practice how to walk? Don’t I already know how to do that?@@
+
+<<if $player.shoeSize == 0>>\
+	“I need your shoe size first. Take a seat at the table, remove your shoes and I will measure you. I will be right back.” 
+
+	Wondering how you find yourself in these positions, you flop down sullenly. Just as you finish removing your shoes, Phoebe returns with a contraption.
+
+	<<if _stoick.masterItem=='socks'>>\
+		@@.femvoice7;“Socks too.”@@
+
+		You remove your socks and drop them into your shoes
+		
+	<<endif>>\
+	Phoebe kneels before you, her smooth thighs disappearing enticingly inside her miniskirt. Despite your situation, the sight of her delicate skin makes your penis throb <<if _chast=window.wardrobeFuncs.getWornItem('chastity')>>uncomfortably inside your cage<<else>>which forces you to lean forward to hide it<<endif>>. She places a measuring board on her legs and then lifts your foot onto the board. Her delicate fingers seem to drift over your skin and increase your discomfort. You look away, trying to find something to diminish your ardor, only to notice a line of posters of tall women with shapely legs wearing increasingly tall, sexy heels. The sight makes you whimper.
+
+	@@.femvoice7;“Good news. You are a nine.”@@ You look at her in wonderment. Your shoe size has increased overnight. 
+
+	@@.hero;My feet have grown? Great news! Finally something to cheer about.@@
+
+	@@.femvoice7;“Do you take a seven and a half in boy sizes?”@@ she asks.  
+
+	You nod, wondering where this is going. 
+
+	@@.femvoice7;“That’s correct then. So a women’s shoe size seven. About average for a girl, which is excellent. We have pretty much every shoe here in your size. Isn’t that great?”@@
+
+	Phoebe stands and heads across the room. 
+
+	@@.heroT;"Average size... for a girl,”@@ you grumble to yourself, looking down at your <<if _stock>>stockinged<<else>>bare<<endif>> feet. After Phoebe’s assessment, you can’t help but feel that they look delicate, like girl’s feet. 
+<<else>>\
+	@@.femvoice7;“You were a nine, correct?”@@
+
+	You nod, a mixture of relief at not having your small feet measured again mixed with a pang of regret that Phoebe’s delicate fingers won’t be tracing your soft, sensitive skin again… 
+
+	@@.femvoice7;“Earth to $player.name?”@@
+
+	@@.hero;"Sorry,”@@ you say, blushing.
+
+	@@.femvoice7;“It’s fine. I realize this will take time for you to get used to. You don’t need the socks this time. I should be able to help.”@@
+<<endif>>\
+<<set $player.shoeSize = 9>>\
+
+@@.femvoice7;“To make the most of the lesson, it would be more beneficial for you to wear something tighter. Your loose clothing will make it harder for me to detect and correct subtle movements.”@@
+
+Not quite sure what she means, you wait patiently as Phoebe rummages inside some bags in the corner. 
+
+@@.femvoice7;“Here. Sorry it’s the best I can do. You can change in there,”@@ she adds, pushing a bag of clothes into your hands and nodding towards the toilet cubicle. You peer inside and see some pantihose, something black and soft, and something pink, along with a pair of bright blue heels.
+
+@@.hero;Can I do this?@@
+<<set $flags.firstBuyHeels = true>>\
+
+[[Apologize and go back into the mall|Go to the mall]]
+[[Change in the cubicle]]

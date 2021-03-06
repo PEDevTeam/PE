@@ -631,7 +631,7 @@ window.kinks= [
 	},
 	{
 		name: "Small penis",
-		code: "Sexual Prowess Hypotherapy",
+		code: "Sexual Prowess Hypnotherapy",
 		image: "hypno_sph.gif",
 		imagePack: "Hypno SPH",
 		fadeOut: [

@@ -27,7 +27,7 @@
 	
 	@@.hero;Why does it feel so weird? There is nothing special, just a photo.@@
 	
-	The flash of the camera makes you jump a bit. You hurriedly reach your phone and check the photo. It came out pretty good, though your your nervousness was also captured in the image.\
+	The flash of the camera makes you jump a bit. You hurriedly reach your phone and check the photo. It came out pretty good, though your nervousness was also captured in the image.\
 	<<if playerCode.haveBplus()>>\
 		Your clothes looks good on your figure, leaving no visible signs of you being a boy.
 	<<elseif playerCode.haveBoobs()>>\
@@ -94,8 +94,10 @@
 	It was a strange experience, but you can't deny that it was interesting and maybe even fun.
 	<<if ($player.perversion.crossdressing lte 4)>>\
 		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
+	<<elseif ($player.perversion.crossdressing lte 5)>>\
 		<<set $player.perversion.crossdressing = 6>>\
+	<<elseif ($player.perversion.crossdressing eq 6)>>\
+		<<set $player.perversion.crossdressing = 7>>\
 		Maybe you needed a bit of reassurance or just some support, but at this moment you realize that your fear about wearing female clothes around people has faded considerably. You still need to be careful and avoid neighbors or people who might recognize you, but at least you don't freeze at the thought of strangers seeing you in a dress.
 		
 		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@

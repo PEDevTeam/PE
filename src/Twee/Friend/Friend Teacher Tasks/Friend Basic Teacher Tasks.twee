@@ -21,7 +21,7 @@
     $friend opens the door and smiles widely at you before stepping back. You know the way now, but let $friendG.him_her lead the way up the stairs. \
     $friendG.his_her bedroom is as big as you remember. There is a PSBox set up ready to play, a pile of board games on the shelves and a laptop at the desk, which is currently showing some anime screensaver.
 <<case 2>>\
-    $friend takes some time to appear, and when $friendG.he_she finally opens the door [<<if $friendG.gender eq 'F'>>she<<else>>he<<endif>> looks flustered and a little dishevelled. Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs.\
+    $friend takes some time to appear, and when $friendG.he_she finally opens the door <<if $friendG.gender eq 'F'>>she<<else>>he<<endif>> looks flustered and a little dishevelled. Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs.\
     You catch a glimpse of $friend tucking in<<if $friendG.gender eq 'F'>> her top<<else>> his shirt<<endif>> inside $friendG.his_her waistband in one of the many mirrors which line the hallway. Not paying it much thought, you reach the top of the stairs and head into the bedroom.
 <<case 3>>\
     $friend looks a little surprised to see you standing on $friendG.his_her doorstep but immediately steps into the role of perfect <<if $friendG.gender eq 'F'>>hostess<<else>>host<<endif>>.\
@@ -38,16 +38,20 @@ You watch as $friend heads back downstairs, then flop back onto the couch. It’
 \
 <<set $tasksFriend.teacherFriendTask to 0>>\
 \
+/* NOTE: The following conditionals must be kept in sync with those in Friend Teacher Tasks Menu */\
 <<if
 $tasksTeacher.selfieFemaleClothes.status eq 1 or
 $tasksTeacher.selfieHomeMakeup.status eq 1 or 
 ($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0) or 
 ($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or 
+($body.bodyhair == 0 && $friendG.seenWaxedLeg) or
 ($flags.flatsFlag == true && not window.inventoryFuncs.ownsMasterItem('flats')) or 
 ($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0) or 
 $tasksTeacher.posingSeductively.status eq 1 or
 $tasksTeacher.danceAtHome.status eq 1 or
-$tasksTeacher.crossdressAroundBlock.status eq 1>>\
+$tasksTeacher.crossdressAroundBlock.status eq 1 or
+$tasksTeacher.crossdressAtPark.status eq 1 or
+$tasksTeacher.practiceHeels.status eq 1>>\
     <<set $tasksFriend.teacherFriendTask to 1>>\
 <<endif>>\
 

@@ -1,4 +1,6 @@
 :: Friend Teacher Tasks Flats
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _socks=_stock.masterItem == 'socks'>>\
 It feels like a big jump, to go from a bit of underwear to… more obvious things, but if you want to appease $teacher, you have no choice. Well, you suppose you could always buy some girl’s shoes in the mall, in the girl’s shoe store, which is full of girls…
 
 @@.hero;Yeah, I made the right choice@@
@@ -9,7 +11,7 @@ It feels like a big jump, to go from a bit of underwear to… more obvious thing
 
 @@.hero;Did $friendG.he_she sound hopeful? No, I must have imagined it.@@
 
-@@.friend;“No, just flats.”@@ $friend turns and rushes ahead of you up the stairs. @@.heroT;“Plain, simple and discrete flats!”@@ you call out, scurrying behind. 
+@@.heroT;“No, just flats.”@@ $friend turns and rushes ahead of you up the stairs. @@.heroT;“Plain, simple and discrete flats!”@@ you call out, scurrying behind. 
 
 @@.friend;“Let’s pick a few out, then you can choose. Are you sure you don’t want heels?”@@ $friend announces as you walk into <<if $friendG.gender == 'F'>>her wardrobe<<else>>his sister’s bedroom<<endif>>. 
 
@@ -18,11 +20,11 @@ It feels like a big jump, to go from a bit of underwear to… more obvious thing
 @@.friend;“Oh well, maybe next time.”@@
 
 <<if $friendG.gender == 'F'>>\
-	@@.friend;“Here, try these,”@@ she says, handing you a surprisingly boring pair of her flat shoes, with the label still on. They are so nondescript they would be perfect. You sit down on the chair and take the shoe. <<if playerCode.isWearing("socks")>>@@.friend;“You’ll have to remove your socks, silly, or they won’t fit.”@@ You shake your head, and sigh under your breath, but remove your socks. <<endif>>It feels like it might be a little large, but it’s otherwise perfect and you pull the shoe on, curling your toes to keep it in place.
+	@@.friend;“Here, try these,”@@ she says, handing you a surprisingly boring pair of her flat shoes, with the label still on. They are so nondescript they would be perfect. You sit down on the chair and take the shoe. <<if _socks>>@@.friend;“You’ll have to remove your socks, silly, or they won’t fit.”@@ You shake your head, and sigh under your breath, but remove your socks. <<endif>>It feels like it might be a little large, but it’s otherwise perfect and you pull the shoe on, curling your toes to keep it in place.
 
 	It fits like a canoe, and falls off your foot before you can even stand.
 
-	@@.friend;“Oh, I guess you have tiny feet. Mine aren’t even that big.”@@ $friend crawls over from where she knelt by the wardrobe and lays the shoe next to your <<if playerCode.isWearing("stockings")>>stockinged<<endif>> foot. Even if you squint, there is no doubt that the shoe is too long. @@.friend;“Don’t look sad. I have loads of old ones, from when I was short like you.”@@
+	@@.friend;“Oh, I guess you have tiny feet. Mine aren’t even that big.”@@ $friend crawls over from where she knelt by the wardrobe and lays the shoe next to your <<if _stock>>stockinged<<endif>> foot. Even if you squint, there is no doubt that the shoe is too long. @@.friend;“Don’t look sad. I have loads of old ones, from when I was short like you.”@@
 
 	$friend closes the door and pulls a chair to the far end. Standing on it, she reaches up and opens the top cupboard, sorting some shoe boxes, checking the sizes and pulling some pairs forward. 
 
@@ -32,13 +34,13 @@ It feels like a big jump, to go from a bit of underwear to… more obvious thing
 
 	@@.friend;“Oops,”@@ $friend says, giggling as she drops the pile of boxes into your upstretched arms. @@.friend;“I dressed in a rush. There you go.”@@
 <<elseif $friendG.gender == 'M'>>\
-	@@.friend;“She left these behind. I guess they were too small for her or something,”@@ he says, handing you a surprisingly boring pair of her flat shoes. They are so nondescript they would be perfect. You sit down on the chair, take the shoe, and try to fit it on your foot. It’s too small and despite trying to wedge it on, there is no way it will fit. <<if playerCode.isWearing("socks")>>You even remove your socks and try again, but your foot is still too big.<<endif>>
+	@@.friend;“She left these behind. I guess they were too small for her or something,”@@ he says, handing you a surprisingly boring pair of her flat shoes. They are so nondescript they would be perfect. You sit down on the chair, take the shoe, and try to fit it on your foot. It’s too small and despite trying to wedge it on, there is no way it will fit. <<if _socks>>You even remove your socks and try again, but your foot is still too big.<<endif>>
 
-	@@.friend;“I thought you might be the same size as $friendsis. She’s not much taller than you,”@@ $friend says, checking the label @@.friend;“Oh, wait. This is aged ten, no wonder it was too small. There are more here, let me pick some."@@ $friend delves deeper into the wardrobe and retrieves another pair. He lays the shoe next to your <<if playerCode.isWearing("stockings")>>stockinged<<endif>> foot. @@.friend;“Looks like it will fit. I think she wore these when she was at school. Let me get the rest.”@@ 
+	@@.friend;“I thought you might be the same size as $friendsis. She’s not much taller than you,”@@ $friend says, checking the label @@.friend;“Oh, wait. This is aged ten, no wonder it was too small. There are more here, let me pick some."@@ $friend delves deeper into the wardrobe and retrieves another pair. He lays the shoe next to your <<if _stock>>stockinged<<endif>> foot. @@.friend;“Looks like it will fit. I think she wore these when she was at school. Let me get the rest.”@@ 
 
 	After a couple of minutes, $friend carries over a stack of boxes and drops them into your outstretched hands. 
 <<else>>\
-	“She left these behind. I guess they were too small for her or something,” he says, handing you a surprisingly boring pair of her flat shoes. They are so nondescript they would be perfect. You sit down on the chair, take the shoe and try to fit it onto your foot. It’s too small and despite trying to wedge it on, there is no way it will fit. <<if playerCode.isWearing("socks")>>You even remove your socks and try again, but your foot is still too big.<<endif>> 
+	“She left these behind. I guess they were too small for her or something,” he says, handing you a surprisingly boring pair of her flat shoes. They are so nondescript they would be perfect. You sit down on the chair, take the shoe and try to fit it onto your foot. It’s too small and despite trying to wedge it on, there is no way it will fit. <<if _socks>>You even remove your socks and try again, but your foot is still too big.<<endif>> 
 
 	@@.friend;“I thought you might be the same size as $friendsis. She’s not much taller than you,”@@ $friend says, checking the label @@.friend;“Oh, wait. This is aged ten, no wonder it was too small. There are more here, let me pick some."@@
 
@@ -71,7 +73,7 @@ You nervously look at the choices then choose the pair you like.
 <<elseif $kinkAllow.ageBehavior>>\
 	[[Mary Janes with Bows|Friend Teacher Tasks Flats p2][$flatsChoice = 5; $friendG.ageBehavior = true]]
 <<elseif $kinkAllow.adultBaby || $kinkAllow.ageBehavior>>\
-	[[Mary Janes with Bows|Friend Teacher Tasks Flats p2][$flatsChoice = 5; $friend.adultBaby = true; $friend.ageBehavior = true]]
+	[[Mary Janes with Bows|Friend Teacher Tasks Flats p2][$flatsChoice = 5; $friendG.adultBaby = true; $friendG.ageBehavior = true]]
 <<endif>>\
 <<if $kinkAllow.frilly>>\
 	[[Lolita-style shoes with ribbons|Friend Teacher Tasks Flats p2][$flatsChoice = 6; $friendG.frilly = true]]

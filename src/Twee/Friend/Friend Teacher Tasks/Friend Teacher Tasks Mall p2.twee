@@ -1,8 +1,11 @@
 :: Friend Teacher Tasks Mall p2
-<<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\ -->
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set $friendG.bonusDress to true>>\
-<<if playerCode.isWaxed() || playerCode.isWearing("jocksLucky") || (not _chastity) || (not _bra)>>\
+<<if not playerCode.isHairy() || _under.isMale || (not _chastity) || (not _bra)>>\
 	<<set $friendG.bonusDress == false>>\
 <<endif>>\
 @@.hero;I made it!@@
@@ -82,11 +85,11 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<img src='Images/items/dress_casual_68.jpg' style="float: right; width: auto; height: 250px;">\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the lips and squeezing your butt. You can feel his throbbing penis against your hip through the material of your dresses. You realize that he headed out of the changing room still wearing the red dress and the thought makes your heart race. 
 		
-		<<if playerCode.ismind() == 0>>\
+		<<if playerCode.isMind() == 0>>\
 			You squirm a little under the sudden kiss but are unable to move. His tongue darts in and out of your mouth, and his strength holds you in place. Your mind swims with confusing thoughts as your body reacts to the attention, the urgency of his kiss and the press of his body, combined with the sexy dresses you both are wearing, confusing your mind.
 
 			@@.friend;“Oops,”@@ $friend says breathily before stepping back.
-		<<elseif playerCode.ismind() == 1>>\
+		<<elseif playerCode.isMind() == 1>>\
 			You squirm a little under the sudden kiss but are unable to move. His tongue darts in and out of your mouth, and his strength holds you in place. The press of his body, and the sensation of his hard cock against your thigh, makes your mind swim. You realize that you, and wearing this dress for him, has caused his arousal and you begin to kiss him back. Your tongues dance in your mouth and his hands trace a line down your sides and to the hem of your dress. 
 
 			@@.friend;“Oops,”@@ $friend says breathily before stepping back.
@@ -144,7 +147,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<<endif>>\
 
 		@@.friend;“We’d better go…”@@ he says, backing away and leaving the cubicle as suddenly as he kissed you.
-		<<<set $friendG.friendKiss += 1>>\
+		<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter,”@@ he says with a wink @@.friend;“and who knows...”@@ 
 	<<endif>>\
@@ -165,8 +168,11 @@ You both remain silent on the death-defying drive home. You distract yourself by
 <<addToInv summerDress 68>>\
 <<set $tasksTeacher.tryingClothesMall.status = 2>>\
 <<set $tasksTeacher.tryingClothesMall.progress++>>\
-<<if ($player.perversion.crossdressing lte 1)>>\
-	<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 5)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
 <<endif>>\
 \
 <<run $time.addMinutes(120)>>\

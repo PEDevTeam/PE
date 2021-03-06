@@ -13,7 +13,7 @@ $friend wanders down the few steps to the floor, retrieves the remote and turns 
 
 @@.femvoice11;“Stand with your heels together and your toes pointing outward,”@@ the instructional video begins. @@.femvoice11;“Raise your left heel, then step forward with your left foot, stepping toe and not heel first. Now, step back, again with your heel first.”@@
 
-@@.heroT;“Heel first? This is so hard!”@@ you say, tripping over your own feet. 
+@@.heroT;“Toe first? This is so hard!”@@ you say, tripping over your own feet. 
 
 @@.friend;“Try again. Step forward with your left, plant your heel and step back. Like this...”@@ You watch $friend as $friendG.he_she shows you the move, $friendG.his_her hips swaying in an exaggerated way as $friendG.he_she steps. @@.friend;“Now you try.”@@
 
@@ -58,5 +58,10 @@ It’s not until the door closes that you remember you need a video. With your m
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.danceAtHome.status = 2>>\
 <<set $tasksTeacher.danceAtHome.progress++>>\
-<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 3)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
+<<endif>>\
 [[Go Home|Leave friend's house]]

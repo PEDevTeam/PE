@@ -185,10 +185,10 @@
             <<if _o.info>>\
                 <<set _in to _in + " ">>\
 				<<if _o.id eq itemsC.schoolMale.id>>\
-					<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \'conservative\' black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \'provactive,\' but other jewelry is not.</span></div>'>>\
+					<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. In addition to your dress blazer, tie and slacks, you can only wear \'conservative\' black socks and dress shoes. With this uniform combination, glasses are allowed, unless they are \'provocative,\' but other jewelry is not.</span></div>'>>\
 				<<elseif (_o.id eq itemsC.schoolFemale.id) or (_o.id eq itemsC.sluttyschoolFemale.id)>>\
 					<<if $player.perversion.teacher lt 8>>\
-						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. Unfortunately, the rule for the school dress says nothing about gender so $teacher //can// make you wear one. The rules say you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \'provactive\'.</span></div>'>>\
+						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. Unfortunately, the rule for the school dress says nothing about gender so $teacher //can// make you wear one. The rules say you have to wear conservative black or white socks or black stockings, with black or red flats, boots or heels.\nDecorated stockings, fishnet stockings and extremely high heels and thigh-high boots are not allowed. Accessories like earrings, necklaces or hairbows and glasses are allowed, unless they are \'provocative\'.</span></div>'>>\
 					<<elseif $player.perversion.teacher lt 10>>\
 						<<set _in to _in + '<div class="tooltip">@@.on;&#xe80a;@@<span id="test_info" class="tooltiptextWide">Your school dress code says you have to wear an official school uniform while on campus. However, $teacher made some exceptions to the regular rules for you. You can wear basically any heels, boots (except thigh-highs), socks or stockings as long as they\'re black, white or red. The sexier, the better.</span></div>'>>\
 					<<else>>\
@@ -244,6 +244,8 @@
 					<<endif>>\
 					<!-- <<set _in to _in + '<<click " ' + _verb2 + '">> --> <!-- <<removeClothing "' + _o.id + '">> --> <!-- <<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
 				<<endif>>\
+			<<elseif ((_o.clothingType & itemTypes.Chastity) && playerCode.isHorny()) >>\
+				<<set _in to _in + ' <div class="tooltip">//@@.halftransparent;cannot put on – too aroused@@//<span class="tooltiptext">You cannot bring yourself to put the cage back on. Try masturbating first.</span></div>'>>\
 			<<elseif $flags.laundryAccident and ((_o.clothingType & itemTypes.Underwear) gt 0) and _o.female>>\
 				<<set _in to _in + " //@@.halftransparent;Wet@@//">>\
 			<<else>>\

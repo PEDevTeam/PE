@@ -421,11 +421,11 @@ window.tasksTeacher={
 		text: {
 			given: "I have a task for you today. I want you to attend school wearing a pair of stockings. Worry not, they will be well hidden under your uniform, but I think you will enjoy just how exquisite they feel.",
 			perform: "",
-			finish: "You pull up your pants leg to reveal your stocking-clad thigh\n\n@@.teacher;\"Hmm, your first try was pitiful. The second too, but I see that you actually tried towards the end. You are clearly a beginner, $player.name, but you should keep at it - you'll learn eventually.  Until you do, you can always get help from the professionals if you want your makeup done right.@@",
+			finish: "You pull up your pants leg to reveal your stocking-clad thigh\n\n@@.teacher;\"How delicate. Make sure you do not put a run in them, as you are no doubt away, it’s the very worst thing for any girl. Perhaps you should carry a spare pair, just in case.@@",
 			fail: "Could you not even afford to buy a pair of stockings? I expect you to fulfill all of my requests, no matter what it takes.",
 			reminder: "Don't forget to wear stockings to school.",
 			checkMe: {
-				given: "try applying makeup.",
+				given: "wear stockings to school.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
@@ -467,7 +467,7 @@ window.tasksTeacher={
 		text: {
 			given: "I have a task for you today. I think you need to experiment more. Film yourself trying on dresses at one of local clothing stores.",
 			perform: "",
-			finish: "<<if $friendG.tasks.mall>><<set $friendG.tasks.mall = false>>$teacher examines the video on your phone which shows you trying on a couple of dresses, albeit with some sections of film missing.\n\n@@.teacher;\"Did you have recording problems? And who did the other shadow belong to? No need to answer, you were no doubt so comfortable you had one of the shop assistants bring you the right size and do your zips up.\"@@ she says, an ironic smirk playing on her lips.<<else>>$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@<<endif>>",
+			finish: "<<if $friendG.tasks.mall>>$teacher examines the video on your phone which shows you trying on a couple of dresses, albeit with some sections of film missing.\n\n@@.teacher;\"Did you have recording problems? And who did the other shadow belong to? No need to answer, you were no doubt so comfortable you had one of the shop assistants bring you the right size and do your zipper up.<<else>>$teacher watches the video of you trying on dresses and burst out in laughter.\n\n@@.teacher;\"Ahahaha, your face when the zipper stuck. Oh, my - it's priceless.@@<<endif>>",
 			fail: "I suppose your schedule was probably too busy to do what I asked. Take a mark for forgetting your trip to the clothing store.",
 			reminder: "Don't forget to go and try on dresses.",
 			checkMe: {
@@ -641,7 +641,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	crossdressAtPark: {	// perv 3-3, cross 4-5
+	crossdressAtPark: {	// perv 3-3, cross 6
 		id: "crossdressAtPark",
 		name:"Task Crossdress at the park",
 		hasPassage: true,
@@ -659,7 +659,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAtPark.progress == 0);
+			return [6].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.crossdressAtPark.progress == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -731,8 +731,52 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	
-	windowshopping: {	// perv 3-4, cross 6-7
+	practiceHeels: {	// perv 3-3, cross 4-5
+		id: "practiceHeels",
+		name:"Task Practice heels",
+		hasPassage: true,
+		text: {
+			given: "I believe it is a wondeful time for you to learn the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels",
+			perform: "",
+			finish: "$teacher looks at the video on your phone and smiles. @@.teacher;You most certainly needed the practice, and yet you started to learn another essential skill. Interesting camera angle,”@@ she says, smiling widely.",
+			fail: "You failed to do as requested. It cannot be that hard to practice walking in heels. Take a mark.",
+			reminder: "You seem to have forgotten to practice walking in heels. I expect proof next time we speak.",
+			checkMe: {
+				given: "to practice walking in heels.",
+				finish: "You did it.",
+				fail: "",
+				reminder: "You haven't done it yet."
+			}
+		},
+		Conditions: function() {
+			return [4,5].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.practiceHeels.progress == 0);
+		},
+		image: "",
+		startPriority: 0,  // see priority system above
+		canStart: true,  // only if true can this task be picked
+		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
+		perversion: {
+			teacher:	{ min: 3, max: 3 },
+			therapist:	{ min: 0, max: 11 },
+			guardian:	{ min: 0, max: 11 }
+		},
+		chance: 10,
+		status: 0,  // 0=Not Assigned, 1=Assigned, 2=Succeed, 3=Fail.
+		progress: 0,  // for progressing scenes
+		startDay: 0,  // day task was started
+		maxDays: 2,  // number of days allowed before task will fail
+		cooldown: 1,  // number of days before task available again
+		rewardMoney: 0,
+		rewardDebt: 10,
+		failPenalty: 1,
+		events: {
+			start: function() {},
+			finish: function() { return true; },
+			success: function() {},
+			fail: function() { return false; }
+		}
+	},
+	windowshopping: {	// perv 3-4, cross 7-8
 		id: "windowshopping",
 		name:"Task Windowshopping",
 		hasPassage: true,
@@ -750,7 +794,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -774,14 +818,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	suckPopsickle: {	// perv 3-4, cross 6-7
+	suckPopsickle: {	// perv 3-4, cross 7-8
 		id: "suckPopsickle",
 		name:"Task Suck popsickle",
 		hasPassage: true,
@@ -799,7 +843,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -823,14 +867,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	selfieMallToilets: {	// perv 3-5, cross 6-7
+	selfieMallToilets: {	// perv 3-5, cross 7-8
 		id: "selfieMallToilets",
 		name:"Task Mall kissy selfie",
 		hasPassage: true,
@@ -848,7 +892,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) || (State.active.variables.player.perversion.teacher >= 4);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -872,14 +916,14 @@ window.tasksTeacher={
 			start: function() {},
 			finish: function() { return true; },
 			success: function() {
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
 			fail: function() { return false; }
 		}
 	},
-	girlyDesert: {	// perv 3-3, cross 6-7
+	girlyDesert: {	// perv 3-3, cross 7,8
 		id: "girlyDesert",
 		name:"Task Girly desert",
 		hasPassage: true,
@@ -897,7 +941,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return [6,7].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.girlyDesert.progress == 0);
+			return [7,8].includes(State.active.variables.player.perversion.crossdressing) && (State.active.variables.tasksTeacher.girlyDesert.progress == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -922,7 +966,7 @@ window.tasksTeacher={
 			finish: function() { return true; },
 			success: function() {
 				State.active.variables.tasksTeacher.girlyDesert.progress++;
-				if (State.active.variables.player.perversion.crossdressing <= 7) {
+				if (State.active.variables.player.perversion.crossdressing <= 8) {
 					State.active.variables.player.perversion.crossdressing++;
 				}
 			},
@@ -930,7 +974,7 @@ window.tasksTeacher={
 		}
 	},
 	
-	selfiePublicChastity: {	// perv 3-4, cross 8+
+	selfiePublicChastity: {	// perv 3-4, cross 9+
 		id: "selfiePublicChastity",
 		name:"Task Public chastity",
 		hasPassage: true,
@@ -948,7 +992,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -975,7 +1019,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	trickGuy: {	// perv 3-4, cross 8+
+	trickGuy: {	// perv 3-4, cross 9+
 		id: "trickGuy",
 		name:"Task Trick guy",
 		hasPassage: true,
@@ -993,7 +1037,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1020,7 +1064,7 @@ window.tasksTeacher={
 			fail: function() { return false; }
 		}
 	},
-	getHitOn: {	// perv 3-4, cross 8+
+	getHitOn: {	// perv 3-4, cross 9+
 		id: "getHitOn",
 		name:"Task Get hit on",
 		hasPassage: true,
@@ -1038,7 +1082,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.player.perversion.crossdressing >= 8);
+			return (State.active.variables.player.perversion.crossdressing >= 9);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -1067,7 +1111,7 @@ window.tasksTeacher={
 	},
 
 	
-	TheClubIntro: { // perv 3+ cross 8+
+	TheClubIntro: { // perv 3+ cross 9+
 		id: "TheClubIntro",
 		name: "Task The Club Intro",
 		hasPassage: true,
@@ -1085,7 +1129,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return (((State.active.variables.player.perversion.crossdressing >= 8) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
+			return (((State.active.variables.player.perversion.crossdressing >= 9) || (State.active.variables.player.perversion.teacher >= 4)) && (State.active.variables.player.perversion.club == 0) && (playerCode.slutScoreBasic() >= 4));
 		},
 		image: "",
 		startPriority: 1,  // see priority system above
@@ -2192,7 +2236,7 @@ window.tasksTeacher={
 			given: "I think you need some practice being arm candy for a night. Find someone and convince them to take you on a date. Make sure you tell them to contact me after so I will know you completed my task.",
 			perform: "",
 			finish: "@@.teacher;\"Did you enjoy your romantic dinner? It sounded like your date certainly did.@@",
-			fail: "I didn't hear that you went on a date over the weekend. Did everyone shoot you down or did your evening go so poorly your date refused to call it in?  Either way, you have earned a mark.",
+			fail: "I didn't hear that you went on a date as I ordered. Did everyone shoot you down or did your evening go so poorly your date refused to call it in?  Either way, you have earned a mark.",
 			reminder: "I'm still waiting for that phone call from your date.",
 			checkMe: {
 				given: "$teacher told you to have someone take you on a date.",
@@ -2518,7 +2562,7 @@ window.tasksTeacherBody={
 		canStart: true,  // only if true can this task be picked
 		canStartDays: [1,2,3,4,5],  // weekday array when task can be picked
 		perversion: {
-			teacher:	{ min: 3, max: 11 },
+			teacher:	{ min: 4, max: 11 },
 			therapist:	{ min: 0, max: 11 },
 			guardian:	{ min: 0, max: 11 }
 		},

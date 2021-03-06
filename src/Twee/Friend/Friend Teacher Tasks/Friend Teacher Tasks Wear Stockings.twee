@@ -51,7 +51,7 @@ $friendG.His_Her parents’ suite is bigger than the entire ground floor of your
 $friend has no such compunctions and heads directly to the walk-in closet.
 
 <<RandomImageFromPack 'Friend/MasterBedroomDressing' 350 350 alignRight>>\
-You stand in the doorway as $friend crosses to his mom’s dresser, and begins to open the drawers.
+You stand in the doorway as $friend crosses to $friendG.his_her mom’s dresser, and begins to open the drawers.
 
 <<if $friendG.gender eq 'F'>>\
     @@.friend;“I know she has something in here. I’ve been shopping with her when she’s bought them. There’s this shop she uses… Here we go.”@@
@@ -90,7 +90,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
     extra thick ones you would wear for slouching around the house…”@@
 
     $friend leans forward and whispers conspiratorially in your ear, @@.friend;“For the bedroom, it’s stockings, and a garter belt all the way, with or without panties…”@@ she trails off, \
-    suddenly realising who she is talking to. Her face a deep crimson, she drops all bar one pair into the drawer and coughs to clear the tightness from her voice. @@.friend;“Let’s try some on. \
+    suddenly realising who she is talking to. Her face a deep crimson, she drops all but one pair into the drawer and coughs to clear the tightness from her voice. @@.friend;“Let’s try some on. \
     I’ll show you how.”@@
 
     $friend tugs off her socks, revealing her delicate feet, with ten neatly trimmed nails, all painted red like little cherries. She unfastens her belt, unzips her fly and peels her tight jeans down her \
@@ -104,7 +104,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
 
     @@.heroT;“I thought it would be like putting on socks, only longer?”@@
 
-    $friend giggles at your seemingly inspired joke. @@.friend;“Well a bit, maybe, but stockings go up to your thigh. You’ll need to put them on first, silly, then pantsover the top.”@@
+    $friend giggles at your seemingly inspired joke. @@.friend;“Well a bit, maybe, but stockings go up to your thigh. You’ll need to put them on first, silly, then pants over the top.”@@
 
     <!-- You sigh as you realise you have no choice. You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> \ -->
     You sigh as you realise you have no choice. You unfasten your fly and slip your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> \
@@ -138,13 +138,30 @@ You thumb through the choice, not really sure which one to try. While the idea o
     Once $friend starts, you notice that his eyes are closed and he is picturing something in his mind.
 
     @@.friend;“The ones you have could all be for school. For the bedroom, though, it’s stockings, and a garter belt all the way, with or without panties…”@@ \
-    he trails off and opens his eyes, suddenly realising who he is talking to. His face a deep crimson, he drops all bar one pair into the drawer and coughs to clear the tightness from his voice. \
+    he trails off and opens his eyes, suddenly realising who he is talking to. His face a deep crimson, he drops all but one pair into the drawer and coughs to clear the tightness from his voice. \
     @@.friend;“Let’s try some on together. It will be neat!”@@
 
     $friend tugs off his socks, revealing his surprisingly dainty feet, with ten neatly trimmed nails. He unfastens his belt, unzips his fly and peels his tight jeans down his toned, tanned \
-    <<if $friendSeenLegs>>, waxed<<endif>> legs. As he bends over to pull them over his feet, you get the perfect view of his cute butt encased in the red lacy panties you saw in the selfie he sent. \
-    <<if $friendG.wearsPlug>>You also see the unmistakable tiny bulge between his cheeks from a buttplug.<<endif>>
+    <<if $friendSeenLegs>>, waxed<<endif>> legs. As he bends over to pull them over his feet, you get the perfect view of his cute butt encased in the red lacy panties you saw in the selfie he sent.
+	
+	<<if not $pcSeenLegs && $friendSeenLegs>>\
+		@@.heroT;"You got your legs waxed?”@@
+	
+		@@.friend;“Your smooth legs looked so good, I wanted to try too. I love them, can’t believe I never tried before.”@@
+	
+	    <<set $pcSeenLegs to 1>>\
+	<<endif>>\
+    <<if $friendG.wearsPlug>>\
+		You also see the unmistakable tiny bulge between his cheeks from a buttplug.
+	
+		<<if not $pcSeenPlug>>\
+			@@.heroT;"You’re wearing a plug? How do you like it?”@@
 
+			@@.friend;“I saw your plug and got curious. I picked it up online. It’s… intense, isn’t it?”@@
+		
+		    <<set $pcSeenPlug to 1>>\
+		<<endif>>\
+	<<endif>>\
     As $friend turns around, you spy the outline of something hard in the front of his panties. You realise that he is aroused at the thought of trying on stockings, and you look away in embarrassment.
 
     <<if not $pcSeenLegs>>\@@.heroT;"You got your legs waxed?”@@<<endif>>\
@@ -215,7 +232,7 @@ You thumb through the choice, not really sure which one to try. While the idea o
     You sigh and pull off your socks, then your pants. $friend returns a few seconds later.
 
     <<if _wearingGString and  _wornUnderwear.variant eq 'panties_sexy_60'>>\
-        @@.friend;“Wow, those look so cute on you. They really suit you, $playername. I’m so glad I gave them to you.”@@
+        @@.friend;“Wow, those look so cute on you. They really suit you, $player.name. I’m so glad I gave them to you.”@@
     <<elseif _wornUnderwear.female>>\
         @@.friend;“You have different pairs of panties? I hope they weren’t a gift someone else, I would hate competition.”@@
     <<else>>\
