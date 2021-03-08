@@ -557,6 +557,45 @@ window.itemFuncs= {
             }
         }
         actVar.itemVariantsOverrides.push(item);
+    },
+
+    getItemMastersForStore: function(storeID){
+        var store = window.stores[storeID];
+        var soldMasterItems = [];
+        for(var masterItemName in store.masterItemsSold){
+            soldMasterItems.push(window.itemFuncs.getItemMaster(masterItemName));
+        }
+        return soldMasterItems;
+    },
+
+    getItemVariantsForPurchase: function(masterItem){
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+        var purchasableItemVariants = itemVariants.filter(
+            variant => variant.purchasable && variant.disabled != true
+        )
+        if(purchasableItemVariants.length >= Math.min(itemVariants.length, 5)){
+            return purchasableItemVariants;
+        }
+        else{
+            for(i=1; Math.min(itemVariants.length, 5) - purchasableItemVariants.length; i++){
+                itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+                var unpurchasableItemVariants = itemVariants.filter(
+                    variant => variant.purchasable != true && variant.disabled != true
+                )
+                overrideItemVariantProperty(unpurchasableItemVariants[Math.floor(Math.random * unpurchasableItemVariants.length)], purchasable, true);
+            }
+            itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+            purchasableItemVariants = itemVariants.filter(
+                variant => variant.purchasable && variant.disabled != true
+            )
+            return purchasableItemVariants;
+        }
+    },
+
+    resetItemVariantsForPurchase: function(masterItem){
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+        itemVariants.forEach(iv => addTagToItemVariant(iv, purchasable, false));
+        return;
     }
 }
 

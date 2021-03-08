@@ -384,7 +384,7 @@ $.extend(true, window.items, {
                 school:true,
                 polkadot:true,
                 boyshort:true,
-                
+                gifted:true,
             }
         },
         cottonPanties9:{
@@ -403,6 +403,7 @@ $.extend(true, window.items, {
                 blue:true,
                 school:true,
                 frilly:true,
+                gifted:true,
             }
         },
         //Sexy Panties
@@ -777,7 +778,8 @@ $.extend(true, window.items, {
                 black:true,
                 school:true,
                 frilly:true,
-                gstring:true
+                gstring:true,
+                gifted:true,
             }
         },
         sexyPanties20:{
@@ -796,7 +798,8 @@ $.extend(true, window.items, {
                 red:true,
                 school:true,
                 frilly:true,
-                gstring:true
+                gstring:true,
+                gifted:true,
             }
         },
         sexyPanties21:{
@@ -815,7 +818,8 @@ $.extend(true, window.items, {
                 pink:true,
                 school:true,
                 frilly:true,
-                gstring:true
+                gstring:true,
+                gifted:true,
             }
         },
 
@@ -891,6 +895,7 @@ $.extend(true, window.items, {
                 slutty:true,
                 pink:true,
                 school:true,
+                gifted:true,
             }
         },
 

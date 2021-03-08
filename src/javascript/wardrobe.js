@@ -364,7 +364,14 @@ window.wardrobeFuncs = {
             var actVar = State.active.variables;
         }
         if(clothingSlot){
-            return actVar.player.clothingSlots[clothingSlot];
+            wornItem = actVar.player.clothingSlots[clothingSlot];
+            if(wornItem){
+                //TODO enumerate tags out as properties
+                return wornItem;
+            }
+            else{
+                return null;
+            }
         }
         else{
             return null;

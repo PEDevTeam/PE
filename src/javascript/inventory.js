@@ -222,6 +222,50 @@ window.inventoryFuncs= {
         }
     },
 
+    getItemsByProperty: function(propertyName, propertyValue){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        var items = [];
+        for(var inventItemIdx in actVar.inventory){
+            var inventItem = actVar.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && inventItem[propertyName] == propertyValue){
+                items.push(inventItem)
+            }
+        }
+        if(items.length==0){
+            return null;
+        }
+        else{
+            return items;
+        }
+    },
+
+    getItemsByTag: function(tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        var items = [];
+        for(var inventItemIdx in actVar.inventory){
+            var inventItem = actVar.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && window.inventoryFuncs.hasTag(inventItem, tag)){
+                items.push(inventItem)
+            }
+        }
+        if(items.length==0){
+            return null;
+        }
+        else{
+            return items;
+        }
+    },
+
     checkItemInInventory: function(item){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

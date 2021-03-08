@@ -807,6 +807,14 @@ window.playerList={
 	hasNailPolish: false,
 	hasRemoteButtplug: false,
 
+	hasVideoGameDecorations: false,
+	hasPunkDecorations: false,
+	hasFantasyDecorations: false,
+	hasSportDecorations: false,
+	hasClassicLamp: false,
+	hasPurpleLamp: false,
+	hasMulticolorLamp: false,
+
 	stolenPlaygirl: false,
 	stolenPanties: false,
 	stolenSexyPanties: false,
@@ -821,9 +829,19 @@ window.playerList={
 	batteriesCost: 5,
 	qualityBatteriesCost: 10,
 	playgirlCost: 100,
-	vibratorCost: 40,
+	vibratorCost: 60,
 	spyCameraCost: 40,
 	stunGunCost: 200,
+	massageOilCost: 20,
+	nailPolishCost: 10,
+
+	videoGameDecorationsCost: 100,
+	punkDecorationsCost: 80,
+	fantasyDecorationsCost: 120,
+	sportDecorationsCost: 90,
+	classicLampCost: 20,
+	purpleLampCost: 35,
+	multicolorLampCost: 25,
 
 	canVisitTestLab: false,
 	shoeSize: 0,
@@ -1605,6 +1623,7 @@ window.flagsList={
 	poiseRemedialGuardian: false,
 	bimboLessonPartner: "none",
 	lessonMultiFail: false,
+	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
 },
 
 window.kinkList={

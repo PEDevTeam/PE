@@ -1,151 +1,204 @@
 :: Store Widgets [pos_1712_2264 widget]
 \
 <<widget "itemSelector">>\
-<<set _storeImagePack=window.stores[$args[0]].imagePack>>
+<<set _storeID=$args[0]>>
+<<set _storeImagePack=window.stores[_storeID].imagePack>>
 <div style="float: right; margin: 10px;"><<RandomImageFromPack _storeImagePack 350 350>></div>\
-<<if window.stores[$args[0]].logo>>\
-    <<print window.stores[$args[0]].logo>>
+<<if window.stores[_storeID].logo>>\
+    <<print window.stores[_storeID].logo>>
 <<else>>\
-    <<print "''"+window.stores[$args[0]].name+"''">>
+    <<print "''"+window.stores[_storeID].name+"''">>
 <<endif>>\
-<<set $curStore = window.stores[$args[0]].name>>\
+<<set $curStore = window.stores[_storeID].name>>\
 \
 <<display [[Shop events]]>>\
 
 <<if not $toggleStoreMenu>>\/%a intimate apparel stuff %/
-<<print window.stores[$args[0]].description>> What would you like to buy?
-
-<div class="item_preview_box"><img id="item_preview_mall" class="hidden"></div>\
-<<for _i=0; _i lt Object.keys(itemsC).length; _i++>>\
-	<<set _o=itemsC[Object.keys(itemsC)[_i]]>>\
-	<<set _oV=$items[Object.keys(itemsC)[_i]]>>\
-	<<set _cost = window.itemF.cost(_o)>>\
-	<<if (_o.store==$args[0]) and (_cost gt 0)>>\
-		<<set _out = false>>\
-		<<set _name = window.itemF.name(_o)>>\
-		<<set _disabled = window.itemF.disabled(_o)>>\
-		<<set _daringRec = window.itemF.daringRec(_o)>>\
-		<<if _o.image and $showimages>>\
-			<<set _image = window.itemF.image(_o)>>\
-			<<if _o.maxAlt and _o.maxAlt gt 0>>\
-				<<if (not $restock[$args[0]])>>\
-					<<set _out = true>>\
-					<<if (_o.maxAlt gt 5)>>\
-						<<set _oV.storeAlt=[]>>\
-						<<set _maxStore=$random.getIntInclusive(_o.maxAlt/3, _o.maxAlt/2)>>\
-						<<set _last = 0>>\
-						<<for _j=0; _j lte _maxStore; _j++>>\
-							<<set _rand=$random.getIntInclusive(1, _o.maxAlt)>>\
-							<<if _j eq 0>>\
-								<<set _rand=0>>\
-							<<endif>>\
-							<<if _oV.ownAlt[_rand]>>\
-								<<for _k=0; _k lte _o.maxAlt; _k++>>\
-									<<if (not _oV.storeAlt[_k]) and (not _oV.ownAlt[_k])>>\
-										<<set _rand=_k>>\
-										<<set _k=_o.maxAlt>>\
-									<<endif>>\
-								<</for>>\
-							<<endif>>\
-							<<if ((not _oV.storeAlt[_rand]) and (not _oV.ownAlt[_rand]))>>\
-								<<set _oV.storeAlt[_rand]=true>>\
-								<<set _out = false>>\
-								<<set _last = _rand>>\
-							<<endif>>\
-						<</for>>\
-						<<if (not _out)>>\
-							<<set _oV.storeCur=_last>>\
-						<<else>>\
-							<<set _oV.storeAlt=[]>>\
-							<<set _oV.storeCur=0>>\
-						<<endif>>\
+	<<print window.stores[_storeID].description>> What would you like to buy?
+	<<set _storeObj=window.stores[_storeID]>>\
+	<<if $time.day-7 gt $flags.storeLastRefreshed[_storeID]>>\
+		<<set refreshedStore = window.itemFuncs.resetItemVariantsForPurchase(_storeID)>>\
+		<<if refreshedStore>>\
+			<<set $flags.storeLastRefreshed[_storeID] = $time.day>>\
+		<<endif>>\
+	<<endIf>>\
+	<div class="item_preview_box"><img id="item_preview_mall" class="hidden"></div>\
+	<<set soldMasterItems = window.itemFuncs.getItemMastersForStore(_storeID)>>\
+	<<for _i=0; _i lt soldMasterItems.length; _i++>>\
+		<<set _masterItem=soldMasterItems[_i]>>\
+		<<set _itemVariants=window.itemFuncs.getItemVariantsForPurchase(_masterItem)>>\
+		<<for _j=0; _j lt _itemVariants.length; _j++>>\
+			<<set _itemVariant = _itemVariants[_j]>>\
+			<<set _image to _itemVariant.variant + ".jpg">>\
+			<<set _name to _masterItem.name>>\
+			<<set _cost to _itemVariant.price>>\
+			<<set _owned to window.inventoryFuncs.isItemVariantOwned(_itemVariant)>>\
+			<<set _daringRec to _itemVariant.daring>>\
+			<<if $showimages>>\
+				<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\';">_name '>>\
+			<<else>>\
+				<<set _in to _name + ' '>>\
+			<<endif>>\
+			<<if _cost gt 0>>\
+				<<set _in to _in + '($' + _cost + ') '>>\
+			<<endif>>\
+			<<if $showimages and _owned>>\
+				<<set _in to _in + '@@.owned;owned@@'>>\
+				<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
+			<<elseif _owned and (not $showimages)>>\
+				<<set _in to _in + '@@.owned;owned@@'>>\
+			<<elseif $showimages and window.itemFuncs.hasTag(_itemVariant, 'school') and window.itemFuncs.hasTag(_itemVariant, 'colorful')>>\	
+				<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
+			<<elseif (_masterItem.itemType eq 'earring') and (not $body.earsPierced)>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
+			<<elseif window.itemFuncs.hasTag(_itemVariant, 'notneeded')>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\
+			<<elseif ($player.daring lt _daringRec)>>\
+				<<if _itemVariant.isFemale>>\
+					<<if (_daringRec lte 5) and ($player.daring lte 5) and _window.itemFuncs.hasTag(_itemVariant, 'postponed')>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //dont need more of these//@@'>>\
+					<<elseif ($player.daring gt 5) and _window.itemFuncs.hasTag(_itemVariant, 'slutty')>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too slutty//@@'>>\
+					<<elseif ($player.daring gt 3)>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too risque//@@'>>\
 					<<else>>\
-						<<set _oV.storeAlt=[]>>\
-						<<set _cur=0>>\
-						<<for _j=0; _j lte _o.maxAlt; _j++>>\
-							<<if ((not _oV.storeAlt[_j]) and (not _oV.ownAlt[_j]))>>\
-								<<set _oV.storeAlt[_j]=true>>\
-								<<set _out = false>>\
-								<<set _cur=_j>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too girly//@@'>>\
+					<<endif>>\
+				<<else>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
+				<<endif>>\
+			<<elseif $player.money gte _cost>>\
+				<<set _in to _in + '<<click "Buy">> <<buyItemVariant "' + _itemVariant.variant + '">><<set $player.bought="' + _itemVariant.variant + '">><<set $scene="general">><<replace "#mall">><<itemSelector ' + _storeID + '>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
+			<<else>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
+			<<endif>>\
+			<<if $showimages>>\
+				<<set _in to _in + '</span>'>>\
+			<<endif>>\
+			<<print _in>>\
+		<</for>>
+	<</for>>\
+	<!-- 
+	<<for _i=0; _i lt Object.keys(itemsC).length; _i++>>\
+		<<set _o=itemsC[Object.keys(itemsC)[_i]]>>\
+		<<set _oV=$items[Object.keys(itemsC)[_i]]>>\
+		<<set _cost = window.itemF.cost(_o)>>\
+		<<if (_o.store==_storeID) and (_cost gt 0)>>\
+			<<set _out = false>>\
+			<<set _name = window.itemF.name(_o)>>\
+			<<set _disabled = window.itemF.disabled(_o)>>\
+			<<set _daringRec = window.itemF.daringRec(_o)>>\
+			<<if _o.image and $showimages>>\
+				<<set _image = window.itemF.image(_o)>>\
+				<<if _o.maxAlt and _o.maxAlt gt 0>>\
+					<<if (not $restock[_storeID])>>\
+						<<set _out = true>>\
+						<<if (_o.maxAlt gt 5)>>\
+							<<set _oV.storeAlt=[]>>\
+							<<set _maxStore=$random.getIntInclusive(_o.maxAlt/3, _o.maxAlt/2)>>\
+							<<set _last = 0>>\
+							<<for _j=0; _j lte _maxStore; _j++>>\
+								<<set _rand=$random.getIntInclusive(1, _o.maxAlt)>>\
+								<<if _j eq 0>>\
+									<<set _rand=0>>\
+								<<endif>>\
+								<<if _oV.ownAlt[_rand]>>\
+									<<for _k=0; _k lte _o.maxAlt; _k++>>\
+										<<if (not _oV.storeAlt[_k]) and (not _oV.ownAlt[_k])>>\
+											<<set _rand=_k>>\
+											<<set _k=_o.maxAlt>>\
+										<<endif>>\
+									<</for>>\
+								<<endif>>\
+								<<if ((not _oV.storeAlt[_rand]) and (not _oV.ownAlt[_rand]))>>\
+									<<set _oV.storeAlt[_rand]=true>>\
+									<<set _out = false>>\
+									<<set _last = _rand>>\
+								<<endif>>\
+							<</for>>\
+							<<if (not _out)>>\
+								<<set _oV.storeCur=_last>>\
+							<<else>>\
+								<<set _oV.storeAlt=[]>>\
+								<<set _oV.storeCur=0>>\
 							<<endif>>\
-						<</for>>\
-						<<if (not _out)>>\
-							<<set _oV.storeCur=_cur>>\
 						<<else>>\
 							<<set _oV.storeAlt=[]>>\
-							<<set _oV.storeCur=0>>\
+							<<set _cur=0>>\
+							<<for _j=0; _j lte _o.maxAlt; _j++>>\
+								<<if ((not _oV.storeAlt[_j]) and (not _oV.ownAlt[_j]))>>\
+									<<set _oV.storeAlt[_j]=true>>\
+									<<set _out = false>>\
+									<<set _cur=_j>>\
+								<<endif>>\
+							<</for>>\
+							<<if (not _out)>>\
+								<<set _oV.storeCur=_cur>>\
+							<<else>>\
+								<<set _oV.storeAlt=[]>>\
+								<<set _oV.storeCur=0>>\
+							<<endif>>\
 						<<endif>>\
 					<<endif>>\
+					<<if (_oV.storeCur lt 10)>>\
+						<<set _image = _image + '0'>>\
+					<<endif>>\
+					<<set _image = _image + _oV.storeCur + ".jpg">>\
+					<<set _cost = _cost + Math.floor((_oV.storeCur%10)*_cost*0.02)>>\
 				<<endif>>\
-				<<if (_oV.storeCur lt 10)>>\
-					<<set _image = _image + '0'>>\
-				<<endif>>\
-				<<set _image = _image + _oV.storeCur + ".jpg">>\
-				<<set _cost = _cost + Math.floor((_oV.storeCur%10)*_cost*0.02)>>\
-			<<endif>>\
-			<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\';">_name '>>\
-		<<else>>\
-			<<set _in to _name + ' '>>\
-		<<endif>>\
-		<<if _cost gt 0>>\
-			<<set _in to _in + '($' + _cost + ') '>>\
-		<<endif>>\
-		<<if _image and $showimages and _o.maxAlt and _o.maxAlt gt 0 and _oV.storeAlt.length gt 0>>\
-			<!-- <<set _in to _in + '<<click "  ←">><<previousStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\ -->
-			<!-- <<set _in to _in + '<<click "→  ">><<nextStoreClothing "' + _o.id + '">><<replace "#mall">><<itemSelector $args[0]>><</replace>><</click>>'>>\ -->
-		<<endif>>\
-		<<if _image and $showimages and (_out or (_o.maxAlt and (_o.maxAlt gt 0) and (_oV.storeAlt.length eq 0)))>>\
-			<<set _in to _in + '@@.owned;owned@@'>>\
-			<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
-		<<elseif playerCode.owns(_o) and ((not $showimages) or (not _image) or (not _o.maxAlt) or (_o.maxAlt and (_o.maxAlt gt 0) and _oV.ownAlt[_oV.storeCur]))>>\
-			<<set _in to _in + '@@.owned;owned@@'>>\
-		<<elseif _image and $showimages and _o.schoolAlt and ($player.perversion.teacher eq 3) and (_oV.storeCur gt _o.schoolAlt)>>\	
-			<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
-		<<elseif (_o.clothingType eq itemTypes.Earrings) and (not $body.earsPierced)>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
-		<<elseif _disabled>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\
-		<<elseif ($player.daring lt _daringRec)>>\
-			<<if _o.female>>\
-				<<if (_daringRec lte 5) and ($player.daring lte 5) and _oV.postponed>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //dont need more of these//@@'>>\
-				<<elseif ($player.daring gt 5) and _o.slutty>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too slutty//@@'>>\
-				<<elseif ($player.daring gt 3)>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too risque//@@'>>\
-				<<else>>\
-					<<set _in to _in + '@@.halftransparent;Buy - //too girly//@@'>>\
-				<<endif>>\
+				<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\';">_name '>>\
 			<<else>>\
-				<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
+				<<set _in to _name + ' '>>\
 			<<endif>>\
-		<<elseif $player.money gte _cost>>\
-			<!-- <<set _in to _in + '<<click "Buy">> --><!-- <<buyItem "' --><!-- + _o.id + '">><<set $player.bought="' + _o.id + '">><<set $scene="general">><<replace "#mall">><<itemSelector $args[0]>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\ -->
-		<<else>>\
-			<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
-		<<endif>>\
-		<<if _image and $showimages>>\
-			<<set _in to _in + '</span>'>>\
-		<<endif>>\
-		<<print _in>>\
-		<<if $player.debugA and _image and $showimages and _o.maxAlt>>\
-			<<print _oV.storeCur>>\
-<!-- For tasks
-			- \
-			<<for _j=0; _j lte _o.maxAlt; _j++>>\
-				<<if _oV.storeAlt[_j]>>\
-				<<print _j>>\
+			<<if _cost gt 0>>\
+				<<set _in to _in + '($' + _cost + ') '>>\
+			<<endif>>\
+			<<if _image and $showimages and _o.maxAlt and _o.maxAlt gt 0 and _oV.storeAlt.length gt 0>>\
+			<<endif>>\
+			<<if _image and $showimages and (_out or (_o.maxAlt and (_o.maxAlt gt 0) and (_oV.storeAlt.length eq 0)))>>\
+				<<set _in to _in + '@@.owned;owned@@'>>\
+				<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
+			<<elseif playerCode.owns(_o) and ((not $showimages) or (not _image) or (not _o.maxAlt) or (_o.maxAlt and (_o.maxAlt gt 0) and _oV.ownAlt[_oV.storeCur]))>>\
+				<<set _in to _in + '@@.owned;owned@@'>>\
+			<<elseif _image and $showimages and _o.schoolAlt and ($player.perversion.teacher eq 3) and (_oV.storeCur gt _o.schoolAlt)>>\	
+				<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
+			<<elseif (_o.clothingType eq itemTypes.Earrings) and (not $body.earsPierced)>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
+			<<elseif _disabled>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\
+			<<elseif ($player.daring lt _daringRec)>>\
+				<<if _o.female>>\
+					<<if (_daringRec lte 5) and ($player.daring lte 5) and _oV.postponed>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //dont need more of these//@@'>>\
+					<<elseif ($player.daring gt 5) and _o.slutty>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too slutty//@@'>>\
+					<<elseif ($player.daring gt 3)>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too risque//@@'>>\
+					<<else>>\
+						<<set _in to _in + '@@.halftransparent;Buy - //too girly//@@'>>\
+					<<endif>>\
+				<<else>>\
+					<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
 				<<endif>>\
-			<</for>>\
--->\
+			<<elseif $player.money gte _cost>>\
+			<<else>>\
+				<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
+			<<endif>>\
+			<<if _image and $showimages>>\
+				<<set _in to _in + '</span>'>>\
+			<<endif>>\
+			<<print _in>>\
+			<<if $player.debugA and _image and $showimages and _o.maxAlt>>\
+				<<print _oV.storeCur>>\
+			<<endif>>\
+			
 		<<endif>>\
-		
-	<<endif>>\
-<</for>>\
-<<set $toggleStoreMenu to 0>>\
-<<set $restock[$args[0]] = true>>\
+	<</for>>\
+	-->
+	<<set $toggleStoreMenu to 0>>\
+	<<set $restock[_storeID] = true>>\
 
-<<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
+	<<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
 <<endif>> /%a intimate apparel stuff %/
 <</widget>>\
 
