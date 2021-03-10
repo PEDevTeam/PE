@@ -310,7 +310,7 @@ window.inventoryFuncs= {
         }
 
         var owned = window.inventoryFuncs.getChildItemsForMaster(itemMaster);
-        if(owned){
+        if(owned && owned.length > 0){
             return true;
         }
         else{

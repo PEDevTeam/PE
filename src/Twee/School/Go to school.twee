@@ -23,7 +23,7 @@
 <<if _plug>>\
 	<<set $therapistTalks.talkButtplug.start=true>>\
 <<endif>>\
-<<if _underwear and _underwear.female>>\
+<<if _underwear and _underwear.isFemale>>\
 	<<set $therapistTalks.talkUnderwear.start=true>>\
 <<endif>>\
 <!--<Misc events>-->\
@@ -66,7 +66,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 	@@.hero;If I could only once more find a break from the unrelenting ouroboros that is my time these days.@@
 	
 <<endif>>\
-<<if $flags.laundryAccident and _underwear.isFemale and _underwear.disabled>>\
+<<if $flags.laundryAccident and _underwear and _underwear.isFemale and _underwear.disabled>>\
 	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
 
 <<endif>>\
@@ -183,7 +183,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		Your erect penis tents your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\
 	<<endif>>\
 <<endif>>\
-<<if _plug || (_outerwear.female and playerCode.isHorny()) || (_outerwear.isFemale and _chastity)>>\
+<<if _plug || (_outerwear.isFemale and playerCode.isHorny()) || (_outerwear.isFemale and _chastity)>>\
 
 
 <<endif>>\
@@ -515,7 +515,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;He was totally checking me out!@@
 					
 				<<endif>>\
-			<<elseif _outerwear and (not _outerwear.female) and (_slutScoreBasic lte 5)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 5)>>\
 				You hear the sound of familiar footsteps, and a few moments later //The Jogger// reveals himself in his morning run. As soon as he notices you, he slows down and looks you up and down. You quickly adjust your uniform, but your feminine appearance is hard to hide. You look back at him and your eyes meet. He smiles confidently down at you. You notice he’s a good-looking man; his face and skin are well-groomed. He stops and opens his mouth, probably to say something, but without letting him make contact you accelerate your walk, leaving him quickly behind.
 				
 				<<if playerCode.isMind_0()>>\
@@ -666,7 +666,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		[[Go to class]]
 		<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
 			<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
-		<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
+		<<elseif _outerwear and _outerwear.isFemale and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
 			[[Meet Miss Willow’s assistant|School assistant][$random.stored=0]]
 		<<elseif ($player.perversion.teacher gt 0) and ($player.perversion.teacher lt 6)>>\
 			<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>

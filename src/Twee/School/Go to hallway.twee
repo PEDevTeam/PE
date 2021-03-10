@@ -394,7 +394,7 @@
 			<<set $flags.friendBraTask = true>>\
 		<<endif>>\
 	<<elseif $player.perversion.teacher eq 1>>\
-		<<if (_underwear and _underwear.isFemale and window.inventoryFuncs.hasTag(_underwear, 'slutty')) or _chastity>>\
+		<<if (_underwear and _underwear.isFemale and (_underwear.masterItem == 'sexyPanties' or _underwear.masterItem == 'latexPanties')) or _chastity>>\
 			<<set $player.perversion.teacher to 2>>\
 			<<set $player.perversion.teacherCooldown = 0>>\
 			<<set $tasksTeacher.trialChastity.canStart = true>>\
@@ -403,7 +403,7 @@
 			@@.teacher;"Really, $player.name?\
 			<<if _chastity>>\
 				A chastity cage?\
-			<<elseif _underwear.masterItem = 'sexyPanties'>>\
+			<<elseif _underwear.masterItem == 'sexyPanties'>>\
 				<<set $flags.teacherSawPanties = true>>\
 				Lacy panties?\
 			<<else>>\

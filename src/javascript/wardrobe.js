@@ -142,18 +142,20 @@ window.wardrobeFuncs = {
         if(typeof itemVariant !== 'object'){
             itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
         }
-        var masterItem = window.items.itemMasters[itemVariant.masterItem];
-        
-        if(masterItem.clothingSlot == 'nightwear' || masterItem.clothingSlot == 'maid'){
-            window.wardrobeFuncs.removeClothingAndAccessories();
-        }
-        else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
-            actVar.player.clothingSlots['nightwear'] = null;
-            actVar.player.clothingSlots['maid'] = null;
-        }
+        if(itemVariant && itemVariant.masterItem){
+            var masterItem = window.items.itemMasters[itemVariant.masterItem];
+            
+            if(masterItem.clothingSlot == 'nightwear' || masterItem.clothingSlot == 'maid'){
+                window.wardrobeFuncs.removeClothingAndAccessories();
+            }
+            else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
+                actVar.player.clothingSlots['nightwear'] = null;
+                actVar.player.clothingSlots['maid'] = null;
+            }
 
-        var itemVariantClothingSlot = masterItem.clothingSlot;
-        actVar.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
+            var itemVariantClothingSlot = masterItem.clothingSlot;
+            actVar.player.clothingSlots[itemVariantClothingSlot] = itemVariant;
+        }
     },
     wearRandomItemByMaster: function(itemMaster){
         var itemVariants = window.inventoryFuncs.getChildItemsForMaster(itemMaster);
@@ -315,21 +317,28 @@ window.wardrobeFuncs = {
         }
 
         var masterItem = window.items.itemMasters[itemMaster];
-        var itemVariantClothingSlot = masterItem.clothingSlot;
-        var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
-        if(currentlyWearing != null && currentlyWearing.masterItem == itemMaster){
-            return true;
+        if(masterItem){
+            var itemVariantClothingSlot = masterItem.clothingSlot;
+            var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
+            if(currentlyWearing != null && currentlyWearing.masterItem == itemMaster){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        else{
+        else {
             return false;
         }
     },
     updateSidebar: function(){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
+            var actState = SugarCube.State;
         }
         else{
             var actVar = State.active.variables;
+            var actState = State;
         }
 
         var currentClothing = actVar.player.clothingSlots;
@@ -355,6 +364,8 @@ window.wardrobeFuncs = {
         }
 
         $("#sidebar_clothes").replaceWith(clothingSlotSidebarDiv);
+
+        
     },
     getWornItem: function(clothingSlot){
         if(SugarCube.State){
@@ -364,7 +375,7 @@ window.wardrobeFuncs = {
             var actVar = State.active.variables;
         }
         if(clothingSlot){
-            wornItem = actVar.player.clothingSlots[clothingSlot];
+            var wornItem = actVar.player.clothingSlots[clothingSlot];
             if(wornItem){
                 //TODO enumerate tags out as properties
                 return wornItem;

@@ -9,23 +9,43 @@ window.stores=[
 		itemFlagsSold: [
 			{
 				item: "hasAlarmClock",
-				cost: "alarmClockCost"
+				cost: "alarmClockCost",
+				image: "Images/items/alarm_clock.jpg",
+				description: "Alarm Clock",
+				daring: 0,
+				checkFlag: ""
 			},
 			{
 				item: "hasBatteries",
-				cost: "batteriesCost"
+				cost: "batteriesCost",
+				image: "Images/items/battery.jpg",
+				description: "Generic Batteries",
+				daring: 0,
+				checkFlag: ""
 			},
 			{
 				item: "hasQualityBatteries",
-				cost: "qualityBatteriesCost"
+				cost: "qualityBatteriesCost",
+				image: "Images/items/battery_quality.jpg",
+				description: "Quality Batteries",
+				daring: 0,
+				checkFlag: ""
 			},
 			{
 				item: "hasSpyCamera",
-				cost: "spyCameraCost"
+				cost: "spyCameraCost",
+				image: "Images/items/spy_camera.jpg",
+				description: "Spy Camera",
+				daring: 0,
+				checkFlag: ""
 			},
 			{
 				item: "hasStunGun",
-				cost: "stunGunCost"
+				cost: "stunGunCost",
+				image: "Images/items/stun_gun.jpg",
+				description: "Stun Gun",
+				daring: 0,
+				checkFlag: "canBuyStunGun"
 			}
 		]
 	},
@@ -65,11 +85,19 @@ window.stores=[
 		itemFlagsSold: [
 			{
 				item: "hasVibrator",
-				cost: "vibratorCost"
+				cost: "vibratorCost",
+				image: "Images/items/vibrator.jpg",
+				description: "Vibrator",
+				daring: 0,
+				checkFlag: ""
 			},
 			{
 				item: "hasMassageOil",
-				cost: "massageOilCost"
+				cost: "massageOilCost",
+				image: "Images/items/massage_oil.jpg",
+				description: "Massage Oil",
+				daring: 0,
+				checkFlag: ""
 			}
 		]
 	},
@@ -97,7 +125,11 @@ window.stores=[
 		itemFlagsSold: [
 			{
 				item: "hasNailPolish",
-				cost: "nailPolishCost"
+				cost: "nailPolishCost",
+				image: "Images/items/nail_polish.jpg",
+				description: "Nail Polish",
+				daring: 0,
+				checkFlag: "canBuyNailPolish"
 			},
 		]
 	},

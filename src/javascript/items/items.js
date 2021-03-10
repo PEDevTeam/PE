@@ -274,19 +274,20 @@ window.itemFuncs= {
         else{
             var actVar = State.active.variables;
         }
-        
         if(typeof itemVariant !== 'object'){
             itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
         }
         for(var itemName in window.items.itemChildren){
             var item = window.items.itemChildren[itemName];
-            item = window.itemFuncs.getItemByVariant(item);
-            if(typeof itemVariant == 'object' && itemVariant.variant == item.variant){
-                if(item.price <= actVar.player.money){
-                    actVar.player.money -= item.price;
-                    window.itemFuncs.addItemToInventory(item);
+            if(typeof item !== 'function'){
+                item = window.itemFuncs.getItemByVariant(item);
+                if(typeof itemVariant == 'object' && itemVariant.variant == item.variant){
+                    if(item.price <= actVar.player.money){
+                        actVar.player.money -= item.price;
+                        window.itemFuncs.addItemToInventory(item);
+                    }
+                    break;
                 }
-                break;
             }
         }
     },
@@ -562,14 +563,18 @@ window.itemFuncs= {
     getItemMastersForStore: function(storeID){
         var store = window.stores[storeID];
         var soldMasterItems = [];
-        for(var masterItemName in store.masterItemsSold){
+        for(var masterItemIdx in store.masterItemsSold){
+            var masterItemName = store.masterItemsSold[masterItemIdx];
             soldMasterItems.push(window.itemFuncs.getItemMaster(masterItemName));
         }
         return soldMasterItems;
     },
 
     getItemVariantsForPurchase: function(masterItem){
-        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
+        itemVariants = itemVariants.filter(
+            variant => variant.disabled != true
+        )
         var purchasableItemVariants = itemVariants.filter(
             variant => variant.purchasable && variant.disabled != true
         )
@@ -577,14 +582,15 @@ window.itemFuncs= {
             return purchasableItemVariants;
         }
         else{
-            for(i=1; Math.min(itemVariants.length, 5) - purchasableItemVariants.length; i++){
-                itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+            for(var i=0; i < Math.min(itemVariants.length, 5) - purchasableItemVariants.length; i++){
+                itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
                 var unpurchasableItemVariants = itemVariants.filter(
                     variant => variant.purchasable != true && variant.disabled != true
                 )
-                overrideItemVariantProperty(unpurchasableItemVariants[Math.floor(Math.random * unpurchasableItemVariants.length)], purchasable, true);
+                var unpurchasableItemVariant = unpurchasableItemVariants[Math.floor(Math.random() * unpurchasableItemVariants.length)]
+                window.itemFuncs.overrideItemVariantProperty(unpurchasableItemVariant, 'purchasable', true);
             }
-            itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
+            itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
             purchasableItemVariants = itemVariants.filter(
                 variant => variant.purchasable && variant.disabled != true
             )
@@ -594,7 +600,7 @@ window.itemFuncs= {
 
     resetItemVariantsForPurchase: function(masterItem){
         var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
-        itemVariants.forEach(iv => addTagToItemVariant(iv, purchasable, false));
+        itemVariants.forEach(iv => addTagToItemVariant(iv, 'purchasable', false));
         return;
     }
 }

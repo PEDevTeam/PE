@@ -2,7 +2,9 @@
 <!-- <<set _stockings = playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <!--<<set _socks = playerCode.isWearing(itemsC.socks)>>\ -->
-<<set _socks = _stockings.masterItem=='socks'>>\
+<<if _stockings>>\
+	<<set _socks = _stockings.masterItem=='socks'>>\
+<<endif>>\
 <!-- <<set _chastity = playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 You follow Phoebe to the section dedicated to flat shoes, stunned by just how many different types there are. Some with bows, or patterns, some with straps or buckles, and still others with little panels cut out. And so many colors too. You pause, gathering yourself, aware that the stunning, long-legged angel is watching you. You dart out your trembling hand and grab the nearest pair of girls flats, hoping they are suitable for school. 
@@ -116,8 +118,16 @@ You pay for the shoes, thank Phoebe for her help and scuttle home as fast as you
 <<endif>>\
 <!-- <<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
 <!-- <<set playerCode.removeClothesJS(_shoes.id)>>\ -->
-<<set inventoryFuncs.removeClothing('shoes')>>\
-<<set playerCode.wearClothesJS($player.bought)>>\ <!-- TODO Update this when shop events have been updated to use new inventory items -->
+<<set window.wardrobeFuncs.removeClothing('shoes')>>\
+<<set _item = window.itemFuncs.getItemByVariant($player.bought)>>\
+<<if _item>>
+    <<set _itemVariantName = _item.variant>>
+<<else>>
+    <<set _itemVariantName = "">>
+<<endif>>
+<!--<<wearItemVariant `_itemVariantName`>>\ -->
+<<wearItemVariant 'nothing'>>\
+
 
 <<display [[Travel]]>>
 <<set playerCode.changeArousal(10)>>\
