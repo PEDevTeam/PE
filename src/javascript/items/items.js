@@ -598,10 +598,35 @@ window.itemFuncs= {
         }
     },
 
+    getItemVariantsForPurchase2: function(masterItem, storeID){
+        //TODO - store item variant names(only) aginst a store object
+        //TODO - split out the store refresh process
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        var availableItems = [];
+        var store = actVar.stores[storeID];
+        for(var availableItemIdx in store.availableItemVariants){
+            var itemVariantName = store.availableItemVariants[availableItemIdx];
+            var item = window.itemFuncs.getItemByVariant(itemVariantName)
+            if(item.masterItem == masterItem){
+                availableItems.push(itemVariantName)
+            }
+        }
+        
+    },
+
+    refreshItemsForStore: function(masterItem, storeID){
+
+    },
+
     resetItemVariantsForPurchase: function(masterItem){
         var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
         itemVariants.forEach(iv => addTagToItemVariant(iv, 'purchasable', false));
-        return;
+        return true;
     }
 }
 

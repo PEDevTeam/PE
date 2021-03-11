@@ -16,11 +16,11 @@
 <<if not $toggleStoreMenu>>\/%a intimate apparel stuff %/
 	<<print window.stores[_storeID].description>> 
 	What would you like to buy?
-	<<set _storeObj=window.stores[_storeID]>>\
-	<<if $time.day-7 gt $flags.storeLastRefreshed[_storeID]>>\
+	<<if $time.day-7 gt $stores[_storeID].dayLastRefreshed>>\
 		<<set _refreshedStore = window.itemFuncs.resetItemVariantsForPurchase(_storeID)>>\
 		<<if _refreshedStore>>\
-			<<set $flags.storeLastRefreshed[_storeID] = $time.day>>\
+			<<set $stores[_storeID].dayLastRefreshed = $time.day>>\
+			<<set $stores[_storeID].newStock = true>>\
 		<<endif>>\
 	<<endif>>\
 	<div class="item_preview_box"><table><tr><img id="item_preview_mall" class="hidden"></tr><tr><span id="item_preview_description_mall" class="hidden"></span></tr></table></div>\
@@ -33,6 +33,7 @@
 			<<set _itemVariant = _itemVariants[_j]>>\
 			<<set _image to _itemVariant.variant + ".jpg">>\
 			<<set _name to _masterItem.name>>\
+			<<set _quotedVariantName = _itemVariant.name.replace("'", "\\\'")>>\
 			<<set _cost to _itemVariant.price>>\
 			<<set _owned to window.inventoryFuncs.isItemVariantOwned(_itemVariant)>>\
 			<<set _daringRec to _itemVariant.daring>>\
@@ -42,29 +43,31 @@
 				<<else>>\
 					<<set _style="display: none;">>\
 				<<endif>>\
-				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _itemVariant.name + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\
+				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _quotedVariantName + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\
 			<<else>>\
 				<<set _in to _name + ' '>>\
 			<<endif>>\
-			<<if _j == _itemVariants.length-1>>\
-				<<set _nextJ = 0>>\
-				<<set _prevJ = _j-1>>\
-			<<elseif _j == 0>>\
-				<<set _nextJ = _j+1>>\
-				<<set _prevJ = _itemVariants.length-1>>\
-			<<else>>\
-				<<set _nextJ = _j+1>>\
-				<<set _prevJ = _j-1>>\
+			<<if _itemVariants.length gt 1>>\
+				<<if _j == _itemVariants.length-1>>\
+					<<set _nextJ = 0>>\
+					<<set _prevJ = _j-1>>\
+				<<elseif _j == 0>>\
+					<<set _nextJ = _j+1>>\
+					<<set _prevJ = _itemVariants.length-1>>\
+				<<else>>\
+					<<set _nextJ = _j+1>>\
+					<<set _prevJ = _j-1>>\
+				<<endif>>\
+				<<set _in to _in + '<<click "  ←">><<run document.getElementById("' + _masterItem.itemMaster + _prevJ + '").style.display = "block">><<run document.getElementById("' + _masterItem.itemMaster + _j + '").style.display = "none">><</click>>'>>\
+				<<set _in to _in + '<<click "→  ">><<run document.getElementById("' + _masterItem.itemMaster + _nextJ + '").style.display = "block">><<run document.getElementById("' + _masterItem.itemMaster + _j + '").style.display = "none">><</click>>'>>\
 			<<endif>>\
-			<<set _in to _in + '<<click "  ←">><<run document.getElementById("' + _masterItem.itemMaster + _prevJ + '").style.display = "block">><<run document.getElementById("' + _masterItem.itemMaster + _j + '").style.display = "none">><</click>>'>>\
-			<<set _in to _in + '<<click "→  ">><<run document.getElementById("' + _masterItem.itemMaster + _nextJ + '").style.display = "block">><<run document.getElementById("' + _masterItem.itemMaster + _j + '").style.display = "none">><</click>>'>>\
 			<<if _cost gt 0>>\
 				<<set _in to _in + '($' + _cost + ') '>>\
 			<<endif>>\
-			<<if $showimages and _owned>>\
+			<<if _owned and (not $stores[_storeID].newStock)>>\
 				<<set _in to _in + '@@.owned;owned@@'>>\
 				<<set _in to _in + '//@@.halftransparent;, no new stock@@//'>>\
-			<<elseif _owned and (not $showimages)>>\
+			<<elseif _owned and $stores[_storeID].newStock>>\
 				<<set _in to _in + '@@.owned;owned@@'>>\
 			<<elseif $showimages and window.itemFuncs.hasTag(_itemVariant, 'school') and window.itemFuncs.hasTag(_itemVariant, 'colorful')>>\	
 				<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
@@ -102,6 +105,7 @@
 		<<set _itemFlag = _soldItemFlags[_i]>>\
 		<<set _image = _itemFlag.image>>\
 		<<set _name = _itemFlag.description>>\
+		<<set _quotedName = _itemFlag.description.replace("'", "\\\'")>>\
 		<<set _cost = $player[_itemFlag.cost]>>\
 		<<set _owned = $player[_itemFlag.item]>>\
 		<<set _daringRec = _itemFlag.daring>>\
@@ -111,7 +115,7 @@
 			<<set _checkFlag = $player[_itemFlag.checkFlag]>>\
 		<<endif>>\
 		<<if $showimages>>\
-			<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _name + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\
+			<<set _in to '<span onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _quotedName + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\
 		<<else>>\
 			<<set _in to _name + ' '>>\
 		<<endif>>\
@@ -142,7 +146,7 @@
 	<<set $toggleStoreMenu to 0>>\
 	<<set $restock[_storeID] = true>>\
 
-	<<click "Go back into the mall">><<replace "#mall">><<showStores>><</replace>><</click>>
+	<<click "Go back into the mall">><<set $stores[_storeID].newStock = false>><<replace "#mall">><<showStores>><</replace>><</click>>
 <<endif>> /%a intimate apparel stuff %/
 <</widget>>\
 

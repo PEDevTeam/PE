@@ -727,6 +727,17 @@ window.structures={
 		var vars = State.active.variables;
 		vars.team = this.updateStructure(vars.team, window.teamList, "team");
 	},
+	
+	setupStores: function (){
+		var vars=State.active.variables;
+		var stores = window.stores;
+		if(vars.stores == null){
+			vars.stores = [];
+		}
+		for(var storeIdx in stores){
+			vars.stores.push(stores[storeIdx])
+		}
+	},
 },
 
 window.playerList={
@@ -1624,6 +1635,7 @@ window.flagsList={
 	bimboLessonPartner: "none",
 	lessonMultiFail: false,
 	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
+	refreshTravel: false,
 },
 
 window.kinkList={

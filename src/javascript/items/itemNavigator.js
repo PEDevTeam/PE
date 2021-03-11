@@ -440,6 +440,10 @@ window.itemNavigator = {
             window.wardrobeFuncs.wearItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
+            if(document.getElementById("travel-passage")){
+                $("#travel-passage").empty();
+                $("#travel-passage").wiki('<<Travel>>');
+            }
         }
 
         function removeItemVariant(evt){
@@ -631,6 +635,10 @@ window.itemNavigator = {
 
             window.itemNavigator.wearClothingSet(evt.currentTarget.setName);
             window.wardrobeFuncs.updateSidebar();
+            if(document.getElementById("travel-passage")){
+                $("#travel-passage").empty();
+                $("#travel-passage").wiki('<<Travel>>');
+            }
         };
 
         function renameClothingSet(evt){

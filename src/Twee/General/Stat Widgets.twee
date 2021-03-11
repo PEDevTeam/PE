@@ -29,6 +29,12 @@
 <<nobr>>\
 <<if $newInventory and $showimages and (not $avatar.active)>>\
 	<<ClothingSlotSidebar>>\
+	<<set _travelPassage = document.getElementById("travel-passage")>>
+	<<if _travelPassage>>\
+		<<replace "#travel-passage">>\
+			<<Travel>>\
+		<</replace>>\
+	<<endif>>
 <<elseif $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
 	<<replace "#sidebar_clothes">>
 	<div class="sidebarImages">

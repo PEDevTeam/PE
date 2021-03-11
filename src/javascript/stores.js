@@ -5,6 +5,8 @@ window.stores=[
 		imagePack: "Electronics Store",
 		description: "The electronics store sells a lot of cool gear.",
 		daringRequired: 0,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [],
 		itemFlagsSold: [
 			{
@@ -47,7 +49,8 @@ window.stores=[
 				daring: 0,
 				checkFlag: "canBuyStunGun"
 			}
-		]
+		],
+		availableItemVariants: []
 	},
 	{
 		name: "General Store",
@@ -55,11 +58,14 @@ window.stores=[
 		imagePack: "General Store",
 		description: "You can find a lot of random junk here.",
 		daringRequired: 0,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [
 			"rooms",
 			"lamps",
 		],
-		itemFlagsSold: []
+		itemFlagsSold: [],
+		availableItemVariants: []
 	},
 	{
 		name: "Doctor's Office",
@@ -67,8 +73,11 @@ window.stores=[
 		imagePack: "Doctors Office",
 		description: "You can get surgery done here.",
 		daringRequired: 1000,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [],
-		itemFlagsSold: []
+		itemFlagsSold: [],
+		availableItemVariants: []
 	},
 	{
 		name: "Adult Book Shop",
@@ -76,6 +85,8 @@ window.stores=[
 		imagePack: "Adult Book Shop",
 		description: "For all your sexual needs. It feels like the cashier and other customers are staring at you.",
 		daringRequired: 4,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [
 			"chokers",
 			"collar",
@@ -99,7 +110,8 @@ window.stores=[
 				daring: 0,
 				checkFlag: ""
 			}
-		]
+		],
+		availableItemVariants: []
 	},
 	{
 		name: "Fashion Central",
@@ -107,6 +119,8 @@ window.stores=[
 		imagePack: "Fashion Central",
 		description: "Your first stop for fabulous feminine fashions!",
 		daringRequired: 0,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [
 			"schoolDress",
 			"skirtTop",
@@ -131,7 +145,8 @@ window.stores=[
 				daring: 0,
 				checkFlag: "canBuyNailPolish"
 			},
-		]
+		],
+		availableItemVariants: []
 	},
 	{
 		name: "Intimate Apparel",
@@ -139,6 +154,8 @@ window.stores=[
 		imagePack: "Intimate Apparel",
 		description: "For everything under your clothes.",
 		daringRequired: 1,
+		dayLastRefreshed: -10,
+		newStock: false,
 		logo: "<img src=\"./Images/general/Intimate_Apparel.png\" style=\"width: 150px; height: auto; margin-left: 8vw;\">",
 		masterItemsSold: [
 			"nightie",
@@ -152,7 +169,8 @@ window.stores=[
 			"stockings",
 			"latexStockings"
 		],
-		itemFlagsSold: []
+		itemFlagsSold: [],
+		availableItemVariants: []
 	},
 	{  
 		name: "Klip Klops",
@@ -160,6 +178,8 @@ window.stores=[
 		imagePack: "Klip Klops",
 		description: "Selling noisy foot things since 1985!",
 		daringRequired: 0,
+		dayLastRefreshed: -10,
+		newStock: false,
 		masterItemsSold: [
 			"flats",
 			"girlSneakers",
@@ -169,7 +189,8 @@ window.stores=[
 			"heels",
 			"stripperHeels"
 		],
-		itemFlagsSold: []
+		itemFlagsSold: [],
+		availableItemVariants: []
 	},
 	{
 		name: "Urbane Menswear",
@@ -177,6 +198,8 @@ window.stores=[
 		imagePack: "Urbane Menswear",
 		description: "Your favorite men's clothing store, and the only one in town.",
 		daringRequired: 0,
+		dayLastRefreshed: -10,
+		newStock: false,
 		logo: "<img src=\"./Images/general/Urbane.jpg\" style=\"width: 150px; height: auto; margin-left: 8vw;\">",
 		masterItemsSold: [
 			"blackShoes",
@@ -186,6 +209,7 @@ window.stores=[
 			"boxers",
 			"pyjamas"
 		],
-		itemFlagsSold: []
+		itemFlagsSold: [],
+		availableItemVariants: []
 	}
 ];

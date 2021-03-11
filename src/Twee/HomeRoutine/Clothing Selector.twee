@@ -14,8 +14,8 @@
 	<<if window.timeCode.schoolRequired()>>\
 		<div class="tooltip">@@.halftransparent;Have a nap@@ <span id="test_surv" class="tooltiptext">I need to go to school</span></div>
 	<<else>>\
-		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]
-		<<if ($time.hour lt 15)>> \
+		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]\
+		<<if ($time.hour lt 15)>>\
 			@@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] 
 		<<endif>>\
 	<<endif>>\
