@@ -92,6 +92,7 @@ window.structures={
 		this.setupItemVariantOverrides();
 		this.setupItemMasterOverrides();
 		this.setupTeam();
+		this.setupStores();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
