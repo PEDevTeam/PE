@@ -14,10 +14,7 @@
 	<<if window.timeCode.schoolRequired()>>\
 		<div class="tooltip">@@.halftransparent;Have a nap@@ <span id="test_surv" class="tooltiptext">I need to go to school</span></div>
 	<<else>>\
-		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]\
-		<<if ($time.hour lt 15)>>\
-			@@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]] 
-		<<endif>>\
+		[[Have a nap|Go to bedroom][window.timeCode.addMinutes(120)]] @@.inv_action_faded;/ @@ [[Wait 15m|Go to bedroom][window.timeCode.addMinutes(15)]] @@.inv_action_faded;/@@ [[30m|Go to bedroom][window.timeCode.addMinutes(30)]] @@.inv_action_faded;/@@ [[1hr|Go to bedroom][window.timeCode.addMinutes(60)]]<<if ($time.hour lt 15)>>	@@.inv_action_faded;/@@ [[evening|Go to bedroom][$time.hour=15]]<<endif>>
 	<<endif>>\
 <<endif>>\
 <<if $flags.guardianCondomsAsk and (not $flags.guardianCondoms) and (not $flags.guardianCondomsDone)>>\
@@ -30,7 +27,7 @@
 	<<endif>>\
 	<<if $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>\
 		[[Accept the punishment|Special punishments][$scene="spanking"]]
-\		
+		\
 	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
 		<<if window.clothes.dressedOutside.check() or window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 			[[Go hunting for used condoms]]
@@ -43,7 +40,7 @@
 		<<if $flags.choreDildoAlarm and not $flags.trainingCockSuck>>\
 			- [[Suck training cock][$scene="suckSleep"]]
 		<<endif>>\
-\		
+		\
 	<<else>>\
 		<div class="tooltip">@@.halftransparent;Go to sleep@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedSleep>></span></div>\
 		@@.inv_action_faded;-@@ <<print '<<click " Dress for Sleep ">><<set itemNavigator.wearClothingSet("Nightwear")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>

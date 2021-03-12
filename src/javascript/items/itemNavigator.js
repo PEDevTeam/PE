@@ -440,9 +440,16 @@ window.itemNavigator = {
             window.wardrobeFuncs.wearItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
+            
             if(document.getElementById("travel-passage")){
-                $("#travel-passage").empty();
-                $("#travel-passage").wiki('<<Travel>>');
+                if(document.getElementById("clothing_selector")){
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
             }
         }
 
@@ -636,8 +643,14 @@ window.itemNavigator = {
             window.itemNavigator.wearClothingSet(evt.currentTarget.setName);
             window.wardrobeFuncs.updateSidebar();
             if(document.getElementById("travel-passage")){
-                $("#travel-passage").empty();
-                $("#travel-passage").wiki('<<Travel>>');
+                if(document.getElementById("clothing_selector")){
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
             }
         };
 
