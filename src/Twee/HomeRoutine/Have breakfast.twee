@@ -210,7 +210,7 @@
 					<<set $flags.nightieSleep = true>>\
 				<<endif>>\
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
+		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('nightwear')) and (not window.wardrobeFuncs.getWornItem('underwear')) and (not window.wardrobeFuncs.getWornItem('outerwear'))>>\
 			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
@@ -218,7 +218,7 @@
 				<<wearRandomItemByMaster 'pyjamas'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
+		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('nightwear')) and window.wardrobeFuncs.getWornItem('underwear') and (not window.wardrobeFuncs.getWornItem('outerwear'))>>\
 			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
