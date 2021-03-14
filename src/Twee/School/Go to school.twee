@@ -1,17 +1,17 @@
 :: Go to school [pos_736_1453]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Outside" 400 400>></div>\	
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->\
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
+<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->\
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->\
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
+<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->\
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
+<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\ -->
+<!-- <<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\ -->\
 <<set _earring=window.wardrobeFuncs.getWornItem('earring')>>\
 <<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <!-- Looks male -->\
@@ -31,10 +31,10 @@
 	<<if (not _chastity)>>\
 		Remembering $teacher’s warning, you return home, put on your chastity device and lock it.
 
-		<!-- <<wearClothing 'chastityDevice'>>\ -->
+		<!-- <<wearClothing 'chastityDevice'>>\ -->\
 		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
-		<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
+		<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->\
 		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher’s warning, you quickly lock your chastity device.
@@ -42,8 +42,6 @@
 		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
 <<endif>>\
-<!-- <<if playerCode.isWearing(itemsC.stockings)>>\ -->
-<!-- <<endif>> -->
 <<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
 	<<if $tasksTeacher.wearStockings.status == 1>>\
 		<<set $tasksTeacher.wearStockings.status = 2>>\
@@ -84,16 +82,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 <!--<Shoes stumble and clothes check>-->\
 <<if (not $flags.heelsFall)>>\
 	<<if playerCode.heelsCheck()>>\
-		<!-- <<if playerCode.isWearing(itemsC.stilettoHeels)>>\ -->
 		<<if window.wardrobeFuncs.isItemMasterWearing('stripperHeels')>>\
 			Still not used to walking in stiletto heels, you stumble and fall, arms flailing, before you face-plant on the road.\
-		<!-- <<elseif playerCode.isWearing(itemsC.highHeel3)>>\ -->
-		<!-- <<endif>> -->
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('heels')>>\
 			Still not used to walking in high heels, you stumble and fall, arms flailing, before you face-plant on the road.\
 		<<endif>>\
-		<!-- <<if _o.female && not (_o.shorts)>>\ -->
-		<!-- <<endif>> -->
 		<<if _outerwear.isFemale>>\
 			Your skirt drags up, exposing your \
 			<<if _underwear>>\
@@ -168,10 +161,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 <<endif>>\
 <<if _outerwear.isFemale>>\
 	<<if _chastity>>\
-		<!-- Your penis strains against your chastity device, fortunately hidden beneath your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>.\ -->
 		Your penis strains against your chastity device, fortunately hidden beneath your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>.\
-		<!-- <<if not _u and (not _o.shorts)>>\ -->
-		<!-- <<endif>> -->
 		<<if not _underwear>>\
 			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
 			<<if not $player.daringFlag.noUnderwear>>\
@@ -179,7 +169,6 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			<<endif>>\
 		<<endif>>\
 	<<elseif playerCode.isHorny()>>\
-		<!-- Your erect penis tents your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\ -->
 		Your erect penis tents your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\
 	<<endif>>\
 <<endif>>\
@@ -534,7 +523,6 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				<<elseif playerCode.isMind_1()>>\
 					It is still a novel experience to wear a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>school dress<<endif>> to school. It’s not bad, just a bit weird.\
 				<<else>>\
-					<!-- You love to wear your school dress, <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirts<<endif>> are so much better than pants. You enjoy your walk.\ -->
 					You love to wear your school dress, <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirts<<endif>> are so much better than pants. You enjoy your walk.\
 				<<endif>>\
 				Soon, you notice the familiar sight of //The Jogger// approaching in the opposite direction. As soon as you notice him, you decide to avoid contact and cross the road to continue your walk on the opposite sidewalk. 

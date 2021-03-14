@@ -1,22 +1,15 @@
 :: Friend Hang Out Movie Discussion
 \
-<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<if _under>>\ <<if not _under.female>>\ <<set _maleUnder = true>>\ <<endif>>\ <<endif>>\ -->
 <<if _under>>\ 
 	<<if not _under.female>>\ 
 		<<set _maleUnder = true>>\ 
 	<<endif>>\ 
 <<endif>>\
-<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<set _waxed to not playerCode.isHairy()>>\
 \
@@ -75,11 +68,11 @@ You grab the TV remote and pull up the film menu.
 		You become engrossed in the film, not realising how turned on you are, despite the confusion of which of the people performing horizontal dancing on the screen you feel more affinity to. 
 		<<if not _outerwear.isFemale>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking top<<else>>naked thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<endif>>\
 

@@ -292,16 +292,21 @@ window.inventoryFuncs= {
             var actVar = State.active.variables;
         }
         if(typeof itemVariant !== 'object'){
-            itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+            itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
         }
 
-        var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
-        var ownedItemVariantNames = [];
-        for(var ownedItemIdx in ownedItems){
-            ownedItemVariantNames.push(ownedItems[ownedItemIdx].variant);
-        }
+        if(itemVariant){
+            var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
+            var ownedItemVariantNames = [];
+            for(var ownedItemIdx in ownedItems){
+                ownedItemVariantNames.push(ownedItems[ownedItemIdx].variant);
+            }
 
-        return ownedItemVariantNames.indexOf(itemVariant.variant) > -1
+            return ownedItemVariantNames.indexOf(itemVariant.variant) > -1;
+        }
+        else{
+            return false;
+        }
     },
 
     ownsMasterItem: function(itemMaster){

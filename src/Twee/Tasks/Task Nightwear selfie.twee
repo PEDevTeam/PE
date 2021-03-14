@@ -1,15 +1,11 @@
 :: Task Nightwear selfie [pos_649_554]
 \
-<!-- <<if (not playerCode.isWearingOn(itemTypes.Chastity)) or (not playerCode.isWearing(itemsC.silkyTeddy))>>\ -->
-<!-- <<endif>> -->
 <<if (not window.wardrobeFuncs.getWornItem('chastity')) or (not window.wardrobeFuncs.isItemMasterWearing('nightie'))>>\
 	<<if (not window.wardrobeFuncs.getWornItem('chastity')))>>\
 		<!-- <<wearClothing 'chastityDevice'>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 		You put on chastity device.
 	<<endif>>\
-	<!-- <<if (not playerCode.isWearing(itemsC.silkyTeddy))>>\ -->
-	<!-- <<endif>> -->
 	<<if (not window.wardrobeFuncs.isItemMasterWearing('nightie'))>>\
 		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearItemVariant _item>>\

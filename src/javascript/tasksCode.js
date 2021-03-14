@@ -307,7 +307,7 @@ window.tasksTeacher={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				State.active.variables.items.silkyTeddy.daringRec = 0;
+				window.itemFuncs.overrideItemMasterProperty('nightie', 'daring', 0);
 				State.active.variables.tasksTeacher.selfieNightwear.startPriority = 0;
 				State.active.variables.tasksTeacher.selfieNightwear.progress++;
 			},
@@ -453,7 +453,10 @@ window.tasksTeacher={
 		rewardDebt: 10,
 		failPenalty: 1,
 		events: {
-			start: function() {State.active.variables.items.silkyTeddy.daringRec = 0;},
+			start: function() {
+				window.itemFuncs.overrideItemMasterProperty('nightie', 'daring', 0);
+				window.itemFuncs.overrideItemMasterProperty('stockings', 'daring', 0);
+			},
 			finish: function() { return true; },
 			success: function() {},
 			fail: function() { return false; }

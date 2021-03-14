@@ -183,12 +183,9 @@
 <</widget>>\
 
 <<widget "showMallPlaces">>\
-
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
+\
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 /*You can also:*/\
 <<if $player.debugA>>\
@@ -196,7 +193,7 @@
 <<endif>>\
 <<if window.timeCode.isArcadeOpen()>>[[Play in the arcade][$time.addMinutes(5)]]<<else>>@@.halftransparent;Play in the arcade - closed@@<<endif>>
 [[Go to mall toilet][$time.addMinutes(10);$flags.cameraRecording to false]]
-
+\
 <<if (($tasksTeacher.trialChastity.status eq 1) and (not _chastity) and (not _plug)) or ($tasksTeacher.trialChastity.status eq 5)>>\
 [[Ask about the market research opportunity|Task Trial chastity]]
 <<endif>>\
