@@ -3,34 +3,24 @@
 <span id="bedroom">\
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
-	<!--<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\-->
 	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
 	<<if _wornItem and _wornItem.female>>\
-		<!-- <<removeClothing _u.id>>\ -->
 		<<removeClothingItem 'underwear'>>
 	<<endif>>\
 	@@.info;$Guardian started a load of wash this morning and accidentally put your female underwear in with her own. They won't be dry until after you need to be at school.@@
-	<!-- <<if_D playerCode.owns(itemsC.pantiesLatex)>>\ -->
 	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>\
 		The latex panties are sticky, and you really don't even want to touch them.
 	<<endif>>\
-	<!-- <<if_d playerCode.owns(itemsC.jocksLucky)>>\ -->
 	<<if inventoryFuncs.ownsMasterItem('boxers')>>\
 		$teacher will be angry if you come in your boxers, but wearing wet underwear all day sounds very uncomfortable. What to do?
 	<<endif>>\
-	<!-- <<if_d playerCode.owns(itemsC.gString)>>\ -->
 	<<if inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-		<!-- <<set $items.gString.disabled=true>>\ -->
 		<<set itemFuncs.disableItemMaster('sexyPanties')>>\
 	<<endif>>\
-	<!-- <<if_d playerCode.owns(itemsC.pantiesLatex)>> -->
 	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>
-		<!-- <<set $items.pantiesLatex.disabled=true>>\ -->
 		<<set itemFuncs.disableItemMaster('latexPanties')>>\
 	<<endif>>\
-	<!-- <<if_d playerCode.owns(itemsC.pantiesCotton)>> -->
 	<<if inventoryFuncs.ownsMasterItem('plainPanties')>>
-		<!-- <<set $items.pantiesCotton.disabled=true>>\ -->
 		<<set itemFuncs.disableItemMaster('plainPanties')>>\
 	<<endif>>\
 	
@@ -106,7 +96,6 @@
 <<if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck>>\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene="beg"]]
 <<endif>>\
-<!-- <<if_d playerCode.owns(itemsC.nailPolish) and (not $flags.nailGloss)>>\ -->
 <<if $player.hasNailPolish and (not $flags.nailGloss)>>\
 [[Apply nail polish]]
 <<endif>>\

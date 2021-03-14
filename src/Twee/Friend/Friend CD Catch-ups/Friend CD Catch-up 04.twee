@@ -1,11 +1,7 @@
 :: Friend CD Catch-up 04
-<!-- <<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _outer = playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<if $body.bodyhair == 0>>\
 	<<set _hairy = true>>\
@@ -193,13 +189,9 @@
 
 	<<set $player.perversion.friend = 8>>\
 	<<set playerCode.changeArousal(20)>>\
-	<!-- <<addToInv summerDress 73>>\ -->
 	<<addItemVariantToInventory 'dress_casual_73'>>\
-	<!-- <<addToInv corset 63>>\ -->
 	<<addItemVariantToInventory 'corset_63'>>\ <!-- TODO Corsets? -->
-	<!-- <<addToInv gString 64>>\ -->
 	<<addItemVariantToInventory 'sexy_panties_64'>>\
-	<!-- <<addToInv highHeel3 72>>\ -->
 	<<addItemVariantToInventory 'high_heels_72'>>\
 	[[Leave friend's house][$time.addMinutes(90)]]
 <<endif>>

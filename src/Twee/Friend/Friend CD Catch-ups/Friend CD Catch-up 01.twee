@@ -1,7 +1,5 @@
 ::Friend CD Catch-up 01
-<!-- <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
-<!-- <<set _stock = playerCode.isWearing(itemsC.stockings)>>\ -->
 <<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
 You are not sure what it is, but $friend seems a little edgy as $friendG.he_she waits for you to decide what to do.
 
@@ -70,9 +68,7 @@ $friend also thrusts a pair of lacy panties into your hands.
 <<endif>>\
 @@.friend;like to help, you know, if you want to try more things,”@@ as $friendG.he_she puts on THE iDOLM@STER, and settles down on the couch to watch. You become engrossed in the anime, especially with Akizuki Ryou, and enjoy watching with $friend until it’s time to start getting ready to leave.  
 
-<!-- <<addToInv gString 63>>\ -->
 <<addItemVariantToInventory 'panties_sexy_63'>>\
-<!-- <<addToInv braSexy 63>>\ -->
 <<addItemVariantToInventory 'bra_sexy_63'>>\
 <<set $player.perversion.friend = 5>>\
 [[Leave friend's house][$time.addMinutes(90)]]

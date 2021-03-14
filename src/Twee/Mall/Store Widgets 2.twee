@@ -19,11 +19,8 @@
 <<widget "showMallPlaces">>\
 \
     <<nobr>>\
-        <!-- <<set _outerwear=playerCode.isWearingOn(itemTypes.Outerwear)>> -->
         <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-        <!-- <<set _analPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>> -->
         <<set _analPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-        <!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>> -->
         <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
         
         <<if window.timeCode.isArcadeOpen()>>
@@ -42,8 +39,6 @@
             [[Ask about the tester job|Task Trials][$tasksTeacher.penaltyTrials.progress=0]]<br>
         <<endif>>
         
-        <!-- <<if ($player.perversion.bullies gte 3) and (not playerCode.owns(itemsC.stunGun)) and ($player.perversion.teacher eq 6) and ($player.money lt itemsC.stunGun.cost)>> -->
-        <!-- <<endif>> -->
         <<if ($player.perversion.bullies gte 3) and (not $player.hasStunGun) and ($player.perversion.teacher eq 6) and ($player.money lt $player.stunGunCost)>>
             You could try to steal the stun gun if you are desperate. [[Steal stungun]]<br>
         <<endif>>

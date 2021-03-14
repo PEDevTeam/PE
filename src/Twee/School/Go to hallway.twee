@@ -1,28 +1,17 @@
 :: Go to hallway [pos_285_1882]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Hallway" 400 400>></div>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->\
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->\
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->\
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\ -->\
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->\
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\ -->\
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
-<!-- <<set _underwearAlt to $items[_u.id].curAlt >>\ -->\
 <<if _underwear>>\
 	<<if _underwear.isFemale and ((($player.perversion.teacherCooldown gt 0) and ($player.perversion.teacher eq 2)) or ($player.perversion.teacher gt 2))>>\
 		<<set $player.daysInPanties++>>\
 	<<endif>>\
-<<endif>>\
-<<if _bra>>\
-	<!-- <<set _braAlt to $items[_bra.id].curAlt >>\ -->\
 <<endif>>\
 <<set _deduction=0>>\
 <<set _textSwitch = true>>\

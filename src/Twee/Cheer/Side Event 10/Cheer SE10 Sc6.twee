@@ -34,8 +34,6 @@ You snap to the pose Ashley orders, and she takes her time inspecting you. She b
 
 <<if $cheerleaders.flags.panties>>\
 	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-	<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
-	<!-- <<set playerCode.removeClothesJS(_u.id)>>\ -->
 	@@.hero;Oh no…@@
 
 	@@.cheerBitch;“What the fuck are these?”@@ Ashley demands angrily.
@@ -45,7 +43,6 @@ You snap to the pose Ashley orders, and she takes her time inspecting you. She b
 	Ashley grabs the front of your panties, yanking harshly.\
 	<<if $player.daring > 6 && _u.id != "cheerBriefs">>\
 		You can hear the rip of <<if _wornItem.masterItem == 'latexPanties'>>latex<<else>>fabric<<endif>> as the leg holes are torn from your hips, leaving Ashley holding your destroyed underwear in her balled-up fist.\
-			<!-- <<removeFromInv _u.id $underAlt>>\ -->
 			<<removeItemVariantFromInventory _wornItem.variant>>
 	<<else>>\
 		She roughly pulls them down to your ankles and shoves you firmly to force you to step out of them, leaving her holding you underwear in her balled-up fist.\

@@ -1,13 +1,9 @@
 :: Clinic Body enhancing [pos_2908_1152]
 \
 <<set _passage="Clinic Body enhancing">>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if $scene eq "">>\
 	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
@@ -247,7 +243,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have small breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsA>>\
-		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 1>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsB">>\
@@ -277,7 +272,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have noticeable, ample breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsB>>\
-		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 2>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsC">>\
@@ -308,7 +302,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have big, round breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsC>>\
-		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs = 3>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsDD">>\
@@ -358,7 +351,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have a pair of massive breasts!@@
 		<<endif>>\
 		<<set _item=itemsC.breastImplantsDD>>\
-		<!-- <<buyItem _item.id>>\ -->
 		<<set $body.boobs=4>>\
 		<<set $flags.salonBreast=true>>\
 	<<endif>>\
@@ -431,7 +423,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.LipsEnhancingXL>>\
-	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.lips = 2>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
@@ -467,7 +458,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.LipsEnhancing>>\
-	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.lips = 1>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
@@ -531,7 +521,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.AssEnhancingXL>>\
-	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.ass = 2>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
@@ -563,7 +552,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<set _item=itemsC.AssEnhancing>>\
-	<!-- <<buyItem _item.id>>\ -->
 	<<set $body.ass = 1>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\

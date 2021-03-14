@@ -1,14 +1,9 @@
 :: Friend Catch-up 05
 \
-<!-- <<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\ -->
 <<set _heels=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'heels')>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if not _underwear and not _chastity>><<set _under to 'chastity cage'>>\
 <<elseif not _underwear>><<set _under to 'penis'>>\

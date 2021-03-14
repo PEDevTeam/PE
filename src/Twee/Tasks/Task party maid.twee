@@ -1,18 +1,13 @@
 :: Task party maid [pos_476_1717]
 \
 <<set _pay=50>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<if (not $flags.partyMaidStarted) and (not $flags.partyMaidPunish)>>\
 	<<if $flags.maidUniform>>\
 		<<set $flags.maidUniform = false>>\
-		<!-- <<wearClothing 'chastityDevice'>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<endif>>\

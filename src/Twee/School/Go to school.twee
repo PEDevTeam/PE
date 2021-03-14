@@ -1,17 +1,11 @@
 :: Go to school [pos_736_1453]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Outside" 400 400>></div>\	
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->\
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->\
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->\
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->\
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\ -->\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\ -->\
 <<set _earring=window.wardrobeFuncs.getWornItem('earring')>>\
 <<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <!-- Looks male -->\
@@ -31,10 +25,8 @@
 	<<if (not _chastity)>>\
 		Remembering $teacher’s warning, you return home, put on your chastity device and lock it.
 
-		<!-- <<wearClothing 'chastityDevice'>>\ -->\
 		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
-		<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->\
 		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher’s warning, you quickly lock your chastity device.

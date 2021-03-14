@@ -1,10 +1,13 @@
 :: Club basement [basement]
 \
 <<set _nails to $body.manicure>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\ -->
-<<set _heels=window.wardrobeFuncs.getWornItem('shoes').masterItem == 'highHeels'>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<set _heels=_shoes.masterItem == 'highHeels'>>\
+<<else>>\
+	<<set _heels=false>>\
+<<endif>>\
 \
 <<reactOnce true firstTimeInClubBasement>>\
 	You squeeze passed the mountainous bouncer, grip the silver handle in your trembling<<if _nails>>, manicured<<endif>> fingers and reach out to blood red door. Before your fingertips can brush the surface, the door swings away from you silently. A soft, cool breeze escapes the space beyond, brushing against your legs and sweeping up <<if _outerwear.masterItem == "skirtTop">>your skirt<<else>>the skirt of your dress<<endif>>. It’s heavier than you expected, and a grunt of effort escapes your lips as you push all your weight against it.

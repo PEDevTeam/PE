@@ -1,9 +1,6 @@
 :: Urbane_Menswear_events
-<!-- <<set $currOuter = playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set $currOuter=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set $currShoes = playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
 <<set $currShoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set $currStockings = playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set $currStockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<if $flags.clothesPurged == false>>\
    	<<if ($player.daring < 3) or (($player.daring < 6) and ($player.daysInPanties lte 0))>>\

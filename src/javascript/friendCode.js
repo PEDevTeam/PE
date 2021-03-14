@@ -4,19 +4,12 @@ window.friendCode={
 		var vars=State.active.variables;
 		
 		// get state of current attire
-		//let u=playerCode.isWearingOn(itemTypes.Underwear);
 		let underwear=window.wardrobeFuncs.getWornItem('underwear');
-		//let o=playerCode.isWearingOn(itemTypes.Outerwear);
 		let outerwear=window.wardrobeFuncs.getWornItem('outerwear');
-		//let c=playerCode.isWearingOn(itemTypes.Chastity);
 		let chastity=window.wardrobeFuncs.getWornItem('chastity');
-		//let f=playerCode.isWearingOn(itemTypes.Shoes);
 		let shoes=window.wardrobeFuncs.getWornItem('shoes');
-		//let p=playerCode.isWearingOn(itemTypes.Stockings);
 		let hosiery=window.wardrobeFuncs.getWornItem('hosiery');
-		//let b=playerCode.isWearingOn(itemTypes.AnalPlug);
 		let plug=window.wardrobeFuncs.getWornItem('buttplug');
-		//let bra = playerCode.isWearingOn(itemTypes.Bras);
 		let bra=window.wardrobeFuncs.getWornItem('bra');
 		
 		// detect missing items, map to a short description

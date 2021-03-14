@@ -2,9 +2,6 @@
 \
 <<set $cheerleaders.active = true>>\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader Rain School" 400 400>></div>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
@@ -22,10 +19,8 @@
 	<<if (not _chastity)>>\
 		Remembering $teacher's warning, you return home, put on your chastity device and lock it.
 
-		<!-- <<wearClothing 'chastityDevice'>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
-		<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher's warning, you quickly lock your chastity device.

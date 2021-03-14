@@ -2,7 +2,6 @@
 \
 <<set _choreJS = choresList.goShopping>>\
 <<set _choreV = $chores.goShopping>>\
-<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 \
 <<if $player.shoppingType eq 0>>\
@@ -144,10 +143,7 @@
 			<<endif>>\
 		
 			Soon $guardian returns and looks you over one more time @@.guardian;"Hmm... since you like it so much, I'll just have to buy one."@@
-				<!-- <<if (not playerCode.owns(itemsC.sluttyDress))>>\ -->
-				<!-- <<endif>> -->
 				<<if (not inventoryFuncs.ownsMasterItem('sluttyDress'))>>\
-				<!-- <<addToInv 'sluttyDress'>>\ -->
 				<<addItemVariantToInventory 'dress_slutty_00'>>\
 				<<else>>\
 				You sheepishly admit you already have an outfit like this.

@@ -1,6 +1,5 @@
 :: Task Trial chastity [pos_1952_2896]
 \
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $tasksTeacher.trialChastity.status eq 1>>\
 	You enter the adult store. After some hesitation, you ask the shopkeeper about the market research opportunity $teacher told you about. She looks a little puzzled.
@@ -18,19 +17,13 @@
 	
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
 	<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
-		<!-- <<set _item=$items.chastityDevice>>\ -->
-		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'chastity_cb6000'>>\
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
 	<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
-		<!-- <<set _item=$items.buttPlugHeart>>\ -->
-		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'buttplug_heart'>>\
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'buttplug_heart'>>\
 	<<elseif $tasksTeacher.trialChastity.cooldown eq 2>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 3>>\

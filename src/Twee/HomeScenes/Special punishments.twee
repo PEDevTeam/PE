@@ -1,13 +1,9 @@
 :: Special punishments [pos_2598_360]
 \
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>\
-<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 	<!--<complain>-->\
 <<if $scene eq "complain">>\
@@ -34,31 +30,19 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>> -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_gamer')>>
-		<!-- <<removeFromInv 'roomGamer'>> -->
 		<<addItemVariantToInventory 'room_gamer_girl'>>\
 		<<removeItemVariantFromInventory 'room_gamer'>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>> -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_punk')>>
-		<!-- <<removeFromInv 'roomPunk'>> -->
 		<<addItemVariantToInventory 'room_punk_girl'>>\
 		<<removeItemVariantFromInventory 'room_punk'>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>> -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_geek')>>
-		<!-- <<removeFromInv 'roomGeek'>> -->
 		<<addItemVariantToInventory 'room_geek_girl'>>\
 		<<removeItemVariantFromInventory 'room_geek'>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>> -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('room_sport')>>
-		<!-- <<removeFromInv 'roomSport'>> -->
 		<<addItemVariantToInventory 'room_sport_girl'>>\
 		<<removeItemVariantFromInventory 'room_sport'>>\
 	<<endif>>\
@@ -671,8 +655,6 @@
 			
 			@@.guardian;"Oh my..."@@ She looks embarrassed\
 		<<endif>>\
-		<!-- <<if playerCode.owns(itemsC.silkyTeddy) and $therapistTalks.talkNightwear.start>>\ -->
-		<!-- <<endif>> -->
 		<<if inventoryFuncs.ownsMasterItem('nightie') and $therapistTalks.talkNightwear.start>>\
 			@@.guardian;"I thought you would be wearing that cute nightie of yours."@@\
 		<<else>>\
@@ -690,7 +672,7 @@
 	<<if (not playerCode.haveMakeup())>>\
 		She frowns, looking at your face. Taking you by the wrist again, she leads you to her mirrored vanity table and steers you into the chair. Ignoring your protests, $guardian begins to apply makeup to your face. With the danger of her jamming makeup in your eyes or mouth if you struggle, you resign yourself to sit still as she plies you with an assortment of cosmetics.
 
-	Despite her intoxication, she has an expert hand, and it makes you wonder if putting makeup on while drunk is something she's familiar with. You are astonished as her subtle touches transform your face. Smiling, with mischief in her eyes, she clearly enjoys the understated and feminine result she achieves.
+		Despite her intoxication, she has an expert hand, and it makes you wonder if putting makeup on while drunk is something she's familiar with. You are astonished as her subtle touches transform your face. Smiling, with mischief in her eyes, she clearly enjoys the understated and feminine result she achieves.
 
 	<<endif>>\
 	<<if (not playerCode.haveHaircut())>>\
@@ -862,15 +844,10 @@
 	<<endif>>\
 	
 	Not ready to face any more crazy today, you\
-	<!-- <<if playerCode.owns(itemsC.silkyTeddy) and $flags.nightieSleep>>\ -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('nightie') and $flags.nightieSleep>>\
-		<!-- <<wearClothing 'silkyTeddy'>>\ -->
 		<<wearRandomItemByMaster 'nightie'>>\
 		change into your nightie\
-	<!-- <<elseif playerCode.owns(itemsC.pyjamasMale)>>\ -->
 	<<elseif inventoryFuncs.ownsMasterItem('pyjamas')>>\
-		<!-- <<wearClothing 'pyjamasMale'>>\ -->
 		<<wearRandomItemByMaster 'pyjamas'>>\
 		change into your pajamas\
 	<<else>>\
@@ -928,7 +905,6 @@
 	
 	She notices your intense stare and briefly loses composure. @@.guardian;"What are you waiting for?"@@ She straightens up and smirks @@.guardian;"This hole of yours needs some //love//."@@
 	
-	<!-- You take <<if $items.vibrator.stolen>>$guardian's<<else>>your<<endif>> vibrator and lick it wet under the gaze of $guardian. -->
 	You take <<if $player.stolenVibrator>>$guardian's<<else>>your<<endif>> vibrator and lick it wet under the gaze of $guardian.
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Special Punishments Dildo Anal" 350 350>></div>\	
@@ -1032,8 +1008,6 @@
 	
 	You jerk your hands away from your anus, and try your best to calm down and think about something else.\
 	<<if playerCode.isMind_0()>>\
-		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
-		<!-- <<endif>> -->
 		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Imagination instantly paints you pictures of muscular men holding you down and fu...
 		<<else>>\
@@ -1044,8 +1018,6 @@
 		
 		You jump off the bed and go to the bathroom to take a cold shower.
 	<<elseif playerCode.isMind_1()>>\
-		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
-		<!-- <<endif>> -->
 		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Your imagination instantly paints you pictures of muscular men holding you down and fu...
 			
@@ -1060,8 +1032,6 @@
 			You drop your head back on your pillow and let out a sigh. Resigning to the quirks of your imagination, you slowly massage your anus, fantasizing about girls, $guardian and $teacher fucking you with vibrators and strap-ons.
 		<<endif>>\
 	<<elseif playerCode.isMind_2()>>\
-		<!-- <<if playerCode.owns(itemsC.playgirlMagazine)>>\ -->
-		<!-- <<endif>> -->
 		<<if $player.hasPlaygirl>>\
 			You eyes fall on the playgirl magazine. Your imagination instantly paints you pictures of muscular men holding you down and fucking your tender anus.
 			

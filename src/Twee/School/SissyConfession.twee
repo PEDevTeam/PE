@@ -74,9 +74,7 @@
 	
 	[[Agree to confess|SissyConfession][$scene="AgreeToConfess"]]
 <<elseif $scene eq "AgreeToConfess">>\
-	<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 	<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-	<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 	<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 	<<set $flags.sissyConfession = true>>\
 	<<if _chastity and window.timeCode.isFriday() and $flags.chastityKey and $flags.chastityLocked>>\
