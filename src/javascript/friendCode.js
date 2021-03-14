@@ -4,26 +4,33 @@ window.friendCode={
 		var vars=State.active.variables;
 		
 		// get state of current attire
-		let u=playerCode.isWearingOn(itemTypes.Underwear);
-		let o=playerCode.isWearingOn(itemTypes.Outerwear);
-		let c=playerCode.isWearingOn(itemTypes.Chastity);
-		let f=playerCode.isWearingOn(itemTypes.Shoes);
-		let p=playerCode.isWearingOn(itemTypes.Stockings);
-		let b=playerCode.isWearingOn(itemTypes.AnalPlug);
-		let bra = playerCode.isWearingOn(itemTypes.Bras);
+		//let u=playerCode.isWearingOn(itemTypes.Underwear);
+		let underwear=window.wardrobeFuncs.getWornItem('underwear');
+		//let o=playerCode.isWearingOn(itemTypes.Outerwear);
+		let outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		//let c=playerCode.isWearingOn(itemTypes.Chastity);
+		let chastity=window.wardrobeFuncs.getWornItem('chastity');
+		//let f=playerCode.isWearingOn(itemTypes.Shoes);
+		let shoes=window.wardrobeFuncs.getWornItem('shoes');
+		//let p=playerCode.isWearingOn(itemTypes.Stockings);
+		let hosiery=window.wardrobeFuncs.getWornItem('hosiery');
+		//let b=playerCode.isWearingOn(itemTypes.AnalPlug);
+		let plug=window.wardrobeFuncs.getWornItem('buttplug');
+		//let bra = playerCode.isWearingOn(itemTypes.Bras);
+		let bra=window.wardrobeFuncs.getWornItem('bra');
 		
 		// detect missing items, map to a short description
 		let missing = [];
-		if (u.female == 0) {
+		if (underwear.isFemale == 0) {
 			missing.push("panties");
 		}
-		if (c == 0) {
+		if (!chastity) {
 			missing.push("the cage");
 		}
-		if (p == 0 || (p && p.female == 0)) {
+		if ((!hosiery) || (hosiery && hosiery.isFemale == 0)) {
 			missing.push("stockings");
 		}
-		if (bra == 0) {
+		if (!bra) {
 			missing.push("a bra");
 		}
 		if (vars.body.bodyhair == 0 && vars.friendG.seenWaxedLeg == 1) {
