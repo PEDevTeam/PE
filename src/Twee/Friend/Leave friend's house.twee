@@ -4,9 +4,9 @@
 <<unset $underwearAlt>>\
 <<unset $friendUnderwear>>\
 \
-<<if $player.clothesTmp>>\
-	<<set $player.clothes to clone($player.clothesTmp)>><<ClothingSlotSidebar>>\
-	<<set $player.clothesTmp to null>>\
+<<if $player.clothingSlotsTmp>>\
+	<<set $player.clothingSlots to clone($player.clothingSlotsTmp)>><<ClothingSlotSidebar>>\
+	<<set $player.clothingSlotsTmp to null>>\
 <<endif>>\
 <<if $friendG.leave_message>>\
 	<<print $friendG.leave_message>>

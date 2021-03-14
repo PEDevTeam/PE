@@ -28,9 +28,9 @@
 		<<unset $underwearAlt>>\
 		<<unset $friendUnderwear>>\
 		\
-		<<if $player.clothesTmp>>\
-			<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
-			<<set $player.clothesTmp to null>>\
+		<<if $player.clothingSlotsTmp>>\
+			<<set $player.clothingSlots to clone($player.clothingSlotsTmp)>><<updateClothes>>\
+			<<set $player.clothingSlotsTmp to null>>\
 		<<endif>>\
 		<<display [[Travel]]>>
 	<<else>>\
