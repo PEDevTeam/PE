@@ -291,6 +291,9 @@ window.inventoryFuncs= {
         else{
             var actVar = State.active.variables;
         }
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
+        }
 
         var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
         var ownedItemVariantNames = [];
