@@ -59,6 +59,7 @@ window.itemNavigator = {
                 categorySpan.categoryName = categoryName;
                 categorySpan.navigatorType = navigatorType;
                 categorySpan.className = "item-navigator-category-button";
+                categorySpan.id = "item-navigator-category-" + categoryName;
 
                 if(needFirstCategory){ 
                     firstCategory = categoryName;
@@ -152,8 +153,6 @@ window.itemNavigator = {
                 var actVar = State.active.variables;
             }
 
-            $(".item-navigator-category-button-selected").addClass("item-navigator-category-button").removeClass("item-navigator-category-button-selected");
-            evt.currentTarget.className = "item-navigator-category-button-selected";
             window.itemNavigator.showCategory(evt.currentTarget.categoryName, evt.currentTarget.navigatorType);
         }
     },
@@ -166,7 +165,11 @@ window.itemNavigator = {
             var actVar = State.active.variables;
         }
 
+        $(".item-navigator-category-button-selected").addClass("item-navigator-category-button").removeClass("item-navigator-category-button-selected");
+        $("#item-navigator-category-" + categoryName).addClass("item-navigator-category-button-selected").removeClass("item-navigator-category-button");
+
         var masterItemListTable = document.createElement('table');
+
         if(navigatorType == "wardrobe"){
             var category = window.wardrobe.categories[categoryName];
         }
@@ -174,7 +177,14 @@ window.itemNavigator = {
             var category = window.mall.categories[categoryName];
         }
         var firstMasterItem = "";
-        var needFirstMasterItem = true;
+        var curMasterItem = actVar.wardrobeCurMasterItem;
+        var masterItemCategory = window.itemNavigator.getCategoryForMasterItem(curMasterItem, navigatorType)
+        if(masterItemCategory !== categoryName){
+            var needFirstMasterItem = true;
+        }
+        else{
+            var needFirstMasterItem = false;
+        }
 
         for(var masterItemIdx in category.masterItems){
             if(navigatorType == "wardrobe"){
@@ -216,6 +226,10 @@ window.itemNavigator = {
                     firstMasterItem = category.masterItems[masterItemIdx];
                     masterItemSpan.className = "item-navigator-master-item-selected";
                     needFirstMasterItem = false;
+                }
+                else if(curMasterItem == category.masterItems[masterItemIdx]){
+                    firstMasterItem = category.masterItems[masterItemIdx];
+                    masterItemSpan.className = "item-navigator-master-item-selected";
                 }
                 masterItemTd.appendChild(masterItemSpan);
                 masterItemTd.className = "item-navigator-master-item-row"
@@ -302,7 +316,7 @@ window.itemNavigator = {
             itemVariantNavigateForwardSpan.addEventListener('click', callShowVariant, true);
 
             if(navigatorType == "wardrobe"){
-                if(window.wardrobeFuncs.isItemVariantWearing(itemVariant)){
+                if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && !(itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked)){
                     var itemVariantWearSpan = document.createElement('span');
                     var itemVariantWearText = document.createTextNode("Remove");
                     itemVariantWearSpan.appendChild(itemVariantWearText);
@@ -313,6 +327,29 @@ window.itemNavigator = {
                     itemVariantWearSpan.variantIndex = variantIndex;
                     itemVariantWearSpan.navigatorType = navigatorType;
                     itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
+                }
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && actVar.flags.chastityKey){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode("Unlock");
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-unlock";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
+                    itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
+                }
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && !(actVar.flags.chastityKey)){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode("Locked");
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-locked";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
                 }
                 else{
                     var itemVariantWearSpan = document.createElement('span');
@@ -437,12 +474,19 @@ window.itemNavigator = {
                 var actVar = State.active.variables;
             }
 
+            if(evt.currentTarget.itemVariant.masterItem == 'chastity'){
+                actVar.flags.chastityLocked == true;
+            };
             window.wardrobeFuncs.wearItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
             
             if(document.getElementById("travel-passage")){
                 if(document.getElementById("clothing_selector")){
+                    actVar.wardrobeCurMasterItem = evt.currentTarget.masterItemName;
+                    actVar.wardrobeCurVariantIndex = evt.currentTarget.variantIndex;
+                    actVar.wardrobeCurNavigatorType = evt.currentTarget.navigatorType;
+                    actVar.wardrobeCurCategory = window.itemNavigator.getCategoryForMasterItem(evt.currentTarget.masterItemName, evt.currentTarget.navigatorType);
                     $("#clothing_selector").empty();
                     $("#clothing_selector").wiki('<<display "Clothing Selector">>');
                 }
@@ -460,13 +504,46 @@ window.itemNavigator = {
             else{
                 var actVar = State.active.variables;
             }
-
+            if(evt.currentTarget.itemVariant.masterItem == 'chastity'){
+                actVar.flags.chastityLocked == false;
+            };
             window.wardrobeFuncs.removeItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
         }
     },
     
+    getCategoryForMasterItem: function(masterItemName, navigatorType){
+        if(navigatorType == "wardrobe"){
+            for(var categoryIdx in window.wardrobe.categories){
+                var category = window.wardrobe.categories[categoryIdx];
+                var masterCategory = false;
+                if(category.masterItems){
+                    category.masterItems.forEach(function(a){
+                        if(a == masterItemName) masterCategory = true;
+                    })
+                }
+                if(masterCategory){
+                    return categoryIdx
+                }
+            }            
+        }
+        else{
+            for(var categoryIdx in window.mall.categories){
+                var category = window.mall.categories[categoryIdx];
+                var masterCategory = false;
+                if(category.masterItems){
+                    category.masterItems.forEach(function(a){
+                        if(a == masterItemName) masterCategory = true;
+                    })
+                }
+                if(masterCategory){
+                    return categoryIdx
+                }
+            }
+        }
+    },
+
     formatTagsDOM: function(itemTagArr){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;

@@ -251,7 +251,7 @@ window.playerCode={
 		//var fs=this.isWearingOn(itemTypes.Shoes).slutty;
 		//var e=this.isWearingOn(itemTypes.Earrings);
 		var fo=window.wardrobeFuncs.getWornItem('outerwear').isFemale;
-		var fs=window.itemFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'slutty');
+		var fs=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'slutty');
 		var e=window.wardrobeFuncs.getWornItem('earring');
 		if (fo || fs || e || body.makeup>1 || body.hairstyle>1 || body.boobs>1 || body.lips>1 || body.manicure>0) {
 			return true;

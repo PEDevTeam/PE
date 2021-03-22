@@ -1,14 +1,26 @@
 //macros.wardrobe = {
 Macro.add('wardrobe', {
-    handler: function() {
+    handler: function(place, macroName, params, parser) {
         var wardrobeDiv = window.itemNavigator.getItemNavigator('wardrobe');
         $(this.output).append(wardrobeDiv);
         var clothingSetDiv = window.itemNavigator.getClothingSetNavigator();
         $(this.output).append(clothingSetDiv);
 
         $(function(){
-            if(wardrobeDiv.firstCategory !== ""){
-                window.itemNavigator.showCategory(wardrobeDiv.firstCategory, 'wardrobe');
+            if(SugarCube.State){
+                var actVar = SugarCube.State.active.variables;
+            }
+            else{
+                var actVar = State.active.variables;
+            }
+            if(wardrobeDiv.firstCategory !== ""){          
+                if(actVar.wardrobeCurMasterItem){
+                    window.itemNavigator.showCategory(actVar.wardrobeCurCategory, 'wardrobe');  
+                    window.itemNavigator.showVariant(actVar.wardrobeCurMasterItem, actVar.wardrobeCurVariantIndex, actVar.wardrobeCurNavigatorType);
+                }
+                else{
+                    window.itemNavigator.showCategory(wardrobeDiv.firstCategory, 'wardrobe');  
+                }
             }
         });
     }
