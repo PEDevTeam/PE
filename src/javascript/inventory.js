@@ -203,7 +203,6 @@ window.inventoryFuncs= {
             var actVar = State.active.variables;
         }
 
-
         if(typeof itemVariant !== 'object'){
             for(var itemIdx in actVar.inventory){
                 var item = actVar.inventory[itemIdx];
@@ -212,7 +211,7 @@ window.inventoryFuncs= {
                 }
             }
         }
-        else{            
+        else if(!(itemVariant === null)){            
             for(var itemIdx in actVar.inventory){
                 var item = actVar.inventory[itemIdx];
                 if(typeof item == 'object' && item.variant == itemVariant.variant){

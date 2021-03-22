@@ -213,7 +213,7 @@ window.itemFuncs= {
                 }
             }
         }
-        else{            
+        else if(!(itemVariant === null)){            
             for(var itemIdx in actVar.itemVariantsOverrides){
                 var item = actVar.itemVariantsOverrides[itemIdx]
                 if(item.variant == itemVariant.variant){
