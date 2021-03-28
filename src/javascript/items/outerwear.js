@@ -107,6 +107,7 @@ $.extend(true, window.items, {
             tags:{
                 school:true,
                 plain:true,
+                notneeded:true,
             }
         },
         sluttySchoolDress:{

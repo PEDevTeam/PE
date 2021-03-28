@@ -537,6 +537,28 @@ window.itemFuncs= {
         }
         actVar.itemMasterOverrides.push(item);
     },
+
+    removeTagFromItemMaster: function(item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.itemFuncs.getItemMaster(item);
+        }
+
+        delete item.tags[tag];
+        for(var itemIdx in actVar.itemMasterOverrides){
+            var overrideItem = actVar.itemMasterOverrides[itemIdx]
+            if(overrideItem.itemMaster == item.itemMaster){
+                actVar.itemMasterOverrides.splice(itemIdx, 1);
+            }
+        }
+        actVar.itemMasterOverrides.push(item);
+    },
     
     addTagToItemVariant: function(item, tag, value){
         if(SugarCube.State){
@@ -547,7 +569,7 @@ window.itemFuncs= {
         }
 
         if(typeof item !== 'object'){
-            item = window.itemFuncs.getItemVariant(item);
+            item = window.itemFuncs.getItemByVariant(item);
         }
 
         $.extend(true, item.tags, {[tag]: value});
@@ -558,6 +580,29 @@ window.itemFuncs= {
             }
         }
         actVar.itemVariantsOverrides.push(item);
+    },
+
+    remoteTagFromItemVariant: function(item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.itemFuncs.getItemByVariant(item);
+        }
+
+        delete item.tags[tag]
+        for(var itemIdx in actVar.itemVariantsOverrides){
+            var overrideItem = actVar.itemVariantsOverrides[itemIdx]
+            if(overrideItem.variant == item.variant){
+                actVar.itemVariantsOverrides.splice(itemIdx, 1);
+            }
+        }
+        actVar.itemVariantsOverrides.push(item);
+
     },
 
     getItemMastersForStore: function(storeID){
