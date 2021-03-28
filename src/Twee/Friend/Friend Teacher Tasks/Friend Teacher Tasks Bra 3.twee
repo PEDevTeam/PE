@@ -81,7 +81,7 @@
     @@.friend;”Sorry $player.name, but you don’t exactly have firm pecs either, do you? Maybe if you exercised more…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. \
     @@.friend;”It’s a push-up bra, so it kind of makes its own clevage. Awesome, right? Now you just adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 'Sexy_Bra_61'>>
+    <<set _braAlt to 'bra_sexy_61'>>
 \
 <<elseif $friendG.gender eq 'T'>>\
     @@.friend;“You know, $player.name, I am kind of looking forward to this. Learning together…”@@ $friend lifts his bra and checks the label. @@.friend;“It says mine is a C cup. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?@@
@@ -151,7 +151,7 @@
 
     @@.friend;”Push-up bra. Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 'Sexy_Bra_60'>>
+    <<set _braAlt to 'bra_sexy_60'>>
 \
 <<else>>\
     @@.friend; ”I’m sure we can sort it out for you. I think it looks more complicated than it is,”@@ $friend says more in hope than conviction. @@.friend;“The one you’re holding is a size B. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?”@@
@@ -216,14 +216,12 @@
     @@.friend; ”Sorry, $player.name, but you don’t exactly have a six pack either do you? More exercise…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. @@.friend;”Push-up bra. \
     Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 'Sexy_Bra_60'>>
+    <<set _braAlt to 'bra_sexy_60'>>
 \
 <<endif>>\
 \
 <<set $player.clothingSlots to clone($player.clothingSlotsTmp)>>\
 <<addItemVariantToInventory _braAlt>>
-<!-- <<addToInv braSexy _braAlt>>\ -->
-<!-- <<wearClothing braSexy _braAlt>>\ -->
 <<wearItemVariant _braAlt>>
 <<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
 <<removeClothingItem 'Outerwear'>>\
