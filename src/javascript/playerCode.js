@@ -189,61 +189,61 @@ window.playerCode={
 		        State.active.variables.flags.chastityLocked);
 	},
 	haveHaircut: function() {
-		return (State.active.variables.body.hairstyle > 0);
+		return (State.active.variables.body.hairstyle.level > 0);
 	},
 	hairstyle: function() {
-		return State.active.variables.body.hairstyle;
+		return State.active.variables.body.hairstyle.level;
 	},
 	scoreMakeup: function() {
-		return State.active.variables.body.makeup;
+		return State.active.variables.body.makeup.level;
 	},
 	scoreBoobs: function() {
-		return State.active.variables.body.boobs;
+		return State.active.variables.body.boobs.level;
 	},
 	scoreAss: function() {
-		return State.active.variables.body.ass;
+		return State.active.variables.body.ass.level;
 	},
 	scoreLips: function() {
-		return State.active.variables.body.lips;
+		return State.active.variables.body.lips.level;
 	},
 	scoreAnalSmooth: function() {
-		return State.active.variables.body.anal;
+		return State.active.variables.body.anal.level;
 	},
 	haveMakeup: function() {
-		return (State.active.variables.body.makeup > 0);
+		return (State.active.variables.body.makeup.level > 0);
 	},
 	haveBimboMakeup: function() {
-		return (State.active.variables.body.makeup >= 3);
+		return (State.active.variables.body.makeup.level >= 3);
 	},
 	haveHeavyMakeup: function() {
-		return (State.active.variables.body.makeup == 4);
+		return (State.active.variables.body.makeup.level == 4);
 	},
 	havePermanentMakeup: function() {
-		return (State.active.variables.body.permMakeup > 0 || State.active.variables.body.semiMakeup > 0);
+		return (State.active.variables.body.makeup.permLevel > 0 || State.active.variables.body.makeup.semiLevel > 0);
 	},
 	haveManicure: function(){
-		return (State.active.variables.body.manicure > 0);
+		return (State.active.variables.body.manicure.level > 0);
 	},
 	haveGirlyFace: function() {
-		return (State.active.variables.body.makeup > 0 || State.active.variables.body.face > 0);
+		return (State.active.variables.body.makeup.level > 0 || State.active.variables.body.face.level > 0);
 	},
 	haveBoobs: function() {
-		return (State.active.variables.body.boobs > 0);
+		return (State.active.variables.body.boobs.level > 0);
 	},
 	haveBplus: function() {
-		return (State.active.variables.body.boobs > 1);
+		return (State.active.variables.body.boobs.level > 1);
 	},
 	haveCplus: function() {
-		return (State.active.variables.body.boobs > 2);
+		return (State.active.variables.body.boobs.level > 2);
 	},
 	haveDplus: function() {
-		return(State.active.variables.body.boobs > 3);
+		return(State.active.variables.body.boobs.level > 3);
 	},
 	haveLips: function() {
-		return (State.active.variables.body.lips > 0);
+		return (State.active.variables.body.lips.level > 0);
 	},
 	haveAss: function() {
-		return (State.active.variables.body.ass > 0);
+		return (State.active.variables.body.ass.level > 0);
 	},
 	obviousFemaleAppearance: function() {
 		var body=State.active.variables.body;
@@ -253,7 +253,7 @@ window.playerCode={
 		var fo=window.wardrobeFuncs.getWornItem('outerwear').isFemale;
 		var fs=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'slutty');
 		var e=window.wardrobeFuncs.getWornItem('earring');
-		if (fo || fs || e || body.makeup>1 || body.hairstyle>1 || body.boobs>1 || body.lips>1 || body.manicure>0) {
+		if (fo || fs || e || body.makeup.level>1 || body.hairstyle.level>1 || body.boobs.level>1 || body.lips.level>1 || body.manicure.level>0) {
 			return true;
 		}
 		return false;
@@ -278,42 +278,42 @@ window.playerCode={
 		//var e=this.isWearingOn(itemTypes.Earrings);
 		var earring=window.wardrobeFuncs.getWornItem('earring');
 		// Score
-		if ((body.makeup>=4 && body.lips>=2 && body.boobs>=4 && body.ass>=2) || (body.makeup>=4 && body.boobs>=4 && body.lips>=1 && body.ass>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
+		if ((body.makeup.level>=4 && body.lips.level>=2 && body.boobs.level>=4 && body.ass.level>=2) || (body.makeup.level>=4 && body.boobs.level>=4 && body.lips.level>=1 && body.ass.level>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
 			score=9;
 			return score;
 			// total whore
 		}
-		if (((body.makeup>=4 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos)) || (body.makeup>=4 && (body.lips>=2 || body.boobs>=4 || body.ass>=2))) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && body.ass>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
+		if (((body.makeup.level>=4 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos)) || (body.makeup.level>=4 && (body.lips.level>=2 || body.boobs.level>=4 || body.ass.level>=2))) || (body.makeup.level>=2 && body.boobs.level>=3 && body.lips.level>=1 && body.ass.level>=1 && (earring && window.itemFuncs.hasTag(earring, 'slutty')) && (stilettos))) {
 			score=8;
 			return score;
 			// whorish girl
 		}
-		if (body.makeup>=4 || (body.makeup>=3 && (stilettos)) || (body.makeup>=3 && body.boobs>=3 && body.lips>=1 && body.ass>=1) || (body.makeup>=2 && body.boobs>=3 && body.lips>=1 && (earring) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty')))) {
+		if (body.makeup.level>=4 || (body.makeup.level>=3 && (stilettos)) || (body.makeup.level>=3 && body.boobs.level>=3 && body.lips.level>=1 && body.ass.level>=1) || (body.makeup.level>=2 && body.boobs.level>=3 && body.lips.level>=1 && (earring) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty')))) {
 			score=7;
 			return score;
 			//slutty girl
 		}
-		if (this.haveGirlyFace() && body.hairstyle>1 && body.lips>=1 && (body.boobs>=3 || ((body.boobs>=2 || body.ass>=1) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty'))))) {
+		if (this.haveGirlyFace() && body.hairstyle.level>1 && body.lips.level>=1 && (body.boobs.level>=3 || ((body.boobs.level>=2 || body.ass.level>=1) && (shoes && window.itemFuncs.hasTag(shoes, 'slutty'))))) {
 			score=6;
 			return score;
 			//sexy girl
 		}
-		if (this.haveGirlyFace() && body.hairstyle>1 && (body.boobs>=2 || body.lips>=1 || body.ass>=1)) {
+		if (this.haveGirlyFace() && body.hairstyle.level>1 && (body.boobs.level>=2 || body.lips.level>=1 || body.ass.level>=1)) {
 			score=5;
 			return score;
 			//ordinary girl
 		}
-		if (this.haveGirlyFace() || (body.hairstyle>1 && body.makeup>=2) || body.boobs>=2) {
+		if (this.haveGirlyFace() || (body.hairstyle.level>1 && body.makeup.level>=2) || body.boobs.level>=2) {
 			score=4;
 			return score;
 			//plain looking girl
 		}
-		if (body.hairstyle>1 || (body.hairstyle==1 && body.bodyhair>=2 && (body.boobs==1 || body.manicure==1 || body.makeup>=2))) {
+		if (body.hairstyle.level>1 || (body.hairstyle.level==1 && body.bodyhair>=2 && (body.boobs.level==1 || body.manicure.level==1 || body.makeup.level>=2))) {
 			score=3;
 			return score;
 			//very feminine boy
 		}
-		if (body.boobs==1 || body.manicure==1 || (body.bodyhair>=2 && (!outerwear || (outerwear && outerwear.isFemale)))) {
+		if (body.boobs.level==1 || body.manicure.level==1 || (body.bodyhair>=2 && (!outerwear || (outerwear && outerwear.isFemale)))) {
 			score=2;
 			return score;
 			//feminine boy

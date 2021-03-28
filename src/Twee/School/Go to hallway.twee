@@ -415,89 +415,89 @@
 	<!--</perversion progress events2>--> \
 	<!--<reaction to body mods>--> \
 	<<if window.timeCode.isMonday()>>\
-		<<if ($body.bodyhair eq 3) and ($tasksTeacherBody.hairRemoval.status eq 0 and $tasksTeacherBody.hairRemoval_renewal.status eq 0) and (not $flags.teacherNoticeHairRemovalPerm)>>\
+		<<if ($body.bodyhair.level eq 3) and ($tasksTeacherBody.hairRemoval.status eq 0 and $tasksTeacherBody.hairRemoval_renewal.status eq 0) and (not $flags.teacherNoticeHairRemovalPerm)>>\
 			<<set $flags.teacherNoticeHairRemovalPerm = true>>\
 			$teacher looks at your permanently hairless skin @@.teacher;"Oh, my. Such dedication. Impressive."@@
 			
 		<<endif>>\
-		<<if ($body.manicure eq 1) and ($tasksTeacherBody.manicure.status eq 0 and $tasksTeacherBody.manicure_renewal.status eq 0) and (not $flags.teacherNoticeManicure)>>\
+		<<if ($body.manicure.level eq 1) and ($tasksTeacherBody.manicure.status eq 0 and $tasksTeacherBody.manicure_renewal.status eq 0) and (not $flags.teacherNoticeManicure)>>\
 			<<set $flags.teacherNoticeManicure = true>>\
 			@@.teacher;"Sissies like long nails. I bet you would have a hard time doing men's work now."@@
 			
-		<<elseif ($body.manicure eq 2) and (not $flags.teacherNoticeManicurePerm)>>\
+		<<elseif ($body.manicure.level eq 2) and (not $flags.teacherNoticeManicurePerm)>>\
 			<<set $flags.teacherNoticeManicurePerm = true>>\
 			@@.teacher;"Such colorful nails will show everyone what a whore you are."@@
 			
 		<<endif>>\
-		<<if ($body.makeup eq 4) and (not $flags.teacherNoticeHeavyMakeup)>>\
+		<<if ($body.makeup.level eq 4) and (not $flags.teacherNoticeHeavyMakeup)>>\
 			<<set $flags.teacherNoticeHeavyMakeup = true>>\
-		<<elseif ($body.makeup eq 3) and (not $flags.teacherNoticeBimboMakeup)>>\
+		<<elseif ($body.makeup.level eq 3) and (not $flags.teacherNoticeBimboMakeup)>>\
 			<<set $flags.teacherNoticeBimboMakeup = true>>\
-		<<elseif ($body.makeup eq 2) and (not $flags.teacherNoticeNormalMakeup)>>\
+		<<elseif ($body.makeup.level eq 2) and (not $flags.teacherNoticeNormalMakeup)>>\
 			<<set $flags.teacherNoticeNormalMakeup = true>>\
-		<<elseif ($body.makeup eq 1) and (not $flags.teacherNoticeSubtleMakeup)>>\
+		<<elseif ($body.makeup.level eq 1) and (not $flags.teacherNoticeSubtleMakeup)>>\
 			<<set $flags.teacherNoticeSubtleMakeup = true>>\
 		<<endif>>\
-		<<if ($body.nose eq 1) and (not $flags.teacherNoticeNoseClassic)>>\
+		<<if ($body.nose.level eq 1) and (not $flags.teacherNoticeNoseClassic)>>\
 			<<set $flags.teacherNoticeNoseClassic = true>>\
 			@@.teacher;"Hmm. That nose of yours looks nice, actually."@@
 			
-		<<elseif ($body.nose eq 2) and (not $flags.teacherNoticeNoseButton)>>\
+		<<elseif ($body.nose.level eq 2) and (not $flags.teacherNoticeNoseButton)>>\
 			<<set $flags.teacherNoticeNoseButton = true>>\
 			@@.teacher;"You look so cute with this button nose of yours."@@
 			
-		<<elseif ($body.nose eq 3) and (not $flags.teacherNoticeNosePiggy)>>\
+		<<elseif ($body.nose.level eq 3) and (not $flags.teacherNoticeNosePiggy)>>\
 			<<set $flags.teacherNoticeNosePiggy = true>>\
 			@@.teacher;"Pff. You look like a pig! How distasteful."@@
 			
 		<<endif>>\
-		<<if ($body.lips eq 2) and (not $flags.teacherNoticeLipsEnhancingXL)>>\
+		<<if ($body.lips.level eq 2) and (not $flags.teacherNoticeLipsEnhancingXL)>>\
 			<<set $flags.teacherNoticeLipsEnhancingXL = true>>\
 		<<endif>>\
-		<<if ($body.ass eq 2) and (not $flags.teacherNoticeAssEnhancingXL)>>\
+		<<if ($body.ass.level eq 2) and (not $flags.teacherNoticeAssEnhancingXL)>>\
 			<<set $flags.teacherNoticeAssEnhancingXL = true>>\
 		<<endif>>\
-		<<if $body.lipsPierced and (not $flags.teacherNoticePiercingLips)>>\
+		<<if $body.lipsPierced.level gt 0 and (not $flags.teacherNoticePiercingLips)>>\
 		<<set $flags.teacherNoticePiercingLips = true>>\
 			@@.teacher;"Lip rings make you look easy."@@
 			
 		<<endif>>\
-		<<if $body.nosePierced and (not $flags.teacherNoticePiercingNose)>>\
+		<<if $body.nosePierced.level gt 0 and (not $flags.teacherNoticePiercingNose)>>\
 		<<set $flags.teacherNoticePiercingNose = true>>\
 			@@.teacher;"A piercing in your nose? How distasteful. It makes you look slutty."@@
 			
 		<<endif>>\
-		<<if $body.bellyPierced and (not $flags.teacherNoticePiercingBelly)>>\
+		<<if $body.bellyPierced.level gt 0 and (not $flags.teacherNoticePiercingBelly)>>\
 		<<set $flags.teacherNoticePiercingBelly = true>>\
 			@@.teacher;"Not obvious, but a belly piercing is eye candy when you are less clothed."@@
 			
 		<<endif>>\
-		<<if $body.tonguePierced and (not $flags.teacherNoticePiercingTongue)>>\
+		<<if $body.tonguePierced.level gt 0 and (not $flags.teacherNoticePiercingTongue)>>\
 		<<set $flags.teacherNoticePiercingTongue = true>>\
 			@@.teacher;"Do you love how your tongue piercing makes you lisp like the slut you are?"@@
 			
 		<<endif>>\
-		<<if $body.nipplesPierced and (not $flags.teacherNoticePiercingNipples)>>\
+		<<if $body.nipplesPierced.level gt 0 and (not $flags.teacherNoticePiercingNipples)>>\
 		<<set $flags.teacherNoticePiercingNipples = true>>\
 			@@.teacher;"I bet you enjoy these nipple rings."@@
 			
 			She gives each of them a little tug, making you gasp, and your tender nipples swell and stiffen so they poke right up! You also feel your cock twitch.
 			
 		<<endif>>\
-		<<if ($body.anal eq 2) and (not $flags.teacherNoticeAnalSmooth2)>>\
+		<<if ($body.anal.level eq 2) and (not $flags.teacherNoticeAnalSmooth2)>>\
 			<<set $flags.teacherNoticeAnalSmooth2 = true>>\
 			$teacher slides her finger along your anus, making you twitch from the sensation.
 			
 			@@.teacher;"I see you decided to take it further. Oh, you are such a buttslut."@@
 			
-		<<elseif ($body.anal eq 3) and (not $flags.teacherNoticeAnalSmooth3)>>\
+		<<elseif ($body.anal.level eq 3) and (not $flags.teacherNoticeAnalSmooth3)>>\
 			<<set $flags.teacherNoticeAnalSmooth3 = true>>\
 			$teacher slides her finger along your anus, making you twitch from the sensation.
 			
 			@@.teacher;"It is as if you have been relentlessly fucked for years. I can think of nothing more degrading, yet you have allowed it to be done yourself!"@@
 			
 		<<endif>>\
-		<<if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink eq 1)>>\
+		<<if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink.level eq 1)>>\
 			<<set $flags.penisShrinkSleep = true>>\
 			<<set $flags.penisShrinkProgress = true>>\
 			$teacher suddenly leans closer and starts inspecting your chastity cage.

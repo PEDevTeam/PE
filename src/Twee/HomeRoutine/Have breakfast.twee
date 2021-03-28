@@ -375,7 +375,7 @@
 			@@.guardian;"Don't you dare change anything. Your looks finally match the slut you've shown yourself to be!"@@
 		<<endif>>\
 	<<endif>>\
-	<<if $body.earsPierced>>\
+	<<if $body.earsPierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingEars)>>\
 			<<set $flags.guardianNoticePiercingEars = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -397,7 +397,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.lipsPierced>>\
+	<<if $body.lipsPierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingLips)>>\
 			<<set $flags.guardianNoticePiercingLips = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -414,7 +414,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.nosePierced>>\
+	<<if $body.nosePierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingNose)>>\
 			<<set $flags.guardianNoticePiercingNose = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -433,7 +433,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.tonguePierced>>\
+	<<if $body.tonguePierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingTongue)>>\
 			<<set $flags.guardianNoticePiercingTongue = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -449,7 +449,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<if (not $flags.guardianNoticeHairShort)>>\
 			<<set $flags.guardianNoticeHairShort = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -463,7 +463,7 @@
 				@@.guardian;"Huh. A short haircut? Is my sissy maid too lazy to take care of big-girl hair?"@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<if (not $flags.guardianNoticeHairMedium)>>\
 			<<set $flags.guardianNoticeHairMedium = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -477,7 +477,7 @@
 				@@.guardian;"Huh. Nice haircut."@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<if (not $flags.guardianNoticeHairLong)>>\
 			<<set $flags.guardianNoticeHairLong = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -492,7 +492,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<if (not $flags.guardianNoticeHairPigtails)>>\
 			<<set $flags.guardianNoticeHairPigtails = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -511,7 +511,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<if (not $flags.guardianNoticeHairCurly)>>\
 			<<set $flags.guardianNoticeHairCurly = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -533,7 +533,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.makeup eq 2)>>\
+	<<if ($body.makeup.level eq 2)>>\
 		<<if (not $flags.guardianNoticeNormalMakeup)>>\
 			<<set $flags.guardianNoticeNormalMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -558,7 +558,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.makeup eq 3)>>\
+	<<elseif ($body.makeup.level eq 3)>>\
 		<<if (not $flags.guardianNoticeBimboMakeup)>>\
 			<<set $flags.guardianNoticeBimboMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -583,7 +583,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.makeup eq 4)>>\
+	<<elseif ($body.makeup.level eq 4)>>\
 		<<if (not $flags.guardianNoticeHeavyMakeup)>>\
 			<<set $flags.guardianNoticeHeavyMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -606,7 +606,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.boobs eq 4)>>\
+	<<if ($body.boobs.level eq 4)>>\
 		<<if (not $flags.guardianNoticeBreastsDD)>>\
 			<<set $flags.guardianNoticeBreastsDD = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -634,7 +634,7 @@
 			@@.guardian;"I bet you enjoy having such giant boobs."@@
 			
 		<<endif>>\
-	<<elseif ($body.boobs eq 3)>>\
+	<<elseif ($body.boobs.level eq 3)>>\
 		<<if (not $flags.guardianNoticeBreastsC)>>\
 			<<set $flags.guardianNoticeBreastsC = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -662,7 +662,7 @@
 			@@.guardian;"I bet you enjoy having such big boobs."@@
 			
 		<<endif>>\
-	<<elseif ($body.boobs eq 2)>>\
+	<<elseif ($body.boobs.level eq 2)>>\
 		<<if (not $flags.guardianNoticeBreastsB)>>\
 			<<set $flags.guardianNoticeBreastsB = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -689,7 +689,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.boobs eq 1)>>\
+	<<elseif ($body.boobs.level eq 1)>>\
 		<<if (not $flags.guardianNoticeBreastsA)>>\
 		<<set $flags.guardianNoticeBreastsA = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -749,7 +749,7 @@
 			@@.guardian;"Is that a beauty mark? That's unusual."@@
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.nose eq 1)>>\
+	<<if ($body.nose.level eq 1)>>\
 		<<if (not $flags.guardianNoticenoseClassic)>>\
 			<<set $flags.guardianNoticenoseClassic = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -763,7 +763,7 @@
 				@@.guardian;"Your nose seems different, is it prettier?"@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.nose eq 2)>>\
+	<<elseif ($body.nose.level eq 2)>>\
 		<<if (not $flags.guardianNoticenoseButton)>>\
 			<<set $flags.guardianNoticenoseButton = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -773,7 +773,7 @@
 				@@.guardian;"Your nose seems different, so small and cute."@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.nose eq 3)>>\
+	<<elseif ($body.nose.level eq 3)>>\
 		<<if (not $flags.guardianNoticenosePiggy)>>\
 			<<set $flags.guardianNoticenosePiggy = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -798,7 +798,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.lips eq 1)>>\
+	<<if ($body.lips.level eq 1)>>\
 		<<if (not $flags.guardianNoticeLipsEnhancing)>>\
 			<<set $flags.guardianNoticeLipsEnhancing = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -837,7 +837,7 @@
 				<</switch>>\
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.lips eq 2)>>\
+	<<elseif ($body.lips.level eq 2)>>\
 		<<if (not $flags.guardianNoticeLipsEnhancingXL)>>\
 			<<set $flags.guardianNoticeLipsEnhancingXL = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -877,7 +877,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.manicure eq 1)>>\
+	<<if ($body.manicure.level eq 1)>>\
 		<<if (not $flags.guardianNoticeManicure)>>\
 			<<set $flags.guardianNoticeManicure = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -893,7 +893,7 @@
 				@@.guardian;"Nice manicure. I guess it's only fitting, you'll want your hands to look pretty when your fingers are wrapped around a fat cock."@@ $Guardian smirks wickedly.
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.manicure eq 2)>>\
+	<<elseif ($body.manicure.level eq 2)>>\
 		<<if (not $flags.guardianNoticeGarishManicure)>>\
 			<<set $flags.guardianNoticeGarishManicure = true>>\
 			<<if $player.perversion.guardian lte 2>>\

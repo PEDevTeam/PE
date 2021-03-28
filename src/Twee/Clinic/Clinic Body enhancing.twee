@@ -18,42 +18,61 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <!--<list of bodymods>-->\
 <img id="item_preview" class="hidden">\
 <<if (not $flags.salonBreast)>>\
-	<<if (($body.boobs eq 4) and ($body.permBoobs lte 3) and ($body.semiBoobs lte 3)) or ($body.boobs eq 3)>>\
-	<<set _item=itemsC.breastImplantsDD>>\
+	<<if (($body.boobs.level eq 4) and ($body.boobs.permLevel lte 3) and ($body.boobs.semiLevel lte 3)) or ($body.boobs.level eq 3)>>\
+		<<set _image = $body.boobs.level4.image>>\
+		<<set _name = $body.boobs.level4.description>>\
+		<<set _disabled = $body.boobs.level4.disabled>>\
+		<<set _cost = $body.boobs.level4.cost>>\
+		<<set _daringRec = $body.boobs.level4.daring>>\
 		<<set _sceneName="breastImplantsDD">>\
-		<<set _override=(($body.boobs eq 3) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 4) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _override=(($body.boobs.level eq 3) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs.level eq 4) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if (($body.boobs eq 3) and ($body.permBoobs lte 2) and ($body.semiBoobs lte 2)) or ($body.boobs eq 2)>>\
-	<<set _item=itemsC.breastImplantsC>>\
+	<<if (($body.boobs.level eq 3) and ($body.boobs.permLevel lte 2) and ($body.boobs.semiLevel lte 2)) or ($body.boobs.level eq 2)>>\
+		<<set _image = $body.boobs.level3.image>>\
+		<<set _name = $body.boobs.level3.description>>\
+		<<set _disabled = $body.boobs.level3.disabled>>\
+		<<set _cost = $body.boobs.level3.cost>>\
+		<<set _daringRec = $body.boobs.level3.daring>>\
 		<<set _sceneName="breastImplantsC">>\
-		<<set _override=(($body.boobs eq 2) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 3) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _override=(($body.boobs.level eq 2) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs.level eq 3) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if (($body.boobs eq 2) and ($body.permBoobs lte 1) and ($body.semiBoobs lte 1)) or ($body.boobs eq 1)>>\
-	<<set _item=itemsC.breastImplantsB>>\
+	<<if (($body.boobs.level eq 2) and ($body.boobs.permLevel lte 1) and ($body.boobs.semiLevel lte 1)) or ($body.boobs.level eq 1)>>\
+		<<set _image = $body.boobs.level2.image>>\
+		<<set _name = $body.boobs.level2.description>>\
+		<<set _disabled = $body.boobs.level2.disabled>>\
+		<<set _cost = $body.boobs.level2.cost>>\
+		<<set _daringRec = $body.boobs.level2.daring>>\
 		<<set _sceneName="breastImplantsB">>\
-		<<set _override=(($body.boobs eq 1) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs eq 2) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
+		<<set _override=(($body.boobs.level eq 1) and ($tasksTeacherBody.breastsIncrease.status gt 0)) or (($body.boobs.level eq 2) and ($tasksTeacherBody.breastsMaintain.status gt 0))>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if (($body.boobs eq 1) and ($body.permBoobs lte 0) and ($body.semiBoobs lte 0)) or ($body.boobs eq 0)>>\
-	<<set _item=itemsC.breastImplantsA>>\
+	<<if (($body.boobs.level eq 1) and ($body.boobs.permLevel lte 0) and ($body.boobs.semiLevel lte 0)) or ($body.boobs.level eq 0)>>\
+		<<set _image = $body.boobs.level1.image>>\
+		<<set _name = $body.boobs.level1.description>>\
+		<<set _disabled = $body.boobs.level1.disabled>>\
+		<<set _cost = $body.boobs.level1.cost>>\
+		<<set _daringRec = $body.boobs.level1.daring>>\
 		<<set _sceneName="breastImplantsA">>\
 		<<set _override=($tasksTeacherBody.breastsIncrease.status gt 0) or ($tasksTeacherBody.breastsMaintain.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<set _item=itemsC.breastPermanent>>\
-		<<switch $body.boobs>>\
-		<<case 1>><<set $items[_item.id].cost = 200>>\
-		<<case 2>><<set $items[_item.id].cost = 400>>\
-		<<case 3>><<set $items[_item.id].cost = 600>>\
-		<<case 4>><<set $items[_item.id].cost = 1000>>\
-		<</switch>>\
-	<<if ($body.boobs gt $body.permBoobs)>>\
+	<<set _image = "catalysator.jpg">>\
+	<<set _name = "Breast permanent catalysator">>\
+	<<set _disabled = false>>\
+	<<set _daringRec = 9>>\
+	<<switch $body.boobs.level>>\
+		<<case 1>><<set _cost = 200>>\
+		<<case 2>><<set _cost = 400>>\
+		<<case 3>><<set _cost = 600>>\
+		<<case 4>><<set _cost = 1000>>\
+	<</switch>>\
+	<<if ($body.boobs.level gt $body.boobs.permLevel)>>\
 		<<set _sceneName="breastPermanent">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
@@ -61,22 +80,34 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<endif>>\
 \
 <<if (not $flags.salonLips)>>\
-	<<if ($body.permLips lte 1) and ($body.semiLips lte 1) and ($body.lips gte 1)>>\
-	<<set _item=itemsC.LipsEnhancingXL>>\
+	<<if ($body.lips.permLevel lte 1) and ($body.lips.semiLevel lte 1) and ($body.lips.level gte 1)>>\
+		<<set _image = $body.lips.level2.image>>\
+		<<set _name = $body.lips.level2.description>>\
+		<<set _disabled = $body.lips.level2.disabled>>\
+		<<set _cost = $body.lips.level2.cost>>\
+		<<set _daringRec = $body.lips.level2.daring>>\
 		<<set _sceneName="LipsEnhancingXL">>\
 		<<set _override=($tasksTeacherBody.lipsMaintainXL.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.permLips lte 0) and ($body.semiLips lte 0) and ($body.lips lte 1)>>\
-	<<set _item=itemsC.LipsEnhancing>>\
+	<<if ($body.lips.permLevel lte 0) and ($body.lips.semiLevel lte 0) and ($body.lips.level lte 1)>>\
+		<<set _image = $body.lips.level1.image>>\
+		<<set _name = $body.lips.level1.description>>\
+		<<set _disabled = $body.lips.level1.disabled>>\
+		<<set _cost = $body.lips.level1.cost>>\
+		<<set _daringRec = $body.lips.level1.daring>>\
 		<<set _sceneName="LipsEnhancing">>\
 		<<set _override=($tasksTeacherBody.lipsIncrease.status gt 0) or ($tasksTeacherBody.lipsMaintain.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.lips gt 0) and ($body.lips gt $body.permLips)>>\
-	<<set _item=itemsC.LipsPermanent>>\
+	<<if ($body.lips.level gt 0) and ($body.lips.level gt $body.lips.permLevel)>>\
+		<<set _image = "catalysator.jpg">>\
+		<<set _name = "Lips permanent catalysator">>\
+		<<set _disabled = false>>\
+		<<set _cost = 500>>\
+		<<set _daringRec = 9>>\
 		<<set _sceneName="LipsPermanent">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
@@ -84,22 +115,34 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<endif>>\
 \
 <<if (not $flags.salonAss)>>\
-	<<if ($body.permAss lte 1) and ($body.semiAss lte 1) and ($body.ass gte 1)>>\
-	<<set _item=itemsC.AssEnhancingXL>>\
+	<<if ($body.ass.permLevel lte 1) and ($body.ass.semiLevel lte 1) and ($body.ass.level gte 1)>>\
+		<<set _image = $body.ass.level2.image>>\
+		<<set _name = $body.ass.level2.description>>\
+		<<set _disabled = $body.ass.level2.disabled>>\
+		<<set _cost = $body.ass.level2.cost>>\
+		<<set _daringRec = $body.ass.level2.daring>>\
 		<<set _sceneName="AssEnhancingXL">>\
 		<<set _override=($tasksTeacherBody.assMaintainXL.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.permAss lte 0) and ($body.semiAss lte 0) and ($body.ass lte 1)>>\
-	<<set _item=itemsC.AssEnhancing>>\
+	<<if ($body.ass.permLevel lte 0) and ($body.ass.semiLevel lte 0) and ($body.ass.level lte 1)>>\
+		<<set _image = $body.ass.level1.image>>\
+		<<set _name = $body.ass.level1.description>>\
+		<<set _disabled = $body.ass.level1.disabled>>\
+		<<set _cost = $body.ass.level1.cost>>\
+		<<set _daringRec = $body.ass.level1.daring>>\
 		<<set _sceneName="AssEnhancing">>\
 		<<set _override=($tasksTeacherBody.assIncrease.status gt 0) or ($tasksTeacherBody.assMaintain.status gt 0)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.ass gt 0) and ($body.ass gt $body.permAss)>>\
-	<<set _item=itemsC.AssPermanent>>\
+	<<if ($body.ass.level gt 0) and ($body.ass.level gt $body.ass.permLevel)>>\
+		<<set _image = "catalysator.jpg">>\
+		<<set _name = "Ass permanent catalysator">>\
+		<<set _disabled = false>>\
+		<<set _cost = 500>>\
+		<<set _daringRec = 9>>\
 		<<set _sceneName="AssPermanent">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
@@ -107,52 +150,64 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<endif>>\
 \
 <<if (not $flags.salonAnal)>>\
-	<<if ($body.anal gte 2) and ($body.permAnal lte 2) and ($body.semiAnal lte 2)>>\
-		<<set _item=itemsC.analSmoothing3>>\
+	<<if ($body.anal.level gte 2) and ($body.anal.permLevel lte 2) and ($body.anal.semiLevel lte 2)>>\
+		<<set _image = $body.anal.level3.image>>\
+		<<set _name = $body.anal.level3.description>>\
+		<<set _disabled = $body.anal.level3.disabled>>\
+		<<set _cost = $body.anal.level3.cost>>\
+		<<set _daringRec = $body.anal.level3.daring>>\
 		<<set _sceneName="analSmoothing3">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
 		<<if $body.nose eq 3>>\
-			<<set $items[_item.id].cost = 1>>\
+			<<set _cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 200>>\
+			<<set _cost = 200>>\
 		<<endif>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.anal gte 1) and ($body.permAnal lte 1) and ($body.semiAnal lte 1)>>\
-		<<set _item=itemsC.analSmoothing2>>\
+	<<if ($body.anal.level gte 1) and ($body.anal.permLevel lte 1) and ($body.anal.semiLevel lte 1)>>\
+		<<set _image = $body.anal.level2.image>>\
+		<<set _name = $body.anal.level2.description>>\
+		<<set _disabled = $body.anal.level2.disabled>>\
+		<<set _cost = $body.anal.level2.cost>>\
+		<<set _daringRec = $body.anal.level2.daring>>\
 		<<set _sceneName="analSmoothing2">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
 		<<if $body.nose eq 3>>\
-			<<set $items[_item.id].cost = 1>>\
+			<<set _cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 100>>\
+			<<set _cost = 100>>\
 		<<endif>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.anal lte 1) and ($body.permAnal lte 0) and ($body.semiAnal lte 0)>>\
-		<<set _item=itemsC.analSmoothing1>>\
+	<<if ($body.anal.level lte 1) and ($body.anal.permLevel lte 0) and ($body.anal.semiLevel lte 0)>>\
+		<<set _image = $body.anal.level1.image>>\
+		<<set _name = $body.anal.level1.description>>\
+		<<set _disabled = $body.anal.level1.disabled>>\
+		<<set _cost = $body.anal.level1.cost>>\
+		<<set _daringRec = $body.anal.level1.daring>>\
 		<<set _sceneName="analSmoothing1">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
 		<<if $body.nose eq 3>>\
-			<<set $items[_item.id].cost = 1>>\
+			<<set _cost = 1>>\
 		<<else>>\
-			<<set $items[_item.id].cost = 100>>\
+			<<set _cost = 100>>\
 		<<endif>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.anal gt 0) and ($body.anal gt $body.permAnal) and ($player.daring gt 7)>>\
-		<<set _item=itemsC.token>>\
+	<<if ($body.anal.level gt 0) and ($body.anal.level gt $body.anal.permLevel) and ($player.daring gt 7)>>\
+		<<set _disabled = false>>\
 		<<set _override=false>>\
-		<<if $body.anal eq 1>><<set $items[_item.id].cost = 2*itemsC.analSmoothing1.cost>>\
-		<<elseif $body.anal eq 2>><<set $items[_item.id].cost = 2*itemsC.analSmoothing2.cost>>\
-		<<elseif $body.anal eq 3>><<set $items[_item.id].cost = 2*itemsC.analSmoothing3.cost>>\
+		<<if $body.anal.level eq 1>><<set _cost = 2*$body.anal.level1.cost>>\
+		<<elseif $body.anal.level eq 2>><<set _cost = 2*$body.anal.level1.cost>>\
+		<<elseif $body.anal.level eq 3>><<set _cost = 2*$body.anal.level1.cost>>\
 		<<endif>>\
-		<<set $items[_item.id].image = itemsC.analSmoothing3.image>>\
-		<<set $items[_item.id].daringRec = 9>>\
-		<<set $items[_item.id].name = "Permanent anal smoothening">>\
+		<<set _image = $body.anal.level3.image>>\
+		<<set _daringRec = 9>>\
+		<<set _name = "Permanent anal smoothening">>\
 		<<set _sceneName="PermanentAnalSmoothing">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
@@ -162,13 +217,21 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 	After recent facial treatments you need to wait a week to recover.
 <<else>>\
-	<<if $body.face eq 1>>\
-		<<set _item=itemsC.surgeryFacial>>\
+	<<if $body.face.level lt 1>>\
+		<<set _image = $body.face.level1.image>>\
+		<<set _name = $body.face.level1.description>>\
+		<<set _disabled = $body.face.level1.disabled>>\
+		<<set _cost = $body.face.level1.cost>>\
+		<<set _daringRec = $body.face.level1.daring>>\
 		<<set _sceneName="surgeryFacial">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
-	<<elseif $body.face lt 2>>\
-		<<set _item=itemsC.softeningFacial>>\
+	<<elseif $body.face.level lt 2>>\
+		<<set _image = $body.face.level2.image>>\
+		<<set _name = $body.face.level2.description>>\
+		<<set _disabled = $body.face.level2.disabled>>\
+		<<set _cost = $body.face.level2.cost>>\
+		<<set _daringRec = $body.face.level2.daring>>\
 		<<set _sceneName="softeningFacial">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
@@ -176,28 +239,40 @@ Nancy asks if you want to make any changes to your body. There are options for i
 \
 	<<if $player.salonTab lt $player.salonSoftLimit>>\
 \
-		<<if $body.nose neq 1>>\
-			<<set _item=itemsC.noseClassic>>\
+		<<if $body.nose.level neq 1>>\
+			<<set _image = $body.nose.level1.image>>\
+			<<set _name = $body.nose.level1.description>>\
+			<<set _disabled = $body.nose.level1.disabled>>\
+			<<set _cost = $body.nose.level1.cost>>\
+			<<set _daringRec = $body.nose.level1.daring>>\
 			<<set _sceneName="noseClassic">>\
 			<<set _override=false>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
-		<<if $body.nose neq 2>>\
-			<<set _item=itemsC.noseButton>>\
+		<<if $body.nose.level neq 2>>\
+			<<set _image = $body.nose.level2.image>>\
+			<<set _name = $body.nose.level2.description>>\
+			<<set _disabled = $body.nose.level2.disabled>>\
+			<<set _cost = $body.nose.level2.cost>>\
+			<<set _daringRec = $body.nose.level2.daring>>\
 			<<set _sceneName="noseButton">>\
 			<<set _override=false>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
-		<<if $body.nose neq 3>>\
-			<<set _item=itemsC.nosePiggy>>\
+		<<if $body.nose.level neq 3>>\
+			<<set _image = $body.nose.level3.image>>\
+			<<set _name = $body.nose.level3.description>>\
+			<<set _disabled = $body.nose.level3.disabled>>\
+			<<set _cost = $body.nose.level3.cost>>\
+			<<set _daringRec = $body.nose.level3.daring>>\
 			<<set _sceneName="nosePiggy">>\
 			<<set _override=false>>\
 			<<display "Clinic buy menu">>
 		<<endif>>\
 \
-		<<if $body.nose gt 0>>\
+		<<if $body.nose.level gt 0>>\
 		Return original shape of nose 10$\
 		<<print '[[ Order|Clinic Body enhancing][$scene="defaultNose"; $random.stored=0]]'>>
 		<<endif>>\
@@ -205,8 +280,12 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 <<endif>>\
 \
-<<if $kink.penisShrink and $therapistTalks.talkPenisShrinking.finished and ($body.penisShrink eq 0)>>\
-	<<set _item=itemsC.PenisShrinking>>\
+<<if $kink.penisShrink and $therapistTalks.talkPenisShrinking.finished and ($body.penisShrink.level eq 0)>>\
+	<<set _image = $body.penisShrink.level1.image>>\
+	<<set _name = $body.npenisShrinkose.level1.description>>\
+	<<set _disabled = $body.penisShrink.level1.disabled>>\
+	<<set _cost = $body.penisShrink.level1.cost>>\
+	<<set _daringRec = $body.penisShrink.level1.daring>>\
 	<<set _sceneName="PenisShrinking">>\
 	<<set _override=true>>\
 	<<display "Clinic buy menu">>
@@ -229,7 +308,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		She quickly injects your chest, just below your nipples. 
 		
-		<<if $body.boobs eq 1>>\
+		<<if $body.boobs.level eq 1>>\
 			After only a few minutes, your small breasts are stabilized.
 			
 			@@.nurse;"It looks so good on you. Are you sure you don't want to make this permanent? This will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
@@ -242,8 +321,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have small breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsA>>\
-		<<set $body.boobs = 1>>\
+		<<set $player.money -= $body.boobs.level1.cost>>\
+		<<set $body.boobs.level = 1>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsB">>\
 		Nancy takes you to the back room of the salon.
@@ -258,7 +337,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		She quickly injects your chest, just below your nipples. 
 		
-		<<if $body.boobs eq 2>>\
+		<<if $body.boobs.level eq 2>>\
 			After only a few minutes, your modest breasts are stabilized.
 			
 			@@.nurse;"It looks so good on you. Are you sure you don't want to make this permanent? This will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
@@ -271,8 +350,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have noticeable, ample breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsB>>\
-		<<set $body.boobs = 2>>\
+		<<set $player.money -= $body.boobs.level2.cost>>\
+		<<set $body.boobs.level = 2>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsC">>\
 		Nancy takes you to the back room of the salon.
@@ -286,7 +365,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		She quickly injects your chest, just below your nipples. 
 		
-		<<if $body.boobs eq 3>>\
+		<<if $body.boobs.level eq 3>>\
 			After only a few minutes, your big breasts are stabilized.
 			
 			@@.nurse;"It looks great on you. Are you sure you don't want to make this permanent? This will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
@@ -301,8 +380,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have big, round breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsC>>\
-		<<set $body.boobs = 3>>\
+		<<set $player.money -= $body.boobs.level3.cost>>\
+		<<set $body.boobs.level = 3>>\
 		<<set $flags.salonBreast=true>>\
 	<<elseif $scene eq "breastImplantsDD">>\
 		Nancy takes you to the back room of the salon.
@@ -313,7 +392,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a needle from a case marked "D".
 		
-		<<if $body.boobs eq 4>>\
+		<<if $body.boobs.level eq 4>>\
 			After only a few minutes, your large breasts are stabilized. One more week of back pain and lusty stares.
 			
 			<<selectScene Nancy_stories_breasts_DD SEQ>>\
@@ -350,24 +429,24 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			
 			@@.reward;You now have a pair of massive breasts!@@
 		<<endif>>\
-		<<set _item=itemsC.breastImplantsDD>>\
-		<<set $body.boobs=4>>\
+		<<set $player.money -= $body.boobs.level4.cost>>\
+		<<set $body.boobs.level=4>>\
 		<<set $flags.salonBreast=true>>\
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <<elseif $scene eq "breastPermanent">>\
-	<<if $body.boobs eq 1>>\
-		<<set $body.permBoobs = 1>>\
+	<<if $body.boobs.level eq 1>>\
+		<<set $body.boobs.permLevel = 1>>\
 		<<set $player.money -= 200>>\
-	<<elseif $body.boobs eq 2>>\
-		<<set $body.permBoobs = 2>>\
+	<<elseif $body.boobs.level eq 2>>\
+		<<set $body.boobs.permLevel = 2>>\
 		<<set $player.money -= 400>>\
-	<<elseif $body.boobs eq 3>>\
-		<<set $body.permBoobs = 3>>\
+	<<elseif $body.boobs.level eq 3>>\
+		<<set $body.boobs.permLevel = 3>>\
 		<<set $player.money -= 600>>\
-	<<elseif $body.boobs eq 4>>\
-		<<set $body.permBoobs = 4>>\
+	<<elseif $body.boobs.level eq 4>>\
+		<<set $body.boobs.permLevel = 4>>\
 		<<set $player.money -= 1000>>\
 	<<endif>>\
 	<<set $flags.salonBreast=true>>\
@@ -392,7 +471,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Lips Pumping" 400 400>></div>\
 	Nancy takes you to the back room of the salon.
 	
-	<<if $body.lips eq 2>>\
+	<<if $body.lips.level eq 2>>\
 		@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
 	<<else>>\
 		@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
@@ -400,7 +479,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a big needle from a case and starts to work on your lips.
 	
-	<<if $body.lips eq 2>>\
+	<<if $body.lips.level eq 2>>\
 		After some time, your oversized cocksucking lips are renewed.
 		
 		@@.nurse;"Have you thought about making these permanent? Just think about it, having these juicy cocksucking lips for good. It will be a clear statement to the whole world about what you are good at! Well, come back next week for the renewal."@@\
@@ -415,21 +494,21 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	Nancy gives you a wink and sends you on your way.
 	
-	<<if $body.lips eq 2>>\
+	<<if $body.lips.level eq 2>>\
 		@@.reward; Your large cocksucking lips will stay full and action-ready for one more week.@@
 	<<else>>\
 		@@.reward;You now have temporarily-enhanced, large pouting lips!@@
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.LipsEnhancingXL>>\
-	<<set $body.lips = 2>>\
+	<<set $player.money -= $body.lips.level2.cost>>\
+	<<set $body.lips.level = 2>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsEnhancing">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Lips Pumping" 400 400>></div>\
 	Nancy takes you to the back room of the salon.
 	
-	<<if $body.lips eq 1>>\
+	<<if $body.lips.level eq 1>>\
 		@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
 	<<else>>\
 		@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
@@ -437,7 +516,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a needle from a case and starts to work on your lips.
 	
-	<<if $body.lips eq 1>>\
+	<<if $body.lips.level eq 1>>\
 		It doesn't take long and after few minutes Nancy confirms that your full lips will last one more week.
 		
 		@@.nurse;"Now, don't be a stranger and come back soon for your next treatment,"@@\
@@ -450,24 +529,24 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	Nancy gives you a wink and sends you on your way.
 	
-	<<if $body.lips eq 1>>\
+	<<if $body.lips.level eq 1>>\
 		@@.reward; Your lips will stay full and sexy for one more week.@@
 	<<else>>\
 		@@.reward; You now have temporarily enhanced lips!@@
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.LipsEnhancing>>\
-	<<set $body.lips = 1>>\
+	<<set $player.money -= $body.lips.level1.cost>>\
+	<<set $body.lips.level = 1>>\
 	<<set $flags.salonLips=true>>\
 <<elseif $scene eq "LipsPermanent">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Lips Pumping" 400 400>></div>\
-	<<if $body.lips eq 2>>\
-		<<set $body.permLips = 2>>\
-	<<elseif $body.lips eq 1>>\
-		<<set $body.permLips = 1>>\
+	<<if $body.lips.level eq 2>>\
+		<<set $body.lips.permLevel = 2>>\
+	<<elseif $body.lips.level eq 1>>\
+		<<set $body.lips.permLevel = 1>>\
 	<<endif>>\
-	<<set $player.money -= $body.permanentLipsCosts[0]>>\
+	<<set $player.money -= 500>>\
 	<<set $flags.salonLips=true>>\
 	Nancy examines your enhanced lips. @@.nurse;"Yes, this will work nicely to stabilize your current lip size. Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in your lips.
 	
@@ -492,7 +571,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Ass Pumping" 400 400>></div>\
 	Nancy takes you to the back room of the salon.
 	
-	<<if $body.ass eq 2>>\
+	<<if $body.ass.level eq 2>>\
 		@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
 	<<else>>\
 		@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
@@ -500,7 +579,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	
 	@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a big needle from a case and starts to work on your ass.
 	
-	<<if $body.ass eq 2>>\
+	<<if $body.ass.level eq 2>>\
 		After some time, your big bubble butt is renewed.
 		
 		@@.nurse;"Have you thought about making these permanent? Just think about it, no more worrying about not being noticeable. Such a butt will draw stares all the time! Come back next week for the renewal."@@\
@@ -513,21 +592,21 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	Nancy gives you a wink and sends you on your way.
 	
-	<<if $body.ass eq 2>>\
+	<<if $body.ass.level eq 2>>\
 		@@.reward;The treatment that gave you a large and curvy butt has been renewed.@@
 	<<else>>\
 		@@.reward;You now have a temporarily large and curvy butt!@@
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.AssEnhancingXL>>\
-	<<set $body.ass = 2>>\
+	<<set $player.money -= $body.ass.level2.cost>>\
+	<<set $body.ass.level = 2>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssEnhancing">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Ass Pumping" 400 400>></div>\
 	Nancy takes you to the back room of the salon.
 	
-	<<if $body.ass eq 1>>\
+	<<if $body.ass.level eq 1>>\
 		@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
 	<<else>>\
 		@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
@@ -536,7 +615,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a needle from a case and starts to work on your ass.
 	
 	You try to relax and after some time the procedure is finished.\
-	<<if $body.ass eq 1>>\
+	<<if $body.ass.level eq 1>>\
 		Finally your enhancing treatment of your ample butt is renewed.
 	<<else>>\
 		Your ample new butt will take a while to get used to, but you will adapt in time.
@@ -544,34 +623,34 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 	@@.nurse;"Now, this will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
 	
-	<<if ($body.ass eq 1)>>\
+	<<if ($body.ass.level eq 1)>>\
 		@@.reward;The treatment that gave you a heart-shaped butt is renewed.@@
 	<<else>>\
 		@@.reward;You now have a temporary enhancement to your butt!@@
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.AssEnhancing>>\
-	<<set $body.ass = 1>>\
+	<<set $player.money -= $body.ass.level1.cost>>\
+	<<set $body.ass.level = 1>>\
 	<<set $flags.salonAss=true>>\
 <<elseif $scene eq "AssPermanent">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Ass Pumping" 400 400>></div>\
-	<<if ($body.ass eq 2)>>\
-		<<set $body.permAss = 2>>\
-	<<elseif ($body.ass eq 1)>>\
-		<<set $body.permAss = 1>>\
+	<<if ($body.ass.level eq 2)>>\
+		<<set $body.ass.permLevel = 2>>\
+	<<elseif ($body.ass.level eq 1)>>\
+		<<set $body.ass.permLevel = 1>>\
 	<<endif>>\
-	<<set $player.money -= $body.permanentAssCostt[0]>>\
+	<<set $player.money -= 500>>\
 	<<set $flags.salonAss=true>>\
 	Nancy examines your ass. @@.nurse;"Yes, this will work nicely to stabilize your current butt size. Now, here's the special ingredient,"@@ she states as she quickly gives you an injection in each butt cheek.
 	
-	<<if ($body.ass eq 1)>>\
+	<<if ($body.ass.level eq 1)>>\
 		@@.nurse;"That little baby will stabilize your new ass. Congratulations, you will have this shapely ass for a really long time. That's unless you decide to get it even bigger."@@
 		
 		@@.hero;Oh god, @@ you think to yourself, @@.hero;This is permanent!@@
 		
 		@@.reward;You now have a permanently plump butt!@@
-	<<elseif ($body.ass eq 2)>>\
+	<<elseif ($body.ass.level eq 2)>>\
 		@@.nurse;"That little baby will stabilize your new ass. Congratulations, you will have this bubble butt for a really long time. Don't worry, I doubt you'll be one of the few for whom it interacts with your blood chemistry, continuing to grow and swell as the years pass."@@
 	
 		@@.hero;Oh my gosh, @@ you think to yourself, @@.hero;what have I done?! This is permanent! And might get even bigger!@@
@@ -585,7 +664,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<elseif $scene eq "PermanentAnalSmoothing">><!--<anal smoothing permanent>-->\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Anal Smoothening" 400 400>></div>\
 	<<set $flags.salonAnal=true>>\
-	<<set $body.permAnal=$body.anal>>\
+	<<set $body.anal.permLevel=$body.anal.level>>\
 	
 	@@.heroT;"I'd like to make the anal smoothing treatment permanent,"@@ you tell Nancy, wondering if you're making a huge mistake.
 	
@@ -633,15 +712,15 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 \
 	@@.nurse;"After today you won't really need further treatments for a long time.@@\
-	<<if ($body.anal eq 1)>>\
+	<<if ($body.anal.level eq 1)>>\
 		@@.nurse;Your anus will stay this smooth and ready to be used indefenitely. Keep in mind that there are extra options, when you are ready."@@
 		
 		Feeling extremely humiliated and still aching from having your anus polished raw you meekly thank Nancy and leave.
-	<<elseif ($body.anal eq 2)>>\
+	<<elseif ($body.anal.level eq 2)>>\
 		@@.nurse;Your anus will stay silky and sensitive indefenitely. Keep in mind that there is also a special option. I think you should try it when you are ready."@@
 		
 		Feeling extremely humiliated and still aching from having your anus polished raw you meekly thank Nancy and leave.
-	<<elseif ($body.anal eq 3)>>\
+	<<elseif ($body.anal.level eq 3)>>\
 		@@.nurse;Your fuckole will be smooth and ready to be used forever. Congratulations!"@@
 		
 		Feeling extremely humiliated and still aching from having your anus polished raw you meekly say what Nancy wants to hear.
@@ -664,13 +743,13 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<elseif $scene eq "analSmoothing3">><!--<anal smoothing3>-->\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Anal Smoothening" 400 400>></div>\
 	<<set $flags.salonAnal=true>>\
-	<<if ($body.anal neq 3)>>\
+	<<if ($body.anal.level neq 3)>>\
 		<<set _item=itemsC.analSmoothing3>>\
-		<<if ($body.nose neq 3)>>\
-			<!-- <<buyItem _item.id>>\ -->
-			<<set $body.nose = 3>>
+		<<if ($body.nose.level neq 3)>>\
+			<<set $player.money -= $body.anal.level3.cost>>\
+			<<set $body.nose.level = 3>>
 		<<endif>>\
-		<<set $body.anal = 3>>\
+		<<set $body.anal.level = 3>>\
 	@@.heroT;"I'd like to get the special anal smoothing course,"@@ you tell Nancy hesitantly, as you know what awaits you.
 	@@.nurse;"This is splendid!"@@ She exclaims with a wicked smile.
 
@@ -730,7 +809,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	Your heart sinks, as you realize that you gave yourself a literal fuckhole meant for pleasuring others instead of a normal anus, and this drug treatment will keep you constantly horny and easy to exploit.
 	
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 		Now you understand why Nancy insisted so much on this treatment: she wanted her favorite piggy client to be easy to get laid and well used as a result.
 	
 	<<endif>>\
@@ -840,8 +919,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		@@.nurse;"One last thing."@@
 		Nancy puts your butt-plug back in place.
 		<<else>>\
-			<!-- <<if (not playerCode.owns(itemsC.buttPlugDildo))>>\ -->
-			<!-- <<endif>> -->
 			<<if (not inventoryFuncs.isItemVariantOwned('buttplug_dildo')>>\
 			@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
 			
@@ -854,9 +931,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.reward;You now have a butt-plug dildo!;@@
 				
 				<<set _item=itemsC.buttPlugDildo>>\
-				<!-- <<addToInv _item.id>>\ -->
 				<<addItemVariantToInventory 'buttplug_dildo'>>\
-				<!-- <<wearClothing _item.id>>\ -->
 				<<wearItemVariant 'buttplug_dildo'>>\
 			<<endif>>\
 		<<endif>>\
@@ -885,17 +960,16 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<endif>>\
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.analSmoothing2>>\
-	<<if ($body.nose neq 3)>>\
-		<!-- <<buyItem _item.id>>\ -->
-		<<set $body.nose = 3>>
+	<<if ($body.nose.level neq 3)>>\
+		<<set $player.money -= $body.anal.level2.cost>>\
+		<<set $body.nose.level = 3>>\
 	<<endif>>\
-	<<set $body.anal = 2>>\
+	<<set $body.anal.level = 2>>\
 	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothing2>-->\
 <<elseif $scene eq "analSmoothing1">><!--<anal smoothing1>-->\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Anal Smoothening" 400 400>></div>\
-	<<if ($body.anal gte 1)>>\
+	<<if ($body.anal.level gte 1)>>\
 		@@.heroT;"I'd like to get the anal smoothing course again,"@@ you tell Nancy hesitantly, as you know what awaits you.
 	<<else>>\
 		@@.heroT;"I'd like to get the anal smoothing course,"@@ you tell Nancy, blushing furiously.
@@ -967,8 +1041,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			@@.nurse;"One last thing."@@
 			Nancy puts your butt-plug back in place.
 		<<else>>\
-			<!-- <<if (not playerCode.owns(itemsC.buttPlugDildo))>>\ -->
-			<!-- <<endif>> -->
 			<<if (not inventoryFuncs.isItemVariantOwned('buttplug_dildo')>>\
 				@@.nurse;"One last thing - It's a shame to keep such a nice ass empty."@@
 				
@@ -981,9 +1053,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 				@@.reward;You now have a butt-plug dildo!;@@
 				
 				<<set _item=itemsC.buttPlugDildo>>\
-				<!-- <<addToInv _item.id>>\ -->
 				<<addItemVariantToInventory 'buttplug_dildo'>>\
-				<!-- <<wearClothing _item.id>>\ -->
 				<<wearItemVariant 'buttplug_dildo'>>\
 			<<endif>>\
 		<<endif>>\
@@ -1013,18 +1083,17 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	@@.reward;You now have a buttery-smooth anus!@@
 	
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-	<<set _item=itemsC.analSmoothing1>>\
-	<<if ($body.nose neq 3)>>\
-		<!-- <<buyItem _item.id>>\ -->
-		<<set $body.nose = 3>>
+	<<if ($body.nose.level neq 3)>>\
+		<<set $player.money -= $body.anal.level3.cost>>\
+		<<set $body.nose.level = 3>>\
 	<<endif>>\
-	<<set $body.anal = 1>>\
+	<<set $body.anal.level = 1>>\
 	<<set $flags.salonAnal=true>>\
 	<!--</anal smoothing1>-->\
 	<!--</anal smoothing>-->\
 	<!--<nose>-->\
 <<elseif $scene eq "noseClassic">>\
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 		<<set $flags.salonPickNose=true>>\
 		@@.hero;I'd like to have a classic straight nose,"@@ you tell Nancy.
 
@@ -1034,7 +1103,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		@@.nurse;"Tell you what, we'll have a coin toss. If you win, I'll change it, free of charge, but if you lose, I'll give you an extra treatment to prove you wrong."@@
 		
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.ass.semiLevel gt 0 or $body.lips.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing the shape of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1044,7 +1113,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrickBack"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+			<<if ($body.ass.semiLevel gt 0 or $body.ass.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1052,9 +1121,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
 		<<endif>>\
 	<<else>>\
-		<<set _item=itemsC.noseClassic>>\
-		<!-- <<buyItem _item.id>>\ -->
-		<<set $body.nose = 1>>\
+		<<set $player.money -= $body.nose.level1.cost>>\
+		<<set $body.nose.level = 1>>\
 		<<set $flags.salonNose=true>>\
 		@@.heroT;"I'd like to have a classic straight nose,"@@ you tell Nancy.
 		
@@ -1073,7 +1141,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<endif>>\
 <<elseif $scene eq "noseButton">>\
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 		<<set $flags.salonPickNose=false>>\
 		@@.heroT;"I'd like to have a small button nose,"@@ you tell Nancy.
 
@@ -1087,7 +1155,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 		She looks at you with a friendly, but slightly unsettling smile.
 		
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.ass.semiLevel gt 0 or $body.lips.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing the shape of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1097,7 +1165,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrickBack"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+			<<if ($body.ass.semiLevel gt 0 or $body.lips.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1105,9 +1173,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
 		<<endif>>\
 	<<else>>\
-		<<set _item=itemsC.noseButton>>\
-		<!-- <<buyItem _item.id>>\ -->
-		<<set $body.nose = 2>>\
+		<<set $player.money -= $body.nose.level2.cost>>\
+		<<set $body.nose.level = 2>>\
 		<<set $flags.salonNose=true>>\
 
 		@@.heroT;"I'd like to have a small button nose,"@@ you tell Nancy.
@@ -1127,9 +1194,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<endif>>\
 <<elseif $scene eq "nosePiggy">>\
-	<<set _item=itemsC.nosePiggy>>\
-	<!-- <<buyItem _item.id>>\ -->
-	<<set $body.nose = 3>>\
+	<<set $player.money -= $body.nose.level3.cost>>\
+	<<set $body.nose.level = 3>>\
 	<<set $flags.salonNose=true>>\
 	It seems like a weird option, but you got curious and the price is surprisingly low.
 	
@@ -1158,7 +1224,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		@@.nurse;"You know what, let's have a coin toss. If you win, I'll change it back free of charge, but if you lose, I'll give you a few treatments to prove you wrong."@@
 
-		<<if $player.perversion.noseWagerCount eq 1 and ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+		<<if $player.perversion.noseWagerCount eq 1 and ($body.ass.semiLevel gt 0 or $body.ass.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 			Nancy looks you over once again and adds, @@.nurse;"I will open a tab for check-ups on your treatments and won't ask for money if you reconsider changing the shape of your nose. I will even throw a nice bonus on top."@@
 			
 		<<endif>>\
@@ -1168,7 +1234,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<elseif $player.perversion.noseWagerCount eq 1>>\
 			[[Accept wager|Clinic noseWager][$scene="AcceptTrick"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			[[Refuse wager|Clinic noseWager][$scene="Refuse"; $random.stored=0]]
-			<<if ($body.semiAss gt 0 or $body.semiLips gt 0) and (not $flags.salonSemiPerm)>>\
+			<<if ($body.ass.semiLevel gt 0 or $body.lips.semiLevel gt 0) and (not $flags.salonSemiPerm)>>\
 				[[Agree for a check-up|Clinic semi-perm][$scene="semiPerm_checkUp"; $random.stored=0; $player.perversion.noseWagerCount=2]]
 			<<endif>>\
 		<<else>>\
@@ -1188,9 +1254,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--</nose>-->\
 	<!--<face_softening>-->\
 <<elseif $scene eq "surgeryFacial">>\
-	<<set _item=itemsC.surgeryFacial>>\
-	<!-- <<buyItem _item.id>>\ -->
-	<<set $body.face = 2>>\
+	<<set $player.money -= $body.face.level2.cost>>\
+	<<set $body.face.level = 2>>\
 	<<set $flags.salonNose=true>>\
 	@@.heroT;"I'd like to have my facial features softened further,"@@ you tell Nancy.
 	
@@ -1208,9 +1273,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <<elseif $scene eq "softeningFacial">>\
-	<<set _item=itemsC.softeningFacial>>\
-	<!-- <<buyItem _item.id>>\ -->
-	<<set $body.face = 1>>\
+	<<set $player.money -= $body.face.level1.cost>>\
+	<<set $body.face.level = 1>>\
 	<<set $flags.salonNose=true>>\
 
 	@@.heroT;"I'd like to have softer facial features,"@@ you tell Nancy.
@@ -1231,9 +1295,8 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--</face_softening>-->\
 	<!--<penis_shrinking>-->\
 <<elseif $scene eq "PenisShrinking">>\
-	<<set _item=itemsC.PenisShrinking>>\
-	<!-- <<buyItem _item.id>>\ -->
-	<<set $body.penisShrink = 1>>\
+	<<set $player.money -= $body.penisShrink.level1.cost>>\
+	<<set $body.penisShrink.level = 1>>\
 	You hesitate, unsure how to start, and Nancy's intrigued gaze doesn't help you feel any less self-conscious. You start mumbling, avoiding the subject directly, going on about how you heard about certain treatments that affect the size of certain private parts.
 	
 	As you continue rambling on, the confusion on Nancy's face slowly changes to realization. A clear sense of disappointment emerges on her face.

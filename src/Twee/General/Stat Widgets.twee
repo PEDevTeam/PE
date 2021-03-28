@@ -169,23 +169,23 @@
 		<<case 0>>
 			<<set _arms="arms_relaxed.png">>
 		<<case 1>>
-			<<if ($body.manicure eq 2)>>
+			<<if ($body.manicure.level eq 2)>>
 				<<set _arms="arms_spread_fake_nails.png">>
 			<<else>>
 				<<set _arms="arms_spread.png">>
 			<<endif>>
 		<<default>>
-			<<if ($body.manicure eq 2)>>
+			<<if ($body.manicure.level eq 2)>>
 				<<set _arms="arms_flirty_fake_nails.png">>
 			<<else>>
 				<<set _arms="arms_flirty.png">>
 			<<endif>>
 		<</switch>>
 
-		<<if $body.ass eq 2>>
+		<<if $body.ass.level eq 2>>
 			<<set _hips="hips_2.png">>
 			<<set _hs=2>>
-		<<elseif $body.ass eq 1>>
+		<<elseif $body.ass.level eq 1>>
 			<<set _hips="hips_1.png">>
 			<<set _hs=1>>
 		<<else>>
@@ -234,16 +234,16 @@
 			<<endif>>
 		<<endif>>
 		
-		<<if ($body.boobs eq 4)>>
+		<<if ($body.boobs.level eq 4)>>
 			<<set _chest="chest_dd.png">>
 			<<set _bs=4>>
-		<<elseif ($body.boobs eq 3)>>
+		<<elseif ($body.boobs.level eq 3)>>
 			<<set _chest="chest_c.png">>
 			<<set _bs=3>>
-		<<elseif ($body.boobs eq 2)>>
+		<<elseif ($body.boobs.level eq 2)>>
 			<<set _chest="chest_b.png">>
 			<<set _bs=2>>
-		<<elseif ($body.boobs eq 1)>>
+		<<elseif ($body.boobs.level eq 1)>>
 			<<set _chest="chest_a.png">>
 			<<set _bs=1>>
 		<<else>>
@@ -251,16 +251,16 @@
 			<<set _bs=0>>
 		<<endif>>
 		
-		<<if $body.surgerySexualReassignment>>
+		<<if $body.surgerySexualReassignment.level gt 0>>
 			<<set _groin="groin_pussy.png">>
 		<<elseif window.wardrobeFuncs.getWornItem('chastity')>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_chastity_1.png">>
 			<<else>>
 				<<set _groin="groin_chastity_2.png">>
 			<<endif>>
 		<<else>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_penis_1.png">>
 			<<else>>
 				<<set _groin="groin_penis_2.png">>
@@ -293,7 +293,7 @@
 			<<endif>>
 		<<endif>>
 		
-		<<if ($body.lips eq 2)>>
+		<<if ($body.lips.level eq 2)>>
 			<<if playerCode.haveHeavyMakeup()>>
 				<<set _lips="lips_33.png">>
 			<<elseif playerCode.haveBimboMakeup()>>
@@ -303,7 +303,7 @@
 			<<else>>
 				<<set _lips="lips_30.png">>
 			<<endif>>
-		<<elseif ($body.lips eq 1)>>
+		<<elseif ($body.lips.level eq 1)>>
 			<<if playerCode.haveHeavyMakeup()>>
 				<<set _lips="lips_23.png">>
 			<<elseif playerCode.haveBimboMakeup()>>
@@ -326,15 +326,15 @@
 		<<endif>>
 		
 		<<if playerCode.haveHaircut()>>
-			<<if ($body.hairstyle eq 1)>>
+			<<if ($body.hairstyle.level eq 1)>>
 				<<set _hair="hair_short_">>
-			<<elseif ($body.hairstyle eq 2)>>
+			<<elseif ($body.hairstyle.level eq 2)>>
 				<<set _hair="hair_medium_">>
-			<<elseif ($body.hairstyle eq 3)>>
+			<<elseif ($body.hairstyle.level eq 3)>>
 				<<set _hair="hair_long_">>
-			<<elseif ($body.hairstyle eq 4)>>
+			<<elseif ($body.hairstyle.level eq 4)>>
 				<<set _hair="hair_tails_">>
-			<<elseif ($body.hairstyle eq 5)>>
+			<<elseif ($body.hairstyle.level eq 5)>>
 				<<set _hair="hair_curly_">>
 			<<endif>>
 			<<if $body.hairColor eq 0>>
@@ -495,15 +495,15 @@
 		<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>
 		<<if _headwear.masterItem=='hairbows' && _headwear.variant=='hairbow_43'>>
 			<<if playerCode.haveHaircut()>>
-				<<if ($body.hairstyle eq 1)>>
+				<<if ($body.hairstyle.level eq 1)>>
 					<<set _bow="bow_cheer_bow_short.png">>
-				<<elseif ($body.hairstyle eq 2)>>
+				<<elseif ($body.hairstyle.level eq 2)>>
 					<<set _bow="bow_cheer_bow_medium.png">>
-				<<elseif ($body.hairstyle eq 3)>>
+				<<elseif ($body.hairstyle.level eq 3)>>
 					<<set _bow="bow_cheer_bow_long.png">>
-				<<elseif ($body.hairstyle eq 4)>>
+				<<elseif ($body.hairstyle.level eq 4)>>
 					<<set _bow="bow_cheer_bow_tails.png">>
-				<<elseif ($body.hairstyle eq 5)>>
+				<<elseif ($body.hairstyle.level eq 5)>>
 					<<set _bow="bow_cheer_bow_curly.png">>
 				<<endif>>
 			<<else>>
@@ -545,7 +545,7 @@
 			<<showAvatarImage _lips>>
 		<<endif>>
 		
-		<<if $body.lipsPierced>>
+		<<if $body.lipsPierced.level gt 0>>
 			<<showAvatarImage "piercing_lips.png">>
 		<<endif>>
 		
@@ -553,7 +553,7 @@
 			<<showAvatarImage _hair>>
 		<<endif>>
 		
-		<<if $body.earsPierced>>
+		<<if $body.earsPierced.level gt 0>>
 			<<set _earring=window.wardrobeFuncs.getWornItem('earring')>>
 			<<if _earring.masterItem=='casualEarrings'>>
 				<<showAvatarImage "earrings_diamond.png">>
@@ -574,23 +574,23 @@
 		<<case 0>>
 			<<set _arms="arms_relaxed.png">>
 		<<case 1>>
-			<<if ($body.manicure eq 2)>>
+			<<if ($body.manicure.level eq 2)>>
 				<<set _arms="arms_spread_fake_nails.png">>
 			<<else>>
 				<<set _arms="arms_spread.png">>
 			<<endif>>
 		<<default>>
-			<<if ($body.manicure eq 2)>>
+			<<if ($body.manicure.level eq 2)>>
 				<<set _arms="arms_flirty_fake_nails.png">>
 			<<else>>
 				<<set _arms="arms_flirty.png">>
 			<<endif>>
 		<</switch>>
 
-		<<if $body.ass eq 2>>
+		<<if $body.ass.level eq 2>>
 			<<set _hips="hips_2.png">>
 			<<set _hs=2>>
-		<<elseif $body.ass eq 1>>
+		<<elseif $body.ass.level eq 1>>
 			<<set _hips="hips_1.png">>
 			<<set _hs=1>>
 		<<else>>
@@ -639,16 +639,16 @@
 			<<endif>>
 		<<endif>>
 		
-		<<if ($body.boobs eq 4)>>
+		<<if ($body.boobs.level eq 4)>>
 			<<set _chest="chest_dd.png">>
 			<<set _bs=4>>
-		<<elseif ($body.boobs eq 3)>>
+		<<elseif ($body.boobs.level eq 3)>>
 			<<set _chest="chest_c.png">>
 			<<set _bs=3>>
-		<<elseif ($body.boobs eq 2)>>
+		<<elseif ($body.boobs.level eq 2)>>
 			<<set _chest="chest_b.png">>
 			<<set _bs=2>>
-		<<elseif ($body.boobs eq 1)>>
+		<<elseif ($body.boobs.level eq 1)>>
 			<<set _chest="chest_a.png">>
 			<<set _bs=1>>
 		<<else>>
@@ -656,16 +656,16 @@
 			<<set _bs=0>>
 		<<endif>>
 		
-		<<if $body.surgerySexualReassignment>>
+		<<if $body.surgerySexualReassignment.level gt 0>>
 			<<set _groin="groin_pussy.png">>
 		<<elseif window.wardrobeFuncs.getWornItem('chastity')>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_chastity_1.png">>
 			<<else>>
 				<<set _groin="groin_chastity_2.png">>
 			<<endif>>
 		<<else>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_penis_1.png">>
 			<<else>>
 				<<set _groin="groin_penis_2.png">>
@@ -698,7 +698,7 @@
 			<<endif>>
 		<<endif>>
 		
-		<<if ($body.lips eq 2)>>
+		<<if ($body.lips.level eq 2)>>
 			<<if playerCode.haveHeavyMakeup()>>
 				<<set _lips="lips_33.png">>
 			<<elseif playerCode.haveBimboMakeup()>>
@@ -708,7 +708,7 @@
 			<<else>>
 				<<set _lips="lips_30.png">>
 			<<endif>>
-		<<elseif ($body.lips eq 1)>>
+		<<elseif ($body.lips.level eq 1)>>
 			<<if playerCode.haveHeavyMakeup()>>
 				<<set _lips="lips_23.png">>
 			<<elseif playerCode.haveBimboMakeup()>>
@@ -731,15 +731,15 @@
 		<<endif>>
 		
 		<<if playerCode.haveHaircut()>>
-			<<if ($body.hairstyle eq 1)>>
+			<<if ($body.hairstyle.level eq 1)>>
 				<<set _hair="hair_short_">>
-			<<elseif ($body.hairstyle eq 2)>>
+			<<elseif ($body.hairstyle.level eq 2)>>
 				<<set _hair="hair_medium_">>
-			<<elseif ($body.hairstyle eq 3)>>
+			<<elseif ($body.hairstyle.level eq 3)>>
 				<<set _hair="hair_long_">>
-			<<elseif ($body.hairstyle eq 4)>>
+			<<elseif ($body.hairstyle.level eq 4)>>
 				<<set _hair="hair_tails_">>
-			<<elseif ($body.hairstyle eq 5)>>
+			<<elseif ($body.hairstyle.level eq 5)>>
 				<<set _hair="hair_curly_">>
 			<<endif>>
 			<<if $body.hairColor eq 0>>
@@ -900,15 +900,15 @@
 		<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>
 		<<if _headwear.masterItem=='hairbows' && _headwear.variant=='hairbow_43'>>
 			<<if playerCode.haveHaircut()>>
-				<<if ($body.hairstyle eq 1)>>
+				<<if ($body.hairstyle.level eq 1)>>
 					<<set _bow="bow_cheer_bow_short.png">>
-				<<elseif ($body.hairstyle eq 2)>>
+				<<elseif ($body.hairstyle.level eq 2)>>
 					<<set _bow="bow_cheer_bow_medium.png">>
-				<<elseif ($body.hairstyle eq 3)>>
+				<<elseif ($body.hairstyle.level eq 3)>>
 					<<set _bow="bow_cheer_bow_long.png">>
-				<<elseif ($body.hairstyle eq 4)>>
+				<<elseif ($body.hairstyle.level eq 4)>>
 					<<set _bow="bow_cheer_bow_tails.png">>
-				<<elseif ($body.hairstyle eq 5)>>
+				<<elseif ($body.hairstyle.level eq 5)>>
 					<<set _bow="bow_cheer_bow_curly.png">>
 				<<endif>>
 			<<else>>
@@ -958,7 +958,7 @@
 			<<showAvatarImage _hair>>
 		<<endif>>
 		
-		<<if $body.earsPierced>>
+		<<if $body.earsPierced.level gt 0>>
 			<<if playerCode.isWearing(itemsC.diamondStuds)>>
 				<<showAvatarImage "earrings_diamond.png">>
 			<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>
@@ -972,10 +972,10 @@
 			<<showAvatarImage _bow>>
 		<<endif>>
 	<<else>>
-		<<if $body.ass eq 2>>
+		<<if $body.ass.level eq 2>>
 			<<set _hips="hips_2.png">>
 			<<set _hs=2>>
-		<<elseif $body.ass eq 1>>
+		<<elseif $body.ass.level eq 1>>
 			<<set _hips="hips_1.png">>
 			<<set _hs=1>>
 		<<else>>
@@ -1001,16 +1001,16 @@
 		<<else>>
 		<<endif>>
 		
-		<<if ($body.boobs eq 4)>>
+		<<if ($body.boobs.level eq 4)>>
 			<<set _chest="chest_dd.png">>
 			<<set _bs=4>>
-		<<elseif ($body.boobs eq 3)>>
+		<<elseif ($body.boobs.level eq 3)>>
 			<<set _chest="chest_c.png">>
 			<<set _bs=3>>
-		<<elseif ($body.boobs eq 2)>>
+		<<elseif ($body.boobs.level eq 2)>>
 			<<set _chest="chest_b.png">>
 			<<set _bs=2>>
-		<<elseif ($body.boobs eq 1)>>
+		<<elseif ($body.boobs.level eq 1)>>
 			<<set _chest="chest_a.png">>
 			<<set _bs=1>>
 		<<else>>
@@ -1018,16 +1018,16 @@
 			<<set _bs=0>>
 		<<endif>>
 		
-		<<if $body.surgerySexualReassignment>>
+		<<if $body.surgerySexualReassignment.level gt 0>>
 			<<set _groin="groin_pussy.png">>
 		<<elseif window.wardrobeFuncs.getWornItem('chastity')>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_chastity_1.png">>
 			<<else>>
 				<<set _groin="groin_chastity_2.png">>
 			<<endif>>
 		<<else>>
-			<<if ($body.penisShrink eq 1)>>
+			<<if ($body.penisShrink.level eq 1)>>
 				<<set _groin="groin_penis_1.png">>
 			<<else>>
 				<<set _groin="groin_penis_2.png">>
@@ -1044,24 +1044,24 @@
 			<<set _face="none">>
 		<<endif>>
 		
-		<<if ($body.lips eq 2)>>
+		<<if ($body.lips.level eq 2)>>
 			<<set _lips="lips_2.png">>
-		<<elseif ($body.lips eq 1)>>
+		<<elseif ($body.lips.level eq 1)>>
 			<<set _lips="lips_1.png">>
 		<<else>>
 			<<set _lips="none">>
 		<<endif>>
 		
 		<<if playerCode.haveHaircut()>>
-			<<if ($body.hairstyle eq 1)>>
+			<<if ($body.hairstyle.level eq 1)>>
 				<<set _hair="hair_short_">>
-			<<elseif ($body.hairstyle eq 2)>>
+			<<elseif ($body.hairstyle.level eq 2)>>
 				<<set _hair="hair_medium_">>
-			<<elseif ($body.hairstyle eq 3)>>
+			<<elseif ($body.hairstyle.level eq 3)>>
 				<<set _hair="hair_long_">>
-			<<elseif ($body.hairstyle eq 4)>>
+			<<elseif ($body.hairstyle.level eq 4)>>
 				<<set _hair="hair_tails_">>
-			<<elseif ($body.hairstyle eq 5)>>
+			<<elseif ($body.hairstyle.level eq 5)>>
 				<<set _hair="hair_curly_">>
 			<<endif>>
 			<<if $body.hairColor eq 0>>
@@ -1184,15 +1184,15 @@
 		<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>
 		<<if _headwear.masterItem=='hairbows' && _headwear.variant=='hairbow_43'>>
 			<<if playerCode.haveHaircut()>>
-				<<if ($body.hairstyle eq 1)>>
+				<<if ($body.hairstyle.level eq 1)>>
 					<<set _bow="bow_cheer_bow_short.png">>
-				<<elseif ($body.hairstyle eq 2)>>
+				<<elseif ($body.hairstyle.level eq 2)>>
 					<<set _bow="bow_cheer_bow_medium.png">>
-				<<elseif ($body.hairstyle eq 3)>>
+				<<elseif ($body.hairstyle.level eq 3)>>
 					<<set _bow="bow_cheer_bow_long.png">>
-				<<elseif ($body.hairstyle eq 4)>>
+				<<elseif ($body.hairstyle.level eq 4)>>
 					<<set _bow="bow_cheer_bow_tails.png">>
-				<<elseif ($body.hairstyle eq 5)>>
+				<<elseif ($body.hairstyle.level eq 5)>>
 					<<set _bow="bow_cheer_bow_curly.png">>
 				<<endif>>
 			<<else>>

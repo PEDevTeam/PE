@@ -27,10 +27,10 @@
     [[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]]
 <<else>>\
     /*
-    on Mondays, $tasksTeacherBody.legHairRemoval.status is reset to 0 "not assigned" and $body.bodyhair is reset to 0 "hairy legs" (if not made permanent by laser).
+    on Mondays, $tasksTeacherBody.legHairRemoval.status is reset to 0 "not assigned" and $body.bodyhair.level is reset to 0 "hairy legs" (if not made permanent by laser).
     TODO: can $tasksTeacherBody.legHairRemoval.progress be abused to see whether friend helped once before?
     */\
-    <<if $body.bodyhair == 0 && $friendG.seenWaxedLeg>>\
+    <<if $body.bodyhair.level == 0 && $friendG.seenWaxedLeg>>\
         [[Removing Leg Hair|Friend Teacher Tasks Leg Hair Removal]] – //@@.hero;I should probably have my body hair removed again or $friend will be disappointed.@@//
     <<endif>>\
 <<endif>>\

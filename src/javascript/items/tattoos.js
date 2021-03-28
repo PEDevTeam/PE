@@ -136,7 +136,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo6:{
+        tattoo7:{
             masterItem:"tattoos",
             variant:"beauty_mark",
             name:"Beauty Mark",

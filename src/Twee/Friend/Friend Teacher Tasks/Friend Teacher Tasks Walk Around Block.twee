@@ -8,7 +8,7 @@
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if $friendG.blockAttempt == 1>>\
 	@@.friend;“I hope you put some effort into it this time,”@@ $friend states.
-	<<if (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair == 0)>>\ 
+	<<if (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair.level == 0)>>\ 
 		<<set $friendG.posingFail = 1>>\
 	<<endif>>\
 
@@ -133,7 +133,7 @@
 			<<set $friendG.friendTaskFrustration -= 1>>\
 		<<endif>>\
 		$friendG.he_she peers closely at your thighs.\
-		<<if $body.bodyhair gte 1>>\
+		<<if $body.bodyhair.level gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
 				@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@\
@@ -153,7 +153,7 @@
 		$friend sighs, then steps forward and slides a hand up the back of your thigh.\ 
 		<<set $friendG.friendTaskFrustration += 1>>\
 		<<set $friendG.blockFail = 1>>\
-		<<if $body.bodyhair gte 1>>\
+		<<if $body.bodyhair.level gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
 				@@.friend;"Oooo...well, at least you got your legs waxed, so that's something. Good initiative, $player.name."@@\

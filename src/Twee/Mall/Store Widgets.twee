@@ -71,7 +71,7 @@
 				<<set _in to _in + '@@.owned;owned@@'>>\
 			<<elseif $showimages and window.itemFuncs.hasTag(_itemVariant, 'school') and window.itemFuncs.hasTag(_itemVariant, 'colorful')>>\	
 				<<set _in to _in + '@@.halftransparent;Buy - //too colorful style//@@'>>\
-			<<elseif (_masterItem.itemType eq 'earring') and (not $body.earsPierced)>>\
+			<<elseif (_masterItem.itemType eq 'earring') and (not $body.earsPierced.level gt 0)>>\
 				<<set _in to _in + '@@.halftransparent;Buy - //ears not pierced//@@'>>\
 			<<elseif window.itemFuncs.hasTag(_itemVariant, 'notneeded')>>\
 				<<set _in to _in + '@@.halftransparent;Buy - //not needed//@@'>>\

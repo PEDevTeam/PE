@@ -121,9 +121,9 @@
 			<<if not _underwear>>\
 				naked,\
 			<<endif>>\
-			<<if ($body.ass eq 2)>>\
+			<<if ($body.ass.level eq 2)>>\
 				bouncy bubble\
-			<<elseif ($body.ass eq 1)>>\
+			<<elseif ($body.ass.level eq 1)>>\
 				voluptuous\
 			<<else>>\
 				pert\
@@ -357,9 +357,9 @@
 			<<if not _underwear>>\
 				naked,\
 			<<endif>>\
-			<<if ($body.ass eq 2)>>\
+			<<if ($body.ass.level eq 2)>>\
 				bouncy bubble\
-			<<elseif ($body.ass eq 1)>>\
+			<<elseif ($body.ass.level eq 1)>>\
 				voluptuous\
 			<<else>>\
 				pert\
@@ -683,7 +683,7 @@
 	The pile of clothes on the bed grows. Finally, $guardian exclaims, @@.guardian;"Here, put this on!"@@ 
 	
 	She hands you\
-	<<if playerCode.haveCplus() or ($body.ass eq 2)>>\
+	<<if playerCode.haveCplus() or ($body.ass.level eq 2)>>\
 		a very slim pink minidress, so thin that it is almost transparent.
 		
 		Guardian begins helping you into the dress, but there's a problem getting it to fit past your huge\

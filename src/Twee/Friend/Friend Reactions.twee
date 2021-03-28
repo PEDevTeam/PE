@@ -133,7 +133,7 @@
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if $body.makeup == 1 and $friendG.reactions.makeup == 0>>\
+		<<if $body.makeup.level == 1 and $friendG.reactions.makeup == 0>>\
 			<<if $friendG.tasks.selfieMakeup>>\
 				@@.friend;“Is that makeup you are wearing?”@@ $friend asks, sounding surprised as $friendG.he_she gazes at your subtle eye shadow, blush and lipgloss. @@.friend;“I know you tried it before, but I never expected you to wear it out. It does look good, though. it really brings out your eyes.”@@
 				
@@ -143,30 +143,30 @@
 			<<endif>>\
 			<<set $friendG.friendTaskFrustration -= 1>>\
 		<<endif>>\
-		<<if $body.makeup == 2 and $friendG.reactions.makeup <= 1>>\
+		<<if $body.makeup.level == 2 and $friendG.reactions.makeup <= 1>>\
 			@@.friend;“Wow! That is some makeover. Did you do it yourself or get it done at a salon?”@@ $friend asks, sounding impressed as $friendG.he_she checks out your impeccable makeup. @@.friend;“I’m impressed. You look really cute, practically good enough to eat!”@@
 			
 			<<set $friendG.friendTaskFrustration -= 2>>\
 		<<endif>>\
-		<<if $body.makeup == 3 and $friendG.reactions.makeup <= 2>>\
+		<<if $body.makeup.level == 3 and $friendG.reactions.makeup <= 2>>\
 			@@.friend;“That’s some… look you have there,”@@ $friend asks, $friendG.his_her expression dubious as $friendG.he_she checks out your bimbo makeup. @@.friend;“Did you lose the small brushes, or did you just want to shock people?”@@ $friendG.He_She pauses. @@.friend;“It kinda says ‘come fuck me’ but not in a good way! Maybe tone it down a bit?”@@
 			
 		<<endif>>\
-		<<if $body.makeup == 4 and $friendG.reactions.makeup <= 3>>\
+		<<if $body.makeup.level == 4 and $friendG.reactions.makeup <= 3>>\
 			@@.friend;“We don’t welcome hookers in our area!”@@ $friend growls. @@.friend;“Wait. Is that you under all that crap, $player.name?”@@ $friendG.He_She looks up and down the street to see if anyone is watching. @@.friend;“What is wrong with you? Coming here looking like some prostitute? You’d better go, and don’t come back until you’ve toned it down.”@@
 			
 			<<set $friendG.friendTaskFrustration += 1>>\
 			<<set $friendG.evilFriend +=1 >>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.makeup == 4 and $friendG.reactions.makeup == 4>>\
+		<<if $body.makeup.level == 4 and $friendG.reactions.makeup == 4>>\
 			@@.friend;“You still look like a hooker!”@@ $friend growls in anger. @@.friend;“You’re embarrassing yourself. Go away!”@@
 			
 			<<set $friendG.evilFriend +=1 >>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.makeup == 4 is false and $friendG.reactions.makeup == 4>>\
-			<<if $body.makeup == 3 is true>>\
+		<<if $body.makeup.level == 4 is false and $friendG.reactions.makeup == 4>>\
+			<<if $body.makeup.level == 3 is true>>\
 				@@.friend;“Well, at least you toned it down a bit. You should soften it more, though. Try checking out some beauty magazines, or maybe get a salon to help? Anyway, let’s hang out.”@@
 				
 			<<else>>\
@@ -177,48 +177,48 @@
 			<<set $friendG.evilFriend -= 1>>\
 			<<set $friendG.reactions.makeup = 5>>\
 		<<endif>>\
-		<<if $body.makeup == 4 and $friendG.reactions.makeup == 5>>\
+		<<if $body.makeup.level == 4 and $friendG.reactions.makeup == 5>>\
 			@@.friend;“Back to that awful whore look?”@@ $friend says, glaring at your heavily made-up face. @@.friend;“Fuck off, you’re an embarrassment!”@@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration + 3>>\
 			<<set _passFriendReactions = false>>\
 			<<set $friendG.evilFriend += 3>>\
 		<<endif>>\
-		<<if $body.makeup == 1 and $friendG.reactions.makeup == 0>>\
+		<<if $body.makeup.level == 1 and $friendG.reactions.makeup == 0>>\
 			<<set $friendG.reactions.makeup = 1>>\
 		<<endif>>\
-		<<if $body.makeup == 2 and $friendG.reactions.makeup <= 1>>\
+		<<if $body.makeup.level == 2 and $friendG.reactions.makeup <= 1>>\
 			<<$friendG.reactions.makeup = 2>>\
 		<<endif>>\
-		<<if $body.makeup == 3 and $friendG.reactions.makeup <= 2>>\
+		<<if $body.makeup.level == 3 and $friendG.reactions.makeup <= 2>>\
 			<<$friendG.reactions.makeup = 3>>\
 		<<endif>>\
-		<<if $body.makeup == 4 and $friendG.reactions.makeup <= 3>>\
+		<<if $body.makeup.level == 4 and $friendG.reactions.makeup <= 3>>\
 			<<$friendG.reactions.makeup = 4>>\
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if $body.earsPierced and $friendG.reactions.pEars == 0>>\
+		<<if $body.earsPierced.level gt 0 and $friendG.reactions.pEars == 0>>\
 			<<set $friendG.reactions.pEars = 1>>\
 			@@.friend;“Something’s different… Wait, don’t tell me,”@@ $friend says, peering at you. @@.friend;“Are those earrings?”@@ You nod, blushing slightly. <<if $player.perversion.friend <= 6>>@@.friend;“So brave!”@@<<else>>@@.friend;“Way cool.@@<<endif>>@@.friend; And so pretty too!”@@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 			<<set $friendG.evilFriend -= 1>>\
 		<<endif>>\
-		<<if $body.nosePierced and $friendG.reactions.pNose == 0>>\ 
+		<<if $body.nosePierced.level gt 0 and $friendG.reactions.pNose == 0>>\ 
 			<<set $friendG.reactions.pNose = 1>>\
 			@@.friend;“You’ve got some glitter on your nose,”@@ $friend says, studying your new piercing. @@.friend;“Wait, you had it pierced?”@@ You nod, unsure if $friendG.he_she will like it. @@.friend;“Lots of girls at school have them now. They look cute, and so do you!”@@ 
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 			<<set $friendG.evilFriend -= 1>>\
 		<<endif>>\
-		<<if $body.tonguePierced and $friendG.reactions.pTongue == 0>>\
+		<<if $body.tonguePierced.level gt 0 and $friendG.reactions.pTongue == 0>>\
 			<<set $friendG.reactions.pTongue = 1>>\
 			<<set $friendG.reactions.piercingBadCount = $friendG.reactions.piercingBadCount + 1>>\
 			@@.friend;“Is there something in your mouth?”@@ $friend asks. You shake your head, still not used to the lump of metal you decided to have stuck through your tongue. <<if $friendG.reactions.piercingBadCount < 2>>@@.friend;“You got your tongue pierced, didn’t you? Why on earth did you do that?”@@ You shrug, not really willing to tell $friendG.him_her the answer. @@.friend;“Well, it’s your mouth, I guess,”@@ $friend says with a shrug.<<else>>@@.friend;“A tongue piercing this time? When are you going to stop?”@@<<endif>>
 			
 		<<endif>>\
-		<<if $body.lipsPierced and $friendG.reactions.pLip == 0>>\
+		<<if $body.lipsPierced.level gt 0 and $friendG.reactions.pLip == 0>>\
 			<<set $friendG.reactions.pLip = 1>>\
 			<<set $friendG.reactions.piercingBadCount = $friendG.reactions.piercingBadCount + 1>>\
 			<<if $friendG.reactions.piercingBadCount == 0>>@@.friend;“You got your lip pierced? It’s a bit much, isn’t it?"@@<<else>>@@.friend;Don’t you think you have enough piercings now?”@@<<endif>>
@@ -231,7 +231,7 @@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 		<<endif>>\
-		<<if $body.manicure == 1 and $friendG.reactions.nails <= 1>>\
+		<<if $body.manicure.level == 1 and $friendG.reactions.nails <= 1>>\
 			<<if $friendG.reactions.nails == 0>>\ 
 				@@.friend;“You did your nails?”@@ $friend asks, taking your hand in $friendG.his_hers and studying your fingertips. @@.friend;“Very professional! Either you have skills you’ve not been sharing, or you braved it and went to a salon. Very cute!”@@
 				
@@ -241,26 +241,26 @@
 			<<endif>>\
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 		<<endif>>\
-		<<if $body.manicure == 2 and $friendG.reactions.nails <= 2>>\
+		<<if $body.manicure.level == 2 and $friendG.reactions.nails <= 2>>\
 			@@.friend;“What have you done to your hands?”@@ $friend says, staring at your garish fingernails. @@.friend;“Your nails looks like psychedelic insects. They’re so slutty. How are we going to… You know, forget it. Come back when you’ve changed them.”@@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.manicure == 2 and $friendG.reactions.nails == 3>>\
+		<<if $body.manicure.level == 2 and $friendG.reactions.nails == 3>>\
 			@@.friend;“Still with the claws, huh?”@@ $friend spits. @@.friend;“You look like a hooker! I meant it. You are not coming in.”@@
 			
 			<<set $friendG.evilFriend +=1 >>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.manicure == 2 is false and $friendG.reactions.nails == 3>>\
+		<<if $body.manicure.level == 2 is false and $friendG.reactions.nails == 3>>\
 			@@.friend;“You toned your nails down, $player.name, I’m so happy! Let’s do something cool,”@@ $friend says, beaming.
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 			<<set $friendG.evilFriend -= 1>>\
 			<<set $friendG.reactions.nails = 4>>\
 		<<endif>>\
-		<<if $body.manicure == 2 and $friendG.reactions.nails == 4>>\
+		<<if $body.manicure.level == 2 and $friendG.reactions.nails == 4>>\
 			@@.friend;“Back to those awful talons?”@@ $friend says, glaring at your hands. @@.friend;“Go home.”@@ 
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration + 3>>\
@@ -270,10 +270,10 @@
 		<<if ($player.punishments.nailPolishPenalty || $flags.nailGloss)>>\
 			<<set $friendG.reactions.nails = 1>>\
 		<<endif>>\
-		<<if $body.manicure == 1 and $friendG.reactions.nails <= 1>>\
+		<<if $body.manicure.level == 1 and $friendG.reactions.nails <= 1>>\
 			<<set $friendG.reactions.nails = 2>>\
 		<<endif>>\
-		<<if $body.manicure == 2 and $friendG.reactions.nails <= 2>>\
+		<<if $body.manicure.level == 2 and $friendG.reactions.nails <= 2>>\
 			<<set $friendG.reactions.nails = 3>>\
 		<<endif>>\
 	<<endif>>\
@@ -329,7 +329,7 @@
 			<<else>>\
 				@@.friend;“Did your boobs grow again?”@@ $friend says, stepping back and admiring your enhanced silhouette. @@.friend;“I bet your nipples are more sensitive too?”@@ $friend runs $friendG.his_her tongue hungrily over $friendG.his_her lips.
 				
-				<<if $body.nipplesPierced == false>>\
+				<<if $body.nipplesPierced.level == 0>>\
 					<<if $friendG.gender == "T">>\
 						$friend fixates on your breasts as they rise and fall slightly with your breathing. @@.friend;“Can I touch?”@@
 
@@ -426,7 +426,7 @@
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if $body.lips == 1 and $friendG.reactions.lips == 0>>\
+		<<if $body.lips.level == 1 and $friendG.reactions.lips == 0>>\
 			$friend doesn’t move, and instead peers at your face, $friendG.his_her tongue gliding subconsciously over $friendG.his_her lips. @@.friend;“There’s something different about you. I don’t know what it is, but@@\
 			<<if $player.perversion.friend >= 8>>\
 				@@.friend;I’ve got to do this…@@
@@ -452,18 +452,18 @@
 			<<endif>>\
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 		<<endif>>\
-		<<if $body.lips == 2 and $friendG.reactions.lips <= 1>>\
+		<<if $body.lips.level == 2 and $friendG.reactions.lips <= 1>>\
 			@@.friend;“Oh. My. God! What did you do to your face? I mean, I’ve heard of the bee sting look, but you look like you’ve been stabbed in the face by a killer bee or some shit. You know, $player.name, they make you look like a cheap hooker. It’s awful. How can you even go out in public? I remember when… No, forget it. Go home! Or to whoever it is you are doing this shit for, ‘cause it ain’t me.”@@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration +1>>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.lips == 1 and $friendG.reactions.lips >= 2>>\
+		<<if $body.lips.level == 1 and $friendG.reactions.lips >= 2>>\
 			@@.friend;“Oh, you fixed those ridiculous lips. Much better! Come in, let’s hang out.”@@ 
 			
 			<<set $friendG.reactions.lips = 3>>\
 		<<endif>>\
-		<<if $body.lips == 2 and $friendG.reactions.lips >= 3>>\
+		<<if $body.lips.level == 2 and $friendG.reactions.lips >= 3>>\
 			@@.friend;“Yeah, back to the slutty-lip look. It doesn’t even look good. Go away until you get them fixed, or don’t bother coming back.”@@
 			
 			<<set _passFriendReactions = false>>\
@@ -471,15 +471,15 @@
 			<<set $friendG.evilFriend +=2>>\
 			<<set $friendG.reactions.lips = 4>>\
 		<<endif>>\
-		<<if $body.lips == 1>>\
+		<<if $body.lips.level == 1>>\
 			<<set $friendG.reactions.lips = 1>>\
 		<<endif>>\
-		<<if $body.lips == 2 and $friendG.reactions.lips <= 1>>\
+		<<if $body.lips.level == 2 and $friendG.reactions.lips <= 1>>\
 			<<set $friendG.reactions.lips = 2>>\
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if $body.ass == 1 and $friendG.reactions.butt == 0>>\
+		<<if $body.ass.level == 1 and $friendG.reactions.butt == 0>>\
 			$friend lets $friendG.his_her gaze linger on your body, drifting past your slender waist, down your legs to your feet, snapping back up to your enhanced butt. @@.friend;“Turn around,”@@ $friendG.he_she says, making a spinning motion with $friendG.his_her hand. You feel a bit awkward, but you slowly pirouette on the spot. @@.friend;“I don’t know what you did to your butt, but that’s one shapely ass you have there.”@@
 
 			$friend steps back, studying your ass and mumbling about ‘slapping’, ‘squeezing’ and ‘parting’, although you can barely make out the words. $friendG.He_She steps forward and squeezes both your cheeks, letting them drop. You feel them wobble as they settle into place, making you gasp in surprise.<<if $friendG.gender == "T">> @@.friend;“I need to get me one of those…”@@ he says eventually.<<else>>@@.friend;“Yeah, that is one cute ass!”@@ $friendG.he_she says, grinning.<<endif>> 
@@ -487,19 +487,19 @@
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 1>>\
 			<<set $friendG.evilFriend -= 1>>\
 		<<endif>>\
-		<<if $body.ass == 2 and $friendG.reactions.butt <= 1>>\
+		<<if $body.ass.level == 2 and $friendG.reactions.butt <= 1>>\
 			@@.friend;“Holy shit! Did you get your ass enhanced again? I mean, I love a shapely ass as much as the next <<if $friendG.gender == "F">>gal<<else>>guy<<endif>> but didn’t you kind of overdo it? Was it a dare or something? Or were you trying to impress someone?”@@ $friend stops talking for a moment, shaking $friendG.his_her head. @@.friend;“I’ve been pretty supportive, encouraging even, but this is too much. It doesn’t even look good. No, no, no. Unless you get it fixed, I don’t think we should hang out any more.”@@
 			
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration +1 >>\
 			<<set $friendG.evilFriend +=1 >>\
 			<<set _passFriendReactions = false>>\
 		<<endif>>\
-		<<if $body.ass == 1 and $friendG.reactions.butt >= 2>>\
+		<<if $body.ass.level == 1 and $friendG.reactions.butt >= 2>>\
 			@@.friend;“Oh, you sorted your fat ass out. It look so much better; I don’t even know why you wanted it bigger. Come on, let’s get some drinks.”@@
 			
 			<<set $friendG.reactions.butt = 3>>\
 		<<endif>>\
-		<<if $body.ass == 2 and $friendG.reactions.butt >= 3>>\
+		<<if $body.ass.level == 2 and $friendG.reactions.butt >= 3>>\
 			@@.friend;“Yeah, back to the fat ass, huh? Go home.”@@
 			
 			<<set _passFriendReactions = false>>\
@@ -507,15 +507,15 @@
 			<<set $friendG.evilFriend +=2>>\
 			<<set $friendG.reactions.butt = 4>>\
 		<<endif>>\
-		<<if $body.ass == 1>>\
+		<<if $body.ass.level == 1>>\
 			<<set $friendG.reactions.butt = 1>>\
 		<<endif>>\
-		<<if $body.ass == 2 and $friendG.reactions.butt <= 1>>\
+		<<if $body.ass.level == 2 and $friendG.reactions.butt <= 1>>\
 			<<set $friendG.reactions.butt = 2>>\
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if $body.face == 1 and $friendG.reactions.face == 0>>\
+		<<if $body.face.level == 1 and $friendG.reactions.face == 0>>\
 			$friend stares at you, unable to take $friendG.his_her eyes from your softened face. $friendG.He_She reaches up and trails $friendG.his_her fingers along your smoothed jawline, tracing up to your slightly enhanced cheeks and around your eye to your softer brow. @@.friend;“Wow, so pretty!”@@ $friendG.he_she says, a soft smile dancing on $friendG.his_her lips. Before you can move, $friend has $friendG.his_her phone in $friendG.his_her hands and $friendG.he_she is taking pictures. 
 
 			@@.friend;“In this light, I almost mistook you for a girl.. So cute.” @@
@@ -525,7 +525,7 @@
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 3>>\
 			<<set $friendG.evilFriend -=3>>\
 		<<endif>>\
-		<<if $body.face == 2 and $friendG.reactions.face <= 1>>\
+		<<if $body.face.level == 2 and $friendG.reactions.face <= 1>>\
 			@@.friend;“I’m sorry, do I know you?”@@ $friend says as $friendG.he_she peers at you from the hallway. @@.friend;“Wait, $player.name? Is that really you?”@@ $friendG.He_She stands gawping at you for a few moments, $friendG.his_her mouth opening as if $friendG.he_she is trying to work out what to say. @@.friend;“Your face, it’s so cute. No, beyond cute, it’s perfect, like an angel or a model or something. @@<<if $friendG.reactions.face == 1>>@@.friend;It was great before, real pretty, but now you are beautiful. Stunning!”@@<<else>>@@.friend;I don’t know what you did, but you look beautiful. Stunning!”@@<<endif>>
 
 			@@.friend;“You are… too pretty to touch!”@@
@@ -533,10 +533,10 @@
 			<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration - 5>>\
 			<<set $friendG.evilFriend -=5>>\
 		<<endif>>\
-		<<if $body.face == 1>>\
+		<<if $body.face.level == 1>>\
 			<<set $friendG.reactions.face = 1>>\
 		<<endif>>\
-		<<if $body.face == 2>>\
+		<<if $body.face.level == 2>>\
 			<<set $friendG.reactions.face = 2>>\
 		<<endif>>\
 	<<endif>>\

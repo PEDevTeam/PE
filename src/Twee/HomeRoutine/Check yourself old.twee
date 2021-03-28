@@ -471,7 +471,7 @@
 		<</switch>>\
 <<endif>>\
 \
-<<if ($body.nose eq 1)>>\
+<<if ($body.nose.level eq 1)>>\
 <<set _item=itemsC.noseClassic>>\
 <<set _word="@@.info;classic straight nose,@@">>\
 		<<if _item.image and (not $avatar.active)>>\
@@ -491,7 +491,7 @@
 		and it's gorgeous.
 	<</switch>>\
 \
-<<elseif ($body.nose eq 2)>>\
+<<elseif ($body.nose.level eq 2)>>\
 <<set _item=itemsC.noseButton>>\
 <<set _word="@@.info;cute button nose@@">>\
 		<<if _item.image and (not $avatar.active)>>\
@@ -511,7 +511,7 @@
 		It's adorable.
 	<</switch>>\
 \
-<<elseif ($body.nose eq 3)>>\
+<<elseif ($body.nose.level eq 3)>>\
 	<<set _item=itemsC.nosePiggy>>\
 	<<set _word="@@.info;wide upturned nose@@">>\
 		<<if _item.image and (not $avatar.active)>>\

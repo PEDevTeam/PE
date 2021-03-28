@@ -247,7 +247,7 @@
 		You have no idea how to pick a bra, but $teacher told you that you need one. And not any bra, but one with matching panties.
 		<<set $flags.friendBraTask = false>>\
     <<else>>\
-        <<if $body.boobs>>\
+        <<if $body.boobs.level gt 0>>\
             Even as you stand in the shop, your pronounced boobs pull at your chest.
 
             @@.hero;I suppose I do need a bra,@@ you admit to yourself.
@@ -313,7 +313,7 @@
     @@.femvoice7;“and a son. Don’t forget, I do sell brassieres for a living. Now, top off. Chop, chop.”@@
 
     Faced with a choice between raising the ire of the towering British lady or potentially facing $bully as you leave a women’s wear shop, you feel your shoulders slump in submission. \
-    You remove your top and stand before her, your hands trying to cover up your <<if window.wardrobeFuncs.getWornItem('bra')>>bra<<elseif $body.boobs>>breasts<<else>>flat chest<<endif>>.
+    You remove your top and stand before her, your hands trying to cover up your <<if window.wardrobeFuncs.getWornItem('bra')>>bra<<elseif $body.boobs.level gt 0>>breasts<<else>>flat chest<<endif>>.
 
     Mz. Knight looks at you with an expression of calm acceptance, as if she has seen boys coming for bra fittings every day. Her demeanour puts you at ease.
     
@@ -321,24 +321,24 @@
         @@.femvoice7;“I see you already have one. It is not fitted correctly, though. You have made the mistakes that so many girls your age do. No matter, this can be easily rectified. Please remove it.”@@
 		
     <<endif>>\
-    <<if $body.boobs>>\
+    <<if $body.boobs.level gt 0>>\
         @@.femvoice7;“How delightful, you already have some growth. Your mother must be so proud. And you should be too, coming to terms with yourself. \
         Well, if I am to measure you, you will need to move your hands.”@@
     <<else>>\
         @@.femvoice7;“Please, there is nothing there yet to hide; now, move your hands.” @@
     <<endif>>\
 
-    Mz. Knight wields her tape and measures the area immediately below <<if $body.boobs>>your breasts<<else>>where your breasts would be, if you had any<<endif>>. \
+    Mz. Knight wields her tape and measures the area immediately below <<if $body.boobs.level gt 0>>your breasts<<else>>where your breasts would be, if you had any<<endif>>. \
     @@.femvoice7;“$player.name, this is the strap size, it relates to the first measurement on a brassiere’s sizing label. \
     For example, the one you picked yourself is a 40, or 40 inches. \
     You, my dear, are a 34, which is perfect for any young lady, erm person, your age. Remember that number.”@@
 
     @@.femvoice7;“Now, the fun bit.”@@ Hefting the measure once more, Mz. Knight wields her tape measure and wraps it around your chest\
-    <<if $body.boobs>>, making your sensitive, girly nipples tingle<<else>>, covering your nipples <<endif>>. @@.femvoice7;“You need to keep the tape parallel to the ground. \
+    <<if $body.boobs.level gt 0>>, making your sensitive, girly nipples tingle<<else>>, covering your nipples <<endif>>. @@.femvoice7;“You need to keep the tape parallel to the ground. \
     We are looking for the largest measurement.”@@ She moves the measure above and below your nipples, checking the size.
 
     @@.femvoice7;“Okay, so that measurement is @@ \
-    <<switch $body.boobs>>\
+    <<switch $body.boobs.level>>\
     <<case 0>>\
         @@.femvoice7;34 too. Still, we have trainer bras which are cute and have padded cups.”@@
 
@@ -380,7 +380,7 @@
     @@.femvoice7;”It is a brassiere; it is supposed to be tight. It is for the support of your bosoms, young lady!”@@ The change in her tone catches you off guard, then she chuckles. \
     @@.femvoice7;”You will get used to it, I am sure. And you can get very pretty ones, as you know, to attract young men to your… assets.”@@
 
-    You cannot help but look at your silhouette in the mirror. Your torso, thanks to the fitted bra and <<if $body.boobs>>your boobs<<else>>its padded cups<<endif>> give you a decidedly feminine outline.
+    You cannot help but look at your silhouette in the mirror. Your torso, thanks to the fitted bra and <<if $body.boobs.level gt 0>>your boobs<<else>>its padded cups<<endif>> give you a decidedly feminine outline.
 
     Mz. Knight snips the tag off with a pair of nail scissors. @@.femvoice7;”I have other customers, but I must say it has been a pleasure. I hope you learned something. \
     Oh, please wear it out; just put your clothing over the top. You need to get used to it, after all.”@@
@@ -502,7 +502,7 @@
 
         You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
         inspections… You unfasten your fly and slip your <<if window.wardrobeFuncs.isItemMasterWearing('thsirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your \
-        <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
+        <<if $body.bodyhair.level gt 0>>girly, waxed<<else>>hairy<<endif>> legs.
 
         Mz. Knight looks at your bare legs and feet.
 
@@ -522,7 +522,7 @@
             @@.femvoice7;Aww, a little cage, how quaint.@@
         
         <<endif>>\
-        <<if $body.bodyhair>>\
+        <<if $body.bodyhair.level gt 0>>\
             @@.femvoice7;I see you have resolved the ghastly leg hair that boys have. Your legs will look wonderfully elegant in stockings; I can see why you wanted some.@@
         <<else>>\
             @@.femvoice7;You should perhaps investigate some form of hair removal. It will greatly improve both the look and the feel of your stockings. @@
@@ -546,7 +546,7 @@
         Now the rest, remember to keep your hands parallel for an even fit and less chance of a ladder. And stand when you need to.”@@
 
         <img src="Images/general/stockings_2.gif" style="width: 500px; height: auto; padding-bottom: 1em;">\
-        You ease the stocking over your knee.<<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+        You ease the stocking over your knee.<<if $body.bodyhair.level gt 0>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
         and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
         making your legs look quite unladylike despite the stocking encasing it.<<endif>>
 

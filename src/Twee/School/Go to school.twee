@@ -202,7 +202,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			<!--				School crowd reaction to player body mods				-->\
 			<<if (not _outerwear.isFemale)>>\
 				<<if _m>>\
-					<<if ($body.lips eq 1)>>\
+					<<if ($body.lips.level eq 1)>>\
 						Your full lips draw confused glances.\
 						<<if playerCode.isMind_0()>>\
 							It is embarrassing.\
@@ -211,7 +211,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						<<else>>\
 							Damn prudes.\
 						<<endif>>\
-					<<elseif ($body.lips eq 2)>>\
+					<<elseif ($body.lips.level eq 2)>>\
 						Your over-sized cocksucking lips draw shocked stares and revolted glances.\
 						<<if playerCode.isMind_0()>>\
 							It is humiliating.\
@@ -221,17 +221,17 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 							It is humiliating, but you find yourself becoming excited by all the attention.\
 						<<endif>>\
 					<<endif>>\
-					<<if ($body.boobs eq 1)>>\
+					<<if ($body.boobs.level eq 1)>>\
 						Your uniform hides your small breasts.\
-					<<elseif ($body.boobs eq 2)>>\
+					<<elseif ($body.boobs.level eq 2)>>\
 						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
-					<<elseif ($body.boobs eq 3)>>\
+					<<elseif ($body.boobs.level eq 3)>>\
 						You look like a cross-dressing girl with your breasts bulging against your uniform. But with your plain face and short, boyish haircut you just look ridiculous.\
-					<<elseif ($body.boobs eq 4)>>\
+					<<elseif ($body.boobs.level eq 4)>>\
 						Your uniform strains against your huge breasts, and with your plain face and short, boyish haircut you just look ridiculous.\
 					<<endif>>\
 				<<else>>\
-					<<if ($body.lips eq 1)>>\
+					<<if ($body.lips.level eq 1)>>\
 						Your full lips draw confused, but lustful glances.\
 						<<if playerCode.isMind_0()>>\
 							It is embarrassing.\
@@ -240,7 +240,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						<<else>>\
 							Damn prudes.\
 						<<endif>>\
-					<<elseif ($body.lips eq 2)>>\
+					<<elseif ($body.lips.level eq 2)>>\
 					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
 						<<if playerCode.isMind_0()>>\
 							It is humiliating.\
@@ -250,18 +250,18 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 							It’s humiliating, but you find all the attention both thrilling and arousing.\
 						<<endif>>\
 					<<endif>>\
-					<<if ($body.boobs eq 1)>>\
+					<<if ($body.boobs.level eq 1)>>\
 						Your uniform hides your small breasts.\
-					<<elseif ($body.boobs eq 2)>>\
+					<<elseif ($body.boobs.level eq 2)>>\
 						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
-					<<elseif ($body.boobs eq 3)>>\
+					<<elseif ($body.boobs.level eq 3)>>\
 						You look like a cross-dressing girl with your breasts bulging against your uniform.\
-					<<elseif ($body.boobs eq 4)>>\
+					<<elseif ($body.boobs.level eq 4)>>\
 						Your uniform strains against your huge breasts.\
 					<<endif>>\
 				<<endif>>\
 			<<else>>\
-				<<if ($body.lips eq 1)>>\
+				<<if ($body.lips.level eq 1)>>\
 					Your full lips draw glances and lustful stares.\
 					<<if playerCode.isMind_0()>>\
 						It makes you uncomfortable.\
@@ -270,7 +270,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<else>>\
 						It’s intoxicating to draw such attention.\
 					<<endif>>\
-				<<elseif ($body.lips eq 2)>>\
+				<<elseif ($body.lips.level eq 2)>>\
 					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
 					<<if playerCode.isMind_0()>>\
 						It is humiliating.\
@@ -280,13 +280,13 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						It’s humiliating, but you find all the attention both thrilling and arousing.\
 					<<endif>>\
 				<<endif>>\
-				<<if ($body.boobs eq 1)>>\
+				<<if ($body.boobs.level eq 1)>>\
 					Your uniform fits nicely thanks to your small breasts.\
-				<<elseif ($body.boobs eq 2)>>\
+				<<elseif ($body.boobs.level eq 2)>>\
 					Your uniform fits nicely, emphasizing the shape of your ample boobs and complementing your figure.\
-				<<elseif ($body.boobs eq 3)>>\
+				<<elseif ($body.boobs.level eq 3)>>\
 					Your uniform complements your sexy figure, pushing your breasts together enticingly. The hint of cleavage draws eyes.\
-				<<elseif ($body.boobs eq 4)>>\
+				<<elseif ($body.boobs.level eq 4)>>\
 					Your uniform barely holds in your huge breasts, and people stare slack-jawed at the straining buttons of your shirt.\
 					<<if playerCode.isMind_0()>>\
 						You feel violated by their shameless stares.\
@@ -296,7 +296,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						You love it.\
 					<<endif>>\
 				<<endif>>\
-				<<if ($body.ass eq 1)>>\
+				<<if ($body.ass.level eq 1)>>\
 					Your round butt \
 					<<if playerCode.haveCplus()>>\
 						nicely complements your big boobs and you can't help but notice appraising looks.\
@@ -305,7 +305,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<else>>\
 						gives you some nice curves that draw in stares. With your flat chest, that is the only place anyone looks.\
 					<<endif>>\
-				<<elseif ($body.ass eq 2)>>\
+				<<elseif ($body.ass.level eq 2)>>\
 					Your bubble butt \
 					<<if playerCode.haveCplus()>>\
 						nicely complements your big boobs, making you look like a porn actress dressed up as a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader<<else>>schoolgirl<<endif>>.\
@@ -314,11 +314,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<endif>>\
 				<<endif>>\
 			<<endif>>\
-			<<if ($body.makeup eq 2)>>\
+			<<if ($body.makeup.level eq 2)>>\
 				It is not unusual to see schoolgirls wearing makeup like yours, but still, you look like one of the prettier ones.\
-			<<elseif ($body.makeup eq 3)>>\
+			<<elseif ($body.makeup.level eq 3)>>\
 				Made up like a brainless bimbo, you attract condescending and lustful looks from other students - sometimes both at once.\
-			<<elseif ($body.makeup eq 4)>>\
+			<<elseif ($body.makeup.level eq 4)>>\
 				Painted like a whore, you stand out like a dildo among the lilies. Girls frown and whisper insults when you walk by, while boys have fun at your expense by making suggestive gestures and remarks. Overall, the other students treat you like dirt, trying to one-up each other as they find ways to humiliate you.\
 			<<endif>>\
 			<<if  window.inventoryFuncs.hasTag(_outerwear, 'slutty')>>\

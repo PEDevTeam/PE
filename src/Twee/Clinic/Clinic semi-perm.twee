@@ -16,117 +16,117 @@
 \
 	<img id="item_preview" class="hidden">\
 
-	<<set _item=itemsC.token>>\
-	<<set $items[_item.id].daringRec = 0>>\
+	<<set _disabled = false>>\
+	<<set _daringRec = 0>>\
 	<<set _override=false>>\
 \
-	<<if ($body.semiAss gt $body.permAss)>>\
-		<<if ($body.ass gt $body.semiAss)>>\
+	<<if ($body.ass.semiLevel gt $body.ass.permLevel)>>\
+		<<if ($body.ass gt $body.ass.semiLevel)>>\
 			@@.halftransparent;Ass size enhancing reversal - first you need to wait for the temporary treatment to recede.@@
-		<<elseif ($body.ass eq 2) and ($body.semiAss eq 2)>>\
-			<<set $items[_item.id].cost = 5*itemsC.AssEnhancingXL.cost>>\
-			<<set $items[_item.id].image = itemsC.AssEnhancingXL.image>>\
-			<<set $items[_item.id].name = "Ass size XL enhancing reversal">>\
-			<<set _sceneName="semiPermAssXL_reversal">>\
+		<<elseif ($body.ass.level eq 2) and ($body.ass.semiLevel eq 2)>>\
+			<<set _cost = 5*$body.ass.level2.cost>>\
+			<<set _image = $body.ass.leve2.image>>\
+			<<set _name = "Ass size XL enhancing reversal">>\
+			<<set _sceneName="semiass.permLevelXL_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.ass eq 1) and ($body.semiAss eq 1)>>\
-			<<set $items[_item.id].cost = 10*itemsC.AssEnhancing.cost>>\
-			<<set $items[_item.id].image = itemsC.AssEnhancing.image>>\
-			<<set $items[_item.id].name = "Ass size enhancing reversal">>\
-			<<set _sceneName="semiPermAss_reversal">>\
+		<<elseif ($body.ass.level eq 1) and ($body.ass.semiLevel eq 1)>>\
+			<<set _cost = 5*$body.ass.level1.cost>>\
+			<<set _image = $body.ass.leve1.image>>\
+			<<set _name = "Ass size enhancing reversal">>\
+			<<set _sceneName="semiass.permLevel_reversal">>\
 			<<display "Clinic buy menu">>\
 		<<endif>>\
 	<<endif>>\
 \
-	<<if ($body.semiLips gt $body.permLips)>>\
-		<<if ($body.lips gt $body.semiLips)>>\
+	<<if ($body.lips.semiLevel gt $body.lips.permLevel)>>\
+		<<if ($body.lips.level gt $body.lips.semiLevel)>>\
 			@@.halftransparent;Lips size enhancing reversal - first you need to wait for the temporary treatment to recede.@@
-		<<elseif ($body.lips eq 2) and ($body.semiLips eq 2)>>\
-			<<set $items[_item.id].cost = 5*itemsC.LipsEnhancingXL.cost>>\
-			<<set $items[_item.id].image = itemsC.LipsEnhancingXL.image>>\
-			<<set $items[_item.id].name = "Lips size XL enhancing reversal">>\
-			<<set _sceneName="semiPermLipsXL_reversal">>\
+		<<elseif ($body.lips.level eq 2) and ($body.lips.semiLevel eq 2)>>\
+			<<set _cost = 5*$body.lips.level2.cost>>\
+			<<set _image = $body.lips.level2.image>>\
+			<<set _name = "Lips size XL enhancing reversal">>\
+			<<set _sceneName="semilips.permLevelXL_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.lips eq 1) and ($body.semiLips eq 1)>>\
-			<<set $items[_item.id].cost = 10*itemsC.LipsEnhancing.cost>>\
-			<<set $items[_item.id].image = itemsC.LipsEnhancing.image>>\
-			<<set $items[_item.id].name = "Lips size enhancing reversal">>\
-			<<set _sceneName="semiPermLips_reversal">>\
+		<<elseif ($body.lips.level eq 1) and ($body.lips.semiLevel eq 1)>>\
+			<<set _cost = 10*$body.lips.level1.cost>>\
+			<<set _image = $body.lips.level1.image>>\
+			<<set _name = "Lips size enhancing reversal">>\
+			<<set _sceneName="semilips.permLevel_reversal">>\
 			<<display "Clinic buy menu">>\
 		<<endif>>\
 	<<endif>>\
 \
-	<<if ($body.semiManicure gt $body.permManicure)>>\
-		<<if ($body.manicure eq 2) and ($body.semiManicure eq 2)>>\
-			<<set $items[_item.id].cost = 5*itemsC.GarishManicure.cost>>\
-			<<set $items[_item.id].image = itemsC.GarishManicure.image>>\
-			<<set $items[_item.id].name = "Garish manicure hardening reversal">>\
+	<<if ($body.manicure.semiLevel gt $body.manicure.permLevel)>>\
+		<<if ($body.manicure.level eq 2) and ($body.manicure.semiLevel eq 2)>>\
+			<<set _cost = 5*$body.manicure.level2.cost>>\
+			<<set _image = $body.manicure.level2.image>>\
+			<<set _name = "Garish manicure hardening reversal">>\
 			<<set _sceneName="semiPermGarishManicure_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.manicure eq 1) and ($body.semiManicure eq 1)>>\
-			<<set $items[_item.id].cost = 10*itemsC.Manicure.cost>>\
-			<<set $items[_item.id].image = itemsC.Manicure.image>>\
-			<<set $items[_item.id].name = "Manicure hardening reversal">>\
+		<<elseif ($body.manicure.level eq 1) and ($body.manicure.semiLevel eq 1)>>\
+			<<set _cost = 10*$body.manicure.level1.cost>>\
+			<<set _image = $body.manicure.level1.image>>\
+			<<set _name = "Manicure hardening reversal">>\
 			<<set _sceneName="semiPermManicure_reversal">>\
 			<<display "Clinic buy menu">>\
 		<<endif>>\
 	<<endif>>\
 \
-	<<if ($body.semiBoobs gt $body.permBoobs)>>\
-		<<if ($body.boobs gt $body.semiBoobs)>>\
+	<<if ($body.boobs.semiLevel gt $body.boobs.permLevel)>>\
+		<<if ($body.boobs.level gt $body.boobs.semiLevel)>>\
 			@@.halftransparent;Breast size enhancing reversal - first you need to wait for the temporary treatment to recede.@@
-		<<elseif ($body.boobs eq 4) and ($body.semiBoobs eq 4)>>\
-			<<set $items[_item.id].cost = 5*itemsC.breastImplantsDD.cost>>\
-			<<set $items[_item.id].image = itemsC.breastImplantsDD.image>>\
-			<<set $items[_item.id].name = "Massive breast implants reversal">>\
+		<<elseif ($body.boobs.level eq 4) and ($body.boobs.semiLevel eq 4)>>\
+			<<set _cost = 5*$body.boobs.level4.cost>>\
+			<<set _image = $body.boobs.level4.image>>\
+			<<set _name = "Massive breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsDD_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.boobs eq 3) and ($body.semiBoobs eq 3)>>\
-			<<set $items[_item.id].cost = 8*itemsC.breastImplantsC.cost>>\
-			<<set $items[_item.id].image = itemsC.breastImplantsC.image>>\
-			<<set $items[_item.id].name = "Big breast implants reversal">>\
+		<<elseif ($body.boobs.level eq 3) and ($body.boobs.semiLevel  eq 3)>>\
+			<<set _cost = 8*$body.boobs.level3.cost>>\
+			<<set _image = $body.boobs.level3.image>>\
+			<<set _name = "Big breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsC_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.boobs eq 2) and ($body.semiBoobs eq 2)>>\
-			<<set $items[_item.id].cost = 10*itemsC.breastImplantsB.cost>>\
-			<<set $items[_item.id].image = itemsC.breastImplantsB.image>>\
-			<<set $items[_item.id].name = "Modest breast implants reversal">>\
+		<<elseif ($body.boobs.level eq 2) and ($body.boobs.semiLevel  eq 2)>>\
+			<<set _cost = 10*$body.boobs.level2.cost>>\
+			<<set _image = $body.boobs.level2.image>>\
+			<<set _name = "Modest breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsB_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.boobs eq 1) and ($body.semiBoobs eq 1)>>\
-			<<set $items[_item.id].cost = 10*itemsC.breastImplantsA.cost>>\
-			<<set $items[_item.id].image = itemsC.breastImplantsA.image>>\
-			<<set $items[_item.id].name = "Small breast implants reversal">>\
+		<<elseif ($body.boobs.level eq 1) and ($body.boobs.semiLevel  eq 1)>>\
+			<<set _cost = 10*$body.boobs.level1.cost>>\
+			<<set _image = $body.boobs.level1.image>>\
+			<<set _name = "Small breast implants reversal">>\
 			<<set _sceneName="semiPermBreastImplantsA_reversal">>\
 			<<display "Clinic buy menu">>\
 		<<endif>>\
 	<<endif>>\
 \
-	<<if ($body.semiMakeup gt $body.permMakeup)>>\
-		<<if ($body.makeup gt $body.semiMakeup)>>\
+	<<if ($body.makeup.semiLevel gt $body.makeup.permLevel)>>\
+		<<if ($body.makeup.level gt $body.makeup.semiLevel)>>\
 			@@.halftransparent;Makeup tattoo reversal - first you need to wait for the temporary makeup to fade.@@
-		<<elseif ($body.makeup eq 4) and ($body.semiMakeup eq 4)>>\
-			<<set $items[_item.id].cost = 10*itemsC.HeavyMakeup.cost>>\
-			<<set $items[_item.id].image = itemsC.HeavyMakeup.image>>\
-			<<set $items[_item.id].name = "Heavy makeup tattoo reversal">>\
+		<<elseif ($body.makeup.level eq 4) and ($body.makeup.semiLevel eq 4)>>\
+			<<set _cost = 10*$body.makeup.level4.cost>>\
+			<<set _image = $body.makeup.level4.image>>\
+			<<set _name = "Heavy makeup tattoo reversal">>\
 			<<set _sceneName="semiPermHeavyMakeup_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.makeup eq 3) and ($body.semiMakeup eq 3)>>\
-			<<set $items[_item.id].cost = 10*itemsC.BimboMakeup.cost>>\
-			<<set $items[_item.id].image = itemsC.BimboMakeup.image>>\
-			<<set $items[_item.id].name = "Bimbo makeup tattoo reversal">>\
+		<<elseif ($body.makeup.level eq 3) and ($body.makeup.semiLevel eq 3)>>\
+			<<set _cost = 10*$body.makeup.level3.cost>>\
+			<<set _image = $body.makeup.level3.image>>\
+			<<set _name = "Bimbo makeup tattoo reversal">>\
 			<<set _sceneName="semiPermBimboMakeup_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.makeup eq 2) and ($body.semiMakeup eq 2)>>\
-			<<set $items[_item.id].cost = 10*itemsC.NormalMakeup.cost>>\
-			<<set $items[_item.id].image = itemsC.NormalMakeup.image>>\
-			<<set $items[_item.id].name = "Sexy makeup tattoo reversal">>\
+		<<elseif ($body.makeup.level eq 2) and ($body.makeup.semiLevel eq 2)>>\
+			<<set _cost = 10*$body.makeup.level2.cost>>\
+			<<set _image = $body.makeup.level2.image>>\
+			<<set _name = "Sexy makeup tattoo reversal">>\
 			<<set _sceneName="semiPermNormalMakeup_reversal">>\
 			<<display "Clinic buy menu">>\
-		<<elseif ($body.makeup eq 1) and ($body.semiMakeup eq 1)>>\
-			<<set $items[_item.id].cost = 10*itemsC.SubtleMakeup.cost>>\
-			<<set $items[_item.id].image = itemsC.SubtleMakeup.image>>\
-			<<set $items[_item.id].name = "Subtle makeup tattoo reversal">>\
+		<<elseif ($body.makeup.level eq 1) and ($body.makeup.semiLevel eq 1)>>\
+			<<set _cost = 10*$body.makeup.level1.cost>>\
+			<<set _image = $body.makeup.level1.image>>\
+			<<set _name = "Subtle makeup tattoo reversal">>\
 			<<set _sceneName="semiPermSubtleMakeup_reversal">>\
 			<<display "Clinic buy menu">>\
 		<<endif>>\
@@ -146,75 +146,75 @@
 	<<if _checkUpCost gt 0>><!--<checkUp_semiPerm_treatments>-->\
 	She looks you over and start routine check up of your semi permanent treatments.
 	
-	<<if $body.permAss eq 2>>\
+	<<if $body.ass.permLevel eq 2>>\
 		She smiles and gropes your bubble butt. There is no real need for it, since it's permanent, but Nancy seems to enjoy checking her work. With slow circular moions she massages your massive butt, commenting on its good shape.
 		
-	<<elseif $body.semiAss eq 2 or (($body.semiAss gt $body.permAss) and ($body.ass gte 2))>>\
+	<<elseif $body.ass.semiLevel eq 2 or (($body.ass.semiLevel gt $body.ass.permLevel) and ($body.ass.level gte 2))>>\
 		She smiles and gropes your bubble butt. Nancy takes a bottle and pours a bit of a lotion on her hands. With slow circular moions she massages your plump butt, commenting on its good shape.
 
-	<<elseif $body.permAss eq 1>>\
+	<<elseif $body.ass.permLevel eq 1>>\
 		She smiles and gropes your bubble butt. There is no real need for it, since it's permanent, but Nancy seems to enjoy checking her work. With slow circular moions she massages your plump butt, commenting on its good shape.
 		
-	<<elseif $body.semiAss eq 1>>\
+	<<elseif $body.ass.semiLevel eq 1>>\
 		She smiles and gropes your shapely butt. Nancy takes a bottle and pours a bit of a lotion on her hands. With slow circular moions she massages your massive butt, commenting on its good shape.
 		
 	<<endif>>\
 \
-	<<if $body.semiManicure eq 2>>\
+	<<if $body.manicure.semiLevel eq 2>>\
 		She examines your nails and adds some polish.
 	
-	<<elseif $body.semiManicure eq 1>>\
+	<<elseif $body.manicure.semiLevel eq 1>>\
 		She examines your nails and adds some polish.
 		
 	<<endif>>\
 \
-	<<if $body.semiBoobs eq 4 or (($body.semiBoobs gt $body.permBoobs) and ($body.boobs gte 4))>>\
+	<<if $body.boobs.semiLevel eq 4 or (($body.boobs.semiLevel gt $body.boobs.permLevel) and ($body.boobs.level gte 4))>>\
 		Nancy puts her hands on your breasts and squeezes gently. You bite your lip as she slightly pinches your nipple. She examines your breasts, carefully tracing massive shapes with her fingers and nods approvingly.
 		
-	<<elseif $body.semiBoobs eq 3 or (($body.semiBoobs gt $body.permBoobs) and ($body.boobs gte 3))>>\
+	<<elseif $body.boobs.semiLevel eq 3 or (($body.boobs.semiLevel gt $body.boobs.permLevel) and ($body.boobs.level gte 3))>>\
 		Nancy puts her hands on your breasts and squeezes gently. You bite your lip as she slightly pinches your nipple. She examines your breasts, carefully tracing impressive shapes with her fingers and nods approvingly.
 		
-	<<elseif $body.semiBoobs eq 2 or (($body.semiBoobs gt $body.permBoobs) and ($body.boobs gte 2))>>\
+	<<elseif $body.boobs.semiLevel eq 2 or (($body.boobs.semiLevel gt $body.boobs.permLevel) and ($body.boobs.level gte 2))>>\
 		Nancy puts her hands on your breasts and squeezes gently. You bite your lip as she slightly pinches your nipple. She examines your breasts, carefully tracing modest shapes with her fingers and nods approvingly.
 		
-	<<elseif $body.semiBoobs eq 1 or (($body.semiBoobs gt $body.permBoobs) and ($body.boobs gte 1))>>\
+	<<elseif $body.boobs.semiLevel eq 1 or (($body.boobs.semiLevel gt $body.boobs.permLevel) and ($body.boobs.level gte 1))>>\
 		Nancy puts her hands on your breasts and squeezes gently. You bite your lip as she slightly pinches your nipple. She examines your breasts, carefully tracing small shapes with her fingers and nods approvingly.
 		
 	<<endif>>\
 \
-	<<if ($body.semiLips eq 2) or (($body.semiLips gt $body.permLips) and ($body.lips gte 2))>>\
+	<<if ($body.lips.semiLevel eq 2) or (($body.lips.semiLevel gt $body.lips.permLevel) and ($body.lips.level gte 2))>>\
 		You gulp as Nancy closes up to your face. She smiles and coyly notes that lips are among the most sensitive parts of the human body, so she has to use a somewhat unorthodox technique for best results. Her lips softly press against yours and you lose track of time as the //kiss// keeps you occupied.
 		
 		Finally Nancy backs away, looking as fresh and bubbly as ever, while you feverishly gasp for air. Smiling, she makes a note that your lips are in pretty good shape.
 	
-	<<elseif $body.semiLips eq 1>>\
+	<<elseif $body.lips.semiLevel eq 1>>\
 		You gulp as Nancy closes up to your face. She smiles and coyly notes that lips are among the most sensitive parts of the human body, so she has to use a somewhat unorthodox technique for best results. Her lips softly press against yours and you lose track of time as the //kiss// keeps you occupied.
 		
 		Finally Nancy backs away, looking as fresh and bubbly as ever, while you feverishly gasp for air. Smiling, she makes a note that your lips are in pretty good shape.
 		
 	<<endif>>\
 \
-	<<if $body.semiMakeup eq 4>>\
+	<<if $body.makeup.semiLevel eq 4>>\
 		Your semi-permanent makeup doesn't take much time to check, as Nancy traces your face with her fingertips, smiling dreamily.
 		
-	<<elseif $body.semiMakeup eq 3>>\
+	<<elseif $body.makeup.semiLevel eq 3>>\
 		Your semi-permanent makeup doesn't take much time to check, as Nancy traces your face with her fingertips, smiling dreamily.
 		
-	<<elseif $body.semiMakeup eq 2>>\
+	<<elseif $body.makeup.semiLevel eq 2>>\
 		Your semi-permanent makeup doesn't take much time to check, as Nancy traces your face with her fingertips, smiling dreamily.
 		
-	<<elseif $body.semiMakeup eq 1>>\
+	<<elseif $body.makeup.semiLevel eq 1>>\
 		Your semi-permanent makeup doesn't take much time to check, as Nancy traces your face with her fingertips, smiling dreamily.
 		
 	<<endif>>\
 \
-	<<if $body.semiAnal eq 3>>\
+	<<if $body.anal.semiLevel eq 3>>\
 		Nancy puts you on all fours and start checking the smoothness of your anus. It is very embarrassing, but also pleasant, as she makes you moan, massaging your inner walls with her fingers. Finally she finishes, noting the good condition of your fuck hole.
 		
-	<<elseif $body.semiAnal eq 2>>\
+	<<elseif $body.anal.semiLevel eq 2>>\
 		Nancy puts you on all fours and start checking the smoothness of your anus. It is very embarrassing, but also pleasant, as she makes you moan, massaging your inner walls with her fingers. Finally she finishes, noting the good condition of your anus.
 		
-	<<elseif $body.semiAnal eq 1>>\
+	<<elseif $body.anal.semiLevel eq 1>>\
 		Nancy puts you on all fours and start checking the smoothness of your anus. It is very embarrassing, but also pleasant, as she makes you moan, massaging your inner walls with her fingers. Finally she finishes, noting the good condition of your anus.
 		
 	<<endif>>\
@@ -233,8 +233,8 @@
 		
 		With a heavy sigh you reluctantly tell Nancy that you agree.
 		
-		<<if not ($body.bodyhair eq 3)>>\
-			<<set $body.bodyhair = 3>>\
+		<<if not ($body.bodyhair.level eq 3)>>\
+			<<set $body.bodyhair.level = 3>>\
 			Nancy takes you to a private spa room, and asks you to lay down on the procedure table.
 			
 			There is a large laser aperture above you, with a special shield to protect your eyes from the beam.
@@ -250,57 +250,57 @@
 			You sit up on the table and look down to see that your whole body has been rendered smooth below the neck. Touching your skin, you're surprised by the satin texture under your fingertips, the friction of your former body hair now gone forever.
 			
 		<<endif>>\
-		<<if ($body.face eq 0)>>\
-			<<set $body.face = 1>>\
+		<<if ($body.face.level eq 0)>>\
+			<<set $body.face.level = 1>>\
 			Nancy works on your face, applying various creams and using some weird tools. It doesn't take long, and soon you're looking in the mirror, studying the reflection staring back at you. The change is really subtle, but your features have definitely gotten softer and more delicate.
 
 		<<endif>>\
-		<<if ($body.semiMakeup lte 1) and ($body.permMakeup lte 1)>>\
-			<<set $body.semiMakeup = 2>>\
+		<<if ($body.makeup.semiLevel lte 1) and ($body.permMakeup lte 1)>>\
+			<<set $body.makeup.semiLevel = 2>>\
 			Nancy takes tools and starts to work on your face.
 			
-			<<if ($body.makeup lte 1)>>\
-				<<set $body.makeup = 2>>\
+			<<if ($body.makeup.level lte 1)>>\
+				<<set $body.makeup.level = 2>>\
 				Soon your face is professionally made up in a sexy feminine way.
 				
 			<<endif>>\
 		<<endif>>\
-		<<if ($body.semiLips lte 0) and ($body.permLips lte 0)>>\
-			<<set $body.semiLips = 1>>\
+		<<if ($body.lips.semiLevel lte 0) and ($body.lips.permLevel lte 0)>>\
+			<<set $body.lips.semiLevel = 1>>\
 			Nancy retrieves a needle from a case and starts to work on your lips.
 			
-			<<if ($body.lips lte 0)>>\
-				<<set $body.lips = 1>>\
+			<<if ($body.lips.level lte 0)>>\
+				<<set $body.lips.level = 1>>\
 				After only a few minutes, your lips are much fuller and look much sexier! The new lips take a bit of getting used to, but you quickly adapt.
 				
 			<<endif>>\
 		<<endif>>\
-		<<if ($body.semiAss lte 0) and ($body.permAss lte 0)>>\
-			<<set $body.semiAss = 1>>\
+		<<if ($body.ass.semiLevel lte 0) and ($body.ass.permLevel lte 0)>>\
+			<<set $body.ass.semiLevel = 1>>\
 			Nancy retrieves a big needle from a case and starts to work on your ass.
 			
-			<<if ($body.ass lte 0)>>\
-				<<set $body.ass = 1>>\
+			<<if ($body.ass.level lte 0)>>\
+				<<set $body.ass.level = 1>>\
 				You try to relax and after some time the procedure is finished. Your ample new butt will take some time to get used to, but you will adapt in time.
 				
 			<<endif>>\
 		<<endif>>\
-		<<if ($body.semiBoobs lte 1) and ($body.permAss lte 1)>>\
-			<<set $body.semiBoobs = 2>>\
+		<<if ($body.boobs.semiLevel lte 1) and ($body.ass.permLevel lte 1)>>\
+			<<set $body.boobs.semiLevel = 2>>\
 			Nancy prepares tools and starts working on your chest.
 			
-			<<if ($body.boobs lte 1)>>\
-				<<set $body.boobs = 2>>\
+			<<if ($body.boobs.level lte 1)>>\
+				<<set $body.boobs.level = 2>>\
 				After only a few minutes, your chest begin to swell up into a modest woman's breasts.
 				
 			<<endif>>\
 		<<endif>>\
-		<<if ($body.semiAnal lte 0) and ($body.permAnal lte 0)>>\
-			<<set $body.semiAnal = 1>>\
+		<<if ($body.anal.semiLevel lte 0) and ($body.permAnal lte 0)>>\
+			<<set $body.anal.semiLevel = 1>>\
 			As you feared, Nancy puts you into a doggy style position and locks your arms and legs in a kinky looking contraption, preventing you from moving. She prepares tools and starts working on your anus.
 			
-			<<if ($body.anal lte 0)>>\
-				<<set $body.anal = 1>>\
+			<<if ($body.anal.level lte 0)>>\
+				<<set $body.anal.level = 1>>\
 				As she finishes you are shocked by how smooth and slick your anus became.
 				
 			<<endif>>\
@@ -332,23 +332,23 @@
 	<<if $scene eq "Makeover">>\
 		<<set $flags.salonNose=true>>\
 		<<if $player.perversion.noseWagerCount eq 1>>\
-			<<if ($body.semiLips lte 0) and ($body.permLips lte 0)>>\
-				<<set $body.semiLips = 1>>\
+			<<if ($body.lips.semiLevel lte 0) and ($body.lips.permLevel lte 0)>>\
+				<<set $body.lips.semiLevel = 1>>\
 				Nancy retrieves a needle from a case and starts to work on your lips.
 				
-				<<if ($body.lips lte 0)>>\
-					<<set $body.lips = 1>>\
+				<<if ($body.lips.level lte 0)>>\
+					<<set $body.lips.level = 1>>\
 					After only a few minutes, your lips are much fuller and look much sexier! The new lips take a bit of getting used to, but you quickly adapt.
 					
 				<<endif>>\
 				<<set _checkUpCost+=10>>\
 			<<endif>>\
-			<<if ($body.semiAss lte 0) and ($body.permAss lte 0)>>\
-				<<set $body.semiAss = 1>>\
+			<<if ($body.ass.semiLevel lte 0) and ($body.ass.permLevel lte 0)>>\
+				<<set $body.ass.semiLevel = 1>>\
 				Nancy retrieves a big needle from a case and starts to work on your ass.
 				
-				<<if ($body.ass lte 0)>>\
-					<<set $body.ass = 1>>\
+				<<if ($body.ass.level lte 0)>>\
+					<<set $body.ass.level = 1>>\
 					You try to relax and after some time the procedure is finished. Your ample new butt will take some time to get used to, but you will adapt in time.
 					
 				<<endif>>\
@@ -356,12 +356,12 @@
 			<<endif>>\
 		<<elseif $player.perversion.noseWagerCount eq 2>>\
 			<<set $player.perversion.noseWagerCount = 3>>\
-			<<if ($body.semiMakeup lte 0) and ($body.permMakeup lte 0)>>\
-				<<set $body.semiMakeup = 1>>\
+			<<if ($body.makeup.semiLevel lte 0) and ($body.permMakeup lte 0)>>\
+				<<set $body.makeup.semiLevel = 1>>\
 				Nancy retrieves a tools and starts to work on your face.
 				
-				<<if ($body.makeup lte 0)>>\
-					<<set $body.makeup = 1>>\
+				<<if ($body.makeup.level lte 0)>>\
+					<<set $body.makeup.level = 1>>\
 					Soon your face is subtly made up in a feminine way.
 					
 				<<endif>>\
@@ -401,36 +401,36 @@
 \
 <<else>><!--<semiPerm_reversal>-->\
 	<<set _manicure = false>>\
-	<<if $scene eq "semiPermAssXL_reversal">>\
-		<<set $body.semiAss = 0>>\
-	<<elseif $scene eq "semiPermAss_reversal">>\
-		<<set $body.semiAss = 0>>\
-	<<elseif $scene eq "semiPermLipsXL_reversal">>\
-		<<set $body.semiLips = 0>>\
-	<<elseif $scene eq "semiPermLips_reversal">>\
-		<<set $body.semiLips = 0>>\
+	<<if $scene eq "semiass.permLevelXL_reversal">>\
+		<<set $body.ass.semiLevel = 0>>\
+	<<elseif $scene eq "semiass.permLevel_reversal">>\
+		<<set $body.ass.semiLevel = 0>>\
+	<<elseif $scene eq "semilips.permLevelXL_reversal">>\
+		<<set $body.lips.semiLevel = 0>>\
+	<<elseif $scene eq "semilips.permLevel_reversal">>\
+		<<set $body.lips.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermGarishManicure_reversal">>\
-		<<set $body.semiManicure = 0>>\
+		<<set $body.manicure.semiLevel = 0>>\
 		<<set _manicure = true>>\
 	<<elseif $scene eq "semiPermManicure_reversal">>\
-		<<set $body.semiManicure = 0>>\
+		<<set $body.manicure.semiLevel = 0>>\
 		<<set _manicure = true>>\
 	<<elseif $scene eq "semiPermBreastImplantsDD_reversal">>\
-		<<set $body.semiBoobs = 0>>\
+		<<set $body.boobs.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermBreastImplantsC_reversal">>\
-		<<set $body.semiBoobs = 0>>\
+		<<set $body.boobs.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermBreastImplantsB_reversal">>\
-		<<set $body.semiBoobs = 0>>\
+		<<set $body.boobs.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermBreastImplantsA_reversal">>\
-		<<set $body.semiBoobs = 0>>\
+		<<set $body.boobs.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermHeavyMakeup_reversal">>\
-		<<set $body.semiMakeup = 0>>\
+		<<set $body.makeup.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermBimboMakeup_reversal">>\
-		<<set $body.semiMakeup = 0>>\
+		<<set $body.makeup.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermNormalMakeup_reversal">>\
-		<<set $body.semiMakeup = 0>>\
+		<<set $body.makeup.semiLevel = 0>>\
 	<<elseif $scene eq "semiPermSubtleMakeup_reversal">>\
-		<<set $body.semiMakeup = 0>>\
+		<<set $body.makeup.semiLevel = 0>>\
 	<<endif>>\
 	Looking a bit disappointed Nancy carefully makes few injections\
 	<<if _manicure>>\
