@@ -835,6 +835,9 @@ window.playerList={
 	stolenStungun: false,
 
 	canBuyStunGun: false,
+	canBuyAlarmClock: true,
+	canBuyBatteries: true,
+	canBuyQualityBatteries: false,
 	canBuyNailPolish: false,
 
 	alarmClockCost: 20,

@@ -132,26 +132,18 @@
 	<<set $player.batteryExpireDay=0>>\
 	<<set $flags.batteriesExpire=true>>\
 	<<if (not $flags.guardianSnoopingCaught)>>\
-		<!-- <<set $items.batteriesQuality.disabled=false>>\ -->
-		<<set $player.hasQualityBatteries = false>>
+		<<set $player.canBuyQualityBatteries = true>>\
+		<<set $player.hasQualityBatteries = false>>\
 	<<endif>>\
 <<endif>>\
 <<if $player.perversion.guardian gte 3 and $player.batteryExpireDay eq 0>>\
 	<<set $player.alarmClockGuardian=false>>\
 	<<set $player.batteryExpireDay=-1>>\
-	<!-- <<set $items.batteriesQuality.disabled=true>>\ -->
-	<!-- <<set $items.batteries.disabled=true>>\ -->
-	<!-- <<if playerCode.owns(itemsC.batteriesQuality)>>\ -->
-	<!-- <<endif>> -->
 	<<if $player.hasQualityBatteries >>\
-		<!-- <<removeFromInv $items.batteriesQuality.id>>\ -->
-		<<set $player.hasQualityBatteries = false>>
+		<<set $player.hasQualityBatteries = false>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.batteries)>>\ -->
-	<!-- <<endif>> -->
 	<<if $player.hasBatteries>>\
-		<!-- <<removeFromInv $items.batteries.id>>\ -->
-		<<set $player.hasBatteries = false>>
+		<<set $player.hasBatteries = false>>\
 	<<endif>>\
 <<endif>>\
 <<if $flags.chorePunishmentDildo>>\

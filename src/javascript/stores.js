@@ -15,7 +15,7 @@ window.stores=[
 				image: "Images/items/alarm_clock.jpg",
 				description: "Alarm Clock",
 				daring: 0,
-				checkFlag: ""
+				checkFlag: "canBuyAlarmClock"
 			},
 			{
 				item: "hasBatteries",
@@ -23,7 +23,7 @@ window.stores=[
 				image: "Images/items/battery.jpg",
 				description: "Generic Batteries",
 				daring: 0,
-				checkFlag: ""
+				checkFlag: "canBuyBatteries"
 			},
 			{
 				item: "hasQualityBatteries",
@@ -31,7 +31,7 @@ window.stores=[
 				image: "Images/items/battery_quality.jpg",
 				description: "Quality Batteries",
 				daring: 0,
-				checkFlag: ""
+				checkFlag: "canBuyQualityBatteries"
 			},
 			{
 				item: "hasSpyCamera",
