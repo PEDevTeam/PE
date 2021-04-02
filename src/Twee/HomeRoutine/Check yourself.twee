@@ -403,8 +403,6 @@
 	<</switch>>\
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooHeart)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 <<set _item=itemsC.tattooHeart>>\
 <<set _word="@@.info;pink heart@@">>\
@@ -418,8 +416,6 @@
 	&#9702; You have a small <<print _in>> with a dark violet outline under the corner of your eye.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.beautyMark)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('beauty_mark')>>\
 <<set _item=itemsC.beautyMark>>\
 <<set _word="@@.info;beauty mark@@">>\
@@ -433,8 +429,6 @@
 	&#9702; You have a small <<print _in>> over left corner of your mouth.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.PiercingLips)>>\ -->
-<!-- <<endif>> -->
 <<if $body.lipsPierced.level gt 0>>\
 <<set _item=itemsC.PiercingLips>>\
 <<set _word="@@.info;golden ring@@">>\
@@ -456,8 +450,6 @@
 		<</switch>>\
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.PiercingTongue)>>\ -->
-<!-- <<endif>> -->
 <<if $body.tonguePierced.level gt 0>>\
 <<set _item=itemsC.PiercingTongue>>\
 <<set _word="@@.info;silver stud@@">>\
@@ -572,8 +564,6 @@
 \
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.PiercingNose)>>\ -->
-<!-- <<endif>> -->
 <<if $body.nosePierced.level gt 0>>\
 <<set _item=itemsC.PiercingNose>>\
 <<set _word="@@.info;small piercing@@">>\
@@ -1083,8 +1073,6 @@
 <!--</clothes>-->\
 \
 <!--<piercing, tattoo, manicure>-->\
-<!-- <<if playerCode.owns(itemsC.PiercingNipples)>>\ -->
-<!-- <<endif>> -->
 <<if $body.nipplesPierced.level gt 0>>\
 <<set _item=itemsC.PiercingNipples>>\
 <<set _word="@@.info;small, golden rings@@">>\
@@ -1106,8 +1094,6 @@
 		<</switch>>\
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooSissy)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_sissy')>>\
 <<set _item=itemsC.tattooSissy>>\
 <<set _word="@@.info;'Sissy'@@">>\
@@ -1121,8 +1107,6 @@
 	&#9702; You have a small <<print _in>> tattoo just above base of your <<print _penis>>.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooStupidWhore)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_stupidwhore')>>\
 <<set _item=itemsC.tattooStupidWhore>>\
 <<set _word="@@.info;'Stupid Whore'@@">>\
@@ -1136,8 +1120,6 @@
 	&#9702; You have a flowery <<print _in>> tramp stamp on your back.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooSlut)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_slut')>>\
 <<set _item=itemsC.tattooSlut>>\
 <<set _word="@@.info;'Slut'@@">>\
@@ -1151,8 +1133,6 @@
 	&#9702; You have a cartoonish shemale whore locked in chastity, with <<print _in>> in big red letters, tattooed just above your groin.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooBunny)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_bunny')>>\
 <<set _item=itemsC.tattooBunny>>\
 <<set _word="@@.info;bunny symbol@@">>\
@@ -1166,8 +1146,6 @@
 	&#9702; You have a small, black <<print _in>> tattoo on your right butt cheek.
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.tattooButterfly)>>\ -->
-<!-- <<endif>> -->
 <<if inventoryFuncs.isItemVariantOwned('tattoo_butterfly')>>\
 <<set _item=itemsC.tattooButterfly>>\
 <<set _word="@@.info;butterfly@@">>\
@@ -1238,9 +1216,7 @@
 
 <<endif>>\
 \
-<!-- <<if playerCode.owns(itemsC.PiercingBelly)>>\ -->
-<!-- <<endif>> -->
-<<if $body.bellyPierced>>\
+<<if $body.bellyPierced.level gt 0>>\
 <<set _item=itemsC.PiercingBelly>>\
 <<set _word="@@.info;small piercing@@">>\
 		<<if _item.image and (not $avatar.active)>>\
@@ -1317,8 +1293,6 @@
 <!--</ass>-->\
 \
 <!--<groin>-->\
-<!-- <<if playerCode.owns(itemsC.surgerySexualReassignment)>>\ -->
-<!-- <<endif>> -->
 <<if $body.surgerySexualReassignment.level gt 0>>\
 	<<set _item=itemsC.surgerySexualReassignment>>\
 	<<set _word="@@.info;pussy@@">>\
@@ -1896,8 +1870,6 @@
 			<<endif>>\
 	<<endif>>\
 \
-	<!-- <<if playerCode.owns(itemsC.surgerySexualReassignment)>>\ -->
-	<!-- <<endif>> -->
 	<<if $body.surgerySexualReassignment.level gt 0>>\
 		It feels weird to wear pants.\
 	<<elseif (not window.wardrobeFuncs.getWornItem('chastity'))>>\
@@ -1991,8 +1963,6 @@
 		&#9702; Your sweet ass is covered in red athletic shorts that go with your cheer uniform.\
 		<<endif>>\
 \
-	<!-- <<if playerCode.owns(itemsC.surgerySexualReassignment)>>\ -->
-	<!-- <<endif>> -->
 	<<if $body.surgerySexualReassignment.level gt 0>>\
 		It feels different now that you have a pussy instead of a penis.\
 	<<elseif (not window.wardrobeFuncs.getWornItem('chastity'))>>\
@@ -2060,8 +2030,6 @@
 			<<endif>>\
 	<<endif>>\
 \
-	<!-- <<if playerCode.owns(itemsC.surgerySexualReassignment)>>\ -->
-	<!-- <<endif>> -->
 	<<if $body.surgerySexualReassignment.level gt 0>>\
 		It feels different now that you have a pussy instead of a penis.\
 	<<elseif window.wardrobeFuncs.getWornItem('underwear')>>\
@@ -2081,8 +2049,7 @@
 				<<endif>>\
 				<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 				Leaking precum slowly soaks your underwear. @@.hero;This is so humiliating.@@
-				<<else>>\
-				
+				<<else>>\				
 				<<endif>>\
 			<<endif>>\
 		<<else>>\
@@ -2097,7 +2064,6 @@
 			<<if window.wardrobeFuncs.getWornItem('buttplug')>>\
 			Your leaking precum slowly soaks your underwear. @@.hero;This is so humiliating.@@
 			<<else>>\
-			
 			<<endif>>\
 		<<endif>>\
 	<<else>>\
@@ -2914,7 +2880,7 @@
 	<<endif>>\
 <<endif>>\
 <!--</hints>-->\
-
+\
 <<if $player.checkPlace eq 0>>\
 [[Return|Go to bedroom]]
 <<elseif $player.checkPlace eq 1>>\

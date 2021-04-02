@@ -310,11 +310,16 @@ window.wardrobeFuncs = {
         if(typeof itemVariant !== 'object'){
             itemVariant = window.inventoryFuncs.getItemByVariant(itemVariant);
         }
-        var masterItem = window.items.itemMasters[itemVariant.masterItem];
-        var itemVariantClothingSlot = masterItem.clothingSlot;
-        var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
-        if(currentlyWearing != null && currentlyWearing.variant == itemVariant.variant){
-            return true;
+        if(itemVariant){
+            var masterItem = window.items.itemMasters[itemVariant.masterItem];
+            var itemVariantClothingSlot = masterItem.clothingSlot;
+            var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
+            if(currentlyWearing != null && currentlyWearing.variant == itemVariant.variant){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else{
             return false;
