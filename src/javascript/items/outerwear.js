@@ -139,10 +139,24 @@ $.extend(true, window.items, {
                 cheer:true,
             }
         },
+        cosplayOutfit:{
+            itemType:"outerwear",
+            clothingSlot:"outerwear",
+            name: "Cosplay Outfits",
+            itemMaster: "cosplayOutfit",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                cosplay:true,
+            }
+        },
     },
     itemChildren:{
         //Tshirt Jeans
-        tshirtJeans0:{
+        tshirtJeans00:{
             masterItem:"tshirtJeans",
             variant:"tshirt_jeans_00",
             name:"White T-Shirt and Blue Jeans",
@@ -160,7 +174,7 @@ $.extend(true, window.items, {
 
             }
         },
-        tshirtJeans1:{
+        tshirtJeans01:{
             masterItem:"tshirtJeans",
             variant:"tshirt_jeans_01",
             name:"Green T-Shirt and Blue Jeans",
@@ -178,7 +192,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        tshirtJeans2:{
+        tshirtJeans02:{
             masterItem:"tshirtJeans",
             variant:"tshirt_jeans_02",
             name:"Grey T-shirt with Striped Long Sleeves and Grey Jeans",
@@ -195,7 +209,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        tshirtJeans3:{
+        tshirtJeans03:{
             masterItem:"tshirtJeans",
             variant:"tshirt_jeans_03",
             name:"White Polo Shirt and Black Jeans",
@@ -213,7 +227,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        tshirtJeans4:{
+        tshirtJeans62:{
             masterItem:"tshirtJeans",
             variant:"tshirt_jeans_62",
             name:"Purple Hoodie with Tight Ripped Girl Jeans",
@@ -232,7 +246,7 @@ $.extend(true, window.items, {
         },
 
         //Skirt and Top
-        skirtTop0:{
+        skirtTop00:{
             masterItem:"skirtTop",
             variant:"skirt_top_00",
             name:"Pink Blouse and Blue Denim Skirt",
@@ -250,7 +264,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        skirtTop1:{
+        skirtTop01:{
             masterItem:"skirtTop",
             variant:"skirt_top_01",
             name:"Black Crop Top and Short Red Skirt",
@@ -268,7 +282,7 @@ $.extend(true, window.items, {
                 shortskirt:true,
             }
         },
-        skirtTop2:{
+        skirtTop02:{
             masterItem:"skirtTop",
             variant:"skirt_top_02",
             name:"Pink Crop Top and Short Purple Skirt",
@@ -286,7 +300,7 @@ $.extend(true, window.items, {
                 shortskirt:true,
             }
         },
-        skirtTop3:{
+        skirtTop03:{
             masterItem:"skirtTop",
             variant:"skirt_top_03",
             name:"See-Through Black Top and Black Leather Skirt",
@@ -303,7 +317,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        skirtTop4:{
+        skirtTop04:{
             masterItem:"skirtTop",
             variant:"skirt_top_04",
             name:"Polkadot Red Crop Top and Polkadot Black Skirt",
@@ -321,7 +335,7 @@ $.extend(true, window.items, {
                 polkadot:true,
             }
         },
-        skirtTop5:{
+        skirtTop05:{
             masterItem:"skirtTop",
             variant:"skirt_top_05",
             name:"Pink Crop Top and Floral Black Skirt",
@@ -338,7 +352,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        skirtTop6:{
+        skirtTop06:{
             masterItem:"skirtTop",
             variant:"skirt_top_06",
             name:"Pink Tied Front Crop Top and Blue Denim Skirt",
@@ -355,7 +369,7 @@ $.extend(true, window.items, {
                 blue:true,
             }
         },
-        skirtTop7:{
+        skirtTop07:{
             masterItem:"skirtTop",
             variant:"skirt_top_07",
             name:"Black Lacy Top and Black Denim Skirt",
@@ -371,7 +385,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        skirtTop8:{
+        skirtTop08:{
             masterItem:"skirtTop",
             variant:"skirt_top_08",
             name:"White Lacy Top and Pleated Cream Skirt",
@@ -389,7 +403,7 @@ $.extend(true, window.items, {
                 polkadot:true,
             }
         },
-        skirtTop9:{
+        skirtTop09:{
             masterItem:"skirtTop",
             variant:"skirt_top_09",
             name:"Long Sleve Pink Blouse and Black Floral Skirt",
@@ -546,7 +560,7 @@ $.extend(true, window.items, {
         },
 
         //Casual Dress
-        casualDress0:{
+        casualDress00:{
             masterItem:"casualDress",
             variant:"dress_casual_00",
             name:"Yellow Floral Dress",
@@ -562,7 +576,7 @@ $.extend(true, window.items, {
                 yellow:true,
             }
         },
-        casualDress1:{
+        casualDress01:{
             masterItem:"casualDress",
             variant:"dress_casual_01",
             name:"Pink Floral Dress",
@@ -578,7 +592,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        casualDress2:{
+        casualDress02:{
             masterItem:"casualDress",
             variant:"dress_casual_02",
             name:"White Ornate Dress",
@@ -594,7 +608,7 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
-        casualDress3:{
+        casualDress03:{
             masterItem:"casualDress",
             variant:"dress_casual_03",
             name:"Short White and Black Frilly Dress with Corset",
@@ -612,7 +626,7 @@ $.extend(true, window.items, {
                 shortskirt:true,
             }
         },
-        casualDress4:{
+        casualDress04:{
             masterItem:"casualDress",
             variant:"dress_casual_04",
             name:"Yellow Sundress",
@@ -628,7 +642,7 @@ $.extend(true, window.items, {
                 yellow:true,
             }
         },
-        casualDress5:{
+        casualDress05:{
             masterItem:"casualDress",
             variant:"dress_casual_05",
             name:"White Ruffled Dress",
@@ -644,7 +658,7 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
-        casualDress6:{
+        casualDress06:{
             masterItem:"casualDress",
             variant:"dress_casual_06",
             name:"Blue Denim Dress with Flowers",
@@ -660,7 +674,7 @@ $.extend(true, window.items, {
                 blue:true,
             }
         },
-        casualDress7:{
+        casualDress07:{
             masterItem:"casualDress",
             variant:"dress_casual_07",
             name:"Blue and White Sailors Dress",
@@ -676,7 +690,7 @@ $.extend(true, window.items, {
                 blue:true,
             }
         },
-        casualDress8:{
+        casualDress08:{
             masterItem:"casualDress",
             variant:"dress_casual_08",
             name:"White Striped Dress with Bow Belt",
@@ -692,7 +706,7 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
-        casualDress9:{
+        casualDress09:{
             masterItem:"casualDress",
             variant:"dress_casual_09",
             name:"Orange Dress",
@@ -1129,7 +1143,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        casualDress36:{
+        casualDress62:{
             masterItem:"casualDress",
             variant:"dress_casual_62",
             name:"Pink Dotted Sleevless Dress",
@@ -1145,7 +1159,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        casualDress37:{
+        casualDress63:{
             masterItem:"casualDress",
             variant:"dress_casual_63",
             name:"Pink Dress with White Top",
@@ -1161,7 +1175,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        casualDress38:{
+        casualDress64:{
             masterItem:"casualDress",
             variant:"dress_casual_64",
             name:"Baby Blue Sleeveless Dress",
@@ -1177,7 +1191,7 @@ $.extend(true, window.items, {
                 blue:true,
             }
         },
-        casualDress39:{
+        casualDress65:{
             masterItem:"casualDress",
             variant:"dress_casual_65",
             name:"Pink Baby Dress with Bows",
@@ -1194,7 +1208,7 @@ $.extend(true, window.items, {
                 baby:true,
             }
         },
-        casualDress40:{
+        casualDress66:{
             masterItem:"casualDress",
             variant:"dress_casual_66",
             name:"Pink Hoodie Micro Dress",
@@ -1211,7 +1225,7 @@ $.extend(true, window.items, {
                 baby:true,
             }
         },
-        casualDress41:{
+        casualDress67:{
             masterItem:"casualDress",
             variant:"dress_casual_67",
             name:"Black Leatherette Dress",
@@ -1227,7 +1241,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        casualDress42:{
+        casualDress68:{
             masterItem:"casualDress",
             variant:"dress_casual_68",
             name:"Little Black Dress",
@@ -1243,7 +1257,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        casualDress43:{
+        casualDress69:{
             masterItem:"casualDress",
             variant:"dress_casual_69",
             name:"Pink and Blue Flower Sleeveless Dress",
@@ -1260,7 +1274,7 @@ $.extend(true, window.items, {
                 bluie:true,
             }
         },
-        casualDress44:{
+        casualDress70:{
             masterItem:"casualDress",
             variant:"dress_casual_70",
             name:"Black Sleeveless Dress with Stars",
@@ -1276,7 +1290,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        casualDress45:{
+        casualDress71:{
             masterItem:"casualDress",
             variant:"dress_casual_71",
             name:"Blue Denim Dress",
@@ -1292,7 +1306,7 @@ $.extend(true, window.items, {
                 blue:true,
             }
         },
-        casualDress46:{
+        casualDress72:{
             masterItem:"casualDress",
             variant:"dress_casual_72",
             name:"White Lacy Anime Dress",
@@ -1308,7 +1322,7 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
-        casualDress47:{
+        casualDress73:{
             masterItem:"casualDress",
             variant:"dress_casual_73",
             name:"Red Dress with Sleeveless Patterened Top",
@@ -1326,7 +1340,7 @@ $.extend(true, window.items, {
         },
 
         //Slutty Dress
-        sluttyDress0:{
+        sluttyDress00:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_00",
             name:"Low Cut Black Leather Bodycon Dress",
@@ -1343,7 +1357,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        sluttyDress1:{
+        sluttyDress01:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_01",
             name:"Shiny Pink Tubetop and Short Skirt with Pink Armwarmers",
@@ -1361,7 +1375,7 @@ $.extend(true, window.items, {
                 shortskirt:true,
             }
         },
-        sluttyDress2:{
+        sluttyDress02:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_02",
             name:"Shiny Black Low Cut Short Dress",
@@ -1379,7 +1393,7 @@ $.extend(true, window.items, {
                 shortskirt:true,
             }
         },
-        sluttyDress3:{
+        sluttyDress03:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_03",
             name:"Long Low Cut Shiny Pink Dress",
@@ -1396,7 +1410,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        sluttyDress4:{
+        sluttyDress04:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_04",
             name:"Frilly Black Low Cut Dress",
@@ -1413,7 +1427,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        sluttyDress5:{
+        sluttyDress05:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_05",
             name:"Frilly Pink Low Cut Dress",
@@ -1430,7 +1444,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        sluttyDress6:{
+        sluttyDress06:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_06",
             name:"Strapless Black Sequin Dress",
@@ -1447,7 +1461,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        sluttyDress7:{
+        sluttyDress07:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_07",
             name:"Shaggy Black Low Cut Dress",
@@ -1464,7 +1478,7 @@ $.extend(true, window.items, {
                 black:true,
             }
         },
-        sluttyDress8:{
+        sluttyDress08:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_08",
             name:"Floral Shiny Pink Low Cut Dress",
@@ -1481,7 +1495,7 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
-        sluttyDress9:{
+        sluttyDress09:{
             masterItem:"sluttyDress",
             variant:"dress_slutty_09",
             name:"Satin Black Dress with Black Satin Choker",
@@ -1936,7 +1950,7 @@ $.extend(true, window.items, {
         },
         
         //schoolUniform
-        schoolMale0:{
+        schoolMale00:{
             masterItem:"schoolUniform",
             variant:"school_male",
             name:"Boy's School Uniform with White Shirt and Black Blazer",
@@ -1953,7 +1967,7 @@ $.extend(true, window.items, {
                 white:true,
             }
         },
-        schoolMale1:{
+        schoolMale01:{
             masterItem:"schoolUniform",
             variant:"school_girl_pants",
             name:"Boy's School Uniform with Girls Pants",
@@ -1972,7 +1986,7 @@ $.extend(true, window.items, {
         },
 
         //schoolDress
-        schoolFemale0:{
+        schoolFemale00:{
             masterItem:"schoolDress",
             variant:"school_female_00",
             name:"Female School Dress with Tartan Skirt and Neck Tie",
@@ -1990,7 +2004,7 @@ $.extend(true, window.items, {
                 red:true,
             }
         },
-        schoolFemale1:{
+        schoolFemale01:{
             masterItem:"schoolDress",
             variant:"school_female_01",
             name:"Female School Dress with Tartan Skirt and Bow Tie",
@@ -2010,7 +2024,7 @@ $.extend(true, window.items, {
         },
         
         //sluttySchoolDress
-        sluttySchoolFemale0:{
+        sluttySchoolFemale00:{
             masterItem:"sluttySchoolDress",
             variant:"slutty_school_female",
             name:"Slutty Female Short School Skirt with White Low Cut Crop Top",
@@ -2031,7 +2045,7 @@ $.extend(true, window.items, {
         },
                 
         //sluttyCheerUniform
-        sluttySchoolFemale0:{
+        sluttyCheer01:{
             masterItem:"sluttyCheerUniform",
             variant:"slutty_cheer_00",
             name:"Slutty Red Cheerleader Uniform with Short Skirt",
@@ -2049,7 +2063,7 @@ $.extend(true, window.items, {
                 red:true,
             }
         },
-        sluttySchoolFemale0:{
+        sluttyCheer01:{
             masterItem:"sluttyCheerUniform",
             variant:"slutty_cheer_01",
             name:"Slutty Red and White Cheerleader Uniform with Micro Skirt",
@@ -2066,6 +2080,26 @@ $.extend(true, window.items, {
                 sexy:true,
                 red:true,
                 white:true,
+            }
+        },
+
+        //Cosplay Outfirts
+        cosplayOutfit63:{
+            masterItem:"cosplayOutfit",
+            variant:"cosplay_outfit_63",
+            name:"Japanese School Uniform with Cream Top",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                slutty:true,
+                sexy:true,
+                white:true,
+                school:true,
             }
         },
     }

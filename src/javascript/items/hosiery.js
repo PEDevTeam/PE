@@ -50,7 +50,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //socks
-        socks0:{
+        socks00:{
             masterItem:"socks",
             variant:"socks_00",
             name:"Black Knee High Socks",
@@ -67,7 +67,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks1:{
+        socks01:{
             masterItem:"socks",
             variant:"socks_01",
             name:"Black Over Knee Socks",
@@ -84,7 +84,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks2:{
+        socks02:{
             masterItem:"socks",
             variant:"socks_02",
             name:"White Over Knee Socks",
@@ -101,7 +101,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks3:{
+        socks03:{
             masterItem:"socks",
             variant:"socks_03",
             name:"White Scrunch Cotton Socks",
@@ -118,7 +118,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks4:{
+        socks04:{
             masterItem:"socks",
             variant:"socks_04",
             name:"Black Over Knee Socks with White Strips",
@@ -135,7 +135,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks5:{
+        socks05:{
             masterItem:"socks",
             variant:"socks_05",
             name:"White Over Knee Socks with Red Stripes",
@@ -152,7 +152,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks6:{
+        socks06:{
             masterItem:"socks",
             variant:"socks_06",
             name:"Grey Over Knee Socks",
@@ -169,7 +169,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks7:{
+        socks07:{
             masterItem:"socks",
             variant:"socks_07",
             name:"Grey Knee High Socks",
@@ -186,7 +186,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks8:{
+        socks08:{
             masterItem:"socks",
             variant:"socks_08",
             name:"Grey Knee High Socks with Grey Lace",
@@ -203,7 +203,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks9:{
+        socks09:{
             masterItem:"socks",
             variant:"socks_09",
             name:"Grey Woolen Knee High Socks",
@@ -445,7 +445,7 @@ $.extend(true, window.items, {
         },
         socks23:{
             masterItem:"socks",
-            variant:"socks_06",
+            variant:"socks_23",
             name:"Pink Over Knee Socks with White Stripes",
             price:20,
             daring:3,
@@ -513,7 +513,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        socks27:{
+        socks43:{
             masterItem:"socks",
             variant:"socks_43",
             name:"White Ankle Socks with Red Writing",
@@ -532,7 +532,7 @@ $.extend(true, window.items, {
         },
 
         //stockings
-        stockings0:{
+        stockings00:{
             masterItem:"stockings",
             variant:"stockings_00",
             name:"Black Thigh High Stockings",
@@ -549,7 +549,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings1:{
+        stockings01:{
             masterItem:"stockings",
             variant:"stockings_01",
             name:"Black Knee High Stockings",
@@ -566,7 +566,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings2:{
+        stockings02:{
             masterItem:"stockings",
             variant:"stockings_02",
             name:"Black Thigh High Stockings with Black Bands",
@@ -583,7 +583,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings3:{
+        stockings03:{
             masterItem:"stockings",
             variant:"stockings_03",
             name:"Black Sheer Knee High Stockings",
@@ -600,7 +600,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings4:{
+        stockings04:{
             masterItem:"stockings",
             variant:"stockings_04",
             name:"Black Sheer Thigh High Stockings with Black Lace",
@@ -617,9 +617,9 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings5:{
+        stockings05:{
             masterItem:"stockings",
-            variant:"stockings_00",
+            variant:"stockings_05",
             name:"Black Sheer Thigh High Stockings with Black Lace and Suspenders",
             price:50,
             daring:4,
@@ -634,7 +634,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings6:{
+        stockings06:{
             masterItem:"stockings",
             variant:"stockings_06",
             name:"White Sheer Thigh High Stockings",
@@ -651,7 +651,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings7:{
+        stockings07:{
             masterItem:"stockings",
             variant:"stockings_07",
             name:"Natural Thigh High Stockings",
@@ -668,7 +668,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings8:{
+        stockings08:{
             masterItem:"stockings",
             variant:"stockings_08",
             name:"Natural Thigh High Stockings with Lace and White Suspenders",
@@ -685,7 +685,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings9:{
+        stockings09:{
             masterItem:"stockings",
             variant:"stockings_09",
             name:"White Thigh High Stockings with Lace",
@@ -1025,7 +1025,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings29:{
+        stockings39:{
             masterItem:"stockings",
             variant:"stockings_39",
             name:"Black Thigh High Stockings with Red Bows",
@@ -1042,7 +1042,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings30:{
+        stockings40:{
             masterItem:"stockings",
             variant:"stockings_40",
             name:"Black Thigh High Stockings with Lace Trim",
@@ -1059,7 +1059,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings31:{
+        stockings62:{
             masterItem:"stockings",
             variant:"stockings_62",
             name:"White Thigh High Stockings with Garter Straps",
@@ -1076,7 +1076,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        stockings32:{
+        stockings74:{
             masterItem:"stockings",
             variant:"stockings_74",
             name:"Purple Thigh High Stockings with Lace and Garter Straps",
@@ -1095,7 +1095,7 @@ $.extend(true, window.items, {
         },
 
         //latexStockings
-        latexStockings0:{
+        latexStockings00:{
             masterItem:"latexStockings",
             variant:"stockings_latex_00",
             name:"Black Toeless Thigh High Latex Stockings",
@@ -1112,7 +1112,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexStockings1:{
+        latexStockings01:{
             masterItem:"latexStockings",
             variant:"stockings_latex_01",
             name:"Black Knee High Latex Stockings with Pink Frills",
@@ -1129,7 +1129,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexStockings2:{
+        latexStockings02:{
             masterItem:"latexStockings",
             variant:"stockings_latex_02",
             name:"Black Knee High Latex Stockings",
@@ -1146,7 +1146,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexStockings3:{
+        latexStockings03:{
             masterItem:"latexStockings",
             variant:"stockings_latex_03",
             name:"Pink Thigh High Latex Stockings with Black Bands",
@@ -1163,7 +1163,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexStockings4:{
+        latexStockings39:{
             masterItem:"latexStockings",
             variant:"stockings_latex_39",
             name:"Black Thigh High Latex Stockings",

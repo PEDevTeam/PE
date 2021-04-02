@@ -165,7 +165,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //blackShoes
-        blackShoes0:{
+        blackShoes00:{
             masterItem:"blackShoes",
             variant:"black_shoes_00",
             name:"Dorky Plain Black School Shoes",
@@ -182,7 +182,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blackShoes1:{
+        blackShoes01:{
             masterItem:"blackShoes",
             variant:"black_shoes_01",
             name:"Shiny Laced Black School Shoes",
@@ -199,7 +199,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blackShoes2:{
+        blackShoes02:{
             masterItem:"blackShoes",
             variant:"black_shoes_02",
             name:"Shiny Black School Loafers",
@@ -218,7 +218,7 @@ $.extend(true, window.items, {
         },
 
         //boots
-        boots0:{
+        boots00:{
             masterItem:"boots",
             variant:"boots_00",
             name:"Black Suede Boots with Buckle Straps",
@@ -235,7 +235,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots1:{
+        boots01:{
             masterItem:"boots",
             variant:"boots_01",
             name:"Black Leather Boots with Laces",
@@ -252,7 +252,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots2:{
+        boots02:{
             masterItem:"boots",
             variant:"boots_02",
             name:"Black Pointy Toed Slip on Suede Boots",
@@ -269,7 +269,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots3:{
+        boots03:{
             masterItem:"boots",
             variant:"boots_03",
             name:"Black Leather Boots with Laces and Studded Buckle and Belt",
@@ -286,7 +286,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots4:{
+        boots04:{
             masterItem:"boots",
             variant:"boots_04",
             name:"Red Suede Boots",
@@ -303,7 +303,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots5:{
+        boots05:{
             masterItem:"boots",
             variant:"boots_05",
             name:"Red Suede Boots with Red Laces",
@@ -320,7 +320,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots6:{
+        boots06:{
             masterItem:"boots",
             variant:"boots_06",
             name:"White Leather Boots with White Bow",
@@ -337,7 +337,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots7:{
+        boots07:{
             masterItem:"boots",
             variant:"boots_07",
             name:"Knee High White Leather Lace-up Boots",
@@ -354,7 +354,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots8:{
+        boots08:{
             masterItem:"boots",
             variant:"boots_08",
             name:"White Slip-on Slouch Boots",
@@ -371,7 +371,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        boots9:{
+        boots09:{
             masterItem:"boots",
             variant:"boots_09",
             name:"White Leather Lace-up Boots",
@@ -971,7 +971,7 @@ $.extend(true, window.items, {
         },
         heeledBoots22:{
             masterItem:"heeledBoots",
-            variant:"boots_heeled_2",
+            variant:"boots_heeled_22",
             name:"Cream Heeled Boots with Cream Laces",
             price:120,
             daring:5,
@@ -1003,7 +1003,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        heeledBoots24:{
+        heeledBoots80:{
             masterItem:"heeledBoots",
             variant:"boots_heeled_80",
             name:"Aqua Suede Heeled Boots",
@@ -1399,7 +1399,7 @@ $.extend(true, window.items, {
         },
         flats07:{
             masterItem:"flats",
-            variant:"flats_00",
+            variant:"flats_07",
             name:"Black Shiny Loafers",
             price:40,
             daring:5,
@@ -1654,7 +1654,7 @@ $.extend(true, window.items, {
         },
         flats22:{
             masterItem:"flats",
-            variant:"flats_2",
+            variant:"flats_22",
             name:"Grey Leather Flats",
             price:40,
             daring:5,
@@ -1856,7 +1856,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats34:{
+        flats62:{
             masterItem:"flats",
             variant:"flats_62",
             name:"Black Flats with Ankle Ribbons",
@@ -1873,7 +1873,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats35:{
+        flats63:{
             masterItem:"flats",
             variant:"flats_63",
             name:"Black Mary Jane Flats with Heel",
@@ -1890,7 +1890,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats35:{
+        flats64:{
             masterItem:"flats",
             variant:"flats_64",
             name:"Black Pointed Open Flats",
@@ -1907,7 +1907,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats36:{
+        flats65:{
             masterItem:"flats",
             variant:"flats_65",
             name:"Black Ballet Flats with Bows",
@@ -1924,7 +1924,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats37:{
+        flats66:{
             masterItem:"flats",
             variant:"flats_66",
             name:"Black Patent Mary Janes with Bows",
@@ -1941,7 +1941,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        flats38:{
+        flats67:{
             masterItem:"flats",
             variant:"flats_67",
             name:"Black Mary Janes with Ankle Bows",
@@ -2122,7 +2122,7 @@ $.extend(true, window.items, {
         },
         girlSneakers10:{
             masterItem:"girlSneakers",
-            variant:"girlsneakers_00",
+            variant:"girlsneakers_10",
             name:"Pink Adidas Sneakers with White Stripes",
             price:60,
             daring:5,
@@ -2446,7 +2446,7 @@ $.extend(true, window.items, {
         },
         heels17:{
             masterItem:"heels",
-            variant:"heels_07",
+            variant:"heels_17",
             name:"Baby Pink Shiny High Heels",
             price:100,
             daring:5,
@@ -2498,7 +2498,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        heels20:{
+        heels39:{
             masterItem:"heels",
             variant:"heels_39",
             name:"Black Suede High Heels with Black Ribbon Bow and White Lacy Trim",
@@ -2516,7 +2516,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        heels21:{
+        heels40:{
             masterItem:"heels",
             variant:"heels_40",
             name:"Black Shiny High Heels",
@@ -2534,7 +2534,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        heels22:{
+        heels71:{
             masterItem:"heels",
             variant:"heels_71",
             name:"White High Heels with Red Soles",
@@ -2552,7 +2552,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        heels23:{
+        heels73:{
             masterItem:"heels",
             variant:"heels_73",
             name:"Purple High Heels with Ankle Straps",
@@ -3152,7 +3152,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        stripperHeels18:{
+        stripperHeels39:{
             masterItem:"stripperHeels",
             variant:"heels_stripper_39",
             name:"Black Latex Stripper Heels with Black Laces and Ankle Straps",
@@ -3172,7 +3172,7 @@ $.extend(true, window.items, {
         },
 
         //sneekers
-        sneakers0:{
+        sneakers00:{
             masterItem:"sneakers",
             variant:"sneakers_00",
             name:"White Vans Sneakers",
@@ -3188,7 +3188,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sneakers1:{
+        sneakers01:{
             masterItem:"sneakers",
             variant:"sneakers_01",
             name:"Black Zip Up Sneakers",
@@ -3204,7 +3204,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sneakers2:{
+        sneakers02:{
             masterItem:"sneakers",
             variant:"sneakers_02",
             name:"Blue Sneakers with White Soles",
@@ -3220,7 +3220,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sneakers3:{
+        sneakers03:{
             masterItem:"sneakers",
             variant:"sneakers_03",
             name:"Black Vans High Top Sneakers",
@@ -3238,7 +3238,7 @@ $.extend(true, window.items, {
         },
                 
         //cheerSneakers
-        cheerSneakers0:{
+        cheerSneakers00:{
             masterItem:"cheerSneakers",
             variant:"cheer_sneakers",
             name:"White Cheerleader Sneakers",
@@ -3256,7 +3256,7 @@ $.extend(true, window.items, {
                 cheer:true,
             }
         },
-        cheerSneakers0:{
+        cheerSneakers01:{
             masterItem:"cheerSneakers",
             variant:"heeled_cheer_sneakers",
             name:"White Heeled Cheerleader Sneakers",

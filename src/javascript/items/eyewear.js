@@ -50,7 +50,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //sunglasses
-        sunglasses0:{
+        sunglasses00:{
             masterItem:"sunglasses",
             variant:"sunglasses_00",
             name:"Aviator Sunglasses with Pink Lenses",
@@ -66,7 +66,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses1:{
+        sunglasses01:{
             masterItem:"sunglasses",
             variant:"sunglasses_01",
             name:"Wayferer Sunglasses with Pink Frames",
@@ -82,9 +82,9 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses2:{
+        sunglasses02:{
             masterItem:"sunglasses",
-            variant:"sunglasses_00",
+            variant:"sunglasses_02",
             name:"Wayferer Sunglasses with Pink and Black Frames",
             price:20,
             daring:0,
@@ -99,7 +99,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses3:{
+        sunglasses03:{
             masterItem:"sunglasses",
             variant:"sunglasses_03",
             name:"Pink Plastic Ladies Sunglasses",
@@ -115,7 +115,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses4:{
+        sunglasses04:{
             masterItem:"sunglasses",
             variant:"sunglasses_04",
             name:"Black Ladies Sunglasses with Metal Decoration",
@@ -131,7 +131,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses5:{
+        sunglasses05:{
             masterItem:"sunglasses",
             variant:"sunglasses_05",
             name:"Aviator Sunglasses with Grey Lenses",
@@ -147,7 +147,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses6:{
+        sunglasses06:{
             masterItem:"sunglasses",
             variant:"sunglasses_06",
             name:"Metal Framed Sunglasses with Yellow Lenses",
@@ -163,7 +163,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses7:{
+        sunglasses07:{
             masterItem:"sunglasses",
             variant:"sunglasses_07",            
             name:"Tortoise Brown Ladies Sunglasses",
@@ -179,7 +179,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses8:{
+        sunglasses08:{
             masterItem:"sunglasses",
             variant:"sunglasses_08",
             name:"Tortise Red Ladies Sunglasses with Gold Trim",
@@ -195,7 +195,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses9:{
+        sunglasses09:{
             masterItem:"sunglasses",
             variant:"sunglasses_09",
             name:"Black Sunglasses with Blue Highlights",
@@ -245,7 +245,7 @@ $.extend(true, window.items, {
         },
 
         //glasses
-        glasses0:{
+        glasses00:{
             masterItem:"glasses",
             variant:"glasses_00",
             name:"Round Frame Harry Potter Glasses",
@@ -260,7 +260,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses1:{
+        glasses01:{
             masterItem:"glasses",
             variant:"glasses_01",
             name:"Black Frame Librarian Glasses",
@@ -276,7 +276,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses2:{
+        glasses02:{
             masterItem:"glasses",
             variant:"glasses_02",
             name:"Gold Round Frame Harry Potter Glasses",
@@ -291,7 +291,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses3:{
+        glasses03:{
             masterItem:"glasses",
             variant:"glasses_03",
             name:"Black Framed Glasses",
@@ -307,7 +307,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses4:{
+        glasses04:{
             masterItem:"glasses",
             variant:"glasses_04",
             name:"Black Framed Ladies Glasses",
@@ -323,7 +323,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses5:{
+        glasses05:{
             masterItem:"glasses",
             variant:"glasses_05",
             name:"Pink Framed Ladies Glasses",
@@ -339,7 +339,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses6:{
+        glasses06:{
             masterItem:"glasses",
             variant:"glasses_06",
             name:"Tortoise Brown Ladies Glasses",
@@ -355,7 +355,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses7:{
+        glasses07:{
             masterItem:"glasses",
             variant:"glasses_07",
             name:"Thin Black Framed Ladies Glasses",
@@ -371,7 +371,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses8:{
+        glasses08:{
             masterItem:"glasses",
             variant:"glasses_08",
             name:"Blue Framed Ladies Glasses",
@@ -387,7 +387,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses9:{
+        glasses09:{
             masterItem:"glasses",
             variant:"glasses_09",
             name:"Pink Framed Librarian Glasses",
@@ -405,7 +405,7 @@ $.extend(true, window.items, {
         },
 
         //blindfold
-        blindfold0:{
+        blindfold00:{
             masterItem:"blindfold",
             variant:"blindfold_00",
             name:"Black Leather Blindfold",
@@ -421,7 +421,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold1:{
+        blindfold01:{
             masterItem:"blindfold",
             variant:"blindfold_01",
             name:"Red Suede Blindfold",
@@ -437,7 +437,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold2:{
+        blindfold02:{
             masterItem:"blindfold",
             variant:"blindfold_02",
             name:"Red Sleep Mask Blindfold",
@@ -453,7 +453,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold3:{
+        blindfold03:{
             masterItem:"blindfold",
             variant:"blindfold_03",
             name:"Black Leather Blindfold with Nose Mould",
