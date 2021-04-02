@@ -33,8 +33,11 @@ You race home in a panic, kick off all your clothes and shower as thoroughly as 
 <<set $flags.exhausted=true>>\
 <<set $time.hour = 19>>\
 <<set $time.minute = 0>>\
-<<set playerCode.loadQuickSlot(quickSlotSets.Casual)>>\
 <<set $flags.girlPants = true>>\
 <<set $player.location = "home">>\
-<<set itemsC.schoolMale.image = "school_girl_pants.jpg">>\ <!-- TODO update this so we can change the image... -->
+<<addItemVariantToInventory 'school_girl_pants'>>\
+<<wearItemVariant 'school_girl_pants'>>\
+<<set itemNavigator.newOrUpdatedClothingSetFromWorn('School')>>\
+<<removeItemVariantFromInventory 'school_male'>>\
+<<set itemNavigator.wearClothingSet('Casual')>>\
 [[Put the uniform away|Go to bedroom]]
