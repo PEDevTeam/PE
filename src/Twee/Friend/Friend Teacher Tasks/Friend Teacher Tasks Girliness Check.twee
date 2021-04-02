@@ -39,8 +39,8 @@
 	<<set _outer = 0>>\
 	Once you're exposed, $friend comes back out with a selection of clothes, and eyes you up and down.
 	
-	<<if (_under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
-		<<if (_under.setName==_bra.setName && _unser.setName!='')>>\
+	<<if (_under and _under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
+		<<if (_under.setName==_bra.setName && _under.setName!='')>>\
 			@@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
 			<<if $friendG.friendTaskFrustration gt 0>>\
 				<<set $friendGfriendTaskFrustration -= 1>>\
@@ -104,7 +104,7 @@
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
-	<<if _stock.isFemale>>\
+	<<if _stock and _stock.isFemale>>\
 		<<set _femaleLegWear = true>>\
 		<<if (_stock.masterItem=='stockings' or _stock.masterItem=='latexStockings')>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
