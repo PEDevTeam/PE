@@ -510,6 +510,21 @@ window.itemNavigator = {
             window.wardrobeFuncs.removeItemVariant(evt.currentTarget.itemVariant);
             window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
             window.wardrobeFuncs.updateSidebar();
+
+            if(document.getElementById("travel-passage")){
+                if(document.getElementById("clothing_selector")){
+                    actVar.wardrobeCurMasterItem = evt.currentTarget.masterItemName;
+                    actVar.wardrobeCurVariantIndex = evt.currentTarget.variantIndex;
+                    actVar.wardrobeCurNavigatorType = evt.currentTarget.navigatorType;
+                    actVar.wardrobeCurCategory = window.itemNavigator.getCategoryForMasterItem(evt.currentTarget.masterItemName, evt.currentTarget.navigatorType);
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
+            }
         }
     },
     
