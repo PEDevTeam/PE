@@ -152,12 +152,10 @@ $friend’s attention.
 By the time you need to leave, you have become accustomed to wearing your new stockings, the feel of them against your legs and the grip of the elastic around your thigh. \
 For some reason they feel almost comforting.
 
-<!-- You pull your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> back on and immediately observe the new sensation of the coarse \
-material of your pants brushing your skin through the sensual material. You <<if $friendG.gender eq 'F'>>hug<<else>>shoulder bump<<endif>> $friend and get ready to leave. -->
 You pull your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> back on and immediately observe the new sensation of the coarse \
 material of your pants brushing your skin through the sensual material. You <<if $friendG.gender eq 'F'>>hug<<else>>shoulder bump<<endif>> $friend and get ready to leave.
 
-<<addToInv 'stockings'>>\
+<<addItemVariantToInventory 'stockings_00'>>\
 <<set $friendG.tasks.stockings = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.wearStockings.status = 2>>\

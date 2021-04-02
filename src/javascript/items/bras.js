@@ -48,6 +48,21 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
+        corset:{
+            itemType:"bra",
+            clothingSlot:"bra",
+            name:"Corsets",
+            itemMaster: "corsets",
+            daring:6,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                sexy:true,
+                slutty:true,
+            }
+        },
     },
     itemChildren:{
         //bras
@@ -977,6 +992,41 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
+        sexyBras32:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_63",
+            name:"Blue & Cream Sexy Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                blue:true,
+                sexy:true,
+            }
+        },
+        sexyBras33:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_74",
+            name:"Purple Sexy Frilly Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                purple:true,
+                frilly:true,
+                sexy:true,
+            }
+        },
+
+
 
         //latexBras
         latexBras0:{
@@ -1026,6 +1076,43 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 black:true,
+                sexy:true,
+                slutty:true,
+            }
+        },
+
+
+        //corsets
+        corsets0:{
+            masterItem:"corsets",
+            variant:"corset_22",
+            name:"White Boned Corset",
+            price:150,
+            daring:6,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                white:true,
+                sexy:true,
+                slutty:true,
+            }
+        },
+        corsets1:{
+            masterItem:"corsets",
+            variant:"corset_73",
+            name:"Red Boned Corset with Black Trim",
+            price:150,
+            daring:6,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                red:true,
                 sexy:true,
                 slutty:true,
             }

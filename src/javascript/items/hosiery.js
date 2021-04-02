@@ -806,7 +806,7 @@ $.extend(true, window.items, {
         },
         stockings16:{
             masterItem:"stockings",
-            variant:"stockings_00",
+            variant:"stockings_16",
             name:"Red Knee High Fishnet Stockings",
             price:50,
             daring:4,
@@ -1038,6 +1038,57 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        stockings30:{
+            masterItem:"stockings",
+            variant:"stockings_40",
+            name:"Black Thigh High Stockings with Lace Trim",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        stockings31:{
+            masterItem:"stockings",
+            variant:"stockings_62",
+            name:"White Thigh High Stockings with Garter Straps",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                white:true,
+                plain:true,
+                school:true,
+            }
+        },
+        stockings32:{
+            masterItem:"stockings",
+            variant:"stockings_74",
+            name:"Purple Thigh High Stockings with Lace and Garter Straps",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                pruple:true,
                 plain:true,
                 school:true,
             }

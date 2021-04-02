@@ -213,6 +213,23 @@ $.extend(true, window.items, {
                 
             }
         },
+        tshirtJeans4:{
+            masterItem:"tshirtJeans",
+            variant:"tshirt_jeans_62",
+            name:"Purple Hoodie with Tight Ripped Girl Jeans",
+            price:20,
+            daring:0,
+            disabled:false,
+            isMale:true,
+            isFemale:false,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                purple:true,
+                blue:true,
+            }
+        },
 
         //Skirt and Top
         skirtTop0:{
@@ -1112,6 +1129,201 @@ $.extend(true, window.items, {
                 pink:true,
             }
         },
+        casualDress36:{
+            masterItem:"casualDress",
+            variant:"dress_casual_62",
+            name:"Pink Dotted Sleevless Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                pink:true,
+            }
+        },
+        casualDress37:{
+            masterItem:"casualDress",
+            variant:"dress_casual_63",
+            name:"Pink Dress with White Top",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                pink:true,
+            }
+        },
+        casualDress38:{
+            masterItem:"casualDress",
+            variant:"dress_casual_64",
+            name:"Baby Blue Sleeveless Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                blue:true,
+            }
+        },
+        casualDress39:{
+            masterItem:"casualDress",
+            variant:"dress_casual_65",
+            name:"Pink Baby Dress with Bows",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                pink:true,
+                baby:true,
+            }
+        },
+        casualDress40:{
+            masterItem:"casualDress",
+            variant:"dress_casual_66",
+            name:"Pink Hoodie Micro Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                pink:true,
+                baby:true,
+            }
+        },
+        casualDress41:{
+            masterItem:"casualDress",
+            variant:"dress_casual_67",
+            name:"Black Leatherette Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                black:true,
+            }
+        },
+        casualDress42:{
+            masterItem:"casualDress",
+            variant:"dress_casual_68",
+            name:"Little Black Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                black:true,
+            }
+        },
+        casualDress43:{
+            masterItem:"casualDress",
+            variant:"dress_casual_69",
+            name:"Pink and Blue Flower Sleeveless Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                pink:true,
+                bluie:true,
+            }
+        },
+        casualDress44:{
+            masterItem:"casualDress",
+            variant:"dress_casual_70",
+            name:"Black Sleeveless Dress with Stars",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                black:true,
+            }
+        },
+        casualDress45:{
+            masterItem:"casualDress",
+            variant:"dress_casual_71",
+            name:"Blue Denim Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                blue:true,
+            }
+        },
+        casualDress46:{
+            masterItem:"casualDress",
+            variant:"dress_casual_72",
+            name:"White Lacy Anime Dress",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                white:true,
+            }
+        },
+        casualDress47:{
+            masterItem:"casualDress",
+            variant:"dress_casual_73",
+            name:"Red Dress with Sleeveless Patterened Top",
+            price:50,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                plain:true,
+                red:true,
+            }
+        },
 
         //Slutty Dress
         sluttyDress0:{
@@ -1704,12 +1916,47 @@ $.extend(true, window.items, {
                 shorts:true,
             }
         },
+        retroUniform:{
+            masterItem:"cheerUniform",
+            variant:"retro_uniform",
+            name:"Retro Cheerleader Uniform",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                cheer:true,
+                school:true,
+                red:true,
+                white:true,
+            }
+        },
         
         //schoolUniform
-        schoolMale:{
+        schoolMale0:{
             masterItem:"schoolUniform",
             variant:"school_male",
             name:"Boy's School Uniform with White Shirt and Black Blazer",
+            price:0,
+            daring:0,
+            disabled:false,
+            isMale:true,
+            isFemale:false,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                school:true,
+                black:true,
+                white:true,
+            }
+        },
+        schoolMale1:{
+            masterItem:"schoolUniform",
+            variant:"school_girl_pants",
+            name:"Boy's School Uniform with Girls Pants",
             price:0,
             daring:0,
             disabled:false,

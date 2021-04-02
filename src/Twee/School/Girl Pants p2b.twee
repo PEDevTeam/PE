@@ -40,11 +40,13 @@ You grab the other clothes and stuff them back in the bag, race home in a panic,
 @@.hero;Better safe than sorry...@@
 
 <<set $flags.exhausted=true>>\
-<<addToInv "casualMale" 62>>\
+<<addItemVariantToInventory 'tshirt_jeans_62'>>\
 <<set $time.hour = 19>>\
 <<set $time.minute = 0>>\
 <<set playerCode.loadQuickSlot(quickSlotSets.Casual)>>\
 <<set $flags.girlPants = true>>\
 <<set $player.location = "home">>\
-<<set itemsC.schoolMale.image = "school_girl_pants.jpg">>\ <!-- TODO update this so we can change the image... -->
+<<addItemVariantToInventory 'school_girl_pants'>>\
+<<wearItemVariant 'school_girl_pants'>>\
+<<removeItemVariantFromInventory 'school_male'>>\
 [[Put the uniform away|Go to bedroom]]

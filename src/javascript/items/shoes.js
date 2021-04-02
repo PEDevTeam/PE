@@ -1003,6 +1003,24 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
+        heeledBoots24:{
+            masterItem:"heeledBoots",
+            variant:"boots_heeled_80",
+            name:"Aqua Suede Heeled Boots",
+            price:120,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                blue:true,
+                green:true,
+                sexy:true,
+                heels:true,
+            }
+        },
 
 
         //highBoots
@@ -1838,6 +1856,108 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
+        flats34:{
+            masterItem:"flats",
+            variant:"flats_62",
+            name:"Black Flats with Ankle Ribbons",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats35:{
+            masterItem:"flats",
+            variant:"flats_63",
+            name:"Black Mary Jane Flats with Heel",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats35:{
+            masterItem:"flats",
+            variant:"flats_64",
+            name:"Black Pointed Open Flats",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats36:{
+            masterItem:"flats",
+            variant:"flats_65",
+            name:"Black Ballet Flats with Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats37:{
+            masterItem:"flats",
+            variant:"flats_66",
+            name:"Black Patent Mary Janes with Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats38:{
+            masterItem:"flats",
+            variant:"flats_67",
+            name:"Black Mary Janes with Ankle Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
 
         //girlSneakers
         girlSneakers00:{
@@ -2409,6 +2529,42 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 black:true,
+                sexy:true,
+                school:true,
+                heels:true,
+            }
+        },
+        heels22:{
+            masterItem:"heels",
+            variant:"heels_71",
+            name:"White High Heels with Red Soles",
+            price:100,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                white:true,
+                sexy:true,
+                school:true,
+                heels:true,
+            }
+        },
+        heels23:{
+            masterItem:"heels",
+            variant:"heels_73",
+            name:"Purple High Heels with Ankle Straps",
+            price:100,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                purple:true,
                 sexy:true,
                 school:true,
                 heels:true,
