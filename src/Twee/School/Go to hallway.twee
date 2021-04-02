@@ -617,8 +617,8 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if _underwear.isFemale and ($player.perversion.teacher eq 4)>>\
-		<<if $flags.laundryAccident and _underwear.isFemale and _underwear.disabled>>\
+	<<if _underwear and _underwear.isFemale and ($player.perversion.teacher eq 4)>>\
+		<<if $flags.laundryAccident and _underwear and _underwear.isFemale and _underwear.disabled>>\
 			<<if $flags.laundryAccident2>>\
 				@@.teacher;<<openQuote>>You are wearing wet underwear //again?//"@@ She makes a mark about your misbehavior.\
 				<<set teacherCode.addPenalty(1)>>\
@@ -638,13 +638,13 @@
 			<<endif>>\
 		<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties') or window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
 			@@.teacher;<<openQuote>>I believe I told you to wear sexy panties //and// a matching bra to school. No deduction.@@\
-		<<elseif _underwear.isFemale and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
+		<<elseif _underwear and _underwear.isFemale and _bra and (window.wardrobeFuncs.isItemMasterWearing('plainPanties') or window.wardrobeFuncs.isItemMasterWearing('bras'))>>\
 			@@.teacher;<<openQuote>>That underwear is far too plain to satisfy your daily requirement, not to mention the fact that it fails to match. No deduction.@@\
 		<<else>>\
 			@@.teacher;<<openQuote>>No deduction unless you wear sexy panties with a matching bra.@@\
 		<<endif>>\
 	<<endif>>\
-	<<if _underwear.isFemale and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
+	<<if _underwear and _underwear.isFemale and (($player.perversion.teacher eq 1) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 2)))>>\
 		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherFemaleUnderwear>> for wearing female underwear.@@\
 		<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 		<<set $player.daysInPanties++>>\
