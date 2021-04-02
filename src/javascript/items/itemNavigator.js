@@ -103,6 +103,11 @@ window.itemNavigator = {
             var itemVariantDescriptionTr = document.createElement('tr');
             var itemVariantDescriptionTd = document.createElement('td');
             var itemVariantDescriptionSpan = document.createElement('span');
+            var itemVariantSetTr = document.createElement('tr');
+            var itemVariantSetTd = document.createElement('td');
+            var itemVariantSetSpan = document.createElement('span');
+            var itemVariantSetLogoSpan = document.createElement('span');
+            var itemVariantSetTooltipSpan = document.createElement('span');
             var itemVariantTagsTr = document.createElement('tr');
             var itemVariantTagsTd = document.createElement('td');
 
@@ -120,11 +125,20 @@ window.itemNavigator = {
             itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan"
             itemVariantDescriptionTd.appendChild(itemVariantDescriptionSpan);
             itemVariantDescriptionTr.appendChild(itemVariantDescriptionTd);
+            itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan"
+            itemVariantSetSpan.id = "itemVariantSetSpan"
+            itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan"
+            itemVariantSetTd.appendChild(itemVariantSetLogoSpan);
+            itemVariantSetTd.appendChild(itemVariantSetSpan);
+            itemVariantSetTd.appendChild(itemVariantSetTooltipSpan);
+            itemVariantSetTd.classList.add("tooltip");
+            itemVariantSetTr.appendChild(itemVariantSetTd);
             itemVariantTagsTd.id = "itemVariantTagsCell"
             itemVariantTagsTr.appendChild(itemVariantTagsTd);
             itemVariantTable.appendChild(itemVariantTitleTr);
             itemVariantTable.appendChild(itemVariantPictureTr);
             itemVariantTable.appendChild(itemVariantDescriptionTr);
+            itemVariantTable.appendChild(itemVariantSetTr);
             itemVariantTable.appendChild(itemVariantTagsTr);
             itemVariantTable.className = "item-variant-table";
             itemVariantSelectorDiv.className = "item-variant-div";
@@ -421,10 +435,42 @@ window.itemNavigator = {
             itemVariantPictureTd.id = "itemVariantPictureCell";
             $("#itemVariantPictureCell").replaceWith(itemVariantPictureTd);
 
-            var itemVariantDescriptionText = document.createTextNode(variantIndex + ' - ' + itemVariant.name);
+            //var itemVariantDescriptionText = document.createTextNode(variantIndex + ' - ' + itemVariant.name);
+            var itemVariantDescriptionText = document.createTextNode(itemVariant.name);
             var itemVariantDescriptionSpan = document.createElement('span');
             itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan";
             itemVariantDescriptionSpan.appendChild(itemVariantDescriptionText);
+
+            if(itemVariant.isItemSet){
+                var itemVariantSetLogoText = document.createTextNode("👙 ");
+                var itemVariantSetLogoSpan = document.createElement('span');
+                var itemVariantSetText = document.createTextNode(itemVariant.setName);
+                var itemVariantSetSpan = document.createElement('span');
+                var itemVariantSetTooltipText = document.createTextNode("This item is part of a set, wear with other clothing with the same set name to match!");
+                var itemVariantSetTooltipSpan = document.createElement('span');
+                itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+                itemVariantSetLogoSpan.classList.add('item-set-icon');
+                itemVariantSetLogoSpan.appendChild(itemVariantSetLogoText);
+                itemVariantSetSpan.id = "itemVariantSetSpan";
+                itemVariantSetSpan.appendChild(itemVariantSetText);
+                itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+                itemVariantSetTooltipSpan.classList.add("tooltiptext");
+                itemVariantSetTooltipSpan.appendChild(itemVariantSetTooltipText)
+                $("#itemVariantSetLogoSpan").replaceWith(itemVariantSetLogoSpan);
+                $("#itemVariantSetSpan").replaceWith(itemVariantSetSpan);
+                $("#itemVariantSetTooltipSpan").replaceWith(itemVariantSetTooltipSpan);
+            }
+            else{
+                var itemVariantSetLogoSpan = document.createElement('span'); 
+                var itemVariantSetSpan = document.createElement('span');
+                var itemVariantSetTooltipSpan = document.createElement('span');
+                itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+                itemVariantSetSpan.id = "itemVariantSetSpan";
+                itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+                $("#itemVariantSetLogoSpan").replaceWith(itemVariantSetLogoSpan);
+                $("#itemVariantSetSpan").replaceWith(itemVariantSetSpan);
+                $("#itemVariantSetTooltipSpan").replaceWith(itemVariantSetTooltipSpan);
+            }
 
             var itemTags = window.itemFuncs.getTagsForItem(itemVariant);
             var itemVariantTagsDiv = window.itemNavigator.formatTagsDOM(itemTags);

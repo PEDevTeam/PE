@@ -23,7 +23,7 @@
 			<<set $stores[_storeID].newStock = true>>\
 		<<endif>>\
 	<<endif>>\
-	<div class="item_preview_box"><table><tr><img id="item_preview_mall" class="hidden"></tr><tr><span id="item_preview_description_mall" class="hidden"></span></tr></table></div>\
+	<div class="item_preview_box"><table><tr><img id="item_preview_mall" class="hidden"></tr><tr><span id="item_preview_description_mall" class="hidden"></span></tr><tr><span id="item_preview_set_mall" class="hidden"></span></tr></table></div>\
 	<div style="display:grid;">\
 	<<set _soldMasterItems = window.itemFuncs.getItemMastersForStore(_storeID)>>\
 	<<for _i=0; _i lt _soldMasterItems.length; _i++>>\
@@ -43,7 +43,8 @@
 				<<else>>\
 					<<set _style="display: none;">>\
 				<<endif>>\
-				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _quotedVariantName + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\
+				<!-- <<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _quotedVariantName + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\ -->\
+				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="misc.getMallOnMouseOver(\'' + _image + '\', \'' + _itemVariant.name + '\', ' +  _itemVariant.isItemSet + ', \'' + _itemVariant.setName + '\')" onmouseout="misc.getMallOnMouseOut()">_name '>>\
 			<<else>>\
 				<<set _in to _name + ' '>>\
 			<<endif>>\
