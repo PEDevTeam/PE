@@ -931,7 +931,7 @@ window.itemNavigator = {
             }
         }
         if(clothingSet !== null){
-            window.wardrobeFuncs.removeClothingAndAccessories();
+            window.wardrobeFuncs.removeAllClothingWithChastityCheck();
             for(var itemVariantIdx in clothingSet.itemVariants){
                 window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
             }
