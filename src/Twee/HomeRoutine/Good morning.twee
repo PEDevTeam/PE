@@ -729,7 +729,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 			<<if _underwear and _underwear.isFemale or (_nightwear and _nightwear.isFemale) or _bra>>\
 				She pulls the covers back a little and sees what you're wearing. 
 				
-				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _underwear.isFemale>>underwear<<else>>nightclothes<<endif>>?"@@
+				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _underwear and _underwear.isFemale>>underwear<<else>>nightclothes<<endif>>?"@@
 				<<if _chastity and (not _underwear) and (not $flags.guardianNoticeChastity)>>\
 					<<set $flags.guardianNoticeChastity = true>>\
 					Her eyes widen as she notices your chastity cage peeking from under your nightie. @@.guardian;"Oh my..."@@
