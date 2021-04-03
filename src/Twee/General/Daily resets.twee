@@ -81,27 +81,10 @@
 <<endif>>\
 <<if $flags.laundryAccident>>\
 	<<set $flags.laundryAccident to false>>\
-	<!-- <<if playerCode.owns(itemsC.gString)>>\ -->
-	<!-- <<endif>> -->
-	<<if inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-		<!-- <<set $items.gString.disabled=false>>\ -->
-		<<set itemFuncs.enableItemMaster('sexyPanties')>>\
-	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.pantiesLatex)>> -->
-	<!-- <<endif>> -->
-	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>
-		<!-- <<set $items.pantiesLatex.disabled=false>>\ -->
-		<<set itemFuncs.enableItemMaster('latexPanties')>>\
-	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.pantiesCotton)>> -->
-	<!-- <<endif>> -->
-	<<if inventoryFuncs.ownsMasterItem('plainPanties')>>
-		<!-- <<set $items.pantiesCotton.disabled=false>>\ -->
-		<<set itemFuncs.enableItemMaster('plainPanties')>>\
-	<<endif>>\
+	<<run window.inventoryFuncs.unmarkUnderwearWet()>>\
 <<endif>>\
 <<if (not $flags.laundryAccident) and (random(2) eq 0) and $flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
-<<set $flags.laundryAccident to true>>\
+	<<set $flags.laundryAccident to true>>\
 <<endif>>\
 \
 <<set $player.jobs.workedToday = false>>\

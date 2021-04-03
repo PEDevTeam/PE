@@ -365,6 +365,18 @@ window.itemNavigator = {
                     itemVariantWearSpan.variantIndex = variantIndex;
                     itemVariantWearSpan.navigatorType = navigatorType;
                 }
+                else if(window.inventoryFuncs.hasTag(itemVariant, 'wet')){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode('Wet...');
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-wet";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
+                    itemVariantWearSpan.addEventListener('click', wearItemVariant, true);
+                }
                 else{
                     var itemVariantWearSpan = document.createElement('span');
                     var itemVariantWearText = document.createTextNode('Wear');
@@ -933,7 +945,9 @@ window.itemNavigator = {
         if(clothingSet !== null){
             window.wardrobeFuncs.removeAllClothingWithChastityCheck();
             for(var itemVariantIdx in clothingSet.itemVariants){
-                window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
+                if(window.inventoryFuncs.notTag(clothingSet.itemVariants[itemVariantIdx], 'wet')){
+                    window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
+                }
             }
         }
     },

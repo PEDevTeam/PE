@@ -4,7 +4,7 @@
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
 	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-	<<if _wornItem and _wornItem.female>>\
+	<<if _wornItem and _wornItem.isFemale>>\
 		<<removeClothingItem 'underwear'>>
 	<<endif>>\
 	@@.info;$Guardian started a load of wash this morning and accidentally put your female underwear in with her own. They won't be dry until after you need to be at school.@@
@@ -14,16 +14,16 @@
 	<<if inventoryFuncs.ownsMasterItem('boxers')>>\
 		$teacher will be angry if you come in your boxers, but wearing wet underwear all day sounds very uncomfortable. What to do?
 	<<endif>>\
-	<<if inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-		<<set itemFuncs.disableItemMaster('sexyPanties')>>\
-	<<endif>>\
-	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>
-		<<set itemFuncs.disableItemMaster('latexPanties')>>\
-	<<endif>>\
-	<<if inventoryFuncs.ownsMasterItem('plainPanties')>>
-		<<set itemFuncs.disableItemMaster('plainPanties')>>\
-	<<endif>>\
-	
+	<!-- <<if inventoryFuncs.ownsMasterItem('sexyPanties')>> -->\
+		<!-- <<set itemFuncs.disableItemMaster('sexyPanties')>> -->\
+	<!-- <<endif>> -->\
+	<!-- <<if inventoryFuncs.ownsMasterItem('latexPanties')>> -->\
+		<!-- <<set itemFuncs.disableItemMaster('latexPanties')>> -->\
+	<!-- <<endif>> -->\
+	<!-- <<if inventoryFuncs.ownsMasterItem('plainPanties')>> -->\
+		<!-- <<set itemFuncs.disableItemMaster('plainPanties')>> -->\
+	<!-- <<endif>> -->\
+	<<run window.inventoryFuncs.markUnderwearWet()>>\
 <<endif>>\
 <!--</Laundry>-->\
 \

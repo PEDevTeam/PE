@@ -340,6 +340,69 @@ window.inventoryFuncs= {
                 $.extend(true, inventoryItem.tags, {[tag]: value});
             }
         }
+    },
+    
+    removeTag: function(item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.inventoryFuncs.getItemByVariant(item);
+        }
+
+        delete item.tags[tag]
+        for(var itemIdx in actVar.inventory){
+            var overrideItem = actVar.inventory[itemIdx]
+            if(overrideItem.variant == item.variant){
+                actVar.inventory.splice(itemIdx, 1);
+            }
+        }
+        actVar.inventory.push(item);
+
+    },
+
+    markUnderwearWet: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var underwearItems = ['boxers','sexyPanties','latexPanties','plainPanties'];
+
+        for(var i=0; i< underwearItems.length; i++){
+            if(this.ownsMasterItem(underwearItems[i])){
+                var childItems = this.getChildItemsForMaster(underwearItems[i]);
+                for(var j=0; j<childItems.length; j++){
+                    this.addTag(childItems[j], 'wet', true);
+                }
+            }
+        }
+    },
+
+    unmarkUnderwearWet: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
+        var underwearItems = ['boxers','sexyPanties','latexPanties','plainPanties'];
+
+        for(var i=0; i< underwearItems.length; i++){
+            if(this.ownsMasterItem(underwearItems[i])){
+                var childItems = this.getChildItemsForMaster(underwearItems[i]);
+                for(var j=0; j<childItems.length; j++){
+                    this.removeTag(childItems[j], 'wet');
+                }
+            }
+        }
     }
 }
 
