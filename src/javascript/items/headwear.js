@@ -456,6 +456,7 @@ $.extend(true, window.items, {
                 white:true,
                 black:true,
                 plain:true,
+                school:true,
             }
         },    
     }

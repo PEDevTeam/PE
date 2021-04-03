@@ -5,9 +5,9 @@
 <<else>>
 	<<wardrobe>>\
 <<endif>>\
-\
+
 [[Check yourself][$player.checkPlace=0]] @@.inv_action_faded;-@@ [[Check your room|Check bedroom][$player.checkPlace=0]]
-\
+
 <<if (not $flags.walletForgottenEnd) and window.timeCode.isMonday() and ($flags.walletForgottenStart or ($player.perversion.teacher gte 3 and (not $flags.sissyConfession) and random(20) eq 0))>>\
 	<<set $flags.walletForgottenStart = true>>\
 	<<delayedLink 5 "Pick up your wallet">>

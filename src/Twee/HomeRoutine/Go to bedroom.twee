@@ -14,15 +14,6 @@
 	<<if inventoryFuncs.ownsMasterItem('boxers')>>\
 		$teacher will be angry if you come in your boxers, but wearing wet underwear all day sounds very uncomfortable. What to do?
 	<<endif>>\
-	<!-- <<if inventoryFuncs.ownsMasterItem('sexyPanties')>> -->\
-		<!-- <<set itemFuncs.disableItemMaster('sexyPanties')>> -->\
-	<!-- <<endif>> -->\
-	<!-- <<if inventoryFuncs.ownsMasterItem('latexPanties')>> -->\
-		<!-- <<set itemFuncs.disableItemMaster('latexPanties')>> -->\
-	<!-- <<endif>> -->\
-	<!-- <<if inventoryFuncs.ownsMasterItem('plainPanties')>> -->\
-		<!-- <<set itemFuncs.disableItemMaster('plainPanties')>> -->\
-	<!-- <<endif>> -->\
 	<<run window.inventoryFuncs.markUnderwearWet()>>\
 <<endif>>\
 <!--</Laundry>-->\
@@ -44,7 +35,7 @@
 	<<endif>>\
 <<endif>>\
 <<if ($player.perversion.upload gt 0)>>\
-	[[Show inbox]] \
+	[[Show inbox]] 
 	<<if $email.messages.length gt 0>>\
 		<<set _cc = 0>>\
 		<<for _i=0; _i lt $email.messages.length; _i++>>\
@@ -56,7 +47,7 @@
 		- @@.info;You have _cc unread email<<if _cc gt 1>>s<<endif>>@@\
 		<<endif>>\
 	<<endif>>\
-	
+\
 <<endif>>\
 <<if ($time.hour lt 23)>>\
 	<<if window.timeCode.schoolRequired() and ($time.hour gte 9)>>\

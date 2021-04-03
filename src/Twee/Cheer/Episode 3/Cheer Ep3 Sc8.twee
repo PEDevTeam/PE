@@ -76,8 +76,15 @@ Looking through the bag again, you discover two more uniforms still wrapped in p
 <<addItemVariantToInventory 'socks_43'>>\
 <<addItemVariantToInventory 'hairbow_43'>>\
 <<addItemVariantToInventory 'cheer_sneakers'>>\
-
-<!-- <<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>><<set $player.quickSet=quickSlotSets.Cheerleader>><<updateClothes>>\ -->
-<<set itemNavigator.wearClothingSet('Cheerleader')>><<updateClothes>>\
+\
+<<wearItemVariant 'rookie_uniform'>>\
+<<wearItemVariant 'cheer_briefs'>>\
+<<wearItemVariant 'socks_43'>>\
+<<wearItemVariant 'hairbow_43'>>\
+<<wearItemVariant 'cheer_sneakers'>>\
+\
+<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Cheerleader')>>\
+\
+<<updateClothes>>\
 <<set $cheerleaders.rainyDay = false>>\
 [[Exit the locker room|Cheer Ep3 Sc9]]
