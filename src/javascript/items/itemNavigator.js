@@ -87,7 +87,8 @@ window.itemNavigator = {
             var clothingTypeSelectorTr = document.createElement('tr');
             clothingTypeSelectorTr.appendChild(clothingTypeSelectorTd);
             navigatorTable.appendChild(clothingTypeSelectorTr);
-            navigatorTable.className = "item-navigator-selector-table"
+            navigatorTable.id = "navigatorTable";
+            navigatorTable.className = "item-navigator-selector-table";
 
             var clothingListTr = document.createElement('tr');
             var masterItemListTd = document.createElement('td');
@@ -114,7 +115,7 @@ window.itemNavigator = {
             masterItemListTd.id = "masterItemListTd";
             itemVariantSelectorTd.id = "itemVariantSelectorTd";
             itemVariantSelectorTd.colSpan = 2
-            masterItemListTd.className = "item-navigator-master-item-list"
+            masterItemListTd.className = "item-navigator-master-item-list";
             masterItemListTd.appendChild(masterItemListDiv);
 
             itemVariantTitleSpan.id = "itemVariantTitle";
@@ -122,18 +123,18 @@ window.itemNavigator = {
             itemVariantTitleTr.appendChild(itemVariantTitleTd);
             itemVariantPictureTd.id = "itemVariantPictureCell";
             itemVariantPictureTr.appendChild(itemVariantPictureTd);
-            itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan"
+            itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan";
             itemVariantDescriptionTd.appendChild(itemVariantDescriptionSpan);
             itemVariantDescriptionTr.appendChild(itemVariantDescriptionTd);
-            itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan"
-            itemVariantSetSpan.id = "itemVariantSetSpan"
-            itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan"
+            itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+            itemVariantSetSpan.id = "itemVariantSetSpan";
+            itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
             itemVariantSetTd.appendChild(itemVariantSetLogoSpan);
             itemVariantSetTd.appendChild(itemVariantSetSpan);
             itemVariantSetTd.appendChild(itemVariantSetTooltipSpan);
             itemVariantSetTd.classList.add("tooltip");
             itemVariantSetTr.appendChild(itemVariantSetTd);
-            itemVariantTagsTd.id = "itemVariantTagsCell"
+            itemVariantTagsTd.id = "itemVariantTagsCell";
             itemVariantTagsTr.appendChild(itemVariantTagsTd);
             itemVariantTable.appendChild(itemVariantTitleTr);
             itemVariantTable.appendChild(itemVariantPictureTr);
@@ -149,7 +150,24 @@ window.itemNavigator = {
             clothingListTr.appendChild(itemVariantSelectorTd);
             navigatorTable.appendChild(clothingListTr);
 
+            var showWardrobeButton = document.createElement('div');
+            var showWardrobeButtonTxt = document.createTextNode("Show Wardrobe");
+            showWardrobeButton.appendChild(showWardrobeButtonTxt);
+            showWardrobeButton.addEventListener('click', showWardrobe, true);
+            showWardrobeButton.classList.add("wardrobe-button-show");
+            showWardrobeButton.id = "showWardrobeButton"
+            var hideWardrobeButton = document.createElement('div');
+            var hideWardrobeButtonTxt = document.createTextNode("Hide Wardrobe");
+            hideWardrobeButton.appendChild(hideWardrobeButtonTxt);
+            hideWardrobeButton.addEventListener('click', hideWardrobe, true);
+            hideWardrobeButton.classList.add("hidden");
+            hideWardrobeButton.classList.add("wardrobe-button-hide");
+            hideWardrobeButton.id = "hideWardrobeButton"
+
+            itemNavigatorDiv.appendChild(showWardrobeButton);
+            itemNavigatorDiv.appendChild(hideWardrobeButton);
             itemNavigatorDiv.appendChild(navigatorTable);
+            itemNavigatorDiv.id = "itemNavigatorDiv";
             itemNavigatorDiv.firstCategory = firstCategory;
         }
         else{
@@ -168,6 +186,18 @@ window.itemNavigator = {
             }
 
             window.itemNavigator.showCategory(evt.currentTarget.categoryName, evt.currentTarget.navigatorType);
+        }
+
+        function showWardrobe(evt){
+            document.getElementById("navigatorTable").classList.toggle("isOpen");
+            document.getElementById("hideWardrobeButton").classList.toggle("hidden");
+            document.getElementById("showWardrobeButton").classList.toggle("hidden");
+        }
+
+        function hideWardrobe(evt){
+            document.getElementById("navigatorTable").classList.toggle("isOpen");
+            document.getElementById("hideWardrobeButton").classList.toggle("hidden");
+            document.getElementById("showWardrobeButton").classList.toggle("hidden");
         }
     },
 

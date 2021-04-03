@@ -2439,6 +2439,16 @@ tr.header {
 	table-layout: fixed;
 	width: 105%;
 	overflow: hidden;
+	display: none;
+	animation: fade_out_show 0.5s
+}
+
+.item-navigator-selector-table.isOpen{
+	table-layout: fixed;
+	width: 105%;
+	overflow: hidden;
+	display: initial;
+	animation: fade_in_show 0.5s
 }
 
 .item-navigator-category-button-selected{
@@ -2544,6 +2554,24 @@ tr.header {
 	filter: grayscale(1);
 	font-size: 1.5em;
 }
+
+.wardrobe-button-hide{
+	background: maroon;
+	margin: 2px;
+	padding: 2px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+.wardrobe-button-show{
+	background: darkgreen;
+	margin: 2px;
+	padding: 2px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+
 /* New Clothing Slot Sidebar */
 .clothing-slot-sidebar-background-image{
 	height: 473px;
@@ -2866,3 +2894,24 @@ body.basement {
 	color: #466d1e; /*dark green, RGB: 70,109,30*/
 }
 
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade_out_show {
+
+    0% {
+        opacity: 1;
+    }
+	 
+	100% {
+        opacity: 0;
+    }
+
+}
