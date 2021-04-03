@@ -552,9 +552,9 @@
 				<<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
 				<<if _rewardDebt gt 0>>\
 					<<set $player.bribeDiscount += _rewardDebt>>\
-					@@.teacher; Minus $<<print _rewardDebt>> from debt."@@\
+					@@.teacher; Minus $<<print _rewardDebt>> from debt."@@
 				<<else>>\
-					@@.teacher;"@@\
+					@@.teacher;"@@
 				<<endif>>\
 			<<endif>>\
 			<<set $tasksTeacher[_activeTasks[_i].id].status = 0>>\
@@ -747,372 +747,372 @@
 				@@.teacher;<<openQuote>>Neglecting your duties, $player.name? Not good. Not good at all!@@\
 			<<endif>>\
 		<<endif>>\
-		<<if $flags.assistantSatisfied or ($player.perversion.assistant eq 5)>>\
-			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherAssistant>> for helping out Miss Willow.@@\
-			<<set _deduction+=rewardMoney.teacherAssistant>>\
-		<<endif>>\
-		<<if $flags.bullyRecorded>>\
-			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBullySex>> for giving those $futa.boys_girls a nice, sexy release. Judging from that video, it would seem you had fun, too.@@\
-			<<set _deduction+=rewardMoney.teacherBullySex>>\
-		<<elseif $flags.bullySucked>>\
-			@@.teacher;<<openQuote>>I have not spoken to Miss Willow yet to see if those $futa.boys_girls have been taken care of, so I cannot very well give you a discount, can I?"@@\
+	<<endif>>\
+	<<if $flags.assistantSatisfied or ($player.perversion.assistant eq 5)>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherAssistant>> for helping out Miss Willow.@@\
+		<<set _deduction+=rewardMoney.teacherAssistant>>\
+	<<endif>>\
+	<<if $flags.bullyRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBullySex>> for giving those $futa.boys_girls a nice, sexy release. Judging from that video, it would seem you had fun, too.@@\
+		<<set _deduction+=rewardMoney.teacherBullySex>>\
+	<<elseif $flags.bullySucked>>\
+		@@.teacher;<<openQuote>>I have not spoken to Miss Willow yet to see if those $futa.boys_girls have been taken care of, so I cannot very well give you a discount, can I?"@@\
 
-			@@.hero;Oh fuck, does that mean all my troubles were for nothing? I should have filmed it on my phone! Next time, I'll make sure I get proof.@@\
-		<<endif>>\
-		<<if $flags.pissRecorded>>\
-			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherPiss>> for being a urinal at the mall.@@\
-			<<set _deduction+=rewardMoney.teacherPiss>>\
-		<<elseif $flags.pissDrunk>>\
-			@@.teacher;"<<openQuote>>I cannot deduct anything for your task at the mall urinal without proof. Do you have any? No?"@@ \
+		@@.hero;Oh fuck, does that mean all my troubles were for nothing? I should have filmed it on my phone! Next time, I'll make sure I get proof.@@\
+	<<endif>>\
+	<<if $flags.pissRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherPiss>> for being a urinal at the mall.@@\
+		<<set _deduction+=rewardMoney.teacherPiss>>\
+	<<elseif $flags.pissDrunk>>\
+		@@.teacher;"<<openQuote>>I cannot deduct anything for your task at the mall urinal without proof. Do you have any? No?"@@ \
 
-			All that for nothing.
+		All that for nothing.
+	<<endif>>\
+	<<if $flags.whoreRecorded>>\
+		@@.teacher;<<openQuote>>$<<print rewardMoney.teacherWhore>> for your street-walking efforts.@@\
+		<<set _deduction+=rewardMoney.teacherWhore>>\
+	<<elseif $flags.whoreFucked>>\
+		@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
+	<<endif>>\
+	<<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
+		<<set $flags.slutWork = false>>\
+		<<if window.inventoryFuncs.hasTag(_outerwear, 'slutty')>>\
+			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
+			<<set _deduction+=rewardMoney.teacherSchoolslut>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
 		<<endif>>\
-		<<if $flags.whoreRecorded>>\
-			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherWhore>> for your street-walking efforts.@@\
-			<<set _deduction+=rewardMoney.teacherWhore>>\
-		<<elseif $flags.whoreFucked>>\
-			@@.teacher;<<openQuote>>I cannot deduct anything for what you do on the streets without proof.@@\
+	<<endif>>\
+	<<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
+		@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
+		<<set teacherCode.addPenalty(1)>>\
+	<<endif>>\
+	<<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
+		<<set $flags.eagerStart = false>>\
+	<<endif>>\
+	<!--</clothes check>-->\
+	<<if _deduction gt 0>>\
+		@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
+	<<elseif $player.perversion.teacher lte 8>>\
+		@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
+	<<endif>>\
+	<!--<tasks giving>-->\
+	<<if (($player.perversion.teacherCooldown neq 0) and ($player.perversion.teacher gte 3)) or $tasksTeacher.trialChastity.canStart>>\
+		<<set _t = false>>\
+		<<set _task = window.tasksFunction.newTask(window.tasksTeacher)>>\
+		@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>"@@
+		
+		<<if _task.name neq "No tasks">>\
+			<<set _task.events.start()>>\
+			<<set _t = true>>\
+			$teacher smirks at your reaction.\
+		<<else>>\
+			You wonder if that's a good thing, or a bad thing...\
 		<<endif>>\
-		<<if ($player.perversion.teacher eq 10) and $flags.slutWork>>\
-			<<set $flags.slutWork = false>>\
-			<<if window.inventoryFuncs.hasTag(_outerwear, 'slutty')>>\
-				@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
-				<<set _deduction+=rewardMoney.teacherSchoolslut>>\
-			<<else>>\
-				@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
-			<<endif>>\
-		<<endif>>\
-		<<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
-			@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
-			<<set teacherCode.addPenalty(1)>>\
-		<<endif>>\
-		<<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
-			<<set $flags.eagerStart = false>>\
-		<<endif>>\
-		<!--</clothes check>-->\
-		<<if _deduction gt 0>>\
-			@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
-		<<elseif $player.perversion.teacher lte 8>>\
-			@@.teacher;<<openQuote>>Well, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
-		<<endif>>\
-		<!--<tasks giving>-->\
-		<<if (($player.perversion.teacherCooldown neq 0) and ($player.perversion.teacher gte 3)) or $tasksTeacher.trialChastity.canStart>>\
-			<<set _t = false>>\
-			<<set _task = window.tasksFunction.newTask(window.tasksTeacher)>>\
-			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_task.name, _task.text, 'given')>>"@@
+		<<set _taskBody = window.tasksFunction.newTask(window.tasksTeacherBody)>>\
+		<<if _taskBody.name neq "No tasks">>\
+			@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
+			<<set _taskBody.events.start()>>\
+			<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)>>\
+			<<set _t = true>>\
 			
-			<<if _task.name neq "No tasks">>\
-				<<set _task.events.start()>>\
-				<<set _t = true>>\
-				$teacher smirks at your reaction.\
-			<<else>>\
-				You wonder if that's a good thing, or a bad thing...\
-			<<endif>>\
-			<<set _taskBody = window.tasksFunction.newTask(window.tasksTeacherBody)>>\
-			<<if _taskBody.name neq "No tasks">>\
-				@@.teacher;<<openQuote>><<print window.tasksFunction.getTaskText(_taskBody.name, _taskBody.text, 'given')>>"@@
-				<<set _taskBody.events.start()>>\
-				<<set $player.jobs.salonPlan += window.tasksFunction.taskRewardMoney(_taskBody)>>\
-				<<set _t = true>>\
+		<<endif>>\
+		<<if _t>>\
+			You quickly save a @@.reward;reminder@@ on your phone.\
+		<<endif>>\
+	<<endif>>\
+	<<if ($player.jobs.salonPlan gte 30) and window.timeCode.isFriday()>>\
+		<<if not $player.jobs.active>>\
+			@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I found some part-time jobs for you to consider this weekend. My friends would be glad to have such an obedient and diligent sissy as yourself working for them."@@ 
 				
-			<<endif>>\
-			<<if _t>>\
-				You quickly save a @@.reward;reminder@@ on your phone.\
-			<<endif>>\
+			$teacher smiles and gives you a list.\
+			<<set $player.jobs.active = true>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I suggest you to consider part-time jobs this weekend."@@\
 		<<endif>>\
-		<<if ($player.jobs.salonPlan gte 30) and window.timeCode.isFriday()>>\
-			<<if not $player.jobs.active>>\
-				@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I found some part-time jobs for you to consider this weekend. My friends would be glad to have such an obedient and diligent sissy as yourself working for them."@@ 
-					
-				$teacher smiles and gives you a list.\
-				<<set $player.jobs.active = true>>\
-			<<else>>\
-				@@.teacher;<<openQuote>>Since you will probably need some extra money to pay for those treatments of yours, I suggest you to consider part-time jobs this weekend."@@\
-			<<endif>>\
-			<<if (not $locations.jobSexshop.active) or (not $locations.jobFastfood.active)>>\
-				@@.teacher;<<openQuote>>A friend of mine owns a fast food restaurant and asked for my help in finding a server. I think you would do well. There is also a vacancy for an assistant at the shop downtown if that is more for your liking."@@\
-				<<set $locations.jobSexshop.active = true>>\
-				<<set $locations.jobFastfood.active = true>>\
-			<<endif>>\
+		<<if (not $locations.jobSexshop.active) or (not $locations.jobFastfood.active)>>\
+			@@.teacher;<<openQuote>>A friend of mine owns a fast food restaurant and asked for my help in finding a server. I think you would do well. There is also a vacancy for an assistant at the shop downtown if that is more for your liking."@@\
+			<<set $locations.jobSexshop.active = true>>\
+			<<set $locations.jobFastfood.active = true>>\
 		<<endif>>\
-		<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
-			<<if $flags.slutGoodEnd > 0>>\
+	<<endif>>\
+	<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
+		<<if $flags.slutGoodEnd > 0>>\
+		
+			$teacher smiles at you warmly. @@.teacher;"Do not forget about your reward tonight.  The address is on the card I gave you.@@
+		<<elseif $flags.slutBadEnd > 0>>\
+		
+			$teacher looks at you sternly. @@.teacher;"For your own sake, I suggest you make it to the club tonight for your punishment.@@
+		<<endif>>\
+	<<endif>>\
+	<!--</tasks giving>-->\
+	<<set $player.bribeDiscount+=_deduction>>\
+	<<if timeCode.isMonday()>>\
+		<!--<bribe check>-->\
 			
-				$teacher smiles at you warmly. @@.teacher;"Do not forget about your reward tonight.  The address is on the card I gave you.@@
-			<<elseif $flags.slutBadEnd > 0>>\
-			
-				$teacher looks at you sternly. @@.teacher;"For your own sake, I suggest you make it to the club tonight for your punishment.@@
-			<<endif>>\
-		<<endif>>\
-		<!--</tasks giving>-->\
-		<<set $player.bribeDiscount+=_deduction>>\
-		<<if timeCode.isMonday()>>\
-			<!--<bribe check>-->\
-				
-			Today is Monday, which means it's time\
-			<<if ($player.bribeDiscount gte $bribeAmount)>>\
-				<<if ($player.perversion.teacher lte 3)>>\
-					to see if $teacher is satisfied with your performance last week.
-				<<elseif ($player.perversion.teacher lte 6)>>\
-					<<switch playerCode.isMind()>>\
-						<<case 0>>to see if $teacher is satisfied with your performance last week.
-						<<case 1>>to see if $teacher approves your diligence last week.
-						<<case 2>>to see if $teacher notices your efforts to please her.
-					<</switch>>\
-				<<else>>\
-					<<switch playerCode.isMind()>>\
-						<<case 0>>to see if $teacher is satisfied with your performance last week.
-						<<case 1>>to see if $teacher thinks that you've been a //good boy// last week.
-						<<case 2>>to see if $teacher thinks that you've been a proper sissy last week.
-					<</switch>>\
-				<<endif>>\
-			<<elseif ($player.perversion.teacher lte 3)>>\
-				<<switch playerCode.isMind()>>\
-					<<case 0>>to pay for $teacher's silence on your moment of weakness.
-					<<case 1>>to pay for $teacher's silence on your foolish attitude.
-					<<case 2>>to pay for $teacher's silence on your unforgivable behavior.
-				<</switch>>\
+		Today is Monday, which means it's time\
+		<<if ($player.bribeDiscount gte $bribeAmount)>>\
+			<<if ($player.perversion.teacher lte 3)>>\
+				to see if $teacher is satisfied with your performance last week.
 			<<elseif ($player.perversion.teacher lte 6)>>\
 				<<switch playerCode.isMind()>>\
-					<<case 0>>to pay for $teacher's silence on your extra activities.
-					<<case 1>>to pay for $teacher's //guidance//.
-					<<case 2>>to pay for $teacher's //special// lessons.
+					<<case 0>>to see if $teacher is satisfied with your performance last week.
+					<<case 1>>to see if $teacher approves your diligence last week.
+					<<case 2>>to see if $teacher notices your efforts to please her.
 				<</switch>>\
 			<<else>>\
 				<<switch playerCode.isMind()>>\
-					<<case 0>>to pay your usual tribute.
-					<<case 1>>to pay for your //special// education.
-					<<case 2>>to pay for privilege of being properly trained by $teacher.
+					<<case 0>>to see if $teacher is satisfied with your performance last week.
+					<<case 1>>to see if $teacher thinks that you've been a //good boy// last week.
+					<<case 2>>to see if $teacher thinks that you've been a proper sissy last week.
 				<</switch>>\
 			<<endif>>\
-		
-			<<if $player.punishments.refusedToCrossdress>>\
-				<<if ($player.bribeDiscount gte $bribeAmount)>>\
-					Despite paying off the debt amount through your obedience last week, you still face punishment for refusing to wear a school dress.
-				<<else>>\
-					It no longer matters now whether you have the money or not. Your refusal to wear a school dress means you will face punishment.
-				<<endif>>\
-				
-				@@.teacher;"I thought we had an agreement. How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
-				
-				[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
-			<<elseif ($player.bribeDiscount gte $bribeAmount)>>\
-				@@.teacher;"Well done, $player.name, you've paid off this week's debt with your obedience.@@
-				
+		<<elseif ($player.perversion.teacher lte 3)>>\
+			<<switch playerCode.isMind()>>\
+				<<case 0>>to pay for $teacher's silence on your moment of weakness.
+				<<case 1>>to pay for $teacher's silence on your foolish attitude.
+				<<case 2>>to pay for $teacher's silence on your unforgivable behavior.
+			<</switch>>\
+		<<elseif ($player.perversion.teacher lte 6)>>\
+			<<switch playerCode.isMind()>>\
+				<<case 0>>to pay for $teacher's silence on your extra activities.
+				<<case 1>>to pay for $teacher's //guidance//.
+				<<case 2>>to pay for $teacher's //special// lessons.
+			<</switch>>\
+		<<else>>\
+			<<switch playerCode.isMind()>>\
+				<<case 0>>to pay your usual tribute.
+				<<case 1>>to pay for your //special// education.
+				<<case 2>>to pay for privilege of being properly trained by $teacher.
+			<</switch>>\
+		<<endif>>\
+	
+		<<if $player.punishments.refusedToCrossdress>>\
+			<<if ($player.bribeDiscount gte $bribeAmount)>>\
+				Despite paying off the debt amount through your obedience last week, you still face punishment for refusing to wear a school dress.
 			<<else>>\
-				@@.teacher;"So, $player.name, you owe me $<<print $bribeAmount-$player.bribeDiscount>> this week."@@
-
-				<<if $player.punishments.refusedToPay and ($bribeAmount-$player.bribeDiscount gte 2000)>>\
-					<<set $player.punishments.refusedToPay = false>>\
-					You tell $teacher that //you won't pay.// You wind up with righteous indignation, ready to argue down injustice, but she cuts you off before you even start and heads straight to the door. She pauses, door handle in hand.\
-					
-					@@.teacher;"If this is how you want things, you leave me no choice but to go to the principal. He will be delighted to see your confession video, I'm sure."@@
-					
-					Panicking, you rush to her, fall on your knees and beg her to let you pay.
-				<<endif>>\
-				<<if $player.money+2000 lt $bribeAmount-$player.bribeDiscount>>\
-					You open your wallet, hoping it's been magically filled with some cash since you last looked, but you still don't have enough money to reduce your debt.
-		
-					[[Uh oh|Endgame teacher bribe]]
-				<<elseif $player.punishments.refusedToPay or ($flags.walletForgottenStart and (not $flags.walletForgottenEnd))>>\
-					<<if $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
-						You forgot your wallet.
-						
-						<<set $player.punishments.refusedToPay = true>>\
-					<<else>>\
-						You refuse to pay her.
-						
-					<<endif>>\
-					@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
-					
-					[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
-				<<elseif $player.money lt $bribeAmount-$player.bribeDiscount>>\
-					You open your wallet, hoping it's been magically filled with more cash since you last looked, but you still don't have enough money to pay $teacher.
-		
-					@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
-		
-					[[Go back to class|Finish school day][playerCode.payBribePartial()]]
-				<<else>>\
-					You pay $teacher her money.
-					
-				<<endif>>\
+				It no longer matters now whether you have the money or not. Your refusal to wear a school dress means you will face punishment.
 			<<endif>>\
-			<<set window.playerCode.calculateBribeIncrease()>>\
-			<<if ($player.money gte $bribeAmount-$player.bribeDiscount) and ((not $player.punishments.refusedToPay) or ($player.bribeDiscount gte $bribeAmount)) and (not $player.punishments.refusedToCrossdress)>>\
-				<<set $player.punishments.refusedToPay = false>>\
-				<<if (playerCode.nextBribeAmount() gt $bribeAmount)>>\
-					@@.teacher;"Thank you, $player.name. That was a bit easy, was it not? I think I will increase your weekly payment to $<<print playerCode.nextBribeAmount()>>. I am sure an enterprising boy like yourself won't find that too difficult."@@
-					
-					@@.heroT;Fuck.@@
-					
-				<<else>>\
-					@@.teacher;"Thank you, $player.name. Do not forget - I want another $<<print $bribeAmount>> next Monday."@@
-					
-					At least she didn't increase it again.
-					
-				<<endif>>\
-				[[Go back to class|Finish school day][playerCode.payBribe()]]
-			<<endif>>\
-		<<elseif window.timeCode.isFriday() and ($player.perversion.teacherPermChastity gte 7)>>\
-			<<if ($player.punishments.penalty lte 3)>>\
-				@@.teacher;<<openQuote>>Since your chastity is permanent, I will just write off $<<print 100>> from your debt."@@
-				<<set $player.bribeDiscount+=100>>\
-			<<else>>\
-				@@.teacher;<<openQuote>>Your behavior was unsatisfactory this week. No reduction of debt for you."@@
-			<<endif>>\
-				
-			[[Go back to class|Finish school day]]
-		<<elseif window.timeCode.isFriday() and ($player.perversion.teacher gte 3)>>\
-			<<if $bribeAmount-$player.bribeDiscount gte 2000>>\
-				@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your confession will go public and I will have a chat with the principal."@@
-				
-			<<endif>>\
-			<<if ($player.punishments.penalty lte 1) and $player.daringFlag.toiletsMasturbating and ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown lte 2) and (not $flags.sissyConfession)>>\
-				@@.teacher;"You did not have time to earn release from chastity since //the incident// in the girl's locker room, but I will give you the benefit of the doubt and unlock you this time."@@
-				
-			<<elseif ($player.punishments.penalty gt 1) and (not $flags.sissyConfession)>>\
-				@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ $teacher eyes you intensly.
-				
-				@@.teacher;"Return to me after classes if you wish to earn my forgiveness."@@
-				<<set $flags.sissyConfessionStart = true>>\
-				<<set $flags.lockedWeekend to true>>\
-				
-			<<elseif (not $flags.sissyConfessionShown) and ($player.punishments.penalty gt 3)>>\
-				@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ A hint of a smirk flashes on $teacher's face.
-				
-				@@.teacher;"Return to me after classes. I have something special to show you."@@
-				<<set $flags.lockedWeekend to true>>\
-				
-			<<elseif ($player.punishments.penalty gt 3)>>\
-				@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ $teacher eyes you intensly.
-				
-				@@.teacher;"Return to me after school to receive your punishment."@@
-				<<set $flags.lockedWeekend to true>>\
-				
-			<<elseif ($player.punishments.penalty gte 3)>>\
-				@@.teacher;"You have truly been struggling with my tasks this week, $player.name. You //barely// passed. I will unlock you, but you //must// try harder next time or you will spend your next weekend locked."@@ $teacher clicks her tongue disapprovingly.
-				
-				@@.teacher;"School is not over yet though, so return to me after classes."@@
-				<<set $flags.lockedWeekend to false>>\
-				
-			<<elseif ($player.punishments.penalty gte 2)>>\
-				@@.teacher;"Your performance was satisfactory this week, but not without stumbles, $player.name. I will unlock you this time, but do try harder in the future or you will spend your next weekend locked."@@ $teacher eyes you with mild disappointment.
-				
-				@@.teacher;"School is not over yet though, so return to me after classes."@@
-				<<set $flags.lockedWeekend to false>>\
-				
-			<<elseif ($player.punishments.penalty gte 1)>>\
-				@@.teacher;"Your performance was almost ideal, apart from one small mistake. Don't worry, $player.name. I will unlock you with hope that you will try harder in future."@@ $teacher eyes you with mild disappointment.
-				
-				@@.teacher;"School is not over yet though, so return to me after classes."@@
-				<<set $flags.lockedWeekend to false>>\
-				
-			<<else>>\
-				@@.teacher;"You have been perfectly obedient this week, $player.name, and you have earned your sweet release."@@
-				
-				$teacher rewards you with a satisfied smile.
-				
-				@@.teacher;"School is not over yet though, so return to me after classes."@@
-				<<set $flags.lockedWeekend to false>>\
-				
-			<<endif>>\
-			<<if ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown gt 4) and ($player.perversion.crossdressing gte 7) and ($player.punishments.penalty lte 2) and (not $flags.lockedWeekend)>>\
-				$teacher stares at you for a long moment, before she nods to herself as though she has come to a decision. She places a hand on your shoulder and gently pushes you into a chair, forcing you to look up at her. @@.teacher;"How would you like to prove your dedication to correcting the behavior that got you into trouble in first place? 
-				
-				If you agree to remain in chastity for the weekend, I'll waive the rest of your debt for this week and I won't increase it Monday."@@ 
-				
-				She leans forward, and you catch a hint of her perfume... you can't stop yourself from staring down her blouse. Her full lips quirk into a smile.
-
-				@@.teacher;"I might even let you take this..."@@ she purrs. Her hand slides up her blouse to toy with the neckline, where you just barely make out the lacy edge of her bra. @@.teacher; "... to the next level. I'm sure you're eager to learn more about women, and there is so much more I could teach you."@@ 
-				
-				She straightens, staring down at you from her suddenly-much-superior height.
-				
-				@@.teacher;"Once you've displayed that you're sincere about learning to control yourself, of course."@@
-
-				@@.hero;Oh, crap! The weekend in chastity? It will be torture. But, she is //so// fucking hot, and she seems to enjoy this strict-teacher-obedient-pupil dynamic. Maybe if I play along, I will get off her shit list.@@ 
-				
-				Your penis strains against the cage as vivid fantasies of what else $teacher might teach you about women fill your head... mostly involving her undressing and assuming various poses for your 'educational' viewing.
-
-				[[Agree to remain in chastity][$flags.chastityAgree=true]]
-				[[Refuse to remain in chastity][$flags.chastityAgree=false]]
-			<<elseif ($player.perversion.teacher gte 4) and ($player.punishments.penalty lte 3) and (not $flags.lockedWeekend)>>\
-				<<if ($bribeAmount-$player.bribeDiscount gte 100)>>\
-					@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off $<<print 100>> from your debt."@@
-				<<elseif ($bribeAmount-$player.bribeDiscount gt 0)>>\
-					@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off the rest of your debt for this week."@@
-				<<else>>\
-					@@.teacher;"Wait - you //could// stay in chastity for the weekend. I will be //very// pleased if you choose to."@@
-				<<endif>>\
-				
-				<<if ($player.perversion.teacherPermChastity lt 6)>>\
-					[[Agree to remain in chastity][$flags.chastityAgree=true]]
-				<<else>>\
-					You just can't take it anymore.
-					
-				<<endif>>\
-				[[Refuse to remain in chastity][$flags.chastityAgree=false]]
-			<<else>>\
-				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
-			<<endif>>\
-		<!--</bribe check>-->\
-		<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
 			
-			@@.teacher;“I also need to speak with you about some distressing news I received in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
-
-			@@.hero;That bitch!@@
-
-			@@.teacher;“She even sent photographic proof.”@@ $teacher shows you her phone, on which is an image of you in a very compromising position with the red-headed cheerleader.
-
-			@@.heroT;“It.. it was an accident! I tripped and fell!”@@
-
-			@@.teacher;“She also said there were three eyewitnesses.”@@
-
-			@@.heroT;“They’re lying!”@@
+			@@.teacher;"I thought we had an agreement. How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
 			
-			She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, these perverted acts and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
-
-			@@.heroT;“Wait! Please!”@@
-
-			@@.teacher;“So, you admit that you let your hormones get the better of you and that you’ll do what’s necessary to earn the cheer team’s forgiveness?”@@
-
-			You feel cruelly trapped as there’s nothing you can do to exonerate yourself. Your shoulders drop and your eyes begin to dampen in frustration. You know this isn’t your fault, but against such overwhelming evidence, what choice do you have?
-
-			@@.heroT;“Yes, $teacher,”@@ you reply with a sigh.
-
-			@@.teacher;“Good boy. Now, I’ve spoken with the cheerleading captain, and we have arranged for you to clean the team’s equipment room as an apology. Of course, you will need to apologize personally to the girl you fondled as well. We’ll be meeting with them immediately after school, before cheer practice. Do you understand?”@@
-
-			You nod your head, soundly defeated. @@.heroT;“Yes, $teacher.”@@
-
-			[[Go back to class|Finish school day]]
+			[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
+		<<elseif ($player.bribeDiscount gte $bribeAmount)>>\
+			@@.teacher;"Well done, $player.name, you've paid off this week's debt with your obedience.@@
 			
 		<<else>>\
-			<<if $flags.keyLended and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-				<<if $flags.eagerStart and [2,3,4].includes($time.weekDay())>>\
-					$teacher has your chastity key on a necklace, resting between her breasts. She plays with the chain, looking at you expectantly.
+			@@.teacher;"So, $player.name, you owe me $<<print $bribeAmount-$player.bribeDiscount>> this week."@@
+
+			<<if $player.punishments.refusedToPay and ($bribeAmount-$player.bribeDiscount gte 2000)>>\
+				<<set $player.punishments.refusedToPay = false>>\
+				You tell $teacher that //you won't pay.// You wind up with righteous indignation, ready to argue down injustice, but she cuts you off before you even start and heads straight to the door. She pauses, door handle in hand.\
+				
+				@@.teacher;"If this is how you want things, you leave me no choice but to go to the principal. He will be delighted to see your confession video, I'm sure."@@
+				
+				Panicking, you rush to her, fall on your knees and beg her to let you pay.
+			<<endif>>\
+			<<if $player.money+2000 lt $bribeAmount-$player.bribeDiscount>>\
+				You open your wallet, hoping it's been magically filled with some cash since you last looked, but you still don't have enough money to reduce your debt.
+	
+				[[Uh oh|Endgame teacher bribe]]
+			<<elseif $player.punishments.refusedToPay or ($flags.walletForgottenStart and (not $flags.walletForgottenEnd))>>\
+				<<if $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
+					You forgot your wallet.
 					
-					@@.teacher;Is there anything else that you want?@@
-					
-					@@.hero;She is clearly enjoying it. Is she playing with me? Maybe I should play along? She's a bit scary, but still so hot. I could wait few days if it helps me score with her.@@
-					
-					[[Ask for the key]]
-					[[Play along and stay silent]]
+					<<set $player.punishments.refusedToPay = true>>\
 				<<else>>\
-					$teacher silently hands you the key, looking a bit annoyed. It seems you may have failed some kind of test.
+					You refuse to pay her.
 					
-					She opens the classroom door for you to go back inside.
-					
-					[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 				<<endif>>\
+				@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
+				
+				[[Go back to class|Finish school day][playerCode.payBribeRefusal()]]
+			<<elseif $player.money lt $bribeAmount-$player.bribeDiscount>>\
+				You open your wallet, hoping it's been magically filled with more cash since you last looked, but you still don't have enough money to pay $teacher.
+	
+				@@.teacher;"How disappointing. I lack the time and patience to deal with you right now, so return to me after classes."@@
+	
+				[[Go back to class|Finish school day][playerCode.payBribePartial()]]
 			<<else>>\
+				You pay $teacher her money.
+				
+			<<endif>>\
+		<<endif>>\
+		<<set window.playerCode.calculateBribeIncrease()>>\
+		<<if ($player.money gte $bribeAmount-$player.bribeDiscount) and ((not $player.punishments.refusedToPay) or ($player.bribeDiscount gte $bribeAmount)) and (not $player.punishments.refusedToCrossdress)>>\
+			<<set $player.punishments.refusedToPay = false>>\
+			<<if (playerCode.nextBribeAmount() gt $bribeAmount)>>\
+				@@.teacher;"Thank you, $player.name. That was a bit easy, was it not? I think I will increase your weekly payment to $<<print playerCode.nextBribeAmount()>>. I am sure an enterprising boy like yourself won't find that too difficult."@@
+				
+				@@.heroT;Fuck.@@
+				
+			<<else>>\
+				@@.teacher;"Thank you, $player.name. Do not forget - I want another $<<print $bribeAmount>> next Monday."@@
+				
+				At least she didn't increase it again.
+				
+			<<endif>>\
+			[[Go back to class|Finish school day][playerCode.payBribe()]]
+		<<endif>>\
+	<<elseif window.timeCode.isFriday() and ($player.perversion.teacherPermChastity gte 7)>>\
+		<<if ($player.punishments.penalty lte 3)>>\
+			@@.teacher;<<openQuote>>Since your chastity is permanent, I will just write off $<<print 100>> from your debt."@@
+			<<set $player.bribeDiscount+=100>>\
+		<<else>>\
+			@@.teacher;<<openQuote>>Your behavior was unsatisfactory this week. No reduction of debt for you."@@
+		<<endif>>\
+			
+		[[Go back to class|Finish school day]]
+	<<elseif window.timeCode.isFriday() and ($player.perversion.teacher gte 3)>>\
+		<<if $bribeAmount-$player.bribeDiscount gte 2000>>\
+			@@.teacher;"Your debt has grown to over two thousand dollars. This metric tells me you are simply not taking it seriously enough. So, heed this warning: if you are not able to reduce your debt on Monday, your confession will go public and I will have a chat with the principal."@@
+			
+		<<endif>>\
+		<<if ($player.punishments.penalty lte 1) and $player.daringFlag.toiletsMasturbating and ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown lte 2) and (not $flags.sissyConfession)>>\
+			@@.teacher;"You did not have time to earn release from chastity since //the incident// in the girl's locker room, but I will give you the benefit of the doubt and unlock you this time."@@
+			
+		<<elseif ($player.punishments.penalty gt 1) and (not $flags.sissyConfession)>>\
+			@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ $teacher eyes you intensly.
+			
+			@@.teacher;"Return to me after classes if you wish to earn my forgiveness."@@
+			<<set $flags.sissyConfessionStart = true>>\
+			<<set $flags.lockedWeekend to true>>\
+			
+		<<elseif (not $flags.sissyConfessionShown) and ($player.punishments.penalty gt 3)>>\
+			@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ A hint of a smirk flashes on $teacher's face.
+			
+			@@.teacher;"Return to me after classes. I have something special to show you."@@
+			<<set $flags.lockedWeekend to true>>\
+			
+		<<elseif ($player.punishments.penalty gt 3)>>\
+			@@.teacher;"Since you failed to follow my requests this week, $player.name, you have not earned the privilege to be released from chastity. Based on your behavior, I'm sure it pleases you to have the entire weekend to think about it."@@ $teacher eyes you intensly.
+			
+			@@.teacher;"Return to me after school to receive your punishment."@@
+			<<set $flags.lockedWeekend to true>>\
+			
+		<<elseif ($player.punishments.penalty gte 3)>>\
+			@@.teacher;"You have truly been struggling with my tasks this week, $player.name. You //barely// passed. I will unlock you, but you //must// try harder next time or you will spend your next weekend locked."@@ $teacher clicks her tongue disapprovingly.
+			
+			@@.teacher;"School is not over yet though, so return to me after classes."@@
+			<<set $flags.lockedWeekend to false>>\
+			
+		<<elseif ($player.punishments.penalty gte 2)>>\
+			@@.teacher;"Your performance was satisfactory this week, but not without stumbles, $player.name. I will unlock you this time, but do try harder in the future or you will spend your next weekend locked."@@ $teacher eyes you with mild disappointment.
+			
+			@@.teacher;"School is not over yet though, so return to me after classes."@@
+			<<set $flags.lockedWeekend to false>>\
+			
+		<<elseif ($player.punishments.penalty gte 1)>>\
+			@@.teacher;"Your performance was almost ideal, apart from one small mistake. Don't worry, $player.name. I will unlock you with hope that you will try harder in future."@@ $teacher eyes you with mild disappointment.
+			
+			@@.teacher;"School is not over yet though, so return to me after classes."@@
+			<<set $flags.lockedWeekend to false>>\
+			
+		<<else>>\
+			@@.teacher;"You have been perfectly obedient this week, $player.name, and you have earned your sweet release."@@
+			
+			$teacher rewards you with a satisfied smile.
+			
+			@@.teacher;"School is not over yet though, so return to me after classes."@@
+			<<set $flags.lockedWeekend to false>>\
+			
+		<<endif>>\
+		<<if ($player.perversion.teacher eq 3) and ($player.perversion.teacherCooldown gt 4) and ($player.perversion.crossdressing gte 7) and ($player.punishments.penalty lte 2) and (not $flags.lockedWeekend)>>\
+			$teacher stares at you for a long moment, before she nods to herself as though she has come to a decision. She places a hand on your shoulder and gently pushes you into a chair, forcing you to look up at her. @@.teacher;"How would you like to prove your dedication to correcting the behavior that got you into trouble in first place? 
+			
+			If you agree to remain in chastity for the weekend, I'll waive the rest of your debt for this week and I won't increase it Monday."@@ 
+			
+			She leans forward, and you catch a hint of her perfume... you can't stop yourself from staring down her blouse. Her full lips quirk into a smile.
+
+			@@.teacher;"I might even let you take this..."@@ she purrs. Her hand slides up her blouse to toy with the neckline, where you just barely make out the lacy edge of her bra. @@.teacher; "... to the next level. I'm sure you're eager to learn more about women, and there is so much more I could teach you."@@ 
+			
+			She straightens, staring down at you from her suddenly-much-superior height.
+			
+			@@.teacher;"Once you've displayed that you're sincere about learning to control yourself, of course."@@
+
+			@@.hero;Oh, crap! The weekend in chastity? It will be torture. But, she is //so// fucking hot, and she seems to enjoy this strict-teacher-obedient-pupil dynamic. Maybe if I play along, I will get off her shit list.@@ 
+			
+			Your penis strains against the cage as vivid fantasies of what else $teacher might teach you about women fill your head... mostly involving her undressing and assuming various poses for your 'educational' viewing.
+
+			[[Agree to remain in chastity][$flags.chastityAgree=true]]
+			[[Refuse to remain in chastity][$flags.chastityAgree=false]]
+		<<elseif ($player.perversion.teacher gte 4) and ($player.punishments.penalty lte 3) and (not $flags.lockedWeekend)>>\
+			<<if ($bribeAmount-$player.bribeDiscount gte 100)>>\
+				@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off $<<print 100>> from your debt."@@
+			<<elseif ($bribeAmount-$player.bribeDiscount gt 0)>>\
+				@@.teacher;"Wait - you //could// stay in chastity for the weekend. If you do, I will write off the rest of your debt for this week."@@
+			<<else>>\
+				@@.teacher;"Wait - you //could// stay in chastity for the weekend. I will be //very// pleased if you choose to."@@
+			<<endif>>\
+			
+			<<if ($player.perversion.teacherPermChastity lt 6)>>\
+				[[Agree to remain in chastity][$flags.chastityAgree=true]]
+			<<else>>\
+				You just can't take it anymore.
+				
+			<<endif>>\
+			[[Refuse to remain in chastity][$flags.chastityAgree=false]]
+		<<else>>\
+			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+		<<endif>>\
+	<!--</bribe check>-->\
+	<<elseif $cheerleaders.active == true and $cheerleaders.progress == -1>>\
+		
+		@@.teacher;“I also need to speak with you about some distressing news I received in class,”@@ $teacher adds. @@.teacher;“I’m not sure if you’re aware, but I’m the faculty advisor for the cheerleading team. The cheer captain messaged me during class and said that you molested one of her girls in the hallway this morning.”@@
+
+		@@.hero;That bitch!@@
+
+		@@.teacher;“She even sent photographic proof.”@@ $teacher shows you her phone, on which is an image of you in a very compromising position with the red-headed cheerleader.
+
+		@@.heroT;“It.. it was an accident! I tripped and fell!”@@
+
+		@@.teacher;“She also said there were three eyewitnesses.”@@
+
+		@@.heroT;“They’re lying!”@@
+		
+		She sighs. @@.teacher;“I’m disappointed in you, $player.name. First, these perverted acts and now lying? I thought we were making good progress here. I knew you would be sorry for your actions and had planned for you to apologize to the cheer squad, but perhaps the principal does need to hear about this.”@@
+
+		@@.heroT;“Wait! Please!”@@
+
+		@@.teacher;“So, you admit that you let your hormones get the better of you and that you’ll do what’s necessary to earn the cheer team’s forgiveness?”@@
+
+		You feel cruelly trapped as there’s nothing you can do to exonerate yourself. Your shoulders drop and your eyes begin to dampen in frustration. You know this isn’t your fault, but against such overwhelming evidence, what choice do you have?
+
+		@@.heroT;“Yes, $teacher,”@@ you reply with a sigh.
+
+		@@.teacher;“Good boy. Now, I’ve spoken with the cheerleading captain, and we have arranged for you to clean the team’s equipment room as an apology. Of course, you will need to apologize personally to the girl you fondled as well. We’ll be meeting with them immediately after school, before cheer practice. Do you understand?”@@
+
+		You nod your head, soundly defeated. @@.heroT;“Yes, $teacher.”@@
+
+		[[Go back to class|Finish school day]]
+		
+	<<else>>\
+		<<if $flags.keyLended and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
+			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay())>>\
+				$teacher has your chastity key on a necklace, resting between her breasts. She plays with the chain, looking at you expectantly.
+				
+				@@.teacher;Is there anything else that you want?@@
+				
+				@@.hero;She is clearly enjoying it. Is she playing with me? Maybe I should play along? She's a bit scary, but still so hot. I could wait few days if it helps me score with her.@@
+				
+				[[Ask for the key]]
+				[[Play along and stay silent]]
+			<<else>>\
+				$teacher silently hands you the key, looking a bit annoyed. It seems you may have failed some kind of test.
+				
 				She opens the classroom door for you to go back inside.
 				
-				<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isWednesday() && !($cheerleaders.flags.skippedPractice)>>\
-					[[Go back to class|Cheer SE10 Sc1][$flags.chastityAgree = false]]
-				<<elseif $cheerFriend.currentSE == 1>>\
-					<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
-				<<else>>\
-					[[Go back to class|Finish school day][$flags.chastityAgree=false]]
-				<<endif>>\
+				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
+			<<endif>>\
+		<<else>>\
+			She opens the classroom door for you to go back inside.
+			
+			<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isWednesday() && !($cheerleaders.flags.skippedPractice)>>\
+				[[Go back to class|Cheer SE10 Sc1][$flags.chastityAgree = false]]
+			<<elseif $cheerFriend.currentSE == 1>>\
+				<<print "[[Go meet "+$cheerFriend.name+" for lunch|Cheer SE1 Sc1][$flags.chastityAgree=false]]">>
+			<<else>>\
+				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
