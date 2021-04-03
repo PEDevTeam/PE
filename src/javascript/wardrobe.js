@@ -160,8 +160,13 @@ window.wardrobeFuncs = {
             if(masterItem.clothingSlot == 'nightwear' || masterItem.clothingSlot == 'maid'){
                 window.wardrobeFuncs.removeClothingAndAccessories();
             }
-            else if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
+            
+            if(window.wardrobe.mainClothing.includes(masterItem.clothingSlot)){
                 actVar.player.clothingSlots['nightwear'] = null;
+                //actVar.player.clothingSlots['maid'] = null; //Not sure how maid outfits should be handled...
+            }
+            
+            if(masterItem.clothingSlot == 'outerwear'){
                 actVar.player.clothingSlots['maid'] = null;
             }
 

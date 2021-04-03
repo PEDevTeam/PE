@@ -294,15 +294,18 @@
 	She puts some sort of maid uniform on a chair near the bed and then unlocks your binds. It looks like something from an adults-only Halloween party, or maybe some roleplay porn.
 
 	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
-	<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
-	<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>\
+	<<set itemFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
+	<<set itemFuncs.disableItemVariantsByProperty('isMale', true)>>\
 	<<set $flags.clothesPurged to true>>\
+	<<set window.itemFuncs.enableItemVariant('maid_outfit_00')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_outfit_01')>>\
 	<<addItemVariantToInventory 'maid_outfit_00'>>\
 	<<wearItemVariant 'maid_outfit_00'>>\
 	<<addItemVariantToInventory 'stockings_39'>>\
 	<<wearItemVariant 'stockings_39'>>\
 	<<addItemVariantToInventory 'heels_39'>>\
 	<<wearItemVariant 'heels_39'>>\
+	<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
 	<<else>>\

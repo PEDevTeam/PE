@@ -518,7 +518,7 @@ window.playerCode={
 				} else {
 					//State.active.variables.items.highHeel3.curAlt=39;
 					//this.wearClothesJS('highHeel3');
-					window.wardrobeFuncs.wearItemVariant('heels03');
+					window.wardrobeFuncs.wearItemVariant('heels_39');
 				}
 			}
 			
