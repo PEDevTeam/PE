@@ -148,7 +148,7 @@
 
 			@@.cheerCaptain;“Well, just think of it as my way of making sure you’re staying in shape, and today happens to be your day.”@@
 
-			<<if not (_o.cheer)>>\
+			<<if not ( window.inventoryFuncs.hasTag(_outerwear, 'cheer'))>>\
 				@@.heroT;“I’m… I’m not really dressed for it,”@@ you say, trying to weasel your way out of the exercise.
 
 				@@.cheerCaptain;“You’ll survive,”@@ she replies before walking off towards the practice field, clearly expecting you to follow.
@@ -161,7 +161,7 @@
 			<<endif>>\
 
 			You know better than to argue, so you walk with her down to the practice field. She spends the next several minutes running you through a quick-yet-exhausting exercise\
-			<<if _o.id != "rookieUniform">>\
+			<<if _outerwear.variant != "rookie_uniform">>\
 				routine.
 				
 				Even worse, you’re constantly distracted by your skirt’s inability to stay in place as you run, jump, and stretch.
@@ -174,7 +174,7 @@
 			<<endif>>\
 
 			By the time you finish, you notice that you’ve attracted a small audience of boys, who clearly enjoy\
-			<<if _o.id == "rookieUniform">>\
+			<<if _outerwear.variant == "rookie_uniform">>\
 				watching your\
 				<<switch playerCode.scoreAss()>>\
 				<<case 0>>\

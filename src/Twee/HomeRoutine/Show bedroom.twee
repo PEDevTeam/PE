@@ -95,7 +95,7 @@
 	<<print '<<showRoomImage "clock_4_'+$time.minute % 10+'.png">>'>>\
 <<endif>>\
 \
-<<if (not _o) or (not _o.school) or _o.female>>\
+<<if (not _outerwear) or (not window.inventoryFuncs.hasTag(_outerwear, 'school')) or _outerwear.isFemale>>\
 	<<if $player.room.jacket>>\
 		<<showRoomImage "boys_school_jacket_00.png">>\
 	<<endif>>\
