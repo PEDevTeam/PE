@@ -7,6 +7,10 @@ window.itemNavigator = {
             var actVar = State.active.variables;
         }
 
+        if(typeof actVar.flags.wardrobeOpen == "undefined"){
+            actVar.flags.wardrobeOpen = false;
+        }
+
         var findOne = function (haystack, arr) {
             return arr.some(function (v) {
                 return haystack.indexOf(v) >= 0;
@@ -88,7 +92,10 @@ window.itemNavigator = {
             clothingTypeSelectorTr.appendChild(clothingTypeSelectorTd);
             navigatorTable.appendChild(clothingTypeSelectorTr);
             navigatorTable.id = "navigatorTable";
-            navigatorTable.className = "item-navigator-selector-table";
+            navigatorTable.classList.add("item-navigator-selector-table");
+            if(actVar.flags.wardrobeOpen){
+                navigatorTable.classList.add("isOpen");
+            }
 
             var clothingListTr = document.createElement('tr');
             var masterItemListTd = document.createElement('td');
@@ -160,9 +167,15 @@ window.itemNavigator = {
             var hideWardrobeButtonTxt = document.createTextNode("Hide Wardrobe");
             hideWardrobeButton.appendChild(hideWardrobeButtonTxt);
             hideWardrobeButton.addEventListener('click', hideWardrobe, true);
-            hideWardrobeButton.classList.add("hidden");
             hideWardrobeButton.classList.add("wardrobe-button-hide");
             hideWardrobeButton.id = "hideWardrobeButton"
+
+            if(actVar.flags.wardrobeOpen){
+                showWardrobeButton.classList.add("hidden");
+            }
+            else{
+                hideWardrobeButton.classList.add("hidden");
+            }
 
             itemNavigatorDiv.appendChild(showWardrobeButton);
             itemNavigatorDiv.appendChild(hideWardrobeButton);
@@ -192,12 +205,14 @@ window.itemNavigator = {
             document.getElementById("navigatorTable").classList.toggle("isOpen");
             document.getElementById("hideWardrobeButton").classList.toggle("hidden");
             document.getElementById("showWardrobeButton").classList.toggle("hidden");
+            actVar.flags.wardrobeOpen = true;
         }
 
         function hideWardrobe(evt){
             document.getElementById("navigatorTable").classList.toggle("isOpen");
             document.getElementById("hideWardrobeButton").classList.toggle("hidden");
             document.getElementById("showWardrobeButton").classList.toggle("hidden");
+            actVar.flags.wardrobeOpen = false;
         }
     },
 
