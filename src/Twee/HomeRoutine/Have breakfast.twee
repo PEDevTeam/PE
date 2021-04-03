@@ -14,7 +14,7 @@
 	<<if playerCode.isMaid()>>\
 		<!--<maid start>*********************-->\
 		<<if inventoryFuncs.ownsMasterItem('maid') and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
-			<<set itemNavigator.wearClothingSet('Maid')>>
+			<<set itemNavigator.wearClothingSet('Maid')>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
 				You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
@@ -34,7 +34,7 @@
 				<<endif>>\
 				After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
 			<<endif>>\
-			<<set itemNavigator.wearClothingSet('Maid')>>
+			<<set itemNavigator.wearClothingSet('Maid')>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<updateClothes>>\
 		<<endif>>\
@@ -312,7 +312,6 @@
 		<<else>>\
 			She smiles at you and picks up her morning coffee.
 		<<endif>>\
-		\
 		<<if $time.day == 1 && !$kink.incest>>\
 			@@.guardian;"Don't forget - I'm going to be away for at least a few months doing my sales run,"@@ $guardian says, @@.guardian;"so $babysitter is on her way over here to look after you."@@
 
@@ -321,17 +320,15 @@
 			Your house only has two bedrooms, so she just uses your mother's. It's great that you get on well together, undoubtedly helped by how knock-out beautiful she is. If only she didn't have a $futa.boy_girl////friend...
 
 		<<endif>>\
-		\
 		<<if $minigames.dreamgame.playedToday and (not $flags.dreamgameCaught)>>\
 			@@.guardian;"Were you in my bedroom this morning? I'd prefer you to stay in bed until I've woken up, so I've taken your alarm clock and put it into storage. No need for more than one alarm."@@
 			
 			@@.hero;Damn.@@
 
-			<<set $player.hasAlarmClock = false>>
+			<<set $player.hasAlarmClock = false>>\
 		<<endif>>\
 		<!--</regular start>*********************-->\
 	<<endif>>\
-	\
 	<!--<reaction to bodymods>*********************-->\
 	<<if $flags.salonPenalty and (not $flags.guardianNoticesalonPenalty) and (not _skipComments)>>\
 		<<set $flags.guardianNoticesalonPenalty = true>>\
@@ -1063,7 +1060,7 @@
 			<<elseif [9,10,11].includes($player.masturbationType)>><!--Vibrator in ass, chastity=9, cum=10, no chast=11-->\
 				<<set _rc = random(7)>>\
 				<<if _rc lte 0>>@@.guardian;I have to admit, the footage was hot!@@\
-					<<if $player.perversion.guardian eq 7>>
+					<<if $player.perversion.guardian eq 7>>\
 						@@.guardian;Did you imagine one of your classmates fucking you raw? Or was it $teacher with huge strap-on? Maybe you could give me a hint at the next parental meeting so I would know your taste?@@\
 					<<endif>>\
 				<<elseif _rc lte 1 and $player.stolenVibrator>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\
