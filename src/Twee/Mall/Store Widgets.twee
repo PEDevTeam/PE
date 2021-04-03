@@ -17,7 +17,7 @@
 	<<print window.stores[_storeID].description>> 
 	What would you like to buy?
 	<<if $time.day-7 gt $stores[_storeID].dayLastRefreshed>>\
-		<<set _refreshedStore = window.itemFuncs.resetItemVariantsForPurchase(_storeID)>>\
+		<<set _refreshedStore = window.itemFuncs.refreshItemsForStore(_storeID)>>\
 		<<if _refreshedStore>>\
 			<<set $stores[_storeID].dayLastRefreshed = $time.day>>\
 			<<set $stores[_storeID].newStock = true>>\
@@ -27,8 +27,11 @@
 	<div style="display:grid;">\
 	<<set _soldMasterItems = window.itemFuncs.getItemMastersForStore(_storeID)>>\
 	<<for _i=0; _i lt _soldMasterItems.length; _i++>>\
+		<<if not($stores[_storeID].lastIndex[_i])>>\
+			<<set $stores[_storeID].lastIndex[_i] = 0>>\
+		<<endif>>\
 		<<set _masterItem=_soldMasterItems[_i]>>\
-		<<set _itemVariants=window.itemFuncs.getItemVariantsForPurchase(_masterItem.itemMaster)>>\
+		<<set _itemVariants=window.itemFuncs.getItemVariantsForPurchase(_masterItem.itemMaster, _storeID)>>\
 		<<for _j=0; _j lt _itemVariants.length; _j++>>\
 			<<set _itemVariant = _itemVariants[_j]>>\
 			<<set _image to _itemVariant.variant + ".jpg">>\
@@ -38,13 +41,12 @@
 			<<set _owned to window.inventoryFuncs.isItemVariantOwned(_itemVariant)>>\
 			<<set _daringRec to _itemVariant.daring>>\
 			<<if $showimages>>\
-				<<if _j == 0>>\
+				<<if _j == $stores[_storeID].lastIndex[_i]>>\
 					<<set _style="">>\
 				<<else>>\
 					<<set _style="display: none;">>\
 				<<endif>>\
-				<!-- <<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="var ip=document.getElementById(\'item_preview_mall\');ip.src=\'Images/items/' + _image + '\';ip.className=\'\'; var ipd = document.getElementById(\'item_preview_description_mall\'); ipd.textContent=\'' + _quotedVariantName + '\';ipd.className=\'\';" onmouseout="document.getElementById(\'item_preview_mall\').className=\'hidden\'; document.getElementById(\'item_preview_description_mall\').className=\'hidden\'">_name '>>\ -->\
-				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="misc.getMallOnMouseOver(\'' + _image + '\', \'' + _itemVariant.name + '\', ' +  _itemVariant.isItemSet + ', \'' + _itemVariant.setName + '\')" onmouseout="misc.getMallOnMouseOut()">_name '>>\
+				<<set _in to '<span id="' + _masterItem.itemMaster + _j + '" style="' + _style + '" onmouseover="misc.getMallOnMouseOver(\'' + _image + '\', \'' + _quotedVariantName + '\', ' +  _itemVariant.isItemSet + ', \'' + _itemVariant.setName + '\')" onmouseout="misc.getMallOnMouseOut()">_name '>>\
 			<<else>>\
 				<<set _in to _name + ' '>>\
 			<<endif>>\
@@ -91,7 +93,7 @@
 					<<set _in to _in + '@@.halftransparent;Buy - //too daring//@@'>>\
 				<<endif>>\
 			<<elseif $player.money gte _cost>>\
-				<<set _in to _in + '<<click "Buy">> <<buyItemVariant "' + _itemVariant.variant + '">><<set $player.bought="' + _itemVariant.variant + '">><<set $scene="general">><<replace "#mall">><<itemSelector ' + _storeID + '>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
+				<<set _in to _in + '<<click "Buy">> <<buyItemVariant "' + _itemVariant.variant + '">><<set $player.bought="' + _itemVariant.variant + '">><<set $scene="general">><<set $stores[' + _storeID + '].lastIndex[' + _i + '] = ' + _j + '>><<replace "#mall">><<itemSelector ' + _storeID + '>><</replace>><<updateInventory>><<updateMoney>><</click>>'>>\
 			<<else>>\
 				<<set _in to _in + '@@.halftransparent;Buy - //too expensive//@@'>>\
 			<<endif>>\

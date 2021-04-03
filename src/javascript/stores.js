@@ -50,7 +50,8 @@ window.stores=[
 				checkFlag: "canBuyStunGun"
 			}
 		],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "General Store",
@@ -65,7 +66,8 @@ window.stores=[
 			"lamps",
 		],
 		itemFlagsSold: [],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "Doctor's Office",
@@ -77,7 +79,8 @@ window.stores=[
 		newStock: false,
 		masterItemsSold: [],
 		itemFlagsSold: [],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "Adult Book Shop",
@@ -111,7 +114,8 @@ window.stores=[
 				checkFlag: ""
 			}
 		],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "Fashion Central",
@@ -146,7 +150,8 @@ window.stores=[
 				checkFlag: "canBuyNailPolish"
 			},
 		],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "Intimate Apparel",
@@ -170,7 +175,8 @@ window.stores=[
 			"latexStockings"
 		],
 		itemFlagsSold: [],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{  
 		name: "Klip Klops",
@@ -190,7 +196,8 @@ window.stores=[
 			"stripperHeels"
 		],
 		itemFlagsSold: [],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	},
 	{
 		name: "Urbane Menswear",
@@ -210,6 +217,7 @@ window.stores=[
 			"pyjamas"
 		],
 		itemFlagsSold: [],
-		availableItemVariants: []
+		availableItemVariants: [],
+		lastIndex: []
 	}
 ];

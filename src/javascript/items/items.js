@@ -615,37 +615,7 @@ window.itemFuncs= {
         return soldMasterItems;
     },
 
-    getItemVariantsForPurchase: function(masterItem){
-        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
-        itemVariants = itemVariants.filter(
-            variant => variant.disabled != true
-        )
-        var purchasableItemVariants = itemVariants.filter(
-            variant => variant.purchasable && variant.disabled != true
-        )
-        if(purchasableItemVariants.length >= Math.min(itemVariants.length, 5)){
-            return purchasableItemVariants;
-        }
-        else{
-            for(var i=0; i < Math.min(itemVariants.length, 5) - purchasableItemVariants.length; i++){
-                itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
-                var unpurchasableItemVariants = itemVariants.filter(
-                    variant => variant.purchasable != true && variant.disabled != true
-                )
-                var unpurchasableItemVariant = unpurchasableItemVariants[Math.floor(Math.random() * unpurchasableItemVariants.length)]
-                window.itemFuncs.overrideItemVariantProperty(unpurchasableItemVariant, 'purchasable', true);
-            }
-            itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem);
-            purchasableItemVariants = itemVariants.filter(
-                variant => variant.purchasable && variant.disabled != true
-            )
-            return purchasableItemVariants;
-        }
-    },
-
-    getItemVariantsForPurchase2: function(masterItem, storeID){
-        //TODO - store item variant names(only) aginst a store object
-        //TODO - split out the store refresh process
+    getItemVariantsForPurchase: function(masterItem, storeID){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
         }
@@ -661,18 +631,71 @@ window.itemFuncs= {
                 availableItems.push(itemVariantName)
             }
         }
-        
+        return availableItems;
     },
 
-    refreshItemsForStore: function(masterItem, storeID){
+    refreshItemsForStore: function(storeID){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
 
+        var availableItemVariants = actVar.stores[storeID].availableItemVariants;
+        var availableItemVariantObjects = [];
+        var masterItemCounts = {};
+        if(availableItemVariants){
+            for(var i=0; i<availableItemVariants.length; i++){
+                var availableItemVariant = availableItemVariants[i];
+                
+                availableItemVariantObjects.push(window.itemFuncs.getItemByVariant(availableItemVariant));
+                var availableItemVariantObject = availableItemVariantObjects[i];
+                
+                if(masterItemCounts[availableItemVariantObject.masterItem]){
+                    masterItemCounts[availableItemVariantObject.masterItem] += 1
+                }
+                else{
+                    masterItemCounts[availableItemVariantObject.masterItem] = 1
+                }
+            }
+        }
+        else {
+            return false;
+        }
+
+        var storeMasterItems = actVar.stores[storeID].masterItemsSold;
+        if(storeMasterItems){
+            for(var i=0; i< storeMasterItems.length; i++){
+                var masterItemName = storeMasterItems[i];
+                var masterItemCount = 0;
+                var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
+                itemVariants = itemVariants.filter(
+                    variant => !(variant.disabled) && !(availableItemVariants.includes(variant.variant))
+                );
+                var randMax = Math.floor(Math.random() * (9 - 5) + 5);
+                var maxItems = Math.min(randMax, itemVariants.length);
+                if(masterItemCounts[masterItemName]){
+                    masterItemCount = masterItemCounts[masterItemName];
+                }
+                if(masterItemCount < maxItems){
+                    var newItemCount = maxItems - masterItemCount;
+                    for(var j=0; j< newItemCount; j++){
+                        var randItem = Math.floor(Math.random() * (itemVariants.length - 1) + 1);
+                        actVar.stores[storeID].availableItemVariants.push(itemVariants[randItem]);
+                        availableItemVariants = actVar.stores[storeID].availableItemVariants;
+                        itemVariants = itemVariants.filter(
+                            variant => !(variant.disabled) && !(availableItemVariants.includes(variant.variant))
+                        );
+                    }
+                }
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
     },
-
-    resetItemVariantsForPurchase: function(masterItem){
-        var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItem.itemMaster);
-        itemVariants.forEach(iv => addTagToItemVariant(iv, 'purchasable', false));
-        return true;
-    }
 }
 
 
