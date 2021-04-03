@@ -1267,7 +1267,7 @@ window.tasksTeacher={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.player.perversion.club > 0) && (State.active.variables.body.boobs > State.active.variables.body.boobsNoticedDJ) && (State.active.variables.body.boobs >= 2) && (State.active.variables.tasksTeacher.clubDancePanties.progress > 0));
+			return ((State.active.variables.player.perversion.club > 0) && (State.active.variables.body.boobs.level > State.active.variables.body.boobsNoticedDJ) && (State.active.variables.body.boobs.level >= 2) && (State.active.variables.tasksTeacher.clubDancePanties.progress > 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2511,7 +2511,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (!State.active.variables.body.earsPierced);
+			return (!State.active.variables.body.earsPierced.level > 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2534,7 +2534,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.body.earsPierced);
+				return (State.active.variables.body.earsPierced.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2558,7 +2558,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.tasksTeacherBody.legHairRemoval.progress >= 1) && (State.active.variables.body.bodyhair == 1));
+			return ((State.active.variables.tasksTeacherBody.legHairRemoval.progress >= 1) && (State.active.variables.body.bodyhair.level == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2581,7 +2581,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.body.bodyhair > 0);
+				return (State.active.variables.body.bodyhair.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2605,7 +2605,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			if ((State.active.variables.body.bodyhair == 2) && (!(State.active.variables.body.bodyhair == 3))) {
+			if ((State.active.variables.body.bodyhair.level == 2) && (!(State.active.variables.body.bodyhair.level == 3))) {
 				return true;
 			}
 			return false;
@@ -2631,7 +2631,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.bodyhair == 2) && State.active.variables.flags.salonHairRemoval) || (State.active.variables.body.bodyhair == 3));
+				return (((State.active.variables.body.bodyhair.level == 2) && State.active.variables.flags.salonHairRemoval) || (State.active.variables.body.bodyhair.level == 3));
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2655,7 +2655,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.bodyhair == 0) && (State.active.variables.tasksTeacherBody.legHairRemoval.progress <= 0));
+			return ((State.active.variables.body.bodyhair.level == 0) && (State.active.variables.tasksTeacherBody.legHairRemoval.progress <= 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2678,10 +2678,10 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if ((State.active.variables.body.bodyhair > 0) && State.active.variables.flags.salonHairRemoval) {
+				if ((State.active.variables.body.bodyhair.level > 0) && State.active.variables.flags.salonHairRemoval) {
 					State.active.variables.tasksTeacherBody.legHairRemoval.progress++;
 				}
-				return ((State.active.variables.body.bodyhair > 0) && State.active.variables.flags.salonHairRemoval);
+				return ((State.active.variables.body.bodyhair.level > 0) && State.active.variables.flags.salonHairRemoval);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2705,7 +2705,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.makeup == 0) && (State.active.variables.tasksTeacher.selfieHomeMakeup.status == 0));
+			return ((State.active.variables.body.makeup.level == 0) && (State.active.variables.tasksTeacher.selfieHomeMakeup.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2728,31 +2728,31 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if ((State.active.variables.body.makeup == 1)) {
+				if ((State.active.variables.body.makeup.level == 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent. Not flashy, but it really makes you look pretty.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 2)) {
+				if ((State.active.variables.body.makeup.level == 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
 				} 
-				if ((State.active.variables.body.makeup == 3)) {
+				if ((State.active.variables.body.makeup.level == 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
 				} 
-				if ((State.active.variables.body.makeup == 4)) {
+				if ((State.active.variables.body.makeup.level == 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
+				if ((State.active.variables.body.makeup.level == 1) && (State.active.variables.body.makeup.permLevel >= 1)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
+				if ((State.active.variables.body.makeup.level == 2) && (State.active.variables.body.makeup.permLevel >= 2)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
 				} 
-				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
+				if ((State.active.variables.body.makeup.level == 3) && (State.active.variables.body.makeup.permLevel >= 3)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb horny bimbo! That is so hot, I love it.\"@@";
 				} 
-				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
+				if ((State.active.variables.body.makeup.level == 4) && (State.active.variables.body.makeup.permLevel >= 4)) {
 					window.tasksTeacherBody.makeup.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
-				return (State.active.variables.body.makeup > 0);
+				return (State.active.variables.body.makeup.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2776,7 +2776,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.makeup > 0) && (State.active.variables.body.semiMakeup == 0) && (State.active.variables.body.permMakeup == 0));
+			return ((State.active.variables.body.makeup.level > 0) && (State.active.variables.body.makeup.semiLevel == 0) && (State.active.variables.body.makeup.permLevel == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2799,31 +2799,31 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				if ((State.active.variables.body.makeup == 1)) {
+				if ((State.active.variables.body.makeup.level == 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Excellent, not flashy, but it really makes you look pretty.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 2)) {
+				if ((State.active.variables.body.makeup.level == 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you look very striking! It's amazing how much an expert's touch can change your appearance.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 3)) {
+				if ((State.active.variables.body.makeup.level == 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You look like a pretty, air-headed bimbo. I love your choice.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 4)) {
+				if ((State.active.variables.body.makeup.level == 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Huh. I would say that this make up makes you look like a two-dollar whore, but it's done with great talent when you think about it. I think it's perfect for you.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 1) && (State.active.variables.body.permMakeup >= 1)) {
+				if ((State.active.variables.body.makeup.level == 1) && (State.active.variables.body.makeup.permLevel >= 1)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your subtly made up face.\n\n@@.teacher;\"Perfect! I love your conviction, well done.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 2) && (State.active.variables.body.permMakeup >= 2)) {
+				if ((State.active.variables.body.makeup.level == 2) && (State.active.variables.body.makeup.permLevel >= 2)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Wow, you took this to another level, looking sexy with no maintenance. I almost envy you.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 3) && (State.active.variables.body.permMakeup >= 3)) {
+				if ((State.active.variables.body.makeup.level == 3) && (State.active.variables.body.makeup.permLevel >= 3)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"You chose to always look like a dumb, horny bimbo! That is so hot, I love it.\"@@";
 				}
-				if ((State.active.variables.body.makeup == 4) && (State.active.variables.body.permMakeup >= 4)) {
+				if ((State.active.variables.body.makeup.level == 4) && (State.active.variables.body.makeup.permLevel >= 4)) {
 					window.tasksTeacherBody.makeup_renewal.text.finish = "$teacher looks at your made up face.\n\n@@.teacher;\"Oh god, is it tattooed on? Just the thought that you did this to yourself is making me wet. I want to kiss whoever made the design.\"@@";
 				}
-				return (State.active.variables.flags.salonMakeup || (State.active.variables.body.semiMakeup > 0) || (State.active.variables.body.permMakeup > 0));
+				return (State.active.variables.flags.salonMakeup || (State.active.variables.body.makeup.semiLevel > 0) || (State.active.variables.body.makeup.permLevel > 0));
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2847,7 +2847,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.body.manicure == 0);
+			return (State.active.variables.body.manicure.level == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2870,7 +2870,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.body.manicure > 0);
+				return (State.active.variables.body.manicure.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -2894,7 +2894,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.manicure > 0) && (State.active.variables.body.permManicure == 0) && (State.active.variables.body.semiManicure == 0));
+			return ((State.active.variables.body.manicure.level > 0) && (State.active.variables.body.manicure.permLevel == 0) && (State.active.variables.body.manicure.semiLevel == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2941,7 +2941,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.boobs <= 1) || ((State.active.variables.body.boobs <= 2) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs <= 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0);
+			return ((State.active.variables.body.boobs.level <= 1) || ((State.active.variables.body.boobs.level <= 2) && State.active.variables.player.perversion.teacher >= 7) || ((State.active.variables.body.boobs.level <= 3) && State.active.variables.player.perversion.teacher >= 8)) && (State.active.variables.tasksTeacherBody.breastsMaintain.status == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -2963,36 +2963,36 @@ window.tasksTeacherBody={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				if ((State.active.variables.body.boobs == 0)) {
+				if ((State.active.variables.body.boobs.level == 0)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 0;
 				}
-				if ((State.active.variables.body.boobs == 1)) {
+				if ((State.active.variables.body.boobs.level == 1)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 1;
 				}
-				if ((State.active.variables.body.boobs == 2)) {
+				if ((State.active.variables.body.boobs.level == 2)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 2;
 				}
-				if ((State.active.variables.body.boobs == 3)) {
+				if ((State.active.variables.body.boobs.level == 3)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 3;
 				}
-				if ((State.active.variables.body.boobs == 4)) {
+				if ((State.active.variables.body.boobs.level == 4)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.progress = 4;
 				}
 			},
 			finish: function() {
-				return ((State.active.variables.body.boobs > State.active.variables.tasksTeacherBody.breastsIncrease.progress) || (State.active.variables.body.boobs == 4));
+				return ((State.active.variables.body.boobs.level > State.active.variables.tasksTeacherBody.breastsIncrease.progress) || (State.active.variables.body.boobs.level == 4));
 			},
 			success: function() {
-				if ((State.active.variables.body.boobs == 1)) {
+				if ((State.active.variables.body.boobs.level == 1)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 50;
 				}
-				if ((State.active.variables.body.boobs == 2)) {
+				if ((State.active.variables.body.boobs.level == 2)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 100;
 				}
-				if ((State.active.variables.body.boobs == 3)) {
+				if ((State.active.variables.body.boobs.level == 3)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 200;
 				}
-				if ((State.active.variables.body.boobs == 4)) {
+				if ((State.active.variables.body.boobs.level == 4)) {
 					State.active.variables.tasksTeacherBody.breastsIncrease.rewardMoney = 400;
 				}
 			},
@@ -3017,7 +3017,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.body.boobs > State.active.variables.body.permBoobs) && (State.active.variables.body.boobs > State.active.variables.body.semiBoobs) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0);
+			return (State.active.variables.body.boobs.level > State.active.variables.body.boobs.permLevel) && (State.active.variables.body.boobs.level > State.active.variables.body.boobs.semiLevel) && (State.active.variables.tasksTeacherBody.breastsIncrease.status == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3039,36 +3039,36 @@ window.tasksTeacherBody={
 		failPenalty: 1,
 		events: {
 			start: function() {
-				if ((State.active.variables.body.boobs == 0)) {
+				if ((State.active.variables.body.boobs.level == 0)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 0;
 				}
-				if ((State.active.variables.body.boobs == 1)) {
+				if ((State.active.variables.body.boobs.level == 1)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 1;
 				}
-				if ((State.active.variables.body.boobs == 2)) {
+				if ((State.active.variables.body.boobs.level == 2)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 2;
 				}
-				if ((State.active.variables.body.boobs == 3)) {
+				if ((State.active.variables.body.boobs.level == 3)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 3;
 				}
-				if ((State.active.variables.body.boobs == 4)) {
+				if ((State.active.variables.body.boobs.level == 4)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.progress = 4;
 				}
 			},
 			finish: function() {
-				return (State.active.variables.body.boobs >= State.active.variables.tasksTeacherBody.breastsMaintain.progress);
+				return (State.active.variables.body.boobs.level >= State.active.variables.tasksTeacherBody.breastsMaintain.progress);
 			},
 			success: function() {
-				if ((State.active.variables.body.boobs == 1)) {
+				if ((State.active.variables.body.boobs.level == 1)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 50;
 				}
-				if ((State.active.variables.body.boobs == 2)) {
+				if ((State.active.variables.body.boobs.level == 2)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 100;
 				}
-				if ((State.active.variables.body.boobs == 3)) {
+				if ((State.active.variables.body.boobs.level == 3)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 200;
 				}
-				if ((State.active.variables.body.boobs == 4)) {
+				if ((State.active.variables.body.boobs.level == 4)) {
 					State.active.variables.tasksTeacherBody.breastsMaintain.rewardMoney = 400;
 				}
 			},
@@ -3116,7 +3116,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.lips == 1) || (State.active.variables.body.lips == 2));
+				return ((State.active.variables.body.lips.level == 1) || (State.active.variables.body.lips.level == 2));
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3140,7 +3140,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.lips == 1) && (State.active.variables.body.permLips <= 0) && (State.active.variables.body.semiLips <= 0) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
+			return ((State.active.variables.body.lips.level == 1) && (State.active.variables.body.lips.permLevel <= 0) && (State.active.variables.body.lips.semiLevel <= 0) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3163,7 +3163,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (((State.active.variables.body.lips == 1) || (State.active.variables.body.lips == 2)) && State.active.variables.flags.salonLips);
+				return (((State.active.variables.body.lips.level == 1) || (State.active.variables.body.lips.level == 2)) && State.active.variables.flags.salonLips);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3187,7 +3187,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.lips == 2) && (State.active.variables.body.permLips <= 1) && (State.active.variables.body.semiLips <= 1) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
+			return ((State.active.variables.body.lips.level == 2) && (State.active.variables.body.lips.permLevel <= 1) && (State.active.variables.body.lips.semiLevel <= 1) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3210,7 +3210,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.lips == 2) && State.active.variables.flags.salonLips);
+				return ((State.active.variables.body.lips.level == 2) && State.active.variables.flags.salonLips);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3257,7 +3257,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.body.ass > 0);
+				return (State.active.variables.body.ass.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3281,7 +3281,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.ass == 1) && (State.active.variables.body.permAss <= 0) && (State.active.variables.body.semiAss <= 0) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
+			return ((State.active.variables.body.ass.level == 1) && (State.active.variables.body.ass.permLevel <= 0) && (State.active.variables.body.ass.semiLevel <= 0) && (State.active.variables.tasksTeacherBody.assIncrease.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3304,7 +3304,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.ass > 0) && State.active.variables.flags.salonAss);
+				return ((State.active.variables.body.ass.level > 0) && State.active.variables.flags.salonAss);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3328,7 +3328,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.ass == 2) && (State.active.variables.body.permAss <= 1) && (State.active.variables.body.semiAss <= 1) && (State.active.variables.tasksTeacherBody.lipsIncrease.status == 0));
+			return ((State.active.variables.body.ass.level == 2) && (State.active.variables.body.ass.permLevel <= 1) && (State.active.variables.body.ass.semiLevel <= 1) && (State.active.variables.tasksTeacherBody.assIncrease.status == 0));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3351,7 +3351,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return ((State.active.variables.body.ass == 2) && State.active.variables.flags.salonAss);
+				return ((State.active.variables.body.ass.level == 2) && State.active.variables.flags.salonAss);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3375,7 +3375,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return (State.active.variables.body.anal == 0);
+			return (State.active.variables.body.anal.level == 0);
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3398,7 +3398,7 @@ window.tasksTeacherBody={
 		events: {
 			start: function() {},
 			finish: function() {
-				return (State.active.variables.body.anal > 0);
+				return (State.active.variables.body.anal.level > 0);
 			},
 			success: function() {},
 			fail: function() { return false; }
@@ -3422,7 +3422,7 @@ window.tasksTeacherBody={
 			}
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.semiAss > State.active.variables.body.permAss) || (State.active.variables.body.semiLips > State.active.variables.body.permLips) || (State.active.variables.body.semiManicure > State.active.variables.body.permManicure) || (State.active.variables.body.semiBoobs > State.active.variables.body.permBoobs) || (State.active.variables.body.semiMakeup > State.active.variables.body.permMakeup));
+			return ((State.active.variables.body.ass.semiLevel > State.active.variables.body.ass.permLevel) || (State.active.variables.body.lips.semiLevel > State.active.variables.body.lips.permLevel) || (State.active.variables.body.manicure.semiLevel > State.active.variables.body.manicure.permLevel) || (State.active.variables.body.boobs.semiLevel > State.active.variables.body.boobs.permLevel) || (State.active.variables.body.makeup.semiLevel > State.active.variables.body.makeup.permLevel));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above
@@ -3714,7 +3714,7 @@ window.tasksEmail={
 			perform: "Hello. I would pay $40 for a video of you jumping on a special horsecock dildo. Show me your hungry ass pussy taking it in and money is yours.\n\nThanks",
 		},
 		Conditions: function() {
-			return ((State.active.variables.body.anal == 3));
+			return ((State.active.variables.body.anal.level == 3));
 		},
 		image: "",
 		startPriority: 0,  // see priority system above

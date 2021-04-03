@@ -282,7 +282,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 \
 <<if $kink.penisShrink and $therapistTalks.talkPenisShrinking.finished and ($body.penisShrink.level eq 0)>>\
 	<<set _image = $body.penisShrink.level1.image>>\
-	<<set _name = $body.npenisShrinkose.level1.description>>\
+	<<set _name = $body.penisShrink.level1.description>>\
 	<<set _disabled = $body.penisShrink.level1.disabled>>\
 	<<set _cost = $body.penisShrink.level1.cost>>\
 	<<set _daringRec = $body.penisShrink.level1.daring>>\
@@ -1295,6 +1295,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<!--</face_softening>-->\
 	<!--<penis_shrinking>-->\
 <<elseif $scene eq "PenisShrinking">>\
+
 	<<set $player.money -= $body.penisShrink.level1.cost>>\
 	<<set $body.penisShrink.level = 1>>\
 	You hesitate, unsure how to start, and Nancy's intrigued gaze doesn't help you feel any less self-conscious. You start mumbling, avoiding the subject directly, going on about how you heard about certain treatments that affect the size of certain private parts.
