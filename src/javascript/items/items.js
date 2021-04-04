@@ -643,12 +643,19 @@ window.itemFuncs= {
         }
 
         var availableItemVariants = actVar.stores[storeID].availableItemVariants;
+        var variantNames = availableItemVariants.map(a => a.variant);
         var availableItemVariantObjects = [];
         var masterItemCounts = {};
         if(availableItemVariants){
             for(var i=0; i<availableItemVariants.length; i++){
                 var availableItemVariant = availableItemVariants[i];
-                
+                if(window.inventoryFuncs.isItemVariantOwned(availableItemVariant)){
+                    actVar.stores[storeID].availableItemVariants.splice(i, 1);
+                    availableItemVariants = actVar.stores[storeID].availableItemVariants;
+                }
+            }
+            for(var i=0; i<availableItemVariants.length; i++){
+                var availableItemVariant = availableItemVariants[i];
                 availableItemVariantObjects.push(window.itemFuncs.getItemByVariant(availableItemVariant));
                 var availableItemVariantObject = availableItemVariantObjects[i];
                 
@@ -659,6 +666,7 @@ window.itemFuncs= {
                     masterItemCounts[availableItemVariantObject.masterItem] = 1
                 }
             }
+            variantNames = availableItemVariants.map(a => a.variant);
         }
         else {
             return false;
@@ -671,7 +679,7 @@ window.itemFuncs= {
                 var masterItemCount = 0;
                 var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
                 itemVariants = itemVariants.filter(
-                    variant => !(variant.disabled) && !(availableItemVariants.includes(variant.variant))
+                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant))
                 );
                 var randMax = Math.floor(Math.random() * (9 - 5) + 5);
                 var maxItems = Math.min(randMax, itemVariants.length);
@@ -681,11 +689,12 @@ window.itemFuncs= {
                 if(masterItemCount < maxItems){
                     var newItemCount = maxItems - masterItemCount;
                     for(var j=0; j< newItemCount; j++){
-                        var randItem = Math.floor(Math.random() * (itemVariants.length - 1) + 1);
+                        var randItem = Math.floor(Math.random() * (itemVariants.length - 1) + 1)-1;
                         actVar.stores[storeID].availableItemVariants.push(itemVariants[randItem]);
                         availableItemVariants = actVar.stores[storeID].availableItemVariants;
+                        variantNames = availableItemVariants.map(a => a.variant);
                         itemVariants = itemVariants.filter(
-                            variant => !(variant.disabled) && !(availableItemVariants.includes(variant.variant))
+                            variant => !(variant.disabled) && !(variantNames.includes(variant.variant))
                         );
                     }
                 }
