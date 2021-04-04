@@ -14,10 +14,10 @@
 <<if not $flags.friendNamed>>\
 	<<include [[Name friend]]>>\
 \
-<<elseif not _underwear && $friendG.noUnderwear == 0 && _outerWear.female && not _outerWear.shorts>>\
+<<elseif not _underwear && $friendG.noUnderwear == 0 && _outerWear.isFemale && not _outerWear.shorts>>\
 	<<include [[Friend Commando First]]>>\
 \
-<<elseif not _underwear && $friendG.noUnderwear == 1 && _outerWear.female && not _outerWear.shorts>>\
+<<elseif not _underwear && $friendG.noUnderwear == 1 && _outerWear.isFemale && not _outerWear.shorts>>\
 	<<include [[Friend Commando Repeat]]>>\
 \
 <<elseif $friendG.catchUp gt 0>>\
