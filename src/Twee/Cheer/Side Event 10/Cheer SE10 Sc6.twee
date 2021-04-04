@@ -41,9 +41,10 @@ You snap to the pose Ashley orders, and she takes her time inspecting you. She b
 	You just stand there trembling, too terrified to form a proper reply.
 
 	Ashley grabs the front of your panties, yanking harshly.\
-	<<if $player.daring > 6 && _u.id != "cheerBriefs">>\
+	<<if $player.daring > 6 && _wornItem.variant != "cheerBriefs">>\
 		You can hear the rip of <<if _wornItem.masterItem == 'latexPanties'>>latex<<else>>fabric<<endif>> as the leg holes are torn from your hips, leaving Ashley holding your destroyed underwear in her balled-up fist.\
-			<<removeItemVariantFromInventory _wornItem.variant>>
+			<<removeItemVariantFromInventory _wornItem.variant>>\
+			<<removeClothingItem "underwear">>\
 	<<else>>\
 		She roughly pulls them down to your ankles and shoves you firmly to force you to step out of them, leaving her holding you underwear in her balled-up fist.\
 	<<endif>>\

@@ -96,6 +96,9 @@ Macro.add('wearStashedClothing', {
                 window.wardrobeFuncs.wearItemVariant(stashedClothing.variant);
                 actVar.player.stashedClothing[stashedClothingIdx] = null;
             }
+            else{
+                actVar.player.clothingSlots[stashedClothingIdx] = null;
+            }
         }
         window.wardrobeFuncs.updateSidebar();
     }

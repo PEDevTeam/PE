@@ -79,6 +79,20 @@ $.extend(true, window.items, {
                 cheer:true,
             }
         },
+        diapers:{
+            itemType:"underwear",
+            clothingSlot:"underwear",
+            name: "Diapers",
+            itemMaster: "diapers",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                diaper:true,
+            }
+        }
     },
     itemChildren:{
         //Boxers
@@ -1032,6 +1046,26 @@ $.extend(true, window.items, {
                 cheer:true,
                 red:true,
                 school:true,
+            }
+        },
+
+        //diapers
+        diaper00:{
+            masterItem:"diapers",
+            variant:"diaper_00",
+            name:"Pink ABDL Diaper",
+            price:80,
+            daring:0,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            tags:{
+                pink:true,
+                cheer:true,
+                school:true,
+                diaper:true,
             }
         },
     }

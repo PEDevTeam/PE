@@ -1001,7 +1001,7 @@ window.playerAddonsList={
 		underwear: null,
 		maid: null,
 	},
-	stachedClothing:{
+	stashedClothing:{
 		bra: null,
 		buttplug: null,
 		chastity: null,
