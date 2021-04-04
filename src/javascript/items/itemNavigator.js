@@ -387,7 +387,7 @@ window.itemNavigator = {
                     itemVariantWearSpan.navigatorType = navigatorType;
                     itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
                 }
-                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && actVar.flags.chastityKey){
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && !(actVar.flags.chastityKey)){
                     var itemVariantWearSpan = document.createElement('span');
                     var itemVariantWearText = document.createTextNode("Unlock");
                     itemVariantWearSpan.appendChild(itemVariantWearText);
@@ -399,7 +399,7 @@ window.itemNavigator = {
                     itemVariantWearSpan.navigatorType = navigatorType;
                     itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
                 }
-                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && !(actVar.flags.chastityKey)){
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && actVar.flags.chastityKey){
                     var itemVariantWearSpan = document.createElement('span');
                     var itemVariantWearText = document.createTextNode("Locked");
                     itemVariantWearSpan.appendChild(itemVariantWearText);
@@ -1020,6 +1020,23 @@ window.itemNavigator = {
             
         }
         this.updateClothingSet(setName);
+    },
+
+    replaceVariantForAllClothingSets: function(fromVariant, toVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSetIdx in actVar.clothingSets){
+            for(var itemVariantIdx in actVar.clothingSets[clothingSetIdx].itemVariants){
+                if(actVar.clothingSets[clothingSetIdx].itemVariants[itemVariantIdx] == fromVariant){
+                    actVar.clothingSets[clothingSetIdx].itemVariants[itemVariantIdx] = toVariant;
+                }
+            }
+        }
     }
 }
 
