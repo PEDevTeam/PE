@@ -391,20 +391,13 @@
 	<<if $scene eq "runAwayRestroom">>\
 		You quickly retreat to the ladies room.
 		
-		<!-- <<if playerCode.owns(itemsC.pantiesCotton)>>\ -->
 		<<if inventoryFuncs.ownsMasterItem('plainPanties')>>\
-			<!-- <<wearClothing 'pantiesCotton'>>\ -->
 			<<wearRandomItemByMaster 'plainPanties'>>\
 			<<set _panties=true>>\
-		<!-- <<elseif playerCode.owns(itemsC.gString)>>\ -->
 		<<elseif inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-			<!-- <<wearClothing 'gString'>>\ -->
 			<<wearRandomItemByMaster 'sexyPanties'>>\
 			<<set _panties=true>>\
-		<!-- <<elseif playerCode.owns(itemsC.pantiesLatex)>>\ -->
-		<!-- <<endif>> -->
 		<<elseif inventoryFuncs.ownsMasterItem('latexPanties')>>\
-			<!-- <<wearClothing 'pantiesLatex'>> -->
 			<<wearRandomItemByMaster 'latexPanties'>>\
 			<<set _panties=true>>\
 		<<endif>>\
@@ -439,8 +432,6 @@
 		[[Go inside|Task clubDancePanties][$scene="runAwayHome"]]
 	<<endif>>\
 <<elseif $scene eq "runAwayHome">>\
-	<!-- <<if playerCode.owns(itemsC.pantiesCotton) or playerCode.owns(itemsC.gString) or playerCode.owns(itemsC.pantiesLatex)>>\ -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('plainPanties') or inventoryFuncs.ownsMasterItem('sexyPanties') or inventoryFuncs.ownsMasterItem('latexPanties')>>\
 		You quietly close the front door and lock it, thinking about the high chances that $guardian is sleeping soundly right now. A naughty thought crosses your mind when you feel the loose feeling around your privates where your surrendered underwear used to be.
 
