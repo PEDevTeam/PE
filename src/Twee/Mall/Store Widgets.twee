@@ -27,11 +27,11 @@
 	<div style="display:grid;">\
 	<<set _soldMasterItems = window.itemFuncs.getItemMastersForStore(_storeID)>>\
 	<<for _i=0; _i lt _soldMasterItems.length; _i++>>\
-		<<if not($stores[_storeID].lastIndex[_i])>>\
-			<<set $stores[_storeID].lastIndex[_i] = 0>>\
-		<<endif>>\
 		<<set _masterItem=_soldMasterItems[_i]>>\
 		<<set _itemVariants=window.itemFuncs.getItemVariantsForPurchase(_masterItem.itemMaster, _storeID)>>\
+		<<if not($stores[_storeID].lastIndex[_i]) || $stores[_storeID].lastIndex[_i] > (_itemVariants.length-1)>>\
+			<<set $stores[_storeID].lastIndex[_i] = 0>>\
+		<<endif>>\
 		<<for _j=0; _j lt _itemVariants.length; _j++>>\
 			<<set _itemVariant = _itemVariants[_j]>>\
 			<<set _image to _itemVariant.variant + ".jpg">>\

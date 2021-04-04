@@ -177,6 +177,32 @@ window.inventoryFuncs= {
         return notTags;
     },
 
+    getTagsForInventoryItem: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.inventoryFuncs.getItemByVariant(item);
+        }
+        var tags = [];
+        for(var tagName in item.tags){
+            if(item.tags[tagName] && tags.indexOf(tagName) < 0){
+                tags.push(tagName);
+            }
+        }
+        var masterItem = window.items.itemMasters[item.masterItem];
+        for(var tagName in masterItem.tags){
+            if(masterItem.tags[tagName] && tags.indexOf(tagName) < 0 && (item.tags[tagName] === undefined || item.tags[tagName])){
+                tags.push(tagName);
+            }
+        }
+        return tags;
+    },
+
     getChildItemsForMaster: function(masterItem){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
@@ -338,6 +364,31 @@ window.inventoryFuncs= {
             var inventoryItem = actVar.inventory[inventoryIdx];
             if(typeof inventoryItem == 'object' && inventoryItem.variant == itemVariant.variant){
                 $.extend(true, inventoryItem.tags, {[tag]: value});
+            }
+        }
+    },
+
+    addTagToAllVariants(itemMaster, tag, value){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(itemMaster);
+        for(var itemVariantIdx in itemVariants){
+            console.log(itemVariants[itemVariantIdx].variant);
+            console.log(this.isItemVariantOwned(itemVariants[itemVariantIdx].variant));
+            if(this.isItemVariantOwned(itemVariants[itemVariantIdx].variant)){
+                var itemVariant = window.inventoryFuncs.getItemByVariant(itemVariants[itemVariantIdx].variant);
+                console.log(itemVariant);
+                for(var inventoryIdx in actVar.inventory){
+                    var inventoryItem = actVar.inventory[inventoryIdx];
+                    if(typeof inventoryItem == 'object' && inventoryItem.variant == itemVariant.variant){
+                        $.extend(true, inventoryItem.tags, {[tag]: value});
+                    }
+                }
             }
         }
     },

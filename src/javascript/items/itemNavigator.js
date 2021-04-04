@@ -529,7 +529,7 @@ window.itemNavigator = {
                 $("#itemVariantSetTooltipSpan").replaceWith(itemVariantSetTooltipSpan);
             }
 
-            var itemTags = window.itemFuncs.getTagsForItem(itemVariant);
+            var itemTags = window.inventoryFuncs.getTagsForInventoryItem(itemVariant);
             var itemVariantTagsDiv = window.itemNavigator.formatTagsDOM(itemTags);
             var itemVariantTagsTd = document.createElement('td');
             itemVariantTagsTd.id = "itemVariantTagsCell";
