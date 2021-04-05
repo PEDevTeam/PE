@@ -1,7 +1,9 @@
 :: Task clubDancePanties [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
 <<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-<<set _wornMasterItem=window.items.itemMasters[wornItem.itemMaster]>>\
+<<if _wornItem>>\
+	<<set _wornMasterItem=window.items.itemMasters[_wornItem.masterItem]>>\
+<<endif>>\
 \
 <<if $scene eq "step1">>\
 	<<if ($player.perversion.danceClub eq 2)>>\
@@ -368,24 +370,6 @@
 	<<endif>>\
 <<elseif $scene eq "runAwayRestroom" or $scene eq "runAway">>\
 	<<set _panties=false>>\
-	<!-- <<if _u.maxAlt>>\
-		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
-			<<if $items[_u.id].ownAlt[_i]>>\
-				<<if ($items[_u.id].curAlt eq _i)>>\
-					<<set $items[_u.id].ownAlt[_i] = null>>\
-				<<else>>\
-					<<set _pantiesNewCur=_i>>\
-					<<set _panties=true>>\
-				<<endif>>\
-			<<endif>>\
-		<</for>>\
-	<<endif>>\ -->
-	<!-- <<removeClothing _u.id>>\ -->
-	<!-- <<if (not _panties)>>\ -->
-		<!-- <<removeFromInv _u.id>>\ -->
-	<!-- <<else>>\
-		<<set $items[_u.id].curAlt = _pantiesNewCur>>\
-	<<endif>>\ -->
 	<<removeClothingItem 'underwear'>>\
 	<<removeItemVariantFromInventory _wornItem.variant>>\
 	<<if $scene eq "runAwayRestroom">>\

@@ -547,7 +547,9 @@
 		<<set _sp = false>>\
 		<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
 			<<set _activeTasks[_i].events.success()>>\
-			<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'finish')>>
+			<<nobr>>\
+				<<print window.tasksFunction.getTaskText(_activeTasks[_i].name, _activeTasks[_i].text, 'finish')>>
+			<</nobr>>\
 			<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
 				<<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
 				<<if _rewardDebt gt 0>>\
@@ -575,6 +577,7 @@
 		<<if _sp>>\
 		<<endif>>\
 	<</for>>\
+	<!-- New line after tasks -->
 	<!--</tasks check>-->\
 	<!--<clothes check>-->\
 	<<set $openQuote=false>>\
