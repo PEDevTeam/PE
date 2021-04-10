@@ -4,7 +4,7 @@
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<<set _waxed to playerCode.isWaxed()>>\
+<<set _waxed to not(playerCode.isHairy())>>\
 <<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if _under>>\ 
 	<<if not _under.isFemale>>\ 

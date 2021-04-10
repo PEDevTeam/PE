@@ -2,48 +2,26 @@
 Note: this may put clothing on you that you do not own so you are allowed to travel.  
 It can be removed at the bedroom.
 <<if $cheerleaders.progress > 10>>\
-	<!-- <<set playerCode.removeClothesJS('cheerBow')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('socks')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('cheerBriefs')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('hairbow')>>\ -->
 	<<set inventoryFuncs.removeClothing('headwear')>>\
 	<<set inventoryFuncs.removeClothing('hosiery')>>\
 	<<set inventoryFuncs.removeItemVariant('cheer_briefs')>>\
-	<!-- <<removeFromInv 'cheerDress'>>\ -->
 	<<removeItemVariantFromInventory 'cheer_dress'>>
-	<!--<<removeFromInv 'cheerBriefs'>>\ -->
 	<<removeItemVariantFromInventory 'cheer_briefs'>>
-	<!-- <<removeFromInv 'socks'>>\ -->
 	<<removeItemVariantFromInventory 'socks_43'>>
-	<!-- <<removeFromInv 'hairbow'>>\ -->
 	<<removeItemVariantFromInventory 'hairbow_43'>>
-	<!-- <<removeFromInv 'cheerSneakers'>>\ -->
 	<<removeItemVariantFromInventory 'cheer_sneakers'>>
-	<!-- <<wearClothing 'flats'>>\ -->
 	<<wearRandomItemByMaster 'flats'>>\
-	<!-- <<wearClothing 'schoolFemale'>>\ -->
 	<<wearRandomItemByMaster 'schoolDress'>>\
 <<elseif $cheerleaders.progress > 2>>\
-	<!-- <<set playerCode.removeClothesJS('cheerBow')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('socks')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('cheerBriefs')>>\ -->
-	<!-- <<set playerCode.removeClothesJS('hairbow')>>\ -->
 	<<set inventoryFuncs.removeClothing('headwear')>>\
 	<<set inventoryFuncs.removeClothing('hosiery')>>\
 	<<set inventoryFuncs.removeItemVariant('cheer_briefs')>>\
-	<!-- <<removeFromInv 'rookieUniform'>>\ -->
 	<<removeItemVariantFromInventory 'rookie_uniform'>>
-	<!-- <<removeFromInv 'cheerBriefs'>>\ -->
 	<<removeItemVariantFromInventory 'cheer_briefs'>>
-	<!-- <<removeFromInv 'socks'>>\ -->
 	<<removeItemVariantFromInventory 'socks_43'>>
-	<!-- <<removeFromInv 'hairbow'>>\ -->
 	<<removeItemVariantFromInventory 'hairbow_43'>>
-	<!-- <<removeFromInv 'cheerSneakers'>>\ -->
 	<<removeItemVariantFromInventory 'cheer_sneakers'>>
-	<!-- <<wearClothing 'flats'>>\ -->
 	<<wearRandomItemByMaster 'flats'>>\
-	<!-- <<wearClothing 'schoolFemale' 0>>\ -->
 	<<wearRandomItemByMaster 'schoolDress'>>\
 <<endif>>
 <<set $cheerleaders.active = false>>\

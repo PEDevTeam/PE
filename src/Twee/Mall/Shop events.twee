@@ -408,8 +408,7 @@
     [[Return to Mall|Go to the mall]]
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
-    <!-- <<wearItemVariant `_itemVariantName`>>\ -->
-    <<wearItemVariant 'nothing'>>\
+    <<wearItemVariant _itemVariantName>>\
 	<<set $mallLingerieIntro to 1>>\
 <<elseif $scene eq "first buy stockings" and _item>>\
     <<if $tasksTeacher.wearStockings.status == 1>>\
@@ -557,8 +556,7 @@
 
         With a shrug, you decide that it might be better to hide the stockings under your clothing rather than leave the changing rooms with worn stockings in your hands. You hurriedly get dressed, \
         peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new stockings and head back into the mall.
-        <!-- <<wearItemVariant `_itemVariantName`>>\ -->
-        <<wearItemVariant 'nothing'>>\
+        <<wearItemVariant _itemVariantName>>\
     <<else>>
         <<set _hosiery = window.wardrobeFuncs.getWornItem('hosiery')>>\
         <<if _hosiery>>\

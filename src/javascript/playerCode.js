@@ -172,13 +172,13 @@ window.playerCode={
 		return (State.active.variables.player.perversion.teacher >= 8);
 	},
 	isWaxed: function() {
-		return (State.active.variables.body.bodyhair == 1);
+		return (State.active.variables.body.bodyhair.level == 1);
 	},
 	isHairless: function() {
-		return (State.active.variables.body.bodyhair >= 2);
+		return (State.active.variables.body.bodyhair.level >= 2);
 	},
 	isHairy: function() {
-		return (State.active.variables.body.bodyhair == 0);
+		return (State.active.variables.body.bodyhair.level == 0);
 	},
 	isInChastity: function() {
 		return window.wardrobeFuncs.isItemMasterWearing('chastity');
