@@ -3,11 +3,15 @@
 <<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _hose=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if _hose>>
+	<<set _stock = _hose.masterItem == "stockings" || _hose.masterItem == "latexStockings">>
+	<<set _socks = _hose.masterItem == "socks">>
+<<endif>>
 <<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if $friendG.parkAttempt == 1>>\
-	<<if (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair.level == 0)>>\ 
+	<<if (_under.isMale or _chast == 0 or _hose == 0 or (_hose and _hose.isMale) or $body.bodyhair.level == 0)>>\ 
 		<<set $friendG.posingFail = 1>>\
 	<<endif>>\
 	<<if $friendG.parkFail == 1>>\
@@ -51,8 +55,8 @@
 
 	Without pausing, $friend rushes upstairs to <<if $friendG.gender == "F">>her<<else>>his sister’s<<endif>> walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you suggested it, thanks to another task from $teacher, you don’t argue and strip down to your underwear.
 
-	<<if (_under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
-		<<if (_under.setName==_bra.setName && _unser.setName!='')>>\
+	<<if (_under and _bra and _under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
+		<<if (_under.setName==_bra.setName && _under.setName!='')>>\
 			@@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
 			<<if $friendG.friendTaskFrustration gt 0>>\
 				<<set $friendGfriendTaskFrustration -= 1>>\
@@ -68,7 +72,7 @@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.parkFail = 1>>\
 		<<endif>>\
-		<<if _under.isMale == 1>>\
+		<<if _under and _under.isMale == 1>>\
 			@@.friend;"Boxers? Really?"@@ $friend shakes their head, looking disappointed. @@.friend;"I thought you were way past boxers."@@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.parkFail = 1>>\
@@ -116,12 +120,12 @@
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
-	<<if _stock.isFemale == 1>>\
+	<<if _hose.isFemale == 1>>\
 		<<set _femaleLegWear = true>>\
-		<<if (playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex))>>\
+		<<if _stock>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
 			<<set $friendG.friendseenstockings = 1>>
-		<<elseif playerCode.isWearing(itemsC.socks) == 1>>\
+		<<elseif _socks>>\
 			@@.friend;"Are those girl’s socks? They look kinda cute."@@\
 		<<endif>>\
 	<<else>>\
