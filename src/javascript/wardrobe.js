@@ -211,13 +211,12 @@ window.wardrobeFuncs = {
             var actVar = State.active.variables;
         }
         
-        if(typeof itemMaster !== 'object'){
-            itemMaster = window.items.itemMasters[itemMaster];
-        }
-        var activeMasterItem = window.items.itemMasters[actVar.player.clothingSlots[itemMaster.clothingSlot].masterItem];
-
-        if(activeMasterItem == masterItems){
-            actVar.player.clothingSlots[itemMaster.clothingSlot] = null;
+        itemMaster = window.itemFuncs.getItemMaster(itemMaster);
+        var wornClothing = actVar.player.clothingSlots[itemMaster.clothingSlot];
+        if(wornClothing){
+            if(wornClothing.masterItem == itemMaster.itemMaster){
+                actVar.player.clothingSlots[itemMaster.clothingSlot] = null;
+            }
         }
     },
     removeClothing: function(clothingSlot){
@@ -341,10 +340,11 @@ window.wardrobeFuncs = {
             var actVar = State.active.variables;
         }
 
-        var masterItem = window.items.itemMasters[itemMaster];
+        var masterItem = window.itemFuncs.getItemMaster(itemMaster);
         if(masterItem){
             var itemVariantClothingSlot = masterItem.clothingSlot;
             var currentlyWearing = actVar.player.clothingSlots[itemVariantClothingSlot];
+            console.log(currentlyWearing);
             if(currentlyWearing != null && currentlyWearing.masterItem == itemMaster){
                 return true;
             }
