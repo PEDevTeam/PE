@@ -180,11 +180,12 @@ window.itemFuncs= {
             var actVar = State.active.variables;
         }
 
+        masterItem = window.itemFuncs.getItemMaster(masterItem);
         var itemChildren = [];
         for(var itemName in window.items.itemChildren){
             var item = window.items.itemChildren[itemName];
             var itemVariant = window.itemFuncs.getItemByVariant(item);
-            if(typeof itemVariant == 'object' && itemVariant.masterItem == masterItem){
+            if(typeof itemVariant == 'object' && itemVariant.masterItem == masterItem.itemMaster){
                 itemChildren.push(itemVariant);
             }
         }
@@ -351,7 +352,8 @@ window.itemFuncs= {
 
         for(var arrIdx = actVar.inventory.length - 1; arrIdx >= 0; arrIdx--){
             var item = actVar.inventory[arrIdx];
-            if(typeof item == 'object' && item[propertyName] == propertyValue){
+            var itemVariant = window.itemFuncs.getItemByVariant(item);
+            if(typeof itemVariant == 'object' && itemVariant[propertyName] == propertyValue){
                 actVar.inventory.splice(arrIdx, 1);
             }
         }
@@ -512,6 +514,14 @@ window.itemFuncs= {
             if(overrideItem.itemMaster == item.itemMaster){
                 actVar.itemMasterOverrides.splice(itemIdx, 1);
             }
+        }
+
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(item);
+        console.log(itemVariants);
+        for(var itmIndex in itemVariants){
+            var itemVariant = itemVariants[itmIndex];
+            console.log(itemVariant);
+            window.itemFuncs.overrideItemVariantProperty(itemVariant, propertyName, propertyValue);
         }
         actVar.itemMasterOverrides.push(item);
     },

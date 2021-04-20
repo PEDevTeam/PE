@@ -265,8 +265,12 @@
 				@@.teacher;"Don't worry, I'm sure that you'll get used to it in no time."@@
 
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
-					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>
-					<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>
+					<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", false)>>\
+					<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", false)>>\
+					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
+					<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>\
+					<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
+					<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 					
 					@@.teacher;"I have also talked with $guardian. She agreed with me on this and she is throwing out the rest of your male clothing."@@
 					<<if _underwear and (not _underwear.isFemale)>>\
