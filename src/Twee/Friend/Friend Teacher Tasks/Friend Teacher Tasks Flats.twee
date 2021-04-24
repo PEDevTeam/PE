@@ -1,6 +1,12 @@
 :: Friend Teacher Tasks Flats
-<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<<set _socks=_stock.masterItem == 'socks'>>\
+<<set _hose=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if _hose>>\
+	<<set _socks=_stock.masterItem == 'socks'>>\
+	<<set _stock=_stock.masterItem == 'stockings'>>\
+<<else>>\
+	<<set _socks = false>>\
+	<<set _stock = false>>\
+<<endif>>\
 It feels like a big jump, to go from a bit of underwear to… more obvious things, but if you want to appease $teacher, you have no choice. Well, you suppose you could always buy some girl’s shoes in the mall, in the girl’s shoe store, which is full of girls…
 
 @@.hero;Yeah, I made the right choice@@
