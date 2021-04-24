@@ -115,7 +115,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks04:{
@@ -132,7 +131,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         socks05:{
@@ -149,7 +147,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks06:{
@@ -166,7 +163,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks07:{
@@ -183,7 +179,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks08:{
@@ -200,7 +195,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks09:{
@@ -217,7 +211,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks10:{
@@ -234,7 +227,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks11:{
@@ -251,7 +243,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks12:{
@@ -268,7 +259,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks13:{
@@ -285,7 +275,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks14:{
@@ -302,7 +291,6 @@ $.extend(true, window.items, {
             tags:{
                 yellow:true,
                 plain:true,
-                school:true,
             }
         },
         socks15:{
@@ -319,7 +307,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         socks16:{
@@ -336,7 +323,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks17:{
@@ -353,7 +339,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks18:{
@@ -371,7 +356,6 @@ $.extend(true, window.items, {
                 pink:true,
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks19:{
@@ -388,7 +372,6 @@ $.extend(true, window.items, {
             tags:{
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks20:{
@@ -405,7 +388,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         socks21:{
@@ -423,7 +405,6 @@ $.extend(true, window.items, {
                 pink:true,
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks22:{
@@ -440,7 +421,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks23:{
@@ -457,7 +437,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks24:{
@@ -474,7 +453,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         socks25:{
@@ -491,7 +469,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         socks26:{
@@ -510,7 +487,6 @@ $.extend(true, window.items, {
                 red:true,
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         socks43:{
@@ -648,7 +624,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings07:{
@@ -665,7 +640,6 @@ $.extend(true, window.items, {
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
         stockings08:{
@@ -682,7 +656,6 @@ $.extend(true, window.items, {
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
         stockings09:{
@@ -699,7 +672,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings10:{
@@ -716,7 +688,6 @@ $.extend(true, window.items, {
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
         stockings11:{
@@ -733,7 +704,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings12:{
@@ -750,7 +720,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings13:{
@@ -767,7 +736,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings14:{
@@ -784,7 +752,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings15:{
@@ -801,7 +768,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings16:{
@@ -818,7 +784,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         stockings17:{
@@ -835,7 +800,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         stockings18:{
@@ -852,7 +816,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings19:{
@@ -869,7 +832,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings20:{
@@ -886,7 +848,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings21:{
@@ -903,7 +864,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings22:{
@@ -920,7 +880,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings23:{
@@ -937,7 +896,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         stockings24:{
@@ -954,7 +912,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings25:{
@@ -971,7 +928,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings26:{
@@ -988,7 +944,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         stockings27:{
@@ -1005,7 +960,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings28:{
@@ -1022,7 +976,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         stockings39:{
@@ -1039,7 +992,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings40:{
@@ -1056,7 +1008,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings62:{
@@ -1073,7 +1024,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings74:{
@@ -1090,7 +1040,6 @@ $.extend(true, window.items, {
             tags:{
                 pruple:true,
                 plain:true,
-                school:true,
             }
         },
 
@@ -1110,6 +1059,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 slutty:true,
+                school:true,
             }
         },
         latexStockings01:{

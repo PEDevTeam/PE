@@ -333,7 +333,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
@@ -350,7 +349,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
@@ -367,7 +365,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
@@ -384,7 +381,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 black:true,
-                school:true,
                 plain:true,
             }
         },
@@ -401,7 +397,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 grey:true,
-                school:true,
                 plain:true,
             }
         },
@@ -418,7 +413,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 purple:true,
-                school:true,
                 plain:true,
             }
         },
@@ -435,7 +429,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 grey:true,
-                school:true,
                 plain:true,
             }
         },
@@ -452,7 +445,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -469,7 +461,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 pink:true,
-                school:true,
                 plain:true,
             }
         },
@@ -486,7 +477,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -503,7 +493,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 cream:true,
-                school:true,
                 plain:true,
             }
         },
@@ -520,7 +509,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 green:true,
-                school:true,
                 plain:true,
             }
         },
@@ -537,7 +525,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -554,7 +541,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -571,7 +557,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 orange:true,
-                school:true,
                 plain:true,
             }
         },
@@ -588,7 +573,6 @@ $.extend(true, window.items, {
             setName:"",
             tags:{
                 pink:true,
-                school:true,
                 plain:true,
             }
         },
@@ -609,6 +593,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots01:{
@@ -626,6 +611,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots02:{
@@ -643,6 +629,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots03:{
@@ -660,6 +647,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots04:{
@@ -677,6 +665,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots05:{
@@ -694,6 +683,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots06:{
@@ -711,6 +701,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots07:{
@@ -728,6 +719,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots08:{
@@ -745,6 +737,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots09:{
@@ -762,6 +755,7 @@ $.extend(true, window.items, {
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots10:{
@@ -780,6 +774,7 @@ $.extend(true, window.items, {
                 tartan:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots11:{
@@ -797,6 +792,7 @@ $.extend(true, window.items, {
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots12:{
@@ -814,6 +810,7 @@ $.extend(true, window.items, {
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots13:{
@@ -1462,7 +1459,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         flats11:{
@@ -1479,7 +1475,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats12:{
@@ -1496,7 +1491,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats13:{
@@ -1513,7 +1507,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats14:{
@@ -1530,7 +1523,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats15:{
@@ -1547,7 +1539,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats16:{
@@ -1564,7 +1555,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats17:{
@@ -1581,7 +1571,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats18:{
@@ -1598,7 +1587,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats19:{
@@ -1615,7 +1603,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats20:{
@@ -1632,7 +1619,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats21:{
@@ -1649,7 +1635,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats22:{
@@ -1666,7 +1651,6 @@ $.extend(true, window.items, {
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         flats23:{
@@ -1683,7 +1667,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats24:{
@@ -1700,7 +1683,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats25:{
@@ -1717,7 +1699,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats26:{
@@ -1734,7 +1715,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats27:{
@@ -1751,7 +1731,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats28:{
@@ -1768,7 +1747,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats29:{
@@ -1785,7 +1763,6 @@ $.extend(true, window.items, {
             tags:{
                 brown:true,
                 plain:true,
-                school:true,
             }
         },
         flats30:{
@@ -1802,7 +1779,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         flats31:{
@@ -1819,7 +1795,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats32:{
@@ -1836,7 +1811,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats33:{
@@ -1853,7 +1827,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         flats62:{
@@ -2332,7 +2305,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2350,7 +2322,6 @@ $.extend(true, window.items, {
             tags:{
                 yellow:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2368,7 +2339,6 @@ $.extend(true, window.items, {
             tags:{
                 brown:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2386,7 +2356,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2404,7 +2373,6 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2422,7 +2390,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2440,7 +2407,6 @@ $.extend(true, window.items, {
             tags:{
                 purple:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2458,7 +2424,6 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2476,7 +2441,6 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2494,7 +2458,6 @@ $.extend(true, window.items, {
             tags:{
                 cream:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2512,7 +2475,6 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2548,7 +2510,6 @@ $.extend(true, window.items, {
             tags:{
                 white:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2566,7 +2527,6 @@ $.extend(true, window.items, {
             tags:{
                 purple:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },

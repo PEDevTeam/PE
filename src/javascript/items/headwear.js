@@ -50,6 +50,7 @@ $.extend(true, window.items, {
             tags:{
                 red:true,
                 plain:true,
+                school:true,
             }
         },
         hairbands01:{
@@ -66,6 +67,7 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
+                school:true,
             }
         },
         hairbands02:{
@@ -82,6 +84,7 @@ $.extend(true, window.items, {
             tags:{
                 pink:true,
                 plain:true,
+                school:true,
             }
         },
         hairbands03:{
@@ -98,12 +101,13 @@ $.extend(true, window.items, {
             tags:{
                 blue:true,
                 plain:true,
+                school:true,
             }
         },
         hairbands04:{
             masterItem:"hairbands",
             variant:"hairband_04",
-            name:"Black Hairband with RBlack Bow",
+            name:"Black Hairband with Black Bow",
             price:20,
             daring:6,
             disabled:false,
@@ -114,6 +118,7 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
+                school:true,
             }
         },
         hairbands05:{
@@ -213,6 +218,7 @@ $.extend(true, window.items, {
                 red:true,
                 plain:true,
                 tartan:true,
+                school:true,
             }
         },
         hairbows01:{
