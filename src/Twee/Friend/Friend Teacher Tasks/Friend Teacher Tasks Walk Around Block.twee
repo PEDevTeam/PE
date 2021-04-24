@@ -8,7 +8,7 @@
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if $friendG.blockAttempt == 1>>\
 	@@.friend;“I hope you put some effort into it this time,”@@ $friend states.
-	<<if (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair.level == 0)>>\ 
+	<<if (_under && (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair.level == 0))>>\ 
 		<<set $friendG.posingFail = 1>>\
 	<<endif>>\
 
@@ -52,8 +52,8 @@
 
 	Without pausing, $friend tears upstairs into $friendG.his_her sister’s walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you need to do this to avoid upsetting teacher, and remembering this was your idea, you strip down to your underwear.
 
-	<<if (_under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
-		<<if (_under.setName==_bra.setName && _unser.setName!='')>>\
+	<<if (_under && _bra && _under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
+		<<if (_under.setName==_bra.setName && _under.setName!='')>>\
 			@@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
 			<<if $friendG.friendTaskFrustration gt 0>>\
 				<<set $friendGfriendTaskFrustration -= 1>>\
@@ -69,7 +69,7 @@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.blockFail = 1>>\
 		<<endif>>\
-		<<if _under.isMale == 1>>\
+		<<if _under && _under.isMale == 1>>\
 			@@.friend;"Boxers? Really?"@@ $friend shakes their head, looking disappointed. @@.friend;"I thought you were way past boxers."@@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.blockFail = 1>>\
@@ -117,7 +117,7 @@
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
-	<<if _stock.isFemale>>\
+	<<if _stock && _stock.isFemale>>\
 		<<set _femaleLegWear = true>>\
 		<<if (_stock.masterItem=='stockings' or _stock.masterItem=='latexStockings')>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
