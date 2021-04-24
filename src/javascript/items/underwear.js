@@ -186,7 +186,7 @@ $.extend(true, window.items, {
             variant:"lucky_jocks_05",
             name:"Plain Black Boxers with White Band",
             price:10,
-            daring:10,
+            daring:0,
             disabled:false,
             isMale:true,
             isFemale:false,

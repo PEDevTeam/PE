@@ -291,18 +291,21 @@ window.inventoryFuncs= {
         }
     },
 
-    checkItemInInventory: function(item){
+    checkItemInInventory: function(itemVariant){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
         }
         else{
             var actVar = State.active.variables;
         }
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
+        }
 
         var itemInInventory = false;
         for(var inventItemIdx in actVar.inventory){
             var inventItem = actVar.inventory[inventItemIdx];
-            if(!(inventItem.variant === undefined) && inventItem.variant == item.variant){
+            if(!(inventItem.variant === undefined) && inventItem.variant == itemVariant.variant){
                 itemInInventory = true;
             }
         }

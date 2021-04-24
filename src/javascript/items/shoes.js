@@ -135,7 +135,7 @@ $.extend(true, window.items, {
         sneakers:{
             itemType:"shoes",
             clothingSlot:"shoes",
-            name:"Sneekers",
+            name:"Sneakers",
             itemMaster: "sneakers",
             daring:0,
             disabled:false,
