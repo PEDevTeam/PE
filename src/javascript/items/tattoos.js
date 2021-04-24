@@ -32,6 +32,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -49,6 +50,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -66,6 +68,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -83,6 +86,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
@@ -99,6 +103,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
@@ -115,6 +120,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
@@ -131,6 +137,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
@@ -147,6 +154,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,

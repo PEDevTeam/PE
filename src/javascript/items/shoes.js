@@ -176,6 +176,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -193,6 +194,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -210,6 +212,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -229,6 +232,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -246,6 +250,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -263,6 +268,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -280,6 +286,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -297,6 +304,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 school:true,
@@ -314,6 +322,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 school:true,
@@ -331,6 +340,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -347,6 +357,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -363,6 +374,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -379,6 +391,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -395,6 +408,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
@@ -411,6 +425,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
@@ -427,6 +442,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
@@ -443,6 +459,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
@@ -459,6 +476,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -475,6 +493,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
@@ -491,6 +510,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 plain:true,
@@ -507,6 +527,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
@@ -523,6 +544,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
@@ -539,6 +561,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
@@ -555,6 +578,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 orange:true,
                 plain:true,
@@ -571,6 +595,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -589,6 +614,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -607,6 +633,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -625,6 +652,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -643,6 +671,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -661,6 +690,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -679,6 +709,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -697,6 +728,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -715,6 +747,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -733,6 +766,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -751,6 +785,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -769,6 +804,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 tartan:true,
@@ -788,6 +824,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -806,6 +843,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -824,6 +862,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -841,6 +880,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -858,6 +898,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -875,6 +916,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -892,6 +934,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -909,6 +952,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -926,6 +970,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -943,6 +988,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -960,6 +1006,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -977,6 +1024,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
@@ -994,6 +1042,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1011,6 +1060,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 blue:true,
                 green:true,
@@ -1032,6 +1082,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1050,6 +1101,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1068,6 +1120,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1086,6 +1139,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1104,6 +1158,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1122,6 +1177,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -1140,6 +1196,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -1158,6 +1215,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1176,6 +1234,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -1194,6 +1253,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1212,6 +1272,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -1230,6 +1291,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -1248,6 +1310,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -1266,6 +1329,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1286,6 +1350,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1303,6 +1368,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1320,6 +1386,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1337,6 +1404,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1354,6 +1422,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1371,6 +1440,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1388,6 +1458,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1405,6 +1476,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1422,6 +1494,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1439,6 +1512,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1456,6 +1530,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1472,6 +1547,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -1488,6 +1564,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -1504,6 +1581,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1520,6 +1598,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -1536,6 +1615,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1552,6 +1632,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -1568,6 +1649,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1584,6 +1666,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -1600,6 +1683,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -1616,6 +1700,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1632,6 +1717,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1648,6 +1734,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
@@ -1664,6 +1751,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1680,6 +1768,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1696,6 +1785,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1712,6 +1802,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1728,6 +1819,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -1744,6 +1836,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -1760,6 +1853,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
@@ -1776,6 +1870,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1792,6 +1887,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1808,6 +1904,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1824,6 +1921,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -1840,6 +1938,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1857,6 +1956,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1874,6 +1974,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1891,6 +1992,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1908,6 +2010,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1925,6 +2028,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -1944,6 +2048,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1960,6 +2065,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -1976,6 +2082,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1992,6 +2099,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2008,6 +2116,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2024,6 +2133,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2040,6 +2150,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2056,6 +2167,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2072,6 +2184,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2088,6 +2201,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2104,6 +2218,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2122,6 +2237,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2140,6 +2256,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2158,6 +2275,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2176,6 +2294,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2194,6 +2313,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2212,6 +2332,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2230,6 +2351,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -2248,6 +2370,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
@@ -2266,6 +2389,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2284,6 +2408,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 sexy:true,
@@ -2302,6 +2427,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2319,6 +2445,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 yellow:true,
                 sexy:true,
@@ -2336,6 +2463,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -2353,6 +2481,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -2370,6 +2499,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2387,6 +2517,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -2404,6 +2535,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2421,6 +2553,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2438,6 +2571,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -2455,6 +2589,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
@@ -2472,6 +2607,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
@@ -2489,6 +2625,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
@@ -2507,6 +2644,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 sexy:true,
@@ -2524,6 +2662,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2543,6 +2682,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2561,6 +2701,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2579,6 +2720,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2597,6 +2739,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2615,6 +2758,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2633,6 +2777,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2651,6 +2796,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -2669,6 +2815,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2687,6 +2834,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2705,6 +2853,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2723,6 +2872,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2741,6 +2891,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -2759,6 +2910,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2777,6 +2929,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -2797,6 +2950,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2815,6 +2969,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2833,6 +2988,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -2851,6 +3007,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2869,6 +3026,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2887,6 +3045,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 pink:true,
@@ -2906,6 +3065,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2924,6 +3084,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2942,6 +3103,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2960,6 +3122,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2978,6 +3141,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -2996,6 +3160,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -3014,6 +3179,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -3032,6 +3198,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -3050,6 +3217,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -3068,6 +3236,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -3086,6 +3255,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 pink:true,
@@ -3105,6 +3275,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -3123,6 +3294,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
@@ -3143,6 +3315,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -3159,6 +3332,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -3175,6 +3349,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -3191,6 +3366,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -3209,6 +3385,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 plain:true,
@@ -3227,6 +3404,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 sexy:true,

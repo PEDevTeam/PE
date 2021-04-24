@@ -738,6 +738,16 @@ window.structures={
 		for(var storeIdx in stores){
 			vars.stores.push(stores[storeIdx])
 		}
+
+		//add in default bras and panties to store so we always have a base "set" available
+		var defaultBraSet = window.itemFuncs.getItemByVariant('bra_00');
+		var defaultPantySet = window.itemFuncs.getItemByVariant('panties_cotton_00');
+		var defaultSexyBraSet = window.itemFuncs.getItemByVariant('bra_sexy_00');
+		var defaultSexyPantySet = window.itemFuncs.getItemByVariant('panties_sexy_00');
+		vars.stores[5].availableItemVariants.push(defaultBraSet);
+		vars.stores[5].availableItemVariants.push(defaultPantySet);
+		vars.stores[5].availableItemVariants.push(defaultSexyBraSet);
+		vars.stores[5].availableItemVariants.push(defaultSexyPantySet);
 	},
 },
 

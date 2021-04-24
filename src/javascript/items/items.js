@@ -657,7 +657,7 @@ window.itemFuncs= {
         var availableItemVariantObjects = [];
         var masterItemCounts = {};
         if(availableItemVariants){
-            for(var i=0; i<availableItemVariants.length; i++){
+            for(var i=0; i<availableItemVariants.length; i++){ //Removing owned item variants
                 var availableItemVariant = availableItemVariants[i];
                 if(window.inventoryFuncs.isItemVariantOwned(availableItemVariant)){
                     actVar.stores[storeID].availableItemVariants.splice(i, 1);
@@ -689,13 +689,13 @@ window.itemFuncs= {
                 var masterItemCount = 0;
                 var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
                 itemVariants = itemVariants.filter(
-                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant))
+                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy)
                 );
-                var randMax = Math.floor(Math.random() * (9 - 5) + 5);
-                var maxItems = Math.min(randMax, itemVariants.length);
                 if(masterItemCounts[masterItemName]){
                     masterItemCount = masterItemCounts[masterItemName];
                 }
+                var randMax = masterItemCount + Math.floor(Math.random() * (9 - 5) + 5); //keep adding between 5 & 8 items each refresh
+                var maxItems = Math.min(randMax, itemVariants.length);
                 if(masterItemCount < maxItems){
                     var newItemCount = maxItems - masterItemCount;
                     for(var j=0; j< newItemCount; j++){
@@ -704,7 +704,7 @@ window.itemFuncs= {
                         availableItemVariants = actVar.stores[storeID].availableItemVariants;
                         variantNames = availableItemVariants.map(a => a.variant);
                         itemVariants = itemVariants.filter(
-                            variant => !(variant.disabled) && !(variantNames.includes(variant.variant))
+                            variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy)
                         );
                     }
                 }

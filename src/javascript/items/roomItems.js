@@ -46,6 +46,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -61,6 +62,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -76,6 +78,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -92,6 +95,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_gamer",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -107,6 +111,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_gamer",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -122,6 +127,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_geek",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -137,6 +143,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_geek",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -152,6 +159,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_punk",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -167,6 +175,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_punk",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -182,6 +191,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_sport",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -197,6 +207,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_sport",
+            canBuy:true,
             tags:{
                 room:true
             }
@@ -212,6 +223,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }

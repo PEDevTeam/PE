@@ -107,6 +107,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 grey:true,
@@ -124,6 +125,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 blue:true,
@@ -141,6 +143,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 yellow:true,
@@ -158,6 +161,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 grey:true,
@@ -175,6 +179,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 black:true,
@@ -192,6 +197,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 grey:true,
@@ -209,6 +215,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 grey:true,
@@ -227,6 +234,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 red:true,
@@ -246,6 +254,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain White",
+            canBuy:true,
             tags:{
                 plain:true,
                 white:true,
@@ -264,6 +273,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain White",
+            canBuy:true,
             tags:{
                 plain:true,
                 white:true,
@@ -282,6 +292,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain White",
+            canBuy:true,
             tags:{
                 plain:true,
                 white:true,
@@ -300,6 +311,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Grey Polka Dots",
+            canBuy:true,
             tags:{
                 plain:true,
                 white:true,
@@ -319,6 +331,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain Pink",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -337,6 +350,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain Bright Pink",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -355,6 +369,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain Pink and Grey",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
@@ -373,6 +388,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain Black",
+            canBuy:true,
             tags:{
                 plain:true,
                 grey:true,
@@ -391,6 +407,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Plain Black Polka Dots",
+            canBuy:false,
             tags:{
                 plain:true,
                 black:true,
@@ -412,6 +429,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 purple:true,
                 school:true,
@@ -429,6 +447,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
                 blue:true,
@@ -449,6 +468,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Tartan",
+            canBuy:true,
             tags:{
                 sexy:true,
                 red:true,
@@ -467,6 +487,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Red with Dots",
+            canBuy:true,
             tags:{
                 sexy:true,
                 red:true,
@@ -485,6 +506,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Silky Cream",
+            canBuy:true,
             tags:{
                 sexy:true,
                 pink:true,
@@ -503,6 +525,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Cream Dots",
+            canBuy:true,
             tags:{
                 sexy:true,
                 pink:true,
@@ -522,6 +545,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Blue Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 blue:true,
@@ -541,6 +565,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Pink and Cream Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 pink:true,
@@ -560,6 +585,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Purple Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 purple:true,
@@ -579,6 +605,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Pink and Black Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 pink:true,
@@ -598,6 +625,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Yellow Silky",
+            canBuy:true,
             tags:{
                 sexy:true,
                 yellow:true,
@@ -616,6 +644,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Mauve Frilly",
+            canBuy:true,
             tags:{
                 sexy:true,
                 purple:true,
@@ -635,6 +664,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Purple with Bows Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 purple:true,
@@ -654,6 +684,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Cream Open",
+            canBuy:true,
             tags:{
                 sexy:true,
                 pink:true,
@@ -672,6 +703,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Blue and Black Silky",
+            canBuy:true,
             tags:{
                 sexy:true,
                 blue:true,
@@ -691,6 +723,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Blue and White Frilly",
+            canBuy:true,
             tags:{
                 sexy:true,
                 blue:true,
@@ -709,6 +742,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 black:true,
@@ -728,6 +762,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 black:true,
@@ -747,6 +782,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 black:true,
@@ -766,6 +802,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 sexy:true,
                 white:true,
@@ -785,6 +822,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Red Lacy",
+            canBuy:true,
             tags:{
                 sexy:true,
                 red:true,
@@ -804,6 +842,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Lacy with Pink",
+            canBuy:false,
             tags:{
                 sexy:true,
                 black:true,
@@ -824,6 +863,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Red Strappy and Lacy",
+            canBuy:false,
             tags:{
                 sexy:true,
                 red:true,
@@ -844,6 +884,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Pink and Not Yours",
+            canBuy:false,
             tags:{
                 sexy:true,
                 pink:true,
@@ -864,6 +905,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Pink and Not Yours",
+            canBuy:false,
             tags:{
                 sexy:true,
                 pink:true,
@@ -884,6 +926,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 sexy:true,
                 white:true,
@@ -903,6 +946,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Blue and Pink Lacy",
+            canBuy:false,
             tags:{
                 sexy:true,
                 blue:true,
@@ -923,6 +967,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Blue and Pink Lacy",
+            canBuy:false,
             tags:{
                 sexy:true,
                 blue:true,
@@ -943,6 +988,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Red Fine Lacy",
+            canBuy:false,
             tags:{
                 sexy:true,
                 purple:true,
@@ -965,6 +1011,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Latex",
+            canBuy:true,
             tags:{
                 sexy:true,
                 slutty:true,
@@ -983,6 +1030,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Latex",
+            canBuy:true,
             tags:{
                 sexy:true,
                 slutty:true,
@@ -1001,6 +1049,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:true,
             setName:"Black Latex",
+            canBuy:true,
             tags:{
                 sexy:true,
                 slutty:true,
@@ -1020,6 +1069,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 sexy:true,
                 slutty:true,
@@ -1041,6 +1091,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
                 cheer:true,
@@ -1061,6 +1112,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 pink:true,
                 cheer:true,
