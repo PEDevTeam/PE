@@ -1,6 +1,6 @@
 :: Watch porn on computer [pos_620_933]
 \
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _ar to false>>\
 <<if $flags.ashleyTrained && randomCode.percent(33)>>\
 	<<set _ar to true>>\
@@ -52,7 +52,7 @@
 <<endif>>\
 <<if $scene eq "masturbate">>\
 
-	<<if _ar && _c>>\
+	<<if _ar && _chastity>>\
 		Your cock reacts instantly, straining painfully enough in the cage as you feel her phantom fingers teasing you.  Your mind is overwhelmed as it recalls the scent of her perfume and conjures her voice lashing out with all manner of insults and taunts.  You twitch in the chair, on the verge of cumming, but, thanks to the cage, unable to give yourself the final push over the edge.
 		
 		It takes what seems like an eternity to free yourself from the indoctrinated hallucinations, but finally the assault on your senses subsides, leaving you gasping in a pool of your own precum.
@@ -74,7 +74,7 @@
 		<<set playerCode.masturbate.tease(3)>>\
 
 		[[Do something else|Go to bedroom]]
-	<<elseif _c>>\
+	<<elseif _chastity>>\
 		<<set playerCode.masturbate.tease(1)>>\
 		<<set playerCode.changeArousal(5)>>\
 		<<set playerCode.upArousalTo(50,50)>>\

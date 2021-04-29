@@ -28,20 +28,20 @@ From your breasts, her gaze slides to your butt
 
 Continuing down your legs, she finishes off by staring at your shoes.
 
-<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<if not _shoes.heels>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if not window.inventoryFuncs.hasTag(_shoes, 'heels')>>\
 	@@.teacher;“Flats? No, no no. Anyone can shuffle around in flat shoes. I intend to teach you how to move like a proper woman, and that requires you to wear heels. Walking in heels is far different from your usual trudging, and is an essential skill for you to master. 
 
 	I expect you to be dressed properly for these lessons. Moreover, you have a lovely pair of legs that will garner far more attention if you show them off properly.  We will try again when you wear appropriate footwear to class.”@@
-<<elseif _shoes.heels and not _shoes.slutty>>\
+<<elseif window.inventoryFuncs.hasTag(_shoes, 'heels') and not window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
 	@@.teacher;“What a lovely pair of heels. Nice and steep to show off your legs but not so high as to distract from the rest of your body.”@@
-<<elseif _shoes.heels and _shoes.slutty>>\
+<<elseif window.inventoryFuncs.hasTag(_shoes, 'heels') and window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
 	@@.teacher;Those heels of yours…”@@ She smiles. @@.teacher;They might be a bit much, but if you are up to the challenge of mastering them it will certainly serve to attract no shortage of attention.”@@
 <<else>>\
 	ERROR: unexpected heels
 <</if>>\
 
-<<if not _shoes.heels>>\
+<<if not window.inventoryFuncs.hasTag(_shoes, 'heels')>>\
 	$teacher frowns. @@.teacher;“I am sorry but you are just not physically prepared for today’s lesson. Please address the flaws I pointed out before rescheduling.”@@
 
 	[[Finish school day]]

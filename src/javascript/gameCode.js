@@ -2,7 +2,7 @@ window.gameCode={
 	version: "1.1000"
 };
 
-Config.history.maxStates=5;
+Config.history.maxStates=50; //TODO Set this back to 5 after testing
 
 window.sidebarTabs=[
 	{

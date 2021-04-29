@@ -1,6 +1,6 @@
 :: Friend Task Manga
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if not (_chastity and $flags.chastityKey)>>\
 	<<set playerCode.masturbate.cum()>>\
 <<endif>>\
@@ -36,7 +36,7 @@ You reach down to pick up the next one and realize that it’s not the same seri
 		fumble around your locked member in frustration.
 	<<elseif _chastity>>\
 		<<set $flags.chastityLocked to false>>\
-		<<set playerCode.removeClothesJS(_chastity.id)>>\
+		<<removeClothingItem 'chastity'>> 
 		<<set _chastity to false>>\
 		remove the chastity, jerking off to the images until you explode in your hand.
 	<<else>>\
@@ -67,7 +67,7 @@ You reach down to pick up the next one and realize that it’s not the same seri
 		fumble around your locked member in frustration.
 	<<elseif _chastity>>\
 		<<set $flags.chastityLocked to false>>\
-		<<set playerCode.removeClothesJS(_chastity.id)>>\
+		<<removeClothingItem 'chastity'>> 
 		<<set _chastity to false>>\
 		remove the chastity, jerking off to the images until you explode in your hand.
 	<<else>>\

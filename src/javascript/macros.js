@@ -34,7 +34,7 @@ macros.initInv = {
 
 // Add an item to your inventory:
 // Usage: <<addToInv rock>> or <<addToInv "a smooth rock">>
-macros.addToInv = {
+macros.addToInv_d = {
   handler: function(place, macroName, params, parser) {
     if (params.length == 0) {
       throwError(place, "<<" + macroName + ">>: no parameters given");
@@ -67,13 +67,13 @@ macros.addToInv = {
 		state.active.variables.inventory.push(w.id);
 		state.active.variables.inventory=state.active.variables.inventory.sort();
     }
-	macros.getInventoryList.handler(document.getElementById('inventory'));
+	macros.getInventoryList_d.handler(document.getElementById('inventory'));
   }
 };
 
 // Removes an item from your inventory
 // Usage: <<removeFromInv rock>> or <<removeFromInv "a smooth rock">>
-macros.removeFromInv = {
+macros.removeFromInv_d = {
 	handler: function(place, macroName, params, parser) {
 		if (params.length == 0) {
 			throwError(place, "<<" + macroName + ">>: no parameters given");
@@ -141,7 +141,7 @@ macros.invWithLinks = {
   }
 };
 
-macros.getInventoryList = {
+macros.getInventoryList_d = {
   handler: function(place, macroName, params, parser) {
 //		new Wikifier(place, 'Aside from your clothing, ');
 		var inv=state.active.variables.inventory;
@@ -202,13 +202,12 @@ macros ['glitchText'] = {
 			
 				str+='<span class="'+glitch+'" data-text="'+text[i]+'">'+text[i]+'</span> '; 
 			}
-			console.log(str);
 			new Wikifier(place, str);	
 			
 		}
 }
 
-macros.wearClothing = {
+macros.wearClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		if (!w) {
@@ -238,7 +237,7 @@ macros.wearClothing = {
 	}
 };
 
-macros.buyItem = {
+macros.buyItem_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -289,7 +288,7 @@ macros.buyItem = {
 	}
 };
 
-macros.payForItem = {
+macros.payForItem_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -315,7 +314,7 @@ macros.payForItem = {
 	}
 };
 
-function getItem(id) {
+function getItem_d(id) {
 	var ca=window.itemsC;
 	
 	for (var i=0; i<Object.keys(ca).length; i++) {
@@ -342,7 +341,7 @@ function getItemObject(id) {
 	return false;
 }
 
-function getItemName(id) {
+function getItemName_d(id) {
 	var ca=state.active.variables.items;
 	var w=window.itemsC[id];
 	var wV=window.itemF.itemTwee(id);
@@ -371,7 +370,7 @@ macros.notDressed = {
 	}
 };
 
-macros.showClothingImage = {
+macros.showClothingImage_d = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.clothingSelectorRender) {
 			state.active.variables.clothingSelectorRender=false;
@@ -405,7 +404,7 @@ macros.showClothingImage = {
 	}
 };
 
-macros.showClothingImageSidebar = {
+macros.showClothingImageSidebar_d = {
   handler: function(place, macroName, params, parser) {
 		if (state.active.variables.clothingSelectorRender) {
 			state.active.variables.clothingSelectorRender=false;
@@ -490,7 +489,7 @@ macros.showRoomImage = {
 	}
 };
 
-macros.removeClothing = {
+macros.removeClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		if (!w) {
@@ -504,7 +503,7 @@ macros.removeClothing = {
 	}
 };
 
-macros.removeClothingType = {
+macros.removeClothingType_d = {
   handler: function(place, macroName, params, parser) {
 		if (!params[0]) {
 			throwError(place, "<<" + macroName + ">>: invalid item type '" + params[0] + "'");
@@ -520,7 +519,7 @@ macros.removeClothingType = {
 	}
 };
 
-macros.nextClothing = {
+macros.nextClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
@@ -540,7 +539,7 @@ macros.nextClothing = {
 	}
 };
 
-macros.previousClothing = {
+macros.previousClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemF.itemTwee(params[0]);
 		if (!w) {
@@ -560,7 +559,7 @@ macros.previousClothing = {
 	}
 };
 
-macros.nextStoreClothing = {
+macros.nextStoreClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -593,7 +592,7 @@ macros.nextStoreClothing = {
 	}
 };
 
-macros.previousStoreClothing = {
+macros.previousStoreClothing_d = {
   handler: function(place, macroName, params, parser) {
 		var w=window.itemsC[params[0]];
 		var wV=window.itemF.itemTwee(params[0]);
@@ -665,6 +664,9 @@ macros.showAvatarImage = {
 						$('#showClothes').append(str);
 						console.log("createAvatar:"+str);
 					}
+					
+					$('#showClothes').empty();
+					$('#showClothes').append(str);
 				}, 1);
 			}
 		}

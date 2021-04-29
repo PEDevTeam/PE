@@ -16,133 +16,162 @@
 
 <img id="item_preview" class="hidden">\
 <<if not $flags.salonManicure>>\
-	<<if ($body.permManicure lte 0) and ($body.semiManicure lte 0)>>\
-		<<set _item=itemsC.Manicure>>\
+	<<if ($body.manicure.semiLevel lte 0) and ($body.manicure.permLevel lte 0)>>\
+		<<set _image = $body.manicure.level1.image>>\
+		<<set _name = $body.manicure.level1.description>>\
+		<<set _disabled = $body.manicure.level1.disabled>>\
+		<<set _cost = $body.manicure.level1.cost>>\
+		<<set _daringRec = $body.manicure.level1.daring>>\
 		<<set _sceneName="Manicure">>\
 		<<set _override=($tasksTeacherBody.manicure.status gt 0) or ($tasksTeacherBody.manicure_renewal.status gt 0)>>\
 		<<display "Clinic buy menu">>
 \
+		<<set _image = $body.manicure.level2.image>>\
+		<<set _name = $body.manicure.level2.description>>\
+		<<set _disabled = $body.manicure.level2.disabled>>\
+		<<set _cost = $body.manicure.level2.cost>>\
+		<<set _daringRec = $body.manicure.level2.daring>>\
 		<<set _item=itemsC.GarishManicure>>\
 		<<set _sceneName="GarishManicure">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.permManicure lte 0)>>\
-		<<set _item=itemsC.token>>\
+	<<if ($body.manicure.permLevel lte 0)>>\
 		<<set _override=false>>\
-		<<set $items[_item.id].cost = 10*itemsC.Manicure.cost>>\
-		<<set $items[_item.id].image = itemsC.Manicure.image>>\
-		<<set $items[_item.id].daringRec = 8>>\
-		<<set $items[_item.id].name = "Permanent manicure">>\
+		<<set _image = $body.manicure.level1.image>>\
+		<<set _name = "Permanent manicure">>\
+		<<set _disabled = $body.manicure.level1.disabled>>\
+		<<set _cost = $body.manicure.level1.cost * 10>>\
+		<<set _daringRec = 8>>\
 		<<set _sceneName="PermanentManicure">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<if ($body.permManicure lte 1)>>\
-		<<set _item=itemsC.token>>\
+	<<if ($body.manicure.permLevel lte 1)>>\
 		<<set _override=false>>\
-		<<set $items[_item.id].cost = 3*itemsC.GarishManicure.cost>>\
-		<<set $items[_item.id].image = itemsC.GarishManicure.image>>\
-		<<set $items[_item.id].daringRec = 9>>\
-		<<set $items[_item.id].name = "Permanent garish manicure">>\
+		<<set _image = $body.manicure.level1.image>>\
+		<<set _name = "Permanent garish manicure">>\
+		<<set _disabled = $body.manicure.level1.disabled>>\
+		<<set _cost = $body.manicure.level1.cost * 3>>\
+		<<set _daringRec = 9>>\
 		<<set _sceneName="PermanentGarishManicure">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
 \
-<<if (not ($body.hairstyle eq 1))>>\
-<<set _item=itemsC.HairShort>>\
+<<if (not ($body.hairstyle.level eq 0))>>\
+	<<set _image = $body.hairstyle.level0.image>>\
+	<<set _name = $body.hairstyle.level0.description>>\
+	<<set _disabled = $body.hairstyle.level0.disabled>>\
+	<<set _cost = $body.hairstyle.level0.cost>>\
+	<<set _daringRec = $body.hairstyle.level0.daring>>\
 	<<set _sceneName="HairShort">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle eq 2))>>\
-<<set _item=itemsC.HairMedium>>\
+<<if (not ($body.hairstyle.level eq 1))>>\
+	<<set _image = $body.hairstyle.level1.image>>\
+	<<set _name = $body.hairstyle.level1.description>>\
+	<<set _disabled = $body.hairstyle.level1.disabled>>\
+	<<set _cost = $body.hairstyle.level1.cost>>\
+	<<set _daringRec = $body.hairstyle.level1.daring>>\
 	<<set _sceneName="HairMedium">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle eq 3))>>\
-<<set _item=itemsC.HairLong>>\
+<<if (not ($body.hairstyle.level eq 2))>>\
+	<<set _image = $body.hairstyle.level2.image>>\
+	<<set _name = $body.hairstyle.level2.description>>\
+	<<set _disabled = $body.hairstyle.level2.disabled>>\
+	<<set _cost = $body.hairstyle.level2.cost>>\
+	<<set _daringRec = $body.hairstyle.level2.daring>>\
 	<<set _sceneName="HairLong">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle eq 4))>>\
-<<set _item=itemsC.HairPigtails>>\
+<<if (not ($body.hairstyle.level eq 4))>>\
+	<<set _image = $body.hairstyle.level4.image>>\
+	<<set _name = $body.hairstyle.level4.description>>\
+	<<set _disabled = $body.hairstyle.level4.disabled>>\
+	<<set _cost = $body.hairstyle.level4.cost>>\
+	<<set _daringRec = $body.hairstyle.level4.daring>>\
 	<<set _sceneName="HairPigtails">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle eq 5))>>\
-<<set _item=itemsC.HairCurly>>\
+<<if (not ($body.hairstyle.level eq 3))>>\
+	<<set _image = $body.hairstyle.level3.image>>\
+	<<set _name = $body.hairstyle.level3.description>>\
+	<<set _disabled = $body.hairstyle.level3.disabled>>\
+	<<set _cost = $body.hairstyle.level3.cost>>\
+	<<set _daringRec = $body.hairstyle.level3.daring>>\
 	<<set _sceneName="HairCurly">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
 <<if playerCode.haveHaircut()>>\
-	<<set _item=itemsC.token>>\
 	<<set _override=false>>\
-	<<set $items[_item.id].cost = 20>>\
-	<<set $items[_item.id].daringRec = 3>>\
+	<<set _cost = 20>>\
+	<<set _daringRec = 3>>\
+	<<set _disabled = false>>\
 \
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<set _hairLine = "hair_short_">>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<set _hairLine = "hair_medium_">>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<set _hairLine = "hair_long_">>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<set _hairLine = "hair_pigtails_">>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<set _hairLine = "hair_curly_">>\
 	<<endif>>\
 \
 	<<if $body.hairColor neq 0>>\
 		<<set _sceneName="Black">>\
-		<<set $items[_item.id].image = _hairLine+"black.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Black">>\
+		<<set _image = _hairLine+"black.jpg">>\
+		<<set _name = "Hair color - Black">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 1>>\
 		<<set _sceneName="Brown">>\
-		<<set $items[_item.id].image = _hairLine+"brown.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Brown">>\
+		<<set _image = _hairLine+"brown.jpg">>\
+		<<set _name = "Hair color - Brown">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 2>>\
 		<<set _sceneName="Red">>\
-		<<set $items[_item.id].image = _hairLine+"red.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Red">>\
+		<<set _image = _hairLine+"red.jpg">>\
+		<<set _name = "Hair color - Red">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 3>>\
 		<<set _sceneName="Blonde">>\
-		<<set $items[_item.id].image = _hairLine+"blonde.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Blonde">>\
+		<<set _image = _hairLine+"blonde.jpg">>\
+		<<set _name = "Hair color - Blonde">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 4>>\
 		<<set _sceneName="Silver">>\
-		<<set $items[_item.id].image = _hairLine+"silver.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Silver">>\
+		<<set _image = _hairLine+"silver.jpg">>\
+		<<set _name= "Hair color - Silver">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
 	<<if $body.hairColor neq 5>>\
 		<<set _sceneName="Pink">>\
-		<<set $items[_item.id].image = _hairLine+"pink.jpg">>\
-		<<set $items[_item.id].name = "Hair color - Pink">>\
+		<<set _image = _hairLine+"pink.jpg">>\
+		<<set _name = "Hair color - Pink">>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 <<endif>>\
@@ -151,10 +180,10 @@
 \
 	<!--<Clinic manicure>-->\
 <<elseif $scene eq "Manicure">>\
-	<<set _previousManicure = $body.manicure>>\
-	<<set $body.manicure = 1>>\
-	<<set _item=itemsC.Manicure>>\
-	<<buyItem _item.id>>\
+	<<set _previousManicure = $body.manicure.level>>\
+	<<set $body.manicure.level = 1>>\
+	<<set $body.manicure.semiLevel = 1>>\
+	<<set $player.money -= $body.manicure.level1.cost>>
 	<<set $flags.salonManicure to true>>\
 
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
@@ -192,10 +221,10 @@
 	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
 \
 <<elseif $scene eq "GarishManicure">>\
-	<<set _previousManicure = $body.manicure>>\
-	<<set $body.manicure = 2>>\
-	<<set _item=itemsC.GarishManicure>>\
-	<<buyItem _item.id>>\
+	<<set _previousManicure = $body.manicure.level>>\
+	<<set $body.manicure.level = 2>>\
+	<<set $body.manicure.semiLevel = 2>>\
+	<<set $player.money -= $body.manicure.level2.cost>>
 	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she retrieves and prepares your manicure kit. She gives your hands and feet a relaxing rubdown, then applies a soothing pumice scrub to them, removing any traces of hair and leaving your skin soft and smooth.
 
@@ -235,10 +264,9 @@
 <<elseif $scene eq "PermanentManicure">>\
 	<<if ($body.manicure eq 2)>>\
 	<<endif>>\
-	<<set $body.manicure = 1>>\
-	<<set _item=itemsC.Manicure>>\
-	<<buyItem _item.id>>\
-	<<set $body.permManicure = 1>>\
+	<<set $body.manicure.level = 1>>\
+	<<set $body.manicure.permLevel = 1>>\
+	<<set $player.money -= $body.manicure.level1.cost*10>>
 	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially-sealed bag.
 
@@ -260,13 +288,12 @@
 
 	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
 <<elseif $scene eq "PermanentGarishManicure">>\
-	<<set $body.manicure = 2>>\
-	<<set _item=itemsC.GarishManicure>>\
-	<<buyItem _item.id>>\
+	<<set $body.manicure.level = 2>>\
+	<<set $player.money -= $body.manicure.level1.cost*3>>
 	<<set $flags.salonManicure to true>>\
 	Nancy has you sit in the spa chair, soaking your hands and feet in a pleasantly-warm bath salt solution while she prepares her equipment. She goes in the back, and returns with a unique manicure kit wrapped in a specially sealed bag.
 
-	<<if $body.permManicure eq 1>>\
+	<<if $body.manicure.permLevel eq 1>>\
 	She looks over your hands and feet. Since they're permanently soft, smooth and hairless after your last special nail treatment, she smiles and gives you a brief rubdown just to relax you.
 
 	<<else>>\
@@ -291,16 +318,15 @@
 	
 	@@.reward;You now have a permanently whorish manicure and pedicure!@@
 
-	<<set $body.permManicure = 2>>\
+	<<set $body.manicure.permLevel = 2>>\
 	[[Return|Clinic Manicure and Hair styling][$scene=""; $random.stored=0]]
 	<!--</Clinic manicure>-->\
 	<!--<Clinic haircut>-->\
 <<elseif $scene eq "HairShort" or $scene eq "HairMedium" or $scene eq "HairLong" or $scene eq "HairPigtails" or $scene eq "HairCurly">>\
 	<<set $player.punishments.hairCutChange = true>>\
 	<<if $scene eq "HairShort">>\
-		<<set $body.hairstyle = 1>>\
-		<<set _item=itemsC.HairShort>>\
-		<<buyItem _item.id>>\
+		<<set $body.hairstyle.level = 0>>\
+		<<set $player.money -= $body.hairstyle.level0.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she states.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some hair extensions.  They don't add much length but they do add a lot more fullness and volume to your hair.
@@ -315,9 +341,8 @@
 		
 		@@.reward;You now have a cute, short hairstyle!@@
 	<<elseif $scene eq "HairMedium">>\
-		<<set $body.hairstyle = 2>>\
-		<<set _item=itemsC.HairMedium>>\
-		<<buyItem _item.id>>\
+		<<set $body.hairstyle.level = 1>>\
+		<<set $player.money -= $body.hairstyle.level1.cost>>
 		@@.nurse;"I'm so glad you wanted to get your hair done!"@@ Nancy beams. @@.nurse;"I think this style will look great on you."@@
 		
 		She smiles congenially, leading you over to a purpose-made salon chair. As you settle in to the plush, comfortable seat, you're naturally draw to your reflection in the large, wall-mounted mirror. Meeting your gaze in the glass, Nancy fluffs your hair with her fingers, then tilts your head back and forth to examine your bone structure in the light.
@@ -340,9 +365,8 @@
 		
 		@@.reward;You now have a beautiful, medium-length hairstyle!@@
 	<<elseif $scene eq "HairLong">>\
-		<<set $body.hairstyle = 3>>\
-		<<set _item=itemsC.HairLong>>\
-		<<buyItem _item.id>>\
+		<<set $body.hairstyle.level = 2>>\
+		<<set $player.money -= $body.hairstyle.level2.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some length to your hair with hair extensions.  These extensions are premium and go all the way down to the middle of your back!  As a bonus, these extensions have a very feminine permanent wave in them.  You will have very little maintenance to do with this style and you will always look fantastic with it!
@@ -355,9 +379,8 @@
 		
 		@@.reward;You now have a long, wavy hairstyle!@@
 	<<elseif $scene eq "HairPigtails">>\
-		<<set $body.hairstyle = 4>>\
-		<<set _item=itemsC.HairPigtails>>\
-		<<buyItem _item.id>>\
+		<<set $body.hairstyle.level = 4>>\
+		<<set $player.money -= $body.hairstyle.level4.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some length to your hair with hair extensions.  These extensions go just past your shoulders and add a good deal of volume to your hair as well.
@@ -372,9 +395,8 @@
 		
 		@@.reward;You now have a girly, pigtailed hairstyle!@@
 	<<elseif $scene eq "HairCurly">>\
-		<<set $body.hairstyle = 5>>\
-		<<set _item=itemsC.HairCurly>>\
-		<<buyItem _item.id>>\
+		<<set $body.hairstyle.level = 3>>\
+		<<set $player.money -= $body.hairstyle.level3.cost>>
 		Nancy leads you towards a purpose-made salon chair and helps you relax in its cushioned seat. She swishes an apron over your body, and tells you to get comfortable. 
 		
 		@@.nurse;"I bet you're going to just //love// this look!"@@ Nancy says animatedly.

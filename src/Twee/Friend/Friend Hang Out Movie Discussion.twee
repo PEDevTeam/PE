@@ -1,24 +1,17 @@
 :: Friend Hang Out Movie Discussion
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _socks = true>>\
-<<if _stockings>>\
-	<<if _stockings.slutty>>\
-		<<set _socks = false>>\
-	<<endif>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<if _under>>\ 
+	<<if not _under.isFemale>>\ 
+		<<set _maleUnder = true>>\ 
+	<<endif>>\ 
 <<endif>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<set _waxed to not playerCode.isHairy()>>\
-<<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _femUnder = false>>\
-<<if _under>>\
-	<<if not _under.female>>\
-		<<set _maleUnder = true>>\
-	<<endif>>\
-<<endif>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\
 \
 You grab the TV remote and pull up the film menu. 
 
@@ -73,13 +66,13 @@ You grab the TV remote and pull up the film menu.
 		@@.hero;Wait, she’s a shemale?@@
 
 		You become engrossed in the film, not realising how turned on you are, despite the confusion of which of the people performing horizontal dancing on the screen you feel more affinity to. 
-		<<if not _outerwear.female>>\
+		<<if not _outerwear.isFemale>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings && not _socks>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings && not _socks>>stocking top<<else>>naked thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<endif>>\
 
@@ -318,7 +311,7 @@ You grab the TV remote and pull up the film menu.
 
 				You flop back in frustration. On-screen the perfectly-made up blonde has her dress open, the camera looking up from her feet allowing you to see her dangling cock, dripping cum as the $friend-alike pounds her with a large strap on. The blonde shudders in her own orgasm and the $friend-alike withdraws.
 
-				<<if playerCode.owns(itemsC.vibrator)>>\
+				<<if $player.hasVibrator>>\
 					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend’s orgasms to subside. 
 				<<else>>\
 					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend’s orgasms to subside.
@@ -344,7 +337,7 @@ You grab the TV remote and pull up the film menu.
 
 				You flop back in frustration, bemoaning the cage. On-screen the brunette is on her hands and knees while the naked guy thrusts his cock deep into her ass. The brunette is gasping and squealing in pleasure as the guy fills her completely, pumping hot cum inside her ass before they both flop on the bed, him still inside her. Seeing her orgasm from a cock inside her body makes your mind loop.
 
-				<<if playerCode.owns(itemsC.vibrator)>>\
+				<<if $player.hasVibrator>>\
 					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend to release his grip.  
 				<<else>>\
 					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend to release his grip.  
@@ -370,7 +363,7 @@ You grab the TV remote and pull up the film menu.
 
 				You flop back in frustration, bemoaning the cage. On-screen the blonde is face down on the bed, $friend-alike’s much larger cock buried in her ass. $friend-alike grunts as she cums, trembling as she shoots her cum deep inside the blonde’s body. Although they are two shemales, there is no doubt which one is the alpha. The blonde gasps and squeals as the $friend-alike fills her completely, shuddering in her own orgasm without even touching her own smaller penis. Seeing her orgasm from a cock inside her body makes your mind loop.
 
-				<<if playerCode.owns(itemsC.vibrator)>>\
+				<<if $player.hasVibrator>>\
 					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend to release his grip.  
 				<<else>>\
 					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend to release his grip.  

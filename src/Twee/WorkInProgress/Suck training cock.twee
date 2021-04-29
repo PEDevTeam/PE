@@ -1,10 +1,10 @@
 :: Suck training cock [pos_54_936]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _p to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<if $scene eq "alarm">>\
 	<!--<training dick alarm>-->\
 	<<if (not $flags.alarmDildoIgnore)>>\
@@ -79,7 +79,7 @@
 		<<endif>>\
 		
 		What's really exhilarating is that this big, lifelike cock is fully yours to toy with for as long as you want. You're free to try any dirty trick or weird fantasy without fear of being ridiculed. And\
-		<<if _c>>\
+		<<if _chastity>>\
 			the painful pressure in your chastity cage\
 		<<else>>\
 			your hard on\
@@ -165,7 +165,7 @@
 			@@.hero;Oh, fuck it.@@
 			
 			Feeling giddy, you trace the cock from head to base with your tongue, and start licking its balls, sucking on them softly. The taste is somehow much more intense, saltiness and faint bitterness filling your mouth, humiliating and intoxicating at the same time. Your penis\
-			<<if _c>>\
+			<<if _chastity>>\
 				strains in your chastity cage\
 			<<else>>\
 				is rock hard\
@@ -239,8 +239,8 @@
 		<<endif>>\		
 		
 		Groaning, you get up, biting your lip as your legs cramp from prolonged kneeling.
-		<<if not _o or (_o and _o.female)>>\
-			<<if not _u>>\
+		<<if not _outerwear or (_outerwear and _outerwear.isFemale)>>\
+			<<if not _underwear>>\
 				You suddenly feel wetness on your legs. You look down and realize that you've leaked a small poodle of precum on the floor.
 			<<else>>\
 				Shifting makes you realize that your underwear is somehow moist. You look down and find that your underwear has gotten damp from the precum you've been leaking.

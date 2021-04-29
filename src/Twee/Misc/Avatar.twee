@@ -1,30 +1,30 @@
 :: Avatar [pos_1273_215]
 <!--Using tab on page adds line breaks. Not sure why.-->\
 \
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 \
 <<if $avatar.classic == 0>>\
 <<switch playerCode.isMind()>>\
 <<case 0>>\
 	<<set _arms="arms_relaxed.png">>\
 <<case 1>>\
-	<<if ($body.manicure eq 2)>>\
+	<<if ($body.manicure.level eq 2)>>\
 		<<set _arms="arms_spread_fake_nails.png">>\
 	<<else>>\
 		<<set _arms="arms_spread.png">>\
 	<<endif>>\
 <<default>>\
-	<<if ($body.manicure eq 2)>>\
+	<<if ($body.manicure.level eq 2)>>\
 		<<set _arms="arms_flirty_fake_nails.png">>\
 	<<else>>\
 		<<set _arms="arms_flirty.png">>\
 	<<endif>>\
 <</switch>>\
 \
-<<if ($body.ass eq 2)>>\
+<<if ($body.ass.level eq 2)>>\
 	<<set _hips="hips_2.png">>\
 	<<set _hs=2>>\
-<<elseif ($body.ass eq 1)>>\
+<<elseif ($body.ass.level eq 1)>>\
 	<<set _hips="hips_1.png">>\
 	<<set _hs=1>>\
 <<else>>\
@@ -32,39 +32,39 @@
 	<<set _hs=0>>\
 <<endif>>\
 \
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<if _f>>\
-	<<if _f.female>>\
-		<<if _f.daringRec gte 6>>\
-			<<if $items[_f.id].curAlt eq 0>>\
-				<<set _feets="feets_stripper_a.png">>\
-			<<elseif $items[_f.id].curAlt eq 1>>\
-				<<set _feets="feets_stripper_b.png">>\
-			<<elseif $items[_f.id].curAlt eq 2>>\
-				<<set _feets="feets_stripper_c.png">>\
-			<<else>>\
-				<<set _feets="feets_stripper_d.png">>\
-			<<endif>>\
-		<<elseif _f.cheer>>\
-			<<set _feets="feets_shoes_socks_cheer.png">>\
-		<<else>>\
-			<<if $items[_f.id].curAlt eq 0>>\
-				<<set _feets="feets_heels_a.png">>\
-			<<elseif $items[_f.id].curAlt eq 2>>\
-				<<set _feets="feets_heels_b.png">>\
-			<<elseif $items[_f.id].curAlt eq 3>>\
-				<<set _feets="feets_heels_c.png">>\
-			<<else>>\
-				<<set _feets="feets_heels_d.png">>\
-			<<endif>>\
-		<<endif>>\
-	<<else>>\
-		<<if _f.school>>\
-			<<set _feets="feets_shoes.png">>\
-		<<else>>\
-			<<set _feets="feets_sneakers.png">>\
-		<<endif>>\
-	<<endif>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<if _shoes.isFemale>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>
+			<<if _shoes.itemVariant == 'heels_stripper_00'>>
+				<<set _feets="feets_stripper_a.png">>
+			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>
+				<<set _feets="feets_stripper_b.png">>
+			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>
+				<<set _feets="feets_stripper_c.png">>
+			<<else>>
+				<<set _feets="feets_stripper_d.png">>
+			<<endif>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
+			<<set _feets="feets_shoes_socks_cheer.png">>
+		<<else>>
+			<<if _shoes.itemVariant == 'heels_00'>>
+				<<set _feets="feets_heels_a.png">>
+			<<elseif _shoes.itemVariant == 'heels_02'>>
+				<<set _feets="feets_heels_b.png">>
+			<<elseif _shoes.itemVariant == 'heels_03'>>
+				<<set _feets="feets_heels_c.png">>
+			<<else>>
+				<<set _feets="feets_heels_d.png">>
+			<<endif>>
+		<<endif>>
+	<<else>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>
+			<<set _feets="feets_shoes.png">>
+		<<else>>
+			<<set _feets="feets_sneakers.png">>
+		<<endif>>
+	<<endif>>
 <<else>>\
 	<<if $player.heelsSkill lte 6>>\
 		<<set _feets="feets_stand.png">>\
@@ -73,16 +73,16 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if ($body.boobs eq 4)>>\
+<<if ($body.boobs.level eq 4)>>\
 	<<set _chest="chest_dd.png">>\
 	<<set _bs=4>>\
-<<elseif ($body.boobs eq 3)>>\
+<<elseif ($body.boobs.level eq 3)>>\
 	<<set _chest="chest_c.png">>\
 	<<set _bs=3>>\
-<<elseif ($body.boobs eq 2)>>\
+<<elseif ($body.boobs.level eq 2)>>\
 	<<set _chest="chest_b.png">>\
 	<<set _bs=2>>\
-<<elseif ($body.boobs eq 1)>>\
+<<elseif ($body.boobs.level eq 1)>>\
 	<<set _chest="chest_a.png">>\
 	<<set _bs=1>>\
 <<else>>\
@@ -90,16 +90,16 @@
 	<<set _bs=0>>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
+<<if $body.surgerySexualReassignment.level gt 0>>\
 	<<set _groin="groin_pussy.png">>\
-<<elseif playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<if ($body.penisShrink eq 1)>>\
+<<elseif window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_chastity_1.png">>\
 	<<else>>\
 		<<set _groin="groin_chastity_2.png">>\
 	<<endif>>\
 <<else>>\
-	<<if ($body.penisShrink eq 1)>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_penis_1.png">>\
 	<<else>>\
 		<<set _groin="groin_penis_2.png">>\
@@ -107,32 +107,32 @@
 <<endif>>\
 \
 <<if playerCode.haveHeavyMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_3_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_3.png">>\
 	<<endif>>\
 <<elseif playerCode.haveBimboMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_2_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_2.png">>\
 	<<endif>>\
 <<elseif playerCode.haveMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_1_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_1.png">>\
 	<<endif>>\
 <<else>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_0_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_0.png">>\
 	<<endif>>\
 <<endif>>\
 \
-<<if ($body.lips eq 2)>>\
+<<if ($body.lips.level eq 2)>>\
 	<<if playerCode.haveHeavyMakeup()>>\
 		<<set _lips="lips_33.png">>\
 	<<elseif playerCode.haveBimboMakeup()>>\
@@ -142,7 +142,7 @@
 	<<else>>\
 		<<set _lips="lips_30.png">>\
 	<<endif>>\
-<<elseif ($body.lips eq 1)>>\
+<<elseif ($body.lips.level eq 1)>>\
 	<<if playerCode.haveHeavyMakeup()>>\
 		<<set _lips="lips_23.png">>\
 	<<elseif playerCode.haveBimboMakeup()>>\
@@ -165,15 +165,15 @@
 <<endif>>\
 \
 <<if playerCode.haveHaircut()>>\
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<set _hair="hair_short_">>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<set _hair="hair_medium_">>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<set _hair="hair_long_">>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<set _hair="hair_tails_">>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<set _hair="hair_curly_">>\
 	<<endif>>\
 	<<if $body.hairColor eq 0>>\
@@ -196,19 +196,19 @@
 <<set _sk=false>>\
 \
 <<if $avatar.mode eq 0>>\
-	<<if playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		<<set _chest="clothes_slutty_top_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _sk=true>>\
-		<<if _u>>\
+		<<if _underwear>>\
 			<<set _chest2="clothes_slutty_skirt_hips_">>\
 		<<else>>\
 			<<set _chest2="clothes_slutty_skirt_low_hips_">>\
 		<<endif>>\
 		<<set _chest2+=_hs>>\
 		<<set _chest2+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
 		<<if _bs lte 2>>\
 			<<set _bs = 0>>\
 		<<endif>>\
@@ -216,7 +216,7 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -230,7 +230,7 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
 		<<if _bs lt 2>>\
 			<<set _bs = 2>>\
 		<<endif>>\
@@ -242,7 +242,7 @@
 		<<set _chest2+=_hs>>\
 		<<set _chest2+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -250,31 +250,31 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 		<<set _chest="clothes_pyjamas_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 		<<set _chest="clothes_maid_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _feets="feets_maid_heels.png">>\
-	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
 		<<if (_bs lte 3) and (_bs gte 1)>>\
 			<<set _bs = 1>>\
 		<<endif>>\
 		<<set _chest="clothes_casual_dress_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
 		<<set _chest="clothes_casual_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
 		<<set _chest+=_hs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.rookieUniform) || playerCode.isWearing(itemsC.sluttyCheer)>>\
+	<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') || window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		<<set _chest="clothes_cheer_rookie_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
@@ -284,7 +284,7 @@
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
 		<<set _arms="arms_spread.png">>\
-	<<elseif playerCode.isWearing(itemsC.cheerDress)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 		<<set _chest="clothes_cheer_uniform_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
@@ -298,24 +298,24 @@
 <<endif>>\
 \
 <<if $avatar.mode lte 1>>\
-	<<if playerCode.isWearing(itemsC.jocksLucky)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
 		<<set _groin="underwear_cotton_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
 		<<set _groin="underwear_satin_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.gString)>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<set _groin="underwear_gstring_chastity_hips_">>\
 		<<elseif playerCode.isHorny()>>\
 			<<set _groin="underwear_gstring_alt_hips_">>\
@@ -328,18 +328,18 @@
 <<endif>>\
 \
 <<set _bow = "none">>\
-<<set _b = playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<if _b.id == "hairbow" && $items[_b.id].curAlt eq 43>>\
+<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
+<<if _headwear.itemVariant == 'hairband_43'>>
 	<<if playerCode.haveHaircut()>>\
-		<<if ($body.hairstyle eq 1)>>\
+		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
-		<<elseif ($body.hairstyle eq 2)>>\
+		<<elseif ($body.hairstyle.level eq 2)>>\
 			<<set _bow="bow_cheer_bow_medium.png">>\
-		<<elseif ($body.hairstyle eq 3)>>\
+		<<elseif ($body.hairstyle.level eq 3)>>\
 			<<set _bow="bow_cheer_bow_long.png">>\
-		<<elseif ($body.hairstyle eq 4)>>\
+		<<elseif ($body.hairstyle.level eq 4)>>\
 			<<set _bow="bow_cheer_bow_tails.png">>\
-		<<elseif ($body.hairstyle eq 5)>>\
+		<<elseif ($body.hairstyle.level eq 5)>>\
 			<<set _bow="bow_cheer_bow_curly.png">>\
 		<<endif>>\
 	<<else>>\
@@ -353,7 +353,7 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _arms>>'>>\
 <<endif>>\
 \
-<<if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0>>\
+<<if (window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')  or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')) and $avatar.mode eq 0>>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "hand_cheer_pompom_handr.png">>'>>\
 <<endif>>\
 \
@@ -375,7 +375,7 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _chest2>>'>>\
 <<endif>>\
 \
-<<if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0>>\
+<<if (window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')) and $avatar.mode eq 0>>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "hand_cheer_pompom_handl.png">>'>>\
 <<endif>>\
 \
@@ -387,7 +387,7 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _lips>>'>>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.PiercingLips)>>\
+<<if $body.lipsPierced.level gt 0>>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "piercing_lips.png">>'>>\
 <<endif>>\
 \
@@ -395,13 +395,13 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hair>>'>>\
 <<endif>>\
 \
-<<if $body.earsPierced>>\
-	<<if playerCode.isWearing(itemsC.diamondStuds)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_diamond.png">>'>>\
-	<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_ruby.png">>'>>\
-	<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_hoops.png">>'>>\
+<<if $body.earsPierced.level gt 0>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('casualEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_diamond.png">>'>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_ruby.png">>'>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('flashyEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_hoops.png">>'>>\
 	<<endif>>\
 <<endif>>\
 \
@@ -414,23 +414,23 @@
 <<case 0>>\
 	<<set _arms="arms_relaxed.png">>\
 <<case 1>>\
-	<<if ($body.manicure eq 2)>>\
+	<<if ($body.manicure.level eq 2)>>\
 		<<set _arms="arms_spread_fake_nails.png">>\
 	<<else>>\
 		<<set _arms="arms_spread.png">>\
 	<<endif>>\
 <<default>>\
-	<<if ($body.manicure eq 2)>>\
+	<<if ($body.manicure.level eq 2)>>\
 		<<set _arms="arms_flirty_fake_nails.png">>\
 	<<else>>\
 		<<set _arms="arms_flirty.png">>\
 	<<endif>>\
 <</switch>>\
 \
-<<if ($body.ass eq 2)>>\
+<<if ($body.ass.level eq 2)>>\
 	<<set _hips="hips_2.png">>\
 	<<set _hs=2>>\
-<<elseif ($body.ass eq 1)>>\
+<<elseif ($body.ass.level eq 1)>>\
 	<<set _hips="hips_1.png">>\
 	<<set _hs=1>>\
 <<else>>\
@@ -438,39 +438,39 @@
 	<<set _hs=0>>\
 <<endif>>\
 \
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<if _f>>\
-	<<if _f.female>>\
-		<<if _f.daringRec gte 6>>\
-			<<if $items[_f.id].curAlt eq 0>>\
-				<<set _feets="feets_stripper_a.png">>\
-			<<elseif $items[_f.id].curAlt eq 1>>\
-				<<set _feets="feets_stripper_b.png">>\
-			<<elseif $items[_f.id].curAlt eq 2>>\
-				<<set _feets="feets_stripper_c.png">>\
-			<<else>>\
-				<<set _feets="feets_stripper_d.png">>\
-			<<endif>>\
-		<<elseif _f.cheer>>\
-			<<set _feets="feets_shoes_socks_cheer.png">>\
-		<<else>>\
-			<<if $items[_f.id].curAlt eq 0>>\
-				<<set _feets="feets_heels_a.png">>\
-			<<elseif $items[_f.id].curAlt eq 2>>\
-				<<set _feets="feets_heels_b.png">>\
-			<<elseif $items[_f.id].curAlt eq 3>>\
-				<<set _feets="feets_heels_c.png">>\
-			<<else>>\
-				<<set _feets="feets_heels_d.png">>\
-			<<endif>>\
-		<<endif>>\
-	<<else>>\
-		<<if _f.school>>\
-			<<set _feets="feets_shoes.png">>\
-		<<else>>\
-			<<set _feets="feets_sneakers.png">>\
-		<<endif>>\
-	<<endif>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<if _shoes.isFemale>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>
+			<<if _shoes.itemVariant == 'heels_stripper_00'>>
+				<<set _feets="feets_stripper_a.png">>
+			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>
+				<<set _feets="feets_stripper_b.png">>
+			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>
+				<<set _feets="feets_stripper_c.png">>
+			<<else>>
+				<<set _feets="feets_stripper_d.png">>
+			<<endif>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
+			<<set _feets="feets_shoes_socks_cheer.png">>
+		<<else>>
+			<<if _shoes.itemVariant == 'heels_00'>>
+				<<set _feets="feets_heels_a.png">>
+			<<elseif _shoes.itemVariant == 'heels_02'>>
+				<<set _feets="feets_heels_b.png">>
+			<<elseif _shoes.itemVariant == 'heels_03'>>
+				<<set _feets="feets_heels_c.png">>
+			<<else>>
+				<<set _feets="feets_heels_d.png">>
+			<<endif>>
+		<<endif>>
+	<<else>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>
+			<<set _feets="feets_shoes.png">>
+		<<else>>
+			<<set _feets="feets_sneakers.png">>
+		<<endif>>
+	<<endif>>
 <<else>>\
 	<<if $player.heelsSkill lte 6>>\
 		<<set _feets="feets_stand.png">>\
@@ -479,16 +479,16 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if ($body.boobs eq 4)>>\
+<<if ($body.boobs.level eq 4)>>\
 	<<set _chest="chest_dd.png">>\
 	<<set _bs=4>>\
-<<elseif ($body.boobs eq 3)>>\
+<<elseif ($body.boobs.level eq 3)>>\
 	<<set _chest="chest_c.png">>\
 	<<set _bs=3>>\
-<<elseif ($body.boobs eq 2)>>\
+<<elseif ($body.boobs.level eq 2)>>\
 	<<set _chest="chest_b.png">>\
 	<<set _bs=2>>\
-<<elseif ($body.boobs eq 1)>>\
+<<elseif ($body.boobs.level eq 1)>>\
 	<<set _chest="chest_a.png">>\
 	<<set _bs=1>>\
 <<else>>\
@@ -496,16 +496,16 @@
 	<<set _bs=0>>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
+<<if $body.surgerySexualReassignment.level gt 0>>\
 	<<set _groin="groin_pussy.png">>\
-<<elseif playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<if ($body.penisShrink eq 1)>>\
+<<elseif window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_chastity_1.png">>\
 	<<else>>\
 		<<set _groin="groin_chastity_2.png">>\
 	<<endif>>\
 <<else>>\
-	<<if ($body.penisShrink eq 1)>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_penis_1.png">>\
 	<<else>>\
 		<<set _groin="groin_penis_2.png">>\
@@ -513,32 +513,32 @@
 <<endif>>\
 \
 <<if playerCode.haveHeavyMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_3_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_3.png">>\
 	<<endif>>\
 <<elseif playerCode.haveBimboMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_2_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_2.png">>\
 	<<endif>>\
 <<elseif playerCode.haveMakeup()>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_1_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_1.png">>\
 	<<endif>>\
 <<else>>\
-	<<if playerCode.owns(itemsC.tattooHeart)>>\
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
 	<<set _face="face_makeup_0_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_0.png">>\
 	<<endif>>\
 <<endif>>\
 \
-<<if ($body.lips eq 2)>>\
+<<if ($body.lips.level eq 2)>>\
 	<<if playerCode.haveHeavyMakeup()>>\
 		<<set _lips="lips_33.png">>\
 	<<elseif playerCode.haveBimboMakeup()>>\
@@ -548,7 +548,7 @@
 	<<else>>\
 		<<set _lips="lips_30.png">>\
 	<<endif>>\
-<<elseif ($body.lips eq 1)>>\
+<<elseif ($body.lips.level eq 1)>>\
 	<<if playerCode.haveHeavyMakeup()>>\
 		<<set _lips="lips_23.png">>\
 	<<elseif playerCode.haveBimboMakeup()>>\
@@ -571,15 +571,15 @@
 <<endif>>\
 \
 <<if playerCode.haveHaircut()>>\
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<set _hair="hair_short_">>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<set _hair="hair_medium_">>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<set _hair="hair_long_">>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<set _hair="hair_tails_">>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<set _hair="hair_curly_">>\
 	<<endif>>\
 	<<if $body.hairColor eq 0>>\
@@ -602,19 +602,19 @@
 <<set _sk=false>>\
 \
 <<if $avatar.mode eq 0>>\
-	<<if playerCode.isWearing(itemsC.sluttyDress) or playerCode.isWearing(itemsC.skirtTop)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		<<set _chest="clothes_slutty_top_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _sk=true>>\
-		<<if _u>>\
+		<<if _underwear>>\
 			<<set _chest2="clothes_slutty_skirt_hips_">>\
 		<<else>>\
 			<<set _chest2="clothes_slutty_skirt_low_hips_">>\
 		<<endif>>\
 		<<set _chest2+=_hs>>\
 		<<set _chest2+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.schoolMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
 		<<if _bs lte 2>>\
 			<<set _bs = 0>>\
 		<<endif>>\
@@ -622,7 +622,7 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -636,7 +636,7 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.sluttyschoolFemale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')>>\
 		<<if _bs lt 2>>\
 			<<set _bs = 2>>\
 		<<endif>>\
@@ -648,7 +648,7 @@
 		<<set _chest2+=_hs>>\
 		<<set _chest2+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -656,31 +656,31 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 		<<set _chest="clothes_pyjamas_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.maidOutfit)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
 		<<set _chest="clothes_maid_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _feets="feets_maid_heels.png">>\
-	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
 		<<if (_bs lte 3) and (_bs gte 1)>>\
 			<<set _bs = 1>>\
 		<<endif>>\
 		<<set _chest="clothes_casual_dress_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
 		<<set _chest="clothes_casual_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
 		<<set _chest+=_hs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.rookieUniform) || playerCode.isWearing(itemsC.sluttyCheer)>>\
+	<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform') || window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		<<set _chest="clothes_cheer_rookie_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
@@ -690,7 +690,7 @@
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
 		<<set _arms="arms_spread.png">>\
-	<<elseif playerCode.isWearing(itemsC.cheerDress)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 		<<set _chest="clothes_cheer_uniform_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
@@ -704,24 +704,24 @@
 <<endif>>\
 \
 <<if $avatar.mode lte 1>>\
-	<<if playerCode.isWearing(itemsC.jocksLucky)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
 		<<set _groin="underwear_cotton_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
 		<<set _groin="underwear_satin_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.gString)>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<set _groin="underwear_gstring_chastity_hips_">>\
 		<<elseif playerCode.isHorny()>>\
 			<<set _groin="underwear_gstring_alt_hips_">>\
@@ -734,18 +734,18 @@
 <<endif>>\
 \
 <<set _bow = "none">>\
-<<set _b = playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<if _b.id == "hairbow" && $items[_b.id].curAlt eq 43>>\
+<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
+<<if _headwear.itemVariant == 'hairband_43'>>
 	<<if playerCode.haveHaircut()>>\
-		<<if ($body.hairstyle eq 1)>>\
+		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
-		<<elseif ($body.hairstyle eq 2)>>\
+		<<elseif ($body.hairstyle.level eq 2)>>\
 			<<set _bow="bow_cheer_bow_medium.png">>\
-		<<elseif ($body.hairstyle eq 3)>>\
+		<<elseif ($body.hairstyle.level eq 3)>>\
 			<<set _bow="bow_cheer_bow_long.png">>\
-		<<elseif ($body.hairstyle eq 4)>>\
+		<<elseif ($body.hairstyle.level eq 4)>>\
 			<<set _bow="bow_cheer_bow_tails.png">>\
-		<<elseif ($body.hairstyle eq 5)>>\
+		<<elseif ($body.hairstyle.level eq 5)>>\
 			<<set _bow="bow_cheer_bow_curly.png">>\
 		<<endif>>\
 	<<else>>\
@@ -759,7 +759,7 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _arms>>'>>\
 <<endif>>\
 \
-<<if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0>>\
+<<if (window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')  or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')) and $avatar.mode eq 0>>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "hand_cheer_pompom_handr.png">>'>>\
 <<endif>>\
 \
@@ -781,7 +781,7 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _chest2>>'>>\
 <<endif>>\
 \
-<<if (playerCode.isWearing(itemsC.rookieUniform) or playerCode.isWearing(itemsC.cheerDress)) and $avatar.mode eq 0>>\
+<<if (window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')  or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')) and $avatar.mode eq 0>>\
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "hand_cheer_pompom_handl.png">>'>>\
 <<endif>>\
 \
@@ -801,13 +801,13 @@
 	<<print '<<showMultiImage "avatar_' + $avatarSize + '" _hair>>'>>\
 <<endif>>\
 \
-<<if $body.earsPierced>>\
-	<<if playerCode.isWearing(itemsC.diamondStuds)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_diamond.png">>'>>\
-	<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_ruby.png">>'>>\
-	<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>\
-	<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_hoops.png">>'>>\
+<<if $body.earsPierced.level gt 0>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('casualEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_diamond.png">>'>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('classyEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_ruby.png">>'>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('flashyEarrings')>>\
+		<<print '<<showMultiImage "avatar_' + $avatarSize + '" "earrings_hoops.png">>'>>\
 	<<endif>>\
 <<endif>>\
 \
@@ -816,10 +816,10 @@
 <<endif>>\
 \
 <<elseif $avatar.classic == 2>>\
-<<if $body.ass eq 2>>\
+<<if $body.ass.level eq 2>>\
 	<<set _hips="hips_2.png">>\
 	<<set _hs=2>>\
-<<elseif $body.ass eq 1>>\
+<<elseif $body.ass.level eq 1>>\
 	<<set _hips="hips_1.png">>\
 	<<set _hs=1>>\
 <<else>>\
@@ -827,32 +827,32 @@
 	<<set _hips="none">>\
 <<endif>>\
 \
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<set _feets = "none">>\
-<<if _f>>\
-	<<if _f.female>>\
-		<<if playerCode.isWearing(itemsC.flats)>>\
+<<if _shoes>>\
+	<<if _shoes.isFemale>>\
+		<<if _shoes.masterItem == "flats">>\
 			<<set _feets="feets_flats.png">>\
 		<<elseif _f.cheer>>\
 			<<set _feets="feets_shoes_socks_cheer.png">>\
 		<<endif>>\
 	<<else>>\
-		<<if _f.school>>\
+		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>\
 		<<else>>\
 			<<set _feets="feets_male_sneakers.png">>\
 		<<endif>>\
 	<<endif>>\
 <<endif>>\
-<<if ($body.boobs eq 4)>>\
+<<if ($body.boobs.level eq 4)>>\
 	<<set _chest="chest_dd.png">>\
 	<<set _bs=4>>\
-<<elseif ($body.boobs eq 3)>>\
+<<elseif ($body.boobs.level eq 3)>>\
 	<<set _chest="chest_c.png">>\
 	<<set _bs=3>>\
-<<elseif ($body.boobs eq 2)>>\
+<<elseif ($body.boobs.level eq 2)>>\
 	<<set _chest="chest_b.png">>\
 	<<set _bs=2>>\
-<<elseif ($body.boobs eq 1)>>\
+<<elseif ($body.boobs.level eq 1)>>\
 	<<set _chest="chest_a.png">>\
 	<<set _bs=1>>\
 <<else>>\
@@ -860,16 +860,16 @@
 	<<set _bs=0>>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.surgerySexualReassignment)>>\
+<<if $body.surgerySexualReassignment.level gt 0>>\
 	<<set _groin="groin_pussy.png">>\
-<<elseif playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<if ($body.penisShrink eq 1)>>\
+<<elseif window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_chastity_1.png">>\
 	<<else>>\
 		<<set _groin="groin_chastity_2.png">>\
 	<<endif>>\
 <<else>>\
-	<<if ($body.penisShrink eq 1)>>\
+	<<if ($body.penisShrink.level eq 1)>>\
 		<<set _groin="groin_penis_1.png">>\
 	<<else>>\
 		<<set _groin="groin_penis_2.png">>\
@@ -886,24 +886,24 @@
 	<<set _face="none">>\
 <<endif>>\
 \
-<<if ($body.lips eq 2)>>\
+<<if ($body.lips.level eq 2)>>\
 	<<set _lips="lips_2.png">>\
-<<elseif ($body.lips eq 1)>>\
+<<elseif ($body.lips.level eq 1)>>\
 	<<set _lips="lips_1.png">>\
 <<else>>\
 	<<set _lips="none">>\
 <<endif>>\
 \
 <<if playerCode.haveHaircut()>>\
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<set _hair="hair_short_">>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<set _hair="hair_medium_">>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<set _hair="hair_long_">>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<set _hair="hair_tails_">>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<set _hair="hair_curly_">>\
 	<<endif>>\
 	<<if $body.hairColor eq 0>>\
@@ -926,14 +926,14 @@
 <<set _sk=false>>\
 \
 <<if $avatar.mode eq 0>>\
-	<<if playerCode.isWearing(itemsC.schoolMale)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>\
 		<<if _bs lte 2>>\
 			<<set _bs = 0>>\
 		<<endif>>\
 		<<set _chest="clothes_school_male_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.schoolFemale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -942,18 +942,18 @@
 		<<set _chest+="_hips_">>\
 		<<set _chest+=_hs>>\
 		<<set _chest+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.summerDress)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress')>>\
 		<<set _chest="clothes_casual_dress_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.casualMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>\
 		<<set _chest="clothes_casual_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
 		<<set _chest+=_hs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.rookieUniform)>>\
+	<<elseif window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
 		<<set _chest="clothes_cheer_rookie_br_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+="_hips_">>\
@@ -962,7 +962,7 @@
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.silkyTeddy)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		<<if _bs eq 2>>\
 			<<set _bs = 1>>\
 		<<endif>>\
@@ -970,7 +970,7 @@
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
 		<<set _arms="none">>\
-	<<elseif playerCode.isWearing(itemsC.pyjamasMale)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('pyjamas')>>\
 		<<set _chest="clothes_pyjamas_breasts_">>\
 		<<set _chest+=_bs>>\
 		<<set _chest+=".png">>\
@@ -980,24 +980,24 @@
 \
 <<set _bra = "none">>\
 <<if $avatar.mode lte 1>>\
-	<<if playerCode.isWearing(itemsC.jocksLucky)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesCotton)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('plainPanties')>>\
 		<<set _groin="underwear_cotton_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.pantiesLatex)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexPanties')>>\
 		<<set _groin="underwear_satin_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.cheerBriefs)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('cheerBriefs')>>\
 		<<set _groin="underwear_boxers_hips_">>\
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
-	<<elseif playerCode.isWearing(itemsC.gString)>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('sexyPanties')>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<set _groin="underwear_gstring_chastity_hips_">>\
 		<<elseif playerCode.isHorny()>>\
 			<<set _groin="underwear_gstring_alt_hips_">>\
@@ -1007,11 +1007,11 @@
 		<<set _groin+=_hs>>\
 		<<set _groin+=".png">>\
 	<<endif>>\
-	<<if playerCode.isWearing(itemsC.bra)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('bras')>>\
 		<<set _bra = "underwear_bra_cotton_breasts_">>\
 		<<set _bra += _bs>>\
 		<<set _bra += ".png">>\
-	<<elseif playerCode.isWearing(itemsC.braLatex)>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexBras') || window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
 		<<set _bra = "underwear_bra_satin_breasts_">>\
 		<<set _bra += _bs>>\
 		<<set _bra += ".png">>\
@@ -1019,18 +1019,18 @@
 <<endif>>\
 \
 <<set _bow = "none">>\
-<<set _b = playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<if _b.id == "hairbow" && $items[_b.id].curAlt eq 43>>\
+<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
+<<if _headwear.itemVariant == 'hairband_43'>>
 	<<if playerCode.haveHaircut()>>\
-		<<if ($body.hairstyle eq 1)>>\
+		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
-		<<elseif ($body.hairstyle eq 2)>>\
+		<<elseif ($body.hairstyle.level eq 2)>>\
 			<<set _bow="bow_cheer_bow_medium.png">>\
-		<<elseif ($body.hairstyle eq 3)>>\
+		<<elseif ($body.hairstyle.level eq 3)>>\
 			<<set _bow="bow_cheer_bow_long.png">>\
-		<<elseif ($body.hairstyle eq 4)>>\
+		<<elseif ($body.hairstyle.level eq 4)>>\
 			<<set _bow="bow_cheer_bow_tails.png">>\
-		<<elseif ($body.hairstyle eq 5)>>\
+		<<elseif ($body.hairstyle.level eq 5)>>\
 			<<set _bow="bow_cheer_bow_curly.png">>\
 		<<endif>>\
 	<<else>>\

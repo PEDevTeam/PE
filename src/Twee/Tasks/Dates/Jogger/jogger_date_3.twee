@@ -1,5 +1,5 @@
 :: jogger_date_3
-<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<RandomImageFromPack 'juice_bar' 400 400 alignRight>>\
 The two of you exchange introductions followed by some simple pleasantries as you wait for your drinks to arrive. Despite having, apparently, just finished a five mile jog he seems more energetic than you usually are at the start of the day! You get a brief respite from his exuberance when your drinks arrive but, after a quick, large, sip he launches back into discussion.
 
@@ -13,7 +13,7 @@ You cringe inwardly at the cheesy line<<if playerCode.isMind() > 0>>, but for so
 
 You open your mouth to correct him, but his flow of conversation will not be interrupted.
 
-@@.malevoice6;“First off, I’d recommend some new shoes. <<if _shoes.heels>>Probably something flat. <<endif>>You want something supportive, but that still lets you feel the ground. Of course that varies depending on where you plan to jog. Do you prefer pavement or are you thinking of trail jogging? It really is a great way to see the outdoors...”@@
+@@.malevoice6;“First off, I’d recommend some new shoes. <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>Probably something flat. <<endif>>You want something supportive, but that still lets you feel the ground. Of course that varies depending on where you plan to jog. Do you prefer pavement or are you thinking of trail jogging? It really is a great way to see the outdoors...”@@
 
 Your eyes start to glaze over as you realize that, unless you do something, he’s liable to drone on like this for awhile...
 

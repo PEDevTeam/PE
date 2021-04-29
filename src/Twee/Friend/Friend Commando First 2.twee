@@ -1,5 +1,5 @@
 ::Friend Commando First 2
-<<set _plug = playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 You walk beside $friend through the mall, looking at the ground and hoping that no one you knows recognizes you, <<if $friendG.gender == "M">>especially since you don’t want anyone to get the wrong idea and think you have a boyfriend, even if you have made out with $friend more than once<<endif>>.
 
 The Intimate Apparel store looms ahead, although luck is on your side and it looks reasonably quiet. $friend doesn’t pause and steers you straight into the store.
@@ -56,7 +56,7 @@ You gasp as $friend reaches between your legs, grips the seat handle, and pulls.
 
 		@@.friend;“Sorry. I need to go,”@@ $friend whispers. @@.friend;“Next time, though,”@@ $friendG.he_she adds with one last kiss, making you groan in frustration. 
 
-		@@.hero;Maybe I should <<if playerCode.owns(itemsC.vibrator)>>use<<else>>get<<endif>> a vibrator and play when I get home. I’m so fucking close!@@
+		@@.hero;Maybe I should <<if $player.hasVibrator>>use<<else>>get<<endif>> a vibrator and play when I get home. I’m so fucking close!@@
 		
 		<<set playerCode.changeArousal(50)>>\
 	<<endif>>\
@@ -78,14 +78,14 @@ You gasp as $friend reaches between your legs, grips the seat handle, and pulls.
 
 		@@.friend;“Sorry. I need to go,”@@ $friend whispers. @@.friend;“Next time, though,”@@ $friendG.he_she adds with one last kiss making you groan in frustration. 
 
-		@@.hero;Maybe I should <<if playerCode.owns(itemsC.vibrator)>>use<<else>>get<<endif>> a vibrator and play when I get home. I’m so fucking close!@@
+		@@.hero;Maybe I should <<if $player.hasVibrator>>use<<else>>get<<endif>> a vibrator and play when I get home. I’m so fucking close!@@
 		
 		<<set playerCode.changeArousal(50)>>\
 	<<endif>>\
 <<endif>>\
 <<set $friendG.noUnderwear = 1>>\
 <<set $time.addMinutes(90)>>\
-<<addToInv stockings 74>>\
-<<addToInv braSexy 74>>\
-<<addToInv gString 74>>\
+<<addItemVariantToInventory 'stockings_74'>>\
+<<addItemVariantToInventory 'bra_sexy_74'>>\
+<<addItemVariantToInventory 'panties_sexy_74'>>\
 <<display [[Travel]]>>\

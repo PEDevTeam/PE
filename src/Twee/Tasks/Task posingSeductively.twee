@@ -1,11 +1,11 @@
 :: Task posingSeductively [pos_2486_2904]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
-<<if _o and (not _o.female)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
+<<if _outerwear and (not _outerwear.isFemale)>>\
 	You aren't wearing any female clothes.
-<<elseif _u and (not _u.female)>>\
+<<elseif _underwear and (not _underwear.isFemale)>>\
 	It is impossible to pose seductively while wearing boxers underneath.
 <<else>>\
 	<<set $tasksTeacher.posingSeductively.status = 2>>\
@@ -18,9 +18,9 @@
 	<<endif>>\
 	You look at the mirror and sigh, trying to figure out how you're going to complete the task. It's not like you haven't seen pictures of models on magazine covers or hot girls on the Internet - you know what kind of shots you need to get - but it's another thing entirely to actually pose like that in front of a camera.
 	
-	<<if _slb lte 1>>\
+	<<if _slutScoreBasic lte 1>>\
 		Clothes alone don't make you look a convincing girl, so you know the pictures will be all the more embarrassing for it.
-	<<elseif _slb lte 4>>\
+	<<elseif _slutScoreBasic lte 4>>\
 		Your effeminate look will definitely help you get the job done. On the other hand, knowing that you can probably pull off a //sexy crossdresser// look leaves you conflicted emotionally.
 	<<else>>\
 		Your girly look will probably make it easy to pull off a few sexy selfies, but the fact of being able to do it makes you feel conflicted.
@@ -29,7 +29,7 @@
 	<<if $tasksTeacher.selfieFemaleClothes.progress gt 0>>\
 		This isn't the first time you've photographed yourself in girls clothes, but this time it's different.\
 	<<endif>>\
-	<<if playerCode.isWearing(itemsC.skirtTop)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		Checking your skirt and top once again\
 	<<else>>\
 		Checking and straightening your dress once again\
@@ -47,7 +47,7 @@
 	<<endif>>\
 	
 	You quickly delete the whole first set of selfies in frustration, and decide to take another one with a more explicit approach. Blushing furiously, you turn your back to the camera, bend a little and lift your skirt enough to show your\
-	<<if _u>>\
+	<<if _underwear>>\
 		underwear.\
 	<<else>>\
 		extra parts.\

@@ -17,9 +17,9 @@
 	[[Wait until she’s finished|Peep into bathroom][$scene="Wait"]] 
 	[[Open the bathroom door|Peep into bathroom][$scene="Open the bathroom door"]]
 	<<if $flags.cameraBathroom>>\
-	[[Retrieve spy camera]]
-	<<elseif playerCode.owns(itemsC.spyCamera)>>\
-	[[Install camera in bathroom]]
+		[[Retrieve spy camera]]
+	<<elseif $player.hasSpyCamera>>\
+		[[Install camera in bathroom]]
 	<<endif>>\
 	[[Give up and go have some breakfast|Have breakfast]]
 <<elseif $scene eq "Open the bathroom door">>\

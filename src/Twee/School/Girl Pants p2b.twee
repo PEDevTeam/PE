@@ -1,4 +1,10 @@
 ::Girl Pants p2b
+<<set _hosiery=window.wardrobeFuncs.getWornItem('hoseriy')>>\
+<<if _hosiery>>\
+    <<set _stockings = _hosiery.masterItem == "stockings">>\
+<<else>>\
+    <<set _stockings = false>>\
+<<endif>>\
 You stare at the box and consider opening it, but you know $teacher will be returning any moment. Instead, you pull yourself away from the enticement and finish tidying the cupboard. 
 
 @@.teacher;"Wonderful effort, $player.name.”@@ $teacher announces from behind you. @@.teacher;"I could not have done better myself. Perhaps you will become a perfect homemaker someday.”@@
@@ -7,9 +13,9 @@ You stare at the box and consider opening it, but you know $teacher will be retu
 
 @@.teacher;"I have one more task for you, a bit of assistance to help me catch the pilferer. I want you to reach up and open that box. Oh, and let me step back first.”@@
 
-You do as instructed and flip the lid of the box down. Green gunk, thick and stinky, pours out from inside the box and coats your pants, soaking through immediately to your <<if playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>stockings<<else>>skin<<endif>>. 
+You do as instructed and flip the lid of the box down. Green gunk, thick and stinky, pours out from inside the box and coats your pants, soaking through immediately to your <<if _stockings>>stockings<<else>>skin<<endif>>. 
 
-@@.teacher;"Terrific, my plan worked. We will find the culprit in no time. Here, take this cloth and… Oh dear, it seems to have stained more than I thought it would,”@@ $teacher adds, staring at your stained pants. As she speaks, you hear something rip and your left trouser leg tears off, sliding down your leg to pool at your feet, revealing your <<if playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>stockinged<<else>><<if playerCode.isWaxed()||playerCode.isHairless()>>hairless<<else>>bare<<endif>><<endif>> leg. A moment later the other leg falls away too. @@.teacher;"How intriguing, it seems the liquid is stronger than expected, it’s dissolved some of the material. I may need to change the dose. Regardless, I need to go. I do feel somewhat responsible though.”@@
+@@.teacher;"Terrific, my plan worked. We will find the culprit in no time. Here, take this cloth and… Oh dear, it seems to have stained more than I thought it would,”@@ $teacher adds, staring at your stained pants. As she speaks, you hear something rip and your left trouser leg tears off, sliding down your leg to pool at your feet, revealing your <<if _stockings>>stockinged<<else>><<if playerCode.isWaxed()||playerCode.isHairless()>>hairless<<else>>bare<<endif>><<endif>> leg. A moment later the other leg falls away too. @@.teacher;"How intriguing, it seems the liquid is stronger than expected, it’s dissolved some of the material. I may need to change the dose. Regardless, I need to go. I do feel somewhat responsible though.”@@
 
 She tuts and carefully enters the cupboard, stepping over the drips of gunk dotting the floor. @@.teacher;"I have some spare uniform pants you can wear home, and perhaps an item or two you can wear out should you wish. Now, go change and let me reset the trap.”@@ $teacher passes you a bag and ushers you back into the classroom.
 
@@ -34,11 +40,14 @@ You grab the other clothes and stuff them back in the bag, race home in a panic,
 @@.hero;Better safe than sorry...@@
 
 <<set $flags.exhausted=true>>\
-<<addToInv "casualMale" 62>>\
+<<addItemVariantToInventory 'tshirt_jeans_62'>>\
 <<set $time.hour = 19>>\
 <<set $time.minute = 0>>\
-<<set playerCode.loadQuickSlot(quickSlotSets.Casual)>>\
 <<set $flags.girlPants = true>>\
 <<set $player.location = "home">>\
-<<set itemsC.schoolMale.image = "school_girl_pants.jpg">>\
+<<addItemVariantToInventory 'school_girl_pants'>>\
+<<wearItemVariant 'school_girl_pants'>>\
+<<set itemNavigator.newOrUpdatedClothingSetFromWorn('School')>>\
+<<removeItemVariantFromInventory 'school_male'>>\
+<<set itemNavigator.wearClothingSet('Casual')>>\
 [[Put the uniform away|Go to bedroom]]

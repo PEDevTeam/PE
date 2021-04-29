@@ -1,5 +1,5 @@
 window.misc={
-	unpostponeClothes: function(type) {
+	unpostponeClothes_d: function(type) {
 		var itemsC=window.itemsC;
 		var items=State.active.variables.items;
 		for (var i=0; i < Object.keys(items).length; i++) {
@@ -19,20 +19,43 @@ window.misc={
 		if (kink) {return "checked"}
 		return "unchecked";
 	},
+	// getSnoopItems: function() {
+	// 	var ra=[];
+	// 	var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
+	// 	var pantiesVar = window.itemF.itemTwee("pantiesCotton");
+	// 	for (var i=0; i < sia.length; i++) {
+	// 		if (sia[i] == itemsC.pantiesCotton && playerCode.owns(sia[i]) && !pantiesVar.ownAlt[40]){
+	// 			ra.push(sia[i]);
+	// 		}
+	// 		else if (!playerCode.owns(sia[i])) {
+	// 			ra.push(sia[i]);
+	// 		}
+	// 	}
+	// 	return ra;
+	// },
 	getSnoopItems: function() {
-		var ra=[];
-		var sia=[itemsC.pantiesCotton, itemsC.vibrator, itemsC.playgirlMagazine];
-		var pantiesVar = window.itemF.itemTwee("pantiesCotton");
-		for (var i=0; i < sia.length; i++) {
-			if (sia[i] == itemsC.pantiesCotton && playerCode.owns(sia[i]) && !pantiesVar.ownAlt[40]){
-				ra.push(sia[i]);
+		if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+		}
+		
+		var snoopItems=[];
+		for(var snoopItemIdx in window.misc.snoopItems){
+			var snoopItem = window.misc.snoopItems[snoopItemIdx];
+			if(snoopItem.type == "itemVariant"){
+				if(!(window.inventoryFuncs.checkItemInInventory(snoopItem.item))){
+					snoopItems.push(snoopItem);
+				}
 			}
-			else if (!playerCode.owns(sia[i])) {
-				ra.push(sia[i]);
+			else{
+				if(!(actVar.player[snoopItem.item])){
+					snoopItems.push(snoopItem);
+				}
 			}
 		}
-		console.log(ra);
-		return ra;
+		return snoopItems;
 	},
 	wager: {
 		calculate: function() {
@@ -120,7 +143,69 @@ window.misc={
 			State.active.variables.friendRiddles[Object.keys(ur)[rr]]=true;
 			return ur[rr];
 		}
-	}
+	},
+	getMallOnMouseOver: function(image, description, isItemSet, setName){
+		var ip=document.getElementById('item_preview_mall');
+		ip.src='Images/items/' + image + '';
+		ip.className=''; 
+		var ipd = document.getElementById('item_preview_description_mall'); 
+		ipd.textContent=description;
+		ipd.className='';
+		var ips = document.getElementById('item_preview_set_mall');
+		if(isItemSet){
+			ips.className='tooltip';
+			var itemVariantSetLogoText = document.createTextNode("👙 ");
+			var itemVariantSetLogoSpan = document.createElement('span');
+			var itemVariantSetText = document.createTextNode(setName);
+			var itemVariantSetSpan = document.createElement('span');
+			var itemVariantSetTooltipText = document.createTextNode("This item is part of a set, wear with other clothing with the same set name to match!");
+			var itemVariantSetTooltipSpan = document.createElement('span');
+			itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+			itemVariantSetLogoSpan.classList.add('item-set-icon');
+			itemVariantSetLogoSpan.appendChild(itemVariantSetLogoText);
+			itemVariantSetSpan.id = "itemVariantSetSpan";
+			itemVariantSetSpan.appendChild(itemVariantSetText);
+			itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+			itemVariantSetTooltipSpan.classList.add("tooltiptext");
+			itemVariantSetTooltipSpan.appendChild(itemVariantSetTooltipText)
+			ips.appendChild(itemVariantSetLogoSpan);
+			ips.appendChild(itemVariantSetSpan);
+			ips.appendChild(itemVariantSetTooltipSpan);
+		}
+	},
+	getMallOnMouseOut: function(){
+		document.getElementById('item_preview_mall').className='hidden'; 
+		document.getElementById('item_preview_description_mall').className='hidden'
+		document.getElementById('item_preview_set_mall').className='hidden'
+		document.getElementById('item_preview_set_mall').innerHTML = '';
+	},
+	snoopItems: [
+		{
+			item: 'panties_cotton_40',
+			type: 'itemVariant',
+			name: 'panties',
+		},
+		{
+			item: 'panties_sexy_40',
+			type: 'itemVariant',
+			name: 'g-string',
+		},
+		{
+			item: 'panties_latex_40',
+			type: 'itemVariant',
+			name: 'latex panties',
+		},
+		{
+			item: 'hasPlaygirl',
+			type: 'variable',
+			name: 'playgirl magazine',
+		},
+		{
+			item: 'hasVibrator',
+			type: 'variable',
+			name: 'vibrator',
+		}
+	]
 },
 
 window.friendRiddles = [

@@ -11,20 +11,22 @@ You walk into $guardian's room, open the back of her alarm clock and replace the
 
 This should stop her from sleeping in.
 
-<<if playerCode.owns(itemsC.batteries)>>\
-	<<removeFromInv 'batteries'>>\
+<<if $player.hasBatteries>>\
+	<<set $player.hasBatteries = false>>
 	<<set $player.batteryExpireDay=$time.day+2>>\
-	<<set $items.batteries.disabled=true>>\
+	<<set $player.hasBatteries = false>>\
+	<<set $player.canBuyBatteries = false>>\
 <<endif>>\
-<<if playerCode.owns(itemsC.batteriesQuality)>>\
-	<<removeFromInv 'batteriesQuality'>>\
+<<if $player.hasQualityBatteries>>\
+	<<set $player.hasQualityBatteries = false>>
 	<<set $player.batteryExpireDay=$time.day+3>>\
-	<<set $items.batteriesQuality.disabled=true>>\
+	<<set $player.hasQualityBatteries = false>>\
+	<<set $player.canBuyQualityBatteries = false>>\
 <<endif>>\
 \
 [[Return to your bedroom|Go to bedroom]]
 <<print "[[Snoop around in " + $guardian + "'s bedroom|Snoop in guardian bedroom]]">>
-<<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\
+<<if $player.hasSpyCamera and (not $flags.cameraBedroom)>>\
 	[[Install camera in bedroom]]
 <<endif>>\
 

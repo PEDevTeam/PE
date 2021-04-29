@@ -8,41 +8,41 @@
 \
 	<<set $player.jobs.salonPlan = 0>>\
 \
-	<<if not $flags.salonHairRemoval and ($body.bodyhair lte 2)>>\
-		<<set $body.bodyhair = 0>>\
+	<<if not $flags.salonHairRemoval and ($body.bodyhair.level lte 2)>>\
+		<<set $body.bodyhair.level = 0>>\
 	<<endif>>\
 \
 	<<if (not $flags.salonManicure) and ($body.semiManicure lte 0) and ($body.permManicure lte 0)>>\
-		<<set $body.manicure = 0>>\
+		<<set $body.manicure.level = 0>>\
 	<<endif>>\
 \
 	<<if not $flags.salonMakeup>>\
-		<<if ($body.makeup gt $body.semiMakeup) and ($body.makeup gt $body.permMakeup)>>\
-			<<set $body.makeup = Math.max($body.semiMakeup, $body.permMakeup)>>\
+		<<if ($body.makeup.level gt $body.makeup.semiLevel) and ($body.makeup gt $body.makeup.permLevel)>>\
+			<<set $body.makeup.level = Math.max($body.makeup.semiLevel, $body.makeup.permLevel)>>\
 		<<endif>>\
 	<<endif>>\
 \
 	<<if (not $flags.salonLips)>>\
-		<<if ($body.lips gt $body.semiLips) and ($body.lips gt $body.permLips)>>\
-			<<set $body.lips-->>\
+		<<if ($body.lips.level gt $body.lips.semiLevel) and ($body.lips.level gt $body.lips.permLevel)>>\
+			<<set $body.lips.level-->>\
 		<<endif>>\
 	<<endif>>\
 \
 	<<if (not $flags.salonAss)>>\
-		<<if ($body.ass gt $body.semiAss) and ($body.ass gt $body.permAss)>>\
-			<<set $body.ass-->>\
+		<<if ($body.ass.level gt $body.ass.semiLevel) and ($body.ass.level gt $body.ass.permLevel)>>\
+			<<set $body.ass.level-->>\
 		<<endif>>\
 	<<endif>>\
 \
 	<<if (not $flags.salonBreast)>>\
-		<<if ($body.boobs gt $body.semiBoobs) and ($body.boobs gt $body.permBoobs)>>\
-			<<set $body.boobs-->>\
+		<<if ($body.boobs.level gt $body.boobs.semiLevel) and ($body.boobs.level gt $body.boobs.permLevel)>>\
+			<<set $body.boobs.level-->>\
 		<<endif>>\
 	<<endif>>\
 \
 	<<if (not $flags.salonAnal)>>\
-		<<if ($body.anal gt $body.semiAnal) and ($body.anal gt $body.permAnal)>>\
-			<<set $body.anal-->>\
+		<<if ($body.anal.level gt $body.anal.semiLevel) and ($body.anal.level gt $body.anal.permLevel)>>\
+			<<set $body.anal.level-->>\
 		<<endif>>\
 	<<endif>>\
 \
@@ -81,18 +81,10 @@
 <<endif>>\
 <<if $flags.laundryAccident>>\
 	<<set $flags.laundryAccident to false>>\
-	<<if playerCode.owns(itemsC.gString)>>\
-		<<set $items.gString.disabled=false>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesLatex)>>
-		<<set $items.pantiesLatex.disabled=false>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesCotton)>>
-		<<set $items.pantiesCotton.disabled=false>>\
-	<<endif>>\
+	<<run window.inventoryFuncs.unmarkUnderwearWet()>>\
 <<endif>>\
 <<if (not $flags.laundryAccident) and (random(2) eq 0) and $flags.femaleClass and ($player.perversion.teacher eq 4) and ($player.perversion.teacherCooldown gte 3) and (!window.timeCode.isWeekend())>>\
-<<set $flags.laundryAccident to true>>\
+	<<set $flags.laundryAccident to true>>\
 <<endif>>\
 \
 <<set $player.jobs.workedToday = false>>\
@@ -123,19 +115,18 @@
 	<<set $player.batteryExpireDay=0>>\
 	<<set $flags.batteriesExpire=true>>\
 	<<if (not $flags.guardianSnoopingCaught)>>\
-		<<set $items.batteriesQuality.disabled=false>>\
+		<<set $player.canBuyQualityBatteries = true>>\
+		<<set $player.hasQualityBatteries = false>>\
 	<<endif>>\
 <<endif>>\
 <<if $player.perversion.guardian gte 3 and $player.batteryExpireDay eq 0>>\
 	<<set $player.alarmClockGuardian=false>>\
 	<<set $player.batteryExpireDay=-1>>\
-	<<set $items.batteriesQuality.disabled=true>>\
-	<<set $items.batteries.disabled=true>>\
-	<<if playerCode.owns(itemsC.batteriesQuality)>>\
-		<<removeFromInv $items.batteriesQuality.id>>\
+	<<if $player.hasQualityBatteries >>\
+		<<set $player.hasQualityBatteries = false>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.batteries)>>\
-		<<removeFromInv $items.batteries.id>>\
+	<<if $player.hasBatteries>>\
+		<<set $player.hasBatteries = false>>\
 	<<endif>>\
 <<endif>>\
 <<if $flags.chorePunishmentDildo>>\

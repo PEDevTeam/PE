@@ -1,13 +1,13 @@
 :: Friend CD Catch-up 04
-<<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _outer = playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<if $body.bodyhair == 0>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<if $body.bodyhair.level == 0>>\
 	<<set _hairy = true>>\
 <<endif>>\
 <<if _under>>\
-	<<if not _under.female>>\
+	<<if not _under.isFemale>>\
 		<<set _maleUnder = true>>\
 	<<endif>>\
 <<endif>>\
@@ -23,7 +23,7 @@
 	<<set $friendG.wordlessGoodbye = true>>\
 	<<set $friendG.friendTaskFrustration += 3>>\
 	[[Leave friend's house][$time.addMinutes(90)]]
-<<elseif not _outer.female>>\
+<<elseif not _outer.isFemale>>\
 	<<include [[Friend Hang Out]]>>\
 <<else>>\
 	@@.friend;“I’ve been thinking about before.\
@@ -68,15 +68,15 @@
 		Without pausing, $friend unzips a suit bag, revealing an elegant tuxedo. While you still marvel at the dress, he strips off his clothes and, almost as though acting on an afterthought, pulls down his boxers, revealing his thick and long penis. 
 
 		<<if playerCode.isMind() == 0>>\
-			You blink and turn away, listening to $friend getting dressed behind you. Confused thoughts flood your mind as you attempt to work out the emotions fighting inside you. The only certainty is your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if  _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>>.
+			You blink and turn away, listening to $friend getting dressed behind you. Confused thoughts flood your mind as you attempt to work out the emotions fighting inside you. The only certainty is your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if  _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>>.
 		<<elseif playerCode.isMind() == 1>>\
 			You start to turn away, but something draws your eyes to him. You are not gay, but there is something compelling about his large, thick, and twitching cock. You cannot help but compare it to your own <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis, and while part of you is hesitant, you can’t help but stare at his impressive package.
 
-			$friend grins and starts to dress. You don’t want to admit it, but your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under && _under.female>>panties<<else>>cage<<endif>> at the memory of seeing him naked.
+			$friend grins and starts to dress. You don’t want to admit it, but your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under && _under.isFemale>>panties<<else>>cage<<endif>> at the memory of seeing him naked.
 		<<else>>\
 			You cannot help but stare at his large, thick, and twitching cock. It’s bigger than yours, but you don’t care and are drawn to his impressive manhood. Your mind wanders and you realize you are wondering what it would be like to draw it into your mouth, or perhaps… 
 
-			$friend grins and starts to dress. You shake your head to clear your thoughts, but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him naked.
+			$friend grins and starts to dress. You shake your head to clear your thoughts, but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him naked.
 		<<endif>>\	
 	<<elseif $friendG.gender == 'T'>>\
 		<<RandomImageFromPack 'Friend/WalkBlock/Tfriend' 400 400 alignRight>>\
@@ -89,15 +89,15 @@
 		<<if playerCode.isMind() == 0>>\
 			You are not sure where to look. In some regards you are curious, but you are really not into penises. Still, you can’t help but notice that, as far as penises go, $friend’s is certainly large and thick and erect.
 
-			You blink and turn away, letting $friend get dressed behind you. Confused thoughts flood your mind as you attempt to work out the emotions fighting inside you. The only certainty is your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if  _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>>.
+			You blink and turn away, letting $friend get dressed behind you. Confused thoughts flood your mind as you attempt to work out the emotions fighting inside you. The only certainty is your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>> penis is twitching in your <<if _under>><<if  _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>>.
 		<<elseif playerCode.isMind() == 1>>\
 			You start to turn away, but something draws your eyes. You are not gay, but there is something compelling about his large, thick and twitching penis. You cannot help but compare it to your own <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis, and while part of you is hesitant, you can’t help but stare at his privates. You don’t want to touch his cock, but it’s there seemingly looking back at you and holding your attention.
 
-			$friend grins and starts to dress. You don’t want to admit it, but your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him erect.
+			$friend grins and starts to dress. You don’t want to admit it, but your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him erect.
 		<<else>>\
 			You cannot help but stare at his large, thick, and twitching penis. It’s bigger than yours, but you don’t care and are drawn to his impressive manhood. Your mind wanders and you realize you are wondering what it would be like to draw it into your mouth, or perhaps… 
 
-			$friend grins and starts to dress. You shake your head to clear your thoughts but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him erect.
+			$friend grins and starts to dress. You shake your head to clear your thoughts but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the memory of seeing him erect.
 		<<endif>>\
 	<<else>>
 		<<RandomImageFromPack 'Friend/WalkBlock/Ffriend' 400 400 alignRight>>\
@@ -107,7 +107,7 @@
 
 		She turns and looks at you, her chest heaving slightly as she breathes, the light bouncing off her luscious curves. Your breath catches in your throat and you cannot help but gawk at her.
 
-		She winks at you, before turning around, picking the new underwear and sliding into them. You shake your head to clear your thoughts but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.female>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the image of her naked body.
+		She winks at you, before turning around, picking the new underwear and sliding into them. You shake your head to clear your thoughts but you continue to stare despite your <<if $kinkAllow.sph || $kinkAllow.penisShrink>>small<<else>>insignificant<<endif>>  penis is twitching in your <<if _under>><<if _under.isFemale>>panties<<else>>boxers<<endif>><<else>>cage<<endif>> at the image of her naked body.
 	<<endif>>\
 
 	Eventually, you are both dressed, and you take your time to refresh your makeup, adding a touch of extra shadow around your eyes and deep burgundy lipstick.\
@@ -133,7 +133,7 @@
 		Without pausing, $friend presses down harder on your hand, her hips rocking faster. You feel her clitoris rubbing against your fingertips through her panties and with each thrust of her body, she whimpers. Her breathing grows heavier and she drops the kiss, her head sliding down so her mouth is against your ear. Her panting grows shorter and more desperate. And then, just as you don’t think you can take it any longer, she gasps loudly and shudders in orgasm before flopping exhausted on top of you.
 			
 	<<elseif $friendG.gender == 'M'>>\
-		Sensing you relax, $friend’s kiss grows slightly less desperate but more eager, as if he’s been waiting for the opportunity. He dances his tongue over your lips before thrusting it back inside your mouth. $friend slowly lowers you to the circular bed, laying you on your back and climbing on top of you. $friend moves above you, his weight pressing you down, the smooth material of his dress pants rubbing against your <<if _stock && _stock.slutty>>stockings<<else>>smooth legs<<endif>> and making your skin tingle. You grow lost in the kiss and lose track of time.
+		Sensing you relax, $friend’s kiss grows slightly less desperate but more eager, as if he’s been waiting for the opportunity. He dances his tongue over your lips before thrusting it back inside your mouth. $friend slowly lowers you to the circular bed, laying you on your back and climbing on top of you. $friend moves above you, his weight pressing you down, the smooth material of his dress pants rubbing against your <<if _stock && window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockings<<else>>smooth legs<<endif>> and making your skin tingle. You grow lost in the kiss and lose track of time.
 
 		You wriggle to get comfortable, but $friend is too big and heavy and you end up with one of your legs on either side of each of his. You wiggle again and then you feel it, something hard and big growing inside his pants. 
 
@@ -144,7 +144,7 @@
 		<<if playerCode.isMind() == 0>>\
 			You reel in shock at what’s happening, feeling intense confusion from the pleasure of being kissed, the exhilaration of being dressed as you are, and the weird satisfaction of knowing you caused $friend to have a hard-on. Despite everything, your Judas penis continues to leak.
 
-			$friend stops the kiss, grunts gutturally, and then stiffens before toppling to the side. Your mind goes numb with shock as you realize $friend just came by rubbing himself off on your <<if _stock && _stock.slutty>>stockinged<<else>>girly<<endif>> thigh.
+			$friend stops the kiss, grunts gutturally, and then stiffens before toppling to the side. Your mind goes numb with shock as you realize $friend just came by rubbing himself off on your <<if _stock && window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockinged<<else>>girly<<endif>> thigh.
 
 		<<elseif playerCode.isMind() == 1>>\
 			You gasp in surprise at what’s happening, feeling confusion from the pleasure of being kissed by a boy, the exhilaration of being dressed as a girl, and the satisfaction of knowing you caused $friend to have a hard-on. Your penis continues to leak at $friend’s continued attention, pooling inside your panties and trickling down your leg.
@@ -157,7 +157,7 @@
 			$friend stops the kiss, grunts gutturally, and then stiffens before toppling to the side. You feel like it’s a reward for how you are dressed and the efforts you have gone to. Perhaps it would have been good to go further, but he caught you by surprise!
 		<<endif>>\
 	<<else>>
-		Sensing you relax, $friend’s kiss grows slightly less desperate. He dances his tongue over your lips before pushing it back inside your mouth. He slowly lowers you to the circular bed, laying you on your back and climbing on top of you. $friend moves above you, adjusting his position so that his stockinged legs brush enticingly against your <<if _stock && _stock.slutty>>stocking<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
+		Sensing you relax, $friend’s kiss grows slightly less desperate. He dances his tongue over your lips before pushing it back inside your mouth. He slowly lowers you to the circular bed, laying you on your back and climbing on top of you. $friend moves above you, adjusting his position so that his stockinged legs brush enticingly against your <<if _stock && window.inventoryFuncs.hasTag(_stock, 'slutty')>>stocking<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
 
 		You wriggle to get comfortable, but can’t get any leverage and you end up with one of his legs either side of one of yours. You wiggle again and then you feel it, something hard and big growing inside his jeans. 
 
@@ -189,9 +189,9 @@
 
 	<<set $player.perversion.friend = 8>>\
 	<<set playerCode.changeArousal(20)>>\
-	<<addToInv summerDress 73>>\
-	<<addToInv corset 63>>\
-	<<addToInv gString 64>>\
-	<<addToInv highHeel3 72>>\
+	<<addItemVariantToInventory 'dress_casual_73'>>\
+	<<addItemVariantToInventory 'corset_63'>>\ <!-- TODO Corsets? -->
+	<<addItemVariantToInventory 'sexy_panties_64'>>\
+	<<addItemVariantToInventory 'high_heels_72'>>\
 	[[Leave friend's house][$time.addMinutes(90)]]
 <<endif>>

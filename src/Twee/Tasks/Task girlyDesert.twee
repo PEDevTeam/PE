@@ -1,7 +1,7 @@
 :: Task girlyDesert [pos_2486_2904]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <<set $tasksTeacher.girlyDesert.status = 2>>\
 <<if playerCode.isMind_0()>>\
 	It is embarrassing to be dressed as a girl in such a public place. You are terrified someone might call you on being a boy. You glance around and clench your hands on your skirt, trying to stop trembling.
@@ -11,9 +11,9 @@
 	It is exhilarating to be dressed as a girl in such a public place. You glance at other customers, curious for their reaction.
 <<endif>>\
 
-<<if _slb lte 1>>\
+<<if _slutScoreBasic lte 1>>\
 	It should be obvious that you are a boy, but to your luck it somehow escapes attention. You get just a few weird looks, quickly replaced by indifference. Quickly striding to a table at the corner, you sit there to avoid attention. Turning to a window, you eavesdrop on nearby conversations as best as you can, trying to hear if anyone is talking about you.
-<<elseif _slb lte 4>>\
+<<elseif _slutScoreBasic lte 4>>\
 	You look very feminine for a boy, and to your luck no one focuses their attention long enough to notice any details that could betray you. You quickly stride to a table at the corner and sit there, trying to avoid attention. Lowering your eyes, you listen to the surrounding conversations, trying to hear if anyone is talking about you.
 <<else>>\
 	It's almost unnerving how convincing you are in your role as a girl. You even get a wink from some guy when his girlfriend turns away. You quickly stride to a table at the corner and sit there, hesitant about drawing attention. Lowering your eyes, you listen intently, trying to hear if anyone is talking about you.
@@ -22,9 +22,9 @@
 @@.shopphoto;"Miss, would you like to order anything?"@@
 	
 You almost let out high pitched //manly// yelp, as the waitress startles you. Blush creeps across your face as you realize that the waitress was there for a while, studying your appearance. You struggle to calm down and sound normal as the young girl, probably even younger than you, flashes you a coy smile.\
-<<if _slb lte 1>>\
+<<if _slutScoreBasic lte 1>>\
 	She doesn't comment on your looks, but you still fidget under her curious stare, unsure how to deal with her.
-<<elseif _slb lte 4>>\
+<<elseif _slutScoreBasic lte 4>>\
 	She doesn't comment on your looks, but you still fidget under her intrigued stare, unsure if she is fooled or just into girly boys.
 <<else>>\
 	She doesn't comment on your looks, but you still fidget under her intrigued stare, unsure if she figured out your secret or just likes girls.

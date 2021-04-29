@@ -1,5 +1,5 @@
 ::Klip_Klop_events
-<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<if $player.daring lt 5>>\
   <<set $toggleStoreMenu to 1>>\
    You find yourself outside the shoe store, only to discover that the contents are exclusively feminine. From the cut of the brogues, to the horrifying style of the dagger heels, everything they sell is aimed at women. And girls. 
@@ -54,7 +54,7 @@
 
 				For once, you already have your reason prepared. In fact you spent the whole trip to the mall coming up with it. @@.heroT;"Someone dared me to wear heels,” you admit.@@
 
-				<<if _shoes.female>>\
+				<<if _shoes.isFemale>>\
 					@@.femvoice7;“Hmm, okay $player.name. You are already wearing girl’s shoes. It’s not that much of a stretch to wear heels. Perhaps it’s time to be honest with yourself. Is this really a dare?”@@ Phoebe smiles at you curiously, her grey eyes sparkling.
 				<<else>>\
 					@@.femvoice7;“A dare or a bet? Not that it matters. You’ve [tried on/bought] girl’s shoes before, though. It’s not that much of a stretch for you to wear heels. Perhaps it’s time to be honest with yourself. Is this really a dare?”@@ Phoebe smiles at you curiously, her grey eyes sparkling.

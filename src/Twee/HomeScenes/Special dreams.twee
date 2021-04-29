@@ -1,8 +1,8 @@
 :: Special dreams [pos_2471_138]
 \
 <<if $scene eq "Dream Panties">>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+	<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 	<div class="dream">You feel safe and warm lying on your bed. You lazily shift from side to side. Your alarm clock hasn't gone off yet, so there's no hurry. Nevertheless, something feels wrong, not in a dangerous way, just... something. You open your eyes and realize that you are completely nude, wearing only the pair of panties that you wore at school.
 
 	@@.delayed_text_fast;“Where are my pajamas? And why am I wearing panties?” you think.
@@ -33,13 +33,13 @@
 	
 	"No!" you scream, and suddenly wake up. You are panting hard, but it was just a dream... a horrible dream.@@ </div>\
 	
-		<<if (_u and _u.female) or (_o and _o.female)>>\
+		<<if (_underwear and _underwear.isFemale) or (_outerwear and _outerwear.isFemale)>>\
 		@@.delayed_text_long;You look at yourself and see you are wearing really feminine nightwear. No wonder you had a dream like that. Extremely embarrassed, you lie back on the bed and mutter,@@ @@.heroT;.delayed_text_long;“I’m no sissy,”@@ @@.delayed_text_long;before falling again into sleep.@@
 		
-		<<elseif _o>>\
+		<<elseif _outerwear>>\
 		@@.delayed_text_long;You look at yourself with relief. You are wearing your usual pajamas and are alone in your room. You calm down, lie back on the bed, and mutter,@@ @@.heroT;.delayed_text_long;“I’m no sissy,”@@ @@.delayed_text_long;before falling again into sleep.@@
 		
-		<<elseif _u>>\
+		<<elseif _underwear>>\
 		@@.delayed_text_long;You look at yourself with relief, you are wearing your boxers and are alone in your room. You calm down, lie back on the bed, and mutter,@@ @@.heroT;.delayed_text_long;“I’m no sissy,”@@ @@.delayed_text_long;before falling again into sleep.@@
 		
 		<<else>>\

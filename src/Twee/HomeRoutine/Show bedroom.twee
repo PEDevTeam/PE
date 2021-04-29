@@ -1,6 +1,6 @@
 :: Show bedroom [pos_1273_215]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set $bedroomRender=true>>\
 <<if $player.room.style eq 0>>\
 	<<set _roomImage = "room_boys_basic.jpg">>\
@@ -85,7 +85,7 @@
 	<<showRoomImage "psbox_controller_00.png">>\
 <<endif>>\
 \
-<<if playerCode.owns(itemsC.alarmClock)>>\
+<<if $player.hasAlarmClock>>\
 	<<showRoomImage "clock.png">>\
 	<<if $time.hour gte 10>>\
 	<<print '<<showRoomImage "clock_1_'+Math.floor($time.hour/10)+'.png">>'>>\
@@ -95,7 +95,7 @@
 	<<print '<<showRoomImage "clock_4_'+$time.minute % 10+'.png">>'>>\
 <<endif>>\
 \
-<<if (not _o) or (not _o.school) or _o.female>>\
+<<if (not _outerwear) or (not window.inventoryFuncs.hasTag(_outerwear, 'school')) or _outerwear.isFemale>>\
 	<<if $player.room.jacket>>\
 		<<showRoomImage "boys_school_jacket_00.png">>\
 	<<endif>>\
@@ -103,7 +103,7 @@
 		<<print '<<showRoomImage "boys_school_tie_0'+$player.room.tie+'.png">>'>>\
 	<<endif>>\
 <<endif>>\
-<<if (not _o) or (not _o.school) or (not _o.female)>>\
+<<if (not _outerwear) or (not window.inventoryFuncs.hasTag(_outerwear, 'school')) or (not _outerwear.isFemale)>>\
 	<<if $player.room.girljacket>>\
 		<<showRoomImage "girls_school_jacket_00.png">>\
 	<<endif>>\

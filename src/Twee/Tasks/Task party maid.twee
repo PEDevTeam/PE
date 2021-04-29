@@ -1,15 +1,15 @@
 :: Task party maid [pos_476_1717]
 \
 <<set _pay=50>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<if (not $flags.partyMaidStarted) and (not $flags.partyMaidPunish)>>\
 	<<if $flags.maidUniform>>\
 		<<set $flags.maidUniform = false>>\
-		<<wearClothing 'chastityDevice'>>\
-		<<set _c to true>>\
+		<<wearRandomItemByMaster 'chastity'>>\
+		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<endif>>\
 	<<if ($time.hour lt 15)>>\
 			<<set $time.hour = 15>>\
@@ -36,7 +36,7 @@
 		You put your special maid outfit in your bag.
 	<<endif>>\
 	
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 	[[Put on chastity cage|Task party maid][$flags.partyMaidStarted=false; $flags.maidUniform = true]]
 	<<endif>>\
 	[[Go to Miss Juliette’s house|Task party maid][$time.addMinutes(160); $flags.partyMaidStarted=true]]
@@ -68,7 +68,7 @@
 	@@.nurse;"Oh, my! You look sexy in that outfit. I’m sure you will get plenty of attention this evening. You always looked like a wimp as a boy, so I’m not surprised that being a sissy suits you. Your job is to serve drinks and snacks to my guests and entertain them as they like. $Guardian has given me permission to punish you if you do not behave properly. Speaking of which -"@@ 
 
 	She reaches to your apron and lifts it, revealing your \
-	<<if _c>>\
+	<<if _chastity>>\
 		caged penis.
 		
 		@@.nurse;"That’s good. We don’t want that little worm of yours to get in the way. I’m sure $guardian told you: no penises allowed in this party."@@
@@ -123,7 +123,7 @@
 	Everyone else cheers and laughs, as you freeze holding a tray with glasses full of drinks.
 
 	Some of the guests leave the room as Juliette comes up to you. She takes the tray from you and puts it on a nearby table.
-	<<if _c>>\
+	<<if _chastity>>\
 		She holds your hand and leads you to the center of the room. \
 	<<else>>\
 		She takes your leash and pulls you to the center of the room. \
@@ -149,7 +149,7 @@
 	You look around you, there is an orgy going on in the room with you at the center.
 	
 	She starts sliding it in. Thankfully, your anus is loose from all the fucking, but it still hurts when the head pops in. She makes you look her in the eye while she pumps in and out of you, calling you a sissy and a whore. You can’t take it any more and your penis starts to pulse in \
-	<<if _c>>\
+	<<if _chastity>>\
 		your chastity cage \
 	<<else>>\
 		that metal spiral \
@@ -165,7 +165,7 @@
 		
 		@@.nurse;"You performed better than I expected! Here, some of the girls left you generous tips."@@ She waves your collected tips slowly in the air, teasing you with the bills and grinning before finally giving you the cash.
 		
-		@@.nurse;"I think I will use your services in the future - for a fee, of course. It wouldn’t be right for $guardian to offer your services for free. But since you are her whore, she will get the money, you’ll only get the tips. Or perhaps more than just the tip."@@ she laughs.<<if (not _c)>> She removes the spiral ring and the leash.<<endif>> 
+		@@.nurse;"I think I will use your services in the future - for a fee, of course. It wouldn’t be right for $guardian to offer your services for free. But since you are her whore, she will get the money, you’ll only get the tips. Or perhaps more than just the tip."@@ she laughs.<<if (not _chastity)>> She removes the spiral ring and the leash.<<endif>> 
 		
 		With that, she lets you get dressed and then sends you home.
 	<<else>>\
@@ -178,7 +178,7 @@
 
 			@@.nurse;"It's dark outside, so there is a chance you won’t be seen like that. How exciting for you! See you later, little maid!"@@ she laughs. 
 			
-			She hands you your pay for the evening, teasing you with the bills and grinning before finally giving you the cash.<<if (not _c)>> Then, she at last removes the spiral ring and the leash.<<endif>> Finally, she sends you out into the night air, watching you go out into the street wearing nothing but a skimpy maid outfit.
+			She hands you your pay for the evening, teasing you with the bills and grinning before finally giving you the cash.<<if (not _chastity)>> Then, she at last removes the spiral ring and the leash.<<endif>> Finally, she sends you out into the night air, watching you go out into the street wearing nothing but a skimpy maid outfit.
 			
 			<<if (random(1) eq 0)>>\
 				You go as fast as you can without running. Thankfully your home is only a few blocks away and it's dark. You manage to get home without any trouble.
@@ -196,7 +196,7 @@
 				After a few humiliating minutes, you arrive home with pumping heart, slightly bruised feet and a suspicion that all the neighbors saw you running in this fetish outfit.
 			<<endif>>\
 		<<else>>\
-			She hands you your pay for the evening, teasing you with the bills and grinning before finally giving you the cash.<<if (not _c)>> Then, she at last removes the spiral ring and the leash.<<endif>> Finally, she lets you get yourself dressed, and sends you home.
+			She hands you your pay for the evening, teasing you with the bills and grinning before finally giving you the cash.<<if (not _chastity)>> Then, she at last removes the spiral ring and the leash.<<endif>> Finally, she lets you get yourself dressed, and sends you home.
 		<<endif>>\
 	<<endif>>\
 	
@@ -209,11 +209,11 @@
 	[[Go home|Go to bedroom][$time.addMinutes(30); $flags.partyMaidStarted=false; $flags.partyMaidDone=true; $flags.partyMaidTask=false]]
 <<else>>\
 	<div><<RandomImageFromPack "Job Maid Facesit" 400 400>></div>\	
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		@@.guardian;"First you will wear a chastity for the rest of weekend."@@ $Guardian makes you put it, then locks it.
 		
-		<<wearClothing 'chastityDevice'>>\
-		<<set _c to true>>\
+		<<wearRandomItemByMaster 'chastity'>>\
+		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<endif>>\
 	$Guardian leads you to the living room where you see a familiar woman. She's tall, much taller than you, with dark hair. She kind of looks like an Amazon warrior. You were always intimidated by her appearance, and now you stand before her wearing sexy maid outfit.
 
@@ -242,7 +242,7 @@
 	@@.nurse;"A sissy slut such as you should have a very loose asshole. Let's see if you do."@@
 	
 	Juliette retrieves a large dildo from her bag. The dildo is so huge you're afraid it will rip you apart. You start shaking your head in meek protest, but she just laughs at you and slaps your face again. She \
-	<<if _b>>\
+	<<if _plug>>\
 	removes your butt-plug and \
 	<<endif>>\
 	shoves the dildo into your unprepared anus. You scream as she struggles to fill you with the gigantic monster. When she finally has it all the way in, she throws you onto the nearby sofa and jumps on you.
