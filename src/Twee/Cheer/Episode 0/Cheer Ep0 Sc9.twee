@@ -1,6 +1,6 @@
 :: Cheer Ep0 Sc9
 \
-<<set _o to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<if $version == "watch">>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerleader On Field" 400 400>></div>\
 	You watch the squad for far longer than you should, completely enraptured as they work through their routines.
@@ -81,7 +81,7 @@ You look up, wondering if she might be suggesting what you think she is.
 @@.cheerCaptain;“That is, unless you’re too much of a sissy to handle working out with some girls?”@@
 
 Ouch. \
-<<if _o.female>>\
+<<if _outerwear.isFemale>>\
 	Low blow to a guy wearing a dress.
 <<else>>\
 	Low blow.

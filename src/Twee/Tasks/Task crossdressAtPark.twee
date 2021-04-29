@@ -16,10 +16,10 @@
 	<<endif>>\
 
 	You pack your\
-	<<if playerCode.owns(itemsC.skirtTop)>>skirt and top<<else>>dress<<endif>>\
+	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>skirt and top<<else>>dress<<endif>>\
 	and go to the park in\
 	<<if $flags.clothesPurged>>\
-		<<if playerCode.owns(itemsC.schoolMale)>>\
+		<<if inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 			your school uniform, the only male clothes that you have now.
 		<<else>>\
 			an over-sized, dirty sportsuit you grab from basement. It gets you quite a few weird looks from passersby, but it's not like you have a choice.
@@ -29,7 +29,7 @@
 	<<endif>>\
 	
 	There is a quiet place at a corner of the park, with an uneven ground and lot of thorny bushes, so there is little to no traffic. You glance around, ensuring that there is nobody nearby, and head for one of the toilet cabins. Inside, you quickly take off your clothes and put on your \
-	<<if playerCode.owns(itemsC.skirtTop)>>skirt and top<<else>>dress<<endif>>.
+	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>skirt and top<<else>>dress<<endif>>.
 	
 	Keeping quiet with anticipation, you step gingerly out of the cabin. You let out a relieved sigh only when you see the secluded place is still empty, and are thankful to have made it without misadventure. Still trembling with anxiety from being outside in drag, you can't quite rid yourself of the feeling that somebody will come and catch you. You look for a soft place in the lush grass to rest.
 	
@@ -38,7 +38,7 @@
 	You notice a colorful bug carrying a leaf, twice as large as the bug itself, heading somewhere on important bug business. Fascinated, you click a few pictures of it with your phone.
 	
 	You wonder if anyone else comes here to relax. It feels like you're the only person in the world right now. You realize with relief that your anxiety is gone, even if it still feels weird to wear\
-	<<if playerCode.owns(itemsC.skirtTop)>>a skirt and top<<else>>a dress<<endif>>.\
+	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>a skirt and top<<else>>a dress<<endif>>.\
 	It's more of a //interesting and unusual// feeling now than a //scary and dangerous// one.
 	
 	Carefree at last, you play with the bug, blocking his way with small twigs until you hear the crack of a dry leaf snapping nearby. Your heart jumps, but you quickly see the intruder is just a squirrel who has wandered over.
@@ -88,7 +88,7 @@
 
 		<<if (!(playerCode.isWaxed()||playerCode.isHairless())||!playerCode.haveMakeup())>>\
 			<<if $kinkAllow.degredation>>\
-				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back. <<if !(playerCode.isWaxed()||playerCode.isHairless())>>You know, your legs would look so much better smooth.<<endif>>”@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt before walking into the park whistling to himself. Your penis leaks a little inside your <<if playerCode.isWearingOn(itemTypes.Chastity)>>cage<<else>>panties<<endif>> at his touch, and you pray the dribble of precum doesn’t stain the front of your dress.
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back. <<if !(playerCode.isWaxed()||playerCode.isHairless())>>You know, your legs would look so much better smooth.<<endif>>”@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt before walking into the park whistling to himself. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch, and you pray the dribble of precum doesn’t stain the front of your dress.
 			<<else>>\
 				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but you have mud on the back of your legs. <<if !(playerCode.isWaxed()||playerCode.isHairless())>>A cutie like you should consider waxing.<<endif>>”@@ He smiles at you before walking deeper into the park whistling to himself.
 			<<endif>>\
@@ -99,11 +99,11 @@
 			
 		<<else>>\
 			<<if $kinkAllow.degredation>>\
-				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back."@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt, brushing the mud from your thighs with his rough hand, before stepping back. Your penis leaks a little inside your <<if playerCode.isWearingOn(itemTypes.Chastity)>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back."@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt, brushing the mud from your thighs with his rough hand, before stepping back. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
 					
 				@@.malevoice3;“Very pretty panties, too. I wonder what delights I may find inside?”@@
 			<<else>>\
-				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but you have mud on the back of your legs. I can help”@@ You are too stunned to react as he reaches behind you and pats your butt before brushing the mud from your thighs with his rough hand and stepping back. Your penis leaks a little inside your <<if playerCode.isWearingOn(itemTypes.Chastity)>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but you have mud on the back of your legs. I can help”@@ You are too stunned to react as he reaches behind you and pats your butt before brushing the mud from your thighs with his rough hand and stepping back. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
 
 				@@.malevoice3;“There, all better?”@@
 			<<endif>>\
@@ -164,7 +164,7 @@
 		[[Go to your bedroom|Go to bedroom]]
 	<<endif>>\
 <<elseif $scene eq "sneak in">>\
-	<<set _shoes = playerCode.isWearingOn(itemTypes.Shoes)>>\
+	<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 	@@.guardian;“There you are. I’ve been worried. I…”@@ $guardian stops talking and stares at you with her mouth open. @@.guardian;“What on earth are you wearing?”@@
 
 	@@.heroT;“Um, I… ”@@
@@ -177,7 +177,7 @@
 
 	$guardian throws her hands up in frustration. @@.guardian;“Forget it. I’m going out; I need to think. We’ll talk about this in the morning.”@@
 
-	$guardian glares at you, examining you from your face to your <<if _shoes.heels>>heels<<else>>flats<<endif>> and everything in between. Without saying another word she grabs her keys and leaves. 
+	$guardian glares at you, examining you from your face to your <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>heels<<else>>flats<<endif>> and everything in between. Without saying another word she grabs her keys and leaves. 
 
 	@@.hero;Well, if she didn’t know before, she sure knows now.@@
 	

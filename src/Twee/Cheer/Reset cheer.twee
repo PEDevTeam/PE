@@ -2,29 +2,27 @@
 Note: this may put clothing on you that you do not own so you are allowed to travel.  
 It can be removed at the bedroom.
 <<if $cheerleaders.progress > 10>>\
-	<<set playerCode.removeClothesJS('cheerBow')>>\
-	<<set playerCode.removeClothesJS('socks')>>\
-	<<set playerCode.removeClothesJS('cheerBriefs')>>\
-	<<set playerCode.removeClothesJS('hairbow')>>\
-	<<removeFromInv 'cheerDress'>>\
-	<<removeFromInv 'cheerBriefs'>>\
-	<<removeFromInv 'socks'>>\
-	<<removeFromInv 'hairbow'>>\
-	<<removeFromInv 'cheerSneakers'>>\
-	<<wearClothing 'flats'>>\
-	<<wearClothing 'schoolFemale'>>\
+	<<set inventoryFuncs.removeClothing('headwear')>>\
+	<<set inventoryFuncs.removeClothing('hosiery')>>\
+	<<set inventoryFuncs.removeItemVariant('cheer_briefs')>>\
+	<<removeItemVariantFromInventory 'cheer_dress'>>
+	<<removeItemVariantFromInventory 'cheer_briefs'>>
+	<<removeItemVariantFromInventory 'socks_43'>>
+	<<removeItemVariantFromInventory 'hairbow_43'>>
+	<<removeItemVariantFromInventory 'cheer_sneakers'>>
+	<<wearRandomItemByMaster 'flats'>>\
+	<<wearRandomItemByMaster 'schoolDress'>>\
 <<elseif $cheerleaders.progress > 2>>\
-	<<set playerCode.removeClothesJS('cheerBow')>>\
-	<<set playerCode.removeClothesJS('socks')>>\
-	<<set playerCode.removeClothesJS('cheerBriefs')>>\
-	<<set playerCode.removeClothesJS('hairbow')>>\
-	<<removeFromInv 'rookieUniform'>>\
-	<<removeFromInv 'cheerBriefs'>>\
-	<<removeFromInv 'socks'>>\
-	<<removeFromInv 'hairbow'>>\
-	<<removeFromInv 'cheerSneakers'>>\
-	<<wearClothing 'flats'>>\
-	<<wearClothing 'schoolFemale' 0>>\
+	<<set inventoryFuncs.removeClothing('headwear')>>\
+	<<set inventoryFuncs.removeClothing('hosiery')>>\
+	<<set inventoryFuncs.removeItemVariant('cheer_briefs')>>\
+	<<removeItemVariantFromInventory 'rookie_uniform'>>
+	<<removeItemVariantFromInventory 'cheer_briefs'>>
+	<<removeItemVariantFromInventory 'socks_43'>>
+	<<removeItemVariantFromInventory 'hairbow_43'>>
+	<<removeItemVariantFromInventory 'cheer_sneakers'>>
+	<<wearRandomItemByMaster 'flats'>>\
+	<<wearRandomItemByMaster 'schoolDress'>>\
 <<endif>>
 <<set $cheerleaders.active = false>>\
 <<set $cheerleaders.progress = -1>>\

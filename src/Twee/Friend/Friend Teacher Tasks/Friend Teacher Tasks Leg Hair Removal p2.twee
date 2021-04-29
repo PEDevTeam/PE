@@ -1,6 +1,6 @@
 ::Friend Teacher Tasks Leg Hair Removal p2
 \
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 \
 You roll over onto your back and immediately notice how flushed $friend’s face is, You realize yours must be the same. $friend turns and prepares the next batch of wax, \
 perhaps taking longer than $friendG.he_she requires, but you’re thankful for the respite from the embarrassing scenario. You notice the damp patch in the front of your waxing \
@@ -11,7 +11,7 @@ panties and try to tap it dry with your fingers, but you only succeed in ripping
     @@.friend;"You’re wearing your little cage thing, we can probably manage without.”@@
 
     Before you can react $friendG.he_she takes some nail scissors from the trolley and snips either side of the paper and tugs the panties free. \
-    You lay there in shock, your body mostly exposed from the waist down, your <<if $body.penisShrink>>tiny<<endif>> penis covered only by your cage.
+    You lay there in shock, your body mostly exposed from the waist down, your <<if $body.penisShrink.level gt 0>>tiny<<endif>> penis covered only by your cage.
 
     @@.friend;"Is it um, comfortable?”@@ $friend asks, half-reaching out to touch it before withdrawing $friendG.his_her hand.
 
@@ -31,7 +31,7 @@ panties and try to tap it dry with your fingers, but you only succeed in ripping
         <<endif>>\
     <<endif>>\
     @@.friend;"We can work around it.”@@ $friend states, before placing $friendG.his_her hands on your bare legs. You lay back and try to keep calm, thinking of the most boring things you can imagine to stop your \
-    <<if $body.penisShrink>>tiny<<endif>> penis leaking inside your cage any more.
+    <<if $body.penisShrink.level gt 0>>tiny<<endif>> penis leaking inside your cage any more.
 <<else>>\
     $friend immediately notices your predicament. @@.friend;"Oh, they ripped. They are thin, I guess.”@@ $friendG.He_She scratches $friendG.his_her chin in thought. @@.friend;"Here’s another pair,  \
     pop yourself back inside.”@@
@@ -48,7 +48,7 @@ panties and try to tap it dry with your fingers, but you only succeed in ripping
 
      @@.friend;"You’re going to have to be patient now, $player.name. I’m going to need some help on this bit… I don’t want to touch your… you know?”@@
 
-     You lay back and try to keep calm, thinking of the most boring things you can imagine to stop your <<if $body.penisShrink>>tiny<<endif>>  penis growing in the paper panties.
+     You lay back and try to keep calm, thinking of the most boring things you can imagine to stop your <<if $body.penisShrink.level gt 0>>tiny<<endif>>  penis growing in the paper panties.
 <<endif>>\
 \
 You are so busy focusing on your predicament, and controlling your thoughts, that you don’t notice as $friend begins to rip hairs from your shin. You glance down at your bare left leg and notice that \
@@ -59,7 +59,7 @@ By the time both legs are complete, you don’t think you can cope with the pain
 yourself for more oiling.
 
 <<if _wearingChastity>>\
-    Because your eyes are closed, you are unprepared as $friend lifts your penis up by your cage and smears more wax on your <<if $body.penisShrink>>tiny<<endif>> sac, before slathering more across your pubic hairs from left to right..
+    Because your eyes are closed, you are unprepared as $friend lifts your penis up by your cage and smears more wax on your <<if $body.penisShrink.level gt 0>>tiny<<endif>> sac, before slathering more across your pubic hairs from left to right..
 
     @@.heroT;"What the fuck…?"@@ you scream, looking down to see $friend holding your caged penis between $friendG.his_her finger and thumb and pulling your skin taut.
 
@@ -69,11 +69,11 @@ yourself for more oiling.
 <<else>>\
     @@.friend;"Could you… move your..."@@
 
-    It takes you a moment to understand, but suspecting $friend has found some errant wax, you pull your <<if $body.penisShrink>>tiny<<endif>> penis to the side, your panties ripping once more.
+    It takes you a moment to understand, but suspecting $friend has found some errant wax, you pull your <<if $body.penisShrink.level gt 0>>tiny<<endif>> penis to the side, your panties ripping once more.
 
     At least my penis is still covered by your hand...
 
-    You brace for $friend to wipe or apply oil, but instead $friendG.he_she smears hot wax on your <<if $body.penisShrink>>tiny<<endif>> sac, before slathering more across your pubic hairs from \
+    You brace for $friend to wipe or apply oil, but instead $friendG.he_she smears hot wax on your <<if $body.penisShrink.level gt 0>>tiny<<endif>> sac, before slathering more across your pubic hairs from \
     left to right..
 
     @@.hero;"What the fuck…?"@@ you scream, looking down to see $friend’s gaze fixed on your barely-covered penis.
@@ -107,9 +107,8 @@ Your need for release is overwhelming and you groan to yourself in frustration.
 
 You are just about to admit to $friend how good it feels feel when $friendG.he_she suddenly steps back, mumbles an apology and scurries off to the hidden room. You lay back in complete frustration. \
 To add to your unhappiness, very distinct noises of $friend resolving $friendG.his_her own pent up frustration echo from the back room.
-<<set _item=itemsC.Waxing>>\
-<<buyItem _item.id>>\
-<<set $body.bodyhair = 1>>\
+<<set $player.money -= $body.bodyhair.level1.cost>>\
+<<set $body.bodyhair.level = 1>>\
 <<if $tasksTeacherBody.legHairRemoval.status eq 1>>\
     /* 
     Only track task progress if the task is actually active.

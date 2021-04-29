@@ -1,12 +1,12 @@
 :: Cheer Ep1 Sc2
-<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _hosiery=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<RandomImageFromPack "Cheerleader Exercising" 400 400 "alignRight">>\
 \
 The exercises continue relentlessly, and the longer you try to keep up, the more you clearly lag behind. Your muscles feel like they’re seizing up, and your cock continues to ache and drip as each new exercise seems to highlight some new feature of the squad members’ bodies. Your thick, heavy clothes, clearly not meant for this kind of activity, only make things worse by restricting your range of motion and locking in the sweat soaking your body.\
-<<if _shoes.heels and (_stockings or _socks)>>\
+<<if window.inventoryFuncs.hasTag(_shoes, 'heels') and _hosiery>>\
     Your\
-    <<if _stockings>>\
+    <<if _hosiery.masterItem == "stockings">>\
         stockings,\
     <<else>>\
         thigh-high Socks,\

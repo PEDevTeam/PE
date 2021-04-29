@@ -1,11 +1,16 @@
 :: Club basement [basement]
 \
-<<set _nails to $body.manicure>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+<<set _nails to $body.manicure.level gt 0>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<set _heels=_shoes.masterItem == 'highHeels'>>\
+<<else>>\
+	<<set _heels=false>>\
+<<endif>>\
 \
 <<reactOnce true firstTimeInClubBasement>>\
-	You squeeze passed the mountainous bouncer, grip the silver handle in your trembling<<if _nails>>, manicured<<endif>> fingers and reach out to blood red door. Before your fingertips can brush the surface, the door swings away from you silently. A soft, cool breeze escapes the space beyond, brushing against your legs and sweeping up <<if _outerwear.skirt>>your skirt<<else>>the skirt of your dress<<endif>>. It’s heavier than you expected, and a grunt of effort escapes your lips as you push all your weight against it.
+	You squeeze passed the mountainous bouncer, grip the silver handle in your trembling<<if _nails>>, manicured<<endif>> fingers and reach out to blood red door. Before your fingertips can brush the surface, the door swings away from you silently. A soft, cool breeze escapes the space beyond, brushing against your legs and sweeping up <<if _outerwear.masterItem == "skirtTop">>your skirt<<else>>the skirt of your dress<<endif>>. It’s heavier than you expected, and a grunt of effort escapes your lips as you push all your weight against it.
 
 	<<RandomImageFromPack 'Club/Basement/LatexSecretary' 600 600 alignLeft>>\
 	A spiral staircase leads down into the bowels of the building. You step down cautiously<<if _heels>>, your heels ringing on the bare stone,<<endif>> and emerge into a small office space with a single doorway barring you from moving further. A statuesque blonde dressed like a receptionist - if receptionists only wore leather or latex - glares at you over her spectacles. Your eyes drink in every inch of her, her luscious blonde hair, perfect, elegant makeup and amazing breasts. 

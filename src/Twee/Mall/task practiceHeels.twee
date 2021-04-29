@@ -1,5 +1,6 @@
 ::task practiceHeels
-<<set _stock = playerCode.isWearingOn(itemTypes.Stockings) && not playerCode.isWearing(itemsC.socks)>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if not $flags.mallKlipIntro>>\
 	<<RandomImageFromPack 'Try_on_heels/shopkeeper' 400 400 alignRight>>\
 	@@.femvoice7;“Can I help you?”@@ 
@@ -35,13 +36,13 @@ You follow Phoebe to the rear of the shop and out towards the stockroom. As she 
 
 	Wondering how you find yourself in these positions, you flop down sullenly. Just as you finish removing your shoes, Phoebe returns with a contraption.
 
-	<<if playerCode.isWearing(itemsC.socks)>>\
+	<<if _stock && _stock.masterItem=='socks'>>\
 		@@.femvoice7;“Socks too.”@@
 
 		You remove your socks and drop them into your shoes
 		
 	<<endif>>\
-	Phoebe kneels before you, her smooth thighs disappearing enticingly inside her miniskirt. Despite your situation, the sight of her delicate skin makes your penis throb <<if playerCode.isWearingOn(itemTypes.Chastity)>>uncomfortably inside your cage<<else>>which forces you to lean forward to hide it<<endif>>. She places a measuring board on her legs and then lifts your foot onto the board. Her delicate fingers seem to drift over your skin and increase your discomfort. You look away, trying to find something to diminish your ardor, only to notice a line of posters of tall women with shapely legs wearing increasingly tall, sexy heels. The sight makes you whimper.
+	Phoebe kneels before you, her smooth thighs disappearing enticingly inside her miniskirt. Despite your situation, the sight of her delicate skin makes your penis throb <<if _chast>>uncomfortably inside your cage<<else>>which forces you to lean forward to hide it<<endif>>. She places a measuring board on her legs and then lifts your foot onto the board. Her delicate fingers seem to drift over your skin and increase your discomfort. You look away, trying to find something to diminish your ardor, only to notice a line of posters of tall women with shapely legs wearing increasingly tall, sexy heels. The sight makes you whimper.
 
 	@@.femvoice7;“Good news. You are a nine.”@@ You look at her in wonderment. Your shoe size has increased overnight. 
 

@@ -1,17 +1,18 @@
 :: Choose slut [pos_651_2206]
 \
 <<if $version==1>>\
-	<<set $items.stilettoHeels.school=true>>\
-		<<if playerCode.isMind_0()>>\
-		Instead of hiding from your fear you decide to embrace it, and fuck the consequences.
-		
-		<<elseif playerCode.isMind_1()>>\
-		Tempted by the image of being blissfully fucked every day, you choose to just embrace your slutty nature.
-		
-		<<else>>\
-		Remembering how great it felt losing your anal virginity you give in to your lowest desires and go all in, embracing your inner slut.
-		
-		<<endif>>\
+	<<set window.itemFuncs.addTagToItemMaster('stripperHeels', 'school', true)>>\
+	<<set window.inventoryFuncs.addTagToAllVariants('stripperHeels', 'school', true)>>\
+	<<if playerCode.isMind_0()>>\
+	Instead of hiding from your fear you decide to embrace it, and fuck the consequences.
+	
+	<<elseif playerCode.isMind_1()>>\
+	Tempted by the image of being blissfully fucked every day, you choose to just embrace your slutty nature.
+	
+	<<else>>\
+	Remembering how great it felt losing your anal virginity you give in to your lowest desires and go all in, embracing your inner slut.
+	
+	<<endif>>\
 	You return to $teacher and tell her that you want the freedom to fuck, whoever and whenever you want.
 	
 <<endif>>\
@@ -39,8 +40,8 @@
 <<else>>\
 	<<set $player.perversion.teacher = 10>>\
 	<<set $player.perversion.teacherCooldown=0>>\
-	<<if (not playerCode.owns(itemsC.sluttyschoolFemale))>>\
-		<<addToInv 'sluttyschoolFemale'>>\
+	<<if (not inventoryFuncs.ownsMasterItem('sluttySchoolDress'))>>\
+		<<addItemVariantToInventory 'slutty_school_female'>>\
 	<<endif>>\
 	$teacher smiles when you give her your response.
 	
@@ -62,8 +63,9 @@
 	
 	Of course, I will be expecting you to live up to your role of 'school slut' from now on. I am sure you can find opportunites to offer your services to those at school if you look hard enough, and if you give students or faculty a nice relief, I will give you a little debt relief. I will also pass along if I hear of anyone who needs your particular services, but I expect you to show some initative and seek them out.@@
 	
-	<<addToInv 'sluttyCheer' $cheerleaders.flags.slutUniform>>\
-	<<addToInv 'heeledCheer'>>\
+	<<set _cheerUniform = 'slutty_cheer_0' + $cheerleaders.flags.slutUniform>>
+	<<addItemVariantToInventory _cheerUniform>>\
+	<<addItemVariantToInventory 'heeled_cheer_sneakers'>>\
 	@@.teacher;"One other thing, $player.name. <<if $cheerleaders.progress > 1>>I know giving up cheerleading was a sacrifice, so <<endif>>I'm going to send you something that will hopefully make things easier.  It should be at your house when you get home.  You should bring it to school with you, just don't wear it in place of your uniform. Who knows what <<if $cheerleaders.progress > 1>>Rachel<<else>>the cheer captain<<endif>> would say if she saw you wearing it..."@@
 	<<set $flags.sluttyCheer = true>>\
 		

@@ -1,40 +1,40 @@
 :: Go to school [pos_736_1453]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "School Outside" 400 400>></div>\	
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _e=playerCode.isWearingOn(itemTypes.Earrings)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _earring=window.wardrobeFuncs.getWornItem('earring')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <!-- Looks male -->\
 <<set _m=(not playerCode.haveHaircut()) and (not playerCode.haveGirlyFace())>>\
 <<CheckUnderwear>>\
-<<if _c>>\
+<<if _chastity>>\
 	<<set $therapistTalks.talkChastity.start=true>>\
 <<endif>>\
-<<if _b>>\
+<<if _plug>>\
 	<<set $therapistTalks.talkButtplug.start=true>>\
 <<endif>>\
-<<if _u and _u.female>>\
+<<if _underwear and _underwear.isFemale>>\
 	<<set $therapistTalks.talkUnderwear.start=true>>\
 <<endif>>\
 <!--<Misc events>-->\
 <<if $flags.chastityKey>>\
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		Remembering $teacher’s warning, you return home, put on your chastity device and lock it.
 
-		<<wearClothing 'chastityDevice'>>\
+		<<wearRandomItemByMaster 'chastity'>>\
 		<<set $flags.chastityLocked = true>>\
-		<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<elseif not $flags.chastityLocked>>\
 		Remembering $teacher’s warning, you quickly lock your chastity device.
 		
 		<<set $flags.chastityLocked = true>>\
 	<<endif>>\
 <<endif>>\
-<<if playerCode.isWearing(itemsC.stockings)>>\
+<<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
 	<<if $tasksTeacher.wearStockings.status == 1>>\
 		<<set $tasksTeacher.wearStockings.status = 2>>\
 	<<endif>>\
@@ -56,7 +56,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 	@@.hero;If I could only once more find a break from the unrelenting ouroboros that is my time these days.@@
 	
 <<endif>>\
-<<if $flags.laundryAccident and _u.female and _u.disabled>>\
+<<if $flags.laundryAccident and _underwear and _underwear.isFemale and _underwear.disabled>>\
 	Your wet underwear feels cold and very uncomfortable. You regret putting it on at all.
 
 <<endif>>\
@@ -65,33 +65,33 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 <!--<Shoes stumble and clothes check>-->\
 <<if (not $flags.heelsFall)>>\
 	<<if playerCode.heelsCheck()>>\
-		<<if playerCode.isWearing(itemsC.stilettoHeels)>>\
+		<<if window.wardrobeFuncs.isItemMasterWearing('stripperHeels')>>\
 			Still not used to walking in stiletto heels, you stumble and fall, arms flailing, before you face-plant on the road.\
-		<<elseif playerCode.isWearing(itemsC.highHeel3)>>\
+		<<elseif window.wardrobeFuncs.isItemMasterWearing('heels')>>\
 			Still not used to walking in high heels, you stumble and fall, arms flailing, before you face-plant on the road.\
 		<<endif>>\
-		<<if _o.female && not (_o.shorts)>>\
+		<<if _outerwear.isFemale>>\
 			Your skirt drags up, exposing your \
-			<<if _u>>\
-				<<if (not _u.female)>>\
+			<<if _underwear>>\
+				<<if (not _underwear.isFemale)>>\
 					boxers\
-					<<if _c>>\
+					<<if _chastity>>\
 					 hiding your chastity cage\
-						<<if _b>>\
+						<<if _plug>>\
 						 and butt-plug\
 						<<endif>>\
-					<<elseif _b>>\
+					<<elseif _plug>>\
 					 hiding your arousal from your butt-plug\
 					<<endif>>\
 					.\
-				<<elseif (not _u.slutty)>>\
+				<<elseif (not window.inventoryFuncs.hasTag(_underwear, 'slutty'))>>\
 					panties\
-					<<if _c>>\
+					<<if _chastity>>\
 					 hiding a chastity cage\
-						<<if _b>>\
+						<<if _plug>>\
 						 and a butt-plug\
 						<<endif>>\
-					<<elseif _b>>\
+					<<elseif _plug>>\
 					 tented by arousal from your butt-plug\
 					<<else>>\
 					 barely covering your penis\
@@ -99,12 +99,12 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					.\
 				<<else>>\
 					lacy panties\
-					<<if _c>>\
+					<<if _chastity>>\
 					 barely covering a chastity cage\
-						<<if _b>>\
+						<<if _plug>>\
 						 and a butt-plug\
 						<<endif>>\
-					<<elseif _b>>\
+					<<elseif _plug>>\
 					 tented by arousal from a butt-plug\
 					<<else>>\
 					 with your penis peaking from it\
@@ -113,13 +113,13 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				<<endif>>\
 			<<else>>\
 				your bare butt\
-				<<if _c>>\
+				<<if _chastity>>\
 				, a chastity cage\
-					<<if _b>>\
+					<<if _plug>>\
 					 and a butt-plug\
 					<<endif>>\
 				.\
-				<<elseif _b>>\
+				<<elseif _plug>>\
 				and a butt-plug, that’s keeping your penis erect.\
 				<<else>>\
 				 and uncovered penis.\
@@ -139,23 +139,23 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 	<<endif>>\
 <<endif>>\
 \
-<<if _b>>\
+<<if _plug>>\
 	The butt-plug reminds you of its presence with every step, keeping you constantly aroused.\
 <<endif>>\
-<<if _o.female>>\
-	<<if _c>>\
-		Your penis strains against your chastity device, fortunately hidden beneath your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>.\
-		<<if not _u and (not _o.shorts)>>\
+<<if _outerwear.isFemale>>\
+	<<if _chastity>>\
+		Your penis strains against your chastity device, fortunately hidden beneath your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>.\
+		<<if not _underwear>>\
 			Without underwear under your dress, you feel vulnerable to the smallest breeze that threatens to lift it up and flash your caged penis to everyone around.\
 			<<if not $player.daringFlag.noUnderwear>>\
 				<<set $player.daringFlag.noUnderwear=true>>\
 			<<endif>>\
 		<<endif>>\
 	<<elseif playerCode.isHorny()>>\
-		Your erect penis tents your <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\
+		Your erect penis tents your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>dress<<endif>>, making it obvious to everyone how desperately horny you are.\
 	<<endif>>\
 <<endif>>\
-<<if _b || (_o.female and playerCode.isHorny()) || (_o.female and _c)>>\
+<<if _plug || (_outerwear.isFemale and playerCode.isHorny()) || (_outerwear.isFemale and _chastity)>>\
 
 
 <<endif>>\
@@ -191,9 +191,9 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			
 		<<elseif (_ev lte 1) or ($time.day eq 1)>>\
 			<!--				School crowd reaction to player body mods				-->\
-			<<if (not _o.female)>>\
+			<<if (not _outerwear.isFemale)>>\
 				<<if _m>>\
-					<<if ($body.lips eq 1)>>\
+					<<if ($body.lips.level eq 1)>>\
 						Your full lips draw confused glances.\
 						<<if playerCode.isMind_0()>>\
 							It is embarrassing.\
@@ -202,7 +202,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						<<else>>\
 							Damn prudes.\
 						<<endif>>\
-					<<elseif ($body.lips eq 2)>>\
+					<<elseif ($body.lips.level eq 2)>>\
 						Your over-sized cocksucking lips draw shocked stares and revolted glances.\
 						<<if playerCode.isMind_0()>>\
 							It is humiliating.\
@@ -212,17 +212,17 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 							It is humiliating, but you find yourself becoming excited by all the attention.\
 						<<endif>>\
 					<<endif>>\
-					<<if ($body.boobs eq 1)>>\
+					<<if ($body.boobs.level eq 1)>>\
 						Your uniform hides your small breasts.\
-					<<elseif ($body.boobs eq 2)>>\
+					<<elseif ($body.boobs.level eq 2)>>\
 						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
-					<<elseif ($body.boobs eq 3)>>\
+					<<elseif ($body.boobs.level eq 3)>>\
 						You look like a cross-dressing girl with your breasts bulging against your uniform. But with your plain face and short, boyish haircut you just look ridiculous.\
-					<<elseif ($body.boobs eq 4)>>\
+					<<elseif ($body.boobs.level eq 4)>>\
 						Your uniform strains against your huge breasts, and with your plain face and short, boyish haircut you just look ridiculous.\
 					<<endif>>\
 				<<else>>\
-					<<if ($body.lips eq 1)>>\
+					<<if ($body.lips.level eq 1)>>\
 						Your full lips draw confused, but lustful glances.\
 						<<if playerCode.isMind_0()>>\
 							It is embarrassing.\
@@ -231,7 +231,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						<<else>>\
 							Damn prudes.\
 						<<endif>>\
-					<<elseif ($body.lips eq 2)>>\
+					<<elseif ($body.lips.level eq 2)>>\
 					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
 						<<if playerCode.isMind_0()>>\
 							It is humiliating.\
@@ -241,18 +241,18 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 							It’s humiliating, but you find all the attention both thrilling and arousing.\
 						<<endif>>\
 					<<endif>>\
-					<<if ($body.boobs eq 1)>>\
+					<<if ($body.boobs.level eq 1)>>\
 						Your uniform hides your small breasts.\
-					<<elseif ($body.boobs eq 2)>>\
+					<<elseif ($body.boobs.level eq 2)>>\
 						Your uniform mostly hides your ample breasts, but they're still noticeable if you aren't careful.\
-					<<elseif ($body.boobs eq 3)>>\
+					<<elseif ($body.boobs.level eq 3)>>\
 						You look like a cross-dressing girl with your breasts bulging against your uniform.\
-					<<elseif ($body.boobs eq 4)>>\
+					<<elseif ($body.boobs.level eq 4)>>\
 						Your uniform strains against your huge breasts.\
 					<<endif>>\
 				<<endif>>\
 			<<else>>\
-				<<if ($body.lips eq 1)>>\
+				<<if ($body.lips.level eq 1)>>\
 					Your full lips draw glances and lustful stares.\
 					<<if playerCode.isMind_0()>>\
 						It makes you uncomfortable.\
@@ -261,7 +261,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<else>>\
 						It’s intoxicating to draw such attention.\
 					<<endif>>\
-				<<elseif ($body.lips eq 2)>>\
+				<<elseif ($body.lips.level eq 2)>>\
 					Your over-sized cocksucking lips draw lustful stares, as well as demeaning comments behind your back.\
 					<<if playerCode.isMind_0()>>\
 						It is humiliating.\
@@ -271,13 +271,13 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						It’s humiliating, but you find all the attention both thrilling and arousing.\
 					<<endif>>\
 				<<endif>>\
-				<<if ($body.boobs eq 1)>>\
+				<<if ($body.boobs.level eq 1)>>\
 					Your uniform fits nicely thanks to your small breasts.\
-				<<elseif ($body.boobs eq 2)>>\
+				<<elseif ($body.boobs.level eq 2)>>\
 					Your uniform fits nicely, emphasizing the shape of your ample boobs and complementing your figure.\
-				<<elseif ($body.boobs eq 3)>>\
+				<<elseif ($body.boobs.level eq 3)>>\
 					Your uniform complements your sexy figure, pushing your breasts together enticingly. The hint of cleavage draws eyes.\
-				<<elseif ($body.boobs eq 4)>>\
+				<<elseif ($body.boobs.level eq 4)>>\
 					Your uniform barely holds in your huge breasts, and people stare slack-jawed at the straining buttons of your shirt.\
 					<<if playerCode.isMind_0()>>\
 						You feel violated by their shameless stares.\
@@ -287,7 +287,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						You love it.\
 					<<endif>>\
 				<<endif>>\
-				<<if ($body.ass eq 1)>>\
+				<<if ($body.ass.level eq 1)>>\
 					Your round butt \
 					<<if playerCode.haveCplus()>>\
 						nicely complements your big boobs and you can't help but notice appraising looks.\
@@ -296,23 +296,23 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<else>>\
 						gives you some nice curves that draw in stares. With your flat chest, that is the only place anyone looks.\
 					<<endif>>\
-				<<elseif ($body.ass eq 2)>>\
+				<<elseif ($body.ass.level eq 2)>>\
 					Your bubble butt \
 					<<if playerCode.haveCplus()>>\
-						nicely complements your big boobs, making you look like a porn actress dressed up as a <<if _o.cheer>>cheerleader<<else>>schoolgirl<<endif>>.\
+						nicely complements your big boobs, making you look like a porn actress dressed up as a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader<<else>>schoolgirl<<endif>>.\
 					<<else>>\
 						and your lack of comparable boobs give you a very peculiar look. It seems young boys prefer to look at girls with more cleavage, but you've noticed quite a few appreciative glances from older men.\
 					<<endif>>\
 				<<endif>>\
 			<<endif>>\
-			<<if ($body.makeup eq 2)>>\
+			<<if ($body.makeup.level eq 2)>>\
 				It is not unusual to see schoolgirls wearing makeup like yours, but still, you look like one of the prettier ones.\
-			<<elseif ($body.makeup eq 3)>>\
+			<<elseif ($body.makeup.level eq 3)>>\
 				Made up like a brainless bimbo, you attract condescending and lustful looks from other students - sometimes both at once.\
-			<<elseif ($body.makeup eq 4)>>\
+			<<elseif ($body.makeup.level eq 4)>>\
 				Painted like a whore, you stand out like a dildo among the lilies. Girls frown and whisper insults when you walk by, while boys have fun at your expense by making suggestive gestures and remarks. Overall, the other students treat you like dirt, trying to one-up each other as they find ways to humiliate you.\
 			<<endif>>\
-			<<if _o.slutty>>\
+			<<if  window.inventoryFuncs.hasTag(_outerwear, 'slutty')>>\
 			Everyone is shocked by your outfit, and there are quite a few whistles as you pass by.
 			
 			<<endif>>\
@@ -334,18 +334,18 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<<elseif _ev lte 3 and (not $cheerleaders.flags.skippedPractice)>>\
 			<<include [[Cheer Before School]]>>\
 		<<elseif _ev lte 4>>\
-			<<if _o and (not _o.female) and (_slb lte 3)>>\
+			<<if _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 3)>>\
 				You are walking to school when you see\
-			<<elseif _o and _o.female and (_slb lte 3)>>\
-				You are walking to school in your <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
-			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+			<<elseif _outerwear and _outerwear.isFemale and (_slutScoreBasic lte 3)>>\
+				You are walking to school in your <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>female uniform<<endif>>. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 5)>>\
 				You are walking to school noticing how most of the people you cross stare a bit at you, probably puzzled by your feminine appearance.  You see\
-			<<elseif (_slb lte 7)>>\
-				Your <<if (_slb eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. Near school, you adjust your uniform once more and go ahead. You see\
-			<<elseif (_slb gte 8)>>\
-				<<if (_slb eq 8)>>\
+			<<elseif (_slutScoreBasic lte 7)>>\
+				Your <<if (_slutScoreBasic eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. Near school, you adjust your uniform once more and go ahead. You see\
+			<<elseif (_slutScoreBasic gte 8)>>\
+				<<if (_slutScoreBasic eq 8)>>\
 				Your slutty looks draw glances and undressing stares. Near school, you adjust your uniform once more and, after a deep breath, continue on. You see\
-				<<elseif (_slb eq 9)>>\
+				<<elseif (_slutScoreBasic eq 9)>>\
 				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a schoolgirl. No wonder you're constantly followed by whistles and undressing stares. Near school, you adjust your uniform once more, then enter campus. You see\
 				<<endif>>\
 			<<endif>>\
@@ -370,12 +370,12 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				<<endif>>\
 				
 			<<endif>>\
-			<<if _o and (not _o.female) and (_slb lte 1)>>\
-				<<if playerCode.isHorny() and _c>>\
+			<<if _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 1)>>\
+				<<if playerCode.isHorny() and _chastity>>\
 					Somehow it feels like they're eyeing you suspiciously as your penis strains in the cage. Instinctively you lower your eyes and try to be as invisible as possible.\
 					
 				<<endif>>\
-			<<elseif _o and (not _o.female) and (_slb lte 3)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 3)>>\
 				Some of them look at you a bit confused.\
 				<<if random(3) eq 0>>\
 					One guy makes a joke at your expense, but it’s so bad he gets booed by the others.\
@@ -385,11 +385,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					There are a few brief laughs and they continue to ignore you.\
 				<<endif>>\
 				
-				<<if playerCode.isHorny() and _c>>\
+				<<if playerCode.isHorny() and _chastity>>\
 					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
 					
 				<<endif>>\
-			<<elseif _o and _o.female and (_slb lte 3)>>\
+			<<elseif _outerwear and _outerwear.isFemale and (_slutScoreBasic lte 3)>>\
 				They look at you in confusion.\
 				<<if random(1) eq 0>>\
 					You walk by as fast as you can, hearing them laugh and whistle at you.\
@@ -404,25 +404,25 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;I think I saw a few of them checking me out.@@\
 				<<endif>>\
 				
-			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 5)>>\
 				You notice a few of them eyeing you.\
 				<<if random(2) eq 0>>\
 					You walk by as fast as you can, but at least one guy still recognizes you and points you out to the others. Soon there’s a burst of laughter behind your back, followed by mocking whistles.\
 				<<elseif random(1) eq 0>>\
-					You fidget and quickly adjust your <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>>, feeling their appraising eyes upon you.\
+					You fidget and quickly adjust your <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>school uniform<<endif>>, feeling their appraising eyes upon you.\
 				<<else>>\
 					To your surprise, one of the guys winks at you. What is more embarrassing is that you blush heavily in return.\
 				<<endif>>\
-				<<if playerCode.isHorny() and _c>>\
+				<<if playerCode.isHorny() and _chastity>>\
 					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
 				<<endif>>\
 				
-			<<elseif (_slb lte 7)>>\
+			<<elseif (_slutScoreBasic lte 7)>>\
 				You notice that quite a few of them are staring at you.\
 					<<if random(2) eq 0>>\
 					One guy starts flirting with you, but suddenly stops, realizing you aren't real a girl. You both turn beet red as the other guys laugh themselves silly at you and the unlucky boy.\
 					<<elseif random(1) eq 0>>\
-					You fidget and adjust the <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>>, feeling your chest and butt somehow heating from the focused attention. You lower your eyes and blush as boys wink and wave to you.\
+					You fidget and adjust the <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>school uniform<<endif>>, feeling your chest and butt somehow heating from the focused attention. You lower your eyes and blush as boys wink and wave to you.\
 					<<else>>\
 					There are some bulging eyes and slack jaws as news that you are a boy spreads through the group. Somehow it only intensifies the undressing stares.\
 						<<if random(1) eq 0>>\
@@ -437,15 +437,15 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 						Red reaches your ears when you hear some of them commenting they would still hit it.\
 						<<endif>>\
 					<<endif>>\
-				<<if playerCode.isHorny() and _c>>\
+				<<if playerCode.isHorny() and _chastity>>\
 					You're just glad they don't know about your chastity cage. That would be extremely humiliating.\
 				<<endif>>\
 				
-			<<elseif (_slb gte 8)>>\
+			<<elseif (_slutScoreBasic gte 8)>>\
 				Most of them openly ogle you.\
-				<<if (_slb eq 8)>>\
+				<<if (_slutScoreBasic eq 8)>>\
 					Mocking whistles and barely camouflaged offers to show you a good time accompany you all the way to the school.
-				<<elseif (_slb eq 9)>>\
+				<<elseif (_slutScoreBasic eq 9)>>\
 					Your whorish getup is a real dick magnet, but there is almost no flirting, just leering offers to 'go somewhere private.' They seem to think you'd jump any dick you're offered.\
 				<<endif>>\
 				
@@ -464,18 +464,18 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				
 				@@.hero;Maybe I should start to jog, too.@@
 				
-			<<elseif _o and (not _o.female) and (_slb lte 1)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 1)>>\
 				You are walking to school and see //The Jogger// again, running in the opposite direction. His movements are swift and in a steady rhythm. Without paying you any attention, he passes by. His dangling earbud wires swing in time with his quick footsteps.
 				
-			<<elseif _o and (not _o.female) and (_slb lte 3)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 3)>>\
 				You're walking to school and see //The Jogger// coming from the opposite direction. His movements are swift, his rhythm steady. Your eyes meet and you see him begin to slow his steps. His dark eyes analyze you from head to toe. You feel slightly uncomfortable under his piercing gaze.
 
 				Fortunately the encounter lasts just a moment, and he soon passes you by, his steps speeding up again.
 				
 				@@.hero;What a creep.@@
 				
-			<<elseif _o and _o.female and (_slb lte 3)>>\
-				You're on your way to school and cross //The Jogger// in the opposite direction. You try to hide your embarrassment at wearing a <<if _o.cheer>>cheerleader uniform<<else>>female uniform<<endif>>, and you see his steps slow more and more. As you pass by you feel his stare upon you, but you don't dare look back. Even worse, although you pass him, you can't hear his footsteps anymore. He’s stopped running, and must now be watching you, but you are too shy to look back. The only thing you can think to do is to speed your walk until you reach the school building.
+			<<elseif _outerwear and _outerwear.isFemale and (_slutScoreBasic lte 3)>>\
+				You're on your way to school and cross //The Jogger// in the opposite direction. You try to hide your embarrassment at wearing a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>female uniform<<endif>>, and you see his steps slow more and more. As you pass by you feel his stare upon you, but you don't dare look back. Even worse, although you pass him, you can't hear his footsteps anymore. He’s stopped running, and must now be watching you, but you are too shy to look back. The only thing you can think to do is to speed your walk until you reach the school building.
 				
 				<<if playerCode.isMind_0()>>\
 					@@.hero;Damn pervert. He was ogling me, wasn't he?@@
@@ -487,7 +487,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;He was totally checking me out!@@
 					
 				<<endif>>\
-			<<elseif _o and (not _o.female) and (_slb lte 5)>>\
+			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 5)>>\
 				You hear the sound of familiar footsteps, and a few moments later //The Jogger// reveals himself in his morning run. As soon as he notices you, he slows down and looks you up and down. You quickly adjust your uniform, but your feminine appearance is hard to hide. You look back at him and your eyes meet. He smiles confidently down at you. You notice he’s a good-looking man; his face and skin are well-groomed. He stops and opens his mouth, probably to say something, but without letting him make contact you accelerate your walk, leaving him quickly behind.
 				
 				<<if playerCode.isMind_0()>>\
@@ -500,13 +500,13 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;Why did he smile at me? Maybe he thought I was cute? Did he think I was a girl? Should have I talked to him?@@
 					
 				<<endif>>\
-			<<elseif _o and _o.female and (_slb lte 5)>>\
+			<<elseif _outerwear and _outerwear.isFemale and (_slutScoreBasic lte 5)>>\
 				<<if playerCode.isMind_0()>>\
-					You feel unease while walking to school, this <<if _o.cheer>>cheerleader uniform<<else>>school uniform<<endif>> being too tight for your taste.\
+					You feel unease while walking to school, this <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>school uniform<<endif>> being too tight for your taste.\
 				<<elseif playerCode.isMind_1()>>\
-					It is still a novel experience to wear a <<if _o.cheer>>cheerleader uniform<<else>>school dress<<endif>> to school. It’s not bad, just a bit weird.\
+					It is still a novel experience to wear a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>school dress<<endif>> to school. It’s not bad, just a bit weird.\
 				<<else>>\
-					You love to wear your school dress, <<if playerCode.isWearing(itemsC.rookieUniform)>>cheer shorts<<else>>skirts<<endif>> are so much better than pants. You enjoy your walk.\
+					You love to wear your school dress, <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>cheer shorts<<else>>skirts<<endif>> are so much better than pants. You enjoy your walk.\
 				<<endif>>\
 				Soon, you notice the familiar sight of //The Jogger// approaching in the opposite direction. As soon as you notice him, you decide to avoid contact and cross the road to continue your walk on the opposite sidewalk. 
 				
@@ -524,8 +524,8 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;Why did he wave to me? Maybe he thought I was cute? Should have I talked to him?@@
 					
 				<<endif>>\
-			<<elseif (_slb lte 7)>>\
-				Your <<if (_slb eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. As usual, you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly at you. You start to continue your walk, but //The Jogger// surprises you with a colorful and flattering compliment before returning to his jog. The whole thing leaves you a bit confused.
+			<<elseif (_slutScoreBasic lte 7)>>\
+				Your <<if (_slutScoreBasic eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. As usual, you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly at you. You start to continue your walk, but //The Jogger// surprises you with a colorful and flattering compliment before returning to his jog. The whole thing leaves you a bit confused.
 				
 				<<if playerCode.isMind_0()>>\
 					@@.hero;What is his problem?@@
@@ -537,11 +537,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					@@.hero;That was nice... I wonder how strong those bear arms of his would be?@@
 					
 				<<endif>>\
-			<<elseif (_slb lte 9)>>\
-				<<if (_slb eq 8)>>\
+			<<elseif (_slutScoreBasic lte 9)>>\
+				<<if (_slutScoreBasic eq 8)>>\
 				Your slutty looks draws glances and undressing stares.\
-				<<elseif (_slb eq 9)>>\
-				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a <<if _o.cheer>>cheerleader<<else>>schoolgirl<<endif>>.\
+				<<elseif (_slutScoreBasic eq 9)>>\
+				With your makeup and curvy figure you look more like a whore or a porn actress dressed up as a <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader<<else>>schoolgirl<<endif>>.\
 				<<endif>>\
 				As usual you notice the familiar sight of //The Jogger// approaching from the opposite direction. He notices you and smiles broadly to you. You're bit overwhelmed by his hungry stare. Before you can react he reaches to you and takes hold of your waist. The smell of sweat fills your nose as he starts compliment your figure and tries to grope you.
 				
@@ -637,7 +637,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		[[Go to class]]
 		<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
 			<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
-		<<elseif _o and _o.female and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
+		<<elseif _outerwear and _outerwear.isFemale and ($player.perversion.teacher eq 6) and ($player.perversion.assistant gte 3) and ($player.perversion.assistant lte 5)>>\
 			[[Meet Miss Willow’s assistant|School assistant][$random.stored=0]]
 		<<elseif ($player.perversion.teacher gt 0) and ($player.perversion.teacher lt 6)>>\
 			<<print '<<click "Talk to the '+$futa.boys_girls+'">><<replace "#talk_deny">>@@.deny;Nope, they scare you@@<</replace>><</click>> <span id="talk_deny"></span>'>>

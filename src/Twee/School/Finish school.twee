@@ -143,7 +143,7 @@
 		<<display [[Travel]]>>\
 	<<endif>>\
 <<else>>\
-	<<if playerCode.isWearingOn(itemTypes.Chastity) and window.timeCode.isFriday() and $flags.chastityKey>>\
+	<<if window.wardrobeFuncs.getWornItem('chastity') and window.timeCode.isFriday() and $flags.chastityKey>>\
 		<<if ($player.perversion.teacherPermChastity eq 6)>>\
 			<<set $player.perversion.teacherPermChastity = 7>>\
 			After more than a month's confinement in chastity, you finally return to $teacher to get your chastity device unlocked. However, as she turns the key, you twitch awkwardly and the key snaps. @@.hero;Oh, shit.@@

@@ -3,33 +3,24 @@
 <span id="bedroom">\
 	<!--<Laundry>--><!-- Laundry Accident -->\
 <<if $flags.laundryAccident and window.timeCode.haveSchool()>>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<if _u and _u.female>>\
-		<<removeClothing _u.id>>\
+	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<if _wornItem and _wornItem.isFemale>>\
+		<<removeClothingItem 'underwear'>>
 	<<endif>>\
 	@@.info;$Guardian started a load of wash this morning and accidentally put your female underwear in with her own. They won't be dry until after you need to be at school.@@
-	<<if playerCode.owns(itemsC.pantiesLatex)>>\
+	<<if inventoryFuncs.ownsMasterItem('latexPanties')>>\
 		The latex panties are sticky, and you really don't even want to touch them.
 	<<endif>>\
-	<<if playerCode.owns(itemsC.jocksLucky)>>\
+	<<if inventoryFuncs.ownsMasterItem('boxers')>>\
 		$teacher will be angry if you come in your boxers, but wearing wet underwear all day sounds very uncomfortable. What to do?
 	<<endif>>\
-	<<if playerCode.owns(itemsC.gString)>>\
-		<<set $items.gString.disabled=true>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesLatex)>>
-		<<set $items.pantiesLatex.disabled=true>>\
-	<<endif>>\
-	<<if playerCode.owns(itemsC.pantiesCotton)>>
-		<<set $items.pantiesCotton.disabled=true>>\
-	<<endif>>\
-	
+	<<run window.inventoryFuncs.markUnderwearWet()>>\
 <<endif>>\
 <!--</Laundry>-->\
 \
 <<print window.timeCode.schoolMessage()>> You can change what you're wearing if you like.
 \
-<<if playerCode.isWearing(itemsC.buttPlugVibro)>>\
+<<if window.wardrobeFuncs.isItemVariantWearing('buttplug_vibro')>>\
 
 	The vibrating butt plug is massaging your prostate.\
 	<<if not playerCode.isHorny()>>\
@@ -70,7 +61,7 @@
 		- @@.info;You have _cc unread email<<if _cc gt 1>>s<<endif>>@@\
 		<<endif>>\
 	<<endif>>\
-	
+
 <<endif>>\
 <<if ($time.hour lt 23)>>\
 	<<if window.timeCode.schoolRequired() and ($time.hour gte 9)>>\
@@ -91,7 +82,7 @@
 			<<click "Ask to return vibrator">><<replace "#askreturnvibrator">>@@.done;You still have to fix your mess with your chores@@<</replace>><</click>> <span id="askreturnvibrator"></span>
 		<<endif>>\
 	<<elseif $flags.confiscatedVibrator and $flags.choreLazy>>\
-		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and playerCode.isWearingOn(itemTypes.Chastity) and $flags.chorePunKinky and $flags.guardianPunishDressUp>>\
+		<<if (not $flags.guardianPunishVibrator) and ($player.perversion.guardian eq 4) and playerCode.isHorny() and window.wardrobeFuncs.getWornItem('chastity') and $flags.chorePunKinky and $flags.guardianPunishDressUp>>\
 		[[Try to steal vibrator|Ask to return things][$scene="steal vibrator"; $flags.guardianPunishVibrator=true]]
 		<<endif>>\
 	<<endif>>\
@@ -110,7 +101,7 @@
 <<if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck>>\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene="beg"]]
 <<endif>>\
-<<if playerCode.owns(itemsC.nailPolish) and (not $flags.nailGloss)>>\
+<<if $player.hasNailPolish and (not $flags.nailGloss)>>\
 [[Apply nail polish]]
 <<endif>>\
 <!--</Chores and misc>-->\

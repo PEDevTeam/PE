@@ -43,10 +43,10 @@ The cop tips his hat to the both of you and then walks away as Susan drags you b
 
 
 :: Uniform Punishment - Help
-<<set _outerwear = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 Somewhat nervously, you approach <<if $flags.metClothesClerk == true>>Susan<<else>>one of the clerks, Susan, according to her name tag,<<endif>> and explain that you need a new uniform for school.
 
-<<if _outerwear.school>>\
+<<if window.inventoryFuncs.hasTag(_outerwear, 'school')>>\
     <<if $flags.metClothesClerk == true>>\
         @@.shopclothes;"You know, I'm surprised it's taken you this long. What you're wearing now, it's a little... No, you'd look MUCH better in a nice plaid skirt. So, what seems to be the problem?"@@
 
@@ -61,7 +61,7 @@ Somewhat nervously, you approach <<if $flags.metClothesClerk == true>>Susan<<els
 <<else>>\
     She gives a circumspect glance over your current outfit.
 
-    <<if not _outerwear.female>>\
+    <<if not _outerwear.isFemale>>\
         @@.shopclothes;"Well our uniforms are over there."@@ She points across the store to the men's section but you blush and explain that, actually, you were in need of a woman's uniform.
 
         <<if $flags.metClothesClerk == true>>\
@@ -94,7 +94,7 @@ You gulp as she flips through the rack to pluck out a uniform in your exact size
     You hate your reflection, but for some reason, you can't stop staring. The face is you and yet... from the neck down you'd swear you were looking at a girl... a cute girl.
 <</if>>\
 
-<<if $player.money >= window.itemF.cost(itemsC.schoolFemale)>>\
+<<if $player.money >= window.itemFuncs.getItemByVariant('school_female_00').price>>\
     [[Change your mind and offer to pay retail instead|Uniform Punishment - Abort]]
 <<else>>\
     Unfortunately, you don't have enough money to pay for the outfit, so it looks like you're stuck doing what she wants.
@@ -106,14 +106,14 @@ You gulp as she flips through the rack to pluck out a uniform in your exact size
 :: Uniform Punishment - Abort
 What with everything else that has happened to you of late, your imagination runs wild with what you'd have to do to "earn" a free uniform.
 
-It's just too much, and after begging to her accept, you hurriedly stuff $<<print window.itemF.cost(itemsC.schoolFemale)>> into the clerk's hand, gather up your things, and run out of the store still wearing your "new" uniform.
+It's just too much, and after begging to her accept, you hurriedly stuff $<<print window.itemFuncs.getItemByVariant('school_female_00').price>> into the clerk's hand, gather up your things, and run out of the store still wearing your "new" uniform.
 
-<<buyItem "schoolFemale">>\
-<<if (not $items.socks.ownAlt[0])>>\
-	<<addToInv 'socks'>>\
+<<buyItemVariant 'school_female_00'>>
+<<if (not inventoryFuncs.isItemVariantOwned('socks_00'))>>\
+    <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
-<<if (not $items.flats.ownAlt[0])>>\
-	<<addToInv 'flats'>>\
+<<if (not inventoryFuncs.isItemVariantOwned('flats_00'))>>\
+    <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\
 <<updateInventory>><<updateMoney>>\
 [[Return to the mall|Go to the mall]]
@@ -163,15 +163,15 @@ Back in the school uniform, which feels positively mundane after the slutty fash
 
 Susan has you put back every item of clothing you tried on, each piece like salt in a wound as it triggers yet another embarrassing memory.
 
-Thanking you once more for your help, Susan has you gather up your things and bids you goodbye. Exhausted by your ordeal, you wonder if it was really all worth saving a mere $<<print window.itemF.cost(itemsC.schoolFemale)>>? @@.hero;It's too late now.@@ You think as you exit the store.
+Thanking you once more for your help, Susan has you gather up your things and bids you goodbye. Exhausted by your ordeal, you wonder if it was really all worth saving a mere $<<print window.itemFuncs.getItemByVariant('school_female_00').price>>? @@.hero;It's too late now.@@ You think as you exit the store.
 
 <<set $flags.metClothesClerk = true>>\
-<<addToInv 'schoolFemale'>>\
-<<if (not $items.socks.ownAlt[0])>>\
-	<<addToInv 'socks'>>\
+<<addItemVariantToInventory 'school_female_00'>>\
+<<if (not inventoryFuncs.isItemVariantOwned('socks_00'))>>\
+    <<addItemVariantToInventory 'socks_00'>>\
 <<endif>>\
-<<if (not $items.flats.ownAlt[0])>>\
-	<<addToInv 'flats'>>\
+<<if (not inventoryFuncs.isItemVariantOwned('flats_00'))>>\
+    <<addItemVariantToInventory 'flats_00'>>\
 <<endif>>\
 <<updateInventory>>\
 [[Return to the mall|Go to the mall]]

@@ -61,7 +61,8 @@ Unsure what to do, you stand there and hold the dress in bemusement, wondering i
 \
 <<endif>>\
 
-You lay the dress back down and remove your <<if playerCode.isWearing(itemsC.casualMale)>>shirt and jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>uniform<<endif>>.
+<!-- You lay the dress back down and remove your <<if playerCode.isWearing(itemsC.casualMale)>>shirt and jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>uniform<<endif>>. -->
+You lay the dress back down and remove your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>shirt and jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>uniform<<endif>>.
 
 <<display [[Friend Teacher Tasks Reactions]]>>\
 \
@@ -175,7 +176,8 @@ leave. You shrug yourself out of the dress and pass it back to $friendG.him_her.
 @@.friend;“On no, keep it. That dress suited you so much, I’d think it was made for you. Maybe you can wear it for me again some time…”@@ $friend says with a wink.
 
 <<set _dressAlt to $dressChoice + 61>>\
-<<addToInv summerDress _dressAlt>>\
+<<set _dressAdd to 'dress_casual_' + _dressAlt>>\
+<<addItemVariantToInventory _dressAdd>>\
 <<set $friendG.tasks.selfieFemaleClothes = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.selfieFemaleClothes.status = 2>>\

@@ -45,12 +45,8 @@ $teacher doesn’t say anything, but the action itself is enough for you to fina
 <<endif>>\
 <<if $cheerleaders.flags.slutUniform == 0>>\
 	<<set $player.buttplugInflate = 0>>\
-	<<set _u=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<set playerCode.removeClothesJS(_u.id)>>\
-	<<removeFromInv _u.id>>\
-	<<if $removedPlug>>\
-		<<wearClothing $removedPlug>>\
-	<<endif>>\
+	<<set _wornItem=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<removeItemVariantFromInventory _wornItem.variant>>
 	<<updateClothes>>\
 	@@.teacher;“Now, stand up and bend over,”@@ $teacher orders gently, @@.teacher;“unless you prefer to continue wearing that plug?”@@
 
@@ -142,24 +138,10 @@ She walks back to her desk and scribbles on a notepad, handing what she wrote to
 <<endif>>\
 You blush and dash out the door to the drama room, hoping nobody sees you on the way. Along the way, you make a mental note to pick up the stuff you left behind before you leave school.
 
-<<wearClothing $removedUni.id $uniAlt>>\
-<<wearClothing $removedShoes.id $shoesAlt>>\
-<<if $removedStock>>\
-	<<wearClothing $removedStock.id $stockAlt>>\
-<<else>>\
-	<<set playerCode.removeClothesJS("socks")>>\
-<<endif>>\
-<<if $removedUnder && (not($cheerleaders.flags.panties) || ($cheerleaders.flags.panties && ($player.daring < 6|| $removedUnder.id == "cheerBriefs")))>>\
-	<<wearClothing $removedUnder.id $underAlt>>\
-<<endif>>\
-<<if $removedHair>>\
-	<<wearClothing $removedHair.id $hairAlt>>\
-<<else>>\
-	<<set playerCode.removeClothesJS("hairbow")>>\
-<<endif>>\
-<<if $removedCollar>>\
-	<<wearClothing $removedCollar.id $collarAlt>>\
-<<endif>>\
+<<removeClothingItem "underwear">>\
+<<wearStashedClothing>>\
 <<set $cheerleaders.flags.prank1Finish = true>>\
 <<set window.cheerMinigame.reset()>>\
+<<updateClothes>>\
+<<removeItemVariantFromInventory 'diaper_00'>>\
 [[Clean the drama room and finish school|Finish school day]]

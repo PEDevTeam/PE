@@ -3,7 +3,7 @@
 <div class="dream">\
 <<set _dream = window.dreamsSelector.randomDream(window.dreamsGuardian)>>\
 <<if $showimages>>\
-	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+	<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<if _dream.once>>\
 		<<set $flags.showDreamImage = true>>\
 	<<endif>>\
@@ -14,7 +14,7 @@
 				<<set $roomSize = 4>>\
 			<<endif>>\
 			<<display "Show bedroom">>\
-		<<elseif _c and random(2) gt 0>>\
+		<<elseif _chastity and random(2) gt 0>>\
 			<<if playerCode.isMaid()>>\
 				<div><<RandomImageFromPack "Morning Chastity Maid" 400 400>></div>\
 			<<else>>\

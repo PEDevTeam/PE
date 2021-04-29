@@ -1,9 +1,9 @@
 :: Friend Catch-up 06
 \
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _heels=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'heels')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 You are not sure what to say or do and $friend has an unreadable expression on $friendG.his_her face.
 
@@ -11,7 +11,7 @@ You are not sure what to say or do and $friend has an unreadable expression on $
 
 @@.heroT;“It’s… wait. You do?”@@ you ask, in surprise. Despite $friendG.his_her words and encouraging nodding it still doesn’t sink in.
 
-<<if _outerwear.female>>\
+<<if _outerwear.isFemale>>\
 	You feel extremely self-conscious about the way you look, and you subconsciously try to pull the hem down to cover as much of your\
 	<<if playerCode.isHairless()>>silky smooth\
 	<<elseif playerCode.isWaxed()>>waxed\
@@ -51,8 +51,8 @@ You shake your head, and $friend laughs.
 
 @@.friend;“That’s just like you.”@@
 
-<<if _outerwear.female>>\
-	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching, and you can feel $friend’s jeans rubbing against your thigh, your penis growing hard at the sensation <<if _chastity>>and pressing against the plastic of your cage.<<else>>threatening to bulge your <<if _outerwear.skirt>>skirt<<else>>dress<<endif>><<endif>>.
+<<if _outerwear.isFemale>>\
+	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching, and you can feel $friend’s jeans rubbing against your thigh, your penis growing hard at the sensation <<if _chastity>>and pressing against the plastic of your cage.<<else>>threatening to bulge your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>><<endif>>.
 <<else>>\
 	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching. $friend looks at you curiously, scanning you from top to bottom as $friendG.he_she tries to work out what you have changed.
 <<endif>>\
