@@ -715,7 +715,11 @@
 		[[Get up and have breakfast|Have breakfast]]
 		<!--</weekend>-->\
 	<<else>><!--<schoolday>-->\
-		<<set _femaleClothes = _u.female or (_o.female and _o.sleepWear) or _br>>\
+		<<if $time.day eq 1>>\
+			<<set _femaleClothes = false>>\
+		<<else>>\
+			<<set _femaleClothes = (_underwear and _underwear.isFemale) or (_nightwear and _nightwear.isFemale) or _bra>>\
+		<<endif>>\
 		<<if $player.perversion.guardian eq 0 and not _femaleClothes>>\
 			@@.guardian;"Good morning, sleepyhead."@@
 

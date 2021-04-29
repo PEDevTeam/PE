@@ -336,7 +336,7 @@
 		<<if _b or (_bm gt 1)>> @@.inv_action_faded; / @@ <<endif>>\
 		<<print '<<click " PlugDildo ">><<wearClothing "buttPlugDildo">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
-	<<if (playerCode.owns(itemsC.buttPlugVibro) and not playerCode.isWearing(itemsC.buttPlugVibro))>>\
+	<<if (window.inventroyFuncs.isItemVariantOwned('buttplug_vibro') and not window.wardrobeFuncs.isItemVariantWearing('buttplug_vibro'))>>\
 		<<if _b or (_bm gt 1)>> @@.inv_action_faded; / @@ <<endif>>\
 		<<print '<<click " VibroPlug ">><<wearClothing "buttPlugVibro">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 	<<endif>>\
