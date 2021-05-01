@@ -34,37 +34,37 @@
 \
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<if _shoes>>\
-	<<if _shoes.isFemale>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>
-			<<if _shoes.itemVariant == 'heels_stripper_00'>>
-				<<set _feets="feets_stripper_a.png">>
-			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>
-				<<set _feets="feets_stripper_b.png">>
-			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>
-				<<set _feets="feets_stripper_c.png">>
-			<<else>>
-				<<set _feets="feets_stripper_d.png">>
-			<<endif>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
-			<<set _feets="feets_shoes_socks_cheer.png">>
-		<<else>>
-			<<if _shoes.itemVariant == 'heels_00'>>
-				<<set _feets="feets_heels_a.png">>
-			<<elseif _shoes.itemVariant == 'heels_02'>>
-				<<set _feets="feets_heels_b.png">>
-			<<elseif _shoes.itemVariant == 'heels_03'>>
-				<<set _feets="feets_heels_c.png">>
-			<<else>>
-				<<set _feets="feets_heels_d.png">>
-			<<endif>>
-		<<endif>>
-	<<else>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>
-			<<set _feets="feets_shoes.png">>
-		<<else>>
-			<<set _feets="feets_sneakers.png">>
-		<<endif>>
-	<<endif>>
+	<<if _shoes.isFemale>>\
+		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
+			<<if _shoes.itemVariant == 'heels_stripper_00'>>\
+				<<set _feets="feets_stripper_a.png">>\
+			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>\
+				<<set _feets="feets_stripper_b.png">>\
+			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>\
+				<<set _feets="feets_stripper_c.png">>\
+			<<else>>\
+				<<set _feets="feets_stripper_d.png">>\
+			<<endif>>\
+		<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>\
+			<<set _feets="feets_shoes_socks_cheer.png">>\
+		<<else>>\
+			<<if _shoes.itemVariant == 'heels_00'>>\
+				<<set _feets="feets_heels_a.png">>\
+			<<elseif _shoes.itemVariant == 'heels_02'>>\
+				<<set _feets="feets_heels_b.png">>\
+			<<elseif _shoes.itemVariant == 'heels_03'>>\
+				<<set _feets="feets_heels_c.png">>\
+			<<else>>\
+				<<set _feets="feets_heels_d.png">>\
+			<<endif>>\
+		<<endif>>\
+	<<else>>\
+		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>\
+			<<set _feets="feets_shoes.png">>\
+		<<else>>\
+			<<set _feets="feets_sneakers.png">>\
+		<<endif>>\
+	<<endif>>\
 <<else>>\
 	<<if $player.heelsSkill lte 6>>\
 		<<set _feets="feets_stand.png">>\
@@ -107,25 +107,25 @@
 <<endif>>\
 \
 <<if playerCode.haveHeavyMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_3_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_3.png">>\
 	<<endif>>\
 <<elseif playerCode.haveBimboMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_2_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_2.png">>\
 	<<endif>>\
 <<elseif playerCode.haveMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_1_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_1.png">>\
 	<<endif>>\
 <<else>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_0_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_0.png">>\
@@ -329,7 +329,7 @@
 \
 <<set _bow = "none">>\
 <<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
-<<if _headwear.itemVariant == 'hairband_43'>>
+<<if _headwear && _headwear.itemVariant == 'hairband_43'>>\
 	<<if playerCode.haveHaircut()>>\
 		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
@@ -441,36 +441,36 @@
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<if _shoes>>\
 	<<if _shoes.isFemale>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>
-			<<if _shoes.itemVariant == 'heels_stripper_00'>>
-				<<set _feets="feets_stripper_a.png">>
-			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>
-				<<set _feets="feets_stripper_b.png">>
-			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>
-				<<set _feets="feets_stripper_c.png">>
-			<<else>>
-				<<set _feets="feets_stripper_d.png">>
-			<<endif>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
-			<<set _feets="feets_shoes_socks_cheer.png">>
-		<<else>>
-			<<if _shoes.itemVariant == 'heels_00'>>
-				<<set _feets="feets_heels_a.png">>
-			<<elseif _shoes.itemVariant == 'heels_02'>>
-				<<set _feets="feets_heels_b.png">>
-			<<elseif _shoes.itemVariant == 'heels_03'>>
-				<<set _feets="feets_heels_c.png">>
-			<<else>>
-				<<set _feets="feets_heels_d.png">>
-			<<endif>>
-		<<endif>>
-	<<else>>
-		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>
-			<<set _feets="feets_shoes.png">>
-		<<else>>
-			<<set _feets="feets_sneakers.png">>
-		<<endif>>
-	<<endif>>
+		<<if window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
+			<<if _shoes.itemVariant == 'heels_stripper_00'>>\
+				<<set _feets="feets_stripper_a.png">>\
+			<<elseif _shoes.itemVariant == 'heels_stripper_01'>>\
+				<<set _feets="feets_stripper_b.png">>\
+			<<elseif _shoes.itemVariant == 'heels_stripper_02'>>\
+				<<set _feets="feets_stripper_c.png">>\
+			<<else>>\
+				<<set _feets="feets_stripper_d.png">>\
+			<<endif>>\
+		<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>\
+			<<set _feets="feets_shoes_socks_cheer.png">>\
+		<<else>>\
+			<<if _shoes.itemVariant == 'heels_00'>>\
+				<<set _feets="feets_heels_a.png">>\
+			<<elseif _shoes.itemVariant == 'heels_02'>>\
+				<<set _feets="feets_heels_b.png">>\
+			<<elseif _shoes.itemVariant == 'heels_03'>>\
+				<<set _feets="feets_heels_c.png">>\
+			<<else>>\
+				<<set _feets="feets_heels_d.png">>\
+			<<endif>>\
+		<<endif>>\
+	<<else>>\
+		<<if window.inventoryFuncs.hasTag(_shoes, 'school')>>\
+			<<set _feets="feets_shoes.png">>\
+		<<else>>\
+			<<set _feets="feets_sneakers.png">>\
+		<<endif>>\
+	<<endif>>\
 <<else>>\
 	<<if $player.heelsSkill lte 6>>\
 		<<set _feets="feets_stand.png">>\
@@ -513,25 +513,25 @@
 <<endif>>\
 \
 <<if playerCode.haveHeavyMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_3_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_3.png">>\
 	<<endif>>\
 <<elseif playerCode.haveBimboMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_2_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_2.png">>\
 	<<endif>>\
 <<elseif playerCode.haveMakeup()>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_1_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_1.png">>\
 	<<endif>>\
 <<else>>\
-	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>
+	<<if window.inventoryFuncs.isItemVariantOwned('tattoo_heart')>>\
 	<<set _face="face_makeup_0_heart.png">>\
 	<<else>>\
 	<<set _face="face_makeup_0.png">>\
@@ -735,7 +735,7 @@
 \
 <<set _bow = "none">>\
 <<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
-<<if _headwear.itemVariant == 'hairband_43'>>
+<<if _headwear && _headwear.itemVariant == 'hairband_43'>>\
 	<<if playerCode.haveHaircut()>>\
 		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
@@ -882,7 +882,7 @@
 	<<set _face="face_makeup_2.png">>\
 <<elseif playerCode.haveMakeup()>>\
 	<<set _face="face_makeup_1.png">>\
-<<else>>
+<<else>>\
 	<<set _face="none">>\
 <<endif>>\
 \
@@ -1020,7 +1020,7 @@
 \
 <<set _bow = "none">>\
 <<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
-<<if _headwear.itemVariant == 'hairband_43'>>
+<<if _headwear && _headwear.itemVariant == 'hairband_43'>>\
 	<<if playerCode.haveHaircut()>>\
 		<<if ($body.hairstyle.level eq 1)>>\
 			<<set _bow="bow_cheer_bow_short.png">>\
@@ -1101,5 +1101,4 @@
 @@.avatar_mode_0;<<print '<<click " C ">><<set $avatar.mode=0>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
 @@.avatar_mode_1;<<print '<<click " U ">><<set $avatar.mode=1>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
 @@.avatar_mode_2;<<print '<<click " N ">><<set $avatar.mode=2>><<replace "#avatar_window">><<display "Avatar">><</replace>><</click>>'>>@@\
-\
 
