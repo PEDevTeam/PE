@@ -747,7 +747,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.analSmoothing3>>\
 		<<if ($body.nose.level neq 3)>>\
 			<<set $player.money -= $body.anal.level3.cost>>\
-			<<set $body.nose.level = 3>>
 		<<endif>>\
 		<<set $body.anal.level = 3>>\
 	@@.heroT;"I'd like to get the special anal smoothing course,"@@ you tell Nancy hesitantly, as you know what awaits you.
@@ -962,7 +961,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<if ($body.nose.level neq 3)>>\
 		<<set $player.money -= $body.anal.level2.cost>>\
-		<<set $body.nose.level = 3>>\
 	<<endif>>\
 	<<set $body.anal.level = 2>>\
 	<<set $flags.salonAnal=true>>\
@@ -1073,7 +1071,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 	@@.nurse;"Please, come again in a week, and I'll do the second treatment, free of charge."@@
 	
 	<<else>>\
@@ -1085,7 +1083,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<if ($body.nose.level neq 3)>>\
 		<<set $player.money -= $body.anal.level3.cost>>\
-		<<set $body.nose.level = 3>>\
 	<<endif>>\
 	<<set $body.anal.level = 1>>\
 	<<set $flags.salonAnal=true>>\
