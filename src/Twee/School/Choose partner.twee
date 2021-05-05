@@ -47,7 +47,7 @@
 				_partnerArr[_bestMatch].ass.includes($body.ass.level) &&
 				_partnerArr[_bestMatch].smoothing.includes($body.anal.level)>>\
 				<<set $partnerOffered = true>>\
-				@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.
+				@@.teacher;<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.
 				
 				Are you interested in marrying _partnerArr[_bestMatch].name?"@@
 			
@@ -237,25 +237,25 @@ You ask $teacher about _partners[$id].name.
 	[[No|choose_partner]]
 	[[I'm not interested in getting married yet]]
 <<else>>\
-	@@.teacher;_partners[$id].name said you weren't attractive enough.@@
+	@@.teacher;<<print _partners[$id].name>> said you weren't attractive enough.@@
 
 	<<set _badBodyArr = []>>\
-	<<if not _partnerArr[_bestMatch].hair.includes($body.hairstyle.level)>>\
+	<<if not _partners[$id].hair.includes($body.hairstyle.level)>>\
 		<<set _badBodyArr.push("hair")>>\
 	<<endif>>\
-	<<if not _partnerArr[_bestMatch].face.includes($body.face.level)>>\
+	<<if not _partners[$id].face.includes($body.face.level)>>\
 		<<set _badBodyArr.push("face")>>\
 	<<endif>>\
-	<<if not _partnerArr[_bestMatch].lips.includes($body.lips.level)>>\
+	<<if not _partners[$id].lips.includes($body.lips.level)>>\
 		<<set _badBodyArr.push("lips")>>\
 	<<endif>>\
-	<<if not _partnerArr[_bestMatch].breasts.includes($body.boobs.level)>>\
+	<<if not _partners[$id].breasts.includes($body.boobs.level)>>\
 		<<set _badBodyArr.push("boobs")>>\
 	<<endif>>\
-	<<if not _partnerArr[_bestMatch].ass.includes($body.ass.level)>>\
+	<<if not _partners[$id].ass.includes($body.ass.level)>>\
 		<<set _badBodyArr.push("ass")>>\
 	<<endif>>\
-	<<if not _partnerArr[_bestMatch].smoothing.includes($body.anal.level)>>\
+	<<if not _partners[$id].smoothing.includes($body.anal.level)>>\
 		<<set _badBodyArr.push("anal smoothness")>>\
 	<<endif>>\
 	@@.teacher;"In particular, they expressed displeasure with your@@\
