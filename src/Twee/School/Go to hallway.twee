@@ -557,7 +557,7 @@
 			<<if window.tasksFunction.isTaskComplete(_activeTasks[_i])>>\
 				<<set _rewardDebt = window.tasksFunction.taskRewardDebt(_activeTasks[_i])>>\
 				<<if _rewardDebt gt 0>>\
-					<<set $player.bribeDiscount += _rewardDebt>>\
+					<<set $player.tuitionDiscount += _rewardDebt>>\
 					@@.teacher; Minus $<<print _rewardDebt>> from debt."@@
 				<<else>>\
 					@@.teacher;"@@
@@ -799,9 +799,9 @@
 	<<endif>>\
 	<!--</clothes check>-->\
 	<<if _deduction gt 0>>\
-		@@.teacher;<<openQuote>>That makes it <<if $player.bribeDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
+		@@.teacher;<<openQuote>>That makes it <<if $player.tuitionDiscount gt 0>>another <<endif>> $<<print _deduction>> deducted from your Monday payment. Very good, <<print $player.name>>."@@ $teacher nods at you with approval.\
 	<<elseif $player.perversion.teacher lte 8>>\
-		@@.teacher;<<openQuote>>So, no deductions today, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.bribeDiscount+_deduction lt $bribeAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
+		@@.teacher;<<openQuote>>So, no deductions today, $player.name, that was a disappointing effort.<<if (not timeCode.isMonday()) and ($player.tuitionDiscount+_deduction lt $tuitionAmount)>> You'd better hope you have enough money for your Monday payment.<<endif>>"@@ $teacher eyes you with disapproval.\
 	<<endif>>\
 	<!--<tasks giving>-->\
 	<<if (($player.perversion.teacherCooldown neq 0) and ($player.perversion.teacher gte 3)) or $tasksTeacher.trialChastity.canStart>>\
@@ -909,7 +909,7 @@
 			<<if $player.money+2000 lt $tuitionAmount-$player.tuitionDiscount>>\
 				You open your wallet, hoping it's been magically filled with some cash since you last looked, but you still don't have enough money to reduce your debt.
 	
-				[[Uh oh|Endgame teacher bribe]]
+				[[Uh oh|Endgame teacher tuition]]
 			<<elseif $player.punishments.refusedToPay or ($flags.walletForgottenStart and (not $flags.walletForgottenEnd))>>\
 				<<if $flags.walletForgottenStart and (not $flags.walletForgottenEnd)>>\
 					You forgot your wallet.

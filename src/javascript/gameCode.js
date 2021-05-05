@@ -1,8 +1,8 @@
 window.gameCode={
-	version: "1.2001"
+	version: "1.2002"
 };
 
-Config.history.maxStates=50; //TODO Set this back to 5 after testing
+Config.history.maxStates=5; //TODO Set this back to 5 after testing
 
 window.sidebarTabs=[
 	{

@@ -60,24 +60,13 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if (not ($body.hairstyle.level eq 0))>>\
-	<<set _image = $body.hairstyle.level0.image>>\
-	<<set _name = $body.hairstyle.level0.description>>\
-	<<set _disabled = $body.hairstyle.level0.disabled>>\
-	<<set _cost = $body.hairstyle.level0.cost>>\
-	<<set _daringRec = $body.hairstyle.level0.daring>>\
-	<<set _sceneName="HairShort">>\
-	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
-	<<display "Clinic buy menu">>
-<<endif>>\
-\
 <<if (not ($body.hairstyle.level eq 1))>>\
 	<<set _image = $body.hairstyle.level1.image>>\
 	<<set _name = $body.hairstyle.level1.description>>\
 	<<set _disabled = $body.hairstyle.level1.disabled>>\
 	<<set _cost = $body.hairstyle.level1.cost>>\
 	<<set _daringRec = $body.hairstyle.level1.daring>>\
-	<<set _sceneName="HairMedium">>\
+	<<set _sceneName="HairShort">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
@@ -88,18 +77,7 @@
 	<<set _disabled = $body.hairstyle.level2.disabled>>\
 	<<set _cost = $body.hairstyle.level2.cost>>\
 	<<set _daringRec = $body.hairstyle.level2.daring>>\
-	<<set _sceneName="HairLong">>\
-	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
-	<<display "Clinic buy menu">>
-<<endif>>\
-\
-<<if (not ($body.hairstyle.level eq 4))>>\
-	<<set _image = $body.hairstyle.level4.image>>\
-	<<set _name = $body.hairstyle.level4.description>>\
-	<<set _disabled = $body.hairstyle.level4.disabled>>\
-	<<set _cost = $body.hairstyle.level4.cost>>\
-	<<set _daringRec = $body.hairstyle.level4.daring>>\
-	<<set _sceneName="HairPigtails">>\
+	<<set _sceneName="HairMedium">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
@@ -110,6 +88,28 @@
 	<<set _disabled = $body.hairstyle.level3.disabled>>\
 	<<set _cost = $body.hairstyle.level3.cost>>\
 	<<set _daringRec = $body.hairstyle.level3.daring>>\
+	<<set _sceneName="HairLong">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not ($body.hairstyle.level eq 5))>>\
+	<<set _image = $body.hairstyle.level5.image>>\
+	<<set _name = $body.hairstyle.level5.description>>\
+	<<set _disabled = $body.hairstyle.level5.disabled>>\
+	<<set _cost = $body.hairstyle.level5.cost>>\
+	<<set _daringRec = $body.hairstyle.level5.daring>>\
+	<<set _sceneName="HairPigtails">>\
+	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
+	<<display "Clinic buy menu">>
+<<endif>>\
+\
+<<if (not ($body.hairstyle.level eq 4))>>\
+	<<set _image = $body.hairstyle.level4.image>>\
+	<<set _name = $body.hairstyle.level4.description>>\
+	<<set _disabled = $body.hairstyle.level4.disabled>>\
+	<<set _cost = $body.hairstyle.level4.cost>>\
+	<<set _daringRec = $body.hairstyle.level4.daring>>\
 	<<set _sceneName="HairCurly">>\
 	<<set _override=($tasksTeacherBody.getHaircut.status gt 0)>>\
 	<<display "Clinic buy menu">>
@@ -325,8 +325,8 @@
 <<elseif $scene eq "HairShort" or $scene eq "HairMedium" or $scene eq "HairLong" or $scene eq "HairPigtails" or $scene eq "HairCurly">>\
 	<<set $player.punishments.hairCutChange = true>>\
 	<<if $scene eq "HairShort">>\
-		<<set $body.hairstyle.level = 0>>\
-		<<set $player.money -= $body.hairstyle.level0.cost>>
+		<<set $body.hairstyle.level = 1>>\
+		<<set $player.money -= $body.hairstyle.level1.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she states.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some hair extensions.  They don't add much length but they do add a lot more fullness and volume to your hair.
@@ -341,8 +341,8 @@
 		
 		@@.reward;You now have a cute, short hairstyle!@@
 	<<elseif $scene eq "HairMedium">>\
-		<<set $body.hairstyle.level = 1>>\
-		<<set $player.money -= $body.hairstyle.level1.cost>>
+		<<set $body.hairstyle.level = 2>>\
+		<<set $player.money -= $body.hairstyle.level2.cost>>
 		@@.nurse;"I'm so glad you wanted to get your hair done!"@@ Nancy beams. @@.nurse;"I think this style will look great on you."@@
 		
 		She smiles congenially, leading you over to a purpose-made salon chair. As you settle in to the plush, comfortable seat, you're naturally draw to your reflection in the large, wall-mounted mirror. Meeting your gaze in the glass, Nancy fluffs your hair with her fingers, then tilts your head back and forth to examine your bone structure in the light.
@@ -365,8 +365,8 @@
 		
 		@@.reward;You now have a beautiful, medium-length hairstyle!@@
 	<<elseif $scene eq "HairLong">>\
-		<<set $body.hairstyle.level = 2>>\
-		<<set $player.money -= $body.hairstyle.level2.cost>>
+		<<set $body.hairstyle.level = 3>>\
+		<<set $player.money -= $body.hairstyle.level3.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some length to your hair with hair extensions.  These extensions are premium and go all the way down to the middle of your back!  As a bonus, these extensions have a very feminine permanent wave in them.  You will have very little maintenance to do with this style and you will always look fantastic with it!
@@ -379,8 +379,8 @@
 		
 		@@.reward;You now have a long, wavy hairstyle!@@
 	<<elseif $scene eq "HairPigtails">>\
-		<<set $body.hairstyle.level = 4>>\
-		<<set $player.money -= $body.hairstyle.level4.cost>>
+		<<set $body.hairstyle.level = 5>>\
+		<<set $player.money -= $body.hairstyle.level5.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some length to your hair with hair extensions.  These extensions go just past your shoulders and add a good deal of volume to your hair as well.
@@ -395,8 +395,8 @@
 		
 		@@.reward;You now have a girly, pigtailed hairstyle!@@
 	<<elseif $scene eq "HairCurly">>\
-		<<set $body.hairstyle.level = 3>>\
-		<<set $player.money -= $body.hairstyle.level3.cost>>
+		<<set $body.hairstyle.level = 4>>\
+		<<set $player.money -= $body.hairstyle.level4.cost>>
 		Nancy leads you towards a purpose-made salon chair and helps you relax in its cushioned seat. She swishes an apron over your body, and tells you to get comfortable. 
 		
 		@@.nurse;"I bet you're going to just //love// this look!"@@ Nancy says animatedly.
@@ -428,46 +428,16 @@
 <<elseif $scene eq "Black" or $scene eq "Brown" or $scene eq "Red" or $scene eq "Blonde" or $scene eq "Silver" or $scene eq "Pink">>\
 	<<if $scene eq "Black">>\
 		<<set $body.hairColor = 0>>\
-		<<set $items.HairShort.image="hair_short_black.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_black.jpg">>\
-		<<set $items.HairLong.image="hair_long_black.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_black.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_black.jpg">>\
 	<<elseif $scene eq "Brown">>\
 		<<set $body.hairColor = 1>>\
-		<<set $items.HairShort.image="hair_short_brown.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_brown.jpg">>\
-		<<set $items.HairLong.image="hair_long_brown.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_brown.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_brown.jpg">>\
 	<<elseif $scene eq "Red">>\
 		<<set $body.hairColor = 2>>\
-		<<set $items.HairShort.image="hair_short_red.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_red.jpg">>\
-		<<set $items.HairLong.image="hair_long_red.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_red.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_red.jpg">>\
 	<<elseif $scene eq "Blonde">>\
 		<<set $body.hairColor = 3>>\
-		<<set $items.HairShort.image="hair_short_blonde.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_blonde.jpg">>\
-		<<set $items.HairLong.image="hair_long_blonde.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_blonde.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_blonde.jpg">>\
 	<<elseif $scene eq "Silver">>\
 		<<set $body.hairColor = 4>>\
-		<<set $items.HairShort.image="hair_short_silver.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_silver.jpg">>\
-		<<set $items.HairLong.image="hair_long_silver.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_silver.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_silver.jpg">>\
 	<<else>>\
 		<<set $body.hairColor = 5>>\
-		<<set $items.HairShort.image="hair_short_pink.jpg">>\
-		<<set $items.HairMedium.image="hair_medium_pink.jpg">>\
-		<<set $items.HairLong.image="hair_long_pink.jpg">>\
-		<<set $items.HairPigtails.image="hair_pigtails_pink.jpg">>\
-		<<set $items.HairCurly.image="hair_curly_pink.jpg">>\
 	<<endif>>\
 	<<set $player.money-=20>>\
 	Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to change your hair color,"@@ she starts. @@.nurse;"I think this will look great on you."@@

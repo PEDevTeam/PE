@@ -1,8 +1,8 @@
 :: Friend Teacher Tasks Flats
 <<set _hose=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<if _hose>>\
-	<<set _socks=_stock.masterItem == 'socks'>>\
-	<<set _stock=_stock.masterItem == 'stockings'>>\
+	<<set _socks=_hose.masterItem == 'socks'>>\
+	<<set _stock=_hose.masterItem == 'stockings'>>\
 <<else>>\
 	<<set _socks = false>>\
 	<<set _stock = false>>\
