@@ -48,10 +48,25 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
+        corset:{
+            itemType:"bra",
+            clothingSlot:"bra",
+            name:"Corsets",
+            itemMaster: "corsets",
+            daring:6,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                sexy:true,
+                slutty:true,
+            }
+        },
     },
     itemChildren:{
         //bras
-        bras0:{
+        bras00:{
             masterItem:"bras",
             variant:"bra_00",
             name:"White Lacy Bra",
@@ -60,15 +75,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain White",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
                 school:true,
             }
         },
-        bras1:{
+        bras01:{
             masterItem:"bras",
             variant:"bra_01",
             name:"White Frilly Bra",
@@ -77,15 +93,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain White",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
                 school:true,
             }
         },
-        bras2:{
+        bras02:{
             masterItem:"bras",
             variant:"bra_02",
             name:"White Cotton Bra with Frilly Back",
@@ -94,15 +111,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain White",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
                 school:true,
             }
         },
-        bras3:{
+        bras03:{
             masterItem:"bras",
             variant:"bra_03",
             name:"White Polkadot Bra with Grey Lace",
@@ -111,15 +129,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Grey Polka Dots",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
                 school:true,
             }
         },
-        bras4:{
+        bras04:{
             masterItem:"bras",
             variant:"bra_04",
             name:"Pink Satin Bra",
@@ -128,15 +147,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain Pink",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
                 school:true,
             }
         },
-        bras5:{
+        bras05:{
             masterItem:"bras",
             variant:"bra_05",
             name:"Pink Cotton Bra with Blue Bow",
@@ -145,15 +165,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain Bright Pink",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
                 school:true,
             }
         },
-        bras6:{
+        bras06:{
             masterItem:"bras",
             variant:"bra_06",
             name:"Pink Cotton Bra with White Lace Trim",
@@ -162,15 +183,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain Pink and Grey",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
                 school:true,
             }
         },
-        bras7:{
+        bras07:{
             masterItem:"bras",
             variant:"bra_07",
             name:"Black Strapless Bra",
@@ -179,15 +201,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain Black",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        bras8:{
+        bras08:{
             masterItem:"bras",
             variant:"bra_08",
             name:"Blue Cotton Patterned Bra",
@@ -198,13 +221,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
                 school:true,
             }
         },
-        bras9:{
+        bras09:{
             masterItem:"bras",
             variant:"bra_09",
             name:"Green Lacy Bra",
@@ -215,6 +239,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
@@ -232,6 +257,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 grey:true,
@@ -250,6 +276,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 red:true,
@@ -268,6 +295,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -285,6 +313,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -302,6 +331,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -319,6 +349,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -336,6 +367,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
@@ -353,6 +385,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -370,6 +403,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -387,6 +421,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -404,6 +439,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 plain:true,
@@ -421,6 +457,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
@@ -438,13 +475,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        bras23:{
+        bras40:{
             masterItem:"bras",
             variant:"bra_40",
             name:"Black Polkadot Bra with Red Trim and Bow",
@@ -453,8 +491,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Plain Black Polka Dots",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
@@ -463,7 +502,7 @@ $.extend(true, window.items, {
         },
 
         //sexyBras
-        sexyBras0:{
+        sexyBras00:{
             masterItem:"sexyBras",
             variant:"bra_sexy_00",
             name:"Red Tartan Sexy Bra",
@@ -472,15 +511,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Tartan",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
                 tartan:true,
             }
         },
-        sexyBras1:{
+        sexyBras01:{
             masterItem:"sexyBras",
             variant:"bra_sexy_01",
             name:"Red Sexy Bra with Black Straps and Trim",
@@ -489,14 +529,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Red with Dots",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
             }
         },
-        sexyBras2:{
+        sexyBras02:{
             masterItem:"sexyBras",
             variant:"bra_sexy_02",
             name:"Pink Sexy Bra with Black Straps and Bow",
@@ -505,14 +546,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Silky Cream",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras3:{
+        sexyBras03:{
             masterItem:"sexyBras",
             variant:"bra_sexy_03",
             name:"Pink Polkadot Sexy Bra with Black Trim",
@@ -521,14 +563,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Cream Dots",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras4:{
+        sexyBras04:{
             masterItem:"sexyBras",
             variant:"bra_sexy_04",
             name:"Blue Lacy Sexy Bra with White Straps",
@@ -537,14 +580,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Blue Lacy",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
             }
         },
-        sexyBras5:{
+        sexyBras05:{
             masterItem:"sexyBras",
             variant:"bra_sexy_05",
             name:"Bright Pink and Baby Pink Lacy Sexy Bra",
@@ -553,14 +597,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Pink and Cream Lacy",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras6:{
+        sexyBras06:{
             masterItem:"sexyBras",
             variant:"bra_sexy_06",
             name:"Purple Lacy Sexy Bra with Pink Straps",
@@ -569,14 +614,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Purple Lacy",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras7:{
+        sexyBras07:{
             masterItem:"sexyBras",
             variant:"bra_sexy_07",
             name:"Pink Sexy Bra with Black Lace",
@@ -585,14 +631,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Pink and Black Lacy",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras8:{
+        sexyBras08:{
             masterItem:"sexyBras",
             variant:"bra_sexy_08",
             name:"Yellow Satin Sexy Bra with Black Straps and Trim",
@@ -601,14 +648,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Yellow Silky",
+            canBuy:true,
             tags:{
                 yellow:true,
                 sexy:true,
             }
         },
-        sexyBras9:{
+        sexyBras09:{
             masterItem:"sexyBras",
             variant:"bra_sexy_09",
             name:"Purple Sexy Bra with Light Purple Straps and Trim",
@@ -617,8 +665,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Mauve Frilly",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -633,8 +682,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Purple with Bows Lacy",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -649,8 +699,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Cream Open",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -665,8 +716,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Blue and Black Silky",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -681,8 +733,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Blue and White Frilly",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -697,8 +750,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -713,8 +767,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -729,8 +784,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -747,6 +803,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -761,8 +818,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Red Lacy",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -779,6 +837,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -793,8 +852,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -811,6 +871,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -827,6 +888,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -843,6 +905,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -859,6 +922,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -873,8 +937,9 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -891,6 +956,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -907,13 +973,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 grey:true,
                 sexy:true,
             }
         },
-        sexyBras28:{
+        sexyBras40:{
             masterItem:"sexyBras",
             variant:"bra_sexy_40",
             name:"Black Sexy Bra with Pink Bow and Ribbon",
@@ -922,14 +989,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Lacy with Pink",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
             }
         },
-        sexyBras29:{
+        sexyBras41:{
             masterItem:"sexyBras",
             variant:"bra_sexy_41",
             name:"Red Lacy Sexy Bra",
@@ -938,14 +1006,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Red Strappy and Lacy",
+            canBuy:false,
             tags:{
                 red:true,
                 sexy:true,
             }
         },
-        sexyBras30:{
+        sexyBras60:{
             masterItem:"sexyBras",
             variant:"bra_sexy_60",
             name:"Pink Sexy Bra",
@@ -954,14 +1023,15 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Pink and Not Yours",
+            canBuy:false,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
-        sexyBras31:{
+        sexyBras61:{
             masterItem:"sexyBras",
             variant:"bra_sexy_61",
             name:"Pink Sexy Bra",
@@ -970,16 +1040,54 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Pink and Not Yours",
+            canBuy:false,
             tags:{
                 pink:true,
                 sexy:true,
             }
         },
+        sexyBras63:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_63",
+            name:"Blue & Cream Sexy Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:true,
+            setName:"Blue and Pink Lacy",
+            canBuy:false,
+            tags:{
+                blue:true,
+                sexy:true,
+            }
+        },
+        sexyBras74:{
+            masterItem:"sexyBras",
+            variant:"bra_sexy_74",
+            name:"Purple Sexy Frilly Bra",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:true,
+            setName:"Red Fine Lacy",
+            canBuy:false,
+            tags:{
+                purple:true,
+                frilly:true,
+                sexy:true,
+            }
+        },
+
+
 
         //latexBras
-        latexBras0:{
+        latexBras00:{
             masterItem:"latexBras",
             variant:"bra_latex_00",
             name:"Black Low Cut Latex Bra",
@@ -988,15 +1096,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Latex",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 slutty:true,
             }
         },
-        latexBras1:{
+        latexBras01:{
             masterItem:"latexBras",
             variant:"bra_latex_01",
             name:"Black Full Cup Latex Bra",
@@ -1005,15 +1114,16 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Latex",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 slutty:true,
             }
         },
-        latexBras2:{
+        latexBras02:{
             masterItem:"latexBras",
             variant:"bra_latex_02",
             name:"Black Cutout Latex Bra",
@@ -1022,10 +1132,50 @@ $.extend(true, window.items, {
             disabled:false,
             isMale:false,
             isFemale:true,
-            isItemSet:false,
-            setName:"",
+            isItemSet:true,
+            setName:"Black Latex",
+            canBuy:true,
             tags:{
                 black:true,
+                sexy:true,
+                slutty:true,
+            }
+        },
+
+
+        //corsets
+        corsets62:{
+            masterItem:"corsets",
+            variant:"corset_62",
+            name:"White Boned Corset",
+            price:150,
+            daring:6,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                white:true,
+                sexy:true,
+                slutty:true,
+            }
+        },
+        corsets73:{
+            masterItem:"corsets",
+            variant:"corset_73",
+            name:"Red Boned Corset with Black Trim",
+            price:150,
+            daring:6,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                red:true,
                 sexy:true,
                 slutty:true,
             }

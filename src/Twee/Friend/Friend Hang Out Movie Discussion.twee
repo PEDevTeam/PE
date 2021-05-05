@@ -1,13 +1,17 @@
 :: Friend Hang Out Movie Discussion
 \
-<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<if _under>>\ 
+	<<if not _under.isFemale>>\ 
+		<<set _maleUnder = true>>\ 
+	<<endif>>\ 
+<<endif>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<<set _waxed to not playerCode.isHairy()>>\
 \
 You grab the TV remote and pull up the film menu. 
 
@@ -23,7 +27,7 @@ You grab the TV remote and pull up the film menu.
 		@@.heroT;“Sounds great,”@@ you reply, hoping you can fit it in around chores and stuff.
 
 		Soon, you’re chatting about the latest films, which ones you want to go and see, what you saw last and who the sexiest actresses are.\
-		<<if $flags.friendIsFemale>>\
+		<<if $friendG.gender == "F">>\
 			You can’t help but think how cool it is to have a girl friend who is into girls like you.\
 		<<endif>>
 	<<scene>>\
@@ -51,8 +55,7 @@ You grab the TV remote and pull up the film menu.
 
 	@@.friend;“Don’t forget about the manga.”@@ $friendG.he_she says, as you are leaving, punching you playfully on the arm.
 <<else>>\
-	<<selectScene HangOutMovies RND2RND>>\
-	<<scene>>\
+	<<if $player.perversion.crossdressing < 2>>\
 		@@.friend;“I thought we could watch this one,”@@ $friend says pulling a disc from the desk drawer, one with no writing on it. $friendG.He_She pops the disc into the player and the TV switches to the disc menu. It’s only got one title on it, and it looks like Russian or something. $friend returns to the couch and sits down right next to you so your legs are touching. 
 
 		The quality of the film is not good, and the dubbing is almost laughable. You are surprised when you glance at $friendG.him_her and see how engrossed $friendG.he_she is. The film, some kind of sexploitation film, is essentially about a very pretty girl who is working as some kind of secretary. Then\
@@ -65,11 +68,11 @@ You grab the TV remote and pull up the film menu.
 		You become engrossed in the film, not realising how turned on you are, despite the confusion of which of the people performing horizontal dancing on the screen you feel more affinity to. 
 		<<if not _outerwear.isFemale>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockinga>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking top<<else>>naked thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp.
 		<<endif>>\
 
@@ -80,7 +83,7 @@ You grab the TV remote and pull up the film menu.
 		$friend offers you a fresh drink and scurries away.  Your skin is all tingly, your cheeks flushed and your penis is\
 		<<if _chastity>>solid and painfully pressing against your cage.<<else>>solid.<<endif>>\
 		You adjust trying to get comfortable before $friend returns. Fortunately $friendG.he_she suggests watching some random drama instead and you relax a little, although confusion still clouds your mind.
-	<<scene>>\		
+	<<elseif $player.perversion.crossdressing < 4>>\		
 		@@.friend;“I’ve been wanting to watch this one...”@@ $friend announces, somewhat breathily, @@.friend;“but I wanted to wait and watch it together..”@@
 
 		@@.heroT;“Sure, I love new movies!”@@
@@ -106,5 +109,271 @@ You grab the TV remote and pull up the film menu.
 		@@.hero;Oh!?@@
 
 		Not sure quite what to do, you eventually decide to head home and leave the film playing as you leave, your mind full of all the positions they managed to get into… 
-	<</selectScene>>\
+	<<elseif $player.perversion.crossdressing < 6>>\
+		<<if $friendG.seenDressUp == 1>>\
+			@@.friend;“You’ve seen the new part of the house I found?”@@
+
+			You take a moment before remembering. @@.heroT;“Oh, in the basement?”@@
+
+			@@.friend;“Come on.”@@
+
+			$friendG.he_she rushes to the basement, through the cleaning supply cupboard and you wait for $friend to unlock the door. $friend leads you straight to the girl-cave.
+		<<else>>\
+			@@.friend;“I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;"Come on, let me show you.”@@
+
+			$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the far door and reveals an amazing space which could only be described as a girl-cave.
+		<<endif>>\
+			
+		<<RandomImageFromPack 'Friend/GirlCave' 400 400 alignRight>>\
+		$friend leads you through the room into a dressing area at the back. Ignoring the line of mannequins - some of which have cosplay outfits while others display sparkly outfits fit for a girl going to prom - $friend slides open one of the doors and passes you a cute pink dress with shoestring straps and a tight bodice, but with a flowing, A-line skirt. It’s in your size and knowing $friend, likely cost a ton. 
+
+		@@.friend;”I thought we could watch a movie, and like, dress the part. It’ll be fun,”@@ $friend says, passing you the dress and pulling out a hanger of their own. <<if $friendG.gender == 'F'>>Unsurprisingly, $friend has not got a dress, but a pair of denim shorts, some knee-high socks and a cute crop-top that you are sure will look great on her. <<elseif $friendG.gender == 'T'>>$friend’s outfit is a black skirt and top, quite goth in style, with black knee-high socks worn over fishnet stockings. <<else>>$friend has picked a pair of black pants and a sheer white shirt which looks like it won’t hide much.<<endif>>
+
+		You feel like a bit of an idiot dressing up for a home movie, but $friend is obviously excited, and $friendG.he_she has gone to a lot of trouble preparing everything, from the room to the outfits and likely a hard-to-get movie and delicious snacks. Hanging your dress on the door handle for a moment, you strip off your clothing, down to your <<if _bra>>bra and <<endif>><<if _maleUnder>>boxers<<else>>panties<<endif>>.
+
+		<<if _maleUnder || not _chastity || not _stockings  || not _waxed>>\
+			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not _waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
+
+			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
+			<<set $friendG.wordlessGoodbye = true>>\
+			<<set $friendG.friendTaskFrustration += 3>>\
+		<<else>>
+			<<set $friendG.friendTaskFrustration -= 2>>\
+			$friend didn’t pass you any underwear, so you keep yours on and slide the pink dress over your body. It fits perfectly, and the hem tickles your legs deliciously when you move. You try to pull the zip up at the back but you can’t reach it. 
+
+			You turn to ask $friend for $friendG.his_her help and gasp.  
+
+			<<if $friendG.gender == "F">>\
+				$friend has her back to you and is struggling with a zip of her own. Her denim shorts have a zip that runs up the back, allowing you to see her cute butt, delicate red-spotted panties and her shapely smooth thighs. Your penis twitches in appreciation of her perfect body. 
+
+				I should offer to help her, you think to yourself, although when you open your mouth no words come out. The thought of your fingers so close to her peachy butt sends your penis erect, pushing against the confines of your cage. Only the flare of the dress’ skirt hides your discomfort.
+
+				You watch, unable to take your eyes away as she fastens the zip, your mind a maelstrom of confusion at lust for her body and a desire which comes from nowhere, a desire to have a cute ass like her so your own panties look as cute.   
+
+			<<elseif $friendG.gender == "M">>\
+				$friend has already pulled his pants on, although you detect the outline of his semi-erect cock pressing against the material, almost as though he’s not wearing any underwear. He pulls on the shirt and you realise you were correct, the sheer material doesn’t hide his toned pecs, prominent abs, the cut of his waist, the elegant ‘V’ shape of his torso… Your penis twitches in admiration, and jealousy that your own journey down the road to male perfection was delayed not long after puberty. He struggles to get the shirt settled at the back, almost as if he’s used oil or something to make his muscles gleam.  
+				// Male image is a webp in the folder (can’t insert it)//
+
+				I should offer to help him, you think to yourself as his fingers struggle with shirt, although when you open your mouth no words come out. The thought of your fingers gliding over his toned body sends your own Judas penis erect, pushing against the confines of your cage. Only the flare of the dress’ skirt hides your discomfort.
+
+				Eventually he settles the shirt in place, and leaves it loose outside of the pants, his bulge bigger, if anything as he turns to you.    
+			<<else>>\
+				$friend has already dressed, although his short skirt is hoisted up at the back and his leg on a stool while he adjusts one of his stockings. From this angle, you get a full look at his smooth thighs, encased in fishnets, and the uncaged bulge in his black lacy panties.  Your penis twitches at the sight of his cute panties and his obvious erection.  
+
+				I should offer to help him, you think to yourself as his fingers struggle with the suspenders, although when you open your mouth no words come out. The thought of your fingers so close to his erect cock sends your own Judas penis erect, pushing against the confines of your cage. Only the flare of the dress’ skirt hides your discomfort.
+
+				You watch, unable to take your eyes away as he fastens the suspender in place, lowers his long leg and wriggles his skirt into place. Your mind is a maelstrom of confusion. at lust and at the sight of smooth thighs and stocking tops, but knowing $friend has something quite large hidden inside his panties.    
+			<<endif>>\
+
+			@@.friend;”Aww, you’re struggling,”@@ $friend says, seeing your dress open at the rear. $friendG.He_She steps behind you and reaches for the zipper nestled in the small of your back. With excruciating slowness, $friendG.he_she draws the zipper up your back, $friendG.his_her fingernails trailing a line up your spine, making your breath catch in your throat. You don’t need to check to know your caged penis is leaking precum into your panties.
+
+			@@.friend;”There. Let’s go watch a film.”@@
+
+			$friend pulls a variety of snacks out from under a cover, tortilla chips and salsa, some popcorn and slender chocolate pops. $friendG.He_She also opens a door to reveal a hidden fridge and passes you a soda. You clamber on the bed, feeling somewhat self conscious as your dress rides up to reveal the bottom of your panties. You wriggle the dress back down and settle back against the pillows to watch the film.
+
+			<<if $friendG.gender == "F">>\
+				It doesn’t take long for you to realise, from the poor quality and the bad acting, that $friend has chosen a porno. Unsurprisingly, it features two lesbians, a tall, really attractive, more confident one wearing black, and a shorter super-cute blonde in a lilac top, black mini-skirt and stockings. Engrossed in the movie, you begin munching on tortillas, dipping them in the rich salsa which tastes amazing, and not noticing $friend’s hand on your knee. 
+
+				Before long, the tall one is suckling the cute girl’s nipples, rolling her tongue around them and tugging at the cute blonde’s skirt, trying to get inside. When the confident woman succeeds, you realise that the cute girl is not wearing any panties, and she’s got something extra under her skirt. You stop in surprise, your hand pausing from your mouth, tipping a loaded tortilla onto your chest, just above the dress’s low neckline.
+
+				@@.friend;“Silly,”@@ $friend says, reaching over for a cloth. $friendG.He_She begins to dab at your bare skin. Then, without warning, $friendG.he_she dips $friendG.his_her head and starts licking the salsa from your skin. $friendG.His_Her tongue is slightly damp as $friendG.he_she licks and sucks at the salsa. You gasp at the feeling of $friendG.his_her mouth on your chest, and are almost sad when $friendG.he_she sits back. @@.friend;“All gone,”@@  $friendG.he_she says, leaning back and looking at your flustered expression. Then $friend winks, reaches over, grabs a loaded tortilla and drops it on your skin. @@.friend;“Oopsy,”@@ $friend says a moment before leaning forward and licking and kissing your decolletage once more. 
+
+				You hear gasping and groaning from the TV, and glance over $friend’s head, expecting to see the trans girl pounding on the lesbian, but the seducer has a strap-on and the trans girl is riding it with abandon. 
+
+				As the trans girl on screen moans in orgasm, $friend sits up suddenly, looking sheepish and blushing deeply. @@.friend;“Um, sorry but I’ve got to go and mow the dog, feed the pool and walk the lawn. I’ll see you soon!”@@
+
+				With that, $friend scuttles off to the connected bathroom, leaving you to change back and head home, thoroughly frustrated but unable to shake the memory of her mouth on your body.
+
+			<<elseif $friendG.gender == "M">>\
+				It doesn’t take long for you to realise, from the poor quality and the bad acting, that $friend has chosen a porno. Unsurprisingly, it features a muscular guy and a long-haired girl who is super-cute and noticeably shorter than the guy. Engrossed in the movie, you begin munching on tortillas, dipping them in the rich salsa which tastes amazing, and not noticing $friend’s hand on your knee. 
+
+				Before long, the guy is sitting back on the bed while the  cute girl is kneeling at his feet, her red lips wrapped around the guy’s large cock as her head bobs up and down. Then the guy pushes her up, stands and slowly pulls down her skirt. As the thin material lands at her feet, you realise that the cute girl is not wearing any panties, and she’s got something extra under her skirt. You stop in surprise, your hand pausing from your mouth, tipping a loaded tortilla onto your chest, just above the dress’s low neckline.
+
+				@@.friend;“Silly,”@@ $friend says, reaching over for a cloth. $friendG.He_She begins to dab at your bare skin. Then, without warning, $friendG.he_she dips $friendG.his_her head and starts licking the salsa from your skin. $friendG.His_Her tongue is slightly damp as $friendG.he_she licks and sucks at the salsa. You gasp at the feeling of $friendG.his_her mouth on your chest, and are almost sad when $friendG.he_she sits back. @@.friend;“All gone,”@@  $friendG.he_she says, leaning back and looking at your flustered expression. Then $friend winks, reaches over, grabs a loaded tortilla and drops it on your skin. @@.friend;“Oops,”@@ $friend says a moment before leaning forward and licking and kissing your decollage once more. 
+
+				You hear gasping and groaning from the TV, and glance over $friend’s head, not quite sure what to expect. The trans girl is leaning against a wall, her erect penis hanging free while the guy pounds her with his much larger cock.  
+
+				As the trans girl on screen moans in orgasm, $friend sits up suddenly, looking sheepish and blushing deeply. @@.friend;“Um, sorry but I’ve got to go and mow the dog, feed the pool and walk the lawn. I’ll see you soon!”@@
+
+				With that, $friend scuttles off to the connected bathroom, leaving you to change back and head home, thoroughly frustrated but unable to shake the memory of her mouth on your body.
+			<<else>>\
+				It doesn’t take long for you to realise, from the poor quality and the bad acting, that $friend has chosen a porno. Unsurprisingly, it features a pair of cute girls who, by the unmistakable panty-bulges are both shemales. The taller, more confident one slowly but noticeably seduces the shorter, cute one. Engrossed in the movie, you begin munching on tortillas, dipping them in the rich salsa which tastes amazing, and not noticing $friend’s hand on your knee. 
+
+				Before long, the two shemales are naked, the cute one kneeling on the floor with the other’s cock filling her mouth. You half expect them to swap over, but the taller one pushes the cute girl on her back and eases her cock between her legs. The cute girl moans in pleasure as the large cock slips inside her body. You stop in surprise at the sounds of pleasure, your hand pausing from your mouth, tipping a loaded tortilla onto your chest, just above the dress’s low neckline.
+
+				@@.friend;“Silly,”@@ $friend says, reaching over for a cloth. $friendG.He_She begins to dab at your bare skin. Then, without warning, $friendG.he_she dips $friendG.his_her head and starts licking the salsa from your skin. $friendG.His_Her tongue is slightly damp as $friendG.he_she licks and sucks at the salsa. You gasp at the feeling of $friendG.his_her mouth on your chest, and are almost sad when $friendG.he_she sits back. @@.friend;“All gone,”@@  $friendG.he_she says, leaning back and looking at your flustered expression. Then $friend winks, reaches over, grabs a loaded tortilla and drops it on your skin. @@.friend;“Oops,”@@ $friend says a moment before leaning forward and licking and kissing your decollage once more. 
+
+				You hear gasping and groaning from the TV, and glance over $friend’s head, not quite sure what to expect. The shorter trans girl on her back has cum leaking from her smaller penis while the larger one gasps in orgasm inside her.  
+
+				As the trans girl on screen moans in her own orgasm, $friend sits up suddenly, looking sheepish and blushing deeply. @@.friend;“Um, sorry but I’ve got to go and mow the dog, feed the pool and walk the lawn. I’ll see you soon!”@@
+
+				With that, $friend scuttles off to the connected bathroom, leaving you to change back and head home, thoroughly frustrated but unable to shake the memory of her mouth on your body.
+			<<endif>>\
+		<<endif>>\
+		<<set $friendG.friendTaskFrustration == $friendG.friendTaskFrustration +3>>\
+		<<set $friendG.wordlessGoodbye = true>>\
+	<<else>>\
+		<<if $friendG.seenDressUp == 1>>\
+			@@.friend;“You’ve seen the new part of the house I found?” @@
+
+			You take a moment before remembering. @@.heroT;“Oh, in the basement?”@@
+
+			@@.friend;“Come on.”@@
+
+			$friendG.He_She rushes to the basement, through the cleaning supply cupboard and you wait for $friend to unlock the door. $friend leads you straight to the girl-cave.
+		<<else>>\
+			@@.friend;“I found a new part of the basement, one that no one else knows about. It’s got a key too!”@@ $friend adds, dangling an old, wrought-iron gothic-looking key, like something from a horror movie. @@.friend;"Come on, let me show you.”@@
+
+			$friendG.He_She rushes excitedly from the room, not waiting to see if you are following, heading straight down to the basement. You pass through the cleaning supply cupboard and watch amazed as $friendG.he_she pushes the key into a hidden hole in an obscured panel at the back. $friend unlocks the door and opens the space out to a stone corridor with three doors off it. Ignoring the other two, $friend opens the far door and reveals an amazing space which could only be described as a girl-cave.
+		<<endif>>\
+		
+		<<RandomImageFromPack 'Friend/GirlCave' 400 400 alignRight>>\
+		$friend leads you through the room into a dressing area at the back. Ignoring the wardrobe for now, $friend shows you a white mannequin at the far end of the room, wearing a short, but pretty dress with lines of silver rhinestones in swirly flower and leaf patterns. On the model, it looks like something you would love to see <<if $friendG.gender == "F">>$friend<<else>>a cute girl<<endif>> wearing. As you get closer, you realise that the dress is far from opaque and you can see the plastic body of the mannequin through most parts of the dress. 
+
+		@@.friend;”I found a new movie for us to watch,”@@ $friend says, easing the white dress over the mannequin's head before picking out an outfit of $friendG.his_her own. 
+
+		The dress is a little much, but as you run your fingers over the material you realise it’s incredibly soft. It will hug your body all the way to mid-thigh and $friend seems super-excited to see you wearing it. After everything that $friendG.he_she has done to help, you tell yourself that putting it on as a favor to $friendG.him_her is the least you can do. Hanging the dress on the back of a chair, you strip off your clothing, down to your <<if _bra>>bra and <<endif>><<if _maleUnder>>boxers<<else>>panties<<endif>>.
+
+		<<if _maleUnder || not _stockings  || not _waxed>>\
+			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not _waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
+
+			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
+			<<set $friendG.wordlessGoodbye = true>>\
+			<<set $friendG.friendTaskFrustration += 3>>\
+		<<elseif not _chastity>>\
+			$friend looks down at the lack of bulge in your panties. @@.friend;"Why aren't you wearing that cute chastity cage?"@@
+			
+			@@.heroT;"I just didn't feel like it,"@@ you respond.
+			
+			$friend scowls. @@.friend;"Well, I don't want to play if you're not wearing it."@@ 
+			
+			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
+			<<set $friendG.wordlessGoodbye = true>>\
+			<<set $friendG.friendTaskFrustration += 3>>\
+		<<else>>\
+			<<set $friendG.friendTaskFrustration -=2>>
+			$friend didn’t pass you any underwear, so you keep yours on and pull the dress over your head. You were correct because as you look at yourself in the mirror, you can see most of your skin. Your <<if _bra>>bra and <<endif>>panties are clearly visible, as is the bulge from your cage.
+
+			@@.friend;“Oh, wow,”@@ $friend says, appearing behind you. @@.friend;“It looks so much better than I expected. So cute! So, what do you think?”@@ $friendG.he_she asks, stepping back so you can see $friendG.his_her outfit.
+
+			<<if $friendG.gender == "F">>\
+				$friend has chosen a dress which is almost as see-through as yours, and is perhaps the most feminine outfit she’s worn for ages. Her incredible curves are almost visible through the holes in her black dress, and despite studying surreptitiously, you are not certain if she’s wearing flesh-coloured panties or none.
+
+				@@.friend;“Well?”@@ $friend asks. 
+				 
+				@@.heroT;“Um, stunning,”@@ you say, dragging some sense from your addled mind. You imagine your hands on her legs, slowly inching up her perfect, smooth thighs, touching the folds of her heavenly body before easing your finger… The thought of your fingers inside her sends your penis erect, pushing against the confines of your cage. 
+
+				@@.friend;“...I said, ‘let’s watch the movie before Mom gets home,”@@ $friend says, somewhat frustrated.
+
+				@@.heroT;“Oh yeah, sorry,”@@
+			<<elseif $friendG.gender == "M">>\
+				$friend’s outfit is decidedly boring compared to yours, just some jogging bottoms and a black t-shirt. 
+
+				He could have put in more of an effort, you think, given the dress he chose for you. Then your eyes drift down and you notice the massive bulge in his pants, far more impressive than anything you ever managed. He’s not even erect yet! 
+
+				@@.friend;“Well?”@@ $friend asks. 
+				 
+				@@.heroT;“Um, it suits you,”@@ you say, not quite knowing what to say. You are unable to look away, drawn to his cock like an iron filing to a magnet. Your stomach does weird loops - you have no desire to touch it, but dressed as you are, your mind is playing tricks on you. Somehow your mind drifts until his cock is in your hands and…  
+
+				@@.friend;“...I said, ‘let’s watch the movie before Mom gets home,”@@ $friend says, somewhat frustrated.
+
+				@@.heroT;“Oh yeah, sorry,”@@ 
+			<<else>>\
+				$friend’s outfit is not as translucent as yours, but his red dress is much shorter, so short that you can see his panties when he moves. His long legs are encased in white thigh-highs, with a few inches of his tanned, toned and smooth thighs visible above them.  
+
+				@@.friend;“Well?”@@ $friend asks. 
+				 
+				@@.heroT;“Um, you look pretty,”@@ you say, not quite knowing what to say. You are unable to look away, drawn to his naked thighs like an iron filing to a magnet. Your stomach does weird loops as you realise his large cock is semi-hard and hardly contained inside his lacy panties.  You have no desire to touch it, but dressed as you are, your mind is playing tricks on you. Somehow your mind drifts until his cock is in your hands and…  
+
+				@@.friend;“...I said, ‘let’s watch the movie before Mom gets home,”@@ $friend says, somewhat frustrated.
+
+				@@.heroT;“Oh yeah, sorry,”@@ 
+			<<endif>>\
+
+			$friend pulls some snacks out from under a cover, tortillas and salsa, some popcorn and slender chocolate pops. $friendG.He_She also opens a door to reveal a hidden fridge and passes you a soda. You clamber on the bed, feeling somewhat self conscious as your <<if _bra>>bra and <<endif>>panties are clearly on view. You wriggle to get comfortable and cross your legs to hide your <<if $kink.smallPenis>>tiny<<endif>> bulge. 
+
+			<<if $friendG.gender == "F">>\
+				Unlike other porn films you’ve seen, the quality of this one is quite good. It features a blonde with perfect makeup wearing a dress that buttons at the front, black stockings and heels, and a woman who looks a lot like $friend, only $friend is even cuter.
+
+				The action begins almost immediately and you are soon engrossed as the blonde kneels beside the $friend-alike and slowly undresses her, revealing her perfect breasts and per nipples. As you watch, you feel $friend’s hand take yours and she holds it against her body. As she moves your hand slowly over her body, you feel mostly material but occasionally you touch her warm, soft skin with the back of your hand.
+
+				On-screen the $friend-alike strips down, revealing a large strap-on dangling between her legs. She makes the blonde suck her as if it were a real cock, pumping her hips and deep-throating the smaller woman.
+
+				$friend wriggles closer to you and slides the back of your hand lower, until her cute trimmed patch of pubic hair brushes your skin through the holes in the dress. As she holds your hand in place she eases one of her fingers through another hole. You freeze, knowing that you should likely do something, but unsure what it is. 
+
+				With the noises continuing from the screen, $friend parts her legs slightly and pushes harder on your hand. You can feel her soft thighs against your fingers as she pulls your hand further down, twisting it until the back of your hand is pressing against her lips. She presses harder and…
+
+				@@.friend;“Ohhh,”@@ $friend gasps as she pushes you onto her clitoris. 
+
+				You lean over, intent on taking charge and maybe kissing her, knowing this is your chance<<if $flags.chastityLocked>>if you can get the bloody cage off<<endif>>. Before you can kiss her, her free hand snakes up, grabs the back of your neck and <<if $kinkAllow.painPlay>>painfully <<elseif $kinkAllow.questionable>>forcibly <<endif>>pulls your head down. She presses her lips to yours and thrusts her tongue into your mouth. 
+
+				Kissing you, she presses harder on your hand, raising up her hips and rocking them. Her tongue dancing with yours before, the intensity of her kiss increasing. She begins to gasp and tremble. Her kiss goes desperate and she collapses in a shuddering series of gasps and trembles before releasing your hand, the back slightly wet.
+
+				You flop back in frustration. On-screen the perfectly-made up blonde has her dress open, the camera looking up from her feet allowing you to see her dangling cock, dripping cum as the $friend-alike pounds her with a large strap on. The blonde shudders in her own orgasm and the $friend-alike withdraws.
+
+				<<if $player.hasVibrator>>\
+					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend’s orgasms to subside. 
+				<<else>>\
+					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend’s orgasms to subside.
+				<<endif>>\
+			<<elseif $friendG.gender == "M">>\
+				Unlike other porn films you’ve seen, the quality of this one is not too bad. It features a brunette wearing a pretty summer dress, white fishnet stockings and white mules. With her is a muscular, toned guy who looks a lot like $friend, only $friend is probably hotter<<if playerCode.isMind_0()>>, if you were into guys<<endif>>.
+
+				The action begins almost immediately and you are soon engrossed as the brunette kneels beside the seated $friend-alike and slowly removes his cock from his jeans. The woman leans forward, draws the cock into her mouth and licks around the head. Your mind runs away with you as you watch, engrossed in the action, dressed as you are, you cannot determine if you want to be the guy with the cute girl kneeling before him, or the girl sucking on a large cock. Lost in your consternations, you didn’t notice $friend’s much larger hand grip yours, holding it so the back of your hand is on his naked abs.
+
+				On-screen the $friend-alike climbs to his feet, shrugs off his jeans and then pulls the straps of the brunette’s dress to the side, letting it fall to the floor. Beneath, she’s wearing a very cute soft pink body which looks soft and comfortable. It’s also crotchless, allowing her penis to fall free. $friend-alike guides her to the bed, and has her lay on her front while he rims her. 
+
+				Beside you, $friend wriggles a little, getting comfortable. Instead of his abs on the back of your hand you now feel cloth, and beneath the cloth something hard and hot. Before you can move, $friend moves again, sliding his hand further down to the back of your hand is clearly and obviously pressing down on his engorged cock. 
+
+				With the noises continuing from the screen, $friend begins to rock his hips, sliding his cock against your hand, albeit through the material of his jogging pants. You can’t help but think about how much bigger he is; you could never get that big even without the cage. 
+
+				He presses harder and…
+
+				@@.friend;“Gnph,”@@ $friend gasps as the pressure of yours and his clutched hands presses on his cock.  
+
+				You know you should move, but his grip is firm and you can’t easily get away. Before you can back away, his free hand snakes up, grabs the back of your neck and <<if $kinkAllow.painPlay>>painfully <<elseif $kinkAllow.questionable>>forcibly <<endif>>pulls your head down. He presses his lips to yours and thrusts his tongue into your mouth. 
+
+				Kissing you, he pushes your hand harder onto his thrusting cock, his hips moving faster as the noises from the screen grow louder. His tongue dances with yours, the intensity of his kiss increasing.He begins to grunt and tremble. His kiss goes desperate and then he collapses in a shuddering series of grunts before releasing your hand, the back slightly wet.
+
+				You flop back in frustration, bemoaning the cage. On-screen the brunette is on her hands and knees while the naked guy thrusts his cock deep into her ass. The brunette is gasping and squealing in pleasure as the guy fills her completely, pumping hot cum inside her ass before they both flop on the bed, him still inside her. Seeing her orgasm from a cock inside her body makes your mind loop.
+
+				<<if $player.hasVibrator>>\
+					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend to release his grip.  
+				<<else>>\
+					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend to release his grip.  
+				<<endif>>\
+			<<else>>\
+				Unlike other porn films you’ve seen, the quality of this one is not too bad. It features two cute girls, a slender and  short blonde who’s really slender, a brunette wearing a pretty summer dress, white fishnet stockings and white mules. With her is a muscular, toned guy who looks a lot like $friend, only $friend is probably cuter<<if playerCode.isMind_0()>>, at least, when he’s dressed like a girl<<endif>>.
+
+				The action begins almost immediately and you are soon engrossed as the blonde kneels beside the $friend-alike and slowly undresses her, revealing her perfect breasts and pert nipples. As you watch, you feel $friend’s hand take yours and he holds it against his body. You can feel the material of his dress against the back of your hand, and the firmness of his abs. A little lower and something hard and hot presses against your hand through the cloth. 
+
+				On-screen the $friend-alike strips down, revealing a large erect cock between her legs. She makes the blonde suck her, holding the blonde’s head in place and pumping her hips, deep-throating the smaller woman.
+
+				$friend wriggles closer to you and slides the back of your hand lower, until you feel his lacy panties, and the bulge of his throbbing, erect cock beneath. You freeze, knowing that you should likely do something, but unsure what it is. 
+
+				With the noises of sex continuing from the screen, $friend begins to rock his hips, sliding his cock against your hand, albeit through the material of his panties. You can’t help but think about how much bigger he is; you could never get that big even without the cage. 
+
+				He presses harder and…
+
+				@@.friend;“Gnph,”@@ $friend gasps as the pressure of yours and his clutched hands presses on his cock.  
+
+				You know you should move, but his grip is firm and you can’t easily get away. Before you can back away, his free hand snakes up, grabs the back of your neck and <<if $kinkAllow.painPlay>>painfully <<elseif $kinkAllow.questionable>>forcibly <<endif>>pulls your head down. He presses his lips to yours and thrusts his tongue into your mouth. 
+
+				Kissing you, he pushes your hand harder onto his thrusting cock, his hips moving faster as the noises from the screen grow louder. His tongue dances with yours, the intensity of his kiss increasing.He begins to grunt and tremble. His kiss goes desperate and then he collapses in a shuddering series of grunts before releasing your hand, the back slightly wet.
+
+				You flop back in frustration, bemoaning the cage. On-screen the blonde is face down on the bed, $friend-alike’s much larger cock buried in her ass. $friend-alike grunts as she cums, trembling as she shoots her cum deep inside the blonde’s body. Although they are two shemales, there is no doubt which one is the alpha. The blonde gasps and squeals as the $friend-alike fills her completely, shuddering in her own orgasm without even touching her own smaller penis. Seeing her orgasm from a cock inside her body makes your mind loop.
+
+				<<if $player.hasVibrator>>\
+					Maybe I should get out a toy when I get home, you think to yourself as you wait for $friend to release his grip.  
+				<<else>>\
+					Maybe using a toy in there is the only way I can get off, with this fucking cage, you think to yourself as you wait for $friend to release his grip.  
+				<<endif>>\
+			<<endif>>\
+
+			@@.friend;“I don’t know how you do it,”@@ $friend says sheepishly, $friendG.his_her orgasm having dissipated leaving a happy, healthy glow to $friendG.his_her skin. @@.friend;“I would… you know, but the cage… You must tell me how it feels sometime. Now though, I’ve got chores. It was terrific though. Thank you!”@@
+			 
+			@@.heroT;“Hmph,”@@ you mumble to yourself, too confused and frustrated to speak. Fucking $teacher and fucking cage is all you can think of as you hurry to change back and head out. 
+			<<set playerCode.changeArousal(30)>>\
+		<<endif>>\
+	<<endif>>
 <<endif>>\

@@ -171,6 +171,14 @@ window.timeCode={
 		var time = State.active.variables.time;
 		return (State.active.variables.cheerleaders.active == true && (State.active.variables.cheerleaders.progress == 6 || State.active.variables.cheerleaders.progress == 11) && window.timeCode.isSaturday() && !(State.active.variables.cheerleaders.flags.skippedPractice) && (State.active.variables.cheerFriend.progress >= 3 && State.active.variables.cheerFriend.progress < 5) && time.hour < 14);
 	},
+	canTeacherParty: function() {
+		var time = State.active.variables.time;
+		return (window.timeCode.isSaturday() && time.hour < 18 && State.active.variables.player.ending.comportment.etiquette.partyStart);
+	},
+	canHotelLesson: function() {
+		var time = State.active.variables.time;
+		return (window.timeCode.isSaturday() && time.hour < 18 &&(window.timeCode.isSaturday()||window.timeCode.isSunday()) && State.active.variables.player.ending.comportment.bimbo.hotelBimboLesson);
+	},
 	haveSchool: function() {
 		var time=State.active.variables.time;
 		return !this.isWeekend() && (time.hour >= 7) && (time.hour < 12);

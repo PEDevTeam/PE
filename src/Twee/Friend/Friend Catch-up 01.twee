@@ -1,18 +1,11 @@
 :: Friend Catch-up 01
 \
-<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
- <!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if not _underwear and not _chastity>><<set _under to 'chastity cage'>>\
 <<elseif not _underwear>><<set _under to 'penis'>>\
@@ -27,7 +20,7 @@ As you follow the map on your phone, you enter a neighborhood you’ve never see
 Despite everything that has happened to you and everything you have done, the thought of going to $friend’s looking as you are for the first time has your knees trembling. It’s been so long since you saw $friendG.him_her and for some reason, one even you cannot fathom, you decided to just turn up like this on $friendG.his_her doorstep with no warning. The closer you get to $friend’s new house, the weaker your knees become, combined with a growing distinct rumble of fear in your tummy.
 
 <<if _outerwear.isFemale>>\
-	You feel the wind sweep up your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> and caress your <<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by.\
+	You feel the wind sweep up your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> and caress your <<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by.\
 <<endif>>\
 <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>\
 	Your footsteps echo each time you place your heel on the sidewalk, as if tolling like a bell for attention as you walk. Your heart thumps in your chest with each heel click, making you flush in a mixture of daring excitement and fear of being discovered.\

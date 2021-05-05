@@ -1,16 +1,11 @@
 :: Chores punishments [pos_1896_150]
 \
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _cf=window.choresFunc.choresFails()>>\
 <<set _pun = true>>\
 	<!--<confiscating vibrator>-->\
-<!-- <<if _pun and $flags.chorePunKinky and playerCode.owns(itemsC.vibrator) and (not $flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\ -->
-<!-- <<endif>> -->
 <<if _pun and $flags.chorePunKinky and $player.hasVibrator and (not $flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
 	<<if $flags.confiscatedVibrator>>\
 		@@.guardian;"I won't return this vibrator until you fix your mess."@@
@@ -62,11 +57,12 @@
 	
 	Afraid of another spanking session, you meekly follow her as she goes to the bathroom.
 	
+<!-- NOTE: A variant of this also exists in Special punishments -->\
 	$Guardian tells you to bend forward, and put your hands on the wall. A bit confused, you do as she says, feeling a bit silly as $guardian makes you shift your feet slightly away from the wall, transfering part of your weight to your arms.
 	
 	<<if _outerwear and (not _outerwear.isFemale)>>\
 		With one quick motion, $guardian unbuckles and lowers your pants.\
-	<<elseif _outerwear and _outerwear.female>>\
+	<<elseif _outerwear and _outerwear.isFemale>>\
 		With one quick motion, $guardian lowers your skirt.\
 	<<endif>>\
 	You let out a surprised yelp as she\
@@ -99,6 +95,7 @@
 	<<set $flags.chorePunMode = true>>\
 	<<set _pun = false>>\
 
+	<!-- TODO: There should be some text here. -->\
 	[[Choose redecorating|Special punishments][$scene="redecorating"; $flags.chorePunMode = false]]
 	[[Choose anus check|Special punishments][$scene="anuscheck"; $flags.chorePunMode = false]]
 <<endif>>\
@@ -115,7 +112,6 @@
 	<<set _pun = false>>\
 	<<if not $flags.chorePunishmentHeels>>\
 		<<set $flags.chorePunishmentHeels = true>>\
-		<!-- <<addToInv 'highHeel3' 40>>\ -->
 		<<addItemVariantToInventory 'heels_40'>>\
 		@@.guardian;"You know, $player.name, I think I know what to do about your clumsiness. Since you like to dress up so much, I think you should try wearing high heels while you do your chores."@@
 		

@@ -22,7 +22,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //buttplugs
-        buttplugs0:{
+        buttplugs00:{
             masterItem:"buttplugs",
             variant:"buttplug_dildo",
             name:"Black Buttplug Dildo",
@@ -33,11 +33,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
             }
         },
-        buttplugs1:{
+        buttplugs01:{
             masterItem:"buttplugs",
             variant:"buttplug_heart",
             name:"Heart Shapped Buttplug",
@@ -48,111 +49,119 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
             }
         },
-        buttplugs2:{
+        buttplugs02:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_0",
             name:"Inflatable Buttplug (1)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs3:{
+        buttplugs03:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_1",
             name:"Inflatable Buttplug (2)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs4:{
+        buttplugs04:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_2",
             name:"Inflatable Buttplug (3)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs5:{
+        buttplugs05:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_3",
             name:"Inflatable Buttplug (4)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs6:{
+        buttplugs06:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_4",
             name:"Inflatable Buttplug (5)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs7:{
+        buttplugs07:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_5",
             name:"Inflatable Buttplug (6)",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        buttplugs8:{
+        buttplugs08:{
             masterItem:"buttplugs",
             variant:"buttplug_vibro",
             name:"Vibrating Buttplug",
             price:200,
             daring:10,
-            disabled:false,
+            disabled:true,
             isMale:true,
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }

@@ -44,7 +44,7 @@
 
     @@.heroT;“Um, thanks. It will do.”@@
 
-    @@.friend;“It sure will. Very now.”@@
+    @@.friend;“It sure will. Hurry now.”@@
 \
 <<endif>>
 \
@@ -176,12 +176,16 @@ leave. You shrug yourself out of the dress and pass it back to $friendG.him_her.
 @@.friend;“On no, keep it. That dress suited you so much, I’d think it was made for you. Maybe you can wear it for me again some time…”@@ $friend says with a wink.
 
 <<set _dressAlt to $dressChoice + 61>>\
-<<addToInv summerDress _dressAlt>>\
+<<set _dressAdd to 'dress_casual_' + _dressAlt>>\
+<<addItemVariantToInventory _dressAdd>>\
 <<set $friendG.tasks.selfieFemaleClothes = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
 <<set $tasksTeacher.selfieFemaleClothes.progress++>>\
 <<if ($player.perversion.crossdressing lte 1)>>\
-	<<set $player.perversion.crossdressing++>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 5>>\
+	<<set $player.perversion.friend = 5>>\
 <<endif>>\
 [[Leave friend's house][$time.addMinutes(90);]]

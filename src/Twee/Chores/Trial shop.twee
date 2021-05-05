@@ -31,15 +31,11 @@
 <<elseif $random.stored eq 101>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialLatexMaid = true>>\
-	<!-- <<set $items.maidOutfit.curAlt=1>>\ -->
-	<!-- <<set $items.maidOutfit.ownAlt[0]=false>>\ -->
-	<!-- <<set $items.maidOutfit.ownAlt[1]=true>>\ -->
-	<!-- <<addToInv 'stockingsLatex' 39>>\ -->
 	<<addItemVariantToInventory 'stockings_latex_39'>>\
-	<!-- <<set $items.stockingsLatex.curAlt=39>>\ -->
-	<!-- <<addToInv 'stilettoHeels' 39>>\ -->
 	<<addItemVariantToInventory 'heels_stripper_39'>>\
-	<!-- <<set $items.stilettoHeels.curAlt=39>>\ -->
+	<<wearItemVariant 'stockings_latex_39'>>\
+	<<wearItemVariant 'heels_stripper_39'>>\
+	<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>><<updateClothes>>\
 	You accept her suggestion that you should wear the latex outfit on an everyday basis.
 	
 	Afterwards, you return to the car and endure a thrashing from the butt-plug as $guardian, hot and bothered, enjoys your squirming while she drives you both home. Finally, she releases you and hands you a few wrinkled bills as a reward.
@@ -77,6 +73,9 @@
 <<elseif $random.stored eq 102>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialPenisGag = true>>\
+	<<addItemVariantToInventory 'gag_09'>>\
+	<<wearItemVariant 'gag_09'>>\
+	<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>><<updateClothes>>\
 	You accept wearing the dildo gag on an everyday basis, and $guardian smiles wickedly.
 	@@.guardian;"Don't worry, I will make sure that this pretty mouth of yours stays properly flavored."@@
 	
@@ -115,13 +114,10 @@
 <<elseif $random.stored eq 103>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialGiantVibroPlug = true>>\
-	<!-- <<if not playerCode.owns(itemsC.buttPlugVibro)>>\ -->
-	<!-- <<endif>> -->
 	<<if not inventoryFuncs.isItemVariantOwned('buttplug_vibro')>>\
-		<!-- <<addToInv 'buttPlugVibro'>>\ -->
 		<<addItemVariantToInventory 'buttplug_vibro'>>\
-		<!-- <<wearClothing 'buttPlugVibro'>>\ -->
 		<<wearItemVariant 'buttplug_vibro'>>\
+		<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>><<updateClothes>>\
 	<<endif>>\
 	Afterwards, you return to the car and endure your brand new, ass-tormenting butt-plug. $Guardian, hot and bothered, enjoys watching you wriggle in your seat while she drives you home. Finally, she releases you and hands you a few wrinkled bills as a reward.
 
@@ -191,8 +187,10 @@
 <<elseif $random.stored eq 105>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialBalletHeels = true>>\
-	<!-- <<addToInv 'balletHeels'>>\ -->
 	<<addItemVariantToInventory 'heels_ballet_00'>>\
+	<<wearItemVariant 'heels_ballet_00'>>\
+	<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
+	<<updateClothes>>\
 	You agree to add ballet heels to your maid uniform.
 	
 	Afterwards you return to the car and endure the torment of your butt-plug. $Guardian, hot and bothered, amuses herself with your squirming while she drives you both home. Finally, she releases you and hands you a small wad of bills as a reward.
@@ -218,6 +216,10 @@
 <<elseif $random.stored eq 106>>\
 	<<set _re += _bonus>>\
 	<<set $flags.gTrialCorset = true>>\
+	<<addItemVariantToInventory 'corset_73'>>\
+	<<wearItemVariant 'corset_73'>>\
+	<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
+	<<updateClothes>>\
 	You agree to add a corset to your maid uniform.
 	
 	Afterwards, you return to the car and endure a thrashing from the butt-plug as $guardian, hot and bothered, enjoys your squirming while she drives you both home. Finally, she releases you and hands you a small wad of bills as a reward.

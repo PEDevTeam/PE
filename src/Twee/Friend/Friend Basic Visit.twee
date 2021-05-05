@@ -1,7 +1,6 @@
 :: Friend Basic Visit
 \
-<<set $player.clothesTmp to clone($player.clothes)>>\
-<!-- <<removeClothingType 4>>\ -->
+<<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
 <<removeClothingItem 'shoes'>>\
 <<updateClothes>>\
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
@@ -10,59 +9,90 @@
 <<scene>>\
 	You can’t wait to get over to $friend’s house again. You know $friendG.his_her parents will be at work and you really need to just hang out<<if $player.daring gte 3>> and get away from all the madness in your life currently<<endif>>. Seeing the massive house again, you still feel a pang of jealousy as you walk up the driveway, but even with $friendG.his_her family’s newfound wealth, you know that $friend hasn’t changed at all. 
 
-	Smiling, $friend opens the door and ushers you in.
-<<scene>>\
-	As you wander through the streets you catch a glimpse of a cheerleader from school practicing cartwheels on her front lawn. You try not to stare but she just looks so cute in her skimpy outfit, her long, silky-smooth legs<<if playerCode.isWaxed()>>like yours!<<endif>> peeking out from beneath her short skirt. She glances up in your direction but you manage to look away just in time and make it over to $friend’s house without further incidents. 
+	$friend opens the door just as you are about to knock.
 
-	@@.friend;"Hi, come in!"@@
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>\
+		Smiling, $friend ushers you in.
+	<<endif>>\
+<<scene>>\
+	As you wander through the streets you catch a glimpse of a cheerleader from school practicing cartwheels on her front lawn. You try not to stare but she just looks so cute in her skimpy outfit, her long, silky-smooth legs<<if not playerCode.isHairy()>>like yours!<<endif>> peeking out from beneath her short skirt. She glances up in your direction but you manage to look away just in time and make it over to $friend’s house without further incidents. 
+
+	$friend is already waiting for you as you walk up the drive.
+	
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>\
+		@@.friend;"Hi, come in!"@@
+	<<endif>>\
 <<scene>>\
 	As you turn the corner, you can see $bully and $futa.his_her cohorts up the street, much to your annoyance. You act fast and pull out your phone, discovering a side road which will bring you out just the other side of $friend’s mansion. It will take a couple more minutes, but at least you will be safe. With a sigh, you head towards the side road and manage to avoid the bane of your school life.
 
-	@@.friend;"Hi, come in!"@@
-<<scene>>\
-	$friend opens the door and smiles widely at you before stepping back. You know the way now but let $friendG.him_her lead the way up the stairs. $friendG.His_Her bedroom is as big as you remember. There is a PSBox set up ready to play, a pile of board games on the shelves and a laptop at the desk, which is currently showing some anime screensaver.
-<<scene>>\
-	$friend takes some time to appear and when $friendG.he_she finally opens the door $friendG.he_she looks flustered and a little dishevelled. Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs. You catch a glimpse of $friend tucking $friendG.his_her <<if $flags.freidnIsMale>>shirt<<else>>top<<endif>> inside $friendG.his_her waistband in one of the many mirrors which line the hallway. You reach the top of the stairs and head into the bedroom.
-<<scene>>\
-	$friend looks a little surprised to see you standing on $friendG.his_her doorstep but immediately steps into the role of perfect <<if $flags.friendIsMale>>host<<else>>hostess<<endif>>. Offering to take your coat, which you aren’t wearing despite warnings of the weather, $friend gives you a quick <<if $flags.friendIsMale>>shoulder bump<<else>>hug<<endif>> and beckens you inside. You reach the top of the stairs and head into the bedroom.
-<</selectScene>>\
-
-<<include [[Buttplug Chastity Reaction]]>>\
-<<selectScene FriendBasicVisit3 SEQ>>\
-<<scene>>\
-	@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?”@@
-
-	@@.heroT;“Yeah sure,”@@ you say, ever the eloquent conversationalist.
-
-	You watch as $friend heads back downstairs, then flop back onto the couch. It’s incredibly comfortable, one of those LayzeeBoy ones with the speakers in the back and even a little fridge in the arm. 
-
-	@@.hero;I could get used to this!@@ you think to yourself as you kick your shoes off and make yourself comfortable. Left alone in the room, your mind starts to wander.
-<<scene>>\
-	@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?”@@
-<</selectScene>>\
-
-<<if $friend.snoop eq 2>>\
-	As you are waiting, you notice a printed picture sticking out from the pile of magazines on the coffee table. You don’t recognise the person because there is no face, but you certainly recognise the pattern on the panties. You slide the picture out just to be sure just and realize that the paper is creased and a little smudged. 
-
-	$friend returns with a tray of snacks and sodas. 
-
-	@@.friend;“Here you go, Scooby-snacks.”@@ $friendG.He_She has called any snacks that for as long as you can remember. It’s corny but despite your nervousness you cannot help but snort at $friendG.his_her weak joke. As $friend puts the tray down $friendG.he_she notices the picture. @@.friend;“Um, yeah... thanks for sending it over. Did you like mine?”@@
-
-	You can’t help but blush as you remember just what you did wearing\
-	<<if $flags.friendIsMale>>$friendsis<<else>>$friend<<endif>>'s panties,\
-	not to mention what happened after receiving their pic back too. @@.hero;“Err, yeah I did. Thanks.”@@
-
-	@@.friend;“Great. Maybe I’ll send you another soon,”@@ $friend says with a wink. 
-
-	@@.hero;Since when did $friend get so forward?@@
-
-	Silence permeates the room for a few moments until you relent. @@.heroT;“Maybe I can send you another sometime too?”@@ You don’t plan to but at least $friend is mollified for now. You grab your glass of soda and decide on what to do next. 
-<<else>>\
-	Before you know it, $friend returns with a tray of snacks and sodas.
-<<endif>>\
-
-[[Hang Out|Friend Hang Out]]
-
-[[Leave friend's house][$time.addMinutes(15)]]
-
+	$friend is already waiting for you as you walk up the drive.
 	
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>\
+		@@.friend;"Hi, come in!"@@
+	<<endif>>\
+<<scene>>\
+	$friend opens the door before you can even knock.
+	
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>$friend smiles widely at you before stepping back. You know the way now but let $friendG.him_her lead the way up the stairs. $friendG.His_Her bedroom is as big as you remember. There is a PSBox set up ready to play, a pile of board games on the shelves and a laptop at the desk, which is currently showing some anime screensaver.<<endif>>
+<<scene>>\
+	$friend takes some time to appear and when $friendG.he_she finally opens the door $friendG.he_she looks flustered and a little dishevelled. 
+	
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>\
+		Looking a little sheepish, $friendG.he_she steps back and waves you ahead of $friendG.him_her up the stairs. You catch a glimpse of $friend tucking $friendG.his_her <<if $flags.freidnIsMale>>shirt<<else>>top<<endif>> inside $friendG.his_her waistband in one of the many mirrors which line the hallway. You reach the top of the stairs and head into the bedroom.
+	<<endif>>\
+<<scene>>\
+	$friend looks a little surprised to see you standing on $friendG.his_her doorstep.
+
+	<<include [[Friend Reactions]]>>\
+	<<if _passFriendReactions>>\
+		$friend steps back and immediately steps into the role of perfect <<if $flags.friendIsMale>>host<<else>>hostess<<endif>>. Offering to take your coat, which you aren’t wearing despite warnings of the weather, $friend gives you a quick <<if $flags.friendIsMale>>shoulder bump<<else>>hug<<endif>> and beckens you inside. You reach the top of the stairs and head into the bedroom.
+	<<endif>>\
+<</selectScene>>\
+<<if _passFriendReactions>>\
+
+	<<include [[Buttplug Chastity Reaction]]>>\
+	<<selectScene FriendBasicVisit3 SEQ>>\
+	<<scene>>\
+		@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?”@@
+
+		@@.heroT;“Yeah sure,”@@ you say, ever the eloquent conversationalist.
+
+		You watch as $friend heads back downstairs, then flop back onto the couch. It’s incredibly comfortable, one of those LayzeeBoy ones with the speakers in the back and even a little fridge in the arm. 
+
+		@@.hero;I could get used to this!@@ you think to yourself as you kick your shoes off and make yourself comfortable. Left alone in the room, your mind starts to wander.
+	<<scene>>\
+		@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?”@@
+	<</selectScene>>\
+
+	<<if $friendG.snoop eq 2>>\
+		As you are waiting, you notice a printed picture sticking out from the pile of magazines on the coffee table. You don’t recognise the person because there is no face, but you certainly recognise the pattern on the panties. You slide the picture out just to be sure just and realize that the paper is creased and a little smudged. 
+
+		$friend returns with a tray of snacks and sodas. 
+
+		@@.friend;“Here you go, Scooby-snacks.”@@ $friendG.He_She has called any snacks that for as long as you can remember. It’s corny but despite your nervousness you cannot help but snort at $friendG.his_her weak joke. As $friend puts the tray down $friendG.he_she notices the picture. @@.friend;“Um, yeah... thanks for sending it over. Did you like mine?”@@
+
+		You can’t help but blush as you remember just what you did wearing\
+		<<if $flags.friendIsMale>>$friendsis<<else>>$friend<<endif>>'s panties,\
+		not to mention what happened after receiving their pic back too. @@.hero;“Err, yeah I did. Thanks.”@@
+
+		@@.friend;“Great. Maybe I’ll send you another soon,”@@ $friend says with a wink. 
+
+		@@.hero;Since when did $friend get so forward?@@
+
+		Silence permeates the room for a few moments until you relent. @@.heroT;“Maybe I can send you another sometime too?”@@ You don’t plan to but at least $friend is mollified for now. You grab your glass of soda and decide on what to do next. 
+	<<else>>\
+		Before you know it, $friend returns with a tray of snacks and sodas.
+	<<endif>>\
+
+	[[Hang Out|Friend Hang Out]]
+
+	[[Leave friend's house][$time.addMinutes(15)]]
+<<else>>\
+	<<set $friendG.wordlessGoodbye to false>>\
+	[[Leave friend's house]]
+<<endif>>\

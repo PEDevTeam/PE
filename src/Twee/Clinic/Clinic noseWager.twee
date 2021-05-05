@@ -110,15 +110,7 @@
 	<<endif>>\
 <!--</NoseRandomResult>-->\
 <<elseif $scene eq "noseToPiggy">><!--<noseToPiggy>-->\
-	<<if ($body.nose eq 1)>>\
-	<!-- <<removeFromInv 'noseClassic'>>\ -->
-	<<endif>>\
-	<<if ($body.nose eq 2)>>\
-	<!-- <<removeFromInv 'noseButton'>>\ -->
-	<<endif>>\
-	<!-- <<set _item=itemsC.nosePiggy>>\ -->
-	<!-- <<addToInv _item.id>>\ -->
-	<<set $body.nose = 3>>\
+	<<set $body.nose.level = 3>>\
 	<<set $flags.salonNose=true>>\
 
 	@@.nurse;"You won't regret this!"@@  Nancy exclaims, and her eyes beam with a level of excitement that it feels almost scary to be the focus of her attention. 
@@ -136,17 +128,11 @@
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 <!--</noseToPiggy>-->\
 <<elseif $scene eq "prettyNose">><!--<prettyNose>-->\
-	<<if ($body.nose eq 3)>>\
-		<!-- <<removeFromInv 'nosePiggy'>>\ -->
-	<<endif>>\
 	<<if $flags.salonPickNose>>\
-		<!-- <<set _item=itemsC.noseClassic>>\ -->
-		<<set $body.nose = 1>>\
+		<<set $body.nose.level = 1>>\
 	<<else>>\
-		<!-- <<set _item=itemsC.noseButton>>\ -->
-		<<set $body.nose = 2>>\
+		<<set $body.nose.level = 2>>\
 	<<endif>>\
-	<!--<<addToInv _item.id>>\-->
 	<<set $flags.salonNose=true>>\
 	Nancy takes you to the back room of the salon.
 
@@ -175,7 +161,7 @@
 			@@.nurse;"Your tab have reached $player.salonSoftLimit////$////."@@
 		<<endif>>\
 		
-		<<if ($body.lips eq 1)>>\
+		<<if ($body.lips.level eq 1)>>\
 			@@.nurse;"I'm so glad you decided to renew this treatment!"@@ she beams happily.
 		<<else>>\
 			@@.nurse;"I'm so glad you decided on this treatment!"@@ she beams happily.
@@ -183,7 +169,7 @@
 		
 		@@.nurse;"This may sting a bit, but it should pass quickly,"@@ she says as she retrieves a needle from a case and starts to work on your lips.
 		
-		<<if ($body.lips eq 1)>>\
+		<<if ($body.lips.level eq 1)>>\
 			It doesn't take long and after few minutes Nancy confirms that your full lips will last one more week.
 			
 			@@.nurse;"Now, don't be a stranger and come back soon for your next treatment,"@@\
@@ -196,17 +182,15 @@
 		<<endif>>\
 		Nancy gives you a wink and sends you on your way.
 		
-		<<if ($body.lips eq 1)>>\
+		<<if ($body.lips.level eq 1)>>\
 			@@.reward; Your lips will stay full and sexy for one more week.@@
 		<<else>>\
 			@@.reward; You now have temporarily enhanced lips!@@
 		<<endif>>\
 		
 		<<if (not playerCode.haveMakeup())>>\
-			<!-- <<set _item=itemsC.NormalMakeup>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
-			<<set $body.makeup = 2>>
-			<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<set $body.makeup.level = 2>>
+			<<set $player.salonTab += $body.makeup.level2.cost>>\
 			<<set $flags.salonMakeup=true>>\
 
 			Nancy has you sit in a spa chair.
@@ -225,15 +209,10 @@
 
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<elseif (not $body.earsPierced)>>\
-			<!-- <<set _item=itemsC.PiercingEars>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
-			<<set $body.earsPierced = true>>
-			<<set $player.salonTab += $body.earsPiercedCost>>\
-			<!-- <<set _item=itemsC.hoopsEarrings>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
+			<<set $body.earsPierced.level = 1>>
+			<<set $player.salonTab += $body.earsPierced.level1.cost>>\
 			<<addItemVariantToInventory 'earrings_flashy_00'>>\
 			<<set $player.salonTab += window.itemFuncs.getItemByVariant('earrings_flashy_00').price>>\
-			<!-- <<wearClothing _item.id>>\ -->
 			<<wearItemVariant 'earrings_flashy_00'>>\
 			Before you know it, she has pierced both of your ears and snapped two golden hoop earrings into the lobes. @@.hero;Ouch!@@ you shout as she finishes up.
 
@@ -242,8 +221,8 @@
 			Somehow, the slutty hoops augment your piggy look, making you look sexier in a dirty way.
 
 			@@.reward;You got a set of hoop earrings!@@
-			<<if ($body.makeup eq 2)>>\
-				<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<if ($body.makeup.level eq 2)>>\
+				<<set $player.salonTab += $body.makeup.level2.cost>>\
 				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 
@@ -251,13 +230,9 @@
 			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week. Give it a chance and I'm sure you'll come to love it."@@
 
 		[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-		<!-- <<elseif (not playerCode.owns(itemsC.hoopsEarrings))>>\ -->
 		<<elseif (not inventoryFuncs.isItemVariantOwned('earrings_flashy_00'))>>\
-			<!-- <<set _item=itemsC.hoopsEarrings>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
 			<<addItemVariantToInventory 'earrings_flashy_00'>>\
 			<<set $player.salonTab += window.itemFuncs.getItemByVariant('earrings_flashy_00').price>>\
-			<!-- <<wearClothing _item.id>>\ -->
 			<<wearItemVariant 'earrings_flashy_00'>>\
 			Nancy removes your earrings and replaces them with big, golden hoops.
 
@@ -266,9 +241,8 @@
 			Somehow, slutty hoops augment your piggy look, making it look sexier in a dirty way.
 			
 			@@.reward;You got a set of hoop earrings!@@
-			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
-				<!-- <<set _item=itemsC.NormalMakeup>>\ -->
-				<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<if ($body.makeup.level eq 2) or ($body.makeup.level eq 3) or ($body.makeup.level eq 4)>>\
+				<<set $player.salonTab += $body.makeup.level2.cost>>\
 				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
@@ -276,11 +250,9 @@
 			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you enjoy your new look this week: give it a chance and I know you're going to love it."@@
 
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-		<<elseif (not ($body.lips eq 1)) and (not ($body.lips eq 2))>>\
-			<!-- <<set _item=itemsC.LipsEnhancing>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
-			<<set $body.lips = 1>>
-			<<set $player.salonTab += $body.lipsCosts[0]>>\
+		<<elseif (not ($body.lips.level eq 1)) and (not ($body.lips.level eq 2))>>\
+			<<set $body.lips.leve = 1>>
+			<<set $player.salonTab += $body.lips.level1.cost>>\
 			<<set $flags.salonLips=true>>\
 			@@.nurse;"This may sting a bit, but it should pass quickly,"@@ She says as she retrieves a needle from a case and starts to work on your lips.
 			
@@ -291,9 +263,8 @@
 			@@.nurse;"Now, this will only last a week or so, so don't be a stranger and come back soon for your next treatment,"@@ Nancy gives you a wink and sends you on your way.
 
 			@@.reward;You now have fuller lips!@@
-			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
-			<!-- <<set _item=itemsC.NormalMakeup>>\ -->
-			<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<if ($body.makeup.level eq 2) or ($body.makeup.level eq 3) or ($body.makeup.level eq 4)>>\
+			<<set $player.salonTab += $body.makeup.level2.cost>>\
 			<<set $flags.salonMakeup=true>>\
 			@@.reward;Nancy freshens up your makeup.@@
 
@@ -301,11 +272,9 @@
 			@@.nurse;"You see?"@@ she asks, proud of her work. @@.nurse;"I hope you will enjoy your new look this week, give it a chance and you will definitely start to love it."@@
 			
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
-		<<elseif (not ($body.manicure eq 1)) and (not ($body.manicure eq 2))>>\
-			<!-- <<set _item=itemsC.Manicure>>\ -->
-			<!-- <<addToInv _item.id>>\ -->
+		<<elseif (not ($body.manicure.level eq 1)) and (not ($body.manicure.level eq 2))>>\
 			<<set $body.manicure = 1>>
-			<<set $player.salonTab += $body.manicureCosts[0]>>\
+			<<set $player.salonTab += $body.manicure.level1.cost>>\
 			<<set $flags.salonManicure to true>>\
 			Nancy has you sit in the spa chair, soaking your feet in some water while she works on your nails.
 			
@@ -320,13 +289,13 @@
 			Before you know it, the procedure is completed and you have a set of lovely nails on your fingers and toes.
 			
 			@@.reward;You now have a beautiful French manicure and pedicure!@@
-			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
-				<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<if ($body.makeup.level eq 2) or ($body.makeup.level eq 3) or ($body.makeup.level eq 4)>>\
+				<<set $player.salonTab += $body.makeup.level2.cost>>\
 				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
-			<<if ($body.permLips lt $body.lips)>>\
-				<<set $player.salonTab += $body.lipsCosts[0]>>\
+			<<if ($body.lips.permLevel lt $body.lips.level)>>\
+				<<set $player.salonTab += $body.lips.level1.cost>>\
 				<<set $flags.salonLips=true>>\
 				@@.reward;Nancy renews your lips boost.@@
 			<<endif>>\
@@ -335,18 +304,18 @@
 
 			[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 		<<else>>\
-			<<if ($body.makeup eq 2) or ($body.makeup eq 3) or ($body.makeup eq 4)>>\
-				<<set $player.salonTab += $body.makeupCosts[1]>>\
+			<<if ($body.makeup.level eq 2) or ($body.makeup.level eq 3) or ($body.makeup.level eq 4)>>\
+				<<set $player.salonTab += $body.makeup.level2.cost>>\
 				<<set $flags.salonMakeup=true>>\
 				@@.reward;Nancy freshens up your makeup.@@
 			<<endif>>\
-			<<if ($body.permLips lt $body.lips)>>\
-				<<set $player.salonTab += $body.lipsCosts[0]>>\
+			<<if ($body.lips.permLevel lt $body.lips.level)>>\
+				<<set $player.salonTab += $body.lips.level1.cost>>\
 				<<set $flags.salonLips=true>>\
 				@@.reward;Nancy renews your lips boost.@@
 			<<endif>>\
-			<<if (not ($body.manicure eq 2))>>\
-				<<set $player.salonTab += $body.manicureCosts[0]>>\
+			<<if (not ($body.manicure.level eq 2))>>\
+				<<set $player.salonTab += $body.manicure.level1.cost>>\
 				<<set $flags.salonManicure=true>>\
 				@@.reward;Nancy renews your manicure.@@
 			<<endif>>\

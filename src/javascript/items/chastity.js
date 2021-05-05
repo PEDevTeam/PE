@@ -22,7 +22,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //chastity
-        chastity0:{
+        chastity00:{
             masterItem:"chastity",
             variant:"chastity_cb6000",
             name:"Clear Chastiy Cage",
@@ -33,11 +33,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }
         },
-        chastity1:{
+        chastity01:{
             masterItem:"chastity",
             variant:"chastity_cb6000s",
             name:"Small Chastiy Cage",
@@ -48,6 +49,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 plain:true,
             }

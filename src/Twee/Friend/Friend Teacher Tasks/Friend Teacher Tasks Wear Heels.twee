@@ -1,0 +1,61 @@
+::Friend Teacher Tasks Wear Heels
+<<if not $friendG.girlinessAttempt>>\
+    /* Intro */\
+    $teacher’s requirement was very specific; wearing heels in the mall. No dresses, no skirts, no pantyhose, just heels. You could even wear them with your school uniform on, although as you peer at your uniform it’s not as manly as it used to be. And someone might recognise you, in your uniform wearing heels. 
+
+    @@.hero;A dress again then,@@ you think, sighing in resignation. Despite everything, filming yourself in heels, in the mall feels like another large leap. Mixed with trepidation is an inner thrill. @@.hero;What if people see me in them? If heels really are as noticeable as $teacher says, there's no way I'll live this down.@@
+
+    @@.friend;“What do you want to do today?”@@ $friend asks.
+    
+    @@.hero;\
+    <<if $player.heelsSkill == 0>>\
+        Oh nothing. I just need to try and walk in heels, in public for some stupid task.  
+    <<elseif $player.heelsSkill <= 4>>\
+        Oh nothing. I just need to walk around the mall in heels. Won’t be my first time, but that doesn’t really make this any easier.  What if a girl notices me?
+    <<elseif $player.heelsSkill >= 5>>\
+        Oh nothing. I just need to wander around the mall in heels. It’s not like I have trouble with them at this point, but they definitely make my walking more… feminine. Thought, if I’m in a dress, maybe that’s a good thing?
+    <<endif>>@@
+
+    @@.heroT;“How about we go to the mall, maybe try the food hall.”@@
+
+    @@.friend;“Get food together, like on a date?”@@ $friend asks, suddenly curious.
+
+    @@.heroT;“No, not a date. Like, outside?”@@
+
+    @@.friend;“Sure, if you want.”@@ $friend says, picking up $friendG.his_her keys.
+
+    @@.heroT;“No. I meant, go out. With me, you know, in a dress or something?”@@
+
+    @@.friend;“Now you’re talking!<<if $friendG.gender eq 'T'>> Hey, we can both get dressed up!<<endif>>”@@
+
+    Without pausing, $friend rushes up to <<if $friendG.gender eq 'F' >>her<<else>>his sister’s<<endif>> walk-in wardrobe and pulls out some clothing $friendG.he_she has obviously already chosen for you. $friend passes you something denim. @@.hero;Jeans@@ you think, in relief. But, as you take it you realise that it’s not jeans but a dress, a really short one. 
+    
+    @@.heroT;“What’s this?”@@
+
+    @@.friend;“I thought we could go more casual, it’s just a mall. I saw a girl wearing one the other day, and I thought it would really suit you. Try it on”@@
+
+    Knowing that you need to do the task to avoid upsetting $teacher, and remembering this was your idea, you strip down to your underwear.
+
+<<endif>>\
+<<set $friendG.girlinessFail = 0>>\
+<<include "Friend Teacher Tasks Girliness Check">>\
+
+<<if $friendG.girlinessFail>>\
+    <<if $friendG.girlinessAttempt>>\
+        /* Clothes still not girly enough – Girliness Check covers this case */\
+    <<else>>\
+        <<set $friendG.girlinessAttempt = 1>>\
+        /* Clothes not girly enough (first time) */\
+        @@.friend;“Tell you what,”@@ $friend says, throwing the bag back into the wardrobe and slamming the door. @@.friend;“You are not even doing the basic stuff. This is not some game for me, and I thought you knew that. If you refuse to put the effort in, I’m not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun together, put some effort into your appearance. If you do, we can go to the mall, or a walk or something.”@@ $friend sounds angry and annoyed and somewhat disappointed. 
+
+        @@.hero;I’d better check my outfit before I ask again, $friend wants me to wear things, and put some effort in for $friendG.him_her@@
+
+        With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
+
+        <<set $friendG.wordlessGoodbye to true>>\
+        <<display [[Leave friend's house]]>>
+    <<endif>>\
+<<else>>\
+    /* Girliness Check succeeded */\
+    [[Get Changed|Friend Teacher Tasks Wear Heels Get Changed]]
+<<endif>>\

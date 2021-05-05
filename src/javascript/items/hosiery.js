@@ -50,7 +50,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //socks
-        socks0:{
+        socks00:{
             masterItem:"socks",
             variant:"socks_00",
             name:"Black Knee High Socks",
@@ -61,13 +61,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        socks1:{
+        socks01:{
             masterItem:"socks",
             variant:"socks_01",
             name:"Black Over Knee Socks",
@@ -78,13 +79,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        socks2:{
+        socks02:{
             masterItem:"socks",
             variant:"socks_02",
             name:"White Over Knee Socks",
@@ -95,13 +97,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
                 school:true,
             }
         },
-        socks3:{
+        socks03:{
             masterItem:"socks",
             variant:"socks_03",
             name:"White Scrunch Cotton Socks",
@@ -112,13 +115,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
-        socks4:{
+        socks04:{
             masterItem:"socks",
             variant:"socks_04",
             name:"Black Over Knee Socks with White Strips",
@@ -129,13 +132,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
-        socks5:{
+        socks05:{
             masterItem:"socks",
             variant:"socks_05",
             name:"White Over Knee Socks with Red Stripes",
@@ -146,13 +149,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
-        socks6:{
+        socks06:{
             masterItem:"socks",
             variant:"socks_06",
             name:"Grey Over Knee Socks",
@@ -163,13 +166,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
-        socks7:{
+        socks07:{
             masterItem:"socks",
             variant:"socks_07",
             name:"Grey Knee High Socks",
@@ -180,13 +183,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
-        socks8:{
+        socks08:{
             masterItem:"socks",
             variant:"socks_08",
             name:"Grey Knee High Socks with Grey Lace",
@@ -197,13 +200,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
-        socks9:{
+        socks09:{
             masterItem:"socks",
             variant:"socks_09",
             name:"Grey Woolen Knee High Socks",
@@ -214,10 +217,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks10:{
@@ -231,10 +234,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks11:{
@@ -248,10 +251,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks12:{
@@ -265,10 +268,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks13:{
@@ -282,10 +285,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks14:{
@@ -299,10 +302,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 yellow:true,
                 plain:true,
-                school:true,
             }
         },
         socks15:{
@@ -316,10 +319,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         socks16:{
@@ -333,10 +336,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks17:{
@@ -350,10 +353,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         socks18:{
@@ -367,11 +370,11 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks19:{
@@ -385,10 +388,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks20:{
@@ -402,10 +405,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         socks21:{
@@ -419,11 +422,11 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 purple:true,
                 plain:true,
-                school:true,
             }
         },
         socks22:{
@@ -437,15 +440,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks23:{
             masterItem:"socks",
-            variant:"socks_06",
+            variant:"socks_23",
             name:"Pink Over Knee Socks with White Stripes",
             price:20,
             daring:3,
@@ -454,10 +457,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         socks24:{
@@ -471,10 +474,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         socks25:{
@@ -488,10 +491,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         socks26:{
@@ -505,15 +508,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 red:true,
                 black:true,
                 plain:true,
-                school:true,
             }
         },
-        socks27:{
+        socks43:{
             masterItem:"socks",
             variant:"socks_43",
             name:"White Ankle Socks with Red Writing",
@@ -524,6 +527,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 plain:true,
@@ -532,7 +536,7 @@ $.extend(true, window.items, {
         },
 
         //stockings
-        stockings0:{
+        stockings00:{
             masterItem:"stockings",
             variant:"stockings_00",
             name:"Black Thigh High Stockings",
@@ -543,13 +547,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings1:{
+        stockings01:{
             masterItem:"stockings",
             variant:"stockings_01",
             name:"Black Knee High Stockings",
@@ -560,13 +565,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings2:{
+        stockings02:{
             masterItem:"stockings",
             variant:"stockings_02",
             name:"Black Thigh High Stockings with Black Bands",
@@ -577,13 +583,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings3:{
+        stockings03:{
             masterItem:"stockings",
             variant:"stockings_03",
             name:"Black Sheer Knee High Stockings",
@@ -594,13 +601,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings4:{
+        stockings04:{
             masterItem:"stockings",
             variant:"stockings_04",
             name:"Black Sheer Thigh High Stockings with Black Lace",
@@ -611,15 +619,16 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings5:{
+        stockings05:{
             masterItem:"stockings",
-            variant:"stockings_00",
+            variant:"stockings_05",
             name:"Black Sheer Thigh High Stockings with Black Lace and Suspenders",
             price:50,
             daring:4,
@@ -628,13 +637,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
                 school:true,
             }
         },
-        stockings6:{
+        stockings06:{
             masterItem:"stockings",
             variant:"stockings_06",
             name:"White Sheer Thigh High Stockings",
@@ -645,13 +655,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
-        stockings7:{
+        stockings07:{
             masterItem:"stockings",
             variant:"stockings_07",
             name:"Natural Thigh High Stockings",
@@ -662,13 +672,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
-        stockings8:{
+        stockings08:{
             masterItem:"stockings",
             variant:"stockings_08",
             name:"Natural Thigh High Stockings with Lace and White Suspenders",
@@ -679,13 +689,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
-        stockings9:{
+        stockings09:{
             masterItem:"stockings",
             variant:"stockings_09",
             name:"White Thigh High Stockings with Lace",
@@ -696,10 +706,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings10:{
@@ -713,10 +723,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 plain:true,
-                school:true,
             }
         },
         stockings11:{
@@ -730,10 +740,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings12:{
@@ -747,10 +757,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings13:{
@@ -764,10 +774,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings14:{
@@ -781,10 +791,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings15:{
@@ -798,15 +808,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings16:{
             masterItem:"stockings",
-            variant:"stockings_00",
+            variant:"stockings_16",
             name:"Red Knee High Fishnet Stockings",
             price:50,
             daring:4,
@@ -815,10 +825,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         stockings17:{
@@ -832,10 +842,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         stockings18:{
@@ -849,10 +859,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings19:{
@@ -866,10 +876,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings20:{
@@ -883,10 +893,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings21:{
@@ -900,10 +910,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings22:{
@@ -917,10 +927,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
-                school:true,
             }
         },
         stockings23:{
@@ -934,10 +944,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         stockings24:{
@@ -951,10 +961,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings25:{
@@ -968,10 +978,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings26:{
@@ -985,10 +995,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         stockings27:{
@@ -1002,10 +1012,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         stockings28:{
@@ -1019,13 +1029,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
-        stockings29:{
+        stockings39:{
             masterItem:"stockings",
             variant:"stockings_39",
             name:"Black Thigh High Stockings with Red Bows",
@@ -1036,15 +1046,66 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
+            }
+        },
+        stockings40:{
+            masterItem:"stockings",
+            variant:"stockings_40",
+            name:"Black Thigh High Stockings with Lace Trim",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+            }
+        },
+        stockings62:{
+            masterItem:"stockings",
+            variant:"stockings_62",
+            name:"White Thigh High Stockings with Garter Straps",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                white:true,
+                plain:true,
+            }
+        },
+        stockings74:{
+            masterItem:"stockings",
+            variant:"stockings_74",
+            name:"Purple Thigh High Stockings with Lace and Garter Straps",
+            price:50,
+            daring:4,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                pruple:true,
+                plain:true,
             }
         },
 
         //latexStockings
-        latexStockings0:{
+        latexStockings00:{
             masterItem:"latexStockings",
             variant:"stockings_latex_00",
             name:"Black Toeless Thigh High Latex Stockings",
@@ -1055,13 +1116,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 slutty:true,
+                school:true,
             }
         },
-        latexStockings1:{
+        latexStockings01:{
             masterItem:"latexStockings",
             variant:"stockings_latex_01",
             name:"Black Knee High Latex Stockings with Pink Frills",
@@ -1072,13 +1135,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 slutty:true,
             }
         },
-        latexStockings2:{
+        latexStockings02:{
             masterItem:"latexStockings",
             variant:"stockings_latex_02",
             name:"Black Knee High Latex Stockings",
@@ -1089,13 +1153,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 slutty:true,
             }
         },
-        latexStockings3:{
+        latexStockings03:{
             masterItem:"latexStockings",
             variant:"stockings_latex_03",
             name:"Pink Thigh High Latex Stockings with Black Bands",
@@ -1106,13 +1171,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
                 slutty:true,
             }
         },
-        latexStockings4:{
+        latexStockings39:{
             masterItem:"latexStockings",
             variant:"stockings_latex_39",
             name:"Black Thigh High Latex Stockings",
@@ -1123,6 +1189,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,

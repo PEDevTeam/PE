@@ -38,7 +38,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
          //pajamas
-         pajamas0:{
+         pajamas00:{
             masterItem:"pyjamas",
             variant:"male_pyjamas_00",
             name:"Grey Tartan Pyjamas",
@@ -49,13 +49,14 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        pajamas1:{
+        pajamas01:{
             masterItem:"pyjamas",
             variant:"male_pyjamas_01",
             name:"Black Pyjamas",
@@ -66,6 +67,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 nightwear:true,
@@ -74,7 +76,7 @@ $.extend(true, window.items, {
         },
 
         //nightie
-        nightie0:{
+        nightie00:{
             masterItem:"nightie",
             variant:"nightie_00",
             name:"Black Satin Teddie",
@@ -85,13 +87,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        nightie1:{
+        nightie01:{
             masterItem:"nightie",
             variant:"nightie_01",
             name:"Grey Sheer Satin Nightie",
@@ -102,13 +105,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        nightie2:{
+        nightie02:{
             masterItem:"nightie",
             variant:"nightie_02",
             name:"Black Frilly Nightie",
@@ -119,13 +123,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        nightie3:{
+        nightie03:{
             masterItem:"nightie",
             variant:"nightie_03",
             name:"Pink Satin Teddie",
@@ -136,13 +141,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        nightie4:{
+        nightie04:{
             masterItem:"nightie",
             variant:"nightie_04",
             name:"Yellow Satin Teddie",
@@ -153,15 +159,16 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 yellow:true,
                 nightwear:true,
                 plain:true,
             }
         },
-        nightie5:{
+        nightie05:{
             masterItem:"nightie",
-            variant:"nightie_00",
+            variant:"nightie_05",
             name:"Black Satin Nightie with Fur",
             price:65,
             daring:5,
@@ -170,6 +177,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 nightwear:true,

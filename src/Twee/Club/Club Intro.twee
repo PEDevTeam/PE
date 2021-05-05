@@ -1,8 +1,12 @@
 :: Club Intro [pos_216_1085]
 \
-<<set _nails to $body.manicure>>\
-<!-- <<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\ -->
-<<set _heels=window.wardrobeFuncs.getWornItem('shoes').masterItem == 'highHeels'>>\
+<<set _nails to $body.manicure.level gt 0>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<set _heels=_shoes.masterItem == 'highHeels'>>\
+<<else>>\
+	<<set _heels=false>>\
+<<endif>>\
 \
 <<if $scene eq "ApproachBouncer">><!--<ApproachBouncer>-->\
 	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
@@ -155,11 +159,8 @@
 	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</KissGirl>-->\
 <<elseif $scene eq "FlashPanties">><!--<FlashPanties>-->\
-	<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 	<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-	<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 	<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-	<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 	<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 	@@.hero;“Here goes nothing,”@@ you say to yourself.
 

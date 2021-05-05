@@ -62,24 +62,6 @@ You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ 
 <<elseif $cheerFriend.prize == "panties">>\
 	Trying to be as discreet as possible, you reach up under your skirt and slide off your panties.
 
-	<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set _panties = false>>\
-	<<if _u.maxAlt>>\
-		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
-			<<if $items[_u.id].ownAlt[_i]>>\
-				<<if ($items[_u.id].curAlt eq _i)>>\
-					<<set $items[_u.id].ownAlt[_i] = null>>\
-				<<else>>\
-					<<set _pantiesNewCur=_i>>\
-					<<set _panties=true>>\
-				<<endif>>\
-			<<endif>>\
-		<</for>>\
-	<<endif>>\ -->
-	<!-- <<removeClothing _u.id>>\ -->
-	<!-- <<if (not _panties)>>\ -->
-		<!-- <<removeFromInv _u.id>>\ -->
-	<!-- <<endif>>\ -->
 	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
 	<<removeClothingItem 'underwear'>>\
 	<<removeItemVariantFromInventory _wornItem.variant>>\

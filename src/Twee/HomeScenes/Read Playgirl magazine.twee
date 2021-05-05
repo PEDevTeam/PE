@@ -1,6 +1,5 @@
 :: Read Playgirl magazine [pos_478_935]
 \
-<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if $flags.quizState == "question">>\
 	<<set $flags.quizState = "answer">>\
@@ -8,7 +7,6 @@
 	<<set $flags.quizState = 'none'>>\
 <<endif>>\
 <<if $flags.quizState == "none">>\
-	<!-- You open <<if $items.playgirlMagazine.stolen>>$guardian's<<else>>your<<endif>> Playgirl magazine and begin flipping through. -->
 	You open <<if $player.stolenVibrator>>$guardian's<<else>>your<<endif>> Playgirl magazine and begin flipping through.
 
 	<<if playerCode.isMind_0()>>\

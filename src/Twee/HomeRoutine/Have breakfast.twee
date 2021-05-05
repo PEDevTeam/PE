@@ -14,7 +14,7 @@
 	<<if playerCode.isMaid()>>\
 		<!--<maid start>*********************-->\
 		<<if inventoryFuncs.ownsMasterItem('maid') and (not window.wardrobeFuncs.isItemMasterWearing('maid'))>>\
-			<<set itemNavigator.wearClothingSet('Maid')>>
+			<<set itemNavigator.wearClothingSet('Maid')>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<if $flags.gTrialPenisGag>>\
 				You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
@@ -34,7 +34,7 @@
 				<<endif>>\
 				After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
 			<<endif>>\
-			<<set itemNavigator.wearClothingSet('Maid')>>
+			<<set itemNavigator.wearClothingSet('Maid')>>\
 			<<set window.playerCode.clothesOverride()>>\
 			<<updateClothes>>\
 		<<endif>>\
@@ -82,7 +82,7 @@
 				<<set $chores.suckGuardianBoyfriend.active = true>>\
 				<<set $chores.cleanGuardianPussy.active = true>>\
 				<<set $flags.newBoyfriend=true>>\
-				@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@
+				@@.guardian;"You remember how I told you about some idiot who spilled $futa.his_her coffee on me?"@@
 				
 				As you nod, she continues. @@.guardian;"Funny story - $futa.he_she apologized and actually paid for cleaning. And asked me for a date."@@ You don't like how smug she looks. 
 
@@ -95,7 +95,7 @@
 			<<else>>\
 				<<set _skipEnd = true>>\
 				<<set _skipComments = true>>\
-				@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@ $guardian looks a bit uncertain and somewhat guilty.
+				@@.guardian;"You remember how I told you about some idiot who spilled $futa.his_her coffee on me?"@@ $guardian looks a bit uncertain and somewhat guilty.
 				
 				As you nod, she continues. @@.guardian;"Funny story, $futa.he_she apologized and actually paid for cleaning."@@ 
 
@@ -210,7 +210,7 @@
 					<<set $flags.nightieSleep = true>>\
 				<<endif>>\
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('outerwear')) and (not window.wardrobeFuncs.getWornItem('underwear'))>>\
+		<<elseif $player.perversion.guardian lte 4 and (not window.wardrobeFuncs.getWornItem('nightwear')) and (not window.wardrobeFuncs.getWornItem('underwear')) and (not window.wardrobeFuncs.getWornItem('outerwear'))>>\
 			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
@@ -218,7 +218,7 @@
 				<<wearRandomItemByMaster 'pyjamas'>>\
 				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
 			<<endif>>
-		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('outerwear')) and window.wardrobeFuncs.getWornItem('underwear')>>\
+		<<elseif $player.perversion.guardian lte 3 and (not window.wardrobeFuncs.getWornItem('nightwear')) and window.wardrobeFuncs.getWornItem('underwear') and (not window.wardrobeFuncs.getWornItem('outerwear'))>>\
 			<<if inventoryFuncs.ownsMasterItem('nightie') and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
 				<<wearRandomItemByMaster 'nightie'>>\
 				You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
@@ -230,7 +230,7 @@
 		<!--</clothes check for guardian>-->\
 		You walk to the kitchen and pour yourself a bowl of your favorite cereal. You add milk from the fridge, then sit at the table.
 
-		As you begin to eat, $guardian enters looking fresh and warm from her shower. \
+		As you begin to eat, <<if $time.day == 1 && !$kink.incest>>your mother<<else>>$guardian<<endif>> enters looking fresh and warm from her shower. \
 		<<if $player.perversion.guardian eq 0>>\
 			She smiles at you and picks up her morning coffee.
 		<<elseif ($player.perversion.guardian eq 1) or (($player.perversion.guardian gt 1) and ($player.therapistMode eq false))>>\
@@ -312,7 +312,6 @@
 		<<else>>\
 			She smiles at you and picks up her morning coffee.
 		<<endif>>\
-		\
 		<<if $time.day == 1 && !$kink.incest>>\
 			@@.guardian;"Don't forget - I'm going to be away for at least a few months doing my sales run,"@@ $guardian says, @@.guardian;"so $babysitter is on her way over here to look after you."@@
 
@@ -321,17 +320,15 @@
 			Your house only has two bedrooms, so she just uses your mother's. It's great that you get on well together, undoubtedly helped by how knock-out beautiful she is. If only she didn't have a $futa.boy_girl////friend...
 
 		<<endif>>\
-		\
 		<<if $minigames.dreamgame.playedToday and (not $flags.dreamgameCaught)>>\
 			@@.guardian;"Were you in my bedroom this morning? I'd prefer you to stay in bed until I've woken up, so I've taken your alarm clock and put it into storage. No need for more than one alarm."@@
 			
 			@@.hero;Damn.@@
 
-			<<set $player.hasAlarmClock = false>>
+			<<set $player.hasAlarmClock = false>>\
 		<<endif>>\
 		<!--</regular start>*********************-->\
 	<<endif>>\
-	\
 	<!--<reaction to bodymods>*********************-->\
 	<<if $flags.salonPenalty and (not $flags.guardianNoticesalonPenalty) and (not _skipComments)>>\
 		<<set $flags.guardianNoticesalonPenalty = true>>\
@@ -375,7 +372,7 @@
 			@@.guardian;"Don't you dare change anything. Your looks finally match the slut you've shown yourself to be!"@@
 		<<endif>>\
 	<<endif>>\
-	<<if $body.earsPierced>>\
+	<<if $body.earsPierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingEars)>>\
 			<<set $flags.guardianNoticePiercingEars = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -397,7 +394,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.lipsPierced>>\
+	<<if $body.lipsPierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingLips)>>\
 			<<set $flags.guardianNoticePiercingLips = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -414,7 +411,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.nosePierced>>\
+	<<if $body.nosePierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingNose)>>\
 			<<set $flags.guardianNoticePiercingNose = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -433,7 +430,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if $body.tonguePierced>>\
+	<<if $body.tonguePierced.level gt 0>>\
 		<<if (not $flags.guardianNoticePiercingTongue)>>\
 			<<set $flags.guardianNoticePiercingTongue = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -449,7 +446,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.hairstyle eq 1)>>\
+	<<if ($body.hairstyle.level eq 1)>>\
 		<<if (not $flags.guardianNoticeHairShort)>>\
 			<<set $flags.guardianNoticeHairShort = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -463,7 +460,7 @@
 				@@.guardian;"Huh. A short haircut? Is my sissy maid too lazy to take care of big-girl hair?"@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 2)>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
 		<<if (not $flags.guardianNoticeHairMedium)>>\
 			<<set $flags.guardianNoticeHairMedium = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -477,7 +474,7 @@
 				@@.guardian;"Huh. Nice haircut."@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 3)>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
 		<<if (not $flags.guardianNoticeHairLong)>>\
 			<<set $flags.guardianNoticeHairLong = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -492,7 +489,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 4)>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
 		<<if (not $flags.guardianNoticeHairPigtails)>>\
 			<<set $flags.guardianNoticeHairPigtails = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -511,7 +508,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.hairstyle eq 5)>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
 		<<if (not $flags.guardianNoticeHairCurly)>>\
 			<<set $flags.guardianNoticeHairCurly = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -533,7 +530,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.makeup eq 2)>>\
+	<<if ($body.makeup.level eq 2)>>\
 		<<if (not $flags.guardianNoticeNormalMakeup)>>\
 			<<set $flags.guardianNoticeNormalMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -558,7 +555,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.makeup eq 3)>>\
+	<<elseif ($body.makeup.level eq 3)>>\
 		<<if (not $flags.guardianNoticeBimboMakeup)>>\
 			<<set $flags.guardianNoticeBimboMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -583,7 +580,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.makeup eq 4)>>\
+	<<elseif ($body.makeup.level eq 4)>>\
 		<<if (not $flags.guardianNoticeHeavyMakeup)>>\
 			<<set $flags.guardianNoticeHeavyMakeup = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -606,7 +603,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.boobs eq 4)>>\
+	<<if ($body.boobs.level eq 4)>>\
 		<<if (not $flags.guardianNoticeBreastsDD)>>\
 			<<set $flags.guardianNoticeBreastsDD = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -634,7 +631,7 @@
 			@@.guardian;"I bet you enjoy having such giant boobs."@@
 			
 		<<endif>>\
-	<<elseif ($body.boobs eq 3)>>\
+	<<elseif ($body.boobs.level eq 3)>>\
 		<<if (not $flags.guardianNoticeBreastsC)>>\
 			<<set $flags.guardianNoticeBreastsC = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -662,7 +659,7 @@
 			@@.guardian;"I bet you enjoy having such big boobs."@@
 			
 		<<endif>>\
-	<<elseif ($body.boobs eq 2)>>\
+	<<elseif ($body.boobs.level eq 2)>>\
 		<<if (not $flags.guardianNoticeBreastsB)>>\
 			<<set $flags.guardianNoticeBreastsB = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -689,7 +686,7 @@
 				
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.boobs eq 1)>>\
+	<<elseif ($body.boobs.level eq 1)>>\
 		<<if (not $flags.guardianNoticeBreastsA)>>\
 		<<set $flags.guardianNoticeBreastsA = true>>\
 			<<if $player.perversion.guardian lte 4>>\
@@ -749,7 +746,7 @@
 			@@.guardian;"Is that a beauty mark? That's unusual."@@
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.nose eq 1)>>\
+	<<if ($body.nose.level eq 1)>>\
 		<<if (not $flags.guardianNoticenoseClassic)>>\
 			<<set $flags.guardianNoticenoseClassic = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -763,7 +760,7 @@
 				@@.guardian;"Your nose seems different, is it prettier?"@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.nose eq 2)>>\
+	<<elseif ($body.nose.level eq 2)>>\
 		<<if (not $flags.guardianNoticenoseButton)>>\
 			<<set $flags.guardianNoticenoseButton = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -773,7 +770,7 @@
 				@@.guardian;"Your nose seems different, so small and cute."@@
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.nose eq 3)>>\
+	<<elseif ($body.nose.level eq 3)>>\
 		<<if (not $flags.guardianNoticenosePiggy)>>\
 			<<set $flags.guardianNoticenosePiggy = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -798,7 +795,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.lips eq 1)>>\
+	<<if ($body.lips.level eq 1)>>\
 		<<if (not $flags.guardianNoticeLipsEnhancing)>>\
 			<<set $flags.guardianNoticeLipsEnhancing = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -837,7 +834,7 @@
 				<</switch>>\
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.lips eq 2)>>\
+	<<elseif ($body.lips.level eq 2)>>\
 		<<if (not $flags.guardianNoticeLipsEnhancingXL)>>\
 			<<set $flags.guardianNoticeLipsEnhancingXL = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -877,7 +874,7 @@
 			<<endif>>\
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.manicure eq 1)>>\
+	<<if ($body.manicure.level eq 1)>>\
 		<<if (not $flags.guardianNoticeManicure)>>\
 			<<set $flags.guardianNoticeManicure = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -893,7 +890,7 @@
 				@@.guardian;"Nice manicure. I guess it's only fitting, you'll want your hands to look pretty when your fingers are wrapped around a fat cock."@@ $Guardian smirks wickedly.
 			<<endif>>\
 		<<endif>>\
-	<<elseif ($body.manicure eq 2)>>\
+	<<elseif ($body.manicure.level eq 2)>>\
 		<<if (not $flags.guardianNoticeGarishManicure)>>\
 			<<set $flags.guardianNoticeGarishManicure = true>>\
 			<<if $player.perversion.guardian lte 2>>\
@@ -951,7 +948,7 @@
 
 			The thing is, not too long ago, a punk classmate of yours - one of $bully's inner circle - lost a skateboard. Since you were already his favorite target, $bully wasted no time accusing you of stealing it.
 
-			You shudder, remembering how $bully and his asshole friends ganged up on you and surrounded you, cruelly interrogating you as their main suspect. They were out for blood. The bruises you got while getting away from them lasted for days. Eventually, the rumor died out and $bully went back to his normal level of douchery, but nobody ever found out what really happened to the board.
+			You shudder, remembering how $bully and $futa.his_her asshole friends ganged up on you and surrounded you, cruelly interrogating you as their main suspect. They were out for blood. The bruises you got while getting away from them lasted for days. Eventually, the rumor died out and $bully went back to his normal level of douchery, but nobody ever found out what really happened to the board.
 
 			The skateboard in $guardian's hands looks //just like the one $bully's friend lost.//
 
@@ -1063,7 +1060,7 @@
 			<<elseif [9,10,11].includes($player.masturbationType)>><!--Vibrator in ass, chastity=9, cum=10, no chast=11-->\
 				<<set _rc = random(7)>>\
 				<<if _rc lte 0>>@@.guardian;I have to admit, the footage was hot!@@\
-					<<if $player.perversion.guardian eq 7>>
+					<<if $player.perversion.guardian eq 7>>\
 						@@.guardian;Did you imagine one of your classmates fucking you raw? Or was it $teacher with huge strap-on? Maybe you could give me a hint at the next parental meeting so I would know your taste?@@\
 					<<endif>>\
 				<<elseif _rc lte 1 and $player.stolenVibrator>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\
@@ -1264,9 +1261,9 @@
 			
 			She strokes your hair for a moment, then suddenly grabs you close to her, her lips on yours. You feel her tongue invading your mouth, and you can't do anything but respond to her sudden embrace. 
 			
-			@@.guardian;"Good luck<<if !window.timeCode.isWeekend()>> at school<<endif>>," she says, breaking the kiss. 
+			@@.guardian;"Good luck<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ she says, breaking the kiss. 
 			
-			With a light grope on your bottom, $guardian leads you in direction to your room, in order to let you get dressed.@@
+			With a light grope on your bottom, $guardian leads you in direction to your room, in order to let you get dressed.
 			<</selectScene>>\
 		<<elseif $player.perversion.guardian eq 7>>\
 			@@.guardian;"Good work. Have a great day<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, winking. 

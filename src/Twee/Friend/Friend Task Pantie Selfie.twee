@@ -1,13 +1,10 @@
 :: Friend Task Pantie Selfie
 \
-<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _friendMale to $flags.friendIsMale>>\
 <<if $friendG.gender eq 'M' or $friendG.gender eq 'T'>>\
-	<!-- <<wearClothing gString 60>>\ -->
 	<<wearItemVariant 'panties_sexy_60'>>\
 <<else>>\
-	<!-- <<wearClothing gString 61>> -->
 	<<wearItemVariant 'panties_sexy_61'>>\
 <<endif>>\
 <<if $tasksFriend.pantieSelfie.startDay eq $time.day>>\
@@ -23,7 +20,7 @@
  
 @@.hero;I can’t believe $friendG.he_she gave me panties!@@
 
-You place them on your bed and look at them. They are very girlish and lacy and kind of pretty. You would love to see them on a girl. You mind wanders and you picture <<if _friendMale>>$friendsis<<else>>$friend<<endif>> in them, her cute butt snug in the sheer material, the curve of her smooth delicate cheeks split by the thong back... 
+You place them on your bed and look at them. They are very girlish and lacy and kind of pretty. You would love to see them on a girl. Your mind wanders and you picture <<if _friendMale>>$friendsis<<else>>$friend<<endif>> in them, her cute butt snug in the sheer material, the curve of her smooth delicate cheeks split by the thong back... 
 
 Despite yourself, your thoughts drift more and you wonder how they would feel on you, the material \
 <<if _chastity>>pressing against your cage\
@@ -63,11 +60,13 @@ A few moments later, your phone pings and you have a message. It reads: -
 	
 	<<if $friendG.gender eq 'M'>>\
 		A couple of seconds later, another message arrives. You open it up to see a very small pair of briefs and a not very small package struggling to get out of the thin material. What gives it away as being $friend though is the tiny birthmark on the back of his thigh, just below his left butt cheek. You’ve never noticed before how muscular his upper thigh is or that he has a very defined six-pack, especially for a nerd.
+		
+		@@.hero;Why is he sending me pictures? And like this too.@@
 	<<else>>\
 		A couple of seconds later, another message arrives. You open it up to see a very sexy pair of black lacy panties and not very small package struggling to get out of the thin material. What gives it away as being $friend though is the tiny birthmark on the back of his thigh, just below his left butt cheek. You’ve never noticed before how much of a girly butt he has.
+		
+		@@.hero;I can't believe he followed through on his promise.@@
 	<<endif>>\
-	
-	@@.hero;Why is he sending me pictures? And like this too.@@
 
 	You look down at the stirring in your loins.
 

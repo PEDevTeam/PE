@@ -2,7 +2,6 @@
 \
 <<set _choreJS = choresList.goShopping>>\
 <<set _choreV = $chores.goShopping>>\
-<!-- <<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 \
 <<if $player.shoppingType eq 0>>\
@@ -144,10 +143,7 @@
 			<<endif>>\
 		
 			Soon $guardian returns and looks you over one more time @@.guardian;"Hmm... since you like it so much, I'll just have to buy one."@@
-				<!-- <<if (not playerCode.owns(itemsC.sluttyDress))>>\ -->
-				<!-- <<endif>> -->
 				<<if (not inventoryFuncs.ownsMasterItem('sluttyDress'))>>\
-				<!-- <<addToInv 'sluttyDress'>>\ -->
 				<<addItemVariantToInventory 'dress_slutty_00'>>\
 				<<else>>\
 				You sheepishly admit you already have an outfit like this.
@@ -328,7 +324,7 @@
 				@@.hero;Gee, I hope I didn't over-share, there!@@  $guardian has a funny sort of smile on her face as she finally releases you and hands you some money.
 				
 				@@.reward;You earned $<<print _choreJS.reward>>!@@
-			<<elseif (($player.perversion.photogirl gte 4) and (random(3) eq 0)) or ($body.penisShrink eq 1)>>\
+			<<elseif (($player.perversion.photogirl gte 4) and (random(3) eq 0)) or ($body.penisShrink.level eq 1)>>\
 				<<if $player.perversion.analFirst eq 0>>\
 					<!-- Roxy is the first one to pop PC cherry -->\
 					<<set $player.perversion.analFirst = 2>>\
@@ -341,7 +337,7 @@
 				
 				She pulls out a massive rubber strap-on, its length already glistening with lubricant, and quickly straps it onto her hips. You stand there frozen, staring at the jutting weapon like it's some snake that's hypnotized you.
 				
-				@@.shopphoto;"Rub your clit, faggot,"@@ Roxy orders, stroking her strap on, which stands out so huge and proud from her petite body.
+				@@.shopphoto;"Rub your clit<<if $kinkAllow.curse>>, faggot<</if>>,"@@ Roxy orders, stroking her strap on, which stands out so huge and proud from her petite body.
 					
 				Without conscious thought, you start to stroke your aching dick, and she slaps your hand away. 
 				
@@ -380,7 +376,7 @@
 				Finally Roxy lifts your dress, revealing your penis.
 				
 				@@.shopphoto;"It's so cute, so small and pretty. It makes me so wet."@@
-				<<if ($body.penisShrink eq 1)>>\
+				<<if ($body.penisShrink.level eq 1)>>\
 				It is so embarrassing, but you can't argue, your penis really is smaller than average.
 				<<else>>\
 				You briefly wonder what kind of dicks she's used to if yours seems small to her.
@@ -551,5 +547,4 @@
 	<<endif>>\
 <!--</General shop>-->\
 <<endif>>\
-
 

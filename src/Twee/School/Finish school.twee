@@ -22,10 +22,8 @@
 			
 			You nod timidly, a bit dismayed that your marriage seems pre-arranged.
 			
-			@@.teacher;Very good.@@\
+			@@.teacher;Very good. I have added a new class period before the end of school and registered you for the class. Your new lessons shall start tomorrow."@@
 		<<endif>>\
-		@@.teacher;We shall start tomorrow."@@
-		
 		<<if $flags.sissyConfessionShown and ((($player.punishments.penalty gt 0) and window.timeCode.isFriday()) or $flags.bribeFail)>>\
 			The decision made, $teacher's bright attitude instantly vanishes.
 			
@@ -213,6 +211,10 @@
 	<<elseif $cheerleaders.rainyDay and window.timeCode.isMonday()>>\
 		<<set $cheerleaders.rainyDay = false>>\
 		<<goto "Cheer Ep3 Pre2">>\
+	<<elseif $player.perversion.teacher == 3 && $player.perversion.crossdressing > 3 && $flags.girlPants == false>>\
+		The demand of $teacher calling you back after school is so unfair. You have no choice though and trudge back to the classroom. 
+
+		[[Return to teacher|Girl Pants p1]]
 	<<else>>\
 		<<set $player.punishments.penaltySkipped = false>>\
 		You're done with school for today. What would you like to do with the rest of the day?
@@ -221,8 +223,17 @@
 			<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
 		<<else>>\
 			<<if $tasksTeacher.goOnDate.status == 1>>\
-				[[Ask the jogger out on a date|jogger_date_1]]
-				[[Ask Ashley out on a date|Ashley_date_1]]
+				<<if $flags.jogger && not $kink.futa>>\
+					[[Ask the jogger out on a date|jogger_date_1]]
+				<<endif>>\
+				<<if $cheerleaders.progress > 0>>\
+					[[Ask Ashley out on a date|Ashley_date_1]]
+				<<endif>>\
+				[[Ask Coach out on a date|coach date 1]]
+				<<if $cheerleaders.progress > 5 || $flags.slutRoute>>\
+					[[Ask Ms. Ravensong out on a date|drama_teacher_date_1]]
+				<<endif>>\
+				
 			<<endif>>\
 			<<display [[Travel]]>>\
 		<<endif>>\

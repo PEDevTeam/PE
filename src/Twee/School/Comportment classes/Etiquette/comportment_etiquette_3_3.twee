@@ -1,0 +1,39 @@
+:: comportment_etiquette_3_3
+<<switch $player.ending.comportment.etiquette.scene1>>\
+<<case "success">>\
+	Mindful to be on your best behavior you gently take $teacher’s empty glass and curtsy before going off in search of the kitchen for a refill.
+<<case 'fail'>>\
+	You sigh in annoyance, and $teacher glares back at you until you finally take the glass and lackadaisically head off to the kitchen to find her a refill.
+<<case 'crit_fail'>>\
+	You look back at $teacher and shake your head.\
+	<<if $flags.partyEars>>\
+  	Dressing like a bimbo bunny\
+	<<else>>\
+  	Being her arm candy\
+	<</if>>\
+	is bad enough, but you aren’t in the mood to be her servant as well.
+
+	Her eyes narrow at your disobedience, but she forces a smile as she tells her guests @@.teacher;“Excuse us for just a moment, if you would.”@@ Her hand tightens around your arm as she pulls you to a corner away from the guests..
+
+	@@.teacher;“Today is about you demonstrating what you have learned to date in behavior and etiquette,”@@ she sternly reminds you. @@.teacher;“So far, your performance is woeful. Now, go refill my glass before I have you spend the rest of the evening serving champagne with the bottle shoved up your ass.”@@
+
+	You gulp fearfully and hurry off to find the kitchen, glass in hand.
+<<default>>\
+	ERROR: unexpected scene.style1 <<=$player.ending.comportment.etiquette.scene1>>
+<</switch>>\
+
+Weaving your way through the scattered party goers, you manage to find the kitchen without being stopped by more than a handful of guests offering complimentary to lewd comments about your appearance. Opening a fresh bottle of champagne, you fill $teacher’s glass and take a moment to catch your breath when you hear a slightly slurred voice from behind.
+
+<<RandomImageFromPack 'School/Drunk Guy' 400 400 alignRight>>\
+@@.malevoice9;“Anyone tell you you’re looking fucking hot this evening?”@@ the <<if $player.ending.comportment.etiquette.partyRepeat>>familiar<<endif>>guest states, the scent of alcohol strong as <<if $kink.futa>>she<<else>>he<</if>> breathes past your neck.\
+<<if $player.ending.comportment.etiquette.partyRepeat>>\
+	$futa.He_She grabs your ass with one large hand.  @@.malevoice9;"Looks like I've got another shot at this sweet ass."@@
+<<else>>\
+	@@.malevoice9;“And this,”@@ $futa.he_she adds, grabbing your ass with one large hand. @@.malevoice9;“I’d heard about this sweet ass, but it’s even better in person.”@@
+<<endif>>\
+
+You freeze up at the feeling of <<if $kink.futa>>her<<else>>his<</if>> hand on your ass, and you look around for help. There are several other people within sight, but even though a few of them are looking in your direction, none of them seem interested in preventing the <<if $kink.futa>>woman<<else>>man<</if>> from accosting you.
+
+<<print "[[Politely thank "+ $futa.him_her +" for the compliment and return to " + $teacher + "|comportment_etiquette_3_4][$player.ending.comportment.etiquette.scene2='success']]">>
+<<print "[[Enthusiastically grind your ass against " + $futa.him_her + "|comportment_etiquette_3_4][$player.ending.comportment.etiquette.scene2='fail']]">>
+<<print "[[Slap " + $futa.him_her + " and storm away|comportment_etiquette_3_4][$player.ending.comportment.etiquette.scene2='crit_fail']]">>

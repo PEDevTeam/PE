@@ -1,8 +1,9 @@
 :: Task clubDancePanties [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
-<<set _wornMasterItem=window.items.itemMasters[wornItem.itemMaster]>>\
+<<if _wornItem>>\
+	<<set _wornMasterItem=window.items.itemMasters[_wornItem.masterItem]>>\
+<<endif>>\
 \
 <<if $scene eq "step1">>\
 	<<if ($player.perversion.danceClub eq 2)>>\
@@ -369,43 +370,18 @@
 	<<endif>>\
 <<elseif $scene eq "runAwayRestroom" or $scene eq "runAway">>\
 	<<set _panties=false>>\
-	<!-- <<if _u.maxAlt>>\
-		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
-			<<if $items[_u.id].ownAlt[_i]>>\
-				<<if ($items[_u.id].curAlt eq _i)>>\
-					<<set $items[_u.id].ownAlt[_i] = null>>\
-				<<else>>\
-					<<set _pantiesNewCur=_i>>\
-					<<set _panties=true>>\
-				<<endif>>\
-			<<endif>>\
-		<</for>>\
-	<<endif>>\ -->
-	<!-- <<removeClothing _u.id>>\ -->
-	<!-- <<if (not _panties)>>\ -->
-		<!-- <<removeFromInv _u.id>>\ -->
-	<!-- <<else>>\
-		<<set $items[_u.id].curAlt = _pantiesNewCur>>\
-	<<endif>>\ -->
 	<<removeClothingItem 'underwear'>>\
 	<<removeItemVariantFromInventory _wornItem.variant>>\
 	<<if $scene eq "runAwayRestroom">>\
 		You quickly retreat to the ladies room.
 		
-		<!-- <<if playerCode.owns(itemsC.pantiesCotton)>>\ -->
 		<<if inventoryFuncs.ownsMasterItem('plainPanties')>>\
-			<!-- <<wearClothing 'pantiesCotton'>>\ -->
 			<<wearRandomItemByMaster 'plainPanties'>>\
 			<<set _panties=true>>\
-		<!-- <<elseif playerCode.owns(itemsC.gString)>>\ -->
 		<<elseif inventoryFuncs.ownsMasterItem('sexyPanties')>>\
-			<!-- <<wearClothing 'gString'>>\ -->
 			<<wearRandomItemByMaster 'sexyPanties'>>\
 			<<set _panties=true>>\
-		<!-- <<elseif playerCode.owns(itemsC.pantiesLatex)>>\ -->
-		<!-- <<endif>> -->
 		<<elseif inventoryFuncs.ownsMasterItem('latexPanties')>>\
-			<!-- <<wearClothing 'pantiesLatex'>> -->
 			<<wearRandomItemByMaster 'latexPanties'>>\
 			<<set _panties=true>>\
 		<<endif>>\
@@ -422,7 +398,7 @@
 		As you head out into the night air beyond the club’s outer door, it’s even worse. The sudden chill against your warmed-up skin makes your\
 		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			exposed balls beneath your caged penis retract from the cold.
-		<<elseif $body.penisShrink gt 0>>\
+		<<elseif $body.penisShrink.level gt 0>>\
 			little, exposed penis and balls shrink even further in the cold.
 		<<else>>\
 			exposed penis and balls shrivel from the cold.
@@ -440,8 +416,6 @@
 		[[Go inside|Task clubDancePanties][$scene="runAwayHome"]]
 	<<endif>>\
 <<elseif $scene eq "runAwayHome">>\
-	<!-- <<if playerCode.owns(itemsC.pantiesCotton) or playerCode.owns(itemsC.gString) or playerCode.owns(itemsC.pantiesLatex)>>\ -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.ownsMasterItem('plainPanties') or inventoryFuncs.ownsMasterItem('sexyPanties') or inventoryFuncs.ownsMasterItem('latexPanties')>>\
 		You quietly close the front door and lock it, thinking about the high chances that $guardian is sleeping soundly right now. A naughty thought crosses your mind when you feel the loose feeling around your privates where your surrendered underwear used to be.
 
@@ -493,7 +467,6 @@
 
 	You decide to ease the drawer closed. Luckily it slides in without any further drama, and you sneak your way out of the room.
 
-	<!-- <<addToInv $items.pantiesLatex.id 40>>\ -->
 	<<addItemVariantToInventory 'panties_latex_40'>>\
 	@@.reward;You got $guardian’s latex panties!@@
 	
@@ -521,7 +494,6 @@
 
 	Right now, however, you realize you need to get out of her room quickly before you miss your chance. Having gotten what you came for, you cautiously make your escape.
 
-	<!-- <<addToInv $items.gString.id 40>>\ -->
 	<<addItemVariantToInventory 'panties_sexy_40'>>\
 	@@.reward;You got a pair of $guardian’s g-string panties!@@
 

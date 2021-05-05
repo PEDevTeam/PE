@@ -135,7 +135,7 @@ $.extend(true, window.items, {
         sneakers:{
             itemType:"shoes",
             clothingSlot:"shoes",
-            name:"Sneekers",
+            name:"Sneakers",
             itemMaster: "sneakers",
             daring:0,
             disabled:false,
@@ -165,7 +165,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //blackShoes
-        blackShoes0:{
+        blackShoes00:{
             masterItem:"blackShoes",
             variant:"black_shoes_00",
             name:"Dorky Plain Black School Shoes",
@@ -176,13 +176,14 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        blackShoes1:{
+        blackShoes01:{
             masterItem:"blackShoes",
             variant:"black_shoes_01",
             name:"Shiny Laced Black School Shoes",
@@ -193,13 +194,14 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        blackShoes2:{
+        blackShoes02:{
             masterItem:"blackShoes",
             variant:"black_shoes_02",
             name:"Shiny Black School Loafers",
@@ -210,6 +212,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
@@ -218,7 +221,7 @@ $.extend(true, window.items, {
         },
 
         //boots
-        boots0:{
+        boots00:{
             masterItem:"boots",
             variant:"boots_00",
             name:"Black Suede Boots with Buckle Straps",
@@ -229,13 +232,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        boots1:{
+        boots01:{
             masterItem:"boots",
             variant:"boots_01",
             name:"Black Leather Boots with Laces",
@@ -246,13 +250,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        boots2:{
+        boots02:{
             masterItem:"boots",
             variant:"boots_02",
             name:"Black Pointy Toed Slip on Suede Boots",
@@ -263,13 +268,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        boots3:{
+        boots03:{
             masterItem:"boots",
             variant:"boots_03",
             name:"Black Leather Boots with Laces and Studded Buckle and Belt",
@@ -280,13 +286,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 school:true,
                 plain:true,
             }
         },
-        boots4:{
+        boots04:{
             masterItem:"boots",
             variant:"boots_04",
             name:"Red Suede Boots",
@@ -297,13 +304,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 school:true,
                 plain:true,
             }
         },
-        boots5:{
+        boots05:{
             masterItem:"boots",
             variant:"boots_05",
             name:"Red Suede Boots with Red Laces",
@@ -314,13 +322,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 school:true,
                 plain:true,
             }
         },
-        boots6:{
+        boots06:{
             masterItem:"boots",
             variant:"boots_06",
             name:"White Leather Boots with White Bow",
@@ -331,13 +340,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
-        boots7:{
+        boots07:{
             masterItem:"boots",
             variant:"boots_07",
             name:"Knee High White Leather Lace-up Boots",
@@ -348,13 +357,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
-        boots8:{
+        boots08:{
             masterItem:"boots",
             variant:"boots_08",
             name:"White Slip-on Slouch Boots",
@@ -365,13 +374,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
-                school:true,
                 plain:true,
             }
         },
-        boots9:{
+        boots09:{
             masterItem:"boots",
             variant:"boots_09",
             name:"White Leather Lace-up Boots",
@@ -382,9 +391,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
-                school:true,
                 plain:true,
             }
         },
@@ -399,9 +408,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
-                school:true,
                 plain:true,
             }
         },
@@ -416,9 +425,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
-                school:true,
                 plain:true,
             }
         },
@@ -433,9 +442,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
-                school:true,
                 plain:true,
             }
         },
@@ -450,9 +459,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -467,9 +476,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
-                school:true,
                 plain:true,
             }
         },
@@ -484,9 +493,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -501,9 +510,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
-                school:true,
                 plain:true,
             }
         },
@@ -518,9 +527,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
-                school:true,
                 plain:true,
             }
         },
@@ -535,9 +544,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -552,9 +561,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
-                school:true,
                 plain:true,
             }
         },
@@ -569,9 +578,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 orange:true,
-                school:true,
                 plain:true,
             }
         },
@@ -586,9 +595,9 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
-                school:true,
                 plain:true,
             }
         },
@@ -605,10 +614,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots01:{
@@ -622,10 +633,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots02:{
@@ -639,10 +652,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots03:{
@@ -656,10 +671,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots04:{
@@ -673,10 +690,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots05:{
@@ -690,10 +709,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots06:{
@@ -707,10 +728,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots07:{
@@ -724,10 +747,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots08:{
@@ -741,10 +766,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots09:{
@@ -758,10 +785,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots10:{
@@ -775,11 +804,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 tartan:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots11:{
@@ -793,10 +824,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots12:{
@@ -810,10 +843,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
                 heels:true,
+                school:true,
             }
         },
         heeledBoots13:{
@@ -827,6 +862,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -844,6 +880,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -861,6 +898,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -878,6 +916,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -895,6 +934,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -912,6 +952,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -929,6 +970,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -946,6 +988,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -963,6 +1006,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -971,7 +1015,7 @@ $.extend(true, window.items, {
         },
         heeledBoots22:{
             masterItem:"heeledBoots",
-            variant:"boots_heeled_2",
+            variant:"boots_heeled_22",
             name:"Cream Heeled Boots with Cream Laces",
             price:120,
             daring:5,
@@ -980,6 +1024,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
@@ -997,8 +1042,28 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
+                sexy:true,
+                heels:true,
+            }
+        },
+        heeledBoots80:{
+            masterItem:"heeledBoots",
+            variant:"boots_heeled_80",
+            name:"Aqua Suede Heeled Boots",
+            price:120,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                blue:true,
+                green:true,
                 sexy:true,
                 heels:true,
             }
@@ -1017,6 +1082,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1035,6 +1101,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1053,6 +1120,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1071,6 +1139,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1089,6 +1158,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -1107,6 +1177,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -1125,6 +1196,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -1143,6 +1215,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1161,6 +1234,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -1179,6 +1253,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1197,6 +1272,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -1215,6 +1291,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -1233,6 +1310,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -1251,6 +1329,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -1271,6 +1350,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1288,6 +1368,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1305,6 +1386,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1322,6 +1404,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1339,6 +1422,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1356,6 +1440,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1373,6 +1458,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1381,7 +1467,7 @@ $.extend(true, window.items, {
         },
         flats07:{
             masterItem:"flats",
-            variant:"flats_00",
+            variant:"flats_07",
             name:"Black Shiny Loafers",
             price:40,
             daring:5,
@@ -1390,6 +1476,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1407,6 +1494,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1424,6 +1512,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1441,10 +1530,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         flats11:{
@@ -1458,10 +1547,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats12:{
@@ -1475,10 +1564,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats13:{
@@ -1492,10 +1581,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats14:{
@@ -1509,10 +1598,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats15:{
@@ -1526,10 +1615,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats16:{
@@ -1543,10 +1632,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats17:{
@@ -1560,10 +1649,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats18:{
@@ -1577,10 +1666,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats19:{
@@ -1594,10 +1683,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats20:{
@@ -1611,10 +1700,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats21:{
@@ -1628,15 +1717,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats22:{
             masterItem:"flats",
-            variant:"flats_2",
+            variant:"flats_22",
             name:"Grey Leather Flats",
             price:40,
             daring:5,
@@ -1645,10 +1734,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 plain:true,
-                school:true,
             }
         },
         flats23:{
@@ -1662,10 +1751,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats24:{
@@ -1679,10 +1768,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats25:{
@@ -1696,10 +1785,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats26:{
@@ -1713,10 +1802,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats27:{
@@ -1730,10 +1819,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
-                school:true,
             }
         },
         flats28:{
@@ -1747,10 +1836,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
-                school:true,
             }
         },
         flats29:{
@@ -1764,10 +1853,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 plain:true,
-                school:true,
             }
         },
         flats30:{
@@ -1781,10 +1870,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
-                school:true,
             }
         },
         flats31:{
@@ -1798,10 +1887,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats32:{
@@ -1815,10 +1904,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
-                school:true,
             }
         },
         flats33:{
@@ -1832,8 +1921,116 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
+                plain:true,
+            }
+        },
+        flats62:{
+            masterItem:"flats",
+            variant:"flats_62",
+            name:"Black Flats with Ankle Ribbons",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats63:{
+            masterItem:"flats",
+            variant:"flats_63",
+            name:"Black Mary Jane Flats with Heel",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats64:{
+            masterItem:"flats",
+            variant:"flats_64",
+            name:"Black Pointed Open Flats",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats65:{
+            masterItem:"flats",
+            variant:"flats_65",
+            name:"Black Ballet Flats with Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats66:{
+            masterItem:"flats",
+            variant:"flats_66",
+            name:"Black Patent Mary Janes with Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
+                plain:true,
+                school:true,
+            }
+        },
+        flats67:{
+            masterItem:"flats",
+            variant:"flats_67",
+            name:"Black Mary Janes with Ankle Bows",
+            price:40,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                black:true,
                 plain:true,
                 school:true,
             }
@@ -1851,6 +2048,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1867,6 +2065,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -1883,6 +2082,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
@@ -1899,6 +2099,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1915,6 +2116,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1931,6 +2133,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1947,6 +2150,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1963,6 +2167,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1979,6 +2184,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1995,6 +2201,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2002,7 +2209,7 @@ $.extend(true, window.items, {
         },
         girlSneakers10:{
             masterItem:"girlSneakers",
-            variant:"girlsneakers_00",
+            variant:"girlsneakers_10",
             name:"Pink Adidas Sneakers with White Stripes",
             price:60,
             daring:5,
@@ -2011,6 +2218,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -2029,6 +2237,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2047,6 +2256,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2065,6 +2275,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2083,6 +2294,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2101,6 +2313,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2119,6 +2332,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2137,6 +2351,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -2155,6 +2370,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
@@ -2173,6 +2389,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2191,6 +2408,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 sexy:true,
@@ -2209,10 +2427,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2227,10 +2445,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 yellow:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2245,10 +2463,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2263,10 +2481,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2281,10 +2499,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2299,10 +2517,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2317,16 +2535,16 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
         heels17:{
             masterItem:"heels",
-            variant:"heels_07",
+            variant:"heels_17",
             name:"Baby Pink Shiny High Heels",
             price:100,
             daring:5,
@@ -2335,10 +2553,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2353,10 +2571,10 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
@@ -2371,14 +2589,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 cream:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
-        heels20:{
+        heels39:{
             masterItem:"heels",
             variant:"heels_39",
             name:"Black Suede High Heels with Black Ribbon Bow and White Lacy Trim",
@@ -2389,14 +2607,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
-                school:true,
                 heels:true,
             }
         },
-        heels21:{
+        heels40:{
             masterItem:"heels",
             variant:"heels_40",
             name:"Black Shiny High Heels",
@@ -2407,10 +2625,47 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
                 school:true,
+                heels:true,
+            }
+        },
+        heels71:{
+            masterItem:"heels",
+            variant:"heels_71",
+            name:"White High Heels with Red Soles",
+            price:100,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                white:true,
+                sexy:true,
+                heels:true,
+            }
+        },
+        heels73:{
+            masterItem:"heels",
+            variant:"heels_73",
+            name:"Purple High Heels with Ankle Straps",
+            price:100,
+            daring:5,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                purple:true,
+                sexy:true,
                 heels:true,
             }
         },
@@ -2427,6 +2682,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2445,6 +2701,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2463,6 +2720,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2481,6 +2739,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2499,6 +2758,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2517,6 +2777,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2535,6 +2796,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -2553,6 +2815,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2571,6 +2834,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2589,6 +2853,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2607,6 +2872,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2625,6 +2891,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 sexy:true,
@@ -2643,6 +2910,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2661,6 +2929,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 sexy:true,
@@ -2681,6 +2950,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2699,6 +2969,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 sexy:true,
@@ -2717,6 +2988,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 sexy:true,
@@ -2735,6 +3007,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2753,6 +3026,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2771,6 +3045,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 pink:true,
@@ -2790,6 +3065,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2808,6 +3084,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2826,6 +3103,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2844,6 +3122,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2862,6 +3141,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 grey:true,
                 sexy:true,
@@ -2880,6 +3160,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 brown:true,
                 sexy:true,
@@ -2898,6 +3179,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2916,6 +3198,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 sexy:true,
@@ -2934,6 +3217,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2952,6 +3236,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 sexy:true,
@@ -2970,6 +3255,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 pink:true,
@@ -2989,6 +3275,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 sexy:true,
@@ -2996,7 +3283,7 @@ $.extend(true, window.items, {
                 heels:true,
             }
         },
-        stripperHeels18:{
+        stripperHeels39:{
             masterItem:"stripperHeels",
             variant:"heels_stripper_39",
             name:"Black Latex Stripper Heels with Black Laces and Ankle Straps",
@@ -3007,6 +3294,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 black:true,
                 sexy:true,
@@ -3016,7 +3304,7 @@ $.extend(true, window.items, {
         },
 
         //sneekers
-        sneakers0:{
+        sneakers00:{
             masterItem:"sneakers",
             variant:"sneakers_00",
             name:"White Vans Sneakers",
@@ -3027,12 +3315,13 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        sneakers1:{
+        sneakers01:{
             masterItem:"sneakers",
             variant:"sneakers_01",
             name:"Black Zip Up Sneakers",
@@ -3043,12 +3332,13 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
             }
         },
-        sneakers2:{
+        sneakers02:{
             masterItem:"sneakers",
             variant:"sneakers_02",
             name:"Blue Sneakers with White Soles",
@@ -3059,12 +3349,13 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        sneakers3:{
+        sneakers03:{
             masterItem:"sneakers",
             variant:"sneakers_03",
             name:"Black Vans High Top Sneakers",
@@ -3075,6 +3366,7 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -3082,7 +3374,7 @@ $.extend(true, window.items, {
         },
                 
         //cheerSneakers
-        cheerSneakers0:{
+        cheerSneakers00:{
             masterItem:"cheerSneakers",
             variant:"cheer_sneakers",
             name:"White Cheerleader Sneakers",
@@ -3093,6 +3385,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 plain:true,
@@ -3100,7 +3393,7 @@ $.extend(true, window.items, {
                 cheer:true,
             }
         },
-        cheerSneakers0:{
+        cheerSneakers01:{
             masterItem:"cheerSneakers",
             variant:"heeled_cheer_sneakers",
             name:"White Heeled Cheerleader Sneakers",
@@ -3111,6 +3404,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:false,
             tags:{
                 white:true,
                 sexy:true,

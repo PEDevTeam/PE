@@ -64,7 +64,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //casualEarrings
-        casualEarrings0:{
+        casualEarrings00:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_00",
             name:"Diamond Stud Earrings",
@@ -75,12 +75,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 plain:true,
             }
         },
-        casualEarrings1:{
+        casualEarrings01:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_01",
             name:"Diamond Stud Flower Earrings",
@@ -91,12 +92,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
             }
         },
-        casualEarrings2:{
+        casualEarrings02:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_02",
             name:"Blue Gem Earrings",
@@ -107,12 +109,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        casualEarrings3:{
+        casualEarrings03:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_03",
             name:"Pearl Earrings",
@@ -123,12 +126,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        casualEarrings4:{
+        casualEarrings04:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_04",
             name:"Ornate Pearl Earrings",
@@ -139,12 +143,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        casualEarrings5:{
+        casualEarrings05:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_05",
             name:"White Gold Heart Earrings",
@@ -155,12 +160,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        casualEarrings6:{
+        casualEarrings06:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_06",
             name:"Black Gem Stud",
@@ -171,12 +177,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 plain:true,
             }
         },
-        casualEarrings7:{
+        casualEarrings07:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_07",
             name:"Ruby and Diamond Earrings",
@@ -187,12 +194,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
             }
         },
-        casualEarrings8:{
+        casualEarrings08:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_08",
             name:"Purple and Green Gem Earring",
@@ -203,13 +211,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 green:true,
                 plain:true,
             }
         },
-        casualEarrings9:{
+        casualEarrings09:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_09",
             name:"Pearl Band Earrings",
@@ -220,6 +229,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -236,6 +246,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
@@ -252,6 +263,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
@@ -268,6 +280,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
@@ -284,6 +297,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 purple:true,
@@ -302,6 +316,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -318,6 +333,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -334,6 +350,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -341,7 +358,7 @@ $.extend(true, window.items, {
         },
 
         //classyEarrings
-        classyEarrings0:{
+        classyEarrings00:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_00",
             name:"Sapphire and Diamond Earrings",
@@ -352,12 +369,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        classyEarrings1:{
+        classyEarrings01:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_01",
             name:"Silver Diamond Earrings",
@@ -368,12 +386,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 plain:true,
             }
         },
-        classyEarrings2:{
+        classyEarrings02:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_02",
             name:"Amethyst Earrings",
@@ -384,12 +403,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
             }
         },
-        classyEarrings3:{
+        classyEarrings03:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_03",
             name:"Ruby and Diamond Gold Earrings",
@@ -400,12 +420,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
             }
         },
-        classyEarrings4:{
+        classyEarrings04:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_04",
             name:"Sapphire Silver Earrings",
@@ -416,12 +437,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        classyEarrings5:{
+        classyEarrings05:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_05",
             name:"Ruby and Obsidian Gold Earrings",
@@ -432,13 +454,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 black:true,
                 plain:true,
             }
         },
-        classyEarrings6:{
+        classyEarrings06:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_06",
             name:"Ruby and Amethyst Silver Earrings",
@@ -449,13 +472,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 purple:true,
                 plain:true,
             }
         },
-        classyEarrings7:{
+        classyEarrings07:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_07",
             name:"Antiuqe Emerald Earrings",
@@ -466,12 +490,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
             }
         },
-        classyEarrings8:{
+        classyEarrings08:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_08",
             name:"Antique Emerald and Gold Earrings",
@@ -482,12 +507,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 green:true,
                 plain:true,
             }
         },
-        classyEarrings9:{
+        classyEarrings09:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_09",
             name:"Ruby and Diamond Intricate Earrings",
@@ -498,6 +524,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -514,6 +541,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 plain:true,
@@ -530,6 +558,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 gold:true,
@@ -547,6 +576,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -563,6 +593,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 siler:true,
                 plain:true,
@@ -579,6 +610,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
@@ -595,6 +627,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -611,6 +644,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
@@ -618,7 +652,7 @@ $.extend(true, window.items, {
         },
 
         //flashyEarrings
-        flashyEarrings0:{
+        flashyEarrings00:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_00",
             name:"Large Gold Hoop Earrings",
@@ -629,12 +663,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
             }
         },
-        flashyEarrings1:{
+        flashyEarrings01:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_01",
             name:"Large Gold Hoop Earrings with Gold Bells",
@@ -645,12 +680,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
             }
         },
-        flashyEarrings2:{
+        flashyEarrings02:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_02",
             name:"Large Gold and Silver Hoop Earrings with Diamonds",
@@ -661,13 +697,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 silver:true,
                 plain:true,
             }
         },
-        flashyEarrings3:{
+        flashyEarrings03:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_03",
             name:"Large Gold Twisty Earrings with Diamond Stud",
@@ -678,12 +715,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
             }
         },
-        flashyEarrings4:{
+        flashyEarrings04:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_04",
             name:"Copper Branching Earrings with Pearls",
@@ -694,12 +732,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        flashyEarrings5:{
+        flashyEarrings05:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_05",
             name:"Gold Sun Shaped Dangling Earrings",
@@ -710,12 +749,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
             }
         },
-        flashyEarrings6:{
+        flashyEarrings06:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_06",
             name:"Red Flower Shaped Dangling Earrings",
@@ -726,12 +766,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
             }
         },
-        flashyEarrings7:{
+        flashyEarrings07:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_07",
             name:"Crystal Dangling Earrings",
@@ -742,12 +783,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
             }
         },
-        flashyEarrings8:{
+        flashyEarrings08:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_08",
             name:"Pink Tassle Earrings",
@@ -758,12 +800,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
             }
         },
-        flashyEarrings9:{
+        flashyEarrings09:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_09",
             name:"Large Wide Gold Hoop Earrings",
@@ -774,6 +817,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -790,6 +834,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -806,6 +851,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -822,6 +868,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 white:true,
                 plain:true,
@@ -838,6 +885,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 plain:true,
@@ -854,6 +902,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 silver:true,
                 plain:true,
@@ -870,6 +919,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 gold:true,
                 plain:true,
@@ -886,6 +936,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 purple:true,
                 plain:true,
@@ -893,7 +944,7 @@ $.extend(true, window.items, {
         },
 
         //plasticEarrings
-        plasticEarrings0:{
+        plasticEarrings00:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_00",
             name:"Blue Plastic Hoop Earrings",
@@ -904,12 +955,15 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        plasticEarrings1:{
+
+        //Plastic Earrings
+        plasticEarrings01:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_01",
             name:"Red Love Heart Plastic Earrings",
@@ -920,12 +974,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
             }
         },
-        plasticEarrings2:{
+        plasticEarrings02:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_02",
             name:"Pink Plastic Love Heart Earrings",
@@ -936,12 +991,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
             }
         },
-        plasticEarrings3:{
+        plasticEarrings03:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_03",
             name:"Blue Plastic Split Hoop Earrings",
@@ -952,12 +1008,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        plasticEarrings4:{
+        plasticEarrings04:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_04",
             name:"Pink Plastic Ring Earrings",
@@ -968,12 +1025,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
             }
         },
-        plasticEarrings5:{
+        plasticEarrings05:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_05",
             name:"Blue Plastic Flower Earrings",
@@ -984,12 +1042,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        plasticEarrings6:{
+        plasticEarrings06:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_06",
             name:"Blue Plastic Ring Earrings with Decoration",
@@ -1000,12 +1059,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        plasticEarrings7:{
+        plasticEarrings07:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_07",
             name:"Blue Plastic Rectangle Patterned Earrings",
@@ -1016,12 +1076,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 plain:true,
             }
         },
-        plasticEarrings8:{
+        plasticEarrings08:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_08",
             name:"Pink Bubble Earrings",
@@ -1032,12 +1093,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
             }
         },
-        plasticEarrings9:{
+        plasticEarrings09:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_09",
             name:"Pink Plastic Earrings",
@@ -1048,6 +1110,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 pink:true,
                 plain:true,
@@ -1064,6 +1127,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 yellow:true,
                 plain:true,
@@ -1080,6 +1144,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 orange:true,
                 plain:true,
@@ -1096,6 +1161,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 black:true,
                 white:true,
@@ -1113,6 +1179,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 gold:true,
@@ -1130,6 +1197,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 yellow:true,
@@ -1148,6 +1216,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 red:true,
                 plain:true,
@@ -1164,6 +1233,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 blue:true,
                 gold:true,
