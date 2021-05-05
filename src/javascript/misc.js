@@ -151,6 +151,41 @@ window.misc={
 			return ur[rr];
 		}
 	},
+	getMallOnMouseOver: function(image, description, isItemSet, setName){
+		var ip=document.getElementById('item_preview_mall');
+		ip.src='Images/items/' + image + '';
+		ip.className=''; 
+		var ipd = document.getElementById('item_preview_description_mall'); 
+		ipd.textContent=description;
+		ipd.className='';
+		var ips = document.getElementById('item_preview_set_mall');
+		if(isItemSet){
+			ips.className='tooltip';
+			var itemVariantSetLogoText = document.createTextNode("👙 ");
+			var itemVariantSetLogoSpan = document.createElement('span');
+			var itemVariantSetText = document.createTextNode(setName);
+			var itemVariantSetSpan = document.createElement('span');
+			var itemVariantSetTooltipText = document.createTextNode("This item is part of a set, wear with other clothing with the same set name to match!");
+			var itemVariantSetTooltipSpan = document.createElement('span');
+			itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+			itemVariantSetLogoSpan.classList.add('item-set-icon');
+			itemVariantSetLogoSpan.appendChild(itemVariantSetLogoText);
+			itemVariantSetSpan.id = "itemVariantSetSpan";
+			itemVariantSetSpan.appendChild(itemVariantSetText);
+			itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+			itemVariantSetTooltipSpan.classList.add("tooltiptext");
+			itemVariantSetTooltipSpan.appendChild(itemVariantSetTooltipText)
+			ips.appendChild(itemVariantSetLogoSpan);
+			ips.appendChild(itemVariantSetSpan);
+			ips.appendChild(itemVariantSetTooltipSpan);
+		}
+	},
+	getMallOnMouseOut: function(){
+		document.getElementById('item_preview_mall').className='hidden'; 
+		document.getElementById('item_preview_description_mall').className='hidden'
+		document.getElementById('item_preview_set_mall').className='hidden'
+		document.getElementById('item_preview_set_mall').innerHTML = '';
+	},
 	snoopItems: [
 		{
 			item: 'panties_cotton_40',

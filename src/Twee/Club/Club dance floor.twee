@@ -1,6 +1,5 @@
 :: Club dance floor [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
@@ -25,7 +24,7 @@
 	<<else>>\
 		[[Just dance and have fun|Club dance floor][$scene="DanceForFun"]]
 		[[Find someone to dance with|Club dance floor][$scene="FindPartner"]]
-		<<if ($tasksTeacher.clubFlashBoobs.status eq 1) and ($body.boobs gte 2)>>\
+		<<if ($tasksTeacher.clubFlashBoobs.status eq 1) and ($body.boobs.level gte 2)>>\
 			[[Flash boobs at DJ booth|Task clubFlashBoobs][$scene="step1"]]
 		<<else>>\
 			[[Visit the DJ booth|Club dance floor][$scene="VisitDJbooth"]]
@@ -311,7 +310,7 @@
 		<<endif>>\
 		She’s still on the clock, so she keeps running her DJ equipment, keeping one ear covered by her closed-ear headphones and both hands on her mixing and light boards. She pays you divided attention, but you can tell she’s sincerely trying to focus on both you and her job at once.
 
-		<<if ($body.boobs eq 3) and ($body.boobsNoticedDJ lte 2)>>\
+		<<if ($body.boobs.level eq 3) and ($body.boobsNoticedDJ lte 2)>>\
 			<<set $body.boobsNoticedDJ = 2>>\
 			@@.clubDJ;“Hey, look at you! You got your boobs done, didn’t you? I love it!”@@
 
@@ -325,7 +324,7 @@
 
 			She winks suggestively.
 			
-		<<elseif ($body.boobs eq 4)>>\
+		<<elseif ($body.boobs.level eq 4)>>\
 			<<if ($body.boobsNoticedDJ lte 2)>>\
 				@@.clubDJ;“Holy crap! You got yourself stacked since last time, girl! Seriously, I was only joking about that whole ‘small packages’ thing, but damn…”@@
 

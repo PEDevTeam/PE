@@ -1,0 +1,81 @@
+:: comportment_poise_1_9
+<<set $sceneRound++>>\
+<<switch $position>>\
+<<case 'inspection'>>\
+	You stand fully exposed, your legs spread just over shoulder width apart, your hands on the back of your head to present yourself unhindered.
+<<case 'attention'>>\
+	You stand at military attention, heels together, hands at your sides.
+<<case 'kneel'>>\
+	You kneel down submissively, your head lowered, your hands gently resting on your thighs.
+<<case 'submission'>>\
+	You kneel down and then prostrate yourself, your face against the floor and your arms outstretched.
+<<case 'table'>>\
+	You get down on your hands and knees with your back as straight and flat as you can make it.
+<<case 'punishment'>>\
+	You bend over and grab your ankles, presenting your undefended rear to $teacher.
+<<default>>\
+	ERROR: unexpected scene.position <<=$position>>\
+<</switch>>\
+
+<<if $position == $expectedPosition>>\
+	<<set $stage3Sum++>>\
+	@@.teacher;“Very good, you are learning.”@@
+<<else>>\
+	$teacher’s crop lashes out to administer a painfully corrective swat. @@.teacher;“No, that is completely the wrong position, I said <<=$expectedPosition>> which means you should\
+	<<switch $expectedPosition>>\
+	<<case 'inspection'>>\
+    	stand with your feet apart and your hands on the back of your neck - fully exposed and defenceless against my examination.\
+	<<case 'attention'>>\
+    	stand at attention; heels together, arms at your sides. And remember if you cannot master my training you will be getting VERY used to this position after you are shipped off to military school!\
+	<<case 'kneel'>>\
+    	kneel down submissively, looking downward with your hands delicately on your thighs.\
+	<<case 'submission'>>\
+    	kneel down and fully prostrate yourself as if you were worshipping me - which you should always be ready to do at a moments notice!\
+	<<case 'table'>>\
+    	be on your hands and knees with your back flat in mimicry of a piece of furniture: perfect for me to put my feet up on!\
+	<<case 'punishment'>>\
+    	bend over and grab your ankles, really present that ass for whatever I wish to do to it.\
+	<</switch>>\
+	You need to really focus if you want to master this lesson, a proper slave should instantly assume a position once ordered.”@@
+<</if>>\
+
+<<if $sceneRound < 5>>\
+	<<if $position == $expectedPosition>>\
+    	You sigh in relief that you have managed to correctly fulfill her instruction.
+		
+    	<<set $expectedPosition = ['inspection','attention','kneel','submission','table','punishment'].random()>>\
+    	@@.teacher;“Let us keep this success rolling forward: <<=$expectedPosition>>!”@@
+	<<else>>\
+    	You wince as you recover from the sharp sting of the crop.
+		
+    	<<set $expectedPosition = ['inspection','attention','kneel','submission','table','punishment'].random()>>\
+    	@@.teacher;“Now, with that pathetic failure behind us let us hope you do better with this next position: <<=$expectedPosition>>!”@@
+	<</if>>\
+
+	<<include "poiseChoices">>\
+<<else>>\
+	You hold your breath as you wait for another order but this time it is not a positional command.
+
+	<<switch $stage3Sum>>\
+	<<case 0>>\
+		<<set $stage3Result = -1>>\
+    	@@.teacher;“That will be all for now. You have wasted enough of my time with your complete failure to correctly assume even a single position.”@@
+	<<case 1>>\
+    	@@.teacher;“Pathetic, you assumed the correct position but a single time, which I am guessing was more a stopped clock situation than anything resembling competence.”@@
+	<<case 2>>\
+    	@@.teacher;“Very disappointing, you really need to study up; knowing only a couple positions is hardly sufficient.”@@
+	<<case 3>>\
+    	@@.teacher;“Hmm, you seem to be somewhat learning your positions, but I wouldn’t call you more than halfway to competence.”@@
+	<<case 4>>\
+    	@@.teacher;“So close to perfection, and yet a single error... Alas my standards are very high and you will not be graduating from this lesson until you can prove yourself utterly perfect.”@@
+	<<case 5>>\
+    	<<set $stage3Result = 1>>\
+    	@@.teacher;“Absolutely perfect - you appear to have learned your positions well and transition between them beautifully. This is exactly what I wanted from you.”@@
+	<<default>>\
+    	ERROR scene.stage3Sum out of bounds: <<=$stage3Sum>>\
+	<</switch>>\
+    
+	She puts the crop down. @@.teacher;“Thus marks the end of todays lesson... let us see how you performed.”@@
+
+	[[Listen to your overall assessment.|comportment_poise_1_10]]
+<</if>>\

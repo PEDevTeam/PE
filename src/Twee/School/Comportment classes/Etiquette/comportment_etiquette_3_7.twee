@@ -1,0 +1,72 @@
+:: comportment_etiquette_3_7
+<<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success" && $player.ending.comportment.etiquette.scene4=="success">>\
+	Wiping off your face you look up to find $teacher beaming back at you.
+
+	@@.teacher;“Superbly done. You have shown yourself capable of comporting yourself with polite society in even the most strained situations. I realize I threw a lot at you, but it makes me so proud to see you rising to the occasion, and I see great things ahead of you if you continue to carry forth what you have learned. Good girl.”@@
+
+	<<if $flags.partyEars>>\
+		Patting you on the head - about the only part of you not dripping with cum - she fixes your ears and sends you back upstairs to clean up and change.
+	<<else>>\
+		She pats you on the head - about the only part of you not dripping with cum - then sends you upstairs to clean up and change.
+	<</if>>\
+	
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if _failedLessons > 1>>\
+		As you come down the stairs, $teacher stops you. @@.teacher;"Now, don't think that your performance today erases your past failures,"@@ she says. @@.teacher;"Due to your previous issues with etiquette, we shall have one final remedial class. Only then will I consider your lessons in this subject complete. Is that understood?"@@
+		
+		You nod.
+		
+		@@.teacher;"Good.  Now, let us head back to school."@@
+		
+		$teacher walks you back out to her car and drives you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
+		<<set $player.ending.comportment.classStatus[0] = 3>>\
+	<<else>>\
+		She waits for you at the foot of the stairs, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, shaking you awake. 
+		<<set $player.ending.comportment.classStatus[0] = 4>>\
+	<<endif>>\
+	<<set $player.ending.comportment.etiquette.progress++>>\
+<<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail" || $player.ending.comportment.etiquette.scene4=="crit_fail">>\
+	<<if $kink.questionable && $player.ending.comportment.etiquette.scene3 == 'crit_fail'>>\
+		The party winds down and the guests trickle out as $teacher finally looks down at you and sighs.
+		
+	<<else>>\
+		Wiping your face off enough to see past the cum-soaked haze, you meet $teacher’s disappointed gaze.
+		
+	<</if>>\
+	<<if $player.ending.comportment.etiquette.scene1=="crit_fail" && $player.ending.comportment.etiquette.scene2=="crit_fail" && $player.ending.comportment.etiquette.scene3=="crit_fail" && $player.ending.comportment.etiquette.scene4=="crit_fail">>\
+		@@.teacher;“Highly disappointing; I thought you had learned proper etiquette, else I never would have invited you to attend the party... Now, after bringing you into my house, you fail at every turn demonstrating neither class nor control. Rather you are rude, lewd, and about as far from a proper lady as it is possible to be.”@@
+		
+		<<set $player.ending.comportment.etiquette.lessonFail[2] = 1>>\
+	<<else>>\
+		@@.teacher;“Highly disappointing ”@@\
+	<</if>>\
+	She sighs. @@.teacher;“Let it never be said that I give up on my students. We shall try again next week with another party.”@@
+
+	You are led upstairs to change. $teacher watches you in silence, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, roughly shaking you awake.
+<<else>>\
+	You finish wiping your face off enough to meet $teacher’s gaze as she sighs.
+	
+	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success" || $player.ending.comportment.etiquette.scene4=="success">>\
+		@@.teacher;“What am I to do with you? You showed glimpses of the proper girl I am attempting to teach you to be, but still you let your worse nature get the better of you.”@@
+		
+	<<else>>\
+		@@.teacher;“Well that was a disappointing evening. It is like you forgot every lesson I have given you as to how to behave.”@@
+		
+	<</if>>\
+	She shakes her head.\
+	<<if $player.ending.comportment.etiquette.scene4 == "crit_fail">>\
+		@@.teacher;“The only silver lining was when your mouth was stuffed with cock. You’re clearly incapable of holding an engaging conversation, but at least we can shut you up for awhile!”@@ You wince as she lets out a cruel laugh.\
+	<</if>>\
+	@@.teacher;“Well, you had best change and be on your way. We will try again next week with another party.”@@
+
+	Somewhat scared of what she has in mind, you are led upstairs to change. She watches you in silence, keys in her hands ready to drive you back to school. Exhausted from your adventures, you quickly fall asleep and don’t wake up until you feel the car idling and her hand on your shoulder, roughly shaking you awake.
+<</if>>\
+
+<<set $time.hour = 21>>\
+<<set $time.minute = 0>>\
+<<set $player.ending.comportment.etiquette.partyStart = false>>\
+<<set $player.ending.comportment.etiquette.partyRepeat = true>>\
+<<display [[Travel]]>>

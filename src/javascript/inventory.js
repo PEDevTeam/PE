@@ -177,6 +177,32 @@ window.inventoryFuncs= {
         return notTags;
     },
 
+    getTagsForInventoryItem: function(item){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.inventoryFuncs.getItemByVariant(item);
+        }
+        var tags = [];
+        for(var tagName in item.tags){
+            if(item.tags[tagName] && tags.indexOf(tagName) < 0){
+                tags.push(tagName);
+            }
+        }
+        var masterItem = window.items.itemMasters[item.masterItem];
+        for(var tagName in masterItem.tags){
+            if(masterItem.tags[tagName] && tags.indexOf(tagName) < 0 && (item.tags[tagName] === undefined || item.tags[tagName])){
+                tags.push(tagName);
+            }
+        }
+        return tags;
+    },
+
     getChildItemsForMaster: function(masterItem){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
@@ -203,7 +229,6 @@ window.inventoryFuncs= {
             var actVar = State.active.variables;
         }
 
-
         if(typeof itemVariant !== 'object'){
             for(var itemIdx in actVar.inventory){
                 var item = actVar.inventory[itemIdx];
@@ -212,7 +237,7 @@ window.inventoryFuncs= {
                 }
             }
         }
-        else{            
+        else if(!(itemVariant === null)){            
             for(var itemIdx in actVar.inventory){
                 var item = actVar.inventory[itemIdx];
                 if(typeof item == 'object' && item.variant == itemVariant.variant){
@@ -222,18 +247,65 @@ window.inventoryFuncs= {
         }
     },
 
-    checkItemInInventory: function(item){
+    getItemsByProperty: function(propertyName, propertyValue){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
         }
         else{
             var actVar = State.active.variables;
         }
+        var items = [];
+        for(var inventItemIdx in actVar.inventory){
+            var inventItem = actVar.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && inventItem[propertyName] == propertyValue){
+                items.push(inventItem)
+            }
+        }
+        if(items.length==0){
+            return null;
+        }
+        else{
+            return items;
+        }
+    },
+
+    getItemsByTag: function(tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        var items = [];
+        for(var inventItemIdx in actVar.inventory){
+            var inventItem = actVar.inventory[inventItemIdx];
+            if(!(inventItem.variant === undefined) && window.inventoryFuncs.hasTag(inventItem, tag)){
+                items.push(inventItem)
+            }
+        }
+        if(items.length==0){
+            return null;
+        }
+        else{
+            return items;
+        }
+    },
+
+    checkItemInInventory: function(itemVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
+        }
 
         var itemInInventory = false;
         for(var inventItemIdx in actVar.inventory){
             var inventItem = actVar.inventory[inventItemIdx];
-            if(!(inventItem.variant === undefined) && inventItem.variant == item.variant){
+            if(!(inventItem.variant === undefined) && inventItem.variant == itemVariant.variant){
                 itemInInventory = true;
             }
         }
@@ -247,14 +319,22 @@ window.inventoryFuncs= {
         else{
             var actVar = State.active.variables;
         }
-
-        var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
-        var ownedItemVariantNames = [];
-        for(var ownedItemIdx in ownedItems){
-            ownedItemVariantNames.push(ownedItems[ownedItemIdx].variant);
+        if(typeof itemVariant !== 'object'){
+            itemVariant = window.itemFuncs.getItemByVariant(itemVariant);
         }
 
-        return ownedItemVariantNames.indexOf(itemVariant.variant) > -1
+        if(itemVariant){
+            var ownedItems = window.inventoryFuncs.getChildItemsForMaster(itemVariant.masterItem);
+            var ownedItemVariantNames = [];
+            for(var ownedItemIdx in ownedItems){
+                ownedItemVariantNames.push(ownedItems[ownedItemIdx].variant);
+            }
+
+            return ownedItemVariantNames.indexOf(itemVariant.variant) > -1;
+        }
+        else{
+            return false;
+        }
     },
 
     ownsMasterItem: function(itemMaster){
@@ -266,7 +346,7 @@ window.inventoryFuncs= {
         }
 
         var owned = window.inventoryFuncs.getChildItemsForMaster(itemMaster);
-        if(owned){
+        if(owned && owned.length > 0){
             return true;
         }
         else{
@@ -287,6 +367,94 @@ window.inventoryFuncs= {
             var inventoryItem = actVar.inventory[inventoryIdx];
             if(typeof inventoryItem == 'object' && inventoryItem.variant == itemVariant.variant){
                 $.extend(true, inventoryItem.tags, {[tag]: value});
+            }
+        }
+    },
+
+    addTagToAllVariants(itemMaster, tag, value){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var itemVariants = window.itemFuncs.getChildItemsForMaster(itemMaster);
+        for(var itemVariantIdx in itemVariants){
+            console.log(itemVariants[itemVariantIdx].variant);
+            console.log(this.isItemVariantOwned(itemVariants[itemVariantIdx].variant));
+            if(this.isItemVariantOwned(itemVariants[itemVariantIdx].variant)){
+                var itemVariant = window.inventoryFuncs.getItemByVariant(itemVariants[itemVariantIdx].variant);
+                console.log(itemVariant);
+                for(var inventoryIdx in actVar.inventory){
+                    var inventoryItem = actVar.inventory[inventoryIdx];
+                    if(typeof inventoryItem == 'object' && inventoryItem.variant == itemVariant.variant){
+                        $.extend(true, inventoryItem.tags, {[tag]: value});
+                    }
+                }
+            }
+        }
+    },
+    
+    removeTag: function(item, tag){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        if(typeof item !== 'object'){
+            item = window.inventoryFuncs.getItemByVariant(item);
+        }
+
+        delete item.tags[tag]
+        for(var itemIdx in actVar.inventory){
+            var overrideItem = actVar.inventory[itemIdx]
+            if(overrideItem.variant == item.variant){
+                actVar.inventory.splice(itemIdx, 1);
+            }
+        }
+        actVar.inventory.push(item);
+
+    },
+
+    markUnderwearWet: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        var underwearItems = ['boxers','sexyPanties','latexPanties','plainPanties'];
+
+        for(var i=0; i< underwearItems.length; i++){
+            if(this.ownsMasterItem(underwearItems[i])){
+                var childItems = this.getChildItemsForMaster(underwearItems[i]);
+                for(var j=0; j<childItems.length; j++){
+                    this.addTag(childItems[j], 'wet', true);
+                }
+            }
+        }
+    },
+
+    unmarkUnderwearWet: function(){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+        
+        var underwearItems = ['boxers','sexyPanties','latexPanties','plainPanties'];
+
+        for(var i=0; i< underwearItems.length; i++){
+            if(this.ownsMasterItem(underwearItems[i])){
+                var childItems = this.getChildItemsForMaster(underwearItems[i]);
+                for(var j=0; j<childItems.length; j++){
+                    this.removeTag(childItems[j], 'wet');
+                }
             }
         }
     }

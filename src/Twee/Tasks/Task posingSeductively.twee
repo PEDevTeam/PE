@@ -1,8 +1,6 @@
 :: Task posingSeductively [pos_2486_2904]
 \
-<!-- <<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <<if _outerwear and (not _outerwear.isFemale)>>\
@@ -31,8 +29,6 @@
 	<<if $tasksTeacher.selfieFemaleClothes.progress gt 0>>\
 		This isn't the first time you've photographed yourself in girls clothes, but this time it's different.\
 	<<endif>>\
-	<!-- <<if playerCode.isWearing(itemsC.skirtTop)>>\ -->
-	<!-- <<endif>> -->
 	<<if window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		Checking your skirt and top once again\
 	<<else>>\

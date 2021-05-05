@@ -632,10 +632,37 @@ macros.showAvatarImage = {
 				setTimeout(function() {
 					var strIn = state.active.variables.avatarImageName;
 					
-					str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/torso.png)"></div>';
-					
-					for (var i=0;i<strIn.length; i++) {
-						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/'+strIn[i]+')"></div>';
+					if (state.active.variables.avatar.classic == 0) {
+						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/classic/torso.png)"></div>';
+						
+						for (var i=0;i<strIn.length; i++) {
+							str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/classic/'+strIn[i]+')"></div>';
+						}
+						
+						$('#showClothes').empty();
+						$('#showClothes').append(str);
+						console.log("createAvatar:"+str);
+					}
+					else if (state.active.variables.avatar.classic == 1) {
+						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/newnew/torso.png)"></div>';
+						
+						for (var i=0;i<strIn.length; i++) {
+							str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/newnew/'+strIn[i]+')"></div>';
+						}
+						
+						$('#showClothes').empty();
+						$('#showClothes').append(str);
+						console.log("createAvatar:"+str);
+					}
+					else {
+						str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/new/torso.png)"></div>';
+						
+						for (var i=0;i<strIn.length; i++) {
+							str+='<div id="showBody" class="sideframe_bodyimage_empty" style="background-image: url(./Images/avatar/new/'+strIn[i]+')"></div>';
+						}
+						$('#showClothes').empty();
+						$('#showClothes').append(str);
+						console.log("createAvatar:"+str);
 					}
 					
 					$('#showClothes').empty();
@@ -685,7 +712,14 @@ macros.showMultiImage = {
 			if (params[2]) {
 				new Wikifier(place, '<img src="Images/' + params[2] + '/' + params[1] + '" class="' + params[0] + '">');
 			} else {
-				new Wikifier(place, '<img src="Images/avatar/' + params[1] + '" class="' + params[0] + '">');
+				if (state.active.variables.avatar.classic == 0){
+					new Wikifier(place, '<img src="Images/avatar/classic/' + params[1] + '" class="' + params[0] + '">');
+				} else if (state.active.variables.avatar.classic == 1){
+					console.log("new new avy");
+					new Wikifier(place, '<img src="Images/avatar/newnew/' + params[1] + '" class="' + params[0] + '">');
+				}else {
+					new Wikifier(place, '<img src="Images/avatar/new/' + params[1] + '" class="' + params[0] + '">');
+				}
 			}
 		}
 	}

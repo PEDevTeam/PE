@@ -35,7 +35,7 @@ $.extend(true, window.items, {
         }
     },
     itemChildren:{
-        lamp0:{
+        lamp00:{
             masterItem:"lamps",
             variant:"lamp_classic",
             name:"Classic Lamp",
@@ -46,11 +46,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        lamp1:{
+        lamp01:{
             masterItem:"lamps",
             variant:"lamp_purple",
             name:"Purple Lamp",
@@ -61,11 +62,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        lamp2:{
+        lamp02:{
             masterItem:"lamps",
             variant:"lamp_tube",
             name:"Tube Lamp",
@@ -76,12 +78,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
 
-        room0:{
+        room00:{
             masterItem:"rooms",
             variant:"room_gamer",
             name:"Video Game Themed Decorations",
@@ -92,11 +95,12 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_gamer",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room1:{
+        room01:{
             masterItem:"rooms",
             variant:"room_gamer_girl",
             name:"Video Game Themed Decorations",
@@ -107,11 +111,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_gamer",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room2:{
+        room02:{
             masterItem:"rooms",
             variant:"room_geek",
             name:"Fantasy Themed Decorations",
@@ -122,11 +127,12 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_geek",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room3:{
+        room03:{
             masterItem:"rooms",
             variant:"room_geek_girl",
             name:"Fantasy Themed Decorations",
@@ -137,11 +143,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_geek",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room4:{
+        room04:{
             masterItem:"rooms",
             variant:"room_punk",
             name:"Various Punky Decorations",
@@ -152,11 +159,12 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_punk",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room5:{
+        room05:{
             masterItem:"rooms",
             variant:"room_punk_girl",
             name:"Various Punky Decorations",
@@ -167,11 +175,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_punk",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room6:{
+        room06:{
             masterItem:"rooms",
             variant:"room_sport",
             name:"Sport Themed Decorations",
@@ -182,11 +191,12 @@ $.extend(true, window.items, {
             isFemale:false,
             isItemSet:false,
             setName:"room_sport",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room7:{
+        room07:{
             masterItem:"rooms",
             variant:"room_sport_girl",
             name:"Sport Themed Decorations",
@@ -197,11 +207,12 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"room_sport",
+            canBuy:true,
             tags:{
                 room:true
             }
         },
-        room8:{
+        room08:{
             masterItem:"rooms",
             variant:"room_girly_girl",
             name:"Girly Girl Room Decorations",
@@ -212,6 +223,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 room:true
             }

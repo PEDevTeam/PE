@@ -88,5 +88,9 @@ Your mind is full of questions you dare not ask and it’s time to go home befor
 <<set $friendG.tasks.flats = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<set _flatsAlt to $flatsChoice + 61>>\
-<<addToInv flats _flatsAlt>>\
+<<set _flatsAdd to "flats_" + _flatsAlt>>\
+<<addItemVariantToInventory _flatsAdd>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
+<<endif>>\
 [[Leave friend's house][$time.addMinutes(90)]]

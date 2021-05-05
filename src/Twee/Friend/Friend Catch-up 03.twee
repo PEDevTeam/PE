@@ -2,17 +2,13 @@
 \
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\ -->
 <<set _heels=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'heels')>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if not _underwear and not _chastity>><<set _under to 'chastity cage'>>\
 <<elseif not _underwear>><<set _under to 'penis'>>\
-<<elseif not _underwear.female>><<set _under to 'boy pants'>>\
+<<elseif not _underwear.isFemale>><<set _under to 'boy pants'>>\
 <<elseif _underwear.slutty>><<set _under to 'sexy pants'>>\
 <<else>><<set _under to 'cotton pants'>><<endif>>\
 \
@@ -24,7 +20,7 @@
 It’s your first time visiting $friend for a while and you have missed $friendG.him_her.
 
 <<if _outerwear.isFemale>>\
-	You feel the wind sweep up your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> and caress your <<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by. \
+	You feel the wind sweep up your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> and caress your <<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by. \
 <<endif>>\
 <<if _heels>>\
 	Your footsteps echo each time you place your heel on the sidewalk, as if tolling like a bell for attention as you walk. Your heart thumps in your chest with each heel click, making you flush in a mixture of daring excitement and fear of being discovered. \
@@ -40,7 +36,7 @@ It’s your first time visiting $friend for a while and you have missed $friendG
 <<if _heels>>\
 	and almost slipping over in your ridiculous heels\
 <<endif>>.\
-<<if $friend.admitLikingTraps>>\
+<<if $friend.admitLikingTrap>>\
 	@@.hero;After all, $friend did admit that $friendG.he_she likes traps and, well, people like me I guess.@@\
 <<endif>>\
 

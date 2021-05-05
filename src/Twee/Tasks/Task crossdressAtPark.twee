@@ -1,9 +1,7 @@
 :: Task crossdressAtPark [pos_2486_2904]
 \
 <<if $scene eq "walk at the park">>\
-	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
-	<<set $tasksTeacher.crossdressAtPark.progress++>>\
-	<<if ($tasksTeacher.crossdressAroundBlock.status eq 1)>>\
+	<<if ($tasksTeacher.crossdressAtPark.status eq 1)>>\
 		<<if playerCode.isMind_0()>>\
 			You know a quiet place at the park where you won't be disturbed, and decide that's where you'll need to go to complete $teacher's task. It's still nerve-wracking to think of heading to such a public destination in girl's clothes, but taking a deep breath, you decide to go with it. Anyway, it will definitely be easier than whatever $teacher would probably make you do if you don't.
 		<<elseif playerCode.isMind_1()>>\
@@ -18,12 +16,9 @@
 	<<endif>>\
 
 	You pack your\
-	<!-- <<if playerCode.owns(itemsC.skirtTop)>>skirt and top<<else>>dress<<endif>>\ -->
 	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>skirt and top<<else>>dress<<endif>>\
 	and go to the park in\
 	<<if $flags.clothesPurged>>\
-		<!-- <<if playerCode.owns(itemsC.schoolMale)>>\ -->
-		<!-- <<endif>> -->
 		<<if inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 			your school uniform, the only male clothes that you have now.
 		<<else>>\
@@ -34,7 +29,6 @@
 	<<endif>>\
 	
 	There is a quiet place at a corner of the park, with an uneven ground and lot of thorny bushes, so there is little to no traffic. You glance around, ensuring that there is nobody nearby, and head for one of the toilet cabins. Inside, you quickly take off your clothes and put on your \
-	<!-- <<if playerCode.owns(itemsC.skirtTop)>>skirt and top<<else>>dress<<endif>>. -->
 	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>skirt and top<<else>>dress<<endif>>.
 	
 	Keeping quiet with anticipation, you step gingerly out of the cabin. You let out a relieved sigh only when you see the secluded place is still empty, and are thankful to have made it without misadventure. Still trembling with anxiety from being outside in drag, you can't quite rid yourself of the feeling that somebody will come and catch you. You look for a soft place in the lush grass to rest.
@@ -44,7 +38,6 @@
 	You notice a colorful bug carrying a leaf, twice as large as the bug itself, heading somewhere on important bug business. Fascinated, you click a few pictures of it with your phone.
 	
 	You wonder if anyone else comes here to relax. It feels like you're the only person in the world right now. You realize with relief that your anxiety is gone, even if it still feels weird to wear\
-	<!-- <<if playerCode.owns(itemsC.skirtTop)>>a skirt and top<<else>>a dress<<endif>>.\ -->
 	<<if inventoryFuncs.ownsMasterItem('skirtTop')>>a skirt and top<<else>>a dress<<endif>>.\
 	It's more of a //interesting and unusual// feeling now than a //scary and dangerous// one.
 	
@@ -66,33 +59,129 @@
 	
 	You shudder, feeling a bit chilly from sitting on the ground so long. You get up, ready to go change back to your regular clothes, but find yourself hesitant about breaking the charm of your adventure. You even consider going home like that, feeling bold and oddly confident in yourself.
 	
+	<<set $tasksTeacher.crossdressAtPark.status = 2>>\
+	<<set $tasksTeacher.crossdressAtPark.progress++>>\
+	<<set $player.perversion.crossdressing = 7>>\
 	[[Return to home while wearing the dress|Task crossdressAtPark][$scene="walk crossdressed"]]
 	[[Change back in the cabin|Task crossdressAtPark][$scene="change back"]]
 <<elseif $scene eq "walk crossdressed" or $scene eq "change back">>\
 	<<if $scene eq "walk crossdressed">>\
-		You decide to go back in girl's clothes.
+		You decide to go back in girl's clothes and return to the toilet to collect your boring boy’s clothing
+
+		As you near the exit of the park, you begin to have second thoughts about your idea. Shame and fear of your being discovered becomes much more real as you approach the populated streets. Distracted by your thoughts, you almost collide with a man walking his dog.
+
+		@@.malevoice3;“I’m so sorry,”@@ the man says. He is a little older than you, perhaps early twenties, dressed in expensive designer clothing, and you suspect girls would consider him cute. You look around frantically, trying to find a route to escape, but there is nowhere to hide.
 		
-		Halfway, you start having second thoughts about your idea. Shame and fear of your being discovered become much more real as you walk on populated streets. But despite your fears, the walk back goes by without any trouble. Only near your home do you have to detour to avoid a few neighbors.
-		
-		Finally, you get back to your house and slip into your room. The whole trip went far better than you expected.
+		<<if (!(playerCode.isWaxed()||playerCode.isHairless())||!playerCode.haveMakeup())>>\
+			After his initial smile, the man adopts a slightly curious expression, as though he’s realised that there is something different about you, but is unsure what it is.
+			
+		<<endif>>\
+		@@.malevoice3;“That’s a very pretty dress you’re wearing. It suits you,”@@ he says, breaking the awkward silence between the two of you..
+
+		<<if playerCode.isMind_0()>>\
+			You pause, confused as to why he keeps smiling at you. @@.heroT;“Um, thanks,”@@ you reply, trying to keep your voice to a light, breathy whisper.
+		<<elseif playerCode.isMind_1()>>\
+			You pause, confused as to why he keeps smiling at you. For some reason your breathing shallows as he fixes on you with his gaze. Your mind wanders, and you have a sudden image of being in his arms, with his lips locked to yours… @@.heroT;“Um, thanks,”@@ you stammer, trying to keep your voice to a light, breathy whisper.
+		<<else>>\
+			You pause and smile back, your breathing quickening as he fixes on you with his gaze. Your mind wanders and you have a sudden image of being in the bushes, on your back, with him on top of you and your dress around your waist… @@.heroT;“Um, thanks,”@@ you stammer, your voice a light, breathy whisper.
+		<<endif>>\
+
+		<<if (!(playerCode.isWaxed()||playerCode.isHairless())||!playerCode.haveMakeup())>>\
+			<<if $kinkAllow.degredation>>\
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back. <<if !(playerCode.isWaxed()||playerCode.isHairless())>>You know, your legs would look so much better smooth.<<endif>>”@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt before walking into the park whistling to himself. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch, and you pray the dribble of precum doesn’t stain the front of your dress.
+			<<else>>\
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but you have mud on the back of your legs. <<if !(playerCode.isWaxed()||playerCode.isHairless())>>A cutie like you should consider waxing.<<endif>>”@@ He smiles at you before walking deeper into the park whistling to himself.
+			<<endif>>\
+
+			@@.hero;Did he think I was a girl?@@
+
+			Not wanting to risk any more encounters, you rush from the park and head home. Despite your fears, the walk back goes by without any trouble. Only near your home do you have to detour to avoid a few neighbors.
+			
+		<<else>>\
+			<<if $kinkAllow.degredation>>\
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but your dress is caught in your panties at the back."@@ He reaches behind you and pulls the rear of your dress from inside your panties and pats your butt, brushing the mud from your thighs with his rough hand, before stepping back. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
+					
+				@@.malevoice3;“Very pretty panties, too. I wonder what delights I may find inside?”@@
+			<<else>>\
+				He leans closer and whispers to you. @@.malevoice3;“I’m not sure what you’ve been doing, but you have mud on the back of your legs. I can help”@@ You are too stunned to react as he reaches behind you and pats your butt before brushing the mud from your thighs with his rough hand and stepping back. Your penis leaks a little inside your <<if window.wardrobeFuncs.getWornItem('chastity')>>cage<<else>>panties<<endif>> at his touch and you pray it doesn’t stain the front of your dress.
+
+				@@.malevoice3;“There, all better?”@@
+			<<endif>>\
+			
+			<<if playerCode.isMind_0()>>\
+				As he speaks you realise why he’s smiling at you.
+
+				@@.hero;Does he think I am a girl?@@
+
+				You are certainly not into men, and rush past him without saying another word. Your stomach flutters as you consider his hungry eyes and his touch, and you almost stumble in your confusion. You may not be into men but he did think you were a girl. 
+
+			<<else>>\
+				As he speaks you realise why he’s smiling at you.
+
+				@@.hero;Does he think I am a girl?@@
+
+				Your stomach flips as it dawns on you that not only does he think you are a girl, but a pretty one. Your skin still tingles from his touch, and you can’t help but wonder what it would be like to do more. 
+
+				@@.heroT;“Thank you,”@@ you say coquettishly. 
+
+				He smiles wistfully.
+
+				@@.malevoice3;“Well, I’d love to spend some time getting to know you, but sadly, I’m late for work. But maybe I’ll see you around.”@@
+
+				Before you can respond he pats your butt again and winks before leaving to walk his dog.
+
+				Feeling a little bereft, you head home, your mind a whirlwind of confusion. You can scarcely believe that a stranger thought you were a girl, and even cute enough to hit on. Your mind still full of memories, you rush from the park and head home. Despite your fears, the walk back goes by without any trouble. Only near your home do you have to detour to avoid a few neighbors.
+			
+			<<endif>>\
+		<<endif>>\
+		Back in the sanctuary of your own room,you wait for your pulse to normalize. You contemplate your adventure, along with your other experiments, and realize that your fear about wearing female clothes outside has faded considerably. You still need to be careful and avoid neighbors or people who might recognize you, but you don't freeze at the thought of strangers seeing you in a dress anymore.
+
+		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@
+
+		<<if $player.perversion.guardian < 3>>\
+			It’s not until you are almost home that you realize $guardian has no idea of $teacher’s tasks, or your new ‘wardrobe’. You swear in frustration as you notice her car parked in front, but it’s too late to find somewhere to change. 
+
+			[[Try to sneak in|Task crossdressAtPark][$scene = "sneak in"]] 
+
+		<<else>>\ 
+			Finally, you get back to your house and slip into your room. The whole trip went far better than you expected.
+
+			[[Go to your bedroom|Go to bedroom]]
+		<<endif>>\
 	<<elseif $scene eq "change back">>\
 		You decide to change back into your boys' clothes.
-		
-		You return to the restroom cabin without a hitch, but as you exit, you find a voluptuous woman waiting for the restroom. She doesn't say anything, but you avoid looking at her, embarrassed that it took you quite some time to change back to your male clothes.	
-		
-		You slowly walk to your home, surprising random passersby with your goofy smile. The expression keeps returning to your face as you recall the cute little animal munching on a treat from your hand. Whistling a little tune, you check your photos on your phone, marking the good ones to save in your //favorites// folder. You know it's silly, but you wonder if you would make a good fairytale princess.
-		
+
+		You return to the restroom cabin without a hitch, but as you exit, you find a voluptuous woman waiting for the restroom. She doesn't say anything, but you avoid looking at her, embarrassed that it took you quite some time to change back to your male clothes.
+
+		You slowly walk to your home, surprising random passersby with your goofy smile. The expression keeps returning to your face as you recall the cute little animal munching on a treat from your hand. Whistling a little tune, you check your photos on your phone, marking the good ones to save in your favorites folder. You know it's silly, but you wonder if you would make a good fairytale princess.
+
 		Finally, you get back to your home and slip into your room.
-	<<endif>>\
-	<<if ($player.perversion.crossdressing lte 4)>>\
-		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
-		<<set $player.perversion.crossdressing = 6>>\
+
 		Maybe you needed to clear your head a bit or just relax and feel safe, but you realize that your fear about wearing female clothes outside has faded considerably. You still need to be careful and avoid neighbors or people who might recognize you, but you don't freeze at the thought of strangers seeing you in a dress anymore.
-		
+
 		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@
+
+		[[Go to your bedroom|Go to bedroom]]
 	<<endif>>\
+<<elseif $scene eq "sneak in">>\
+	<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+	@@.guardian;“There you are. I’ve been worried. I…”@@ $guardian stops talking and stares at you with her mouth open. @@.guardian;“What on earth are you wearing?”@@
+
+	@@.heroT;“Um, I… ”@@
+
+	@@.guardian;“No, don’t answer. I can’t deal with this right now.”@@ $guardian shakes her head. @@.guardian;“You know, I am not sure what’s worse: that you hid something like this from me or that you wore something like that outside. Where did you get those clothes from anyway?”@@
+
+	@@.heroT;“I… ”@@
+
+	You stammer, trying to think of some way to explain your appearance, but words fail you.
+
+	$guardian throws her hands up in frustration. @@.guardian;“Forget it. I’m going out; I need to think. We’ll talk about this in the morning.”@@
+
+	$guardian glares at you, examining you from your face to your <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>heels<<else>>flats<<endif>> and everything in between. Without saying another word she grabs her keys and leaves. 
+
+	@@.hero;Well, if she didn’t know before, she sure knows now.@@
 	
+	<<set $flags.talkSneakIn = true>>\
 	[[Go to your bedroom|Go to bedroom]]
 <<endif>>\
 

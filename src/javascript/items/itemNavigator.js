@@ -7,6 +7,10 @@ window.itemNavigator = {
             var actVar = State.active.variables;
         }
 
+        if(typeof actVar.flags.wardrobeOpen == "undefined"){
+            actVar.flags.wardrobeOpen = false;
+        }
+
         var findOne = function (haystack, arr) {
             return arr.some(function (v) {
                 return haystack.indexOf(v) >= 0;
@@ -59,6 +63,7 @@ window.itemNavigator = {
                 categorySpan.categoryName = categoryName;
                 categorySpan.navigatorType = navigatorType;
                 categorySpan.className = "item-navigator-category-button";
+                categorySpan.id = "item-navigator-category-" + categoryName;
 
                 if(needFirstCategory){ 
                     firstCategory = categoryName;
@@ -86,7 +91,11 @@ window.itemNavigator = {
             var clothingTypeSelectorTr = document.createElement('tr');
             clothingTypeSelectorTr.appendChild(clothingTypeSelectorTd);
             navigatorTable.appendChild(clothingTypeSelectorTr);
-            navigatorTable.className = "item-navigator-selector-table"
+            navigatorTable.id = "navigatorTable";
+            navigatorTable.classList.add("item-navigator-selector-table");
+            if(actVar.flags.wardrobeOpen){
+                navigatorTable.classList.add("isOpen");
+            }
 
             var clothingListTr = document.createElement('tr');
             var masterItemListTd = document.createElement('td');
@@ -102,13 +111,18 @@ window.itemNavigator = {
             var itemVariantDescriptionTr = document.createElement('tr');
             var itemVariantDescriptionTd = document.createElement('td');
             var itemVariantDescriptionSpan = document.createElement('span');
+            var itemVariantSetTr = document.createElement('tr');
+            var itemVariantSetTd = document.createElement('td');
+            var itemVariantSetSpan = document.createElement('span');
+            var itemVariantSetLogoSpan = document.createElement('span');
+            var itemVariantSetTooltipSpan = document.createElement('span');
             var itemVariantTagsTr = document.createElement('tr');
             var itemVariantTagsTd = document.createElement('td');
 
             masterItemListTd.id = "masterItemListTd";
             itemVariantSelectorTd.id = "itemVariantSelectorTd";
             itemVariantSelectorTd.colSpan = 2
-            masterItemListTd.className = "item-navigator-master-item-list"
+            masterItemListTd.className = "item-navigator-master-item-list";
             masterItemListTd.appendChild(masterItemListDiv);
 
             itemVariantTitleSpan.id = "itemVariantTitle";
@@ -116,14 +130,23 @@ window.itemNavigator = {
             itemVariantTitleTr.appendChild(itemVariantTitleTd);
             itemVariantPictureTd.id = "itemVariantPictureCell";
             itemVariantPictureTr.appendChild(itemVariantPictureTd);
-            itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan"
+            itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan";
             itemVariantDescriptionTd.appendChild(itemVariantDescriptionSpan);
             itemVariantDescriptionTr.appendChild(itemVariantDescriptionTd);
-            itemVariantTagsTd.id = "itemVariantTagsCell"
+            itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+            itemVariantSetSpan.id = "itemVariantSetSpan";
+            itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+            itemVariantSetTd.appendChild(itemVariantSetLogoSpan);
+            itemVariantSetTd.appendChild(itemVariantSetSpan);
+            itemVariantSetTd.appendChild(itemVariantSetTooltipSpan);
+            itemVariantSetTd.classList.add("tooltip");
+            itemVariantSetTr.appendChild(itemVariantSetTd);
+            itemVariantTagsTd.id = "itemVariantTagsCell";
             itemVariantTagsTr.appendChild(itemVariantTagsTd);
             itemVariantTable.appendChild(itemVariantTitleTr);
             itemVariantTable.appendChild(itemVariantPictureTr);
             itemVariantTable.appendChild(itemVariantDescriptionTr);
+            itemVariantTable.appendChild(itemVariantSetTr);
             itemVariantTable.appendChild(itemVariantTagsTr);
             itemVariantTable.className = "item-variant-table";
             itemVariantSelectorDiv.className = "item-variant-div";
@@ -134,7 +157,30 @@ window.itemNavigator = {
             clothingListTr.appendChild(itemVariantSelectorTd);
             navigatorTable.appendChild(clothingListTr);
 
+            var showWardrobeButton = document.createElement('div');
+            var showWardrobeButtonTxt = document.createTextNode("Show Wardrobe");
+            showWardrobeButton.appendChild(showWardrobeButtonTxt);
+            showWardrobeButton.addEventListener('click', showWardrobe, true);
+            showWardrobeButton.classList.add("wardrobe-button-show");
+            showWardrobeButton.id = "showWardrobeButton"
+            var hideWardrobeButton = document.createElement('div');
+            var hideWardrobeButtonTxt = document.createTextNode("Hide Wardrobe");
+            hideWardrobeButton.appendChild(hideWardrobeButtonTxt);
+            hideWardrobeButton.addEventListener('click', hideWardrobe, true);
+            hideWardrobeButton.classList.add("wardrobe-button-hide");
+            hideWardrobeButton.id = "hideWardrobeButton"
+
+            if(actVar.flags.wardrobeOpen){
+                showWardrobeButton.classList.add("hidden");
+            }
+            else{
+                hideWardrobeButton.classList.add("hidden");
+            }
+
+            itemNavigatorDiv.appendChild(showWardrobeButton);
+            itemNavigatorDiv.appendChild(hideWardrobeButton);
             itemNavigatorDiv.appendChild(navigatorTable);
+            itemNavigatorDiv.id = "itemNavigatorDiv";
             itemNavigatorDiv.firstCategory = firstCategory;
         }
         else{
@@ -152,9 +198,21 @@ window.itemNavigator = {
                 var actVar = State.active.variables;
             }
 
-            $(".item-navigator-category-button-selected").addClass("item-navigator-category-button").removeClass("item-navigator-category-button-selected");
-            evt.currentTarget.className = "item-navigator-category-button-selected";
             window.itemNavigator.showCategory(evt.currentTarget.categoryName, evt.currentTarget.navigatorType);
+        }
+
+        function showWardrobe(evt){
+            document.getElementById("navigatorTable").classList.toggle("isOpen");
+            document.getElementById("hideWardrobeButton").classList.toggle("hidden");
+            document.getElementById("showWardrobeButton").classList.toggle("hidden");
+            actVar.flags.wardrobeOpen = true;
+        }
+
+        function hideWardrobe(evt){
+            document.getElementById("navigatorTable").classList.toggle("isOpen");
+            document.getElementById("hideWardrobeButton").classList.toggle("hidden");
+            document.getElementById("showWardrobeButton").classList.toggle("hidden");
+            actVar.flags.wardrobeOpen = false;
         }
     },
 
@@ -166,7 +224,11 @@ window.itemNavigator = {
             var actVar = State.active.variables;
         }
 
+        $(".item-navigator-category-button-selected").addClass("item-navigator-category-button").removeClass("item-navigator-category-button-selected");
+        $("#item-navigator-category-" + categoryName).addClass("item-navigator-category-button-selected").removeClass("item-navigator-category-button");
+
         var masterItemListTable = document.createElement('table');
+
         if(navigatorType == "wardrobe"){
             var category = window.wardrobe.categories[categoryName];
         }
@@ -174,7 +236,14 @@ window.itemNavigator = {
             var category = window.mall.categories[categoryName];
         }
         var firstMasterItem = "";
-        var needFirstMasterItem = true;
+        var curMasterItem = actVar.wardrobeCurMasterItem;
+        var masterItemCategory = window.itemNavigator.getCategoryForMasterItem(curMasterItem, navigatorType)
+        if(masterItemCategory !== categoryName){
+            var needFirstMasterItem = true;
+        }
+        else{
+            var needFirstMasterItem = false;
+        }
 
         for(var masterItemIdx in category.masterItems){
             if(navigatorType == "wardrobe"){
@@ -198,7 +267,7 @@ window.itemNavigator = {
                     }
                 }
             }
-            var masterItem = window.items.itemMasters[category.masterItems[masterItemIdx]];
+            var masterItem = window.itemFuncs.getItemMaster(category.masterItems[masterItemIdx]);
             if(filterMasterItems.includes(category.masterItems[masterItemIdx]) && !masterItem.disabled){
 
                 var masterItemTr = document.createElement('tr');
@@ -217,6 +286,10 @@ window.itemNavigator = {
                     masterItemSpan.className = "item-navigator-master-item-selected";
                     needFirstMasterItem = false;
                 }
+                else if(curMasterItem == category.masterItems[masterItemIdx]){
+                    firstMasterItem = category.masterItems[masterItemIdx];
+                    masterItemSpan.className = "item-navigator-master-item-selected";
+                }
                 masterItemTd.appendChild(masterItemSpan);
                 masterItemTd.className = "item-navigator-master-item-row"
                 masterItemTr.appendChild(masterItemTd);
@@ -227,7 +300,7 @@ window.itemNavigator = {
         var itemNavigatorMasterItemList = document.getElementById("masterItemListTd");
         itemNavigatorMasterItemList.replaceChild(masterItemListTable, itemNavigatorMasterItemList.firstElementChild);
 
-        window.itemNavigator.showVariant(firstMasterItem, 0, navigatorType);
+        window.itemNavigator.showVariant(firstMasterItem, 0, navigatorType, true);
 
         function callShowVariant(evt){
             if(SugarCube.State){
@@ -239,11 +312,11 @@ window.itemNavigator = {
 
             $(".item-navigator-master-item-selected").addClass("item-navigator-master-item").removeClass("item-navigator-master-item-selected");
             evt.currentTarget.className = "item-navigator-master-item-selected";
-            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, 0, evt.currentTarget.navigatorType);
+            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, 0, evt.currentTarget.navigatorType, true);
         }
     },
 
-    showVariant: function(masterItemName, variantIndex, navigatorType){
+    showVariant: function(masterItemName, variantIndex, navigatorType, firstEquipped){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
         }
@@ -258,6 +331,9 @@ window.itemNavigator = {
                 var itemVariant = window.itemFuncs.getItemByVariant(itemsOfMaster[itemVariantIdx]);
                 if(!itemVariant.disabled){
                     itemVariants.push(itemVariant);
+                    if(firstEquipped && window.wardrobeFuncs.isItemVariantWearing(itemVariant.variant)){
+                        variantIndex = itemVariants.length - 1;
+                    }
                 }
             }
         }
@@ -302,7 +378,7 @@ window.itemNavigator = {
             itemVariantNavigateForwardSpan.addEventListener('click', callShowVariant, true);
 
             if(navigatorType == "wardrobe"){
-                if(window.wardrobeFuncs.isItemVariantWearing(itemVariant)){
+                if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && !(itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked)){
                     var itemVariantWearSpan = document.createElement('span');
                     var itemVariantWearText = document.createTextNode("Remove");
                     itemVariantWearSpan.appendChild(itemVariantWearText);
@@ -313,6 +389,41 @@ window.itemNavigator = {
                     itemVariantWearSpan.variantIndex = variantIndex;
                     itemVariantWearSpan.navigatorType = navigatorType;
                     itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
+                }
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && !(actVar.flags.chastityKey)){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode("Unlock");
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-unlock";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
+                    itemVariantWearSpan.addEventListener('click', removeItemVariant, true);
+                }
+                else if(window.wardrobeFuncs.isItemVariantWearing(itemVariant) && itemVariant.masterItem == 'chastity' && actVar.flags.chastityLocked && actVar.flags.chastityKey){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode("Locked");
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-locked";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
+                }
+                else if(window.inventoryFuncs.hasTag(itemVariant, 'wet')){
+                    var itemVariantWearSpan = document.createElement('span');
+                    var itemVariantWearText = document.createTextNode('Wet...');
+                    itemVariantWearSpan.appendChild(itemVariantWearText);
+                    itemVariantWearSpan.className = "item-navigator-variant-navigation-span";
+                    itemVariantWearSpan.className += " item-navigator-variant-wet";
+                    itemVariantWearSpan.itemVariant = itemVariant.variant;
+                    itemVariantWearSpan.masterItemName = masterItemName;
+                    itemVariantWearSpan.variantIndex = variantIndex;
+                    itemVariantWearSpan.navigatorType = navigatorType;
+                    itemVariantWearSpan.addEventListener('click', wearItemVariant, true);
                 }
                 else{
                     var itemVariantWearSpan = document.createElement('span');
@@ -384,12 +495,44 @@ window.itemNavigator = {
             itemVariantPictureTd.id = "itemVariantPictureCell";
             $("#itemVariantPictureCell").replaceWith(itemVariantPictureTd);
 
-            var itemVariantDescriptionText = document.createTextNode(variantIndex + ' - ' + itemVariant.name);
+            //var itemVariantDescriptionText = document.createTextNode(variantIndex + ' - ' + itemVariant.name);
+            var itemVariantDescriptionText = document.createTextNode(itemVariant.name);
             var itemVariantDescriptionSpan = document.createElement('span');
             itemVariantDescriptionSpan.id = "itemVariantDescriptionSpan";
             itemVariantDescriptionSpan.appendChild(itemVariantDescriptionText);
 
-            var itemTags = window.itemFuncs.getTagsForItem(itemVariant);
+            if(itemVariant.isItemSet){
+                var itemVariantSetLogoText = document.createTextNode("👙 ");
+                var itemVariantSetLogoSpan = document.createElement('span');
+                var itemVariantSetText = document.createTextNode(itemVariant.setName);
+                var itemVariantSetSpan = document.createElement('span');
+                var itemVariantSetTooltipText = document.createTextNode("This item is part of a set, wear with other clothing with the same set name to match!");
+                var itemVariantSetTooltipSpan = document.createElement('span');
+                itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+                itemVariantSetLogoSpan.classList.add('item-set-icon');
+                itemVariantSetLogoSpan.appendChild(itemVariantSetLogoText);
+                itemVariantSetSpan.id = "itemVariantSetSpan";
+                itemVariantSetSpan.appendChild(itemVariantSetText);
+                itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+                itemVariantSetTooltipSpan.classList.add("tooltiptext");
+                itemVariantSetTooltipSpan.appendChild(itemVariantSetTooltipText)
+                $("#itemVariantSetLogoSpan").replaceWith(itemVariantSetLogoSpan);
+                $("#itemVariantSetSpan").replaceWith(itemVariantSetSpan);
+                $("#itemVariantSetTooltipSpan").replaceWith(itemVariantSetTooltipSpan);
+            }
+            else{
+                var itemVariantSetLogoSpan = document.createElement('span'); 
+                var itemVariantSetSpan = document.createElement('span');
+                var itemVariantSetTooltipSpan = document.createElement('span');
+                itemVariantSetLogoSpan.id = "itemVariantSetLogoSpan";
+                itemVariantSetSpan.id = "itemVariantSetSpan";
+                itemVariantSetTooltipSpan.id = "itemVariantSetTooltipSpan";
+                $("#itemVariantSetLogoSpan").replaceWith(itemVariantSetLogoSpan);
+                $("#itemVariantSetSpan").replaceWith(itemVariantSetSpan);
+                $("#itemVariantSetTooltipSpan").replaceWith(itemVariantSetTooltipSpan);
+            }
+
+            var itemTags = window.inventoryFuncs.getTagsForInventoryItem(itemVariant);
             var itemVariantTagsDiv = window.itemNavigator.formatTagsDOM(itemTags);
             var itemVariantTagsTd = document.createElement('td');
             itemVariantTagsTd.id = "itemVariantTagsCell";
@@ -413,7 +556,7 @@ window.itemNavigator = {
                 var actVar = State.active.variables;
             }
 
-            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
+            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType, false);
         }
 
         function buyItemVariant(evt){
@@ -425,7 +568,7 @@ window.itemNavigator = {
             }
 
             window.itemFuncs.buyItemVariant(evt.currentTarget.itemVariant);
-            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
+            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType, false);
             $("#sidebar_money").text(State.active.variables.player.money);
         }
 
@@ -437,9 +580,27 @@ window.itemNavigator = {
                 var actVar = State.active.variables;
             }
 
+            if(evt.currentTarget.itemVariant.masterItem == 'chastity'){
+                actVar.flags.chastityLocked == true;
+            };
             window.wardrobeFuncs.wearItemVariant(evt.currentTarget.itemVariant);
-            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
+            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType, false);
             window.wardrobeFuncs.updateSidebar();
+            
+            if(document.getElementById("travel-passage")){
+                if(document.getElementById("clothing_selector")){
+                    actVar.wardrobeCurMasterItem = evt.currentTarget.masterItemName;
+                    actVar.wardrobeCurVariantIndex = evt.currentTarget.variantIndex;
+                    actVar.wardrobeCurNavigatorType = evt.currentTarget.navigatorType;
+                    actVar.wardrobeCurCategory = window.itemNavigator.getCategoryForMasterItem(evt.currentTarget.masterItemName, evt.currentTarget.navigatorType);
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
+            }
         }
 
         function removeItemVariant(evt){
@@ -449,13 +610,61 @@ window.itemNavigator = {
             else{
                 var actVar = State.active.variables;
             }
-
+            if(evt.currentTarget.itemVariant.masterItem == 'chastity'){
+                actVar.flags.chastityLocked == false;
+            };
             window.wardrobeFuncs.removeItemVariant(evt.currentTarget.itemVariant);
-            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType);
+            window.itemNavigator.showVariant(evt.currentTarget.masterItemName, evt.currentTarget.variantIndex, evt.currentTarget.navigatorType, false);
             window.wardrobeFuncs.updateSidebar();
+
+            if(document.getElementById("travel-passage")){
+                if(document.getElementById("clothing_selector")){
+                    actVar.wardrobeCurMasterItem = evt.currentTarget.masterItemName;
+                    actVar.wardrobeCurVariantIndex = evt.currentTarget.variantIndex;
+                    actVar.wardrobeCurNavigatorType = evt.currentTarget.navigatorType;
+                    actVar.wardrobeCurCategory = window.itemNavigator.getCategoryForMasterItem(evt.currentTarget.masterItemName, evt.currentTarget.navigatorType);
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
+            }
         }
     },
     
+    getCategoryForMasterItem: function(masterItemName, navigatorType){
+        if(navigatorType == "wardrobe"){
+            for(var categoryIdx in window.wardrobe.categories){
+                var category = window.wardrobe.categories[categoryIdx];
+                var masterCategory = false;
+                if(category.masterItems){
+                    category.masterItems.forEach(function(a){
+                        if(a == masterItemName) masterCategory = true;
+                    })
+                }
+                if(masterCategory){
+                    return categoryIdx
+                }
+            }            
+        }
+        else{
+            for(var categoryIdx in window.mall.categories){
+                var category = window.mall.categories[categoryIdx];
+                var masterCategory = false;
+                if(category.masterItems){
+                    category.masterItems.forEach(function(a){
+                        if(a == masterItemName) masterCategory = true;
+                    })
+                }
+                if(masterCategory){
+                    return categoryIdx
+                }
+            }
+        }
+    },
+
     formatTagsDOM: function(itemTagArr){
         if(SugarCube.State){
             var actVar = SugarCube.State.active.variables;
@@ -631,6 +840,16 @@ window.itemNavigator = {
 
             window.itemNavigator.wearClothingSet(evt.currentTarget.setName);
             window.wardrobeFuncs.updateSidebar();
+            if(document.getElementById("travel-passage")){
+                if(document.getElementById("clothing_selector")){
+                    $("#clothing_selector").empty();
+                    $("#clothing_selector").wiki('<<display "Clothing Selector">>');
+                }
+                else{
+                    $("#travel-passage").empty();
+                    $("#travel-passage").wiki('<<Travel>>');
+                }
+            }
         };
 
         function renameClothingSet(evt){
@@ -772,9 +991,11 @@ window.itemNavigator = {
             }
         }
         if(clothingSet !== null){
-            window.wardrobeFuncs.removeClothingAndAccessories();
+            window.wardrobeFuncs.removeAllClothingWithChastityCheck();
             for(var itemVariantIdx in clothingSet.itemVariants){
-                window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
+                if(window.inventoryFuncs.notTag(clothingSet.itemVariants[itemVariantIdx], 'wet')){
+                    window.wardrobeFuncs.wearItemVariant(clothingSet.itemVariants[itemVariantIdx]);
+                }
             }
         }
     },
@@ -802,6 +1023,23 @@ window.itemNavigator = {
             
         }
         this.updateClothingSet(setName);
+    },
+
+    replaceVariantForAllClothingSets: function(fromVariant, toVariant){
+        if(SugarCube.State){
+            var actVar = SugarCube.State.active.variables;
+        }
+        else{
+            var actVar = State.active.variables;
+        }
+
+        for(var clothingSetIdx in actVar.clothingSets){
+            for(var itemVariantIdx in actVar.clothingSets[clothingSetIdx].itemVariants){
+                if(actVar.clothingSets[clothingSetIdx].itemVariants[itemVariantIdx] == fromVariant){
+                    actVar.clothingSets[clothingSetIdx].itemVariants[itemVariantIdx] = toVariant;
+                }
+            }
+        }
     }
 }
 

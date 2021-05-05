@@ -1,0 +1,26 @@
+:: comportment_bimbo_2_3
+<<if $curScene.stage1b == 'work'>>\
+	<<set $curScene.stage1total += 1>>\
+<<elseif $curScene.stage1b == 'politics'>>\
+	<<set $curScene.stage1total -= 1>>\
+<</if>>\
+<<switch $curScene.stage1b>>\
+<<case 'game'>>\
+	You start talking about the latest rumors about the next Call of Honor game, and how, if you get the Ultimate Collector’s Edition AND the day one DLC, you'll gain access to an exclusive in-game store with three bonus weapons and over a dozen alternate skins for each!
+
+	Without saying a word, $teacher gives you a look of intense disinterest that saps your enthusiasm, and your words start to trail off.
+
+	Only after you have fallen silent does she shake her head in dismay. @@.teacher;“Your role here is to acquiesce to your spouse. Such self-serving small talk is of no use to you.  Instead, you should present a topic that appeals to their, or even better a common, interest.”@@
+<<case 'politics'>>\
+	You awkwardly repeat several political talking points you heard on a news website. $teacher blinks in surprise before interrupting your diatribe. @@.teacher;“ I suppose no one ever taught you to avoid discussing politics in polite conversation. That saying is especially true for you. It is your role to provide an oasis of pleasant distraction away from such stress, not to give your uninformed opinions on them, unless asked directly of course.”@@
+<<case 'work'>>\
+	You ask how things have been at school.
+    
+	@@.teacher;“You mean outside the naughty student that seems to monopolize so much of my time?”@@ She smiles and you blush. @@.teacher;“The school year marches on at a rapid pace. I do enjoy my responsibility of shaping young minds, but there is a certain repetitive rhythm to the whole thing. Thank you for asking. That is exactly the sort of active listening you should employ with your spouse, showing your interest in the most important thing in your world: them.”@@
+<<case 'none'>>\
+	The silence between you draws out to the point of awkwardness and she sighs. @@.teacher;“Very disappointing. While you should never attempt to dominate a conversation, you should be equipped to keep it going.”@@
+<</switch>>\
+
+[[Object to her response|comportment_bimbo_2_4][$curScene.stage1c='object']]
+[[Remain silent|comportment_bimbo_2_4][$curScene.stage1c='silent']]
+[[Thank her for the assessment|comportment_bimbo_2_4][$curScene.stage1c='thank']]

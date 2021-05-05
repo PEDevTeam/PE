@@ -1,0 +1,74 @@
+::Friend CD Catch-up 01
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+You are not sure what it is, but $friend seems a little edgy as $friendG.he_she waits for you to decide what to do.
+
+@@.heroT;“What’s up?”@@ you ask,
+
+@@.friend;“I-I-I was thinking…”@@ $friendG.he_she stammers, @@.friend;“I gave you some panties and then… Okay, I was wondering if you wanted to try something new.”@@
+
+Heat builds in your cheeks at the suggestion. <<if _bra or _stock>>\
+	@@.hero;How can I tell $friendG.him_her I’m wearing more than just panties, especially as $friendG.he_she has been so helpful and encouraging.@@
+
+<<else>>\
+	@@.hero;How can I tell $friendG.him_her I’ve worn more than just panties, especially as $friendG.he_she has been so helpful and encouraging.@@\
+<<endif>>\
+<<if _bra>>\
+	You step back a little and sheepishly raise your top, revealing first your tummy and then the bottom of the bra you are still wearing. 
+
+	@@.friend;“You wore that for me?<<if $friendG.gender == 'T'>> How does it feel? I’m jealous, I need to start wearing one too.<<endif>>”@@
+	
+	Instead of feeling repulsed by your bra, $friend seems genuinely happy and smiles rather than ridicules. You breathe a sigh of relief, and comply when $friendG.he_she asks you to remove your top. Before you can stop $friendG.him_her, $friendG.he_she whips out $friendG.his_her camera and dashes off a couple of pictures of you. 
+	
+	$friendG.His_Her camera now full of illicit photos, \
+	<<set $friendG.seenBra = 1>>\
+<<elseif _stock>>\
+	You step back a little and sheepishly raise the bottom of your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<else>>pants<<endif>>, revealing a little more of your stockings. 
+
+	@@.friend;“Wow, those look amazing. Can I see more of them?”@@
+
+	Instead of feeling repulsed by your stocking leg, $friend seems genuinely happy and smiles rather than ridicules. You breathe a sigh of relief, and invigorated by $friendG.his_her reaction, you roll your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<else>>pants<<endif>> up to your knees. You feel a bit stupid with your <<if $body.bodyhair.level > 0>>waxed<<else>>hairy<<endif>> legs poking out, but before you can stop $friendG.him_her, $friendG.he_she whips out $friendG.his_her camera and dashes off a couple of pictures of you. 
+
+	<<if $body.bodyhair.level > 0>>\
+		@@.friend;“You shaved your legs too? Wow, has anyone noticed?<<if $friendG.Gender == "T">> I’m jealous, I need to start wearing some too.<<endif>>”@@
+	
+	<<endif>>\
+	$friendG.His_Her camera now full of illicit photos, \
+	<<set $friendG.seenstockings = 1>>\
+	<<set $friendG.waxedlegs = 1>>\
+<<else>>\
+	@@.hero;Maybe I should have worn something girly, if this is how much $friend is into it.@@  
+	
+	$friend appears to take your blush as a sign $friendG.he_she has spoken out of turn, and $friendG.his_her head drops. You rush over and pat $friendG.his_her shoulder. @@.heroT;“Sure, why not.”@@
+
+<<endif>>\
+$friend scurries off to <<if $friendG.gender == "F">>her<<else>>his sister’s<<endif>> walk-in wardrobe and returns clutching a bra in $friendG.his_her trembling fingers. @@.friend;“I was trying to find the matching bra, you know, the one that goes with those panties I gave you, but I couldn’t find it. I have this, though. It should fit.”@@
+
+Feeling guilty for doing $teacher’s tasks alone when $friend has been so helpful, you take the black and pink bra and remove <<if _bra>>the bra you're currently wearing<<else>>your top<<endif>>. With practiced fingers<<if not _bra>>, and much to $friend’s surprise<<endif>>, you slide your arms through the <<if _bra>>new bra's <<endif>>straps, reach behind you, and fasten\
+<<if _bra>>\
+	them effortlessly.
+
+<<else>>\
+	the bra on the first try. 
+
+	@@.friend;“It’s almost like you’ve worn one before?!”@@
+
+	@@.heroT;“Beginners luck,”@@ you reply with a shrug. 
+
+<<endif>>\
+$friend also thrusts a pair of lacy panties into your hands.
+
+@@.friend;“Here are the panties to go with it,"@@ $friendG.he_she says. @@.friend;"They will look cute on you. You’ve got to start being more adventurous on your visits though!"@@
+
+<<RandomImageFromPack 'Friend/Idolmaster' 400 400 alignRight>>\
+<<if _bra or _stock>>\
+	After a brief pause, $friend says, @@.friend;“Hey, thanks for sharing. I'd @@\ 
+<<else>>\
+	After a brief pause, $friend says, @@.friend;"I'd @@\
+<<endif>>\
+@@.friend;like to help, you know, if you want to try more things,”@@ as $friendG.he_she puts on THE iDOLM@STER, and settles down on the couch to watch. You become engrossed in the anime, especially with Akizuki Ryou, and enjoy watching with $friend until it’s time to start getting ready to leave.  
+
+<<addItemVariantToInventory 'panties_sexy_63'>>\
+<<addItemVariantToInventory 'bra_sexy_63'>>\
+<<set $player.perversion.friend = 5>>\
+[[Leave friend's house][$time.addMinutes(90)]]

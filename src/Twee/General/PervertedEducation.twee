@@ -1418,7 +1418,7 @@ Perverted Education
 }
 
 #item_preview_mall {
-	position: fixed;
+	/*position: fixed;*/
 	max-height: 300px;
 	max-width: 300px;
 	/*margin-right: 100%;*/
@@ -2439,6 +2439,16 @@ tr.header {
 	table-layout: fixed;
 	width: 105%;
 	overflow: hidden;
+	display: none;
+	animation: fade_out_show 0.5s
+}
+
+.item-navigator-selector-table.isOpen{
+	table-layout: fixed;
+	width: 105%;
+	overflow: hidden;
+	display: initial;
+	animation: fade_in_show 0.5s
 }
 
 .item-navigator-category-button-selected{
@@ -2525,6 +2535,42 @@ tr.header {
 .item-navigator-variant-already-owned{
 	color: green;
 }
+
+.item-navigator-variant-unlock{
+	color: GoldenRod;
+}
+
+.item-navigator-variant-locked{
+	color: red;
+	cursor: not-allowed;
+}
+
+.item-navigator-variant-wet{
+	color: blue;
+	cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFi0lEQVRYhb2XXWwUVRTH//femdndfm0LbYFCW6CYtkipUvwIaiAigoLyQkwgQBBiSgwYNEKCMUYdBF0TqYRo5A1Ik1IftI1pBKO2IaIRdnFVUnhhA7RKkS1l29nd+brXh51px4YttSmcZHNnd/ae85vzv+fcO6S/vx8ACAAfABOAjUm0oqIiAAAh5I73qTvW1CxeGo5EGwAoDtB9MeoZl6hqaGs4En0OmWzcFwgXgAEo6OrseFBVQ6+EI9F1AIruB4Q3AzoAf1dnxwJVDTWGI9GNAPLuNQT1XHMAAoDS1dlRpaqhzeFIdAMA/72EGA0AADKAvK7OjkpVDb0cjkQ34x4uTDrqO3F+cyGqVTW06V5CuADcce4GIMgszEBXZ0eNqoa2hCPRtQBy7wA9KQBpJyBBZh249xQABadOtdeqamhXOBLdBSA4mRCuIwJAwsg6cDMCAJJPkQra21qrVTX0YjgS3QOgEJPUK7xl6ENGe7caBEZkocFgXn7riaNVqhpaEY5EDwCYh0zWvL68Mv4vAHiCu46E5x4BwKZNK8k9fuxIhaqGHgHw0Kj5wjNn3BCSJ7i7CXEAQtPSyM31cwB06bLnXdjbjvMEgO/U66kFfToGDlcGLo+CJa6fDeevQ+LIapJndJ/G1LS0XVo6W5xobcaa1ctBCLEbG7fWr1r59CXnv+JsQii9Jt8ug1zYcSV15nBl4Jwzn2JERgQsOmY6vGVoA7A0Lc1LS2fztvaW+Xt2700DwLGjXzD1/Y+akemKBgCj9R9TpoynfT67JC0bL+y4mpq3M6a78g1LYzAbCcUYE4Agcw4wnCe32tpbahoW1Q+VV5THTp/+FRUVs1BeUV777ckfnkBGLmWhX6qSKYokJrZMkchyyuz1FGKJ49P1i4FACppfv2sG7Jra6t7S0tk/t7W31DUsqr8JoH/37p3rtm3bLgCg6eB+5YN9H3+KTB8wk4pRRSm/IoAblKDMJ/PHU4r58Ht92vxea+RMowiKKalAVgB3DYivv2r+zJHBdOh5w6L63jlz53zf3X3pmdraasiynAaQPp+0SErgJgVZ6MwpYAR1ssRPJqmovGBYsZkSSwAQMwaCoCL7KvA2ohQy+gqMNCKt6eD+l9auXf/lxk2NfU1NHz4JYEjjoJoQ+RTwE2AKMlv5NMrZbUvQkmdzfPrbMaMQABFEgBNxh9BO4P7+fgYgB8CQB8btA9QZc5HR3kCmbVtvxRMr+kw+q5jSTQolxQB+umHi4gMKO3PN4ouFSURwKOeYADSLcRx5rCSrBMLzYU5K3ZxZGKl7F04AgGLK4WCSXU9J1izTb3UPQtRKsoi/OTX/8ju9+iqNmo/qkhVLy9Ylg9mxsSRwg7v1C/y3q3nzN3z97vRAvJyxi2vyffsMg94M2OzI58WFzS1xMyiE0BWZB6389LJBxVylyVa2+MMA5qig47LXK5nxTcKcAZuVHpqR1weADTKzIClbZQCSMhVVNrWDBKJgLAA4AN5uOC5747JJqCB1JrNX743pr51NWdOnMzaoU7tHALIA/D5OaaHum5/Nx3AZYqT8Rm9EWe2TubJ49ZpWU+jjK4Wirzh+i/XJTPT4LPlMkthlhmT/ZYMMBAzlbFYA983FA3JX23ruBjgRsInIFxL6IXBNENT5ZVuNm+RQjkmOgrArGrMWCyoiCCazvm1J2W6MZWnZhE05QIQAUAGCOIDbBOixme03JDLTZ7GLZZT1AEAizbL6mtDRymY2BOWwKR+yGB8EsARAHECa2CzuN5SATYVI6BRXYY6Z1gllwKIcfPjsI36J2zhQQElxkou/JYKSPN3ffUsaGpeeEwLgVEDA2b+J+N0iQodFn+IUP5ZI+HOs1jspADoRsJDpWnMJS8WE/cdUmfw2EV//AgPqQ7UPdPHKAAAAAElFTkSuQmCC), auto;
+}
+
+.item-set-icon{
+	filter: grayscale(1);
+	font-size: 1.5em;
+}
+
+.wardrobe-button-hide{
+	background: grey;
+	margin: 2px;
+	padding: 2px;
+	color: black;
+	cursor: pointer;	
+}
+
+.wardrobe-button-show{
+	background: darkgreen;
+	margin: 2px;
+	padding: 2px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
 
 /* New Clothing Slot Sidebar */
 .clothing-slot-sidebar-background-image{
@@ -2846,4 +2892,26 @@ body.basement {
 }
 .roomDarkGreen  {
 	color: #466d1e; /*dark green, RGB: 70,109,30*/
+}
+
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade_out_show {
+
+    0% {
+        opacity: 1;
+    }
+	 
+	100% {
+        opacity: 0;
+    }
+
 }

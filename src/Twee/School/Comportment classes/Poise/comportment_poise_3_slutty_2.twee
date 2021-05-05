@@ -1,0 +1,70 @@
+:: comportment_poise_3_slutty_2
+<<if $sceneCorrect>>\
+	<<set $sceneDance3++>>\
+<</if>>\
+<<switch $flags.danceLessonPartner>>\
+<<case 'guardian'>>\
+	<<switch $sceneAction>>\
+	<<case "close body contact">>\
+    	You step towards $guardian, who reflexively pulls you closer then pauses and looks at you in puzzlement.\
+	<<case "separated">>\
+    	You remain separated from $guardian as the music starts and she smiles back in encouragement.\
+	<<case "butterfly">>\
+    	You take hold of $guardian’s hands. Her eyebrow shoots up in puzzlement when you do not approach closer.\
+	<<case "banjo" "sidecar" "promenade" "contra-body movement">>\
+    	You move into position as $guardian looks at you strangely.\
+	<</switch>>\
+<<case 'evilguardian'>>\
+	<<switch $sceneAction>>\
+	<<case "close body contact">>\
+    	You step towards $guardian, who pulls you possessively closer even as she shakes her head.
+	<<case "separated">>\
+    	You remain separated from $guardian as the music starts, and she grins hungrily back.\
+	<<case "butterfly">>\
+    	You take hold of $guardian’s hands. Her eyebrow shoots up in puzzlement when you do not approach closer.\
+	<<case "banjo" "sidecar" "promenade" "contra-body movement">>\
+    	You move into position as $guardian looks at you strangely.\
+	<</switch>>\
+<<case 'cheerbitch'>>\
+	<<switch $sceneAction>>\
+	<<case "close body contact">>\
+    	You step close to Ashley, who instead takes a reflexive step back as she shakes her head.\
+	<<case "separated">>\
+    	You remain separated from Ashley as she grins as if to challenge you to show off what you’ve got.\
+	<<case "butterfly">>\
+    	You take hold of Ashley’s hands, and she rolls her eyes at your error.\
+	<<case "banjo" "sidecar" "promenade" "contra-body movement">>\
+    	You move into position as Ashley looks at you strangely.\
+	<</switch>>\
+<<case 'coach'>>\
+	<<switch $sceneAction>>\
+	<<case "close body contact">>\
+    	You step closer to Coach, even as you feel his cock pressing against you through his clothes. He shakes his head with a snort, seemingly happy to enjoy your error.\
+	<<case "separated">>\
+    	You remain separated from Coach, who leers back at you.\
+	<<case "butterfly">>\
+    	You take Coach by the hand as he squints at you in puzzlement.\
+	<<case "banjo" "sidecar" "promenade" "contra-body movement">>\
+    	You move into position as Coach looks at you strangely.\
+	<</switch>>\
+<<case 'drama'>>\
+	<<switch $sceneAction>>\
+	<<case "close body contact">>\
+    	You step closer to Mrs. Ravensong, who lets out an exasperated sigh.
+	<<case "separated">>\
+    	You remain separated from Mrs. Ravensong as she smiles and gives a slight encouraging nod.\
+	<<case "butterfly">>\
+    	You take Mrs. Ravensong by the hand, and she looks back at you, clearly somewhat puzzled by your choice.\
+	<<case "banjo" "sidecar" "promenade" "contra-body movement">>\
+    	You move into position as Mrs. Ravensong looks at you strangely.\
+	<</switch>>\
+<<default>>\
+	ERROR: unexpected partner: <<=_$flags.danceLessonPartner>>\
+<</switch>>\
+<<if $sceneAction != "separated">>\
+	$teacher sighs loud enough to be heard over the music. @@.teacher;“No, no, that is totally the wrong position to start off this style of dance!”@@
+<</if>>\
+
+Now that you have assumed a position it’s time to start dancing.
+
+<<printDanceOptions "slutty" "dance" "comportment_poise_3_slutty_3">>\

@@ -1,0 +1,301 @@
+::choose_partner
+<!--
+	Backwards compatability code.  Might delete later once most players have cleared it.
+-->\
+<<if $flags.bimboLessonPartner == "Coach">>\
+	<<set $player.ending.comportment.preferredGender = 2>>\
+<<else>>\
+	<<set $player.ending.comportment.preferredGender = 1>>\
+<<endif>>\
+<!--
+	End backwards compatability code
+-->\
+<<set $player.ending.comportment.partners.guardian.name = $guardian>>\
+<<set _partners = $player.ending.comportment.partners>>\
+<<set _failedClasses = 0>>\
+<<for _i = 0; _i < $player.ending.comportment.classStatus.length; _i++>>\
+	<<if $player.ending.comportment.classStatus[_i] == 5>>\
+		<<set _failedClasses += 1>>\
+	<<endif>>\
+<</for>>\
+<<set _partnerArr = []>>\
+<<set _j = 0>>\
+<<for _i = 0; _i < Object.keys(_partners).length;_i++>>\
+	<<if _partners[Object.keys(_partners)[_i]].numOfDates > 0>>\
+		<<set _partnerArr[_j] = _partners[Object.keys(_partners)[_i]]>>\
+		<<set _j++>>\
+	<<endif>>\
+<</for>>\
+<<if _failedClasses < 2>>\
+	<<if _partnerArr.length > 0>>\
+		<<set _partnerArr.sort(function (a,b){return b.numOfDates - a.numOfDates;});>>\
+		<<set _matchFound = false>>\
+		<<set _bestMatch = 0>>\
+		<<for _i =0; _i < _partnerArr.length; _i++>>\
+			<<if _partnerArr[_i].gender == $player.ending.comportment.preferredGender>>\
+				<<set _bestMatch = _i>>\
+				<<set _matchFound = true>>\
+				<<break>>\
+			<<endif>>\
+		<</for>>\
+		<<if _matchFound>>\
+			@@.teacher;"<<print _partnerArr[_bestMatch].name>>, in particular, was very interested when I spoke to <<if _partnerArr[_bestMatch].gender == 1>>him<<else>>her<<endif>>.@@\
+			<<if _partnerArr[_bestMatch].hair.includes($body.hairstyle.level) &&
+				_partnerArr[_bestMatch].face.includes($body.face.level) &&
+				_partnerArr[_bestMatch].lips.includes($body.lips.level) &&
+				_partnerArr[_bestMatch].breasts.includes($body.boobs.level) &&
+				_partnerArr[_bestMatch].ass.includes($body.ass.level) &&
+				_partnerArr[_bestMatch].smoothing.includes($body.anal.level)>>\
+				<<set $partnerOffered = true>>\
+				@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.
+				
+				Are you interested in marrying _partnerArr[_bestMatch].name?"@@
+			
+				[[Yes|get_married][$chosenPartner = _partnerArr[_bestMatch].id]]
+				
+			<<else>>\
+				@@.teacher;However, they requested you make changes to your body before they would offer marriage. What good is a trophy wife if she doesn't look like a proper trophy, after all.@@
+				
+				<<set _badBodyArr = []>>\
+				<<if not _partnerArr[_bestMatch].hair.includes($body.hairstyle.level)>>\
+					<<set _badBodyArr.push("hair")>>\
+				<<endif>>\
+				<<if not _partnerArr[_bestMatch].face.includes($body.face.level)>>\
+					<<set _badBodyArr.push("face")>>\
+				<<endif>>\
+				<<if not _partnerArr[_bestMatch].lips.includes($body.lips.level)>>\
+					<<set _badBodyArr.push("lips")>>\
+				<<endif>>\
+				<<if not _partnerArr[_bestMatch].breasts.includes($body.boobs.level)>>\
+					<<set _badBodyArr.push("boobs")>>\
+				<<endif>>\
+				<<if not _partnerArr[_bestMatch].ass.includes($body.ass.level)>>\
+					<<set _badBodyArr.push("ass")>>\
+				<<endif>>\
+				<<if not _partnerArr[_bestMatch].smoothing.includes($body.anal.level>>\
+					<<set _badBodyArr.push("anal smoothness")>>\
+				<<endif>>\
+				@@.teacher;"In particular, they expressed displeasure with your@@\
+				<<for _i to 0; _i < _badBodyArr.length; _i++>>\
+					<<if _i == _badBodyArr.length - 1>>\
+						@@.teacher;<<print _badBodyArr[_i]>>.@@
+					<<elseif _i == _badBodyArr.length - 2>>\
+						@@.teacher;<<print _badBodyArr[_i]>> and@@\
+					<<else>>\
+						@@.teacher;<<print _badBodyArr[_i]>>,@@\
+					<<endif>>\
+				<</for>>\
+				
+				<<set _newBest = 0>>\
+				<<set _newBestFound == false>>\
+				<<for _i = 0; _i < _partnerArr.length; _i++>>\
+					<<if _partnerArr[_i].hair.includes($body.hairstyle.level) &&
+					_partnerArr[_i].face.includes($body.face.level) &&
+					_partnerArr[_i].lips.includes($body.lips.level) &&
+					_partnerArr[_i].breasts.includes($body.boobs.level) &&
+					_partnerArr[_i].ass.includes($body.ass.level) &&
+					_partnerArr[_i].smoothing.includes($body.anal.level)>>\
+						<<if _i != _bestMatch || (_i == _bestMatch && _partnerArr[_i].gender != $player.ending.comportment.preferredGender)>>\
+							@@.teacher;"However, <<print _partnerArr[_i].name>> finds you quite attractive.@@
+							<<set _newBest = _i>>\
+							<<set _newBestFound = true>>\
+							<<break>>\
+						<<endif>>\
+					<<endif>>\
+				<</for>>\
+				<<if _newBestFound>>\
+					<<set $partnerOffered = true>>\
+					@@.teacher;"Are you interested in marrying _partnerArr[_newBest].name?"@@
+					
+					[[Yes|get_married][$chosenPartner = _partnerArr[_newBest].id]]
+				<<else>>\
+					@@.teacher;"Perhaps if you had kept up with your treatments as I asked..."@@ $teacher lets the sentence trail off.
+					
+					You think for a moment about teacher's talk of marriage.
+					
+				<<endif>>\
+			<<endif>>\
+		<<else>>\	
+			<<set _newBest = 0>>\
+			<<set _newBestFound == false>>\
+			<<for _i = 0; _i < _partnerArr.length; _i++>>\
+				<<if _partnerArr[_i].hair.includes($body.hairstyle.level) &&
+				_partnerArr[_i].face.includes($body.face.level) &&
+				_partnerArr[_i].lips.includes($body.lips.level) &&
+				_partnerArr[_i].breasts.includes($body.boobs.level) &&
+				_partnerArr[_i].ass.includes($body.ass.level) &&
+				_partnerArr[_i].smoothing.includes($body.anal.level)>>\
+					<<if _i != _bestMatch || (_i == _bestMatch && _partnerArr[_i].gender != $player.ending.comportment.preferredGender)>>\
+						@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.@@
+						<<set _newBest = _i>>\
+						<<set _newBestFound = true>>\
+						<<break>>\
+					<<endif>>\
+				<<endif>>\
+			<</for>>\
+			<<if _newBestFound>>\
+				<<set $partnerOffered = true>>\
+				@@.teacher;"Are you interested in _partnerArr[_newBest].name?"@@
+				
+				[[Yes|get_married][$chosenPartner = _partnerArr[_newBest].id]]
+			
+			<<endif>>\
+		<<endif>>\
+		<<for _i = 0; _i < _partnerArr.length; _i++>>\
+			<<if not _newBestFound>>\
+				<<if _i == _bestMatch && _partnerArr[_bestMatch].gender != $player.ending.comportment.preferredGender>>\
+					<<print "[[What about " + _partnerArr[_bestMatch].name + "?|What about partner][$id = '" + _partnerArr[_bestMatch].id + "']]">>
+				<<elseif _i != _bestMatch>>\
+					<<print "[[What about " + _partnerArr[_i].name + "?|What about partner][$id = '" + _partnerArr[_i].id + "']]">>
+				<<endif>>\
+			<<elseif _newBestFound && _i != _newBest>>\
+				<<print "[[What about " + _partnerArr[_i].name + "?|What about partner][$id = '" + _partnerArr[_i].id + "']]">>
+			<<endif>>\
+		<</for>>\
+		<<if _partnerArr.length < 6>>\
+			[[I'm actually interested in marrying someone else|I don't see the person I want]]
+		<<endif>>\
+		[[I'm not interested in getting married yet]]
+	<<else>>\
+		@@.teacher;"Unfortunately, none of them expressed a strong interest in marrying you."@@
+		
+		[[Complain about your lack of suitors|I don't see the person I want]]
+	<<endif>>\
+<<else>>\
+	<<if _partnerArr.length > 0>>\
+		<<set _partnerArr.sort(function (a,b){return b.numOfDates - a.numOfDates;});>>\
+		<<set _chosenPartner = _partnerArr[0]>>\
+		<<print _chosenPartner.name>> wants to marry you!
+	<<else>>\
+		<<set _partnerArr2 = []>>\
+		<<for _i = 0; _i < Object.keys(_partners).length;_i++>>\
+			<<set _partnerArr2[_i] = _partners[Object.keys(_partners)[_i]]>>\
+		<</for>>\
+		<<set _partnerArr2.shuffle()>>\
+		<<set _chosenPartner = _partnerArr2[0]>>\
+		<<print _chosenPartner.name>> wants to marry you!
+	<<endif>>\
+	
+	[[Agree to get married|get_married][$chosenPartner = _chosenPartner.id, $forcedWedding = true]]
+<<endif>>\
+
+:: I don't see the person I want
+<<set _partners = $player.ending.comportment.partners>>\
+<<set _partnerArr = []>>\
+You tell teacher you're interested in marrying someone else.
+
+$teacher rolls her eyes.  @@.teacher;"So picky,"@@ she says. @@.teacher;"There may still be a few other people who are interested, but if you want to marry one of them, you should probably go on some dates.@@
+
+<<for _i = 0; _i < Object.keys(_partners).length;_i++>>\
+	<<if _partners[Object.keys(_partners)[_i]].numOfDates == 0>>\
+		@@.teacher;"<<print _partners[Object.keys(_partners)[_i]].name>> might be interested.@@\
+		<<switch _i>>\
+		<<case 0>>\
+			@@.teacher;Perhaps you could do something together on the weekend.<<if $player.perversion.guardian < 6>> However, you will need to be more daring at home first.<<endif>>@@
+		<<case 1>>\
+			@@.teacher;You can find $futa.him_her after school.@@
+		<<case 2>>\
+			@@.teacher;You can find her after school, but she won't say yes unless she likes you.@@
+		<<case 3>>\
+			@@.teacher;You can find her at the electronics store, but you will need to get to know her first.@@
+		<<case 4>>\
+			@@.teacher;You can find him after school, assuming you two have met in the morning already.@@
+		<<case 5>>\
+			@@.teacher;You can find her after school, assuming you have already met her.@@
+		<</switch>>\
+		
+	<<endif>>\
+	<<if _i == Object.keys(_partners).length - 1>>\
+		@@.teacher;"You cannot expect these relationships to just happen. You must put in the work."@@
+	
+	<<endif>>\
+<</for>>\
+[[Finish school day]]
+
+::I'm not interested in getting married yet
+You tell $teacher you're not interested in getting married to anyone yet.
+
+@@.teacher;"Very well.  Just let me know you're ready to find your spouse, and I'll get you set up."@@
+
+[[Finish school day]]
+
+::What about partner
+<<set _partners = $player.ending.comportment.partners>>\
+You ask $teacher about _partners[$id].name.
+
+<<if _partners[$id].hair.includes($body.hairstyle.level) &&
+	_partners[$id].face.includes($body.face.level) &&
+	_partners[$id].lips.includes($body.lips.level) &&
+	_partners[$id].breasts.includes($body.boobs.level) &&
+	_partners[$id].ass.includes($body.ass.level) &&
+	_partners[$id].smoothing.includes($body.anal.level)>>\
+	Congrats! They like your body.
+
+	Are you interested in _partners[$id].name?
+
+	[[Yes|get_married][$chosenPartner = _partners[$id].id]]
+	[[No|choose_partner]]
+	[[I'm not interested in getting married yet]]
+<<else>>\
+	@@.teacher;_partners[$id].name said you weren't attractive enough.@@
+
+	<<set _badBodyArr = []>>\
+	<<if not _partnerArr[_bestMatch].hair.includes($body.hairstyle.level)>>\
+		<<set _badBodyArr.push("hair")>>\
+	<<endif>>\
+	<<if not _partnerArr[_bestMatch].face.includes($body.face.level)>>\
+		<<set _badBodyArr.push("face")>>\
+	<<endif>>\
+	<<if not _partnerArr[_bestMatch].lips.includes($body.lips.level)>>\
+		<<set _badBodyArr.push("lips")>>\
+	<<endif>>\
+	<<if not _partnerArr[_bestMatch].breasts.includes($body.boobs.level)>>\
+		<<set _badBodyArr.push("boobs")>>\
+	<<endif>>\
+	<<if not _partnerArr[_bestMatch].ass.includes($body.ass.level)>>\
+		<<set _badBodyArr.push("ass")>>\
+	<<endif>>\
+	<<if not _partnerArr[_bestMatch].smoothing.includes($body.anal.level)>>\
+		<<set _badBodyArr.push("anal smoothness")>>\
+	<<endif>>\
+	@@.teacher;"In particular, they expressed displeasure with your@@\
+	<<for _i to 0; _i < _badBodyArr.length; _i++>>\
+		<<if _i == _badBodyArr.length - 1>>\
+			@@.teacher;<<print _badBodyArr[_i]>>.@@
+		<<elseif _i == _badBodyArr.length - 2>>\
+			@@.teacher;<<print _badBodyArr[_i]>> and@@\
+		<<else>>\
+			@@.teacher;<<print _badBodyArr[_i]>>,@@\
+		<<endif>>\
+	<</for>>\
+
+	<<switch $id>>\
+	<<case "guardian">>\
+		@@.teacher;She said she would love you no matter how you looked, but she thinks a girly hairstyle would look better on you.@@
+	<<case "coach">>\
+		@@.teacher;$futa.He_She said $futa.he_she wants you to look like the biggest bimbo possible; huge tits, jiggly ass, dick sucking lips, the works.  Oh, and $futa.he_she wants your asshole velvety smooth.@@
+	<<case "ashley">>\
+		@@.teacher;She said she was not interested unless you were 'properly feminized.'  Doing just the bare minimum of your feminine trasformation won't satisfy her.@@
+	<<case "roxy">>\
+		@@.teacher;Roxy said she likes the 'femboy aesthetic,' which she claimed was a girly hairstyle, feminine facial shape, small lips, no breasts, and a plump ass.  Also, considering how much she likes to assfuck you, you should probably look into getting some anal smoothing done.@@
+	<<case "jogger">>\
+		@@.teacher;He said he wanted you looking at least a little girly all over, and since he'll be fucking your ass, you should look into some anal smoothing as well.@@
+	<<case "dramaTeacher">>\
+		@@.teacher;She said she wanted a 'classical beauty.' According to her, that means traditionally feminine hairstyle, girly face, breasts that aren't too large, and slender hips.@@
+	<</switch>>\
+	
+	You should alter your body to suit their tastes or try for a different partner. You can talk to teacher again if you want to check for a new partner.
+<<endif>>\
+
+[[Finish school day]]
+
+::get_married
+<<if $chosenPartner == "guardian">>\
+	<<include [[Good Guardian Trophy Ending Sc1]]>>\
+<<elseif $chosenPartner == "coach">>\
+	<<include [[Coach Trophy Ending Sc1]]>>\
+<<else>>\
+	Sorry.  We are still preparing the chapel.  For now, keep enjoying the game in sandbox mode.  You can talk to teacher again if you want to check for a new partner.
+
+	[[Finish school day]]
+<<endif>>\

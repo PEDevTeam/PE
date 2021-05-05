@@ -1,13 +1,12 @@
 :: Task Trial chastity [pos_1952_2896]
 \
-<!-- <<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $tasksTeacher.trialChastity.status eq 1>>\
 	You enter the adult store. After some hesitation, you ask the shopkeeper about the market research opportunity $teacher told you about. She looks a little puzzled.
 
 	@@.shopclothes;“Oh, you must mean the market testing on our new line of chastity cages and anal plugs! Sorry, you’re a lot younger than the normal demographic for those, so I was a little bit confused.”@@
 
-	She begins to describe the contract in full. You notice her beaming smile and can’t help but be reminded of $guardian's. In fact, you notice an overall similarity to your mom in her appearance, causing some dissonance when you hear her describe the testing trial ahead in explicit terms.
+	She begins to describe the contract in full. You notice her beaming smile and can’t help but be reminded of $guardian's. In fact, you notice an overall similarity to $guardian in her appearance, causing some dissonance when you hear her describe the testing trial ahead in explicit terms.
 
 	As the shopkeeper explains it, the company will provide you with a chastity cage and a butt-plug with internal sensors that will collect all necessary data. You just have to spend three nights wearing both devices, and bring them back to the store afterwards. You’ll get $<<print tasksTeacher.trialChastity.rewardMoney>> for participating in the research.
 
@@ -17,24 +16,14 @@
 	[[Refuse|Go to the mall]]
 	
 <<elseif $tasksTeacher.trialChastity.status eq 4>>\
-	<!-- <<if (not playerCode.owns(itemsC.chastityDevice))>>\ -->
-	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.ownsMasterItem('chastity'))>>\
-		<!-- <<set _item=$items.chastityDevice>>\ -->
-		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'chastity_cb6000'>>\
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearRandomItemByMaster 'chastity'>>\
 	<<else>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 2>>\
 	<<endif>>\
-	<!-- <<if (not playerCode.owns(itemsC.buttPlugHeart))>>\ -->
-	<!-- <<endif>> -->
 	<<if (not inventoryFuncs.isItemVariantOwned('buttplug_heart'))>>\
-		<!-- <<set _item=$items.buttPlugHeart>>\ -->
-		<!-- <<addToInv _item.id>>\ -->
 		<<addItemVariantToInventory 'buttplug_heart'>>\
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'buttplug_heart'>>\
 	<<elseif $tasksTeacher.trialChastity.cooldown eq 2>>\
 		<<set $tasksTeacher.trialChastity.cooldown = 3>>\
@@ -105,27 +94,23 @@
 	[[Exit store|Go to the mall][$tasksTeacher.trialChastity.status=4;$player.exp.chastityExp=0]]
 	
 <<elseif ($tasksTeacher.trialChastity.status eq 5)>>\
-	<!-- <<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
-	<<set wornChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-	<!-- <<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
-	<<set wornButtplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-	<<if wornChastity>>\
-		<!-- <<removeClothing $items.chastityDevice.id>>\ -->
-		<<removeClothingItem 'chastity'>>
+	<<set _wornChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<set _wornButtplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<if _wornChastity>>\
+		<<removeClothingItem 'chastity'>>\
 	<<endif>>\
-	<<if wornButtplug>>\
-		<!-- <<removeClothing $items.buttPlugHeart.id>>\ -->
-		<<removeClothingItem 'buttplug'>>
+	<<if _wornButtplug>>\
+		<<removeClothingItem 'buttplug'>>\
 	<<endif>>\
 	You enter the adult store, finding the shopkeeper to help you finish the market research trial. She greets you and leads you back to the cubicles.
-	<<if wornChastity or wornButtplug>>\
+	<<if _wornChastity or _wornButtplug>>\
 		She asks you to remove\
-		<<if wornChastity>>\
+		<<if _wornChastity>>\
 			the cage\
-			<<if wornButtplug>>\
+			<<if _wornButtplug>>\
 				and plug,\
 			<<endif>>\
-		<<elseif wornButtplug>>\
+		<<elseif _wornButtplug>>\
 			the plug,\
 		<<endif>>\
 		once again standing outside the curtain giving you helpful 'advice' while you do it. Thankfully, the removal process is much easier.
@@ -146,7 +131,7 @@
 
 	Your cheeks begin to turn pink, and she smirks.
 
-	@@.shopclothes;"You know, we don't get many testers around your age or um, ‘physique,’ so your feedback will be very helpful. It’s not often we get someone whose trial results could easily apply to both males and females! We are one of the leading companies in this market, and we are constantly trying to refine our designs for enjoyment by everyone, even those, like you, who aren’t so... let’s say, //‘well endowed.’//"@@
+	@@.shopclothes;"You know, we don't get many testers around your age or um, ‘physique,’ so your feedback will be very helpful. It’s not often we get someone whose trial results could easily apply to both males and females! We are one of the leading companies in this market, and we are constantly trying to refine our designs for enjoyment by everyone, even those, like you, who aren’t so... let’s say, //‘well endowed’//."@@
 
 	@@.hero;Wait, did she just say that I’m...?@@
 
@@ -219,23 +204,13 @@
 	
 	At last the shopkeeper hands you the key for the chastity cage, and you put your lower garments back in place while she gets rid of her gloves. Without further ado, she leads you back into the store. From there, your feet find their own motivation and take you quickly on your way.
 	
-	<!-- @@.reward;You got a <<print itemsC.chastityDevice.name>>!@@ -->
 	@@.reward;You got a <<print itemFuncs.getItemByVariant('chastity_cb6000').name>>!@@
-	<!-- @@.reward;You got a <<print itemsC.buttPlugHeart.name>>!@@ -->
 	@@.reward;You got a <<print itemFuncs.getItemByVariant('buttplug_heart').name>>!@@
 	
-	<!-- <<if playerCode.owns(itemsC.chastityDevice)>>\ -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('chastity_cb6000')>>\
-		<!-- <<set _item=itemsC.chastityDevice>>\ -->
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'chastity_cb6000'>>\
 	<<endif>>\
-	<!-- <<if playerCode.owns(itemsC.buttPlugHeart)>>\ -->
-	<!-- <<endif>> -->
 	<<if inventoryFuncs.isItemVariantOwned('buttplug_heart')>>\
-		<!-- <<set _item=itemsC.buttPlugHeart>>\ -->
-		<!-- <<wearClothing _item.id>>\ -->
 		<<wearItemVariant 'buttplug_heart'>>\
 	<<endif>>\
 	[[Get out of there|Go to the mall]]
@@ -257,17 +232,13 @@
 
 	She turns to review your form, but you catch her stifling a snicker after she's barely begun. You rush out before anything //else// increases your smoldering embarrassment, hauling your impossible-to-miss sex toy boxes along with you.
 
-	<!-- @@.reward;You got a <<print itemsC.chastityDevice.name>>!@@ -->
 	@@.reward;You got a <<print itemFuncs.getItemByVariant('chastity_cb6000').name>>!@@
-	<!-- @@.reward;You got a <<print itemsC.buttPlugHeart.name>>!@@ -->
 	@@.reward;You got a <<print itemFuncs.getItemByVariant('buttplug_heart').name>>!@@
 	
 	[[Get out of there|Go to the mall]]
 	
 <<elseif ($tasksTeacher.trialChastity.status eq 2) and ($tasksTeacher.trialChastity.progress eq 11)>>\
-	<!-- <<removeFromInv $items.chastityDevice.id>>\ -->
 	<<removeItemVariantFromInventory 'chastity_cb6000'>>\
-	<!-- <<removeFromInv $items.buttPlugHeart.id>>\ -->
 	<<removeItemVariantFromInventory 'buttplug_heart'>>\
 	<<set $player.money+=tasksTeacher.trialChastity.rewardMoney>>\
 	You choose the money.
@@ -303,25 +274,6 @@
 	[[Exit store|Go to the mall]]
 	
 <<endif>>\
-<!--	
-	OLD SCENE Selkie thinks you could use this later, with the excuse of coming in for a second round of testing, perhaps of an even more advanced device? And she could do this because of their familiarity (and because she knows it secretly turn the player on!)
 
-	She tells you to lower your pants as she holds the devices. A bit overwhelmed by her no-nonsense tone and manner of speech, you comply before you can really think about it. Then stand there blushing bright red from your automatic obedience.
-	
-	<<if _underwear and (not _underwear.female)>>\
-		She quirks an eyebrow up, looking at your boxers and suddenly pulls them down, revealing your penis.
-	<<elseif _underwear and (not _underwear.slutty)>>\
-		She smiles, eyeing your panties and suddenly pulls them down, revealing your penis.
-	<<elseif _underwear>>\
-		She smiles eyeing, your lacy panties and suddenly pulls them down, revealing your penis.
-	<<endif>>\
-
-	You don't have time to react as she places a small ice pack against your groin, making you yelp in surprise. You try to argue, but the shopkeeper shushes you, removing the ice pack and expertly locking a chastity cage onto your shivering penis. As you touch it in disbelief something slick and cold slides up your anus! Shocked, you meet the eyes of the shopkeeper, who winks at you as she pushes the butt-plug until it pops in, making your anus clench around its cold metal.
-	
-	Your cheeks are burning up as you shamefully realize that you've just let a near-stranger lock you into a chastity cage and put a butt-plug into your anus! And the heated smile she gives you tells she knows that the fact that that just happened has turned you on! As if by silent agreement, you both look down at your freshly-installed chastity cage, where your pink dick is flushed and squished in as it tries to grow bigger than the cage will allow. You feel her eyes on your face as it burns even brighter, and once again you want to lift your head and meet her eyes, instead of staring meekly and ashamedly down at your bound and powerless dick... but you simply can't bring yourself to do it! Which makes your dick squirm even harder, and your cheeks flame beet red!
-	
-	At last the shopkeeper hands you the key for the chastity cage, grabs your hand and leads you out from the changing cubicle, not giving you time to remove your new accessories. Before letting you go she leans in and whispers that she didn't have to do all this, but she loves to help people 'like yourself' who really, deep down, appreciate the attention and guidance of a stronger minded woman.
-	And then she leans in close against your ear. @@.shopclothes;"Oh, and perhaps you might like to sign up for our special trial, with this new device? It has some new features."@@ She taps a bright red fingernail against the key that you're clutching so tightly in your hand. @@.shopclothes;"If you'd like to register online, and enter the code number you'll see is etched on your key, you'll be automatically entered into our new Key Holder system, where specially-trained staff will monitor your devices, and choose whether to enable the mechanical lock to function or not. From time to time, your key mistress will assign you special tasks to enable your cage to be unlocked. Normally, that service would cost you $50 per week, but during the trial period, it's completely free! Or, if you prefer, we can assign the task and unlocking functions to someone who's a little more... intimately acquainted with you. Your choice: you can provide an email address for another person to take control. But don't try to fool us - you need to provide credentials to prove that your key holder is someone other than you, Sweetie! The details are all here."@@ She slips a card into your other hand.
--->\
 
 

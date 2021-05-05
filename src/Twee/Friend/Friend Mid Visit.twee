@@ -1,22 +1,14 @@
 :: Friend Mid Visit
 \
-<!-- <<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\ -->
 <<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
-<!-- <<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\ -->
 <<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
-<!-- <<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\ -->
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
-<!-- <<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\ -->
 <<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
-<!-- <<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\ -->
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<!-- <<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\ -->
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
-<!-- <<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\ -->
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
-<<set $player.clothesTmp to clone($player.clothes)>>\
-<!-- <<removeClothingType 4>>\ -->
+<<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
 <<removeClothingItem 'shoes'>>\
 <<updateClothes>>\
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
@@ -24,16 +16,16 @@
 <<if _outerwear.isFemale>>\
 	<<selectScene FriendMidVisit1 RND2RND>>\
 	<<scene>>\
-		You amble over to $friend’s house, aware of how you are dressed as the hem of your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> swishes around your <<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking tops<<else>>bare legs<<endif>><<if window.inventoryFuncs.hasTag(_shoes, 'heels')>> and the clip clop of your heels on the sidewalk<<endif>>. You have changed so much recently, and you cannot help but be grateful for $friend and $friendG.his_her continued support. You reach $friendG.his_her house and confidently make your way to the front door.
+		You amble over to $friend’s house, aware of how you are dressed as the hem of your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> swishes around your <<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking tops<<else>>bare legs<<endif>><<if window.inventoryFuncs.hasTag(_shoes, 'heels')>> and the clip clop of your heels on the sidewalk<<endif>>. You have changed so much recently, and you cannot help but be grateful for $friend and $friendG.his_her continued support. You reach $friendG.his_her house and confidently make your way to the front door.
 	<<scene>>\
 		As you wander through $friend’s neighborhood you see someone running in your direction, only on the other side of the street. You realize<<if playerCode.isMind() gt 0>> with a strange stirring<<endif>> that its the jogger who you see outside of the school sometimes.\
 		<<if playerCode.isMind() gt 0>>\
 			Your body reacts with a stirring in your groin and your\
-			<<if $body.penisShrink gt 0>>tiny<<endif>> penis\
-			<<if _chastity>>starts to press against your cage.\
-			<<elseif _underwear>>grows inside the soft material of your panties.\
+			<<if $body.penisShrink.level gt 0>>tiny<<endif>> penis\
+			<<if _chastity>>starts to press against your cage.
+			<<elseif _underwear>>grows inside the soft material of your panties.
 			<<else>>threatens to tent the front of your\
-				<<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>>.\
+				<<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>>.
 			<<endif>>\
 
 			You think that the Jogger hasn’t recognised you, which makes your heart pang for some weird reason, but then he waves at you, smiling broadly before continuing on his way.\
@@ -46,7 +38,6 @@
 			As you continue your walk, you see a car racing passed and notice the unmistakable countenance of coach in $futa.his_her dilapidated Mustang race along the street. 
 
 			@@.hero;Wait, did $futa.he_she just blow me a kiss?@@
-
 		<<else>>\
 			As you continue your walk, a car speeds past you and you see who you think might be the pervy coach from school in $futa.his_her dilapidated Mustang race along the street. 
 

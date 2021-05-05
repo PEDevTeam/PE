@@ -1,0 +1,36 @@
+:: comportment_bimbo_2_11
+<<if $curScene.stage1total == 3 && $curScene.stage2total == 2 && $curScene.stage3total == 3>>\
+	$teacher smiles, stating what you already know. @@.teacher;“Perfection. You have taken another stride closer to the day that you will be the beautiful bride walking down the wedding aisle. Your spouse will be almost as proud and excited to take ownership of you as you will be to take your proper place at their side. Towards that end, there remains one final lesson, and for this one you will need to find a partner; a “practice spouse,” if you will.”@@
+
+	You nervously wait for her to explain. @@.teacher;“Thus far we have focused on how to behave in public, but that yet leaves that most important of private locations; the bedroom. I believe one of my fellow faculty members would be a suitable balance of maturity and authority. I have spoken Ms. Ravensong and Coach, and both have agreed to help further your instruction. Which would you prefer?”@@
+
+	@@.hero;Hmm, now that’s quite a decision to make...@@
+
+	[[Coach|comportment_bimbo_2_12][$flags.bimboLessonPartner = "Coach", $player.ending.comportment.preferredGender = 2]]
+	[[Miss Ravensong|comportment_bimbo_2_12][$flags.bimboLessonPartner = "Miss Ravensong", $player.ending.comportment.preferredGender = 1]]
+<<elseif $curScene.stage1total <= 0 || $curScene.stage2total <= 0 || $curScene.stage3total <= 0>>\
+	<<if $curScene.stage1total == -3 && $curScene.stage2total == -2 && $curScene.stage3total == -3>>\
+    	$teacher sighs heavily @@.teacher;“I half suspect you know what you need to do because you managed to do the exact opposite at every turn. This sort of behavior quite strains my patience...”@@
+	<<else>>\
+    	$teacher sighs @@.teacher;“here we are again - you haveing failed at literally every task before you. It is times like these that I am tempted to give up.”@@
+	<</if>>\
+
+	Your heart skips a beat as her lips split into a slight smirk. @@.teacher;“Do not worry, we are far too deep into this to stop. As incorrect and baffling as your performance was today, it is but a bump in the road. I will mold you into the ideal trophy wife, someone whose value in the world is from what you can provide to others. You must learn to recognize, embrace and perfectly fulfill your role, and we will repeat this lesson until you get it right.@@
+	
+	@@.heroT;"Y... Yes, $teacher,"@@ you stammer as she dismisses you for the day.
+
+	<<set $player.ending.comportment.bimbo.lessonFail[0] = 1>>\
+	[[Finish school day]]
+<<else>>\
+	<<if $curScene.stage1total > 0 && $curScene.stage2total > 0 && $curScene.stage3total > 0>>\
+    	@@.teacher;“So close and yet...”@@ $teacher graces you with a partial smile. @@.teacher;“You avoided mistakes, and even showed the rare glimpse of brilliance, but that is not enough. Harsh though it may seem, my expectations for you are nothing short of perfection. Your purpose is to be the ultimate partner for your eventual spouse. and until I am satisfied that you can perform to that level, we will continue to review.”@@
+	<<elseif $curScene.stage1total > 0 || $curScene.stage2total > 0 || $curScene.stage3total > 0>>\
+    	@@.teacher;“You have showed the occasional glimmer of brilliance today, but there remains much for you to learn. Your purpose is to be the perfect partner for your eventual spouse, and until I am satisfied that you can perform to that level, we will continue to review.”@@
+	<<else>>\
+    	$teacher sighs softly @@.teacher;“I will note that you avoided anything too catastrophic and yet, there is hardly anything to praise about your mediocrity. As you prepare for the next lesson, I advise you to meditate on your mistakes because we will be repeating this process until you are able to behave perfectly in all situations.”@@
+	<</if>>\
+
+	She dismisses you with a wave of her hand.
+
+	[[Finish school day]]
+<</if>>\

@@ -21,7 +21,7 @@ $.extend(true, window.items, {
         },
     },
     itemChildren:{
-        tattoo0:{
+        tattoo00:{
             masterItem:"tattoos",
             variant:"tattoo_bunny",
             name:"Bunny Tattoo",
@@ -32,13 +32,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
                 tattoo:true,
             }
         },
-        tattoo1:{
+        tattoo01:{
             masterItem:"tattoos",
             variant:"tattoo_butterfly",
             name:"Butterfly Tattoo",
@@ -49,13 +50,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
                 tattoo:true,
             }
         },
-        tattoo2:{
+        tattoo02:{
             masterItem:"tattoos",
             variant:"tattoo_heart",
             name:"Heart Tattoo",
@@ -66,13 +68,14 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 pink:true,
                 tattoo:true,
             }
         },
-        tattoo3:{
+        tattoo03:{
             masterItem:"tattoos",
             variant:"tattoo_sissy",
             name:"Sissy Tattoo",
@@ -83,12 +86,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
             }
         },
-        tattoo4:{
+        tattoo04:{
             masterItem:"tattoos",
             variant:"tattoo_slut",
             name:"Slut Tattoo",
@@ -99,12 +103,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
             }
         },
-        tattoo5:{
+        tattoo05:{
             masterItem:"tattoos",
             variant:"tattoo_stockings",
             name:"Stockings Tattoo",
@@ -115,12 +120,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
             }
         },
-        tattoo6:{
+        tattoo06:{
             masterItem:"tattoos",
             variant:"tattoo_stupidwhore",
             name:"Stupid Whore Tattoo",
@@ -131,12 +137,13 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,
             }
         },
-        tattoo6:{
+        tattoo07:{
             masterItem:"tattoos",
             variant:"beauty_mark",
             name:"Beauty Mark",
@@ -147,6 +154,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
+            canBuy:true,
             tags:{
                 plain:true,
                 tattoo:true,

@@ -36,19 +36,6 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 <<endif>>\
 
 <<if _item>>\
-	<<nobr>>\
-	<!-- <<if (not playerCode.owns(_item))>>\ -->
-		<!-- <<addToInv _item.id>>\ -->
-		<!-- <<if _item.maxAlt>>\ -->
-			<!-- <<set $items[_item.id].ownAlt[0] = false>>\ -->
-		<!-- <<endif>>\ -->
-	<!-- <<endif>>\ -->
-	<!-- <<if _item.maxAlt>>\ -->
-		<!-- <<set $items[_item.id].curAlt = 40>>\ -->
-		<!-- <<set $items[_item.id].ownAlt[40] = true>>\ -->
-	<!-- <<endif>>\ -->
-	<!-- <<set _item.stolen=true>>\ -->
-	<</nobr>>\
 	<<if _item.type eq 'itemVariant'>>\
 		<<addItemVariantToInventory _item.item>>\
 		<<set window.inventoryFuncs.addTag(_item.item, 'stolen', true)>>
@@ -82,7 +69,6 @@ Full of curiosity, you quietly snoop around in $guardian's bedroom.  You're unsu
 			<<set $flags.guardianSnoopingCaught to true>>\
 		<<endif>>\
 		<<set $player.alarmClockGuardian=false>>\
-		<!-- <<set $items.batteriesQuality.disabled=true>>\ -->
 		<<set $player.hasQualityBatteries = false>>\
 		<<print "[[Run out holding " + $guardian + "'s " + _item.name.toLowerCase() + "|Go to bedroom]]">>
 	<<endif>>\

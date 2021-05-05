@@ -1,0 +1,37 @@
+:: comportment_poise_2_6
+<<set $stage3Score = 0>>\
+<<if $scene2Feet == "heels">>\
+	<<set $stage3Score += 1>>\
+<</if>>\
+<<if $scene2Hips == "swing">>\
+	<<set $stage3Score += 1>>\
+<</if>>\
+<<if $scene2Step == "straight">>\
+	<<set $stage3Score += 1>>\
+<</if>>\
+\
+\
+<<switch $stage3Score>>\
+<<case 3>>\
+	<<if $stage2Score == 4>>\
+    	$teacher beams with pride as you confidently sashay around the room.
+	<<elseif $stage2Score == 0>>\
+    	$teacher appears surprised as you go from standing like a slob to gracefully walking around the room.
+	<<else>>\
+    	$teacher expresses measured approval as you gracefully walk around the room.
+	<</if>>\
+<<case 2>>\
+	You walk around the room to $teacher’s tepid approval.
+<<case 1>>\
+	You walk around the room to $teacher’s sighing disappointment.
+<<case 0>>\
+	$teacher shakes her head in obvious frustration as you stumble about.
+<<default>>\
+	ERROR: unexpected stage3Score: <<=$scene.stage2Score>>\
+<</switch>>\
+
+As you finish another circuit $teacher casually brushes a pen off her desk and it falls to the floor.
+
+[[Ignore it.|comportment_poise_2_7][$stage3Pickup='ignore']]
+[[Bend at the waist and pick up the pen.|comportment_poise_2_7][$stage3Pickup='bend']]
+[[Squat down to pick up the pen.|comportment_poise_2_7][$stage3Pickup='squat']]

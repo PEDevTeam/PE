@@ -1,0 +1,31 @@
+:: comportment_bimbo_2_4
+<<if $curScene.stage1c == 'thank'>>\
+	<<set $curScene.stage1total += 1>>\
+<<elseif $curScene.stage1c == 'object'>>\
+	<<set $curScene.stage1total -= 1>>\
+<</if>>\
+<<switch $curScene.stage1c>>\
+<<case 'object'>>\
+	You object to her assessment\
+	<<if $curScene.stage1b == "work">>\
+    	and she squints at you in confusion. @@.teacher;“And I had given you such a nice compliment too. I swear sometimes I do not understand what goes on in that cute head of yours. Perhaps, additional firm guidance will help you find some consistency.”@@
+	<<else>>\
+    	and she cuts you off. @@.teacher;“Enough, you have already failed this portion of the lesson, do not make it worse on yourself. Talking back in general is wrong, but to your spouse? No, that is never permissible.”@@
+	<</if>>\
+<<case 'silent'>>\
+	You remain silent as she seems to wait for your reply, raising a curious eyebrow before continuing on.
+<<case 'thank'>>\
+	You thank her for the feedback and ask if there is anything else she would like to talk to you about?
+
+	<<if $curScene.stage1b == "work">>\
+    	@@.teacher;“Very good, but I think this will do for now.”@@
+	<<else>>\
+    	@@.teacher;“Rather than thank me, just implement my instructions in the future.”@@
+	<</if>>\
+<</switch>>\
+
+As if from a silent signal, there is a knock on the door.
+
+@@.teacher;“Right on time. Well, go get the door. I have invited a guest for you to practice the second category of behavior: speaking to a superior.”@@
+
+[[Get the door|comportment_bimbo_2_5]]

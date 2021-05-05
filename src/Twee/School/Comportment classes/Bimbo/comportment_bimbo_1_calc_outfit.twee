@@ -1,0 +1,26 @@
+:: comportment_bimbo_1_calc_outfit
+<<set _start = $curScene.outfit[0]>>\
+<<set _matching = false>>\
+<<if $curScene.outfit.count(_start) == 4>>\
+	<<set _matching = true>>\
+<<endif>>\
+<<if _matching>>\
+	<<switch _start>>\
+	<<case 0>>\
+		<<set $curScene.outfitName = "naked">>\
+	<<case 1>>\
+		<<set $curScene.outfitName = "club">>\
+	<<case 2>>\
+		<<set $curScene.outfitName = "casual">>\
+	<<case 3>>\
+		<<set $curScene.outfitName = "formal">>\
+	<<case 4>>\
+		<<set $curScene.outfitName = "lingerie">>\
+	<</switch>>\
+<<else>>\
+	<<if $curScene.outfit.includes(0)>>\
+		<<set $curScene.outfitName = "partial">>\
+	<<else>>\
+		<<set $curScene.outfitName = "mismatch">>\
+	<<endif>>\
+<<endif>>\
