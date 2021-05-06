@@ -2059,6 +2059,7 @@ window.flagsList={
 	postConPassage: "",
 	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
 	refreshTravel: false,
+	holdPaymentIncrease: false,
 },
 
 window.kinkList={
