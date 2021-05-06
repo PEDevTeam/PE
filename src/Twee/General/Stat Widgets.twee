@@ -972,12 +972,15 @@
 		<<endif>>
 		
 		<<if $body.earsPierced.level gt 0>>
-			<<if playerCode.isWearing(itemsC.diamondStuds)>>
-				<<showAvatarImage "earrings_diamond.png">>
-			<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>
-				<<showAvatarImage "earrings_ruby.png">>
-			<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>
-				<<showAvatarImage "earrings_hoops.png">>
+			<<_earrings = window.wardrobeFuncs.getWornItem('earrings')>>
+			<<if _earrings>>
+				<<if earrings.masterItem == "casualEarrings">>
+					<<showAvatarImage "earrings_diamond.png">>
+				<<elseif earrings.masterItem == "classyEarrings">>
+					<<showAvatarImage "earrings_ruby.png">>
+				<<elseif earrings.masterItem == "flashyEarrings">>
+					<<showAvatarImage "earrings_hoops.png">>
+				<<endif>>
 			<<endif>>
 		<<endif>>
 		
@@ -1000,7 +1003,7 @@
 		<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>
 		<<if _shoes>>
 			<<if _shoes.isFemale>>
-				<<if playerCode.isWearing(itemsC.flats)>>
+				<<if shoes.masterItem == 'flats'>>
 					<<set _feets="feets_flats.png">>
 				<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
 					<<set _feets="feets_shoes_socks_cheer.png">>

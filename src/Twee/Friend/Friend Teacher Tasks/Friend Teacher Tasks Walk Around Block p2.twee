@@ -6,7 +6,13 @@
 <<else>>\
 	<<set _femUnderwear = false>>\
 <<endif>>\
-@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, <<if playerCode.isWearing(itemsC.socks)>>girl socks <<else>>stockings<<endif>>. I even put the little cage on.”@@
+<<set _hosiery = window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if _hosiery.masterItem == 'socks'>>\
+	<<_socks = true>>\
+<<else>>\
+	<< _socks == false>>\
+<<endif>>\
+@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, <<if _socks>>girl socks <<else>>stockings<<endif>>. I even put the little cage on.”@@
 
 @@.friend;“You are too cute.”@@ $friend grabs you excitedly and squeezes you tight, $friendG.his_her hands slipping down to caress your butt cheeks through your pants. You gasp in surprise but $friend steps back before you can comment.  @@.friend;“So, you still want to go out?”@@
 
