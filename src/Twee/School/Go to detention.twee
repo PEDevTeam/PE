@@ -11,7 +11,8 @@ You go to the detention room. $teacher is waiting for you.
 			<<set $flags.walletForgottenEnd = true>>\
 		<<endif>>\
 	<<else>>\
-		<<if playerCode.isWearingOn(itemTypes.Chastity) and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
+		<<set _chast = window.wardrobeFuncs.getWornItem('chastity')>>\
+		<<if _chast and (not $flags.lockedWeekend) and (not $flags.chastityAgree) and $flags.chastityKey>>\
 			Finally, $teacher unlocks your chastity cage.
 			
 			<<set $flags.chastityLocked = false>>\

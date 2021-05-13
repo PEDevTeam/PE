@@ -36,7 +36,7 @@ window.clothes={
 			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
 			var collar=window.wardrobeFuncs.getWornItem('neckwear');
 			var hairband=window.wardrobeFuncs.getWornItem('headwear');
-			var earrings=window.wardrobeFuncs.getWornItem('earrings');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
 			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
 			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
 			if (!outerwear && underwear && underwear.isFemale && player.perversion.guardian <= 3) {
@@ -68,7 +68,7 @@ window.clothes={
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a feminine hair accessory";
 				return false;
 			}
-			if ((eyewear || mouthwear) && player.perversion.guardian <= 3) {
+			if (((eyewear && eyewear.isFemale) || mouthwear) && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing an extra accessory";
 				return false;
 			}
@@ -157,7 +157,7 @@ window.clothes={
 			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
 			var collar=window.wardrobeFuncs.getWornItem('neckwear');
 			var hairband=window.wardrobeFuncs.getWornItem('headwear');
-			var earrings=window.wardrobeFuncs.getWornItem('earrings');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
 			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
 			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
 			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
@@ -208,7 +208,7 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing a feminine hair accessory";
 				return false;
 			}
-			if ((eyewear || mouthwear) && (player.daring < window.daringValues.daringExtra)) {
+			if (((eyewear && eyewear.isFemale) || mouthwear) && (player.daring < window.daringValues.daringExtra)) {
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra acessorry";
 				return false;
 			}
@@ -290,7 +290,7 @@ window.clothes={
 			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
 			var collar=window.wardrobeFuncs.getWornItem('neckwear');
 			var hairband=window.wardrobeFuncs.getWornItem('headwear');
-			var earrings=window.wardrobeFuncs.getWornItem('earrings');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
 			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
 			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
 			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
