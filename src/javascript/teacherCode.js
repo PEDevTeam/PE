@@ -329,7 +329,7 @@ window.teacherPunishments = {
 		priority:	5,
 		baseReq:	{ teacher: [0, 11], guardian: [0, 10], therapist: [0, 10], penalties: [0, 10] },
 		extraReq:	function () {
-					return State.active.variables.kinkAllow.penisShrink && (!(State.active.variables.body.penisShrink == 1));
+					return State.active.variables.kinkAllow.penisShrink && (!(State.active.variables.body.penisShrink.level == 1));
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -365,7 +365,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 7], guardian: [0, 10], therapist: [0, 10], penalties: [2, 6] },
 		extraReq:	function () {
-					return !(State.active.variables.body.bodyhair == 3);
+					return !(State.active.variables.body.bodyhair.level == 3);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -401,7 +401,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [0, 7], guardian: [0, 10], therapist: [0, 10], penalties: [0, 4] },
 		extraReq:	function () {
-					return (!State.active.variables.body.earsPierced);
+					return (!State.active.variables.body.earsPierced.level == 1);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -420,7 +420,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [0, 6], guardian: [0, 10], therapist: [0, 10], penalties: [0, 6] },
 		extraReq:	function () {
-					return (State.active.variables.body.ass <= 0) && (!State.active.variables.flags.teacherNoticeAssEnhancing);
+					return (State.active.variables.body.ass.level <= 0) && (!State.active.variables.flags.teacherNoticeAssEnhancing);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -457,7 +457,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [5, 11], guardian: [0, 10], therapist: [0, 10], penalties: [4, 8] },
 		extraReq:	function () {
-					return (State.active.variables.body.ass <= 1) && (!State.active.variables.flags.teacherNoticeAssEnhancingXL);
+					return (State.active.variables.body.ass.level <= 1) && (!State.active.variables.flags.teacherNoticeAssEnhancingXL);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -475,7 +475,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [5, 11], guardian: [0, 10], therapist: [0, 10], penalties: [4, 8] },
 		extraReq:	function () {
-					return (State.active.variables.body.lips <= 1) && (!State.active.variables.flags.teacherNoticeLipsEnhancingXL);
+					return (State.active.variables.body.lips.level <= 1) && (!State.active.variables.flags.teacherNoticeLipsEnhancingXL);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -512,7 +512,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [3, 6] },
 		extraReq:	function () {
-					return (State.active.variables.body.makeup <= 1) && (!State.active.variables.flags.teacherNoticeNormalMakeup);
+					return (State.active.variables.body.makeup.level <= 1) && (!State.active.variables.flags.teacherNoticeNormalMakeup);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -530,7 +530,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [5, 10] },
 		extraReq:	function () {
-					return (State.active.variables.body.makeup <= 3) && (!State.active.variables.flags.teacherNoticeHeavyMakeup) && (State.active.variables.body.semiMakeup <= 3);
+					return (State.active.variables.body.makeup.level <= 3) && (!State.active.variables.flags.teacherNoticeHeavyMakeup) && (State.active.variables.body.makeup.semiLevel <= 3);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -548,7 +548,7 @@ window.teacherPunishments = {
 		priority:	2,
 		baseReq:	{ teacher: [8, 11], guardian: [0, 10], therapist: [0, 10], penalties: [7, 10] },
 		extraReq:	function () {
-					return State.active.variables.kinkAllow.tattoo && (State.active.variables.body.permMakeup <= 3);
+					return State.active.variables.kinkAllow.tattoo && (State.active.variables.body.makeup.permLevel <= 3);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -567,7 +567,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [0, 6] },
 		extraReq:	function () {
-					return (State.active.variables.body.manicure == 0) && (!State.active.variables.flags.teacherNoticeManicure);
+					return (State.active.variables.body.manicure.level == 0) && (!State.active.variables.flags.teacherNoticeManicure);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -585,7 +585,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [6, 10] },
 		extraReq:	function () {
-					return (!(State.active.variables.body.manicure == 2)) && (!State.active.variables.flags.teacherNoticeManicurePerm);
+					return (!(State.active.variables.body.manicure.level == 2)) && (!State.active.variables.flags.teacherNoticeManicurePerm);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -658,7 +658,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
-					return (!(State.active.variables.body.boobs == 4)) && (!State.active.variables.flags.teacherNoticeBreastsDD);
+					return (!(State.active.variables.body.boobs.level == 4)) && (!State.active.variables.flags.teacherNoticeBreastsDD);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -677,7 +677,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [2, 6] },
 		extraReq:	function () {
-					return (State.active.variables.body.face == 0);
+					return (State.active.variables.body.face.level == 0);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -695,7 +695,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [5, 8], guardian: [0, 10], therapist: [0, 10], penalties: [3, 7] },
 		extraReq:	function () {
-					return (State.active.variables.body.face < 2);
+					return (State.active.variables.body.face.level < 2);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -713,7 +713,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 6], guardian: [0, 10], therapist: [0, 10], penalties: [3, 7] },
 		extraReq:	function () {
-					return (State.active.variables.body.nose == 0) && (!State.active.variables.flags.teacherNoticeNosePiggy);
+					return (State.active.variables.body.nose.level == 0) && (!State.active.variables.flags.teacherNoticeNosePiggy);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -867,7 +867,7 @@ window.teacherPunishments = {
 		baseReq:	{ teacher: [5, 11], guardian: [0, 10], therapist: [0, 10], penalties: [4, 8] },
 		extraReq:	function () {
 					//return (!playerCode.owns(itemsC.PiercingTongue)) && State.active.variables.kinkAllow.piercing;
-					return (!State.active.variables.body.tonguePierced) && State.active.variables.kinkAllow.piercing;
+					return (!State.active.variables.body.tonguePierced.level > 0) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -886,7 +886,7 @@ window.teacherPunishments = {
 		baseReq:	{ teacher: [5, 11], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
 					//return (!playerCode.owns(itemsC.PiercingNipples)) && State.active.variables.kinkAllow.piercing;
-					return (!State.active.variables.body.nipplesPierced) && State.active.variables.kinkAllow.piercing;
+					return (!State.active.variables.body.nipplesPierced.level > 0) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -905,7 +905,7 @@ window.teacherPunishments = {
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
 					//return (!playerCode.owns(itemsC.PiercingLips)) && State.active.variables.kinkAllow.piercing;
-					return (!State.active.variables.body.lipsPierced) && State.active.variables.kinkAllow.piercing;
+					return (!State.active.variables.body.lipsPierced.level > 0) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -924,7 +924,7 @@ window.teacherPunishments = {
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
 					//return (!playerCode.owns(itemsC.PiercingBelly)) && State.active.variables.kinkAllow.piercing;
-					return (!State.active.variables.body.bellyPierced) && State.active.variables.kinkAllow.piercing;
+					return (!State.active.variables.body.bellyPierced.level > 0) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -943,7 +943,7 @@ window.teacherPunishments = {
 		baseReq:	{ teacher: [6, 11], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
 					//return (!playerCode.owns(itemsC.PiercingNose)) && State.active.variables.kinkAllow.piercing;
-					return (!State.active.variables.body.nosePierced) && State.active.variables.kinkAllow.piercing;
+					return (!State.active.variables.body.nosePierced.level > 0) && State.active.variables.kinkAllow.piercing;
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -962,7 +962,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [4, 5], guardian: [0, 10], therapist: [0, 10], penalties: [2, 8] },
 		extraReq:	function () {
-					return (State.active.variables.body.semiAnal <= 0) && (State.active.variables.body.anal <= 0);
+					return (State.active.variables.body.anal.semiLevel <= 0) && (State.active.variables.body.anal.level <= 0);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -980,7 +980,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [6, 7], guardian: [0, 10], therapist: [0, 10], penalties: [3, 8] },
 		extraReq:	function () {
-					return (State.active.variables.body.semiAnal <= 1) && (State.active.variables.body.anal <= 1);
+					return (State.active.variables.body.anal.semiLevel <= 1) && (State.active.variables.body.anal.level <= 1);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},
@@ -1016,7 +1016,7 @@ window.teacherPunishments = {
 		priority:	1,
 		baseReq:	{ teacher: [10, 11], guardian: [0, 10], therapist: [0, 10], penalties: [6, 10] },
 		extraReq:	function () {
-					return (State.active.variables.body.permAnal <= 2) && (State.active.variables.body.anal >= 3);
+					return (State.active.variables.body.anal.permLevel <= 2) && (State.active.variables.body.anal.level >= 3);
 				},
 		cooldown:	1,	// Cooldown in days since last given
 		start:		function () {},

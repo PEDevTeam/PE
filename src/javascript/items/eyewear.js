@@ -70,7 +70,7 @@ $.extend(true, window.items, {
         sunglasses01:{
             masterItem:"sunglasses",
             variant:"sunglasses_01",
-            name:"Wayferer Sunglasses with Pink Frames",
+            name:"Wayfarer Sunglasses with Pink Frames",
             price:20,
             daring:0,
             disabled:false,

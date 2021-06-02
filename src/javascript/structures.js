@@ -2079,6 +2079,7 @@ window.flagsList={
 	lessonMultiFail: false,
 	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
 	refreshTravel: false,
+	holdPaymentIncrease: false,
 },
 
 window.kinkList={

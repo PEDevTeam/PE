@@ -398,13 +398,20 @@ window.playerCode={
 	},
 	calculateBribeIncrease: function() {
 		var player=State.active.variables.player;
+		var vars = State.active.variables;
 		
-		if (player.perversion.teacher < 3) { player.bribeIncrease = 10*State.active.variables.flags.bribeFactor; return; }
-		if (player.perversion.teacher < 5) { player.bribeIncrease = Math.floor(15*State.active.variables.flags.bribeFactor); return; }
-		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.bribeIncrease = 0; return; }
-		if (player.perversion.teacher < 7) { player.bribeIncrease = 20*State.active.variables.flags.bribeFactor; return; }
-		
-		player.bribeIncrease = 30*State.active.variables.flags.bribeFactor;
+		player.bribeIncrease = 0;
+		if (!vars.flags.holdPaymentIncrease) {
+			if (player.perversion.teacher < 3) { player.bribeIncrease = 10*State.active.variables.flags.bribeFactor; return; }
+			if (player.perversion.teacher < 5) { player.bribeIncrease = Math.floor(15*State.active.variables.flags.bribeFactor); return; }
+			if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.bribeIncrease = 0; return; }
+			if (player.perversion.teacher < 7) { player.bribeIncrease = 20*State.active.variables.flags.bribeFactor; return; }
+
+			player.bribeIncrease = 30*State.active.variables.flags.bribeFactor;
+		} else{
+			vars.flags.holdPaymentIncrease = false; 
+			return;
+		}
 	},
 	owns_d: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;

@@ -48,7 +48,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        corset:{
+        corsets:{
             itemType:"bra",
             clothingSlot:"bra",
             name:"Corsets",

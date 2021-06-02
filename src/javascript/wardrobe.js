@@ -396,6 +396,7 @@ window.wardrobe = {
                 "bras",
                 "sexyBras",
                 "latexBras",
+				"corsets",
             ]
         },
         outerwear: {
