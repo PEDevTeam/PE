@@ -17,7 +17,7 @@
 	<<if _wornOuterwear and _wornOuterwear.isFemale and (not $therapistTalks.talkCrossdressing.start)>>\
 		/*<<set $therapistTalks.talkCrossdressing.start=true>>  DISABLED UNTIL PROPER TALK SCENE*/\
 	<<endif>>\
-	<<if _wornUnderwear and _wornUnderwear.isFemale and window.inventoryFuncs.hasTag(_wornUnderwear, 'slutty') and (not $player.daringFlag.femaleUnderwear)>>\
+	<<if _wornUnderwear and _wornUnderwear.isFemale and window.inventoryFuncs.hasTag(_wornUnderwear, 'sexy') and (not $player.daringFlag.femaleUnderwear)>>\
 		<<set $player.daringFlag.femaleUnderwear to true>>\
 		It's a little bit scary walking outside wearing slutty female underwear, and it feels like everyone who looks at you can tell.
 
@@ -41,10 +41,10 @@
 <<if $showimages and (not $avatar.active)>><!--<Clothes mini-images>-->
 	<div class="sidebarImages">
 	<<set _curClothes=[window.wardrobeFuncs.getWornItem('outerwear'),
-							window.wardrobeFuncs.getWornItem('earrings'),
+							window.wardrobeFuncs.getWornItem('earring'),
 							window.wardrobeFuncs.getWornItem('neckwear'),
 							window.wardrobeFuncs.getWornItem('headwear'),
-							window.wardrobeFuncs.getWornItem('mouth'),
+							window.wardrobeFuncs.getWornItem('eyewear'),
 							window.wardrobeFuncs.getWornItem('bra'),
 							window.wardrobeFuncs.getWornItem('chastity'),
 							window.wardrobeFuncs.getWornItem('underwear'),
@@ -972,12 +972,15 @@
 		<<endif>>
 		
 		<<if $body.earsPierced.level gt 0>>
-			<<if playerCode.isWearing(itemsC.diamondStuds)>>
-				<<showAvatarImage "earrings_diamond.png">>
-			<<elseif playerCode.isWearing(itemsC.rubyEarrings)>>
-				<<showAvatarImage "earrings_ruby.png">>
-			<<elseif playerCode.isWearing(itemsC.hoopsEarrings)>>
-				<<showAvatarImage "earrings_hoops.png">>
+			<<_earrings = window.wardrobeFuncs.getWornItem('earring')>>
+			<<if _earrings>>
+				<<if earrings.masterItem == "casualEarrings">>
+					<<showAvatarImage "earrings_diamond.png">>
+				<<elseif earrings.masterItem == "classyEarrings">>
+					<<showAvatarImage "earrings_ruby.png">>
+				<<elseif earrings.masterItem == "flashyEarrings">>
+					<<showAvatarImage "earrings_hoops.png">>
+				<<endif>>
 			<<endif>>
 		<<endif>>
 		
@@ -1000,7 +1003,7 @@
 		<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>
 		<<if _shoes>>
 			<<if _shoes.isFemale>>
-				<<if playerCode.isWearing(itemsC.flats)>>
+				<<if shoes.masterItem == 'flats'>>
 					<<set _feets="feets_flats.png">>
 				<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
 					<<set _feets="feets_shoes_socks_cheer.png">>

@@ -267,8 +267,8 @@
 				<<if (playerCode.isMaid()) and inventoryFuncs.ownsMasterItem('schoolUniform')>>\
 					<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", false)>>\
 					<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", false)>>\
-					<<set inventoryFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
-					<<set inventoryFuncs.disableItemVariantsByProperty('isMale', true)>>\
+					<<set window.itemFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
+					<<set window.itemFuncs.disableItemVariantsByProperty('isMale', true)>>\
 					<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
 					<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 					
@@ -1029,7 +1029,7 @@
 			
 			Your penis strains against the cage as vivid fantasies of what else $teacher might teach you about women fill your head... mostly involving her undressing and assuming various poses for your 'educational' viewing.
 
-			[[Agree to remain in chastity][$flags.chastityAgree=true]]
+			[[Agree to remain in chastity][$flags.chastityAgree=true; $flags.holdPaymentIncrease = true]]
 			[[Refuse to remain in chastity][$flags.chastityAgree=false]]
 		<<elseif ($player.perversion.teacher gte 4) and ($player.punishments.penalty lte 3) and (not $flags.lockedWeekend)>>\
 			<<if ($tuitionAmount-$player.tuitionDiscount gte 100)>>\

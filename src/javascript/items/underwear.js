@@ -439,7 +439,7 @@ $.extend(true, window.items, {
         cottonPanties60:{
             masterItem:"plainPanties",
             variant:"panties_cotton_60",
-            name:"Pastel Blue Pain Panties with Frilly White Edges",
+            name:"Pastel Blue Plain Panties with Frilly White Edges",
             price:15,
             daring:3,
             disabled:false,

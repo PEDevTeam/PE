@@ -408,13 +408,20 @@ window.playerCode={
 	},
 	calculateTuitionIncrease: function() {
 		var player=State.active.variables.player;
+		var vars = State.active.variables;
 		
-		if (player.perversion.teacher < 3) { player.tuitionIncrease = 10*State.active.variables.flags.tuitionFactor; return; }
-		if (player.perversion.teacher < 5) { player.tuitionIncrease = Math.floor(15*State.active.variables.flags.tuitionFactor); return; }
-		if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.tuitionIncrease = 0; return; }
-		if (player.perversion.teacher < 7) { player.tuitionIncrease = 20*State.active.variables.flags.tuitionFactor; return; }
-		
-		player.tuitionIncrease = 30*State.active.variables.flags.tuitionFactor;
+		player.tuitionIncrease = 0;
+		if (!vars.flags.holdPaymentIncrease) {
+			if (player.perversion.teacher < 3) { player.tuitionIncrease = 10*State.active.variables.flags.tuitionFactor; return; }
+			if (player.perversion.teacher < 5) { player.tuitionIncrease = Math.floor(15*State.active.variables.flags.tuitionFactor); return; }
+			if ((player.perversion.teacher == 5) && (player.perversion.teacherCooldown < 2)) { player.tuitionIncrease = 0; return; }
+			if (player.perversion.teacher < 7) { player.tuitionIncrease = 20*State.active.variables.flags.tuitionFactor; return; }
+			
+			player.tuitionIncrease = 30*State.active.variables.flags.tuitionFactor;
+		} else{
+			vars.flags.holdPaymentIncrease = false; 
+			return;
+		}
 	},
 	owns_d: function(item) {
 		return State.active.variables.inventory.indexOf(item.id) >= 0;

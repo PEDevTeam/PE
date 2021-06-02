@@ -1098,6 +1098,7 @@ window.playerAddonsList={
 					smoothing: [1, 2, 3],
 					numOfDates: 0,
 					gender: 2,
+					dateSexFlag: false,
 				},
 				dramaTeacher:	{
 					id: "dramaTeacher",
@@ -2059,6 +2060,7 @@ window.flagsList={
 	postConPassage: "",
 	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
 	refreshTravel: false,
+	holdPaymentIncrease: false,
 },
 
 window.kinkList={
@@ -2271,6 +2273,7 @@ window.cheerList={
 		prank2: false,	//controls access to gym prank
 		guardianPractice: false, //allows player to practice cheerleading with guardian
 		dancePractice: false, //allows player to practice dancing
+		prankTeam: "none", //which team the player chose for the locker room prank
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables

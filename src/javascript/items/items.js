@@ -689,13 +689,13 @@ window.itemFuncs= {
                 var masterItemCount = 0;
                 var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
                 itemVariants = itemVariants.filter(
-                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy)
+                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy) && !(window.inventoryFuncs.isItemVariantOwned(variant.variant))
                 );
                 if(masterItemCounts[masterItemName]){
                     masterItemCount = masterItemCounts[masterItemName];
                 }
                 var randMax = masterItemCount + Math.floor(Math.random() * (9 - 5) + 5); //keep adding between 5 & 8 items each refresh
-                var maxItems = Math.min(randMax, itemVariants.length);
+                var maxItems = Math.min(randMax, masterItemCount + itemVariants.length);
                 if(masterItemCount < maxItems){
                     var newItemCount = maxItems - masterItemCount;
                     for(var j=0; j< newItemCount; j++){
