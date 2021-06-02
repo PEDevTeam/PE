@@ -1063,7 +1063,7 @@ window.playerAddonsList={
 				guardian:	{
 					id: "guardian",
 					name: "",
-					hair: [1, 2, 3, 4, 5, 6],
+					hair: [1, 2, 3, 4, 5],
 					face: [0, 1, 2],
 					lips: [0, 1, 2],
 					breasts: [0, 1, 2, 3, 4],
@@ -1075,7 +1075,7 @@ window.playerAddonsList={
 				coach:	{
 					id: "coach",
 					name: "Coach",
-					hair: [3, 4, 5, 6],
+					hair: [3, 4, 5],
 					face: [2],
 					lips: [2],
 					breasts: [4],
@@ -1087,7 +1087,7 @@ window.playerAddonsList={
 				ashley:	{
 					id: "ashley",
 					name: "Ashley",
-					hair: [2, 3, 4, 5, 6],
+					hair: [2, 3, 4, 5],
 					face: [2],
 					lips: [2],
 					breasts: [2, 3, 4],
@@ -1099,7 +1099,7 @@ window.playerAddonsList={
 				roxy:	{
 					id: "roxy",
 					name: "Roxy",
-					hair: [1, 2, 3, 4, 5, 6],
+					hair: [1, 2, 3, 4, 5],
 					face: [1, 2],
 					lips: [0],
 					breasts: [0],
@@ -1111,7 +1111,7 @@ window.playerAddonsList={
 				jogger:	{
 					id: "jogger",
 					name: "the Jogger",
-					hair: [1, 2, 3, 4, 5, 6],
+					hair: [1, 2, 3, 4, 5],
 					face: [1, 2],
 					lips: [1, 2],
 					breasts: [1, 2, 3, 4],
@@ -1119,11 +1119,12 @@ window.playerAddonsList={
 					smoothing: [1, 2, 3],
 					numOfDates: 0,
 					gender: 2,
+					dateSexFlag: false,
 				},
 				dramaTeacher:	{
 					id: "dramaTeacher",
 					name: "Ms. Ravensong",
-					hair: [2, 3, 6],
+					hair: [2, 3, 5],
 					face: [1, 2],
 					lips: [1, 2],
 					breasts: [1, 2, 3],
@@ -1312,38 +1313,42 @@ window.bodyList={
 	},
 
 	hairstyle: {
-		level : 0, // 0 : short, 1 : medium, 2 : long, 3 : curly, 4 : pigtails
+		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : curly, 5 : pigtails
 		disabled : false,
 		maxLevel : 4,
 		level0: {
+			description: "Male haircut",
+			disabled: true
+		},
+		level1: {
 			description : "Short haircut",
 			cost : 20,
 			image : "hair_short_brown.jpg",
 			daring : 5,
 			disabled : true
 		},
-		level1: {
+		level2: {
 			description : "Medium haircut",
 			cost : 30,
 			image : "hair_medium_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
-		level2: {
+		level3: {
 			description : "Long haircut",
 			cost : 50,
 			image : "hair_long_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
-		level3: {
+		level4: {
 			description : "Curly hair",
 			cost : 40,
 			image : "hair_curly_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
-		level4: {
+		level5: {
 			description : "Pigtails",
 			cost : 30,
 			image : "hair_pigtails_brown.jpg",
@@ -2075,6 +2080,7 @@ window.flagsList={
 	lessonMultiFail: false,
 	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
 	refreshTravel: false,
+	holdPaymentIncrease: false,
 },
 
 window.kinkList={
@@ -2288,6 +2294,7 @@ window.cheerList={
 		prank2: false,	//controls access to gym prank
 		guardianPractice: false, //allows player to practice cheerleading with guardian
 		dancePractice: false, //allows player to practice dancing
+		prankTeam: "none", //which team the player chose for the locker room prank
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables

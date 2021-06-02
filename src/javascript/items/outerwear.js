@@ -1338,7 +1338,7 @@ $.extend(true, window.items, {
             tags:{
                 plain:true,
                 pink:true,
-                bluie:true,
+                blue:true,
             }
         },
         casualDress70:{

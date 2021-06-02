@@ -120,7 +120,7 @@
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
-	<<if _hose.isFemale == 1>>\
+	<<if _hose && _hose.isFemale == 1>>\
 		<<set _femaleLegWear = true>>\
 		<<if _stock>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
@@ -202,12 +202,13 @@
 	<<endif>>\
 	
 	<<if $friendG.parkFail == 1>>\
-	“You know,” $friend says, throwing the bag back into the wardrobe and slamming the door. “If you’re not even doing the basics, I don’t know why you would want to go outside in a dress. This is not some game for me, and if you are not going to put the effort in, then I am not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun, put some effort into your appearance. If you do, we can go for a walk if you want.” $friend sounds angry and annoyed and somewhat disappointed. 
+		@@.friend;“You know,”@@ $friend says, throwing the bag back into the wardrobe and slamming the door. @@.friend;“If you’re not even doing the basics, I don’t know why you would want to go outside in a dress. This is not some game for me, and if you are not going to put the effort in, then I am not going to help. Think about it tonight, $player.name, and if you decide you want to continue having fun, put some effort into your appearance. If you do, we can go for a walk if you want.”@@ $friend sounds angry and annoyed and somewhat disappointed. 
 
-	I’d better check my outfit before I ask again, $friend wants me to wear things to put some effort in for [him/her]
+		@@.friend;I’d better check my outfit before I ask again, $friend wants me to wear things to put some effort in for $friendG.him_her.@@
 
-	With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
+		With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
 		<<set $friendG.parkAttempt = 1>>\
+		<<display [[Travel]]
 	<<else>>\
 		[[Change for Park|Friend Teacher Tasks Park p2]]
 	<<endif>>\

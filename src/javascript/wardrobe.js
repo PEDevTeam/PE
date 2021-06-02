@@ -357,38 +357,7 @@ window.wardrobeFuncs = {
         }
     },
     updateSidebar: function(){
-        if(SugarCube.State){
-            var actVar = SugarCube.State.active.variables;
-            var actState = SugarCube.State;
-        }
-        else{
-            var actVar = State.active.variables;
-            var actState = State;
-        }
-
-        var currentClothing = actVar.player.clothingSlots;
-
-        var clothingSlotSidebarDiv = document.createElement('div');
-        clothingSlotSidebarDiv.id = 'sidebar_clothes';
-        clothingSlotSidebarDiv.className = 'clothing-slot-sidebar-background-image';
-
-        for(var clothingIdx in currentClothing){
-            if(currentClothing[clothingIdx]!= null){
-                var currentClothingSlotItem = currentClothing[clothingIdx];
-                var masterItem = window.items.itemMasters[currentClothingSlotItem.masterItem];
-                var currentClothingSlot = masterItem.clothingSlot;
-                var clothingSlotDiv = document.createElement('div');
-                var clothingSlotImg = document.createElement('img');
-                clothingSlotDiv.id = 'sidebar_' + currentClothingSlot + 'Slot';
-                clothingSlotDiv.className = 'clothing-slot-sidebar-anchor';
-                clothingSlotImg.className = 'clothing-slot-sidebar-' + currentClothingSlot;
-                clothingSlotImg.src = "./Images/items/" + currentClothingSlotItem.variant + ".jpg";
-                clothingSlotDiv.appendChild(clothingSlotImg);
-                clothingSlotSidebarDiv.appendChild(clothingSlotDiv);
-            }
-        }
-
-        $("#sidebar_clothes").replaceWith(clothingSlotSidebarDiv);
+        new Wikifier(null, '<<updateClothes>>');
 
         
     },
@@ -427,6 +396,7 @@ window.wardrobe = {
                 "bras",
                 "sexyBras",
                 "latexBras",
+				"corsets",
             ]
         },
         outerwear: {

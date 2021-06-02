@@ -11,7 +11,7 @@
 	<<endif>>\
 Nancy asks if you want to make any changes to your body. There are options for increasing breast size, making lips fuller, reshaping your nose, altering your overall facial profile and even smoothing your anus. Also there are options to make temporary treatments permanent.
 
-<<if $body.nose eq 3>>\
+<<if $body.nose.level eq 3>>\
 @@.nurse;"For my favorite client, you get a 99% discount for anal smoothing treatments."@@
 
 <<endif>>\
@@ -158,7 +158,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _daringRec = $body.anal.level3.daring>>\
 		<<set _sceneName="analSmoothing3">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
-		<<if $body.nose eq 3>>\
+		<<if $body.nose.level eq 3>>\
 			<<set _cost = 1>>\
 		<<else>>\
 			<<set _cost = 200>>\
@@ -174,7 +174,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _daringRec = $body.anal.level2.daring>>\
 		<<set _sceneName="analSmoothing2">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
-		<<if $body.nose eq 3>>\
+		<<if $body.nose.level eq 3>>\
 			<<set _cost = 1>>\
 		<<else>>\
 			<<set _cost = 100>>\
@@ -190,7 +190,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _daringRec = $body.anal.level1.daring>>\
 		<<set _sceneName="analSmoothing1">>\
 		<<set _override=($tasksTeacherBody.analSmooth.status gt 0)>>\
-		<<if $body.nose eq 3>>\
+		<<if $body.nose.level eq 3>>\
 			<<set _cost = 1>>\
 		<<else>>\
 			<<set _cost = 100>>\
@@ -747,7 +747,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _item=itemsC.analSmoothing3>>\
 		<<if ($body.nose.level neq 3)>>\
 			<<set $player.money -= $body.anal.level3.cost>>\
-			<<set $body.nose.level = 3>>
 		<<endif>>\
 		<<set $body.anal.level = 3>>\
 	@@.heroT;"I'd like to get the special anal smoothing course,"@@ you tell Nancy hesitantly, as you know what awaits you.
@@ -953,7 +952,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<endif>>\
 	<<endif>>\
 
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 	@@.nurse;"Please, come again in a week, I will prepare something special, that would be perfect for you, free of charge."@@
 	<<else>>\
 	@@.nurse;"I will wait for your return in a week."@@
@@ -962,7 +961,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<if ($body.nose.level neq 3)>>\
 		<<set $player.money -= $body.anal.level2.cost>>\
-		<<set $body.nose.level = 3>>\
 	<<endif>>\
 	<<set $body.anal.level = 2>>\
 	<<set $flags.salonAnal=true>>\
@@ -1073,7 +1071,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		
 		<<endif>>\
 	<<endif>>\
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 	@@.nurse;"Please, come again in a week, and I'll do the second treatment, free of charge."@@
 	
 	<<else>>\
@@ -1085,7 +1083,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	[[Return|Clinic Body enhancing][$scene=""; $random.stored=0]]
 	<<if ($body.nose.level neq 3)>>\
 		<<set $player.money -= $body.anal.level3.cost>>\
-		<<set $body.nose.level = 3>>\
 	<<endif>>\
 	<<set $body.anal.level = 1>>\
 	<<set $flags.salonAnal=true>>\
@@ -1217,7 +1214,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 <<elseif $scene eq "defaultNose">>\
 	@@.heroT;"I'd like to return to the original shape of my nose,"@@ you tell Nancy.
 
-	<<if ($body.nose eq 3)>>\
+	<<if ($body.nose.level eq 3)>>\
 		@@.nurse;"But, it looks so good on you!"@@ she protests, obviously offended. @@.nurse;"Don't you like my work at all?"@@
 		
 		When you try to explain, she interrupts you.
