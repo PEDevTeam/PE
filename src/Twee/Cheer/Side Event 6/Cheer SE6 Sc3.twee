@@ -1,0 +1,55 @@
+::Cheer SE6 Sc3
+You take a seat on the curb outside the store, a bit perturbed at having your time with $cheerFriend.name interrupted by her former teacher. You sit and watch the cars drive past as the shadows of the light posts in the parking lot continue to lengthen. 
+
+Finally, the door behind you opens, and Madame Fonteyn steps out. She gives you a polite wave and walks into the ballet studio down the strip mall. A few minutes later, $cheerFriend.name also exits, carrying with her <<if $cheerFriend.affinity > 10>>a massive cup and <<if $cheerFriend.affinity > 15>>a straw<<else>>two straws<<endif>><<else>>two cups and straws.<<endif>>
+
+@@.cheerFriend;“Sorry about that,”@@ she says as she takes a seat next to you. @@.cheerFriend;“I forgot how long it had been since I had seen Madame Fonteyn.”@@ $cheerFriend.name hands you <<if $cheerFriend.affinity > 10>>the<<else>>an<<endif>> ice cold cup and <<if $cheerFriend.affinity > 15>>the<<else>>a<<endif>> straw. @@.cheerFriend;“One giant slushie as promised. My treat.”@@
+
+<<if $cheerFriend.affinity > 10>>\
+	@@.heroT;“Didn’t you get one?”@@ you ask, taking a sip of the ice and fruity syrup.
+
+	@@.cheerFriend;“I got the big one so we could split,”@@ she says, <<if $cheerFriend.affinity <= 15>>, unwrapping her own straw and piercing it through the cup’s lid<<else>> stealing the drink from you and taking a deep sip<<endif>>.
+
+	<<if $cheerFriend.affinity > 15>>\
+		She hands the drink back, and you notice a faint ring of pink on the tip of the straw, and the faint scent of strawberries fills your nose before you slip the straw into your own mouth.
+
+		@@.cheerFriend;“Besides,”@@ $cheerFriend.name adds, @@.cheerFriend;“it’s not like I’m afraid of your cooties or anything.”@@ She takes another long sip. @@.cheerFriend;“You got a problem with swappin’ spit?”@@
+
+		@@.heroT;“I’m pretty sure that’s not what that means…”@@
+
+		$cheerFriend.name giggles. @@.cheerFriend;“I know what it means.”@@
+
+		Your heart suddenly races. @@.hero;Wait, did she just ask if I wanted to kiss her?@@
+
+		A pregnant pause passes between you two as you try to determine if she was just teasing or serious.
+
+		The silence is broken when $cheerFriend.name asks, @@.cheerFriend;“Hey, what do you think of the girls on the squad?”@@
+
+	<<else>>\
+		$cheerFriend.name leans in and takes a sip from the cup at the same time as you. The sight of her eyes looking into yours and the gentle warmth of her body heat sets your heart racing.
+
+		$cheerFriend.name gives you a gentle smile as she leans back and asks, @@.friend;“Hey, what do you think of the girls on the squad?”@@
+
+	<<endif>>\
+<<else>>\
+	You thank her and take a long sip of the ice and fruity syrup. Much to your surprise, the drink is everything she promised you, perfectly saccharine and bursting with candy-fruit flavor.
+
+	$cheerFriend.name smiles when she sees you enjoying the drink, and slurps away at her own straw. After a few moments of shared slurping, $cheerFriend.name looks over at you and asks, @@.friend;“Hey, what do you think of the girls on the squad?”@@
+
+<<endif>>\
+@@.heroT;“I mean, they seem pretty cool,”@@ you <<if $cheerleaders.bitchAffinity < 1>>reply.<<else>>reply, @@.heroT;“with the exception of Ashley and her cronies, of course.”@@<<endif>>
+
+@@.cheerFriend;“That’s… That’s not what I mean.”@@ $cheerFriend.name takes another long sip of slushie. @@.cheerFriend;“If… if you could date any girl on the squad, who would it be? Think of it like a ‘would you rather’ question. So, you have to answer honestly!”@@
+
+You freeze solid, unsure of how to respond. You <<if $cheerleaders.bitchAffinity < 5>>definitely<<else>>think you<<endif>> know the answer, but you’re unsure of how $cheerFriend.name would take it. 
+
+If you tell $cheerFriend.name her, she might freak out, especially if she doesn’t feel that way about you. Picking someone else, or even nobody, might give her the wrong idea though if she does like you. Rachel might be ok. She’s attractive, but seems basically uninterested in any sort of romance. Or, you could say Ashley. $cheerFriend.name would probably think it was a joke and maybe let you off the hook.
+
+You’re also reminded of your cover as a girl on the cheer squad. Wouldn’t it be safer to tell her you only like guys if you didn’t want her to start to suspect something was up with you?
+
+The expectant look on $cheerFriend.name makes it clear that she expects an answer.
+
+<<print '[[Say ' + $cheerFriend.name + '|Cheer SE6 Sc4][$version = "a"]]'>>
+[[Say Rachel|Cheer SE6 Sc4][$version = 'b']]
+[[Say Ashley|Cheer SE6 Sc4][$version = 'c']]
+[[Say you only like guys|Cheer SE6 Sc4][$version = 'd']]
