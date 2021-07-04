@@ -680,9 +680,10 @@ window.structures={
 		var clothingSets = window.itemNavigator.clothingSets;
 		if(vars.clothingSets == null){
 			vars.clothingSets = [];
-		}
-		for(var clothingSetIdx in clothingSets){
-			vars.clothingSets.push(clothingSets[clothingSetIdx])
+			
+			for(var clothingSetIdx in clothingSets){
+				vars.clothingSets.push(clothingSets[clothingSetIdx])
+			}
 		}
 	},
 
