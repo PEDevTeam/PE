@@ -93,7 +93,7 @@
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle.level eq 5))>>\
+<<if (not ($body.hairstyle.level eq 4))>>\
 	<<set _image = $body.hairstyle.level5.image>>\
 	<<set _name = $body.hairstyle.level5.description>>\
 	<<set _disabled = $body.hairstyle.level5.disabled>>\
@@ -104,7 +104,7 @@
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not ($body.hairstyle.level eq 4))>>\
+<<if (not ($body.hairstyle.level eq 5))>>\
 	<<set _image = $body.hairstyle.level4.image>>\
 	<<set _name = $body.hairstyle.level4.description>>\
 	<<set _disabled = $body.hairstyle.level4.disabled>>\
@@ -379,8 +379,8 @@
 		
 		@@.reward;You now have a long, wavy hairstyle!@@
 	<<elseif $scene eq "HairPigtails">>\
-		<<set $body.hairstyle.level = 5>>\
-		<<set $player.money -= $body.hairstyle.level5.cost>>
+		<<set $body.hairstyle.level = 4>>\
+		<<set $player.money -= $body.hairstyle.level4.cost>>
 		Nancy sits you down in the salon chair.  @@.nurse;"I'm so glad you wanted to get your hair done,"@@ she says.  @@.nurse;"I think this style will look great on you."@@
 
 		She starts adding some length to your hair with hair extensions.  These extensions go just past your shoulders and add a good deal of volume to your hair as well.
@@ -395,8 +395,8 @@
 		
 		@@.reward;You now have a girly, pigtailed hairstyle!@@
 	<<elseif $scene eq "HairCurly">>\
-		<<set $body.hairstyle.level = 4>>\
-		<<set $player.money -= $body.hairstyle.level4.cost>>
+		<<set $body.hairstyle.level = 5>>\
+		<<set $player.money -= $body.hairstyle.level5.cost>>
 		Nancy leads you towards a purpose-made salon chair and helps you relax in its cushioned seat. She swishes an apron over your body, and tells you to get comfortable. 
 		
 		@@.nurse;"I bet you're going to just //love// this look!"@@ Nancy says animatedly.
