@@ -10,12 +10,12 @@ You tip the contents out on a small table and rummage through them. Phoebe has g
 	As you lift them up, you see that the panties are obviously worn, but clean, and you realize that they are a pair of Phoebe’s panties she obviously forgot were inside the shorts.
 <<endif>>\
 
-With a sigh, you start to get changed, undressing fully before pulling Phoebe’s <<if $kink.clothesOdor>>fragrant<<else>>used<<endif>> g-string over your <<if playerCode.isWearingOn(itemTypes.Chastity)>>caged<<else>>hard<<endif>> penis. It trembles as you nestle the panties in place, and a small circle of precum pools at the front. Next, you perch on the edge of the toilet and roll the pantyhose up your legs, nestling them into place.
+With a sigh, you start to get changed, undressing fully before pulling Phoebe’s <<if $kink.clothesOdor>>fragrant<<else>>used<<endif>> g-string over your <<if window.wardrobeFuncs.getWornItem('chastity')>>caged<<else>>hard<<endif>> penis. It trembles as you nestle the panties in place, and a small circle of precum pools at the front. Next, you perch on the edge of the toilet and roll the pantyhose up your legs, nestling them into place.
 
 You hold the leotard up, examining it for a moment, before stepping into the leg-holes and wriggling until it settles into place. \
-<<if playerCode.isWearingOn(itemTypes.Bras) && not playerCode.haveBoobs()>>\
+<<if window.wardrobeFuncs.getWornItem('bra') && not playerCode.haveBoobs()>>\
 	The outline of your bra-straps is clearly visible through the skintight, thin material. Encased in the feminine garment, with the seams made to enhance the feminine form, you ponder what it would be like to have real breasts.
-<<elseif playerCode.isWearingOn(itemTypes.Bras)>>\
+<<elseif window.wardrobeFuncs.getWornItem('bra')>>\
 	The outline of your bra-straps is clearly visible through the skintight, thin material, and the unmistakable outline of your breasts forms a girly silhouette in the front.
 <<elseif playerCode.haveBoobs()>>\
 	The unmistakable curve of your breasts forms a girly silhouette in the front.
@@ -75,7 +75,7 @@ You change as instructed, shaking your head at the stained panties. Then you hea
 <<set _delayKlopsText == false>>
 <<set $flags.firstBuyHeels=true>>\
 <<set playerCode.changeArousal(10)>>\
-<<addToInv heeledBoots 80>>\
+<<addItemVariantToInventory 'boots_heeled_80'>>\
 <<set $tasksTeacher.practiceHeels.status = 2>>\
 <<if ($player.perversion.crossdressing lte 4)>>\
 	<<set $player.perversion.crossdressing = 5>>\

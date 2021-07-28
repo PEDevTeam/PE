@@ -1,12 +1,14 @@
 :: Friend Catch-up 03
 \
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _heels=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'heels')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if not _underwear and not _chastity>><<set _under to 'chastity cage'>>\
 <<elseif not _underwear>><<set _under to 'penis'>>\
-<<elseif not _underwear.female>><<set _under to 'boy pants'>>\
+<<elseif not _underwear.isFemale>><<set _under to 'boy pants'>>\
 <<elseif _underwear.slutty>><<set _under to 'sexy pants'>>\
 <<else>><<set _under to 'cotton pants'>><<endif>>\
 \
@@ -17,8 +19,8 @@
 <<endif>>\
 It’s your first time visiting $friend for a while and you have missed $friendG.him_her.
 
-<<if _outerwear.female>>\
-	You feel the wind sweep up your <<if _outerwear.skirt>>skirt<<else>>dress<<endif>> and caress your <<if _stockings>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by. \
+<<if _outerwear.isFemale>>\
+	You feel the wind sweep up your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>> and caress your <<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stockinged<<else>>bare<<endif>><<if playerCode.isWaxed()>> silky-smooth, girlish<<endif>> legs. You clamp your <<if playerCode.haveManicure()>>manicured<<endif>> hands down to stop the hem billowing up and revealing your _under to anyone walking by. \
 <<endif>>\
 <<if _heels>>\
 	Your footsteps echo each time you place your heel on the sidewalk, as if tolling like a bell for attention as you walk. Your heart thumps in your chest with each heel click, making you flush in a mixture of daring excitement and fear of being discovered. \
@@ -39,9 +41,9 @@ It’s your first time visiting $friend for a while and you have missed $friendG
 <<endif>>\
 
 You stand on the sidewalk trying to pluck up the courage to go inside. Last time you visited, you were essentially a normal looking boy. Now though, well you’re not any more, you look more like a \
-<<if _outerwear.female and playerCode.slutScoreBasic() gt 6>>slut.\
-<<elseif _outerwear.female and playerCode.slutScoreBasic() gt 6>>girl.\
-<<elseif _outerwear.female>>boy dressed in female clothing.\
+<<if _outerwear.isFemale and playerCode.slutScoreBasic() gt 6>>slut.\
+<<elseif _outerwear.isFemale and playerCode.slutScoreBasic() gt 6>>girl.\
+<<elseif _outerwear.isFemale>>boy dressed in female clothing.\
 <<elseif playerCode.slutScoreBasic() gt 6>>slut in boys clothing.\
 <<elseif playerCode.slutScoreBasic() gt 3>>girl in boys clothing.\
 <<else>> ... you don't even know what.<<endif>> \

@@ -1,12 +1,12 @@
 :: Chores punishments [pos_1896_150]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _cf=window.choresFunc.choresFails()>>\
 <<set _pun = true>>\
 	<!--<confiscating vibrator>-->\
-<<if _pun and $flags.chorePunKinky and playerCode.owns(itemsC.vibrator) and (not $flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
+<<if _pun and $flags.chorePunKinky and $player.hasVibrator and (not $flags.chorePunishmentVibrator) and ($player.perversion.guardian eq 4)>>\
 	<<if $flags.confiscatedVibrator>>\
 		@@.guardian;"I won't return this vibrator until you fix your mess."@@
 	<<else>>\
@@ -60,9 +60,9 @@
 <!-- NOTE: A variant of this also exists in Special punishments -->\
 	$Guardian tells you to bend forward, and put your hands on the wall. A bit confused, you do as she says, feeling a bit silly as $guardian makes you shift your feet slightly away from the wall, transfering part of your weight to your arms.
 	
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.isFemale)>>\
 		With one quick motion, $guardian unbuckles and lowers your pants.\
-	<<elseif _o and _o.female>>\
+	<<elseif _outerwear and _outerwear.isFemale>>\
 		With one quick motion, $guardian lowers your skirt.\
 	<<endif>>\
 	You let out a surprised yelp as she\
@@ -74,7 +74,7 @@
 	@@.guardian;"I think you spend too much time playing with your //toys//, so this will keep you occupied and help you stay healthy."@@
 
 	You feel her fingers probe the outside of your back entrance, slick with some kind of ointment. Your anus starts tingling and heating up from the substance.\
-	<<if _c>>\
+	<<if _chastity>>\
 	To your dismay, your penis strains in its cage from the growing stimulation it creates.
 	<<else>>\
 	To your dismay, your penis gets hard from the growing stimulation it creates.
@@ -112,7 +112,7 @@
 	<<set _pun = false>>\
 	<<if not $flags.chorePunishmentHeels>>\
 		<<set $flags.chorePunishmentHeels = true>>\
-		<<addToInv 'highHeel3' 40>>\
+		<<addItemVariantToInventory 'heels_40'>>\
 		@@.guardian;"You know, $player.name, I think I know what to do about your clumsiness. Since you like to dress up so much, I think you should try wearing high heels while you do your chores."@@
 		
 		@@.hero;What?@@

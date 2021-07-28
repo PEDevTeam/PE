@@ -3,8 +3,8 @@
 <<set _choreV = $chores.maidCleaning>>\
 <<set _choreJS = choresList.maidCleaning>>\
 <<set $player.currentChore = choresList.maidCleaning.id>>\
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set _fail to false>>\
 <<set _noDefaultEnd to false>>\
 <<set _boyfriend to false>>\
@@ -45,56 +45,56 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 
 
 <<if playerCode.isHorny()>>\
-	<<if _c>>\
+	<<if _chastity>>\
 	Your penis strains hard against the chastity cage, constantly distracting you from your work.\
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of an orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. You almost sob, mincing with really short steps to keep your balance as your knees wobble from the endless stimulation. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 			Wearing a butt-plug only adds frustration to this ordeal. It keeps pressing on your prostate, torturing you even further and causing strings of precum to dangle from the hole in the bottom of the cage.\
 		<<endif>>\
 	<<else>>\
 	You are so horny that it drives you crazy. You constantly feel urges to stop work and masturbate, but you know that $guardian may be watching.
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. You almost sob, mincing with really short steps to keep your balance as your knees wobble from the constant stimulation. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 			Wearing a butt-plug only adds frustration to this ordeal. It keeps pressing on your prostate, making your penis slowly drip with precum.\
 		<<endif>>\
 	<<endif>>\
 <<elseif playerCode.isHalfHorny()>>\
-	<<if _c>>\
+	<<if _chastity>>\
 	Your penis presses slightly against the chastity cage, constantly reminding you of your position. For some weird reason it feels pleasant.\
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 			Wearing a butt-plug only adds intensity by pressing on your prostate, echoing every twitch of your anus.\
 		<<endif>>\
 	<<else>>\
 	Your half-hard penis hangs freely under the short skirt of your maid outfit.
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 			Wearing a butt-plug adds a bit of a kink to the work. It keeps pressing on your prostate, echoing every twitch of your anus when you move.\
 		<<endif>>\
 	<<endif>>\
 <<else>>\
-	<<if _c>>\
+	<<if _chastity>>\
 	Your penis calmly rests in its chastity cage. It feels surprisingly comforting and weirdly appropriate.\
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 		Wearing a butt-plug adds a bit of a kink to the work. It keeps pressing on your prostate, teasing you when you move.\
 		<<endif>>\
 	<<else>>\
 	Your flaccid penis hangs freely under the short skirt of your maid outfit.\
 		<<if $flags.gTrialGiantVibroPlug>>\
-			<<wearClothing 'buttPlugVibro'>>\
+			<<wearItemVariant 'buttplug_vibro'>>\
 			The vibro butt-plug keeps you on the edge of orgasm the whole time. It slowly massages your prostate, making your penis constantly drip with precum. \
-		<<elseif _b>>\
+		<<elseif _buttplug>>\
 		Wearing a butt-plug adds a bit of a kinky fun to your work. It presses on your prostate, echoing your every movement.\
 		<<endif>>\
 	<<endif>>\
@@ -114,6 +114,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 
 		@@.boyfriend;"I wish I could talk more to you, but I'm in a hurry. See ya later."@@
 		
+
 		As $futa.he_she leaves, you quickly finish work and go to $guardian to receive a slap on your butt and your payment.
 	<<elseif $player.perversion.boyfriend eq 2>>\
 		In the middle of your work, $guardian's $futa.boy_girl////friend's close-by voice startles you.
@@ -131,7 +132,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		@@.boyfriend;"And then, you //push.//"@@ 
 		
 		$futa.His_Her finger prods between your asscheeks and \
-			<<if _b>>\
+			<<if _buttplug>>\
 				presses on your butt-plug.
 			
 				@@.boyfriend;"Oh my, you are a kinky one, aren't you?"@@
@@ -325,7 +326,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 
 	@@.hero;How the hell could something like that //just come up//?@@
 	 
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 	Tricia looks at you and giggles, @@.writer;"Even if I didn’t know, it would be pretty obvious by now.”@@ Pointing to the tent on your micro skirt. They both laugh as you turn bright red. To your shame, your dick grows even more and twitches, shaking your skirt a bit.
 	<<endif>>\
 	You wonder how many more of $guardian's friends know about you?
@@ -359,7 +360,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	@@.guardian;"Sure, take her for a spin,"@@ she laughs.
 	 
 	You walk reluctantly to Tricia. Once there, you hesitate, but she simply stares at you. Feeling extremely humiliated, you're trying to work out how to get out of this, when her expression cools and one eyebrow quirks. And that's all it takes - you find your willpower crumbling, and you lie across her lap. She positions you so your ass is sticking up in the air. \
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		She touches your butt-plug making you shudder a bit.
 		 
 		@@.writer;"Nice toy."@@ She compliments $guardian for giving you such a nice accessory. You nervously wait for the spanking to come, but she builds up the suspense. She caresses your butt, then tugs the butt-plug a bit, making you moan. Then she pushes it back, which makes you squeak, and leak a little precum.
@@ -399,7 +400,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	You think about refusing, but for some reason you don't want to disappoint her. So, you lower your head and start kissing her red high heels. She puts her foot right to your chin and uses the toe to raise your head up. You look up and see her sexy smile.
 	
 	@@.hero;She looks so damn hot!@@ \
-	<<if _c>>\
+	<<if _chastity>>\
 		Your penis strains in its cage as you find yourself incredibly horny.
 	<<else>>\
 		Your penis tents your skirt again to Tricia's amusement.
@@ -425,7 +426,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	<<if $player.choreFailPercent gt random(100) and (not _choreV.fail)>>\
 		<<set _fail = true>>\
 		At the end, after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do.
 		
 		Unfortunately, $guardian doesn't find your work satisfactory. @@.guardian;"$player.name, I'm sick and tired of your laziness. I want to see the whole house //spotless// if you plan to ever get paid again. I mean it - it had better //shine// in here. I hope that will teach you to do things properly."@@
@@ -433,7 +434,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		You go to your room and collapse on your bed, almost crying.
 	<<else>>\
 		At the end, after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do. Then, you receive a playful slap on your butt cheek and an embarrassing appraisal of your work. At last free, you go to your room and collapse on your bed, trying to rest your sore feet.
 	<<endif>>\
 	<!--</Generic and strapon 5>-- perv (6) -->\
@@ -444,7 +445,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 	
 		At the end, after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do. 
 		
 		Unfortunately, $guardian doesn't find your work satisfactory. @@.guardian;"$player.name, you need to try harder than that. I am going to have to //punish// you if you don't make the whole house //spotless//. I mean it - it had better //shine// in here."@@
@@ -454,17 +455,17 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 		
 		You just continue doing your chores while she toys with you, though it is incredibly hard to concentrate on what you are doing\
-			<<if _b>>\
+			<<if _buttplug>>\
 				with the butt-plug stimulating your prostate and \
 			<<else>>\
 				with \
 			<<endif>>\
 		$guardian sensuously groping you. \
-		<<if _c>>\
+		<<if _chastity>>\
 		Several times you have to stop to catch your breath, and you probably would’ve cum if your penis wasn’t so uncomfortable inside its cage. \
 		<<endif>>\
 		Gradually, her grip grows more aggressive and finally she bends you over a nearby couch\
-			<<if _b>>\
+			<<if _buttplug>>\
 				, removes the butt-plug from your ass \
 			<<endif>>\
 		 and presses the tip of her glistening-with-lube strapon against your anus.
@@ -486,7 +487,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 	
 		At the end, after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do. Then, you receive a playful slap on your butt cheek and an embarrassing appraisal of your work. At last free, you go to your room and collapse on your bed, trying to rest your sore feet.
 	<<endif>>\
 	<!--</Generic and strapon 6>-- perv (6) -->\
@@ -497,7 +498,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 	
 		At the end, after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do.. 
 		
 		Unfortunately, $guardian doesn't find your work satisfactory. @@.guardian;"$player.name, I'm sick and tired of your laziness. I want to see the whole house //spotless// if you plan to ever get paid again. I mean it - it had better //shine// in here. I hope that will teach you to do things properly."@@
@@ -507,15 +508,15 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 		
 		You just continue doing your chores while she plays with you, though it is incredibly hard to concentrate on what you are doing\
-			<<if _b>>\
+			<<if _buttplug>>\
 				with the butt-plug stimulating your prostate and \
 			<<endif>>\
 		$guardian sensuously groping you. \
-		<<if _c>>\
+		<<if _chastity>>\
 		Several times you have to stop to catch a breath, and you probably would’ve cum if your penis wasn’t so uncomfortable inside its cage. \
 		<<endif>>\
 		Gradually, her grip grows more aggressive, and finally she bends you over a nearby couch\
-			<<if _b>>\
+			<<if _buttplug>>\
 				, removes the butt-plug from your ass \
 			<<endif>>\
 		 and presses the tip of her glistening-with-lube strapon against your anus.
@@ -537,7 +538,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		From time to time, $guardian checks on you, squeezing your balls or pinching your nipples and poking you in various places. If she sees you doing something she doesn't approve of, she scolds and corrects you.
 
 		At the end,  after finishing your work, you fake working with a feather duster in front of $guardian, often leaning downwards without bending your knees, showing off your\
-		<<if _c>> caged penis<<else>> bare penis<<endif>> and<<if _b>> plugged<<endif>> \
+		<<if _chastity>> caged penis<<else>> bare penis<<endif>> and<<if _buttplug>> plugged<<endif>> \
 		ass as she instructed you to do. Then, you receive a stinging slap on your butt cheek and a confirmation that you are released. Free at last, you go to your room and collapse on your bed, trying to rest your sore feet.
 	<<endif>>\
 	<!--</Generic and strapon 7>-- perv (7) -->\
@@ -551,7 +552,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 	<<endif>>\
 	<<display [[Chore end]]>>\
 	<<if ($tasksEmail.WebcamMaid.status gte 2)>>\
-		<<if _c and _b>>\
+		<<if _chastity and _buttplug>>\
 			<<set $tasksEmail.WebcamMaid.status = 3>>\
 			You check that you filmed yourself wearing both chastity cage and a butt-plug. The mere thought that somebody will see you working hard as a maid, while being utterly sissified, makes you leak a little precum from your cage.
 
@@ -561,7 +562,7 @@ A tight corset prevents you from taking full breaths, and forces you to adopt an
 		
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.spyCamera) and (not $flags.cameraBedroom)>>\
+	<<if $player.hasSpyCamera and (not $flags.cameraBedroom)>>\
 		<<print '[[Install camera in '+$guardian+'\'s bedroom|Install camera in bedroom]]'>>
 	<<endif>>\
 	<<if $flags.chorePunOffer>>\

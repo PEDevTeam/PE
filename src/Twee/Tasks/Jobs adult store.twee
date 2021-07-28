@@ -1,13 +1,13 @@
 :: Jobs adult store [pos_476_1717]
 \
 <div><<RandomImageFromPack "Job Adult Shop" 400 400>></div>\	
-<<set _slb = playerCode.slutScoreBasic()>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _s=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 \
 <<set _tips=0>>\
 \
@@ -78,7 +78,7 @@
 	@@.shopAd;"I heard today is opening day for a shop that's in some ways similar to mine. That's why it's been less crowded than usual here. Don't worry, that new place will be no real competitor of mine."@@
 
 	You get your pay, thank her for the job again and leave. To you, the whole thing was surprisingly ordinary.
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.isFemale)>>\
 		At least you get to wear you normal clothes to this work.
 	<<endif>>\
 <<elseif ($player.jobs.adultstorePerversion eq 2)>>\
@@ -98,7 +98,7 @@
 	You sit down in front of her desk and wait for her to explain what she wants. @@.shopAd;"I guess you realized today that you need more experience with our merchandise to help our customers properly. So, I want you to get much more familiar with various devices. I also want you to wear something a little more in line with what we do in our store. I'll put something together before your next shift."@@ 
 	
 	She sees your expression and cheerfully adds, @@.shopAd;"Hey, relax! I'm not talking about transparent catsuits and bondage gear... unless that is something you want?"@@ She winks at you playfully. \
-	<<if _o and _o.female>>\
+	<<if _outerwear and _outerwear.isFemale>>\
 		@@.shopAd;"I was thinking about the leather skirt and the latex blouse we have for sale at the moment.@@ \
 	<<else>>\
 		@@.shopAd;"I was thinking about the leather pants and the latex shirt we have for sale at the moment.@@ \
@@ -112,7 +112,7 @@
 	When you enter the store, you've almost forgotten your promise. Actually, it might be more truthful to say you hoped //she// forgot. She didn't. 
 	
 	As soon as you enter, she greets you and says, \
-	<<if _o and (not _o.female)>>\
+	<<if _outerwear and (not _outerwear.isFemale)>>\
 		@@.shopAd;"I've selected some nice leather pants and latex shirt for you. You can change into them in the back room."@@ 
 		
 		For a moment you look at her, pleading, but she acts like she isn't seeing it, so you make your way to the back room and change. Both the pants and the shirt are shaped just like regular pants and shirts, but they feel quite different. The pants are more stiff and the latex clings more to your body. They also smell so very differently - not badly, just differently. 
@@ -127,14 +127,14 @@
 	<<endif>>\
 	
 	@@.shopAd;"Looking good."@@ You're not so sure, though. As if she read your thoughts, she adds, @@.shopAd;"Just try it till the end of your shift. I promise, you'll get used to it rather quickly."@@
-	<<if _o and _o.female>>\
-		<<if _c>>\
+	<<if _outerwear and _outerwear.isFemale>>\
+		<<if _chastity>>\
 		You just hope no one will notice your chastity under your short skirt.
 		<<else>>\
 		You just hope no one will notice your penis under your short skirt.
 		<<endif>>\
 	<<else>>\
-		<<if _c>>\
+		<<if _chastity>>\
 		It's really hot in these leather pants, and it's extra uncomfortable with your chastity cage compressing your balls sometimes.
 		<<else>>\
 		It's really hot in these leather pants.
@@ -143,7 +143,7 @@
 	
 	You are surprised at how many of the customers take it in stride, seeing you in this kind of outfit. It's more crowded today, so you hardly have time to think about your weird clothes. It seems Lash was right: the competitors weren't that good, and her customers have now satisfied their curiosity. 
 	
-	At less busy moments, you start looking at all the toys and clothes that are for sale. Still not quite comfortable with touching them in sight of the customers, <<if _b>>despite wearing a butt-plug yourself, <<endif>>you walk around and just explore visually. Even that's a little overwhelming - Lash caters to a lot of different tastes.
+	At less busy moments, you start looking at all the toys and clothes that are for sale. Still not quite comfortable with touching them in sight of the customers, <<if _plug>>despite wearing a butt-plug yourself, <<endif>>you walk around and just explore visually. Even that's a little overwhelming - Lash caters to a lot of different tastes.
 		
 	Toward the end of your shift, you notice the store has gotten empty, giving you a chance to look at various toys and devices more closely. You're still doing that when you're greeted by the manager. When she asks how it went, you tell her the clothes aren't bad, but you'll still be happy to change back into your own. 
 	
@@ -210,11 +210,11 @@
 \
 	<<if (_plan lte 50) and playerCode.isMind_0()>>\
 		You refuse to wear any additional items. \
-		<<if _c>>\
+		<<if _chastity>>\
 			You get a small bonus for being locked in your own chastity cage. \
 			<<set _tips+=5>>\
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 			You get a small bonus for coming to work with your ass already plugged. \
 			<<set _tips+=5>>\
 		<<endif>>\
@@ -231,12 +231,12 @@
 			<<endif>>\
 		<<endif>>\
 		<<set _tips+=20>>\
-		<<if _c>>\
+		<<if _chastity>>\
 		You would agree to being locked in chastity for the shift if you weren't already locked. \
 		<<else>>\
 		You allow Mistress to lock your penis in a chastity device. \
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 		You would have let Mistress put a plug in your butt for a small bonus, but you came to the shop already plugged. \
 		<<else>>\
 		Mistress gives you a medium-sized butt-plug, and you slowly insert it in your ass. \
@@ -256,12 +256,12 @@
 			<<endif>>\
 		<<endif>>\
 		<<set _tips+=30>>\
-		<<if _c>>\
+		<<if _chastity>>\
 		You would agree to being locked in chastity for the shift if you weren't already locked. \
 		<<else>>\
 		You allow Mistress to lock your penis in a chastity device. \
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 		You would have let Mistress put a plug in your butt for a small bonus, but you came to the shop already plugged. \
 		<<else>>\
 		Mistress gives you a medium-sized butt-plug and you slowly insert it in your ass. \
@@ -281,12 +281,12 @@
 			<<endif>>\
 		<<endif>>\
 		<<set _tips+=40>>\
-		<<if _c>>\
+		<<if _chastity>>\
 		You would agree to being locked in chastity for the shift if you weren't already locked. Mistress attaches a miniature shocker on your chastity cage. \
 		<<else>>\
 		You allow Mistress to lock your penis in a chastity device and to attach a miniature shocker to it. \
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 		You pull out your butt-plug and replace it with a special, remote-controlled one. \
 		<<else>>\
 		Mistress gives you a special remote-controlled butt-plug and you slowly insert it in your ass. \
@@ -306,12 +306,12 @@
 			<<endif>>\
 		<<endif>>\
 		<<set _tips+=60>>\
-		<<if _c>>\
+		<<if _chastity>>\
 		You would agree to being locked in chastity for the shift if you weren't already locked. Just to add her own touch, Mistress attaches a miniature shocker to your chastity cage. \
 		<<else>>\
 		You allow Mistress to lock your penis in a chastity device and to attach a miniature shocker to it. \
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 		You pull out your butt-plug and replace it by special remote controlled one. \
 		<<else>>\
 		Mistress gives you a special remote-controlled butt-plug and you slowly insert it in your ass. \
@@ -322,33 +322,33 @@
 \
 	<<if (_tips lte 10)>>\
 		Everything goes as usual.
-		<<if _slb lte 3>>\
-			<<if _o and _o.female>>\
+		<<if _slutScoreBasic lte 3>>\
+			<<if _outerwear and _outerwear.isFemale>>\
 			<<set _tips+=5>>\
 			It is obvious that you are a crossdressing boy. Some customers are confused by that. A few of them frown and leave, but most are intrigued.\
 			<<endif>>\
-		<<elseif _slb lte 4>>\
-			<<if _o and _o.female>>\
+		<<elseif _slutScoreBasic lte 4>>\
+			<<if _outerwear and _outerwear.isFemale>>\
 			<<set _tips+=5>>\
 			It is noticeable that you are a crossdressing boy despite your feminine features. Some customers are confused by that, and a few of them frown and leave, but it's a welcome novelty to most.\
 			<<endif>>\
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			<<set _tips+=10>>\
-			<<if _o and _o.female>>\
+			<<if _outerwear and _outerwear.isFemale>>\
 			Your uniform makes up for your plain look.\
 			<<else>>\
 			Your uniform makes up for your plain appearance, giving you the look of a kinky tomboy girl.\
 			<<endif>>\
 			You notice that quite a few of the customers glance at you with interest as they browse the goods.\
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			<<set _tips+=15>>\
-			<<if _o and _o.female>>\
+			<<if _outerwear and _outerwear.isFemale>>\
 			Your uniform works well with your sexy look.\
 			<<else>>\
 			Your uniform works well with your sexy appearance, giving you the look of a kinky tomboy girl.\
 			<<endif>>\
 			You notice that most of customers stare at you, eyeing your figure as you describe various toys.\
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			<<set _tips+=20>>\
 			Your uniform works well with your slutty appearance. It definitely attracts attention, but also causes some of the customers to treat you like a whore.\
 		<<else>>\
@@ -356,19 +356,19 @@
 			You look like a total whore. It draws attention and most of customers openly ogle your curvy figure as you talk about sex toys. In some cases your overly slutty appearance backfires, though, and they just ignore you in disgust or treat you like dirt.\
 		<<endif>>\
 	<<elseif (_tips lte 20)>>\
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			<<set _tips+=5>>\
 			It is obvious you're a crossdressed boy. Some customers are confused by that, some frown and leave, but some look interested.\
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			<<set _tips+=5>>\
 			It's noticeable that you are a crossdressing boy despite your feminine features. Some customers are confused by that, and a few even frown and leave, but it's a welcome novelty to most.\
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			<<set _tips+=10>>\
 			You notice that quite a few customers glance with interest at you as they browse goods.\
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			<<set _tips+=15>>\
 			You notice that most customers stare at you, eyeing your figure as you describe various toys.\
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			<<set _tips+=20>>\
 			Your skimpy dress works well with your slutty appearance. It definitely attracts attention, but also causes some of the customers to treat you like a whore.\
 		<<else>>\
@@ -381,19 +381,19 @@
 		You are slowly getting used to working in such a revealing outfit.
 		<<endif>>\
 	<<elseif (_tips lte 30)>>\
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			<<set _tips+=5>>\
 			It is obvious that you are a crossdressing boy. The microskirt doesn't even cover your chastity cage completely, so customers often notice it. Some customers get flustered by that, others just wink and some ask you very embarrassing questions.\
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			<<set _tips+=5>>\
 			It is noticeable that you're a crossdressing boy despite your feminine features. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. Some customers get flustered by that, though others just wink and some ask you very embarrassing questions.\
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			<<set _tips+=10>>\
 			You notice that quite a few customers glance with interest at you as they browse the shelves. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they are surprised to discover you're a //boy//.\
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			<<set _tips+=15>>\
 			You notice that most of customers stare at you, eyeing your figure as you describe various toys. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they are shocked that such a //sexy girl// is actually a //boy//.\
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			<<set _tips+=20>>\
 			Your fetish outfit works well with your slutty appearance. It definitely attracts attention. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they are ecstatic to see a //slutty sissy// servicing them.\
 		<<else>>\
@@ -406,19 +406,19 @@
 		You struggle with the attention your skimpy uniform gathers.
 		<<endif>>\
 	<<elseif (_tips lte 40)>>\
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			<<set _tips+=5>>\
 			It is obvious that you are a crossdressing boy. The microskirt doesn't even cover your chastity cage completely, so customers often notice it. Some get flustered by that, others just wink; and some ask you very embarrassing questions.\
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			<<set _tips+=5>>\
 			It is noticeable that you are a crossdressing boy despite your feminine features. The microskirt doesn't even cover your chastity cage completely, so customers often notice it. Some customers get flustered by that, other just wink, but some ask you very embarrassing questions.\
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			<<set _tips+=10>>\
 			You notice that quite a few customers eye you with interest as they browse the goods. The microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they seem surprised to discover you are a //boy//.\
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			<<set _tips+=15>>\
 			You notice that most customers stare at you, eyeing your figure as you describe various toys. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they're shocked how such a //sexy girl// is actually a //boy//.\
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			<<set _tips+=20>>\
 			Your fetish outfit works well with your slutty appearance. It definitely attracts attention. Your microskirt doesn't even cover your chastity cage completely, so customers often notice it. There are various reactions, but mostly they are ecstatic to see a //slutty sissy// servicing them.\
 		<<else>>\
@@ -431,19 +431,19 @@
 		Your training by pain and pleasure continues. It is humiliating how you catch yourself squirming as you approach customers, in the anticipation of the reward.
 		<<endif>>\
 	<<else>>\
-		<<if _slb lte 3>>\
+		<<if _slutScoreBasic lte 3>>\
 			<<set _tips+=5>>\
 			You look outrageous in this outfit, but customers find you interesting to play with.\
-		<<elseif _slb lte 4>>\
+		<<elseif _slutScoreBasic lte 4>>\
 			<<set _tips+=5>>\
 			You look extremely kinky in this outfit, but customers find you very interesting to play with.\
-		<<elseif _slb lte 6>>\
+		<<elseif _slutScoreBasic lte 6>>\
 			<<set _tips+=10>>\
 			You normally look a bit plain, but in this outfit there is no way you would be ignored. Customers find you very interesting to play with.\
-		<<elseif _slb lte 7>>\
+		<<elseif _slutScoreBasic lte 7>>\
 			<<set _tips+=15>>\
 			You normally look sexy even in regular clothes, but in this outfit you cause stares and slacked jaws. After the initial shock, customers are very enthusiastic about your service.\
-		<<elseif _slb lte 8>>\
+		<<elseif _slutScoreBasic lte 8>>\
 			<<set _tips+=20>>\
 			You normally look slutty even in regular clothes, but in this outfit you cause bulged eyes and slack jaws. After the initial shock customers are very enthusiastic about your service.\
 		<<else>>\

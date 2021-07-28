@@ -1,5 +1,6 @@
 :: Cheer SE10 Sc1
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<if $kinkAllow.wetting>>\
 	The lunch bell rings, and you grab your backpack and rush into the hall, trying to make it to the bathroom as quickly as possible. You haven’t gone since before leaving the house this morning and your bladder is heavy with urine. You know that if you don’t hurry, the line will be out the door and you won’t have time to wait before you have to meet Ashley at the drama room. Unfortunately, $teacher has other ideas.
 
@@ -65,63 +66,20 @@ Veronica sighs. @@.cheerLackey2;“Great. You can change in the costume room. It
 
 <<endif>>\
 You nod and head through the door she motioned towards. You search for a lock, disappointed to find that the door needs a key on both sides. Having to trust Ashley to give you privacy makes you even more nervous, but after a few seconds without interruption, you reluctantly start pulling off your <<if _b && $cheerleaders.slutUniform == 0>>clothes and remove your butt-plug<<else>>clothes<<endif>>.
-<<if _b && $cheerleaders.slutUniform == 0>>\
-	<<set $removedPlug = _b.id>>\
-	<<set playerCode.removeClothesJS($removedPlug)>>\
-<<endif>>\
-<<set $removedUnder=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<if $removedUnder>>\
-	<<set _under = itemF.itemTwee(state.active.variables.removedUnder.id)>>\
-	<<capture _under>>\
-		<<set $underAlt=_under.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<if $removedUnder>>\
-	<<set playerCode.removeClothesJS($removedUnder.id)>>\
-<<endif>>\
-<<set $removedUni=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<if $removedUni>>\
-	<<set _uni = itemF.itemTwee(state.active.variables.removedUni.id)>>\
-	<<capture _uni>>\
-		<<set $uniAlt=_uni.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<set $removedStock=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<if $removedStock>>\
-	<<set _stock = itemF.itemTwee(state.active.variables.removedStock.id)>>\
-	<<capture _stock>>\
-		<<set $stockAlt=_stock.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<set $removedShoes=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<if $removedShoes>>\
-	<<set _shoes = itemF.itemTwee(state.active.variables.removedShoes.id)>>\
-	<<capture _shoes>>\
-		<<set $shoesAlt=_shoes.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<set $removedHair=playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<if $removedHair>>\
-	<<set _hair = itemF.itemTwee(state.active.variables.removedHair.id)>>\
-	<<capture _hair>>\
-		<<set $hairAlt=_hair.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<set $removedCollar = playerCode.isWearingOn(itemTypes.Collar)>>\
-<<if $removedCollar>>\
-	<<set _collar = itemF.itemTwee(state.active.variables.removedCollar.id)>>\
-	<<capture _collar>>\
-		<<set $collarAlt=_collar.curAlt>>\
-	<</capture>>\
-<<endif>>\
-<<if $removedCollar>>\
-	<<set playerCode.removeClothesJS($removedCollar.id)>>\
-<<endif>>\
-<<wearClothing "sluttyCheer" $cheerleaders.flags.slutUniform>>\
-<<wearClothing "cheerSneakers">>\
-<<wearClothing "socks" 43>>\
-<<wearClothing "hairbow" 43>>\
 
+<<stashWornClothing>>\
+<<wearItemFromStash "chastity">>\
+<<set _slutUniform = "slutty_cheer_0" + $cheerleaders.flags.slutUniform>>\
+<<wearItemVariant _slutUniform>>\
+<<wearRandomItemByMaster 'cheerSneakers'>>\
+<<wearItemVariant 'socks_43'>>\
+<<wearItemVariant 'hairbow_43'>>\
+<<updateClothes>>\
+<<if _under>>\
+	<<set $removedUnder = true>>\
+<<else>>\
+	<<set $removedUnder = false>>\
+<<endif>>\
 <<if $cheerleaders.flags.slutUniform == 0>>\
 	[[Put on your uniform|Cheer SE10 Sc2a]]
 <<else>>\

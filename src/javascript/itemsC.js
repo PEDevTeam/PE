@@ -2086,7 +2086,7 @@ window.itemsC={
 		daringRec: 7,
 		disabled: false,
 		cost: 30,
-		image: "piercing_tongue.jpg"
+		image: "iercing_tongue.jpgp"
 	},
 	PiercingNipples: {
 		id: "PiercingNipples",

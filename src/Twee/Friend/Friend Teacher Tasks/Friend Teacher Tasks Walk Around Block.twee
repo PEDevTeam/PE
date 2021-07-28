@@ -1,14 +1,14 @@
 ::Friend Teacher Tasks Walk Around Block
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _p=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if $friendG.blockAttempt == 1>>\
 	@@.friend;“I hope you put some effort into it this time,”@@ $friend states.
-	<<if (_u.female == 0 or _c == 0 or _p == 0 or (_p and _p.female == 0) or $body.bodyhair == 0)>>\ 
+	<<if (_under && (_under.isMale or _chast == 0 or _stock == 0 or (_stock and _stock.isMale) or $body.bodyhair.level == 0))>>\ 
 		<<set $friendG.posingFail = 1>>\
 	<<endif>>\
 
@@ -23,9 +23,9 @@
 		<<unset $underwearAlt>>\
 		<<unset $friendUnderwear>>\
 		\
-		<<if $player.clothesTmp>>\
-			<<set $player.clothes to clone($player.clothesTmp)>><<updateClothes>>\
-			<<set $player.clothesTmp to null>>\
+		<<if $player.clothingSlotsTmp>>\
+			<<set $player.clothingSlots to clone($player.clothingSlotsTmp)>><<updateClothes>>\
+			<<set $player.clothingSlotsTmp to null>>\
 		<<endif>>\
 		<<display [[Travel]]>>
 	<<else>>\
@@ -52,13 +52,13 @@
 
 	Without pausing, $friend tears upstairs into $friendG.his_her sister’s walk-in wardrobe and pulls out a package that has Indy’s Closet Clothing Emporium written on the side. Knowing that you need to do this to avoid upsetting teacher, and remembering this was your idea, you strip down to your underwear.
 
-	<<if (playerCode.isWearing(itemsC.gString) and playerCode.isWearing(itemsC.braSexy))>>\
-		<<if (_underwearAlt == _braAlt)>>\
+	<<if (_under && _bra && _under.masterItem=='sexyPanties' and _bra.masterItem=='sexyBras')>>\
+		<<if (_under.setName==_bra.setName && _under.setName!='')>>\
 			@@.friend;"Awesome, you're wearing a matched set of underwear!"@@ $friendG.he_she smiles at the sight of your bra and panties, stepping close to give your waistband a gentle tug to adjust it.
 			<<if $friendG.friendTaskFrustration gt 0>>\
 				<<set $friendGfriendTaskFrustration -= 1>>\
 			<<endif>>\
-		<<elseif (_underwearAlt != _braAlt)>>\
+		<<elseif (_under.setName!=_bra.setName)>>\
 			@@.friend;"Cool, you're wearing a bra and panties. Shame they aren't matching, but I guess it'll have to do."@@
 		<<endif>>\
 	<<else>>\
@@ -69,23 +69,23 @@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.blockFail = 1>>\
 		<<endif>>\
-		<<if _u.male == 1>>\
+		<<if _under && _under.isMale == 1>>\
 			@@.friend;"Boxers? Really?"@@ $friend shakes their head, looking disappointed. @@.friend;"I thought you were way past boxers."@@
 			<<set $friendG.friendTaskFrustration = ($friendG.friendTaskFrustration + 1)>>\
 			<<set $friendG.blockFail = 1>>\
 		<<endif>>\
 	<<endif>>\
 
-	<<if (_c and not $friendG.seenChastity)>>\
+	<<if (_chast and not $friendG.seenChastity)>>\
 		@@.friend;"Wait,"@@ $friend says, pointing down at your crotch. @@.friend;"What's that?"@@
 		
-		You look down, wondering what $friend is talking about, and blink dumbly at the sight of the telltale bulge of the chastity cage in your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>>. With a girlish squeak, your cover up with your hands, but $friend rushes over to you and grabs your wrists. $friendG.He_She is too strong for you to resist, and $friendG.he_she easily pulls your arms apart to expose your secret. 
+		You look down, wondering what $friend is talking about, and blink dumbly at the sight of the telltale bulge of the chastity cage in your <<if _under.isFemale>>panties<<elseif _under.isMale>>boxers<<endif>>. With a girlish squeak, your cover up with your hands, but $friend rushes over to you and grabs your wrists. $friendG.He_She is too strong for you to resist, and $friendG.he_she easily pulls your arms apart to expose your secret. 
 
-		@@.friend;"I've never seen something like that before,"@@ $friend whispers, their breath hot against your neck. Your eyes close and you whimper as $friend gently tugs down the front of your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>>, revealing exactly what lies beneath. 
+		@@.friend;"I've never seen something like that before,"@@ $friend whispers, their breath hot against your neck. Your eyes close and you whimper as $friend gently tugs down the front of your <<if _under.isFemale>>panties<<elseif _under.isMale>>boxers<<endif>>, revealing exactly what lies beneath. 
 
 		@@.friend;"Huh...so it's some kind of cage?"@@ $friendG.he_she tugs on the tiny padlock, causing a gentle tinkling sound.
 
-		@@.heroT;"Y-Yeah..."@@ You mumble, then let out a sigh as $friend pulls your <<if _u.female>>panties<<elseif _u.male>>boxers<<endif>> back up and gently rubs your thigh. 
+		@@.heroT;"Y-Yeah..."@@ You mumble, then let out a sigh as $friend pulls your <<if _under.isFemale>>panties<<elseif _under.isMale>>boxers<<endif>> back up and gently rubs your thigh. 
 
 		@@.friend;"It's so cute!"@@ $friend says, grinning. <<if $kinkAllow.sph>>@@.friend;"It really suits your teeny thingy, to be honest."@@<<endif>>\
 		
@@ -96,7 +96,7 @@
 			<<set $friendG.friendGetChastity = 1>>\
 		<<endif>>\
 		<<set $friendG.seenChastity = 1>>\
-	<<elseif (_c and $friendG.seenChastity)>>\ 
+	<<elseif (_chast and $friendG.seenChastity)>>\ 
 		$friend eyes your crotch, grinning when they recognize a particular bulge.
 
 		@@.friend;"You're still wearing that cage, huh? Good."@@
@@ -104,12 +104,12 @@
 			@@.friend;"Maybe I should get one, too, then we'll match..."@@
 			<<set $friendG.friendGetChastity = 1>>\
 		<<endif>>\
-	<<elseif (not _c and $friendG.seenChastity)>>\ 
+	<<elseif (not _chast and $friendG.seenChastity)>>\ 
 		$friend eyes your crotch, looking for a specific plastic bulge, but they don't find it.
 
 		@@.friend;"No cage? But I thought..."@@
 		<<set $friendG.blockFail = 1>>\
-	<<elseif (not _c and not $friendG.seenChastity)>>\
+	<<elseif (not _chast and not $friendG.seenChastity)>>\
 		$friend stares at your crotch, frowning.
 
 		@@.friend;"There's something missing here... I think we should do this some other time."@@
@@ -117,12 +117,12 @@
 	<<endif>>\
 	
 	<<set _femaleLegWear = false>>\
-	<<if _p.female == 1>>\
+	<<if _stock && _stock.isFemale>>\
 		<<set _femaleLegWear = true>>\
-		<<if (playerCode.isWearing(itemsC.stockings) or playerCode.isWearing(itemsC.stockingsLatex))>>\
+		<<if (_stock.masterItem=='stockings' or _stock.masterItem=='latexStockings')>>\
 			@@.friend;"I love your stockings, $player.name. They really suit you."@@\
 			<<set $friendG.friendseenstockings = 1>>
-		<<elseif playerCode.isWearing(itemsC.socks) == 1>>\
+		<<elseif _stock.masterItem=='socks'>>\
 			@@.friend;"Are those girl’s socks? They look kinda cute."@@\
 		<<endif>>\
 	<<else>>\
@@ -133,7 +133,7 @@
 			<<set $friendG.friendTaskFrustration -= 1>>\
 		<<endif>>\
 		$friendG.he_she peers closely at your thighs.\
-		<<if $body.bodyhair gte 1>>\
+		<<if $body.bodyhair.level gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
 				@@.friend;"Oh my gosh, you even got your legs waxed? Wow, great job!"@@\
@@ -153,7 +153,7 @@
 		$friend sighs, then steps forward and slides a hand up the back of your thigh.\ 
 		<<set $friendG.friendTaskFrustration += 1>>\
 		<<set $friendG.blockFail = 1>>\
-		<<if $body.bodyhair gte 1>>\
+		<<if $body.bodyhair.level gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
 				@@.friend;"Oooo...well, at least you got your legs waxed, so that's something. Good initiative, $player.name."@@\
@@ -171,7 +171,7 @@
 
 	$friend takes a second to look closely at your behind. \
 	<<if $friendG.seenPlug>>\
-		<<if _b>>\
+		<<if _wearingPlug>>\
 			@@.friend;"Nice to see you're still plugged."@@ $friendG.he_she comments. @@.friend;"Is it comfy?"@@
 
 			@@.heroT;"Um...I guess?"@@ You answer, suddenly overwhelmingly aware of the object lodged in your butt.
@@ -189,7 +189,7 @@
 			@@.friend;"You should definitely wear it all the time, if you can - but I guess it doesn't matter if you have it for this or not."@@
 		<<endif>>\
 	<<else>>\
-		<<if _b>>\
+		<<if _wearingPlug>>\
 			@@.friend;"Is that what I think it is?"@@ $friend asks, coming in close and sliding a finger between your buttcheeks to gently press against your buttplug. You jolt at the sensation, and let out a soft groan in pleasure. @@.friend;"Wow, $player.name... you're kind of kinky, aren't you? Is it comfortable?"@@
 
 			@@.heroT;"You get used to it,"@@ you mumble, as $friend steps back.

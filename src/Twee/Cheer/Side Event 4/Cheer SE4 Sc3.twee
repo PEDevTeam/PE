@@ -1,7 +1,7 @@
 :: Cheer SE4 Sc3
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend fountain" 400 400>></div>\
-<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _uniform=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 $cheerFriend.name drags you in front of a massive area of slick marble tile. Installed into the ground are twenty or so water jets squirting in intermittent patterns like a dancing fountain. You don’t remember this installation being here before.
 
 @@.heroT;“When did they add this?”@@ you ask.
@@ -13,7 +13,7 @@ $cheerFriend.name drags you in front of a massive area of slick marble tile. Ins
 She smiles at you with a playful grin. @@.cheerFriend;“You got it.”@@
 
 Suddenly, your brain registers $cheerFriend.name’s red and white cheer uniform top. You notice that most of the front of it is white, and a shocking thought occurs to you. You’re wearing\
-<<if (not _uniform.cheer)>>\
+<<if (not window.inventoryFuncs.hasTag(_uniform, 'cheer'))>>\
 	a white blouse, too. \
 <<else>>\
 	your uniform top, too. \

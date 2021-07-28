@@ -1,6 +1,6 @@
 ::Friend Teacher Tasks Park p4b
 <<RandomImageFromPack 'Friend/Park' 400 400 alignRight>>\
-<<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
 You look around frantically looking for somewhere to hide, but find nowhere. Doing the only thing you can think of, you pull $friend down on top of you and hide your face beneath $friendG.him_her.
 
 Before you can react, $friend takes your action as a sign and kisses you fully on the lips. You try to tell $friendG.him_her to stop, but as you part your lips to speak $friendG.he_she slips $friendG.his_her tongue inside your mouth and teases your tongue to submission. You tense as the kiss deepens, and are about to push $friend off when a chorus of catcalls and whistles start metres away. You wrap your arms around $friend’s neck and hold $friendG.him_her tightly, keeping your face hidden.
@@ -15,7 +15,7 @@ Before you can react, $friend takes your action as a sign and kisses you fully o
 	Without pausing, $friend presses down harder on your hand, her hips rocking faster. You feel her clitoris rubbing against your fingertips through her panties and dress with each thrust of her body, and she whimpers. Her breathing grows heavier and she drops the kiss, her head sliding down so her mouth is against your ear. Her panting grows shorter and more desperate. And then, just as you don’t think you can take it any longer she gasps loudly and shudders in orgasm before flopping exhausted on top of you.
 		
 <<elseif $friendG.gender == "M">>\
-	Sensing you relax, $friend’s kiss grows slightly less desperate but more eager, as if he’s been waiting for the opportunity. He dances his tongue over your lips before thrusting it back inside your mouth. $friend moves above you, his weight pressing you down, the rough denim of his jeans rubbing against your <<if _stock and _stock.sexy>>stockings<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
+	Sensing you relax, $friend’s kiss grows slightly less desperate but more eager, as if he’s been waiting for the opportunity. He dances his tongue over your lips before thrusting it back inside your mouth. $friend moves above you, his weight pressing you down, the rough denim of his jeans rubbing against your <<if _stock and window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockings<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
 
 
 	You wriggle to get comfortable, but $friend is too big and heavy and you end up with one of his legs either side of one of yours. You wiggle again and then you feel it, something hard and big growing inside his jeans. 
@@ -27,7 +27,7 @@ Before you can react, $friend takes your action as a sign and kisses you fully o
 	<<if playerCode.isMind == 0>>\
 		You reel in shock at what’s happening, feeling intense confusion from the pleasure of being kissed, the exhilaration of going out dressed as you are, and the weird satisfaction of knowing you caused $friend to have a hard-on. Despite everything, your Judas penis continues to leak.
 
-		$friend stops the kiss, grunts gutturally and then stiffens before toppling to the side. Your mind goes numb with shock as you realise $friend just came by rubbing himself off on your <<if _stock and _stock.sexy>>stockinged<<else>>girly<<endif>> thigh.
+		$friend stops the kiss, grunts gutturally and then stiffens before toppling to the side. Your mind goes numb with shock as you realise $friend just came by rubbing himself off on your <<if _stock and window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockinged<<else>>girly<<endif>> thigh.
 
 	<<elseif playerCode.isMind == 1>>\
 		You gasp in surprise at what’s happening, feeling confusion from the pleasure of being kissed by a boy, the exhilaration of going out dressed as a girl, and the satisfaction of knowing you caused $friend to have a hard-on. Your penis continues to leak at $friend’s continued attention, pooling inside your panties and trickling down your leg.
@@ -41,7 +41,7 @@ Before you can react, $friend takes your action as a sign and kisses you fully o
 		
 	<<endif>>\ 
 <<else>>\
-	Sensing you relax, $friend’s kiss grows slightly less desperate. He dances his tongue over your lips before pushing it back inside your mouth. $friend moves above you, adjusting his position so that his stockinged legs brush enticingly against your <<if _stock && _stock.sexy>>stockings<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
+	Sensing you relax, $friend’s kiss grows slightly less desperate. He dances his tongue over your lips before pushing it back inside your mouth. $friend moves above you, adjusting his position so that his stockinged legs brush enticingly against your <<if _stock && window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockings<<else>>smooth legs<<endif>> making your skin tingle. You grow lost in the kiss and lose track of time.
 
 	You wriggle to get comfortable, but $friend is too big and heavy and you end up with one of his legs either side of one of yours. You wiggle again and then you feel it, something hard and big growing inside his jeans. 
 

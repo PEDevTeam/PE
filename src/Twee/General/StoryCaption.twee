@@ -7,6 +7,28 @@
 <<endif>>\
 <<if (_gameVersion lt gameCode.version)>>\
 	<<set window.structures.updateStructures()>>\
+	/*<<set window.structures.setupPlayer()>>\
+	<<set window.structures.setupStandaloneVars()>>\
+	<<set window.structures.setupClothesCheck()>>\
+	<<set window.structures.setupMinigameVars()>>\
+	<<set window.structures.setupStatus()>>\
+	<<set window.structures.setupAvatar()>>\
+	<<set window.structures.setupFlags()>>\
+	<<set window.structures.setupKinks()>>\
+	<<set window.structures.setupBody()>>\
+	<<set window.structures.setupFriend()>>\
+	<<set window.structures.setupFuta()>>\
+	<<set window.structures.setupQuickSlot()>>\
+	<!-- <<set window.structures.setupItems()>>\ -->
+	<<set window.structures.setupChores()>>\
+	<<set window.structures.setupDreams()>>\
+	<<set window.structures.setupLocations()>>\
+	<<set window.structures.setupFriendRiddles()>>\
+	<<set window.structures.setupTalks()>>\
+	<<set window.structures.setupPunishments()>>\
+	<<set window.structures.setupTasks()>>\
+	<<set window.structures.setupCheer()>>\
+	<<set $gameVersion = gameCode.version>>*/\
 	<<set _passage = passage()>>\
 	<<replace ".passage">><<display _passage>><</replace>>\
 <<endif>>\
@@ -70,7 +92,7 @@
 	<<endif>>\
 	\
 	<<if (not $player.secondInvLine)>>\
-		<<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\
+		<<if inventoryFuncs.ownsMasterItem('chastity') or inventoryFuncs.ownsMasterItem('bras') or inventoryFuncs.ownsMasterItem('latexBras') or inventoryFuncs.ownsMasterItem('sexyBras')>>\
 			<<set $player.secondInvLine=true>>\
 		<<endif>>\
 	<<endif>>\
@@ -97,7 +119,7 @@
 	<<if $player.debugA>>\
 		<<updateDebug>>\
 	<<endif>>\
-	\
+	\ 
 <<endif>>\
 \
 \

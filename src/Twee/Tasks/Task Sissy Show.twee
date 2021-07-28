@@ -1,11 +1,11 @@
 :: Task Sissy Show [pos_2097_2893]
 \
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
-<<set _s=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <<if (not $tasksTeacher.penaltySissyShow.step) or ($tasksTeacher.penaltySissyShow.step eq 0)>>\
 	<div><<RandomImageFromPack "Adult Book Shop" 400 400>></div>\	
 	<<if (not $player.punishments.penaltySissyShow)>>\
@@ -76,12 +76,12 @@
 	<<else>>\
 		You slowly lift your skirt,\
 	<<endif>>\
-	<<if _u>>\
+	<<if _underwear>>\
 		displaying your panties as well as your chastity cage.
 	<<else>>\
 		displaying your chastity cage.
 	<<endif>>\
-	<<if _slb gt 5>>\
+	<<if _slutScoreBasic gt 5>>\
 		The class bursts into laughter and surprised gasps. Apparently, some hadn't believed you were a boy until they saw your locked penis.\
 	<<else>>\
 		The class bursts into more laughter as they see you locked up.\
@@ -110,10 +110,10 @@
 	<<else>>\
 	You just do as she says, even wiggle your ass a bit, and hear a few giggles from the class.
 	<<endif>>\
-	She lifts your skirt<<if _u>>, pulls your panties down to your ankles<<endif>> and reveals your <<if _b>>butt-plug<<else>>bare butt<<endif>> to the class.
-	You <<if _u>>step out of your panties and<<endif>> spread your legs to give them a better view of your <<if _b>>butt-plug<<else>>asshole<<endif>>.
+	She lifts your skirt<<if _underwear>>, pulls your panties down to your ankles<<endif>> and reveals your <<if _plug>>butt-plug<<else>>bare butt<<endif>> to the class.
+	You <<if _underwear>>step out of your panties and<<endif>> spread your legs to give them a better view of your <<if _plug>>butt-plug<<else>>asshole<<endif>>.
 
-	<<if _b>>\
+	<<if _plug>>\
 		@@.sexEd;"Sissies usually like keeping their holes filled,"@@ she says, pulling out the butt-plug and making you moan. 
 		
 		You hear a few giggles but most of the class seems so turned on by the show that they've fallen silent. She shows the butt-plug to the class then slowly puts it back, extracting another lewd moan from you.
@@ -134,10 +134,10 @@
 		
 		@@.sexEd;"This concludes today’s lesson, next week we will continue with the submissiveness and sissies."@@ 
 		
-		She gives you a second slap on the butt <<if _u and (playerCode.isMind_0() or playerCode.isMind_1())>>and pulls your panties back up<<else>>and lets you get up<<endif>>.
+		She gives you a second slap on the butt <<if _underwear and (playerCode.isMind_0() or playerCode.isMind_1())>>and pulls your panties back up<<else>>and lets you get up<<endif>>.
 
 		As the class disperses, Ms Goodwill whispers in your ear, @@.sexEd;"Good job, sissy. You may notice I haven’t expanded on how sissies like you crave being fucked either by real men or by a nice thick strap-on. Perhaps a demonstration will be in order for the next class, to see if you can cum just from having your ass penetrated?"@@
-		<<if _u and playerCode.isMind_2()>>\
+		<<if _underwear and playerCode.isMind_2()>>\
 		
 			As you leave the class and head to your locker, someone runs up from behind, calling you. You turn back and see that she was one of the students from the sex Ed class. She comes up to you with a mischievous expression, and says: 
 			

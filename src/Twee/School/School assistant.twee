@@ -1,11 +1,11 @@
 :: School assistant [pos_248_1433]
 \
 <<set $flags.assistantSatisfied = true>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
 <<if $player.perversion.assistant lte 1>>\
 	<<if $player.perversion.assistant eq 0>>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "Storage Room" 400 400>></div>\
@@ -58,7 +58,7 @@
 		<<endif>>\
 		Sometimes $futa.he_she briefly freezes awkwardly and you wonder if $futa.he_she is just as new to this as you are, or whether $futa.he_she's just hesitating about the whole blackmail thing. Maybe you could have forced $futa.him_her to back off or even intimidated $futa.him_her into leaving Miss Willow alone. But it's too late now, with $futa.him_her running $futa.his_her hands all over your body. You surrendered and now have to meekly accept $futa.his_her advances.
 		To your shame you start getting extremely turned on.\
-		<<if _c>>\
+		<<if _chastity>>\
 			Your straining penis is nicely locked in its cage. It makes you feel very vulnerable,\
 			<<if $kink.futa>>\
 				and you notice something weird starts pressing against your hip as the girl leans in closer to you.
@@ -70,13 +70,13 @@
 				You feel his dick bulging in his pants and pressing between your butt cheeks.\
 			<<endif>>\
 			<<if $kink.futa>>\
-				<<if _b>>\
+				<<if _plug>>\
 				Your anus clenches around your butt-plug as she presses herself against it. It feels as if she had a dick inside you instead of the butt-plug and the idea itself makes you shiver in confusion.
 				<<else>>\
 				Your anus twitches as you feel her pressing against it.
 				<<endif>>\
 			<<else>>\
-				<<if _b>>\
+				<<if _plug>>\
 				Your anus clenches around your butt-plug as his dick slowly pulses against it. It feels as if it is his dick inside you instead of the butt-plug and the idea itself makes you shiver in confusion.
 				<<else>>\
 				Your anus twitches as you feel his dick slowly pulsing against it.
@@ -124,7 +124,7 @@
 			@@.assistant;"You are so hot."@@ Despite your denial, it feels nice to hear it from him.
 		<<endif>>\
 		
-		<<if _c>>\
+		<<if _chastity>>\
 			Your straining penis is nicely locked in its cage. It makes you feel very vulnerable,\
 			<<if $kink.futa>>\
 				and you notice something weird starts pressing against your hip as the girl leans in closer to you.
@@ -184,7 +184,7 @@
 		The $futa.boy_girl's rasping voice wakes you from your daze. @@.assistant;"Stroke it."@@ You blush deeply and nod, not trusting yourself to speak but not daring to look $futa.him_her in the eyes.
 		
 		You start to rub and lightly stroke it. To your shame you can almost predict what the $futa.boy_girl wants. Weirdly, not being a girl makes it easy to know how exactly to please $futa.him_her.
-		<<if _c and _b>>\
+		<<if _chastity and _plug>>\
 			Your locked penis presses tightly against its cage as your anus squeezes around your butt-plug and you realize you're leaking precum.
 			<<if playerCode.isMind_0()>>\
 				<<if $kink.futa>>\
@@ -251,7 +251,7 @@
 		nipples.\
 	<<endif>>\
 	
-	<<if _c and _b>>\
+	<<if _chastity and _plug>>\
 		Your locked penis strains against its cage when the $futa.boy_girl finds your butt-plug and jerks $futa.his_her hand away in surprise. With wide eyes $futa.he_she stares at you in shock. 
 		
 		Blushing furiously but unable to resist your arousal, you move your hand over $futa.his_her and direct it back to your butt-plug. Looking at you in awe the $futa.boy_girl starts massaging the base of the plug. You gasp, drowning in the intense sensations of the butt-plug moving deep inside, nudging your prostate. Unable to stop yourself, you start quietly moaning.
@@ -334,7 +334,7 @@
 	
 	You reach for his penis and gently wrap your fingers around it. To your surprise, it feels a bit thicker than you expected. You blush deeply and start to rub and lightly stroke it.
 	
-	<<if _c and _b>>\
+	<<if _chastity and _plug>>\
 		Your locked penis strains against its cage when the assistant $futa.boy_girl touches your butt-plug. With wide eyes, you realize what $futa.he_she is going to do. Blushing furiously you continue stroking the penis as the assistant $futa.boy_girl starts massaging base the of your plug. You gasp, drowning in the intense sensations from the butt-plug rubbing your insides and prostate. Unable to stop yourself, you start quietly moaning.
 		<<if playerCode.isMind_0()>>\
 			@@.hero;Oh god, why did I do that?! O-oooh-ohh...@@
@@ -404,7 +404,7 @@
 	<<if $kink.futa>>\
 		@@.bully2;"Hey $bully, you sure? You know stealing some money is ok but this..."@@
 	<<else>>\
-		<<if (_slb lte 4)>>\
+		<<if (_slutScoreBasic lte 4)>>\
 			@@.bully2;"Hey $bully, you sure? You know stealing some money is ok but this... and I'm no fag but look at him, he's a guy in drag"@@
 		<<else>>\
 			@@.bully2;"Hey $bully, you sure? You know stealing some money is ok but this... I know this fag looks like a girl, but still..."@@
@@ -436,7 +436,7 @@
 		You drop to your knees and, with a trembling hand, reach for the zipper on the leader's pants. He eagerly helps you get his pants down, and you slowly pull his underwear down too, letting his thick cock pop free.
 	<<endif>>\
 	
-	@@.hero;Thick, but not that huge.@@ With relief, you glance at it for a moment, transfixed, wondering how it will taste. Your cheeks blush a bit at that last thought. @@.hero;I shouldn't find it attractive. I'm not a faggot. I like girls.@@ 
+	@@.hero;Thick, but not that huge.@@ With relief, you glance at it for a moment, transfixed, wondering how it will taste. Your cheeks blush a bit at that last thought. @@.hero;I shouldn't find it attractive. <<if $kinkAllow.curse>>I'm not a faggot. <</if>>I like girls.@@ 
 	
 	Your eyes start to get a little bit watery, but no compassion comes from the bullies. The other two simply turn their backs on you with the excuse of monitoring whether someone enters the bathroom,
 	<<if $kink.futa>>\
@@ -462,26 +462,26 @@
 	@@.assistant;"What? Wait... He???!"@@ The assistant $futa.boy_girl looks flabbergasted.
 	
 	@@.bully;"You didn't know that this pathetic loser here is a crossdresser? Oh, that's hilarious!"@@ $bully suddenly reaches down and\
-	<<if _o.id=="rookieUniform">>
+	<<if _outerwear.variant=="rookie_uniform">>
 			yanks your shorts\
-		<<if _u>>\
+		<<if _underwear>>\
 			and panties downwards, revealing your\
 		<<else>>\
 			downwards, revealing your\
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 			leaking with precum\
 		<<endif>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			chastity cage.\
 		<<else>>\
 			penis.\
 		<<endif>>\
 	<<else>>\
 		lifts the hem of your skirt\
-		<<if _u>>\
+		<<if _underwear>>\
 			upwards and pulls down your\
-			<<if _u.female>>\
+			<<if _underwear.isFemale>>\
 				panties, revealing your\
 			<<else>>\
 				boxers, revealing your\
@@ -489,16 +489,16 @@
 		<<else>>\
 			upwards, revealing your\
 		<<endif>>\
-		<<if _b>>\
+		<<if _plug>>\
 			leaking with precum\
 		<<endif>>\
-		<<if _c>>\
+		<<if _chastity>>\
 			chastity cage.\
 		<<else>>\
 			penis.\
 		<<endif>>\
 	<<endif>>\
-	<<if _b>>\
+	<<if _plug>>\
 	
 		@@.bully;"Look, the slut just loves it! She leaks like a bitch in heat."@@ There is no chance you can explain that it's from your butt-plug pressing on your prostate, and not from sucking dick.
 	<<endif>>\
@@ -522,5 +522,4 @@
 	
 	[[Go to class]]
 <<endif>>\
-
 

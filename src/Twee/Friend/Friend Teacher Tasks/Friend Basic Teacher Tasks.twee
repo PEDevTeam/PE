@@ -7,7 +7,7 @@
     You can’t wait to get over to $friend’s house again. You know $friendG.his_her parents will be at work and you really need to just hang out and get away from all the madness in your life currently. \
     Seeing the massive house again, you still feel a pang of jealousy as you walk up the driveway, but even with his family’s newfound wealth, you know that $friend hasn’t changed at all.
 <<case 2>>\
-    As you wander through the streets you catch a glimpse of a cheerleader from school practicing cartwheels on her front lawn. You try not to stare but she just looks so cute in her skimpy outfit, her long, silky-smooth legs <<if $body.bodyhair>> like yours! <<endif>> \
+    As you wander through the streets you catch a glimpse of a cheerleader from school practicing cartwheels on her front lawn. You try not to stare but she just looks so cute in her skimpy outfit, her long, silky-smooth legs <<if $body.bodyhair.level gt 0>> like yours! <<endif>> \
     peeking out from beneath her short skirt. She glances up in your direction but you manage to look away just in time and make it over to $friend’s house without further incidents.
 <<case 3>>\
     As you turn the corner, you can see $bully and his cohorts up the street, much to your annoyance. You act fast and pull out your phone, discovering a side road which will bring you out just the other side of $friend’s mansion. \
@@ -44,8 +44,8 @@ $tasksTeacher.selfieFemaleClothes.status eq 1 or
 $tasksTeacher.selfieHomeMakeup.status eq 1 or 
 ($tasksTeacher.wearStockings.status eq 1 && $tasksTeacher.wearStockings.progress eq 0) or 
 ($tasksTeacherBody.legHairRemoval.status eq 1 && $tasksTeacherBody.legHairRemoval.progress == 0) or 
-($body.bodyhair == 0 && $friendG.seenWaxedLeg) or
-($flags.flatsFlag == true && not playerCode.owns(itemsC.flats)) or 
+($body.bodyhair.level == 0 && $friendG.seenWaxedLeg) or
+($flags.flatsFlag == true && not window.inventoryFuncs.ownsMasterItem('flats')) or 
 ($tasksTeacher.tryingClothesMall.status eq 1 && $tasksTeacher.tryingClothesMall.progress == 0) or 
 $tasksTeacher.posingSeductively.status eq 1 or
 $tasksTeacher.danceAtHome.status eq 1 or

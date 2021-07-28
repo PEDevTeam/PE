@@ -1,7 +1,8 @@
 :: Friend Basic Visit
 \
-<<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>><<updateClothes>>\
+<<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
+<<removeClothingItem 'shoes'>>\
+<<updateClothes>>\
 <<if $flags.friendIsMale>><<RandomImageFromPack 'Friend/MaleBedroom' 400 400 alignRight>>\
 <<else>><<RandomImageFromPack 'Friend/FemaleBedroom' 400 400 alignRight>><<endif>>\
 <<selectScene FriendBasicVisit1 RND2RND>>\
@@ -68,7 +69,7 @@
 		@@.friend;“Go crash on the couch,”@@ $friendG.he_she says grinning. @@.friend;“I’ll fix up some snacks and we can hang. Why don’t you pick something to do?”@@
 	<</selectScene>>\
 
-	<<if $friendG.snoop eq 2>>\
+	<<if $tasksFriend.pantieSelfie.status eq 2>>\
 		As you are waiting, you notice a printed picture sticking out from the pile of magazines on the coffee table. You don’t recognise the person because there is no face, but you certainly recognise the pattern on the panties. You slide the picture out just to be sure just and realize that the paper is creased and a little smudged. 
 
 		$friend returns with a tray of snacks and sodas. 

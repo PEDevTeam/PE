@@ -1,8 +1,8 @@
 :: Task selfieFemaleClothes [pos_2486_2904]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _slb = playerCode.slutScoreBasic()>>\
-<<if _o and (not _o.female)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _slutScoreBasic = playerCode.slutScoreBasic()>>\
+<<if _outerwear and (not _outerwear.isFemale)>>\
 	You aren't wearing any female clothes.
 <<else>>\
 	<<set $tasksTeacher.selfieFemaleClothes.status = 2>>\
@@ -11,16 +11,16 @@
 		<<set $player.perversion.crossdressing++>>\
 	<<endif>>\
 	It feels so strange to wear\
-	<<if playerCode.isWearing(itemsC.skirtTop)>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('skirtTop')>>\
 		a skirt and top.\
 	<<else>>\
 		a dress.\
 	<<endif>>\
 	You look at the mirror and gulp, seeing how these feminine clothes have transformed you.
 	
-	<<if _slb lte 1>>\
+	<<if _slutScoreBasic lte 1>>\
 		It is still obvious that you're a boy, but you hate to admit how vulnerable and meek you look in female clothes.
-	<<elseif _slb lte 4>>\
+	<<elseif _slutScoreBasic lte 4>>\
 		You look very feminine for a boy, but you hate to admit that you look good.
 	<<else>>\
 		It is almost unnerving how convincingly female you look in these clothes.

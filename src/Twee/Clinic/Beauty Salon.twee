@@ -1,7 +1,7 @@
 :: Beauty Salon [pos_2592_876]
 \
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Beauty Salon" 400 400>></div>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<if ($time.hour > 5) and ($time.hour < 21)>>\
 	<<if (not $flags.salonVisited)>>\
 		<<set $flags.salonVisited to true>>\
@@ -9,7 +9,7 @@
 		You enter the Beauty salon and are greeted by an enthusiastic young woman dressed in a barely decent version of a //"sexy nurse"// uniform. Her name tag reads, "Nancy."
 
 		She looks over your\
-		<<if (_o and _o.female)>>\
+		<<if (_outerwear and _outerwear.isFemale)>>\
 			dress and flashes a knowing smile, making you realize that she is not fooled for a minute, before listing a number of options available from the salon.
 		<<else>>\
 			outfit with barely hidden amusement before listing a number of options available from the salon.

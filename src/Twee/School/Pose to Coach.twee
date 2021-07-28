@@ -9,7 +9,7 @@
 	<<endif>>\
 	@@.coach;"What a nice specimen we have here. $teacher told me you were passable and I must agree with her."@@
 
-	You feel rather intimidated by the leer $futa.he_she is giving you; suddenly your <<if playerCode.isWearing(itemsC.rookieUniform)>>\
+	You feel rather intimidated by the leer $futa.he_she is giving you; suddenly your <<if window.wardrobeFuncs.isItemVariantWearing('rookie_uniform')>>\
 		shorts feel very short.
 	<<else>>\
 		skirt feels very short. You try to flatten it, holding it down with both your hands as much as you can. 
@@ -37,7 +37,7 @@
 	@@.coach;"Welcome back queer, ready for the next photo session? Take your place like last time."@@
 	
 	$futa.He_She looks at your hands, 
-	<<if (not $flags.nailGloss) and (not ($body.manicure eq 1))>>\
+	<<if (not $flags.nailGloss) and (not ($body.manicure.level eq 1))>>\
 		@@.coach;"What a pity you didn’t follow my advice, the photos won’t come out as good as I'd hoped. I'll have to speak with $teacher about it"@@
 	<<else>>\
 		@@.coach;"I’m glad to see that you followed my advice, the photos will come out much better. Please remove your shoes too, let's put those nice feet on display."@@

@@ -1,12 +1,12 @@
 ::Friend Teacher Tasks Wear Heels Get Changed
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _u = playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _p = playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<set _inYourUnderwear = "">>\
-<<if _c>>\
+<<if _chast>>\
     <<set _inYourUnderwear = "in your cage">>\
-<<elseif _u>>\
-    <<if _u.female>>\
+<<elseif _under>>\
+    <<if _under.isFemale>>\
         <<set _inYourUnderwear = "in your panties">>\
     <<else>>\
         <<set _inYourUnderwear = "in your boxers">>\
@@ -17,7 +17,7 @@
     <<set _penisAttribute = "insignificant">>\
 <<endif>>\
 \
-@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, <<if _p.slutty>>stockings<<else>>girl's socks<<endif>>. I even made sure I have the little cage on.”@@
+@@.heroT;“I did as you asked. Girl’s underwear, smooth girly legs, <<if window.inventoryFuncs.hasTag(_stock, 'slutty')>>stockings<<else>>girl's socks<<endif>>. I even made sure I have the little cage on.”@@
 
 @@.friend;“You are too cute.”@@ $friend grabs you excitedly and squeezes you tight, $friendG.his_her hands slipping down to caress your butt cheeks through your pants. You gasp in surprise but $friend steps back before you can comment. @@.friend;“So, you still want to go out?”@@
 

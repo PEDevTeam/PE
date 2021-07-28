@@ -2,9 +2,8 @@
 <<if $cheerFriend.prize == "panties">>\
 	Trying to be as discreet as possible, you reach up under your skirt and slide off your panties.
 
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set playerCode.removeClothesJS(_u.id)>>\
-	<<removeFromInv _u.id>>\
+	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<removeItemVariantFromInventory _wornItem.variant>>\
 	@@.malevoice9;“Thank you,”@@ Andrew says as he snatches them from your hand and runs over to the dresser. To your surprise, he returns holding a small wad of soft pink fabric, as well as the coveted diary.
 
 	@@.malevoice9;“Here,”@@ he says thrusting the two items into your hand. @@.malevoice9;“You can give these back to my sister. Since I have yours, I don’t need them anymore.”@@

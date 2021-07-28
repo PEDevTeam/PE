@@ -1,7 +1,7 @@
 ::Friend Commando First
-<<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<if $body.bodyhair == 0>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if $body.bodyhair.level == 0>>\
 	<<set _hairy = true>>\
 <<endif>>\
 <<set $player.location = locationsJS.mall.id>>\

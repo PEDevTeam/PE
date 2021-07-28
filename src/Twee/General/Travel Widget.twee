@@ -1,0 +1,209 @@
+:: Travel Widget [widget]
+<<widget "Travel">>\
+\
+\<!-- CHECK THE PASSAGE NAME USING passage() METHOD TO SET THE CURRENT LOCATION -->\
+\
+<<set _from = null>>\
+<<if passage() eq "Go to bedroom">>\
+	<<set _from = locationsJS.home>>\
+<<elseif passage() eq "Go to school">>\
+	<<set _from = locationsJS.school>>\
+<<elseif passage() eq "Go to the mall">>\
+	<<set _from = locationsJS.mall>>\
+<<elseif (passage() eq "Finish watching") or (passage() eq "Therapist talk") or (passage() eq "Visit therapist")>>\
+	<<set _from = locationsJS.therapist>>\
+<<elseif (passage() eq "Beauty Salon") or (passage() eq "Go to clinic") or (passage() eq "Work at clinic")>>\
+	<<set _from = locationsJS.clinic>>\
+<<elseif (passage() eq "Club entrance") or (passage() eq "The Club") or (passage() eq "Club bar")>>\
+	<<set _from = locationsJS.club>>\
+<<endif>>\
+<<if (not $player.location)>>\
+	<<set $player.location = locationsJS.home.id>>\
+<<endif>>\
+<<if (_from eq null)>>\
+	<<set _from = locationsJS[$player.location]>>\
+<<endif>>\
+\
+<div class='clothesDivider'></div>\
+\
+\<!-- LOOP THROUGH ALL THE LOCATIONS IN locations.js -->\
+<<for _i to 0; _i lt Object.keys(locationsJS).length; _i++>>\
+	<<set _to = locationsJS[Object.keys(locationsJS)[_i]]>>\
+	<<set _active = $locations[_to.id].active>>\
+	\
+	\<!-- ONLY RUN IF LOCAITON IS ACTIVE, AND NOT YOUR CURRENT LOCATION -->\
+	<<if _active and (_from.id neq _to.id)>>\
+		<<set _available = true>>\
+		<<set _quickDressForSchool = false>>\
+		<<set _reason = "">>\
+		<<set _destination = _to.destination>>\
+		<<set _description = _to.destination>>\
+		<<if _to.description>>\
+			<<set _description = _to.description>>\
+		<<endif>>\
+\
+\
+		<<if (window.timeCode.schoolRequired()) and (_to.id neq locationsJS.school.id) and (_to.id neq locationsJS.home.id)>>\
+			<<set _available = false>>\
+			<<set _reason = "You need to go to school today">>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.school.id)>>\
+			<<if (not window.timeCode.haveSchool())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedSchool.check())>>\
+				<<set _available = false>>\
+				<<set _reason = $reason.dressedSchool>>\
+				<<if (_from eq locationsJS.home)>>\
+					<<set _quickDressForSchool = true>>\
+				<<endif>>\
+			<<endif>>\
+			<<if $player.perversion.teacher >= 4 and $player.perversion.teacher < 10 and $cheerleaders.progress == -1 and window.timeCode.isThursday()>>\
+				<<set _destination = "Cheer Ep0 Sc1">>\
+			<<endif>>\
+			<<if $cheerleaders.progress == 2 and window.timeCode.isMonday() and (not $cheerleaders.flags.skippedPractice)>>\
+				<<set _destination = "Cheer Ep3 Pre1">>\
+				<<set $cheerleaders.rainyDay = true>>\
+			<<endif>>\
+			<<if $cheerleaders.progress == 2 and window.timeCode.isTuesday() and (not $cheerleaders.flags.skippedPractice)>>\
+				<<set _destination = "Cheer Ep3 Pre3">>\
+			<<endif>>\
+		<<endif>>\
+\
+		\<!--  Random Events  -->\
+		<<if (false)>>\
+			<<set _destination = "random event destination">>\
+			<<set $player.location = locationsJS.tokenPlace.id>>\
+			<<set $player.destination = _to.id>>\
+			<<set $player.locationX = (_from.x + _to.x)*0.5>>\
+			<<set $player.locationY = (_from.y + _to.y)*0.5>>\
+		<<endif>>\
+\
+\
+		\<!-- CHECKS FOR EACH LOCATION -->\
+		\<!-- TODO: PUT THESE CHECKS INTO THE JS OBJECTS -->\
+		<<if (_to.id eq locationsJS.mall.id)>>\
+			<<if (not window.timeCode.isMallOpen())>>\
+				<<continue>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.clinic.id)>>\
+			<<if ($time.hour lt 6) or ($time.hour gt 21) or (not window.timeCode.isWeekend())>>\
+				<<continue>>\
+			<<endif>>\
+			<<set _description = "Go to ">>\
+			<<set _description += $guardian>>\
+			<<set _description += "\'s clinic">>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.jobFastfood.id) or (_to.id eq locationsJS.jobSexshop.id)>>\
+			<<if (not window.timeCode.canWork()) or $player.jobs.workedToday>>\
+				<<continue>>\
+			<<endif>>\
+			<<if ($player.jobs.adultstorePerversion eq 0) and (_to.id eq locationsJS.jobSexshop.id)>>\
+				<<set _description = "Work at the shop downtown">>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.club.id)>>\
+			<<if window.timeCode.isClubOpen() && window.timeCode.isFriday() && $flags.slutBadEnd == 1 && $player.perversion.teacher == 10>>\
+				<<set _description = "Go to the club for your punishment">>\
+				<<set _destination = "School Slut Bad End Sc1">>\				
+			<<else>>\
+				<<if (not window.timeCode.isClubOpen()) or (not window.timeCode.isClubAvailable())>>\
+					<<continue>>\
+				<<elseif (not window.clothes.dressedClub.check())>>\
+					<<set _available = false>>\
+					<<set _reason = $reason.dressedClub>>\
+				<<endif>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.spa.id)>>\
+			<<if not (window.timeCode.isFriday() && window.timeCode.isClubOpen() && $flags.slutGoodEnd == 1 && $player.perversion.teacher == 10)>>\
+				<<continue>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.friendHouse.id)>>\
+			<<if (not window.timeCode.canVisitFriend())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedFriend.check())>>\
+				<<set _available = false>>\
+				<<set _reason = $reason.dressedFriend>>\
+			<<endif>>\
+			<<set _description = "Visit ">>\
+			<<set _description += $friend>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.cheerFriendHouse.id)>>\
+			<<if (not window.timeCode.canVisitCheerFriend())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedFemale())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be dressed like a girl to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
+			<<elseif (not window.clothes.dressedCheerFriend())>>\
+				<<set _available = false>>\
+				<<set _reason = "You must be wearing something other than your school or cheerleader uniform to visit ">>\
+				<<set _reason += $cheerFriend.name>>\
+			<<endif>>\
+			<<set _description = "Visit ">>\
+			<<set _description += $cheerFriend.name>>\
+			<<set _description += "'s house">>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.therapist.id)>>\
+			<<if (not window.timeCode.needTherapy())>>\
+				<<continue>>\
+			<<elseif (not window.clothes.dressedTherapy.check())>>\
+				<<set _available = false>>\
+				<<set _reason = $reason.dressedTherapy>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.teacherParty.id)>>\
+			<<if (not window.timeCode.canTeacherParty())>>\
+				<<continue>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_to.id eq locationsJS.hotelLesson.id)>>\
+			<<if (not window.timeCode.canHotelLesson())>>\
+				<<continue>>\
+			<<endif>>\
+		<<endif>>\
+		<<if (_from.id eq locationsJS.home.id) and (not window.clothes.dressedOutside.check())>>\
+			<<set _available = false>>\
+			<<set _reason = $reason.dressedOutside>>\
+		<<endif>>\
+		<<if (_from.id eq locationsJS.home.id) and (_to.id neq locationsJS.school.id) and (window.timeCode.schoolRequired())>>\
+			<<set _available = false>>\
+			<<set _reason = "I need to go to school">>\
+		<<endif>>\
+		<<if $flags.exhausted and (not _to.important)>>\
+			<<set _available = false>>\
+			<<set _reason = "You are too exhausted to do that">>\
+		<<endif>>\
+		\
+		\<!-- TIME CALCULATIONS, SET UP TOOLTIP AND DISPLAY DESTINATION -->\
+		<<if _available>>\
+			<<set _time = window.misc.calculateDistance(_from, _to)>>\
+			<<set _timeOnArrivalHour = $time.hour>>\
+			<<for _timeOnArrivalMin = $time.minute + _time; _timeOnArrivalMin gte 60; _timeOnArrivalMin-=60>>\
+				<<set _timeOnArrivalHour++>>\
+				<<if _timeOnArrivalHour gte 24>>\
+					<<set _timeOnArrivalHour=0>>\
+				<<endif>>\
+			<</for>>\
+			<<if _timeOnArrivalMin lt 10>>\
+				<<set _timeOnArrivalMin="0"+_timeOnArrivalMin>>\
+			<<endif>>\
+			<div class="tooltip"><<print "[[_description|_destination][$time.addMinutes("+_time+"); $player.location = \""+_to.id+"\"]]">> <span id="test_surv" class="tooltiptext">It will take <<print _time>> minutes (to <<print _timeOnArrivalHour>>:<<print _timeOnArrivalMin>>)</span></div>\
+		<<else>>\
+			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
+		<<endif>>\
+		<<if _quickDressForSchool>>\
+			<<if $cheerleaders.active and (inventoryFuncs.ownsMasterItem('cheerUniform')) and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet("Cheerleader")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+			<<else>>\
+				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet("School")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+			<<endif>>\
+		<<endif>>\
+
+	<<endif>>\
+<</for>>\
+<div class='clothesDivider'></div>\
+
+<</widget>>

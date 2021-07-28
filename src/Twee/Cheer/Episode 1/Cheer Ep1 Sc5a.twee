@@ -1,5 +1,5 @@
 :: Cheer Ep1 Sc5a
-<<set _underwear to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 As you watch the girls practicing, your mind begins to wander…
 
 @@.dream;\
@@ -179,7 +179,7 @@ As you watch the girls practicing, your mind begins to wander…
 @@.cheerCaptain;“$player.name!”@@
 
 You’re brought out of your daydream by Rachel calling your name. Blinking away the fog, you notice that \
-<<if _underwear.female>>\
+<<if _underwear and _underwear.isFemale>>\
     your panties are soaking wet.
 <<else>>\
     you’ve left a sizable wet spot on the floor.

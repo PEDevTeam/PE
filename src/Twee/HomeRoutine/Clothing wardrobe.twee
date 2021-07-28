@@ -213,8 +213,8 @@
 						<<endif>>\
 					<</for>>\
 					<<if (_ar gt 1)>>\
-						<<set _in to _in + ' <<click ←>><<previousClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
-						<<set _in to _in + ' <<click →>><<nextClothing "' + _o.id + '">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+						<!-- <<set _in to _in + ' <<click ←>> --> <!-- <<previousClothing "' + _o.id + '">> --> <!-- <<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
+						<!-- <<set _in to _in + ' <<click →>> --> <!-- <<nextClothing "' + _o.id + '">> --> <!--<<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
 <!--
 						<<set _in to _in + _oV.curAlt>>\
 -->\
@@ -242,7 +242,7 @@
 						<<set _in to _in + '<<click @@.on;&#xe810;@@>><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 						<<set _in to _in + " ">>\
 					<<endif>>\
-					<<set _in to _in + '<<click " ' + _verb2 + '">><<removeClothing "' + _o.id + '">><<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+					<!-- <<set _in to _in + '<<click " ' + _verb2 + '">> --> <!-- <<removeClothing "' + _o.id + '">> --> <!-- <<set window.playerCode.clothesOverride()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
 				<<endif>>\
 			<<elseif ((_o.clothingType & itemTypes.Chastity) && playerCode.isHorny()) >>\
 				<<set _in to _in + ' <div class="tooltip">//@@.halftransparent;cannot put on – too aroused@@//<span class="tooltiptext">You cannot bring yourself to put the cage back on. Try masturbating first.</span></div>'>>\
@@ -274,7 +274,7 @@
 				
 		<<endif>>\
 	<</for>>\
-	<<click "Undress">><<set playerCode.getNaked()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
+	<<click "Undress">><<set wardrobeFuncs.removeAllClothingWithChastityCheck()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
 <div class="clothesDivider"></div>\
 <<else>>\
 <!--	<div class="clothesDivider"></div>\-->\
@@ -326,7 +326,7 @@
 	<<if playerCode.owns(itemsC.buttPlugVibro)>><<set _bm++>><<endif>>\
 	<<if playerCode.owns(itemsC.buttPlugInflate)>><<set _bm++>><<endif>>\
 	<<if _b>>\
-		<<print '<<click " Remove butt-plug ">><<removeClothingType _b.clothingType>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
+		<!-- <<print '<<click " Remove butt-plug ">>--> <!-- <<removeClothingType _b.clothingType>><<updateClothes>> --><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\ -->
 	<<endif>>\
 	<<if (playerCode.owns(itemsC.buttPlugHeart) and (not playerCode.isWearing(itemsC.buttPlugHeart)))>>\
 		<<if _b>> @@.inv_action_faded; / @@ <<endif>>\
@@ -362,13 +362,13 @@
 					<<print '<<click " Lock chastity">><<set $flags.chastityLocked=true>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 				<<endif>>\
 				@@.inv_action_faded;/@@ \
-				<<print '<<click " Remove chastity ">><<removeClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
+				<!-- <<print '<<click " Remove chastity ">> --> <!-- <<removeClothing "chastityDevice">> --> <!-- <<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>> -->
 			<<endif>>\
 		<<else>>\
 			<<print '<<click " Put on chastity cage ">><<wearClothing "chastityDevice">><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>
 		<<endif>>\
 	<<endif>>\
-	<<click "Undress">><<set playerCode.getNaked()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
+	<<click "Undress">><<set wardrobeFuncs.removeAllClothingWithChastityCheck()>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>
 <!--</buttplug and chastity>-->\
 <div class="clothesDivider"></div>\
 <<endif>>\

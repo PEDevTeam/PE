@@ -8,43 +8,67 @@
 Nancy offers various piercing options.
 
 <img id="item_preview" class="hidden">\
-<<if (not $body.earsPierced)>>\
-<<set _item=itemsC.PiercingEars>>\
+<<if $body.earsPierced.level eq 0>>\
+	<<set _image = $body.earsPierced.level1.image>>\
+	<<set _name = $body.earsPierced.level1.description>>\
+	<<set _disabled = $body.earsPierced.level1.disabled>>\
+	<<set _cost = $body.earsPierced.level1.cost>>\
+	<<set _daringRec = $body.earsPierced.level1.daring>>\
 	<<set _sceneName="PiercingEars">>\
 	<<set _override=($tasksTeacherBody.getEarsPierced.status gt 0)>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.PiercingLips))>>\
-<<set _item=itemsC.PiercingLips>>\
+<<if $body.lipsPierced.level eq 0>>\
+	<<set _image = $body.lipsPierced.level1.image>>\
+	<<set _name = $body.lipsPierced.level1.description>>\
+	<<set _disabled = $body.lipsPierced.level1.disabled>>\
+	<<set _cost = $body.lipsPierced.level1.cost>>\
+	<<set _daringRec = $body.lipsPierced.level1.daring>>\
 	<<set _sceneName="PiercingLips">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.PiercingNose))>>\
-<<set _item=itemsC.PiercingNose>>\
+<<if $body.nosePierced.level eq 0>>\
+	<<set _image = $body.nosePierced.level1.image>>\
+	<<set _name = $body.nosePierced.level1.description>>\
+	<<set _disabled = $body.nosePierced.level1.disabled>>\
+	<<set _cost = $body.nosePierced.level1.cost>>\
+	<<set _daringRec = $body.nosePierced.level1.daring>>\
 	<<set _sceneName="PiercingNose">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.PiercingBelly))>>\
-<<set _item=itemsC.PiercingBelly>>\
+<<if $body.bellyPierced.level eq 0>>\
+	<<set _image = $body.bellyPierced.level1.image>>\
+	<<set _name = $body.bellyPierced.level1.description>>\
+	<<set _disabled = $body.bellyPierced.level1.disabled>>\
+	<<set _cost = $body.bellyPierced.level1.cost>>\
+	<<set _daringRec = $body.bellyPierced.level1.daring>>\
 	<<set _sceneName="PiercingBelly">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.PiercingTongue))>>\
-<<set _item=itemsC.PiercingTongue>>\
+<<if $body.tonguePierced.level eq 0>>\
+	<<set _image = $body.tonguePierced.level1.image>>\
+	<<set _name = $body.tonguePierced.level1.description>>\
+	<<set _disabled = $body.tonguePierced.level1.disabled>>\
+	<<set _cost = $body.tonguePierced.level1.cost>>\
+	<<set _daringRec = $body.tonguePierced.level1.daring>>\
 	<<set _sceneName="PiercingTongue">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
 <<endif>>\
 \
-<<if (not playerCode.owns(itemsC.PiercingNipples))>>\
-<<set _item=itemsC.PiercingNipples>>\
+<<if $body.nipplesPierced.level eq 0>>\
+	<<set _image = $body.nipplesPierced.level1.image>>\
+	<<set _name = $body.nipplesPierced.level1.description>>\
+	<<set _disabled = $body.nipplesPierced.level1.disabled>>\
+	<<set _cost = $body.nipplesPierced.level1.cost>>\
+	<<set _daringRec = $body.nipplesPierced.level1.daring>>\
 	<<set _sceneName="PiercingNipples">>\
 	<<set _override=false>>\
 	<<display "Clinic buy menu">>
@@ -54,15 +78,13 @@ Nancy offers various piercing options.
 [[Return|Beauty Salon]]
 <<else>>\
 	<<if $scene eq "PiercingEars">>\
-		<<set _item=itemsC.PiercingEars>>\
-		<<buyItem _item.id>>\
-		<<set $body.earsPierced = true>>\
+		<<set $body.earsPierced.level = 1>>\
+		<<set $player.money -= $body.earsPierced.level1.cost>>
 		@@.heroT;"I'd like to get my ears pierced,"@@ you tell Nancy.
 		@@.nurse;"Excellent choice!"@@  She exclaims.
-		<<if ($body.nose eq 3)>>\
-			<<set _item=itemsC.hoopsEarrings>>\
-			<<addToInv _item.id>>\
-			<<wearClothing _item.id>>\
+		<<if ($body.nose.level eq 3)>>\
+			<<addItemVariantToInventory 'earrings_flashy_00'>>\
+			<<wearItemVariant 'earrings_flashy_00'>>\
 		You pick out a pair of small diamond studs, but Nancy stops you and shows you a pair of big golden hoops.
 		
 		@@.nurse;"Here, these would look much better with your face."@@ She is clearly enjoying it, but you have to admit, she may be onto something.
@@ -79,9 +101,8 @@ Nancy offers various piercing options.
 		
 		@@.reward;You now have pierced ears with large, golden hoops in them!@@
 		<<else>>\
-			<<set _item=itemsC.diamondStuds>>\
-			<<addToInv _item.id>>\
-			<<wearClothing _item.id>>\
+			<<addItemVariantToInventory 'earrings_casual_00'>>\
+			<<wearItemVariant 'earrings_casual_00'>>\
 		You pick out a pair of small diamond studs and Nancy gets to work.
 		
 		Before you know it, she has snapped two earrings into your ears. @@.hero;Ouch!@@ you shout as she finishes up.
@@ -93,8 +114,8 @@ Nancy offers various piercing options.
 		@@.reward;You now have pierced ears with small, diamond studs in them!@@
 		<<endif>>\
 	<<elseif $scene eq "PiercingLips">>\
-		<<set _item=itemsC.PiercingLips>>\
-		<<buyItem _item.id>>\
+		<<set $body.lipsPierced.level = 1>>
+		<<set $player.money -= $body.lipsPierced.level1.cost>>
 		@@.heroT;"I'd like to get my lower lip pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@  She exclaims.
@@ -109,8 +130,8 @@ Nancy offers various piercing options.
 		
 		@@.reward;You now have a tiny, gold ring lip piercing!@@
 	<<elseif $scene eq "PiercingNose">>\
-		<<set _item=itemsC.PiercingNose>>\
-		<<buyItem _item.id>>\
+		<<set $body.nosePierced.level = 1>>
+		<<set $player.money -= $body.nosePierced.level1.cost>>
 		@@.heroT;"I'd like to get my nose pierced,"@@ you tell Nancy.
 
 		@@.nurse;"I think that will look lovely on you!"@@ she exclaims.
@@ -125,8 +146,8 @@ Nancy offers various piercing options.
 
 		@@.reward;You now have a small, diamond nose piercing!@@
 	<<elseif $scene eq "PiercingBelly">>\
-		<<set _item=itemsC.PiercingBelly>>\
-		<<buyItem _item.id>>\
+		<<set $body.bellyPierced.level = 1>>
+		<<set $player.money -= $body.bellyPierced.level1.cost>>
 		@@.heroT;"I'd like to get my belly button pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@ she exclaims.
@@ -149,8 +170,8 @@ Nancy offers various piercing options.
 		
 		@@.reward;You now have a small, diamond belly piercing!@@
 	<<elseif $scene eq "PiercingTongue">>\
-		<<set _item=itemsC.PiercingTongue>>\
-		<<buyItem _item.id>>\
+		<<set $body.tonguePierced.level = 1>>
+		<<set $player.money -= $body.tonguePierced.level1.cost>>
 		@@.heroT;"I'd like to get my tongue pierced,"@@ you tell Nancy.
 		
 		@@.nurse;"Excellent choice!"@@  She exclaims.
@@ -167,8 +188,8 @@ Nancy offers various piercing options.
 		
 		@@.reward;You now have a tongue piercing!@@
 	<<elseif $scene eq "PiercingNipples">>\
-		<<set _item=itemsC.PiercingNipples>>\
-		<<buyItem _item.id>>\
+		<<set $body.nipplesPierced.level = 1>>
+		<<set $player.money -= $body.nipplesPierced.level1.cost>>
 		@@.heroT;"I'd like to get my, um, nipples pierced,"@@ you tell Nancy.
 
 		@@.nurse;"Excellent choice!"@@ she exclaims. @@.nurse;"And I'm sure a lot of people will enjoy this bold decision you've just made,"@@ she adds, with a sly grin.
