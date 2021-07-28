@@ -1293,7 +1293,7 @@ window.bodyList={
 	},
 
 	hairstyle: {
-		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : curly, 5 : pigtails
+		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : pigtails, 5 : curly
 		disabled : false,
 		maxLevel : 5,
 		level0: {
