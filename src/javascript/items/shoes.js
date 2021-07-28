@@ -2239,7 +2239,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                pink:true,
+                black:true,
                 sexy:true,
                 school:true,
                 heels:true,
@@ -2258,7 +2258,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                pink:true,
+                black:true,
                 sexy:true,
                 school:true,
                 heels:true,
@@ -2277,7 +2277,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                pink:true,
+                black:true,
                 sexy:true,
                 school:true,
                 heels:true,
@@ -2296,7 +2296,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                pink:true,
+                black:true,
                 sexy:true,
                 school:true,
                 heels:true,

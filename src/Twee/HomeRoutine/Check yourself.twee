@@ -27,6 +27,33 @@
 <<endif>>\
 \
 <!--<hair>-->\
+<<set _hairImg = "hair_">>\
+<<switch $body.hairstyle.level>>\
+<<case 1>>\
+	<<set _hairImg = _hairImg + "short_">>\
+<<case 2>>\
+	<<set _hairImg = _hairImg + "medium_">>\
+<<case 3>>\
+	<<set _hairImg = _hairImg + "long_">>\
+<<case 4>>\
+	<<set _hairImg = _hairImg + "pigtails_">>\
+<<case 5>>\
+	<<set _hairImg = _hairImg + "curly_">>\
+<</switch>>\
+<<switch $body.hairColor>>\
+<<case 0>>\
+	<<set _hairImg = _hairImg + "black.jpg">>\
+<<case 1>>\
+	<<set _hairImg = _hairImg + "brown.jpg">>\
+<<case 2>>\
+	<<set _hairImg = _hairImg + "red.jpg">>\
+<<case 3>>\
+	<<set _hairImg = _hairImg + "blonde.jpg">>\
+<<case 4>>\
+	<<set _hairImg = _hairImg + "white.jpg">>\
+<<case 5>>\
+	<<set _hairImg = _hairImg + "pink.jpg">>\
+<</switch>>\
 <<if ($body.hairstyle.level eq 1)>>\
 	<<set _item=itemsC.HairShort>>\
 	<<if $body.hairColor eq 0>>\
@@ -43,7 +70,7 @@
 		<<set _word="@@.info;short pink hair@@">>\
 	<<endif>>\
 	<<if _item.image and (not $avatar.active)>>\
-		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image+ '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _hairImg+ '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
 		<<set _in to _in + '</span>'>>\
 	<<else>>\
@@ -74,7 +101,7 @@
 		<<set _word="@@.info;shoulder-length, pink hair,@@">>\
 	<<endif>>\
 	<<if _item.image and (not $avatar.active)>>\
-		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _hairImg + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
 		<<set _in to _in + '</span>'>>\
 	<<else>>\
@@ -105,7 +132,7 @@
 		<<set _word="@@.info;long, wavy pink hair@@">>\
 	<<endif>>\
 	<<if _item.image and (not $avatar.active)>>\
-		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _hairImg + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
 		<<set _in to _in + '</span>'>>\
 	<<else>>\
@@ -124,7 +151,7 @@
 	<<set _item=itemsC.HairPigtails>>\
 	<<set _word="@@.info;two frilly pigtails@@">>\
 	<<if _item.image and (not $avatar.active)>>\
-		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _hairImg + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
 		<<set _in to _in + '</span>'>>\
 	<<else>>\
@@ -139,11 +166,11 @@
 	<<default>>\
 		It's just like a hairstyle you'd see on a slutty schoolgirl in a porno. You get hot just thinking about it.
 	<</switch>>\
-<<elseif ($body.hairstyle eq 5)>>\
+<<elseif ($body.hairstyle.level eq 5)>>\
 	<<set _item=itemsC.HairCurly>>\
 	<<set _word="@@.info;dolly ringlets@@">>\
 	<<if _item.image and (not $avatar.active)>>\
-		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _item.image + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
+		<<set _in to '<span onmouseover="var ip=document.getElementById(\'inv_item\');ip.src=\'Images/items/' + _hairImg + '\';ip.className=\'\'" onmouseout="document.getElementById(\'inv_item\').className=\'hidden\';"> '>>\
 		<<set _in to _in + _word>>\
 		<<set _in to _in + '</span>'>>\
 	<<else>>\

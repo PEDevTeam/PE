@@ -2156,7 +2156,7 @@ $.extend(true, window.items, {
         },
                 
         //sluttyCheerUniform
-        sluttyCheer01:{
+        sluttyCheer00:{
             masterItem:"sluttyCheerUniform",
             variant:"slutty_cheer_00",
             name:"Slutty Red Cheerleader Uniform with Short Skirt",

@@ -616,7 +616,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
 			[[Ask a girl for advice|Task Ask advice]]
 		<<endif>>\
-		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 4>>\
+		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 7>>\
 			Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
 			
 			<<set $cheerFriend.flags.acceptInvite = true>>\
@@ -631,7 +631,13 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				<<scene>>\
 					<<set $cheerFriend.currentSE = 4>>\
 				<</selectScene>>\
-			<<elseif $cheerFriend.progress > 4 && $cheerFriend.progress < 8>>\
+			<<elseif $cheerFriend.progress > 4 && $cheerFriend.progress < 7>>\
+				<<selectScene SESelector678 RND2RND>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 6>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 7>>\
+				<</selectScene>>\
 			<<endif>>\
 		<<endif>>\
 		[[Go to class]]

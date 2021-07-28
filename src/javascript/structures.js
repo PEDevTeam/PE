@@ -680,9 +680,10 @@ window.structures={
 		var clothingSets = window.itemNavigator.clothingSets;
 		if(vars.clothingSets == null){
 			vars.clothingSets = [];
-		}
-		for(var clothingSetIdx in clothingSets){
-			vars.clothingSets.push(clothingSets[clothingSetIdx])
+			
+			for(var clothingSetIdx in clothingSets){
+				vars.clothingSets.push(clothingSets[clothingSetIdx])
+			}
 		}
 	},
 
@@ -1292,9 +1293,9 @@ window.bodyList={
 	},
 
 	hairstyle: {
-		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : curly, 5 : pigtails
+		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : pigtails, 5 : curly
 		disabled : false,
-		maxLevel : 4,
+		maxLevel : 5,
 		level0: {
 			description: "Male haircut",
 			disabled: true
@@ -1321,16 +1322,16 @@ window.bodyList={
 			disabled : true
 		},
 		level4: {
-			description : "Curly hair",
-			cost : 40,
-			image : "hair_curly_brown.jpg",
+			description : "Pigtails",
+			cost : 30,
+			image : "hair_pigtails_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
 		level5: {
-			description : "Pigtails",
-			cost : 30,
-			image : "hair_pigtails_brown.jpg",
+			description : "Curly hair",
+			cost : 40,
+			image : "hair_curly_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
