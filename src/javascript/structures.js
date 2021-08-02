@@ -2333,7 +2333,7 @@ window.cheerFriendList={
 
 	flags: {
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
-		boy: 1,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		boy: 0,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 		force: false,	//took diary by force
 		visitedHouse: false, //visited house in SE 5
 		genderPref: "", //stated preferred gender
