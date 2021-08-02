@@ -1,5 +1,5 @@
 ::Cheer SE5 Sc5a
-<<set _under=playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set $cheerFriend.flags.visitedHouse = true>>\
 @@.heroT;“I’ll play you for it,”@@ you offer.
 
@@ -20,12 +20,12 @@ You’re shocked by his rather unconventional request. @@.heroT;“What? My pant
 	This kid’s running a racket! \
 <<endif>>\
 Panties would be cheaper to replace... \
-<<if not _under>>\
+<<if not _underwear>>\
 	Too bad I didn’t wear any today. \
 <<endif>>\
 Of course, I could save myself a lot of hassle and just take the diary. He’s only ten.@@
 
-<<if _under>>\
+<<if _underwear>>\
 	[[Bet your panties|Cheer SE5 Sc6a][$cheerFriend.prize = "panties"]]
 <<endif>>\
 <<if $player.money > 100>>\

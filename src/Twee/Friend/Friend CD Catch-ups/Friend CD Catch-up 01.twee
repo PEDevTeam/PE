@@ -1,6 +1,6 @@
 ::Friend CD Catch-up 01
-<<set _bra = playerCode.isWearingOn(itemTypes.Bras)>>\
-<<set _stock = playerCode.isWearing(itemsC.stockings)>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
 You are not sure what it is, but $friend seems a little edgy as $friendG.he_she waits for you to decide what to do.
 
 @@.heroT;“What’s up?”@@ you ask,
@@ -23,13 +23,13 @@ Heat builds in your cheeks at the suggestion. <<if _bra or _stock>>\
 	$friendG.His_Her camera now full of illicit photos, \
 	<<set $friendG.seenBra = 1>>\
 <<elseif _stock>>\
-	You step back a little and sheepishly raise the bottom of your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<else>>pants<<endif>>, revealing a little more of your stockings. 
+	You step back a little and sheepishly raise the bottom of your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<else>>pants<<endif>>, revealing a little more of your stockings. 
 
 	@@.friend;“Wow, those look amazing. Can I see more of them?”@@
 
-	Instead of feeling repulsed by your stocking leg, $friend seems genuinely happy and smiles rather than ridicules. You breathe a sigh of relief, and invigorated by $friendG.his_her reaction, you roll your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<else>>pants<<endif>> up to your knees. You feel a bit stupid with your <<if $body.bodyhair > 0>>waxed<<else>>hairy<<endif>> legs poking out, but before you can stop $friendG.him_her, $friendG.he_she whips out $friendG.his_her camera and dashes off a couple of pictures of you. 
+	Instead of feeling repulsed by your stocking leg, $friend seems genuinely happy and smiles rather than ridicules. You breathe a sigh of relief, and invigorated by $friendG.his_her reaction, you roll your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<else>>pants<<endif>> up to your knees. You feel a bit stupid with your <<if $body.bodyhair.level > 0>>waxed<<else>>hairy<<endif>> legs poking out, but before you can stop $friendG.him_her, $friendG.he_she whips out $friendG.his_her camera and dashes off a couple of pictures of you. 
 
-	<<if $body.bodyhair > 0>>\
+	<<if $body.bodyhair.level > 0>>\
 		@@.friend;“You shaved your legs too? Wow, has anyone noticed?<<if $friendG.Gender == "T">> I’m jealous, I need to start wearing some too.<<endif>>”@@
 	
 	<<endif>>\
@@ -68,7 +68,7 @@ $friend also thrusts a pair of lacy panties into your hands.
 <<endif>>\
 @@.friend;like to help, you know, if you want to try more things,”@@ as $friendG.he_she puts on THE iDOLM@STER, and settles down on the couch to watch. You become engrossed in the anime, especially with Akizuki Ryou, and enjoy watching with $friend until it’s time to start getting ready to leave.  
 
-<<addToInv gString 63>>\
-<<addToInv braSexy 63>>\
+<<addItemVariantToInventory 'panties_sexy_63'>>\
+<<addItemVariantToInventory 'bra_sexy_63'>>\
 <<set $player.perversion.friend = 5>>\
 [[Leave friend's house][$time.addMinutes(90)]]

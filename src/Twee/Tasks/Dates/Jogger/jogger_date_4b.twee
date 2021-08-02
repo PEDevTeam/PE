@@ -14,7 +14,7 @@ He presses himself against you as his hands roam down your body. @@.malevoice6;�
 
 You gasp as he gives you a firm smack before pulling away your clothes to expose your naked body.
 
-Before you can react you’ve been spun around, and you brace yourself against a shelf as he presses up behind you<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>and removes your plug<<endif>>. Even after his long run, his cock and hips show no sign of fatigue as he slides himself into you.
+Before you can react you’ve been spun around, and you brace yourself against a shelf as he presses up behind you<<if window.wardrobeFuncs.getWornItem('buttplug')>>and removes your plug<<endif>>. Even after his long run, his cock and hips show no sign of fatigue as he slides himself into you.
 
 @@.malevoice6;“Unf, yeah,”@@ he grunts as he thrusts. @@.malevoice6;“Gotta really work the hips. Don’t want any lingering tension in the glutes.”@@ He slams away at your hole, each thrust firm enough to lift you into the air. You gasp and moan before frantically clamping your hand over your mouth to make sure no one in the restaurant notices the health code violation occurring in the closet.
 
@@ -24,7 +24,7 @@ Holding you in place, he deposits a full load inside of you before pulling away,
 
 @@.malevoice6;“Not bad, but this has me in the mood to knock off another mile or two... I’ll see you around!”@@
 
-He slips out of the closet without another word as you try to catch your breath, taking several more minutes to collect yourself<<if playerCode.isWearingOn(itemTypes.AnalPlug)>> and your plug<</if>>. You duck back into the juice bar, doing your best to ignore the snickering one of the attendants up as you hurry past the counter and out the door.
+He slips out of the closet without another word as you try to catch your breath, taking several more minutes to collect yourself<<if window.wardrobeFuncs.getWornItem('buttplug')>> and your plug<</if>>. You duck back into the juice bar, doing your best to ignore the snickering one of the attendants up as you hurry past the counter and out the door.
 
 <<if $flags.findDancePartner>>\
 	As you leave, you suddenly remember $teacher's order for you to find a partner for your next poise lesson, and you curse yourself for your forgetfulness.
@@ -33,6 +33,7 @@ He slips out of the closet without another word as you try to catch your breath,
 
 <<endif>>
 <<set $player.ending.comportment.partners.jogger.numOfDates +=1>>\
+<<set $player.ending.comportment.partners.jogger.dateSexFlag = true>>\
 <<set $tasksTeacher.goOnDate.status = 2>>\
 <<set $time.addMinutes(60)>>\
 <<display [[Travel]]>>

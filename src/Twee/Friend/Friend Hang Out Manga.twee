@@ -1,24 +1,17 @@
 :: Friend Hang Out Manga
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _socks = true>>\
-<<if _stockings>>\
-	<<if _stockings.slutty>>\
-		<<set _socks = false>>\
-	<<endif>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _waxed to not(playerCode.isHairy())>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<if _under>>\ 
+	<<if not _under.isFemale>>\ 
+		<<set _maleUnder = true>>\ 
+	<<endif>>\ 
 <<endif>>\
-<<set _waxed to not playerCode.isHairy()>>\
-<<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _femUnder = false>>\
-<<if _under>>\
-	<<if not _under.female>>\
-		<<set _maleUnder = true>>\
-	<<endif>>\
-<<endif>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 <<if $player.daring lt 5 and $tasksFriend.manga.status eq 0>>\
 	<<RandomImageFromPack 'Friend/MangaCovers' 400 400 alignRight>>\
@@ -73,19 +66,19 @@
 		<<if _chastity and $flags.chastityKey>>and locked in chastity<<endif>>, you\
 		know you would be jerking one out. You glance up and see $friend watching you intently. 
 
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			You both realize at the same time that $friend has been absentmindedly caressing your\
-			<<if _stockings && not _socks>>stocking top\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top\
 			<<else>>naked thigh<<endif>>\
 			with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Your skin is all tingly, your cheeks flushed and your penis is\
 			<<if _chastity>>solid and painfully pressing against your cage.\
 			<<else>>solid.<<endif>>\
 			Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that, $friendG.his_her hand up your\
-			<<if _outerwear.skirt>>skirt<<else>>dress<<endif>>\
+			<<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>>\
 			and caressing your <<if _waxed>>smooth, girly<<endif>> legs. The worst part is that however you look at it, you loved it and catch yourself wishing $friendG.he_she would carry on. Fortunately, or unfortunately, when $friend returns $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<else>>\
 			You both realize at the same time that $friend has been absentmindedly brushing against your\
-			<<if _stockings && not _socks>>stocking top<<else>>thigh<<endif>>\
+			<<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>stocking top<<else>>thigh<<endif>>\
 			through your pants with the back of $friendG.his_her hand and you both pull away with a gasp. $friend offers you a fresh drink and scurries away. Wisely, you put the manga down, although you cannot get the memory of how it felt to be touched like that from your mind. Fortunately, when $friend returns, $friendG.he_she suggests watching some sports instead and you relax a little, although confusion still clouds your mind.
 		<<endif>>\
 	<<elseif $player.perversion.crossdressing < 6 >>\
@@ -114,7 +107,7 @@
 		$friend’s outfit is no less sexual than yours, but at least $friendG.he_she will have $friendG.his_her bottom covered. You are not sure about getting changed, but $friend is already changing around the corner. You take the clothing from the mannequin and start to undress.
 		
 		<<if _maleUnder || not _chastity || not _stockings  || not _waxed>>\
-			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>>boxers on<<if not _stockings && (not _waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
+			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>><<if _maleUnder>>boxers on<<endif>><<if not _stockings && (not _waxed || _maleUnder)>> and <<endif>><<if not _stockings>>boy’s socks on<<endif>>,"@@ $friend says in a raised voice, sounding hurt. @@.friend;“ Tell you what, $player.name, come back another day when you’re dressed more appropriately. I think you should leave.”@@
 
 			$friend returns to the corner and changes back. You were so distracted by the outburst you never got a chance to see how good $friendG.he_she looked. $friendG.He_She lets you change back in silence, slamming the girl-cave door behind $friendG.him_her and almost pushes you out of the door, hugless.
 			<<set $friendG.wordlessGoodbye = true>>\
@@ -185,7 +178,7 @@
 
 		Standing alone in the changing area, you could refuse. You could leave. But $friend has obviously made a real effort, and you’ve been asking for $friendG.his_her help with stuff. I guess trying it on won’t do any harm...
 
-		You strip down <<if _under || _bra>>to your <<if _bra>>bra<<endif>><<if _bra && _under>> and <<endif>><<if _under.female>>panties<<else>>boxers<<endif>> <<endif>>and pull on the white shirt, which is really a blouse as the buttons are on the wrong side. The tank top fits snugly around your torso, while the bow at your neck tickles your hairless chin, a subtle reminder that you haven’t needed to shave there, ever. You pull the skirt up your legs and fasten it around your waist. By the time you’ve rolled the thigh-highs up your slender legs, $friend is back in the other room. Curious as to what $friendG.he_she is wearing, you head through. 
+		You strip down <<if _under || _bra>>to your <<if _bra>>bra<<endif>><<if _bra && _under>> and <<endif>><<if _under.isFemale>>panties<<else>>boxers<<endif>> <<endif>>and pull on the white shirt, which is really a blouse as the buttons are on the wrong side. The tank top fits snugly around your torso, while the bow at your neck tickles your hairless chin, a subtle reminder that you haven’t needed to shave there, ever. You pull the skirt up your legs and fasten it around your waist. By the time you’ve rolled the thigh-highs up your slender legs, $friend is back in the other room. Curious as to what $friendG.he_she is wearing, you head through. 
 
 		<<if not _chastity || not _waxed || _maleUnder>>\
 			@@.friend;”Wait? You’ve got <<if not _waxed>>hairy legs<<endif>><<if not _waxed && _maleUnder>> and <<endif>><<if _maleUnder>>boxers on<<endif>><<if not _chastity && (not _waxed || not _maleUnder)>> and <<endif>><<if not _chastity>>no cute little cage<<endif>>"@@ $friend says in a raised voice, sounding hurt. @@.friend;“Tell you what, $player.name, get changed, and come back another day when you’ve put some effort into what you’re wearing.”@@
@@ -249,9 +242,9 @@
 		<<else>>\
 			<<RandomImageFromPack 'Friend/Stop_Hibari-Kun' 400 400 alignRight>>\
 		<<endif>>\
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			You snuggle back on the couch, pulling your legs up to tuck underneath you and arranging your skirt to cover your\
-			<<if _stockings>>stocking tops.<<else>>thighs.<<endif>>
+			<<if _stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings'>>stocking tops.<<else>>thighs.<<endif>>
 
 			@@.friend;“You are so different to before,”@@ $friend says, coming back into the room with a tray loaded with goodies. @@.friend;“I almost feel it should be you making the food now, given how girly you are."@@
 

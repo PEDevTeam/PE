@@ -1,0 +1,75 @@
+:: roxy_wedding_prep_root
+<<if ndef $roxy_weddingplan>>\
+	<<set $roxy_weddingplan = {
+    	'football_nice' : 0,
+    	'football_mean' : 0,
+    	'jogger' : 0,
+    	'friend' : 0,
+    	'coach' : 0
+	}>>\
+<</if>>\
+The next day, you set about Roxy’s instructions, reminding yourself that you need to collect four groomsmen to “balance out” the rest of her roller derby team acting as her bridesmaids.
+
+<<if $cheerleaders.flags.prankTeam == "football">>\
+	<<if $roxy_weddingplan.football == 2>>\
+		You have successfully recruited $team.nice to the wedding party.
+	<<elseif $roxy_weddingplan.football == 1>>\
+		You failed to recruit $team.nice to the wedding party.
+	<<else>>\
+		<<print "[[See about " + $team.nice + "	from the " + $team.sport + " team|roxy_wedding_prep_football_nice_1]]">>
+	<</if>>\
+<<else>>\
+	<<if $roxy_weddingplan.football == 2>>\
+		You have successfully recruited $team.nice to the wedding party.
+	<<elseif $roxy_weddingplan.football == 1>>\
+		You failed to recruit $team.nice to the wedding party.
+	<<else>>\
+		<<print "[[See about one of the players from the " + $team.sport + "  team|roxy_wedding_prep_football_nice_1]]">>
+	<</if>>\
+<</if>>\
+<<if $roxy_weddingplan.jogger == 2>>\
+	You have successfully recruited the campus jogger to join the wedding party.
+<<elseif $roxy_weddingplan.jogger == 1>>\
+	You failed to recruit the campus jogger to join the wedding party.
+<<else>>\
+	[[See if the guy who jogs near campus will join the wedding party|roxy_wedding_prep_jogger_1]]
+<</if>>\
+<<if $friendG.gender == "M">>\
+	<<if $roxy_weddingplan.friend == 1>>\
+    	You have already attempted to recruit $friend to the wedding party.
+	<<else>>\
+    	<<print "[[See if " + $friend + " will join the wedding party|roxy_wedding_prep_friend_1]]">>
+	<</if>>\
+<</if>>\
+<<if $roxy_weddingplan.coach == 2>>\
+	You have successfully recruited Coach to join the wedding party.
+<<elseif $roxy_weddingplan.coach == 2>>\
+	You have failed to recruit Coach to join the wedding party.
+<<else>>\
+	[[See if Coach will join the wedding party|roxy_wedding_prep_coach_1]]
+<</if>>\
+<<include calcWeddingParty>>\
+<<if $roxy_weddingplan.total == 4>>\
+	[[You have successfully recruited a wedding party|roxy_wedding_prep_rehearsal_dinner]]
+<<elseif $roxy_weddingplan.football_nice > 0 && $roxy_weddingplan.jogger > 0 && $roxy_weddingplan.friend > 0 && $roxy_weddingplan.coach > 0>>\
+
+	<<if $roxy_weddingplan.football_mean > 0>>
+    	You have run out of people you can think of to recruit for the wedding party.
+	<<else>>\
+		<<if $cheerleaders.flags.prankTeam == "football">>\
+			You rack your brain as you realise you still don’t have four for the wedding party. Maybe you could get $team.mean to come? Sure, they’re an asshole, but you’re feeling desperate.
+
+			<<print "[[Try and recruit " + $team.mean + "|roxy_wedding_prep_football_mean_1]]">>  
+		<<else>>\
+			You rack your brain as you realise you still don’t have four for the wedding party. Maybe you could get one of the other football players to come? Sure, you mainly know him for catcalling you in the halls, but you’re feeling desperate.
+
+			[[Try and recruit the other football player|roxy_wedding_prep_football_mean_1]]  
+		<</if>>\
+	<</if>>\
+
+	[[Call it on recruiting for the wedding party.|roxy_wedding_prep_rehearsal_dinner]]
+<<else>>\
+	You have not yet recruited enough people for the wedding party.
+
+	[[Call it on recruiting for the wedding party.|roxy_wedding_prep_rehearsal_dinner]]
+<</if>>\

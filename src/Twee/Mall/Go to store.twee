@@ -1,0 +1,10 @@
+:: Go to store
+\
+<<if $currentStore != "">>\
+    <<if window.mallFuncs.checkStoreEntry($currentStore)>>\
+        <<showStore $currentStore>>\
+    <<else>>\
+        <<set _passage = window.mallFuncs.getStoreEntryPassage($currentStore)>>\
+        <<include _passage>>\
+    <</if>>\
+<</if>>\

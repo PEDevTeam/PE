@@ -9,10 +9,10 @@
 	More cheer content coming soon!
 	<<set $cheerleaders.progress++>>\
 	<<if $cheerleaders.progress == 11>>\
-		<<removeFromInv 'rookieUniform'>>\
-		<<addToInv 'cheerDress'>>\
-		<<wearClothing 'cheerDress'>>\
-		<<set playerCode.saveQuickSlot(11)>><<updateClothes>>\
+		<<removeItemVariantFromInventory 'rookie_uniform'>>
+		<<addItemVariantToInventory 'cheer_dress'>>\
+		<<wearItemVariant 'cheer_dress'>>
+		<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Cheerleader')>><<updateClothes>>\
 	<<endif>>\
 	If you have loaded a game, you can reset your cheerleader progress by clicking [[here|Reset cheer]]
 	<<display [[Travel]]>>

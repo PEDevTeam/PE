@@ -1418,7 +1418,7 @@ Perverted Education
 }
 
 #item_preview_mall {
-	position: fixed;
+	/*position: fixed;*/
 	max-height: 300px;
 	max-width: 300px;
 	/*margin-right: 100%;*/
@@ -1879,7 +1879,7 @@ Perverted Education
 	width: 100%;
 	height: 0;
 	text-align: center;
-	padding-bottom: 145%;
+	padding-bottom: 210%;
 }
 
 
@@ -2358,6 +2358,524 @@ tr.header {
     display: table;
 }
 
+
+/* Styles for new wardrobe */
+.wardrobe-selector-table{
+	table-layout: fixed;
+	width: 105%;
+	overflow: hidden;
+}
+
+.wardrobe-category-button-selected{
+	background: darkred;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+.wardrobe-category-button-selected:hover{
+	background: firebrick;
+}
+
+.wardrobe-category-button{
+	background: midnightblue;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;
+}
+
+.wardrobe-category-button:hover{
+	background: royalblue;
+}
+
+.wardrobe-category-button-heading{
+	height: 70px;
+	border-bottom: 1pt solid lightgrey;
+}
+
+.wardrobe-master-item-selected{
+	background: sienna;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.wardrobe-master-item-selected:hover{
+	background: saddlebrown;
+}
+
+.wardrobe-master-item{
+	background: darkgreen;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.wardrobe-master-item:hover{
+	background: mediumseagreen;
+}
+
+.wardrobe-master-item-row{
+	height: 60px;
+}
+
+.wardrobe-master-item-list{
+	border-right: 1pt solid lightgrey;
+}
+
+.wardrobe-variant-navigation-span{
+	background: lightgrey;
+	color: black;
+	padding: 10px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.item-navigator-selector-table{
+	table-layout: fixed;
+	width: 105%;
+	overflow: hidden;
+	display: none;
+	animation: fade_out_show 0.5s
+}
+
+.item-navigator-selector-table.isOpen{
+	table-layout: fixed;
+	width: 105%;
+	overflow: hidden;
+	display: initial;
+	animation: fade_in_show 0.5s
+}
+
+.item-navigator-category-button-selected{
+	background: darkred;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+.item-navigator-category-button-selected:hover{
+	background: firebrick;
+}
+
+.item-navigator-category-button{
+	background: midnightblue;
+	margin: 10px;
+	padding: 20px;
+	color: lightgrey;
+	cursor: pointer;
+}
+
+.item-navigator-category-button:hover{
+	background: royalblue;
+}
+
+.item-navigator-category-button-heading{
+	height: 70px;
+	border-bottom: 1pt solid lightgrey;
+}
+
+.item-navigator-master-item-selected{
+	background: sienna;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.item-navigator-master-item-selected:hover{
+	background: saddlebrown;
+}
+
+.item-navigator-master-item{
+	background: darkgreen;
+	color: lightgrey;
+	padding: 15px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.item-navigator-master-item:hover{
+	background: mediumseagreen;
+}
+
+.item-navigator-master-item-row{
+	height: 60px;
+}
+
+.item-navigator-master-item-list{
+	border-right: 1pt solid lightgrey;
+}
+
+.item-navigator-variant-navigation-span{
+	background: lightgrey;
+	color: black;
+	padding: 10px;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.item-variant-table{
+	width: 100%;
+}
+
+.item-variant-div{
+	text-align: center;
+}
+
+.item-navigator-variant-cant-afford{
+	color: red;
+}
+
+.item-navigator-variant-already-owned{
+	color: green;
+}
+
+.item-navigator-variant-unlock{
+	color: GoldenRod;
+}
+
+.item-navigator-variant-locked{
+	color: red;
+	cursor: not-allowed;
+}
+
+.item-navigator-variant-wet{
+	color: blue;
+	cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFi0lEQVRYhb2XXWwUVRTH//femdndfm0LbYFCW6CYtkipUvwIaiAigoLyQkwgQBBiSgwYNEKCMUYdBF0TqYRo5A1Ik1IftI1pBKO2IaIRdnFVUnhhA7RKkS1l29nd+brXh51px4YttSmcZHNnd/ae85vzv+fcO6S/vx8ACAAfABOAjUm0oqIiAAAh5I73qTvW1CxeGo5EGwAoDtB9MeoZl6hqaGs4En0OmWzcFwgXgAEo6OrseFBVQ6+EI9F1AIruB4Q3AzoAf1dnxwJVDTWGI9GNAPLuNQT1XHMAAoDS1dlRpaqhzeFIdAMA/72EGA0AADKAvK7OjkpVDb0cjkQ34x4uTDrqO3F+cyGqVTW06V5CuADcce4GIMgszEBXZ0eNqoa2hCPRtQBy7wA9KQBpJyBBZh249xQABadOtdeqamhXOBLdBSA4mRCuIwJAwsg6cDMCAJJPkQra21qrVTX0YjgS3QOgEJPUK7xl6ENGe7caBEZkocFgXn7riaNVqhpaEY5EDwCYh0zWvL68Mv4vAHiCu46E5x4BwKZNK8k9fuxIhaqGHgHw0Kj5wjNn3BCSJ7i7CXEAQtPSyM31cwB06bLnXdjbjvMEgO/U66kFfToGDlcGLo+CJa6fDeevQ+LIapJndJ/G1LS0XVo6W5xobcaa1ctBCLEbG7fWr1r59CXnv+JsQii9Jt8ug1zYcSV15nBl4Jwzn2JERgQsOmY6vGVoA7A0Lc1LS2fztvaW+Xt2700DwLGjXzD1/Y+akemKBgCj9R9TpoynfT67JC0bL+y4mpq3M6a78g1LYzAbCcUYE4Agcw4wnCe32tpbahoW1Q+VV5THTp/+FRUVs1BeUV777ckfnkBGLmWhX6qSKYokJrZMkchyyuz1FGKJ49P1i4FACppfv2sG7Jra6t7S0tk/t7W31DUsqr8JoH/37p3rtm3bLgCg6eB+5YN9H3+KTB8wk4pRRSm/IoAblKDMJ/PHU4r58Ht92vxea+RMowiKKalAVgB3DYivv2r+zJHBdOh5w6L63jlz53zf3X3pmdraasiynAaQPp+0SErgJgVZ6MwpYAR1ssRPJqmovGBYsZkSSwAQMwaCoCL7KvA2ohQy+gqMNCKt6eD+l9auXf/lxk2NfU1NHz4JYEjjoJoQ+RTwE2AKMlv5NMrZbUvQkmdzfPrbMaMQABFEgBNxh9BO4P7+fgYgB8CQB8btA9QZc5HR3kCmbVtvxRMr+kw+q5jSTQolxQB+umHi4gMKO3PN4ouFSURwKOeYADSLcRx5rCSrBMLzYU5K3ZxZGKl7F04AgGLK4WCSXU9J1izTb3UPQtRKsoi/OTX/8ju9+iqNmo/qkhVLy9Ylg9mxsSRwg7v1C/y3q3nzN3z97vRAvJyxi2vyffsMg94M2OzI58WFzS1xMyiE0BWZB6389LJBxVylyVa2+MMA5qig47LXK5nxTcKcAZuVHpqR1weADTKzIClbZQCSMhVVNrWDBKJgLAA4AN5uOC5747JJqCB1JrNX743pr51NWdOnMzaoU7tHALIA/D5OaaHum5/Nx3AZYqT8Rm9EWe2TubJ49ZpWU+jjK4Wirzh+i/XJTPT4LPlMkthlhmT/ZYMMBAzlbFYA983FA3JX23ruBjgRsInIFxL6IXBNENT5ZVuNm+RQjkmOgrArGrMWCyoiCCazvm1J2W6MZWnZhE05QIQAUAGCOIDbBOixme03JDLTZ7GLZZT1AEAizbL6mtDRymY2BOWwKR+yGB8EsARAHECa2CzuN5SATYVI6BRXYY6Z1gllwKIcfPjsI36J2zhQQElxkou/JYKSPN3ffUsaGpeeEwLgVEDA2b+J+N0iQodFn+IUP5ZI+HOs1jspADoRsJDpWnMJS8WE/cdUmfw2EV//AgPqQ7UPdPHKAAAAAElFTkSuQmCC), auto;
+}
+
+.item-set-icon{
+	filter: grayscale(1);
+	font-size: 1.5em;
+}
+
+.wardrobe-button-hide{
+	background: grey;
+	margin: 2px;
+	padding: 2px;
+	color: black;
+	cursor: pointer;	
+}
+
+.wardrobe-button-show{
+	background: darkgreen;
+	margin: 2px;
+	padding: 2px;
+	color: lightgrey;
+	cursor: pointer;	
+}
+
+
+/* New Clothing Slot Sidebar */
+.clothing-slot-sidebar-background-image{
+	height: 473px;
+	width: 213px;
+	margin-left: 10px;
+  	margin-top: 7px;
+	background-image: url("./Images/items/clothingSlotSidebackBackground.png"); 
+  	background-color: #cccccc; 
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	position: relative;
+	z-index: 10;
+}
+
+.clothing-slot-sidebar-anchor{
+	position: absolute;
+}
+
+.clothing-slot-sidebar-underwear{
+	width: 60px;
+	height: 60px;
+	transform: translate(140px, 230px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-underwear:hover {
+	transform: scale(2.0) translate(40px, 100px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-chastity{
+	width: 60px;
+	height: 60px;
+	transform: translate(75px, 200px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-chastity:hover {
+	transform: scale(2.0) translate(40px, 100px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-buttplug{
+	width: 60px;
+	height: 60px;
+	transform: translate(10px, 230px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-buttplug:hover {
+	transform: scale(2.0) translate(40px, 100px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-shoes{
+	width: 60px;
+	height: 60px;
+	transform: translate(140px, 315px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-shoes:hover {
+	transform: scale(2.0) translate(40px, 150px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-hosiery{
+	width: 60px;
+	height: 60px;
+	transform: translate(10px, 315px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-hosiery:hover {
+	transform: scale(2.0) translate(40px, 150px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-bra{
+	width: 60px;
+	height: 60px;
+	transform: translate(140px, 140px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-bra:hover {
+	transform: scale(2.0) translate(40px, 70px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-neckwear{
+	width: 60px;
+	height: 60px;
+	transform: translate(10px, 140px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-neckwear:hover {
+	transform: scale(2.0) translate(40px, 70px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-outerwear{
+	width: 90px;
+	height: 90px;
+	transform: translate(60px, 380px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-outerwear:hover {
+	transform: scale(1.5) translate(40px, 230px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-earring{
+	width: 45px;
+	height: 45px;
+	transform: translate(30px, 5px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-earring:hover {
+	transform: scale(2.2) translate(40px, 15px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-headwear{
+	width: 45px;
+	height: 45px;
+	transform: translate(135px, 5px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-headwear:hover {
+	transform: scale(2.2) translate(40px, 15px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-eyewear{
+	width: 45px;
+	height: 45px;
+	transform: translate(30px, 65px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-eyewear:hover {
+	transform: scale(2.2) translate(40px, 25px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-mouth{
+	width: 45px;
+	height: 45px;
+	transform: translate(135px, 65px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-mouth:hover {
+	transform: scale(2.2) translate(40px, 25px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-nightwear{
+	width: 90px;
+	height: 90px;
+	transform: translate(60px, 380px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-nightwear:hover {
+	transform: scale(1.5) translate(40px, 230px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-maid{
+	width: 90px;
+	height: 90px;
+	transform: translate(60px, 380px);
+	transition: transform 0.4s 0.3s;
+	z-index: 50;
+	position: absolute;
+}
+
+.clothing-slot-sidebar-maid:hover {
+	transform: scale(1.5) translate(40px, 230px);
+	z-index: 100;
+	position: absolute;
+}
+
+.clothing-set-navigator-span-button{
+	background: wheat;
+	margin: 10px;
+	padding: 10px;
+	color: darkslategrey;
+	cursor: pointer;	
+}
+
+.clothing-set-navigator-span-button:hover{
+	background: tan;
+}
+
+.clothing-set-div{
+	display: inline-flex;
+}
+
+.clothing-set-item-div{
+	text-align:center;
+}
+
+.clothing-set-text-div{
+	display: inline-block;
+}
+
+.clothing-options-div{
+	text-align: center;
+}
+
+.clothing-set-functions{
+	cursor: pointer;
+}
+
+.clothing-set-title-div{
+	color:grey;
+	margin:10px;
+}
+
+.mall-map-outer-div{
+	text-align: center;
+}
+
+.mall-store-list-div{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.store-link-div{
+	padding: 10px;
+	text-align: center;
+}
+
+.store-logo-image{
+	cursor: pointer;
+	width: 15em;
+}
+
+.mall-navigation-div{
+	
+}
+
+.store-logo-heading-div{
+	text-align: center;
+}
+
+.store-map-area{
+	cursor: pointer;
+}
+
+.store-map-div{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Club basement */
 body.basement {
 	color: #ffe599;
@@ -2374,4 +2892,26 @@ body.basement {
 }
 .roomDarkGreen  {
 	color: #466d1e; /*dark green, RGB: 70,109,30*/
+}
+
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade_out_show {
+
+    0% {
+        opacity: 1;
+    }
+	 
+	100% {
+        opacity: 0;
+    }
+
 }

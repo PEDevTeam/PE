@@ -1,9 +1,9 @@
 :: Club restroom [pos_216_1085]
 <<set _slb = playerCode.slutScoreBasic()>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set window.wordsCode.setwords()>>\
 <<if $player.drunk gte 40>>\
 	<<display "Drunk message">>\
@@ -359,7 +359,7 @@
 
 		Suddenly the woman’s eyes narrow. @@.femvoice11;“Wait a minute, you’re...”@@
 
-		She suddenly lifts the front of your $skirt and <<if _u>>pulls down your panties to expose your<<else>>exposes your<<endif>> $penis.
+		She suddenly lifts the front of your $skirt and <<if _underwear>>pulls down your panties to expose your<<else>>exposes your<<endif>> $penis.
 
 		She bursts into laughter at the sight. @@.femvoice11;“’She’ isn’t a real girl, after all. But it looks like she might as well be.”@@
 

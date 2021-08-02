@@ -52,7 +52,8 @@ window.timeCode={
 		}
 		time.guardian.wakeHour=8;
 		time.guardian.wakeMinute=0;
-		if (window.playerCode.owns(window.itemsC.alarmClock) || window.playerCode.isMaid()) {
+		//if (window.playerCode.owns(window.itemsC.alarmClock) || window.playerCode.isMaid()) {
+		if (State.active.variables.player.hasAlarmClock || window.playerCode.isMaid()) {
 			time.hour=7;
 			time.minute=30;
 			if (!player.alarmClockGuardian) {

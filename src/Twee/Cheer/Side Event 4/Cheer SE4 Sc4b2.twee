@@ -1,6 +1,6 @@
 ::Cheer SE4 Sc4b2
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend park bathroom" 400 400>></div>\
-<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _uniform=window.wardrobeFuncs.getWornItem('outerwear')>>\
 You decide to use the women’s restroom.\
 <<if playerCode.slutScoreBasic() gte 5>>\
 	With your girlish features, you figure it’s the safer option.
@@ -15,7 +15,7 @@ You decide to use the women’s restroom.\
 
 You gingerly push open the heavy metal door. Clearly in need of oil, the door gives out a loud squeak and you almost take off in the other direction as you entrance is announced. Thankfully, no one seems to be inside, so you quickly duck into a stall.
 
-You strip off your <<if (not _uniform.cheer)>>school uniform blouse<<elseif _uniform.id == "rookieUniform">>rookie shirt<<else>>cheerleading top<<endif>> and hold up the skimpy piece of swimwear, trying to decide how you’re supposed to put on a piece of clothing that only consists of two triangles of fabric and four straps. After turning it over in your hands for a while, you finally notice that one of the straps is attached to a plastic hook, while another ends in a small loop of fabric.
+You strip off your <<if (not window.inventoryFuncs.hasTag(_uniform, 'cheer'))>>school uniform blouse<<elseif _uniform.variant == "rookie_uniform">>rookie shirt<<else>>cheerleading top<<endif>> and hold up the skimpy piece of swimwear, trying to decide how you’re supposed to put on a piece of clothing that only consists of two triangles of fabric and four straps. After turning it over in your hands for a while, you finally notice that one of the straps is attached to a plastic hook, while another ends in a small loop of fabric.
 
 That must be the back strap.
 
@@ -46,10 +46,10 @@ You walk out of the stall holding your shirt and check yourself in the mirror. T
 <<else>>\
 	Looking at yourself in this incredibly girly top makes your heart race a little. As odd as it feels wearing a loaner bikini, you wonder what it would be like to wear the bottom half, too, instead of your\
 <<endif>>\
-<<if not _uniform.cheer>>\
+<<if not window.inventoryFuncs.hasTag(_uniform, 'cheer')>>\
 	tartan school skirt.
 <<else>>\
-	<<if _uniform.id == "rookieUniform">>\
+	<<if _uniform.variant == "rookie_uniform">>\
 		red cheer shorts.
 	<<else>>\
 		red-and-white cheer skirt.

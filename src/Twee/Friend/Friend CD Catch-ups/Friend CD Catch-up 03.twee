@@ -1,12 +1,12 @@
 ::Friend CD Catch-up 03
-<<set _under = playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _chast = playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _stock = playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<if $body.bodyhair == 0>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<if $body.bodyhair.level == 0>>\
 	<<set _hairy = true>>\
 <<endif>>\
 <<if _under>>\
-	<<if not _under.female>>\
+	<<if not _under.isFemale>>\
 		<<set _maleUnder = true>>\
 	<<endif>>\
 <<endif>>\
@@ -54,7 +54,7 @@
 
 	@@.hero;Did $friendG.he_she just call me babe? you think to yourself, looking up into $friendG.his_her eyes.@@
 
-	Instead of backing off, $friend continues to hold you close, $friendG.his_her hands almost caressing your back. You feel every stroke through the thin cotton. A <<if $friendG.gender != "F">>large <<endif>>hand slides down your body and squeezes your butt cheek<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>, making the plug wiggle enticingly inside your body as it presses against your prostate<<endif>>. Your eyes close as you lose yourself to the alien sensations of being held and stroked by someone else. 
+	Instead of backing off, $friend continues to hold you close, $friendG.his_her hands almost caressing your back. You feel every stroke through the thin cotton. A <<if $friendG.gender != "F">>large <<endif>>hand slides down your body and squeezes your butt cheek<<if window.wardrobeFuncs.getWornItem('buttplug')>>, making the plug wiggle enticingly inside your body as it presses against your prostate<<endif>>. Your eyes close as you lose yourself to the alien sensations of being held and stroked by someone else. 
 
 	$friend eases the hem of your dress higher, revealing your stocking tops and then your <<if _under>>panties<<else>>caged penis<<endif>>. $friendG.He_She eases you back until your shoulders press against the cold white wall. You feel something press to your groin, pushing your cage into your body. The sensation gives you a moment of clarity. 
 
@@ -75,6 +75,6 @@
 	With the room to yourself, you change back into your mostly boy clothes and head home, still <<if $friendG.gender == "F">>tasting her lipstick on your lips<<else>>smelling his aftershave on your cheeks<<endif>>.
 
 	<<set $player.perversion.friend = 7>>\
-	<<addToInv summerDress 72>>\
+	<<addItemVariantToInventory 'dress_casual_72'>>\
 <<endif>>\
 [[Leave friend's house][$time.addMinutes(90)]]

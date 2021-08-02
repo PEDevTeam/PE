@@ -1,13 +1,13 @@
 ::comportment_bimbo_3_1
 <<set $curScene = {}>>\
-<<set _oWear = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _oWear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set $player.ending.comportment.bimbo.hotelBimboLesson = false>>\
 <<switch $flags.bimboLessonPartner>>\
 <<case 'Coach'>>\
 	You arrive at the hotel and make your way to the front desk walking dutifully a half-step behind Coach. He grunts his name to the receptionist, is handed a key card, then leads the way to the elevator, up, and then down a hallway to a suite.
 
 	The door opens revealing $teacher,\
-	<<if not _oWear.female>>\
+	<<if not _oWear.isFemale>>\
     	who glances at you with a frown. @@.teacher;“Well, this is quite disappointing.”@@ She looks at Coach and shakes her head @@.teacher;“terribly sorry but she is utterly improperly dressed for today's lesson, so it seems you have wasted your time coming out here.”@@
 
     	Coach snorts, @@.coach;“Well ain’t that a kick in the pants! Well I suppose I will be on my way, but know that I'll be taking it out of her ass sometime in the future!”@@
@@ -42,7 +42,7 @@
 	You arrive at the hotel and make your way to the front desk - dutifully a half-step behind Ms. Ravensong. She gives her name to the receptionist and is handed a key card then leads the way to the elevator, up, and then down a hallway to a suite.
 
 	The door opens revealing $teacher\
-	<<if not _oWear.female>>\
+	<<if not _oWear.isFemale>>\
     	who glances at your outfit with a frown. @@.teacher;“Well, this is quite disappointing.”@@ She looks to Ms. Ravensong with a note of apology and says, @@.teacher;“Terribly sorry to do this to you but... she is utterly improperly dressed for today’s lesson, so it seems you have wasted your time coming out here.”@@
 
     	Ms. Ravensong sighs. @@.femvoice10;“I should have guessed - I knew her attire seemed drab but I figured she must have been obeying your instructions... apparently not, very improper.”@@

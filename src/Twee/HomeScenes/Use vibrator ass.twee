@@ -1,26 +1,26 @@
 :: Use vibrator ass [pos_54_936]
 \
-<<set _c to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _p to playerCode.isWearingOn(itemTypes.Stockings)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _wornButtplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<if ($tasksEmail.PinkRollers.status gte 2)>>\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo Rollers" 400 400>></div>\
 You put on pink socks and $guardian 's pink roller skates that were once the source of your embarrassment when you were learning to skate a long time ago.
-<<elseif (not _c)>>\
+<<elseif (not _chastity)>>\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo No Chast" 400 400>></div>\
 <<else>>\
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Dildo Play" 400 400>></div>\	
 <<endif>>\
-<<if _b>>\
-	<<removeClothing _b.id>>\
-	You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if $items.vibrator.stolen>>$guardian's<<else>>your<<endif>> vibrator, you \
+<<if _wornButtplug>>\
+	<<removeClothingItem 'buttplug'>>
+	You remove your butt-plug, give it a quick cleaning and put it aside.  Retrieving <<if $player.stolenVibrator>>$guardian's<<else>>your<<endif>> vibrator, you \
 <<else>>\
-	You take <<if $items.vibrator.stolen>>$guardian's<<else>>your<<endif>> vibrator and \
+	You take <<if $player.stolenVibrator>>$guardian's<<else>>your<<endif>> vibrator and \
 <<endif>>\
 lick it wet, then hold it standing up on the floor while you sit down on it.  It enters you more easily than you thought it would, and with gentle pressure you work it in until you've got the full length in.
 
 With trembling fingers you reach down and turn the dial on it, and it suddenly jumps to life, vibrating softly in your ass. \
-<<if _c>>\
+<<if _chastity>>\
 	Your penis pulses firmly within your chastity cage and you're immediately on the edge.  You rub the plastic surrounding your penis in vain, but you feel nothing except the relentless sensations of the toy in your ass.
 <<else>>\
 	Your penis pulses hard. You're desperate for touch, but you just bite your lip and keep your hands off. This time you want a different kind of release. So with a heavy sigh you just watch your penis twitching as it responds to the relentless sensations of the toy in your ass.
@@ -43,7 +43,7 @@ The vibrations begin sending you into a rhythm of ecstasy, then relaxation - har
 
 	You consider your reply and open your mouth to speak, but $guardian interrupts.
 
-	<<if $items.vibrator.stolen>>\
+	<<if $player.stolenVibrator>>\
 		@@.guardian;"Is that my vib..."@@ She stops midword and frowns.
 
 	<<endif>>\
@@ -65,7 +65,7 @@ The vibrations begin sending you into a rhythm of ecstasy, then relaxation - har
 <<elseif playerCode.isButtslut()>>\
 	<<set playerCode.masturbate.cum()>>\
 	You feel like you're about to explode and you whimper, afraid to cry out lest you scream, until finally the pressure breaks and\
-	<<if (not _c)>>\
+	<<if (not _chastity)>>\
 		a solid stream of jizz pours out of your cock.  A fountain of cum that seems to go forever, while your orgasm pulses hard.
 
 		Slowly you realize that you just came without touching your dick on this rare occasion when you actually could have! You feel your cheeks tinge red at the thought of what a submissive buttslut you're becoming.

@@ -1,14 +1,35 @@
 :: Task clubDinnerGown [pos_216_1085]
 \
 <<if $scene eq "step1">>\
-	<<set playerCode.getNaked()>>\
-	<<wearClothing 'sluttyDress' 30>>\
-	<<wearClothing 'stilettoHeels' 4>>\
-	<<wearClothing 'gString' 14>>\
-	<<wearClothing 'stockings' 5>>\
-	<<wearClothing 'braSexy' 24>>\
-	<<wearClothing 'choker' 2>>\
-	<<wearClothing 'rubyEarrings' 15>>\
+	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
+	<<if not inventoryFuncs.isItemVariantOwned('dress_slutty_30')>>\
+		<<addItemVariantToInventory 'dress_slutty_30'>>\
+	<<endif>>\
+	<<wearItemVariant 'dress_slutty_30'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('heels_stripper_01')>>\
+		<<addItemVariantToInventory 'heels_stripper_01'>>\
+	<<endif>>\
+	<<wearItemVariant 'heels_stripper_01'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('panties_sexy_14')>>\
+		<<addItemVariantToInventory 'panties_sexy_14'>>\
+	<<endif>>\
+	<<wearItemVariant 'panties_sexy_14'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('stockings_05')>>\
+		<<addItemVariantToInventory 'stockings_05'>>\
+	<<endif>>\
+	<<wearItemVariant 'stockings_05'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('bra_sexy_24')>>\
+		<<addItemVariantToInventory 'bra_sexy_24'>>\
+	<<endif>>\
+	<<wearItemVariant 'bra_sexy_24'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('choker_02')>>\
+		<<addItemVariantToInventory 'choker_02'>>\
+	<<endif>>\
+	<<wearItemVariant 'choker_02'>>\
+	<<if not inventoryFuncs.isItemVariantOwned('earrings_classy_15')>>\
+		<<addItemVariantToInventory 'earrings_classy_15'>>\
+	<<endif>>\
+	<<wearItemVariant 'earrings_classy_15'>>\
 	A few hours ahead of your evening out, you find the location of the upscale formal wear shop on the claim slip $teacher gave you, and go there to pick up your evening gown. It is floor-length, silky and the color of champagne, trimmed in damask lace, and a very elegant choice of ladies’ evening attire.
 
 	A large hat box filled with accoutrements has also been provided, courtesy of $teacher. It contains a silk shaping slip, garter belt and thigh-length stockings, a pair of complementary d’orsay heels, a rose-gold collar necklace with matching bangle bracelets, and a small purse to complete your outfit.
@@ -141,7 +162,7 @@
 
 	The limo is, naturally, nowhere in sight. The walk home is one of the longest of your life.
 
-	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=2; playerCode.getNaked()]]
+	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=2; wardrobeFuncs.removeAllClothingWithChastityCheck()]]
 <<elseif $scene eq "goExit">>\
 	You have been asked to do many things by $teacher, but this one takes the prize. There is no way you are going to give a blowjob to a stranger here, in front of everyone, in an upscale restaurant. While you know $teacher is going to punish you for walking away, you have a hard time imagining something that would surpass the degradation of going through with this task.
 
@@ -151,5 +172,5 @@
 
 	As you leave the club, the limo is, naturally, nowhere to be seen. You make your way home on your own and take quick shower.
 
-	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=3; playerCode.getNaked()]]
+	[[Go home|Go to bedroom][$tasksTeacher.clubDinnerGown.status=3; wardrobeFuncs.removeAllClothingWithChastityCheck()]]
 <<endif>>\
