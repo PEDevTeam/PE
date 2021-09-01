@@ -410,7 +410,7 @@ window.wardrobe = {
                 "schoolUniform",
                 "schoolDress",
                 "sluttySchoolDress",
-                "maid",
+                "maidDress",
             ]
         },
         socks: {

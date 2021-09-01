@@ -2249,6 +2249,7 @@ window.cheerList={
 	rainyDay: false,
 	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	ashleyProgress: 0,  //progress along Ashley's path
 	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise

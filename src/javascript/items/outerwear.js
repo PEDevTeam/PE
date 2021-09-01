@@ -153,6 +153,20 @@ $.extend(true, window.items, {
                 cosplay:true,
             }
         },
+		maidDress:{
+			itemType:"outerwear",
+            clothingSlot:"outerwear",
+            name: "Maid Dress",
+            itemMaster: "maidDress",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                maid:true,
+            }
+		},
     },
     itemChildren:{
         //Tshirt Jeans
@@ -2216,5 +2230,48 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
+		
+		//Maid Outfits
+		maidDress00:{
+			masterItem:"maidDress",
+            variant:"maid_dress",
+            name:"Frilly French Maid Outfit",
+            price:0,
+            daring:0,
+            disabled:true,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                slutty:true,
+                sexy:true,
+				black:true,
+                white:true,
+				maid:true,
+            }
+		},
+		maidDress01:{
+			masterItem:"maidDress",
+            variant:"maid_dress_latex",
+            name:"Latex Maid Outfit",
+            price:0,
+            daring:0,
+            disabled:true,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                maid:true,
+				slutty:true,
+				sexy:true,
+				black:true,
+				white:true,
+				latex:true,
+            }
+		},
     }
 });

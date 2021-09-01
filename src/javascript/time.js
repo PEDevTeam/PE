@@ -177,7 +177,7 @@ window.timeCode={
 	},
 	canHotelLesson: function() {
 		var time = State.active.variables.time;
-		return (window.timeCode.isSaturday() && time.hour < 18 &&(window.timeCode.isSaturday()||window.timeCode.isSunday()) && State.active.variables.player.ending.comportment.bimbo.hotelBimboLesson);
+		return (time.hour < 18 && (window.timeCode.isSaturday()||window.timeCode.isSunday()) && State.active.variables.player.ending.comportment.bimbo.hotelBimboLesson);
 	},
 	haveSchool: function() {
 		var time=State.active.variables.time;

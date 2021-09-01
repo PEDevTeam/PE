@@ -124,6 +124,10 @@ window.clothes={
 				State.active.variables.reason.dressedWhore="You're not dressed slutty enough";
 				return false;
 			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedWhore="You can't wear your maid outfit outside";
+				return false;
+			}
 
 			return true;
 		}
@@ -142,6 +146,10 @@ window.clothes={
 			}
 			if (underwear && !underwear.isFemale) {
 				State.active.variables.reason.dressedClub="You don't think it's a good idea to wear briefs to the club";
+				return false;
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedClub="You can't wear your maid outfit outside";
 				return false;
 			}
 			return true;
@@ -230,6 +238,10 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You don't want to go outside in wet underwear";
 				return false;
 			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedOutside="You can't wear your maid outfit outside";
+				return false;
+			}
 			return true;
 		}
 	},
@@ -261,6 +273,10 @@ window.clothes={
 					return false;
 				}
 			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedFriend="You can't wear your maid outfit outside";
+				return false;
+			}
 			return true;
 		}
 	},
@@ -274,6 +290,10 @@ window.clothes={
 			var shoes=window.wardrobeFuncs.getWornItem('shoes');
 			if (((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) && (player.perversion.therapist < therapistPerversion.noticedEffect /* TODO: this should consider the "crossdressing score" rather than therapist progress */) && (player.perversion.guardian < 5)) {
 				State.active.variables.reason.dressedTherapy="You don't feel ready to visit $therapist dressed like that";
+				return false;
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedTherapy="You can't wear your maid outfit outside";
 				return false;
 			}
 			return true;
@@ -383,12 +403,62 @@ window.clothes={
 	},
 	dressedMaid: {
 		check: function() {
-			var maid=window.wardrobeFuncs.getWornItem('maid');
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes = window.wardrobeFuncs.getWornItem('shoes');
+			var hosiery = window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			var bra=window.wardrobeFuncs.getWornItem('bra');
+			
+			if (!(outerwear && shoes && hosiery && collar && hairband)) {
+				if (State.active.variables.flags.gTrialCorset){
+					State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, corset, collar, and headband.";
+				}
+				else{
+					State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, collar, and headband.";
+				}
+				
+				return false;
+			}
+			
+			if (State.active.variables.flags.gTrialCorset && (!bra | (bra && !window.inventoryFuncs.hasTag(bra, 'maid')))){
+				State.active.variables.reason.dressedMaid="You have to wear the proper corset with your maid outfit.";
+				return false;
+			}
+			
+			var maid = window.inventoryFuncs.hasTag(outerwear, 'maid') && window.inventoryFuncs.hasTag(shoes, 'maid') && window.inventoryFuncs.hasTag(hosiery, 'maid') && window.inventoryFuncs.hasTag(collar, 'maid') && window.inventoryFuncs.hasTag(hairband, 'maid');
+			
 			if (!maid) {
-				State.active.variables.reason.dressedMaid="You have to wear the maid outfit for this";
+				State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, collar, and headband.";
+				console.log("item not maid");
 				return false;
 			}
 			return true;
+		},
+		
+		checkPartial: function() {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes = window.wardrobeFuncs.getWornItem('shoes');
+			var hosiery = window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			
+			if (outerwear &&  window.inventoryFuncs.hasTag(outerwear, 'maid')){
+				return true;
+			}
+			if (shoes &&  window.inventoryFuncs.hasTag(shoes, 'maid')){
+				return true;
+			}
+			if (hosiery &&  window.inventoryFuncs.hasTag(hosiery, 'maid')){
+				return true;
+			}
+			if (collar &&  window.inventoryFuncs.hasTag(collar, 'maid')){
+				return true;
+			}
+			if (hairband &&  window.inventoryFuncs.hasTag(hairband, 'maid')){
+				return true;
+			}
+			return false;
 		}
 	},
 	dressedFemale: function() {
@@ -398,9 +468,10 @@ window.clothes={
 		return (!underwear || underwear.isFemale) && outerwear && outerwear.isFemale && shoes && shoes.isFemale;	
 	},
 	dressedCheerFriend: function() {
-			var underwear=window.wardrobeFuncs.getWornItem('underwear');
-			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
-			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+		var underwear=window.wardrobeFuncs.getWornItem('underwear');
+		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			
 		return (!underwear || (underwear && underwear.isFemale && !window.inventoryFuncs.hasTag(underwear, 'cheer')) && (outerwear && outerwear.isFemale && !(window.inventoryFuncs.hasTag(outerwear, 'school'))) && (shoes && shoes.isFemale && !(window.inventoryFuncs.hasTag(shoes, 'cheer'))));	
 	}
 }

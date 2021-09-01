@@ -33,7 +33,7 @@
 		[[Accept the punishment|Special punishments][$scene="spanking"]]
 		\
 	<<elseif $flags.guardianCondoms and (not $flags.guardianCondomsDone)>>\
-		<<if window.clothes.dressedOutside.check() or window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+		<<if window.clothes.dressedOutside.check() or window.clothes.dressedMaid.check()>>\
 			[[Go hunting for used condoms]]
 		<<else>>\
 			<<notDressed "Go hunting for used condoms" $reason.dressedOutside>>\
