@@ -538,13 +538,15 @@
 		
 		<<if $body.earsPierced.level gt 0>>
 			<<set _earring=window.wardrobeFuncs.getWornItem('earring')>>
-			<<if _earring.masterItem=='casualEarrings'>>
-				<<showAvatarImage "earrings_diamond.png">>
-			<<elseif _earring.masterItem=='classyEarrings'>>
-				<<showAvatarImage "earrings_ruby.png">>
-			<<elseif _earring.masterItem=='flashyEarrings'>>
-				<<showAvatarImage "earrings_hoops.png">>
-			<<endif>>
+			<<if _earring>>\
+				<<if _earring.masterItem=='casualEarrings'>>
+					<<showAvatarImage "earrings_diamond.png">>
+				<<elseif _earring.masterItem=='classyEarrings'>>
+					<<showAvatarImage "earrings_ruby.png">>
+				<<elseif _earring.masterItem=='flashyEarrings'>>
+					<<showAvatarImage "earrings_hoops.png">>
+				<<endif>>
+			<<endif>>\
 		<<endif>>
 		
 		<<if _bow neq "none">>

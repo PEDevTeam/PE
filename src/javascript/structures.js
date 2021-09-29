@@ -730,9 +730,10 @@ window.structures={
 	
 	setupMaidOutfit: function(){
 		var vars=State.active.variables;
-		if (window.inventoryFuncs.isItemVariantOwned("maid_00")){
-			window.itemFuncs.removeItemFromInventory("maid_00");
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_00")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_00");
 			window.itemFuncs.addItemToInventory("maid_dress");
+			window.itemFuncs.enableItemVariant('maid_dress');
 			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
 				window.itemFuncs.addItemToInventory("stockings_39");
 			}
@@ -741,14 +742,16 @@ window.structures={
 			}
 			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
 				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
 			}
 			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
 				window.itemFuncs.addItemToInventory("choker_00");
 			}
 		}
-		if (window.inventoryFuncs.isItemVariantOwned("maid_01")){
-			window.itemFuncs.removeItemFromInventory("maid_01");
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_01")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_01");
 			window.itemFuncs.addItemToInventory("maid_dress_latex");
+			window.itemFuncs.enableItemVariant('maid_dress_latex');
 			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
 				window.itemFuncs.addItemToInventory("stockings_39");
 			}
@@ -757,6 +760,7 @@ window.structures={
 			}
 			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
 				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
 			}
 			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
 				window.itemFuncs.addItemToInventory("choker_00");
@@ -764,11 +768,13 @@ window.structures={
 		}
 		
 		for (var itemIdx in vars.itemVariantsOverrides){
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39")){
+				window.itemFuncs.removeItemFromInventory("stockings_39");
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
 			if (vars.itemVariantsOverrides[itemIdx].variant == "stockings_39") {
 				if (vars.itemVariantsOverrides[itemIdx].tags.maid != true){
 					vars.itemVariantsOverrides[itemIdx].tags.maid = true;
-					window.itemFuncs.removeItemFromInventory("stockings_39");
-					window.itemFuncs.addItemToInventory("stockings_39");
 				}
 			}
 		}

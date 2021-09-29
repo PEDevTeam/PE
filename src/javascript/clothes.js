@@ -415,7 +415,7 @@ window.clothes={
 			var bra=window.wardrobeFuncs.getWornItem('bra');
 			
 			if (!(outerwear && shoes && hosiery && collar && hairband)) {
-				if (State.active.variables.flags.gTrialCorset){
+				if (State.active.variables.flags.gTrialCorset && !bra){
 					State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, corset, collar, and headband.";
 				}
 				else{
@@ -425,7 +425,7 @@ window.clothes={
 				return false;
 			}
 			
-			if (State.active.variables.flags.gTrialCorset && (!bra | (bra && !window.inventoryFuncs.hasTag(bra, 'maid')))){
+			if (State.active.variables.flags.gTrialCorset && (bra && !window.inventoryFuncs.hasTag(bra, 'maid'))){
 				State.active.variables.reason.dressedMaid="You have to wear the proper corset with your maid outfit.";
 				return false;
 			}
