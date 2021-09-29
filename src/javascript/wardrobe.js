@@ -393,6 +393,7 @@ window.wardrobe = {
                 "plainPanties",
                 "sexyPanties",
                 "latexPanties",
+				"cheerBriefs",
                 "bras",
                 "sexyBras",
                 "latexBras",

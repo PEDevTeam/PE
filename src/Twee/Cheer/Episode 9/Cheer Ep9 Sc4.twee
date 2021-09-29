@@ -1,0 +1,53 @@
+::Cheer Ep9 Sc4
+<<removeItemVariantFromInventory 'rookie_uniform'>>\
+<<addItemVariantToInventory 'cheer_dress'>>\
+<<wearItemVariant 'cheer_dress'>>\
+<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Cheerleader')>><<updateClothes>>\
+You quickly stuff your rookie uniform into the bag, and hurry back to where the rest of the squad is waiting. $cheerFriend.name reacts almost immediately upon seeing you in the new uniform. @@.cheerFriend;“Oh my god! You look so cute!”@@ she squeals<<if $cheerFriend.affinity > 10>>, running up to hug you<<endif>>.
+
+@@.cheerCaptain;“All right. We’re all here, so let’s get back to practice,”@@ Rachel says, cutting off further discussion. @@.cheerCaptain;“We need to make a few quick adjustments thanks to losing Sarah. Sally, I want you taking her spot as flyer. $cheerFriend.name, $cheerleaders.fakeName, you two will be covering the floor work. We’re the last to go on, so we’ve got an hour to get things back in order. Let’s bust some ass!”@@
+
+Rachel immediately starts leading the squad through the routine, restarting any time someone does so much as steps at the wrong moment. Much to your embarrassment, you tend to be the source of most of the restarts, but Rachel is patient with you, given the circumstances. By the time your squad is called, you’re pretty sure you could perform the routine in your sleep.
+
+@@.cheerCaptain;“Showtime, girls,”@@ Rachel says as you give her a nervous smile.
+
+The squad rushes out onto the competition floor, hollering and cheering as they take their positions. You look out at the massive crowd filling the auditorium. Your heart thumps in your chest when you realize that everyone out there is watching you, and the pace quickens when you realize they all think you’re just another girl.
+
+@@.hero;I hope.@@
+
+The music begins, and your body launches into the drilled routine.\
+<<if $player.fitness < 10>>\
+	Unfortunately, your lack of practice and nervousness more than catches up with you. Your dance moves are off-beat, your jumps and kicks are weak, and when you go to do your tumbling pass, you over-rotate and land flat on your back. You quickly scramble to your feet and resume the routine, cheeks burning from embarrassment.
+
+	When the cheer is finally over, you can hear whispers from among the other girls in the squad. You know that, while you at least kept them from being disqualified, your poor performance definitely held the team back.
+<<elseif $player.fitness < 20>>\
+	Your practice at home has at least prepared your body to handle the rhythm and physicality of the cheer. You stay on beat as you shimmy through the dance sequence, maintain good form while doing jumps and kicks, and pull off a surprisingly competent, if safe, tumbling pass
+
+	Of course, the other girls’ performances put yours to shame, but by the time your music finishes and everyone is applauding the routine, you’re proud to have at least put up a competent showing.
+<<else>>
+	Your extensive practice is immediately apparent as you perform the cheer. Your dancing is driven and surprisingly tantalizing and your jumps and kicks are performed with exacting precision. When it comes time to do your tumbling pass, you decide to risk attempting a handspring, the results of which are impressive enough you can hear the crowd gasp in delight.
+
+	As the cheer ends, you beam with pride as the rest of the girls congratulate you on your showing. Even Ashley seems begrudgingly impressed at your abilities.
+<<endif>>\
+
+You hold your breath as the judges deliberate amongst themselves before finally announcing the standings. 
+
+<<if $player.fitness < 10>>\
+	You let out a sigh of relief when you hear that Pepperton placed fifth. You’re certain the other girls aren’t happy with the placement, but you’re glad the squad at least placed in the top half.
+
+	@@.cheerCaptain;“Well, at least we automatically made it to the state semifinals,”@@ Rachel says to the other girls. @@.cheerCaptain;“So, it’s not like this one really counts against us. We’ll just have to work that much harder for next time.”@@
+
+<<elseif $player.fitness < 20>>\
+	You nearly jump for joy when you see the judges announce that Pepperton placed third. You’re certain the skills of the other girls helped elevate the team’s score, but it’s still better than you expected to place.
+
+	@@.cheerCaptain;“Not bad,”@@ Rachel says with a relieved smile, @@.cheerCaptain;“especially considering the sudden substitution. We can do better though.”@@
+<<else>>\
+	<<set $cheeleaders.bitchAffinity++>>\
+	You are blown away when the judges announce that Pepperton came in second. The girls all cheer and applaud each other, more than happy to have performed so well given the circumstances.
+
+	Ashley glances over at you and half smiles. @@.cheerBitch;“Glad to see you’ve been putting in work,”@@ she says. @@.cheerBitch;“Maybe, just maybe, we’ll manage to make a cheerleader out of you.”@@
+<<endif>>\
+
+Unfortunately, the Salt Flats Wombats manage to secure first place, and Pepperton’s rivals are more than ready to harass you backstage.
+
+[[Head backstage|Cheer Ep9 Sc5]]
