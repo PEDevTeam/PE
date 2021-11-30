@@ -1269,6 +1269,10 @@ window.friendList={
 	seenDressUp: 0,
 	evilFriend: 0,
 	noUnderwear: 0,
+	ABDL: 0,
+	HOPE: 0,
+	bear: 0,
+	seenDressUpHOPE: 0,
 },
 
 window.futaList={
