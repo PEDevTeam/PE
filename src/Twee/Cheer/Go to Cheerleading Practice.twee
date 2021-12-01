@@ -1,6 +1,6 @@
 ::Go to Cheerleading Practice
 \
-<<if $cheerleaders.progress < 9>>\
+<<if $cheerleaders.progress < 10>>\
 	<<set _destination = "Cheer Ep">>\
 	<<set _destination += $cheerleaders.progress+1>>\
 	<<set _destination += " Sc1">>\
@@ -8,12 +8,6 @@
 <<else>>\
 	More cheer content coming soon!
 	<<set $cheerleaders.progress++>>\
-	<<if $cheerleaders.progress == 11>>\
-		<<removeItemVariantFromInventory 'rookie_uniform'>>
-		<<addItemVariantToInventory 'cheer_dress'>>\
-		<<wearItemVariant 'cheer_dress'>>
-		<<set itemNavigator.newOrUpdatedClothingSetFromWorn('Cheerleader')>><<updateClothes>>\
-	<<endif>>\
 	If you have loaded a game, you can reset your cheerleader progress by clicking [[here|Reset cheer]]
 	<<display [[Travel]]>>
 <<endif>>\

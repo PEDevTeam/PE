@@ -1516,7 +1516,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                slutty:false,
+                slutty:true,
                 sexy:true,
                 black:true,
             }
