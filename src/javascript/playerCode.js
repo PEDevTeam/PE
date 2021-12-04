@@ -266,7 +266,7 @@ window.playerCode={
 		//var s=this.isWearingOn(itemTypes.Shoes);
 		var shoes=window.wardrobeFuncs.getWornItem('shoes');
 		//var st=(this.isWearing(items.stilettoHeels) || this.isWearing(items.maidOutfit));
-		var stilettos=(window.wardrobeFuncs.isItemMasterWearing('stripperHeels') || window.wardrobeFuncs.isItemMasterWearing('maid'));
+		var stilettos=(window.wardrobeFuncs.isItemMasterWearing('stripperHeels') || window.wardrobeFuncs.isItemMasterWearing('maidDress'));
 		//var o=this.isWearingOn(itemTypes.Outerwear);
 		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
 		//var u=this.isWearingOn(itemTypes.Underwear);
@@ -513,7 +513,7 @@ window.playerCode={
 		}
 		/* Forcing on Maid stuff */
 		//if (playerCode.isWearing(window.itemsC.maidOutfit)) {
-		if (window.wardrobeFuncs.isItemMasterWearing('maid')) {
+		if (window.wardrobeFuncs.isItemMasterWearing('maidDress')) {
 			if (State.active.variables.flags.gTrialBalletHeels) {
 				window.wardrobeFuncs.wearRandomItemByMaster('balletHeels');
 				//this.wearClothesJS('balletHeels');
@@ -521,7 +521,7 @@ window.playerCode={
 				if (State.active.variables.flags.gTrialLatexMaid) {
 					//State.active.variables.items.stilettoHeels.curAlt=39;
 					//this.wearClothesJS('stilettoHeels');
-					window.wardrobeFuncs.wearRandomItemByMaster('stripperHeels');
+					window.wardrobeFuncs.wearItemVariant('heels_stripper_39');
 				} else {
 					//State.active.variables.items.highHeel3.curAlt=39;
 					//this.wearClothesJS('highHeel3');
@@ -534,12 +534,12 @@ window.playerCode={
 				if (!window.wardrobeFuncs.isItemMasterWearing('latexStockings')) {
 					//State.active.variables.items.stockingsLatex.curAlt=39;
 					//this.wearClothesJS('stockingsLatex');
-					window.wardrobeFuncs.wearRandomItemByMaster('latexStockings');
+					window.wardrobeFuncs.wearItemVariant('stockings_latex_39');
 				}
 			} else {
 				// State.active.variables.items.stockings.curAlt=39;
 				// this.wearClothesJS('stockings');
-				window.wardrobeFuncs.wearRandomItemByMaster('stockings');
+				window.wardrobeFuncs.wearItemVariant('stockings_39');
 			}
 
 			//if (playerCode.isWearing(window.itemsC.cheerBriefs)) {

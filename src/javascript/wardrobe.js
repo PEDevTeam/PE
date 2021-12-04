@@ -393,6 +393,7 @@ window.wardrobe = {
                 "plainPanties",
                 "sexyPanties",
                 "latexPanties",
+				"cheerBriefs",
                 "bras",
                 "sexyBras",
                 "latexBras",
@@ -410,7 +411,7 @@ window.wardrobe = {
                 "schoolUniform",
                 "schoolDress",
                 "sluttySchoolDress",
-                "maid",
+                "maidDress",
             ]
         },
         socks: {

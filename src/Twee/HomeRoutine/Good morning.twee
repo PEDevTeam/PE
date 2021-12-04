@@ -303,14 +303,19 @@
 	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 	<<set $flags.clothesPurged to true>>\
-	<<set window.itemFuncs.enableItemVariant('maid_outfit_00')>>\
-	<<set window.itemFuncs.enableItemVariant('maid_outfit_01')>>\
-	<<addItemVariantToInventory 'maid_outfit_00'>>\
-	<<wearItemVariant 'maid_outfit_00'>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress_latex')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_headband')>>\
+	<<addItemVariantToInventory 'maid_dress'>>\
+	<<wearItemVariant 'maid_dress'>>\
 	<<addItemVariantToInventory 'stockings_39'>>\
 	<<wearItemVariant 'stockings_39'>>\
 	<<addItemVariantToInventory 'heels_39'>>\
 	<<wearItemVariant 'heels_39'>>\
+	<<addItemVariantToInventory 'maid_headband'>>\
+	<<wearItemVariant 'maid_headband'>>\
+	<<addItemVariantToInventory 'choker_00'>>\
+	<<wearItemVariant 'choker_00'>>\
 	<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
@@ -419,13 +424,15 @@
 	<<if $flags.guardianEvil>>\
 		<<set $player.perversion.guardian to 7>>\
 		<<set $flags.gTrialLatexMaid=true>>\
+		<<removeItemVariantFromInventory 'maid_dress'>>\
+		<<addItemVariantToInventory 'maid_dress_latex'>>\
+		<<wearItemVariant 'maid_dress_latex'>>\
 		<<addItemVariantToInventory 'stockings_latex_39'>>\
 		<<wearItemVariant 'stockings_latex_39'>>\
-		<<addItemVariantToInventory 'heels_stripper_00'>>\
-		<<wearItemVariant 'heels_stripper_00'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\
 		<<addItemVariantToInventory 'buttplug_vibro'>>\
 		<<wearItemVariant 'buttplug_vibro'>>\
+		<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 		Your eyes open suddenly to find $guardian angrily shaking you awake. There is a wild, unrestrained fire in $guardian's eyes. However, the absence of any of the normal empathy in her expression scares you the most.
 
 		@@.guardian;"Do I have your attention? I'd better."@@ She stares icily at your worried face, allowing you a moment to adjust to being awake so you can really understand the gravity of your situation.
