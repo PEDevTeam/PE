@@ -136,9 +136,6 @@
 			<<set document.getElementById('dreamImage_1').className="dream_image_fade">>\
 		<<next 2s>>\
 			<<set document.getElementById('sleepAltOptions').className="hidden">>\
-			<<if _chastity and ($player.exp.chastityExp lt 100)>>\
-				<<set $player.exp.chastityExp++>>\
-			<<endif>>\
 			<<if _dream.once>>\
 				<<set $dreams[_dream.id].progress=1>>\
 			<<endif>>\
@@ -187,4 +184,7 @@
 		<<set window.timeCode.newDay()>>\
 		<<display [[Good morning]]>>\
 	<<endif>>\
+<<endif>>\
+<<if _chastity and ($player.exp.chastityExp lt 100)>>\
+	<<set $player.exp.chastityExp++>>\
 <<endif>>\
