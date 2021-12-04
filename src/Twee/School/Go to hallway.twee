@@ -387,7 +387,6 @@
 			"I tell you to wear female underwear to show some humility, and you turn it into some perverted game! This is supposed to be your punishment, but it seems to me you're enjoying it far too much!@@
 			
 			<<if _chastity>>\
-				<<set $flags.eagerStart to false>>\
 				@@.teacher;"I am changing our arrangement: I see you are already wearing a chastity cage. Good. You are going to wear it to school every day from now on, if you want your weekly debt decreased.@@\
 				<<if _plug>>\
 					@@.teacher;You will continue wearing a butt-plug, too, just like you are now.@@
@@ -666,18 +665,6 @@
 			<<set $flags.schoolChastity to true>>\
 		<<else>>\
 			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherChastity>> for being confined to a chastity device.@@\
-			<<if $flags.eagerStart and (not $flags.keyLended) and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-				<<set $flags.keyLended to true>>\
-				@@.teacher;"@@
-
-				Suddenly, you twitch and stumble awkwardly. You barely manage to not to fall down, but the sudden jerk causes your chastity cage key to fall out of your pocket and skid across the floor.
-
-				You try to pick it up, but $teacher steps on it with the tip of her high heeled boot before you can.
-
-				@@.teacher;<<openQuote>>How careless of you. I think this key should stay with me for safekeeping. You can ask for it tomorrow."@@
-
-				You gulp as she tucks the key away, cursing your luck, but there is nothing you can do now. You'll just have to wait for tomorrow.
-			<<endif>>\
 		<<endif>>\
 		<<set _deduction+=rewardMoney.teacherChastity>>\
 	<<endif>>\
@@ -793,9 +780,6 @@
 	<<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
 		@@.teacher;<<openQuote>>In case it wasn’t clear, so long as you’re in my class, I expect you to turn in all your assignments. I will be making a note of your disobedience today.”@@\
 		<<set teacherCode.addPenalty(1)>>\
-	<<endif>>\
-	<<if $flags.eagerStart and $player.punishments.penalty gt 0>>\
-		<<set $flags.eagerStart = false>>\
 	<<endif>>\
 	<!--</clothes check>-->\
 	<<if _deduction gt 0>>\
@@ -1095,22 +1079,11 @@
 		
 	<<else>>\
 		<<if $flags.keyLended and $player.perversion.teacherCooldown gt 2 and window.timeCode.isMonday()>>\
-			<<if $flags.eagerStart and [2,3,4].includes($time.weekDay())>>\
-				$teacher has your chastity key on a necklace, resting between her breasts. She plays with the chain, looking at you expectantly.
+			$teacher silently hands you the key, looking a bit annoyed. It seems you may have failed some kind of test.
 				
-				@@.teacher;Is there anything else that you want?@@
+			She opens the classroom door for you to go back inside.
 				
-				@@.hero;She is clearly enjoying it. Is she playing with me? Maybe I should play along? She's a bit scary, but still so hot. I could wait few days if it helps me score with her.@@
-				
-				[[Ask for the key]]
-				[[Play along and stay silent]]
-			<<else>>\
-				$teacher silently hands you the key, looking a bit annoyed. It seems you may have failed some kind of test.
-				
-				She opens the classroom door for you to go back inside.
-				
-				[[Go back to class|Finish school day][$flags.chastityAgree=false]]
-			<<endif>>\
+			[[Go back to class|Finish school day][$flags.chastityAgree=false]]
 		<<else>>\
 			She opens the classroom door for you to go back inside.
 			
