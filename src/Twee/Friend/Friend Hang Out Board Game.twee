@@ -5,6 +5,12 @@
 <<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
 <<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _under>>\ 
+	<<if not _under.isFemale>>\ 
+		<<set _maleUnder = true>>\ 
+	<<endif>>\ 
+<<endif>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 You open up the large unit and look down the array of games. You used to enjoy some of them, especially some of the older ones. Of course, computer games have replaced many of them, but still...
 
@@ -49,6 +55,8 @@ You open up the large unit and look down the array of games. You used to enjoy s
 	Instead of the expansion, $friend gets the original core game out and starts to set it up. You move over to help and you have soon forgotten your tinge of shame. You are soon moaning at the dice throws, running away from the villains and leaping in celebration when you finally roll the right number. You while away the time playing until it’s hometime. 
 
 	As you are getting ready to leave, $friend holds your gaze meaningfully. @@.friend;“Don’t forget my manga!”@@ $friendG.he_she says, punching you on the arm.
+<<elseif $player.daring > 4>>\
+	<<include [[Friend Hang Out Board Game Crossdress]]>>\
 <<else>>\
 	<<RandomImageFromPack 'Friend/GameMarkers' 400 400 alignRight>>\
 	<<selectScene HangOutBoardGame2 RND2RND>>\
@@ -76,10 +84,10 @@ You open up the large unit and look down the array of games. You used to enjoy s
 	<<scene>>\
 		@@.heroT;Dungeons of Talismania!@@
 
-	<<reactOnce true FriendDOT>>\
-		What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
-		
-	<</reactOnce>>\
+		<<reactOnce true FriendDOT>>\
+			What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
+			
+		<</reactOnce>>\
 		$friend takes one of the Dungeons of Talismania expansions from the shelf. @@.friend;“This is new, I have never played it before.”@@
 
 		@@.heroT;“They still make them?”@@ you ask in surprise.  

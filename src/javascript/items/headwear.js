@@ -211,6 +211,23 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
+		maidHairband:{
+			masterItem:"hairbands",
+			variant:"maid_headband",
+			name:"Black Maid Headband",
+			price:0,
+            daring:0,
+            disabled:true,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+				black:true,
+                maid:true,
+            }
+		},
 
         //hairbows
         hairbows00:{

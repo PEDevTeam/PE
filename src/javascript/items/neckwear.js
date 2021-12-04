@@ -51,6 +51,7 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
+				maid:true,
             }
         },
         chokers01:{
