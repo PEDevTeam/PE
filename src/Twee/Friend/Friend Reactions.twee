@@ -119,7 +119,7 @@
 		<<endif>>\
 	<<endif>>\
 	<<if _passFriendReactions>>\
-		<<if window.inventory.isItemVariantOwned('beauty_mark') and ($friendG.reactions.beautyMark == 0)>>\
+		<<if window.inventoryFuncs.isItemVariantOwned('beauty_mark') and ($friendG.reactions.beautyMark == 0)>>\
 			<<set $friendG.reactions.beautyMark = 1>>\
 			<<set $friendG.reactions.tattooOkCount = $friendG.reactions.tattooOkCount + 1>>\
 			<<if $friendG.reactions.tattooOkCount < 2>> @@.friend;“You’ve got something on your face…”@@ $friend says, reaching up to brush your top lip<<if playerCode.haveMakeup()>> -, narrowly avoiding smudging your lipstick.<<endif>> @@.friend;“Is that a tattoo? I’m not a fan as a rule, but it looks okay, I guess."@@<<else>> @@.friend;“A beauty mark this time? Are you sure about these?”@@<<endif>>

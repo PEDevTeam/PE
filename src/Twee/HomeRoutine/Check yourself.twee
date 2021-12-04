@@ -935,7 +935,7 @@
 	<<default>>\
 		This dress puts the world on notice that you are out in force. Stand back.
 	<</switch>>\
-<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 	&#9702; You wear a slutty maid outfit.\
 	<<if ($body.boobs eq 4)>>\
 		It's barely holding in your huge breasts - at any minute your globes could fall out of the dress, flashing everyone around.\
@@ -1307,7 +1307,7 @@
 				isn't covered by underwear under your shorts.
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 				isn't covered by underwear under your skirt.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid')or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maidDress')or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 				isn't covered by underwear under your dress.
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie') >>\
 				isn't covered by underwear under your feminine nightclothes.
@@ -1401,7 +1401,7 @@
 				isn't covered by underwear under your shorts.
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 				isn't covered by underwear under your skirt.
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maidDress') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 				isn't covered by underwear under your dress.
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 				isn't covered by underwear under your feminine nightclothes.
@@ -1500,7 +1500,7 @@
 				isn't covered by underwear under your shorts.\
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolDress') or window.wardrobeFuncs.isItemMasterWearing('skirtTop') or window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 				isn't covered by underwear under your skirt.\
-			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maid') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
+			<<elseif window.wardrobeFuncs.isItemMasterWearing('casualDress') or window.wardrobeFuncs.isItemMasterWearing('sluttyDress') or window.wardrobeFuncs.isItemMasterWearing('maidDress') or window.wardrobeFuncs.isItemMasterWearing('cheerUniform')>>\
 				isn't covered by underwear under your dress.\
 			<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 				isn't covered by underwear under your feminine nightclothes, and it's a little obvious.\ 
@@ -2134,7 +2134,7 @@
 		<<else>>\
 			&#9702; Your miniskirt wraps tightly around your sweet ass.  It is very short, giving easy access to anyone who might want to fuck you.\
 		<<endif>>\
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		<<if playerCode.isMind_0(true)>>\
 			&#9702; Your maid outfit's short, black dress barely covers your private parts, making bending over a very risky move.\
 		<<elseif playerCode.isMind_1(true)>>\
@@ -2298,11 +2298,13 @@
 		<<endif>>\
 	<<endif>>\
 	<<if window.wardrobeFuncs.isItemMasterWearing('stockings')>>\
-		&#9702; Stylish stockings looks good on your legs.
+		<<if window.wardrobeFuncs.isItemVariantWearing('stockings_39')>>\
+			&#9702; Sheer stockings add polish to your maid ensemble.
+		<<else>>\
+			&#9702; Stylish stockings looks good on your legs.
+		<<endif>>\
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('latexStockings')>>\
-		&#9702; Stylish stockings accessorize nicely with your skirt.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
-		&#9702; Sheer stockings add polish to your maid ensemble.
+		&#9702; Stylish stockings accessorize nicely with your skirt.	
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('socks')>>\
 		&#9702; Girly knee-high socks finish your ensemble.
 	<<endif>>\
@@ -2332,7 +2334,7 @@
 		They look a little off with your cheer uniform.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They don't at all go with your slutty cheerleader uniform.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They look kind of ridiculous with your maid outfit, giving it more of a joke costume feel.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They look pretty stupid with your silky nightie.
@@ -2367,7 +2369,7 @@
 		Even at school, your cheer uniform should be worn with the matching sneakers.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They don't at all go with your slutty cheerleader uniform.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They look strangely severe with your maid outfit, and definitely don't go together.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They look ridiculously stupid with your silky nightie.
@@ -2402,7 +2404,7 @@
 		Even at school, your cheer uniform should be worn with the matching sneakers.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They don't at all go with your slutty cheerleader uniform.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They look a little plain with such a fancy maid uniform, but they're passable.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They look almost delicate enough to go with your nightie, but not quite enough.
@@ -2437,7 +2439,7 @@
 		While they mostly match your outfit, your cheer uniform should really be worn with the matching sneakers.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		Even though they don't exactly match, they look great with your slutty cheerleader uniform.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They're much too casual for your formal maid uniform.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They just look silly with your nightie.
@@ -2472,7 +2474,7 @@
 		Even at school, your cheer uniform should be worn with the matching sneakers.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They look fine with your slutty cheerleader uniform, but you think something more athletic would look better.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They're a complementary style for your formal maid uniform.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They look rather sultry with your nightie.
@@ -2546,7 +2548,7 @@
 		Even at school, your cheer uniform should be worn with the matching sneakers.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They definitely ehmpahsize the "slutty" of your slutty cheerleader uniform, but you think something more athletic would look better.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They give your maid uniform a much naughtier appearance.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They look incredibly sexy with your nightie.
@@ -2581,7 +2583,7 @@
 		They look perfect with your cheerleader outfit.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		Even though they look great with your slutty cheerleader uniform, you think they might be a little too mundane.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They're much too casual for your formal maid uniform.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They just look silly with your nightie.
@@ -2616,7 +2618,7 @@
 		They look a little slutty for your regulation cheerleader outfit.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('sluttyCheerUniform')>>\
 		They look great with your slutty cheerleader uniform.
-	<<elseif window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<elseif window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		They're much too casual for your formal maid uniform.
 	<<elseif window.wardrobeFuncs.isItemMasterWearing('nightie')>>\
 		They just look silly with your nightie.
@@ -2631,7 +2633,7 @@
 	<<endif>>\
 <<elseif window.wardrobeFuncs.isItemMasterWearing('balletHeels')>>\
 	&#9702; On your feet, you wear very kinky ballet high heels.\
-	<<if window.wardrobeFuncs.isItemMasterWearing('maid')>>\
+	<<if window.wardrobeFuncs.isItemMasterWearing('maidDress')>>\
 		Together with your fetish uniform it clearly shows what //kind// of maid you are.
 	<<else>>\
 		It is incredibly hard to keep the balance in these.

@@ -2612,6 +2612,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 heels:true,
+				maid:true,
             }
         },
         heels40:{
@@ -2688,6 +2689,7 @@ $.extend(true, window.items, {
                 sexy:true,
                 slutty:true,
                 heels:true,
+				maid:true,
             }
         },
         balletHeels01:{
@@ -3300,6 +3302,7 @@ $.extend(true, window.items, {
                 sexy:true,
                 slutty:true,
                 heels:true,
+				maid:true,
             }
         },
 

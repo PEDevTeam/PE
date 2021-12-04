@@ -95,6 +95,7 @@ window.structures={
 		this.setupItemMasterOverrides();
 		this.setupTeam();
 		this.setupStores();
+		this.setupMaidOutfit();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -726,6 +727,58 @@ window.structures={
 		vars.stores[5].availableItemVariants.push(defaultSexyBraSet);
 		vars.stores[5].availableItemVariants.push(defaultSexyPantySet);
 	},
+	
+	setupMaidOutfit: function(){
+		var vars=State.active.variables;
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_00")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_00");
+			window.itemFuncs.addItemToInventory("maid_dress");
+			window.itemFuncs.enableItemVariant('maid_dress');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_01")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_01");
+			window.itemFuncs.addItemToInventory("maid_dress_latex");
+			window.itemFuncs.enableItemVariant('maid_dress_latex');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+		
+		for (var itemIdx in vars.itemVariantsOverrides){
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39")){
+				window.itemFuncs.removeItemFromInventory("stockings_39");
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (vars.itemVariantsOverrides[itemIdx].variant == "stockings_39") {
+				if (vars.itemVariantsOverrides[itemIdx].tags.maid != true){
+					vars.itemVariantsOverrides[itemIdx].tags.maid = true;
+				}
+			}
+		}
+	},
 },
 
 window.playerList={
@@ -1216,6 +1269,10 @@ window.friendList={
 	seenDressUp: 0,
 	evilFriend: 0,
 	noUnderwear: 0,
+	ABDL: 0,
+	HOPE: 0,
+	bear: 0,
+	seenDressUpHOPE: 0,
 },
 
 window.futaList={
@@ -2249,6 +2306,7 @@ window.cheerList={
 	rainyDay: false,
 	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	ashleyProgress: 0,  //progress along Ashley's path
 	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise

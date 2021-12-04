@@ -6,7 +6,7 @@ You go to the detention room. $teacher is waiting for you.
 @@.teacher;"Ok, $player.name. <<display "Detention Punishment">>"@@
 
 <<if $player.perversion.teacher >1>>\
-<<if window.timeCode.isMonday()>>\
+	<<if window.timeCode.isMonday()>>\
 		<<if $flags.walletForgottenStart>>\
 			<<set $flags.walletForgottenEnd = true>>\
 		<<endif>>\
@@ -20,11 +20,23 @@ You go to the detention room. $teacher is waiting for you.
 	<<endif>>\
 	<<set $player.punishments.refusedToPay = false>>\
 	<<set $time.addMinutes(30)>>\
-	<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE != 9>>\
+	<<if window.timeCode.isFriday() && $cheerleaders.progress == 8>>\
+		[[Go meet the cheer squad for the competition|Go to Cheerleading Practice]]
+	<<elseif $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE != 9>>\
 		<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
 	<<else>>\
 		<<if $tasksTeacher.goOnDate.status == 1>>\
-			[[Ask the jogger out on a date|jogger_date_1]]
+			<<if $flags.jogger && not $kink.futa>>\
+				[[Ask the jogger out on a date|jogger_date_1]]
+			<<endif>>\
+			<<if $cheerleaders.progress > 0>>\
+				[[Ask Ashley out on a date|Ashley_date_1]]
+			<<endif>>\
+			[[Ask Coach out on a date|coach date 1]]
+			<<if $cheerleaders.progress > 5 || $flags.slutRoute>>\
+				[[Ask Ms. Ravensong out on a date|drama_teacher_date_1]]
+			<<endif>>\
+			
 		<<endif>>\
 		<<display [[Travel]]>>\
 	<<endif>>\

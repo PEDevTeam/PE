@@ -1050,6 +1050,7 @@ $.extend(true, window.items, {
             tags:{
                 black:true,
                 plain:true,
+				maid:true,
             }
         },
         stockings40:{
@@ -1194,6 +1195,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 slutty:true,
+				maid:true,
             }
         },     
     }

@@ -1,5 +1,5 @@
 window.gameCode={
-	version: "1.2300"
+	version: "1.2700"
 };
 
 Config.history.maxStates=5; //TODO Set this back to 5 after testing

@@ -17,7 +17,7 @@ $.extend(true, window.items, {
             isFemale:false,
             tags:{
                 plain:true,
-                
+                separates:true,
             }
         },
         skirtTop:{
@@ -32,7 +32,7 @@ $.extend(true, window.items, {
             isFemale:true,
             tags:{
                 plain:true,
-                
+                separates:true,
             }
         },
         casualDress:{
@@ -92,6 +92,7 @@ $.extend(true, window.items, {
             tags:{
                 school:true,
                 plain:true,
+				separates:true,
             }
         },
         schoolDress:{
@@ -108,6 +109,7 @@ $.extend(true, window.items, {
                 school:true,
                 plain:true,
                 notneeded:true,
+				separates:true,
             }
         },
         sluttySchoolDress:{
@@ -123,6 +125,7 @@ $.extend(true, window.items, {
             tags:{
                 school:true,
                 sexy:true,
+				separates:true,
             }
         },
         sluttyCheerUniform:{
@@ -137,6 +140,7 @@ $.extend(true, window.items, {
             isFemale:true,
             tags:{
                 cheer:true,
+				separates:true,
             }
         },
         cosplayOutfit:{
@@ -153,6 +157,20 @@ $.extend(true, window.items, {
                 cosplay:true,
             }
         },
+		maidDress:{
+			itemType:"outerwear",
+            clothingSlot:"outerwear",
+            name: "Maid Dress",
+            itemMaster: "maidDress",
+            daring:0,
+            disabled:false,
+            hasWorn:false,
+            isMale:false,
+            isFemale:true,
+            tags:{
+                maid:true,
+            }
+		},
     },
     itemChildren:{
         //Tshirt Jeans
@@ -1498,7 +1516,7 @@ $.extend(true, window.items, {
             setName:"",
             canBuy:true,
             tags:{
-                slutty:false,
+                slutty:true,
                 sexy:true,
                 black:true,
             }
@@ -2033,6 +2051,7 @@ $.extend(true, window.items, {
                 red:true,
                 white:true,
                 shorts:true,
+				separates:true,
             }
         },
         retroUniform:{
@@ -2052,6 +2071,7 @@ $.extend(true, window.items, {
                 school:true,
                 red:true,
                 white:true,
+				separates:true,
             }
         },
         
@@ -2173,6 +2193,7 @@ $.extend(true, window.items, {
                 slutty:true,
                 sexy:true,
                 red:true,
+				separates:true,
             }
         },
         sluttyCheer01:{
@@ -2193,6 +2214,7 @@ $.extend(true, window.items, {
                 sexy:true,
                 red:true,
                 white:true,
+				separates:true,
             }
         },
 
@@ -2216,5 +2238,48 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
+		
+		//Maid Outfits
+		maidDress00:{
+			masterItem:"maidDress",
+            variant:"maid_dress",
+            name:"Frilly French Maid Outfit",
+            price:0,
+            daring:0,
+            disabled:true,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                slutty:true,
+                sexy:true,
+				black:true,
+                white:true,
+				maid:true,
+            }
+		},
+		maidDress01:{
+			masterItem:"maidDress",
+            variant:"maid_dress_latex",
+            name:"Latex Maid Outfit",
+            price:0,
+            daring:0,
+            disabled:true,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                maid:true,
+				slutty:true,
+				sexy:true,
+				black:true,
+				white:true,
+				latex:true,
+            }
+		},
     }
 });

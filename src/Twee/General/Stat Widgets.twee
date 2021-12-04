@@ -51,7 +51,6 @@
 							window.wardrobeFuncs.getWornItem('buttplug'),
 							window.wardrobeFuncs.getWornItem('shoes'),
 							window.wardrobeFuncs.getWornItem('hosiery'),
-							window.wardrobeFuncs.getWornItem('maid'),
 							window.wardrobeFuncs.getWornItem('nightwear')]>>
 	<<set _curClothesOver=[]>>
 
@@ -59,37 +58,16 @@
 		<<set _curClothes[8].image = "buttplug_inflate_" + $player.buttplugInflate + ".jpg">>
 	<<endif>>
 	
-	<<if _curClothes[12]>>
-		<<set _curClothes[0] = _curClothes[12]>>
+	<<if _curClothes[11]>>
+		<<set _curClothes[0] = _curClothes[11]>>
 	<<endif>>
 	
-	<<if _curClothes[11] && _curClothes[11].masterItem eq 'maid'>>
-		<<set _curClothes[0] = _curClothes[11]>>
 
-		<<if $flags.gTrialLatexMaid>>
-			<<set _curClothesOver[0] = "maid_dress_latex.jpg">>
-		<<else>>
-			<<set _curClothesOver[0] = "maid_dress.jpg">>
-		<<endif>>
-		
-		<<if (not _curClothes[2])>>
-			<<if $flags.gTrialLatexMaid>>
-				<<set _curClothesOver[2] = "choker_05.jpg">>
-			<<else>>
-				<<set _curClothesOver[2] = "choker_00.jpg">>
-			<<endif>>
-		<<endif>>
-		
-		<<if (not _curClothes[3])>>
-			<<set _curClothesOver[3] = "maid_headband.jpg">>
-		<<endif>>
-		
+	<<if _curClothes[0] && _curClothes[0].masterItem eq 'maidDress'>>
 		<<if (not _curClothes[4])>>
 			<<set _curClothesOver[4] = "maid_duster.jpg">>
-		<<endif>>
-		
+		<<endif>>	
 	<<endif>>
-		
 	
 	<<set _combineSlot=0>>
 	<<if _curClothes[1] or _curClothesOver[1]>><<set _combineSlot++>><<endif>>
@@ -97,7 +75,7 @@
 	<<if _curClothes[3] or _curClothesOver[3]>><<set _combineSlot++>><<endif>>
 	<<if _curClothes[4] or _curClothesOver[4]>><<set _combineSlot++>><<endif>>
 	
-	<<for _i to 0; _i lt _curClothes.length - 2; _i++>>
+	<<for _i to 0; _i lt _curClothes.length - 1; _i++>>
 
 		<<set _small=false>>
 
@@ -193,7 +171,9 @@
 		<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>
 		<<if _shoes>>
 			<<if _shoes.isFemale>>
-				<<if _shoes.daring gte 6>>
+				<<if window.inventoryFuncs.hasTag(_shoes, 'maid')>>
+					<<set _feets="feets_maid_heels.png">>
+				<<elseif _shoes.daring gte 6>>
 					<<if _shoes.variant=='heels_stripper_00'>>
 						<<set _feets="feets_stripper_a.png">>
 					<<elseif _shoes.variant=='heels_stripper_02'>>
@@ -357,7 +337,6 @@
 		<<if $avatar.mode eq 0>>
 			<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>
 			<<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>
-			<<set _maid=window.wardrobeFuncs.getWornItem('maid')>>
 			<<if _outer>>
 				<<if _outer.masterItem == 'sluttyDress' or _outer.masterItem == 'skirtTop'>>
 					<<set _chest="clothes_slutty_top_breasts_">>
@@ -437,6 +416,10 @@
 					<<set _groin="underwear_boxers_hips_">>
 					<<set _groin+=_hs>>
 					<<set _groin+=".png">>
+				<<elseif _outer.masterItem == 'maidDress'>>
+					<<set _chest="clothes_maid_breasts_">>
+					<<set _chest+=_bs>>
+					<<set _chest+=".png">>
 				<<endif>>
 			<<elseif _nightwear>>
 				<<if _nightwear.masterItem=='nightie'>>
@@ -453,11 +436,6 @@
 					<<set _chest+=".png">>
 					<<set _arms="none">>
 				<<endif>>
-			<<elseif _maid>>
-				<<set _chest="clothes_maid_breasts_">>
-				<<set _chest+=_bs>>
-				<<set _chest+=".png">>
-				<<set _feets="feets_maid_heels.png">>
 			<<endif>>
 		<<endif>>
 		
@@ -560,13 +538,15 @@
 		
 		<<if $body.earsPierced.level gt 0>>
 			<<set _earring=window.wardrobeFuncs.getWornItem('earring')>>
-			<<if _earring.masterItem=='casualEarrings'>>
-				<<showAvatarImage "earrings_diamond.png">>
-			<<elseif _earring.masterItem=='classyEarrings'>>
-				<<showAvatarImage "earrings_ruby.png">>
-			<<elseif _earring.masterItem=='flashyEarrings'>>
-				<<showAvatarImage "earrings_hoops.png">>
-			<<endif>>
+			<<if _earring>>\
+				<<if _earring.masterItem=='casualEarrings'>>
+					<<showAvatarImage "earrings_diamond.png">>
+				<<elseif _earring.masterItem=='classyEarrings'>>
+					<<showAvatarImage "earrings_ruby.png">>
+				<<elseif _earring.masterItem=='flashyEarrings'>>
+					<<showAvatarImage "earrings_hoops.png">>
+				<<endif>>
+			<<endif>>\
 		<<endif>>
 		
 		<<if _bow neq "none">>
@@ -606,7 +586,9 @@
 		<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>
 		<<if _shoes>>
 			<<if _shoes.isFemale>>
-				<<if _shoes.daring gte 6>>
+				<<if window.inventoryFuncs.hasTag(_shoes, 'maid')>>
+					<<set _feets="feets_maid_heels.png">>
+				<<elseif _shoes.daring gte 6>>
 					<<if _shoes.variant=='heels_stripper_00'>>
 						<<set _feets="feets_stripper_a.png">>
 					<<elseif _shoes.variant=='heels_stripper_01'>>
@@ -770,7 +752,6 @@
 		<<if $avatar.mode eq 0>>
 			<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>
 			<<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>
-			<<set _maid=window.wardrobeFuncs.getWornItem('maid')>>
 			<<if _outer>>
 				<<if _outer.masterItem == 'sluttyDress' or _outer.masterItem == 'skirtTop'>>
 					<<set _chest="clothes_slutty_top_breasts_">>
@@ -850,6 +831,10 @@
 					<<set _groin="underwear_boxers_hips_">>
 					<<set _groin+=_hs>>
 					<<set _groin+=".png">>
+				<<elseif _outer.masterItem == 'maidDress'>>
+					<<set _chest="clothes_maid_breasts_">>
+					<<set _chest+=_bs>>
+					<<set _chest+=".png">>
 				<<endif>>
 			<<elseif _nightwear>>
 				<<if _nightwear.masterItem=='nightie'>>
@@ -865,12 +850,7 @@
 					<<set _chest+=_bs>>
 					<<set _chest+=".png">>
 					<<set _arms="none">>
-				<<endif>>
-			<<elseif _maid>>
-				<<set _chest="clothes_maid_breasts_">>
-				<<set _chest+=_bs>>
-				<<set _chest+=".png">>
-				<<set _feets="feets_maid_heels.png">>
+				<<endif>>	
 			<<endif>>
 		<<endif>>
 		
@@ -1003,7 +983,7 @@
 		<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>
 		<<if _shoes>>
 			<<if _shoes.isFemale>>
-				<<if shoes.masterItem == 'flats'>>
+				<<if _shoes.masterItem == 'flats'>>
 					<<set _feets="feets_flats.png">>
 				<<elseif window.inventoryFuncs.hasTag(_shoes, 'cheer')>>
 					<<set _feets="feets_shoes_socks_cheer.png">>
