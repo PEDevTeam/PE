@@ -14,7 +14,7 @@
 <</switch>>\
 <<if $flags.maidUniform>>\
 	<<set $flags.maidUniform = false>>\
-	<<set itemNavigator.wearClothingSet('Maid')>>
+	<<set itemNavigator.wearClothingSet('Maid')>>\
 	<<set window.playerCode.clothesOverride()>>\
 	<<updateClothes>>\
 <<endif>>\
@@ -137,7 +137,7 @@ The chores available to you are:
 		<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
 	<<endif>>\
 <<endif>>\
-<<if playerCode.isMaid() and inventoryFuncs.ownsMasterItem('maid') and (not window.clothes.dressedMaid.check())>>\
+<<if playerCode.isMaid() and inventoryFuncs.ownsMasterItem('maidDress') and (not window.clothes.dressedMaid.check())>>\
 	[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 <<endif>>\
 <<if not playerCode.isMaid() and ((not window.clothes.dressedOutside.check()) or (not window.clothes.dressedGuardian.check()))>>\
@@ -163,7 +163,7 @@ The chores available to you are:
 			<<print '[[Take '+$guardian+'\'s special offer|Special punishments][$scene=\"choreSpanking\"]]'>>
 		<<endif>>\
 	<<endif>>\
-	<<if playerCode.isMaid() and inventoryFuncs.ownsMasterItem('maid') and (not window.clothes.dressedMaid.check())>>\
+	<<if playerCode.isMaid() and inventoryFuncs.ownsMasterItem('maidDress') and (not window.clothes.dressedMaid.check())>>\
 		[[Put on maid uniform|Perform chores][$flags.maidUniform=true]]
 	<<endif>>\
 	<<if window.choresFunc.canPerformChores()>>\

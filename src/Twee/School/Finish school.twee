@@ -219,7 +219,9 @@
 		<<set $player.punishments.penaltySkipped = false>>\
 		You're done with school for today. What would you like to do with the rest of the day?
 
-		<<if $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE !=9>>\
+		<<if window.timeCode.isFriday() && $cheerleaders.progress == 8>>\
+			[[Go meet the cheer squad for the competition|Go to Cheerleading Practice]]
+		<<elseif $cheerFriend.currentSE > 0 && $cheerFriend.currentSE != 5 && $cheerFriend.currentSE !=9>>\
 			<<print "[[Go meet "+$cheerFriend.name+"|Meet cheerFriend]]">>
 		<<else>>\
 			<<if $tasksTeacher.goOnDate.status == 1>>\

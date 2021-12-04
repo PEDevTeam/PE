@@ -1142,7 +1142,6 @@ $.extend(true, window.items, {
             }
         },
 
-
         //corsets
         corsets62:{
             masterItem:"corsets",
@@ -1160,6 +1159,7 @@ $.extend(true, window.items, {
                 white:true,
                 sexy:true,
                 slutty:true,
+				maid: true
             }
         },
         corsets73:{
