@@ -1273,6 +1273,9 @@ window.friendList={
 	HOPE: 0,
 	bear: 0,
 	seenDressUpHOPE: 0,
+	seenDressUpQCWPW: 0,
+	useGamePlug: 0,
+	QWCoW: 0,
 },
 
 window.futaList={
