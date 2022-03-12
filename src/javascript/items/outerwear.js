@@ -2100,7 +2100,7 @@ $.extend(true, window.items, {
             name:"Boy's School Uniform with Girls Pants",
             price:0,
             daring:0,
-            disabled:true,
+            disabled:false,
             isMale:true,
             isFemale:false,
             isItemSet:false,

@@ -931,13 +931,13 @@ window.tasksTeacher={
 		name:"Task Girly desert",
 		hasPassage: true,
 		text: {
-			given: "@@.teacher;\"I have a task for you today. Dress as a girl and go out to a café. Film yourself eating a desert there.\"@@",
+			given: "@@.teacher;\"I have a task for you today. Dress as a girl and go out to a café. Film yourself eating a dessert there.\"@@",
 			perform: "",
-			finish: "$teacher watches the video of you eating your girly desert.\n\n@@.teacher;\"I knew you would pick something like that. As you see, looking like a girl can have its perks.@@",
+			finish: "$teacher watches the video of you eating your girly dessert.\n\n@@.teacher;\"I knew you would pick something like that. As you see, looking like a girl can have its perks.@@",
 			fail: "@@.teacher;\"I see you ignored my directions. Perhaps you prefer discipline to dessert - do you really crave it that much? Enjoy this mark.\"@@",
 			reminder: "@@.teacher;\"Don't forget to dress as a girl and go out to a café.\"@@",
 			checkMe: {
-				given: "order a desert at a café while dressed as a girl.",
+				given: "order a dessert at a café while dressed as a girl.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."

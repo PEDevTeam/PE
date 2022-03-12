@@ -1,0 +1,54 @@
+::Friend Teacher Tasks Girly Dessert 1
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+@@.hero;What can be so challenging about eating a dessert? I guess I have to wear <<if _outer.isFemale == false>>a dress<<else>><<if window.inventoryFuncs.hasTag(_outer, 'separates')>>this skirt and top<<else>>dress<<endif>><<endif>> but I’ve done it before.@@
+
+@@.heroT;“I’m kinda hungry. How about we go out?”@@
+
+<<set _desertFail == 0>>\
+<<if _under.isMale>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if not _chast>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if not _stock>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if playerCode.isHairy()>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if _shoes.isMale>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if _outer.isMale>>\
+	<<set _desertFail = 1>>\
+<<endif>>\
+<<if _desertFail == 1>>\
+	@@.friend;“Not if you are wearing that! Dad’ll be home earlier than usual today, and you don’t have time to change. It’s not as though you can’t go out looking pretty now.”@@ $friend says sadly, pushing you back out onto the steps. @@.friend;“Maybe if you come back tomorrow, wearing something cute, I’ll take you somewhere nice,”@@ $friendG.he_she adds, slamming the door in your face.
+
+	<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration + 3>>\
+	<<set $friendG.wordlessGoodbye to true>>\
+    <<display [[Leave friend's house]]>>
+<<else>>\
+	@@.friend;“Going out for food, with you looking cute and all, especially with me paying? It’s a date!”@@ $friend says, gazing at your <<if window.inventoryFuncs.hasTag(_outer, 'separates')>>skirt and top<<else>>dress<<endif>>. $friendG.He_She leans forward and kisses the tip of your nose. @@.friend;“So, food first, and maybe after, come back and do desert…?”@@
+
+	@@.heroT;“No! I mean, I kinda wanna try something sweet.”@@
+
+	$friend looks mock miffed for a few moments, then grins. @@.friend;“Okay, first you get to eat sweets out, and then when we get home I get to eat my sweetie.”@@
+
+	@@.heroT;“Your jokes get worse,”@@ you say, following $friendG.him_her down to the basement.
+
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Friend/Garage" 400 400>></div>\
+	$friend mumbles something to <<if $friendG.gender == "F">>herself<<else>>himself<<endif>>, which might have been ‘who said I was joking’ but $friendG.his_her voice is muffled so you aren’t quite certain and let it drop. You reach the basement garage where $friend opens your door and waits patiently while you settle into the bucket seat, floundering a bit with the ridiculous skirt to stop it riding up your thigh and putting everything on show.
+
+	@@.friend;“I know somewhere cool,”@@ $friend says, revving the engine while the garage door automatically rolls into the ceiling. The moment the metal panel is high enough, $friendG.he_she floors the gas and you shoot up the drive and onto the street.
+
+	<<set $friendG.friendTaskFrustration = $friendG.friendTaskFrustration -1>>\
+	[[Time for dessert|Friend Teacher Tasks Girly Dessert 2]]
+<<endif>>\

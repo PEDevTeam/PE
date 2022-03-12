@@ -504,6 +504,12 @@
 		<<if $kinkAllow.penisShrink and ($flags.penisShrinkProgress eq 0) and ($body.penisShrink.level eq 1)>>\
 			<<set $flags.penisShrinkSleep = true>>\
 			<<set $flags.penisShrinkProgress = true>>\
+			<<removeItemVariantFromInventory 'chastity_cb6000'>>\
+			<<addItemVariantToInventory 'chastity_cb6000s'>>\
+			<<wearItemVariant 'chastity_cb6000s'>>\
+			<<set window.itemNavigator.replaceVariantForAllClothingSets('chastity_cb6000', 'chastity_cb6000s')>>\
+			<<set window.itemFuncs.disableItemVariant('chastity_cb6000')>>
+			<<set window.itemFuncs.enableItemVariant('chastity_cb6000s')>>
 			$teacher suddenly leans closer and starts inspecting your chastity cage.
 			
 			@@.teacher;"Hmm. It appears this chastity cage is too large for you. It would be unfortunate if it accidentally slipped off. I have just the thing to help you."@@

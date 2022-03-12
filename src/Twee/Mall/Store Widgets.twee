@@ -16,7 +16,7 @@
 <<if not $toggleStoreMenu>>\/%a intimate apparel stuff %/
 	<<print window.stores[_storeID].description>> 
 	What would you like to buy?
-	<<if $time.day-7 gt $stores[_storeID].dayLastRefreshed>>\
+	<<if $time.day-7 gte $stores[_storeID].dayLastRefreshed>>\
 		<<set _refreshedStore = window.itemFuncs.refreshItemsForStore(_storeID)>>\
 		<<if _refreshedStore>>\
 			<<set $stores[_storeID].dayLastRefreshed = $time.day>>\
@@ -219,7 +219,7 @@ You could try to steal the stun gun if you are desperate.
 <<endif>>\
 \
 <<if ($tasksTeacher.girlyDesert.status eq 1) and _outerwear and _outerwear.isFemale>>\
-[[Order a girly desert at the café|Task girlyDesert]]
+[[Order a girly dessert at the café|Task girlyDesert]]
 <<endif>>\
 \
 <<if ($tasksTeacher.windowshopping.status eq 1) and _outerwear and _outerwear.isFemale and _plug and _chastity>>\

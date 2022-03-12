@@ -214,7 +214,7 @@ window.itemFuncs= {
                 }
             }
         }
-        else if(!(itemVariant === null)){            
+        else if(!(itemVariant === null)){ 
             for(var itemIdx in actVar.itemVariantsOverrides){
                 var item = actVar.itemVariantsOverrides[itemIdx]
                 if(item.variant == itemVariant.variant){
@@ -689,7 +689,7 @@ window.itemFuncs= {
                 var masterItemCount = 0;
                 var itemVariants = window.itemFuncs.getChildItemsForMaster(masterItemName);
                 itemVariants = itemVariants.filter(
-                    variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy) && !(window.inventoryFuncs.isItemVariantOwned(variant.variant))
+                    variant => !(variant.disabled) && (!variantNames.includes(variant.variant) && variant.canBuy) && !(window.inventoryFuncs.isItemVariantOwned(variant.variant))
                 );
                 if(masterItemCounts[masterItemName]){
                     masterItemCount = masterItemCounts[masterItemName];
@@ -704,7 +704,7 @@ window.itemFuncs= {
                         availableItemVariants = actVar.stores[storeID].availableItemVariants;
                         variantNames = availableItemVariants.map(a => a.variant);
                         itemVariants = itemVariants.filter(
-                            variant => !(variant.disabled) && !(variantNames.includes(variant.variant) && variant.canBuy)
+                            variant => !(variant.disabled) && (!variantNames.includes(variant.variant) && variant.canBuy)
                         );
                     }
                 }

@@ -1,0 +1,48 @@
+::Friend Teacher Tasks Girly Dessert 2
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<set _stock=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _outer=window.wardrobeFuncs.getWornItem('outerwear')>>\
+Instead of heading downtown, past the park where some of your school’s cheerleaders are practicing stunts. 
+<<if (window.timeCode.isTuesday() || window.timeCode.isThursday()) && $time.hour > 17>>\ 
+	@@.hero;I thought cheer practice ended at 3:30. Are they still working on cheers even after practice is over? How much practice do you need to shake some pom-poms?
+	
+	Still, even just watching them practice is entertaining...@@
+<<else>>
+	There are only a few girls practicing, but even so, a few clusters of boys, and some girls, watch around the perimeter.
+	
+	@@.hero;Even watching them practice is entertaining...@@
+<<endif>>\
+
+You can’t help but compare your dress to the cheer outfit, and despite yourself wonder if your legs would look as good in a cute little cheer skirt. @@.hero;Didn’t $friend say $friendG.he_she has a thing for cheerleaders?.@@
+
+You glance at $friend as $friendG.he_she drives, $friendG.his_her eyes fixed on the cheer squad and not the road. As if oblivious to $friendG.his_her surroundings, $friend licks $friendG.his_her lips. Your mind wanders. @@.hero;Perhaps $friendG.he_she would like it if I wore one too? Where would I get one from, though?@@ You pull yourself up, then catch a glimpse of your <<if _stock && _stock.itemMaster != "socks">>stockinged<<else>>naked<<endif>> legs and <<if _shoes.itemMaster == "heels" || _shoes.itemMaster == "stripperHeels">>heelse<<elseif _shoes.itemMaster == "boots" || _shoes.itemMaster == "heeledBoots" || _shoes.itemMaster == "highBoots">>girly boots<<else>>girly shoes<<endif>>, and wonder when $teacher will relent with her tasks and let you return to being a normal boy again. 
+
+Your mind is still drifting when $friend jolts you back to reality by squealing the brakes and scattering gravel by slamming to a halt in the parking area outside a riverside cafe.
+
+@@.friend;“Here we are,”@@ $friend, waving towards the white single-storey building beside the river. The cafe boasts a deck, too, but it’s full of couples of all ages, sipping tea and eating colorful food. From the waitresses’ uniforms and some of the clientele you wonder just how expensive this place is. You glance at your own <<if window.inventoryFuncs.hasTag(_outer, 'separates')>>skirt and top<<else>>dress<<endif>> and feel decidedly out of place. $friend doesn’t seem to notice as $friendG.he_she opens your door and tugs you from the bucket seat.
+
+With the outside space full of people, you allow $friend to guide you inside. $friendG.He_She speaks to the overdressed maître d', who guides you to a window seat overlooking the gardens and the river beyond. A brace of swans glide serenely over the dancing waters and the occasional fish bursts from the depths. 
+
+@@.femvoice3;“Menus, <<if $friendG.gender == "M">>Monsieur<<else>>Mademoiselle<<endif>>?”@@ the maître d' asks $friend, assuming $friendG.him_her to be in charge.<<if $friendG.gender == "T">> $friend gives you a little wink at being called by the feminine pronoun.<<else>> $friend smiles, obviously understanding the strange language.<<endif>>
+
+@@.friend;“<<if $friendG.gender == "T">>Two Unicones, please Madame.<<else>>Mademoiselle will have a Unicone, please Madame, and a chocolate souffle for me.<<endif>> Oh, and a pot of Lady Grey for two, s’il vous plaît."@@
+
+Apparently happy with the order, the maître d' hurries away, her long legs encased in black, with a seam running up the back of her slender calves. Her skirt is demure, sitting just above the knee, and her white blouse is pressed and burdened with frilly sleeves and collars. Stockings aside, you hope you never develop a taste for something so old fashioned.
+
+@@.heroT;“What’s with the Unicone?”@@ you ask, trying to peek at the menu of the women sitting opposite. @@.heroT;“What’s special about it?”@@
+
+@@.friend;“The Unicone is the most amazing…”@@ $friend begins, pausing when a young waitress appears with a tray laden with a teapot, cups, matching sugar bowl and silver cutlery. There’s even a few thin strips of lemon arranged in a flower.
+
+@@.hero;At least her uniform is better,@@ you muse to yourself, staring at the girl’s long legs encased in opaque black pantihose. With her skirt rolled up at the waist, you get a full glimpse of her shapely, slender thighs. Not to mention the trace of her bra beneath her silk blouse. Her heels are impressively high.
+
+As though $friend drinks posh tea every day, $friendG.he_she drops spoonfuls of loose leaves into the pot of hot water and gives it a quick stir and replaces the lid, allowing the mixture to brew. 
+
+You lean forward and sniff the steam rising from the spout, your nose wrinkling at the strong aroma of not-tea. @@.heroT;“What’s that!?”@@
+
+@@.friend;“Black tea infused with oil of bergamot, laced with slender shards of lemon and orange peel. Lady Grey is a light, refreshing tea with juicy citrus notes. Delicious and full of zesty brightness.”@@
+
+@@.heroT;“Smells like my grandma’s pot pourri. And what’s with you, did you swallow a dictionary?”@@
+
+$friend laughs, <<if $friendG.gender == "M">>a deep chuckle, oozing confidence<<elseif $friendG.gender =="T">>a lilting soft chuckle, suited to the low-cut dress and makeup he’s wearing<<else>>a sing-song chuckle, oozing confidence<<endif>>. @@.friend;“Nah. It’s mom’s favorite drink, I thought we could give it a shot, seeing as we’re out on a date, and all. That, and they have a poster of it on the wall.”@@
+
+[[The Unicone|Friend Teacher Tasks Girly Dessert 3]]
