@@ -1,12 +1,5 @@
 :: Friend Hang Out Computer Game
 \
-<<reactOnce true friendIntroFIFO>>\
-	@@.heroT;“Do you have FIFO,”@@ you ask? You’ve longingly looked at the game in the shop but it’s been sold out since it was released. You’re pretty sure that $friend has it; $friendG.he_she loves soccer.
-		
-<<reactElse>>\
-	@@.heroT;“How about a game of FIFO.”@@
-		
-<</reactOnce>>\
 <<if $tasksFriend.manga.status eq 0>>\
 	<<RandomImageFromPack 'Friend/FIFO' 400 400 alignRight>>\
 	<<selectScene HangOutFIFO1 RND2RND>>\
@@ -32,48 +25,65 @@
 	<<reactOnce true friendPlayedQWCoW>>\
 		@@.friend;“I have an even better idea. How about this?”@@ $friendG.he_she asks excitedly, brandishing two copies of Questworld of Doomcraft! 
 
-		@@.heroT;“O M F G!”@@ you squeal, @@.heroT;“how did you even get that?”@@
+		@@.heroT;“Oh my God!”@@ you squeal. @@.heroT;“How did you even get that?”@@
 
 		@@.friend;“I have my methods! Come on let’s play.”@@
 
 		@@.heroT;“I didn’t bring my laptop though.”@@
 
-		$friend lifts the covers of $friendG.his_her bed and you can see a new laptop box. $friendG.He_She pulls it out and opens it revealing not one, but two laptops. You take the brand new computer and hold it reverently in your hands. 
+		$friend lifts the covers of $friendG.his_her bed and you can see a new laptop box. $friendG.He_She pulls it out and opens it, revealing not one, but two laptops. You take the brand new computer and hold it reverently in your hands. 
 
-		@@.friend;“I pre-loaded it, thought it would save us time,”@@ $friend announces as $friendG.he_she flops down beside you on the couch. You open the lid and the twirling logo of the game, which only came out today and sold out worldwide in forty-seven minutes, blazes on the screen.
+		@@.friend;“I pre-loaded it. Thought it would save us time,”@@ $friend announces as $friendG.he_she flops down beside you on the couch. You open the lid and the twirling logo of the game, which only came out today and sold out worldwide in forty-seven minutes, blazes on the screen.
 
 		$friend has pre-selected a character for you too, some weird race called a Norbert. You both launch into the game and without a single exception, you absolutely suck. You die exactly one hundred and twenty six times in sixty two minutes, putting you second in the worldwide table of cannon-fodder. $friend, meanwhile, doesn’t die a single time.
 
 		You flop the lid down and sit dejected on the couch. @@.friend;“Hey, we’ll try other races and classes next time. We’ll find you something.”@@
 
-		You are so ashamed that you tell $friend you want to try something else, which $friendG.he_she mercifully agrees to.
+		You are so ashamed that you forget to ask for the disc and are halfway home before you realise that you should have asked to borrow it.
+		<<set $friendG.QWCoW = 1>>\
 	<<reactElse>>\
-		@@.friend;“How about Questworld of Doomcraft instead?”@@ $friend asks as $friendG.he_she pulls out the two laptops and hands you yours. Once again the game logo spins menacingly on your screen, threatening to embarrass you with eternal shame. Still, $friend seems already in love with this game.
+		@@.friend;“How about Questworld of Doomcraft?”@@ $friend asks as $friendG.he_she pulls out the two laptops and hands you yours. Once again the game logo spins menacingly on your screen, threatening to embarrass you with eternal shame. Even so, $friend seems already in love with this game.
 
 		You try Corcerians, Dingbuts, Frizzles and others, in about eight classes and die repeatedly in the level one to three starter zone. You start chatting with a girl who quickly outlevels you and even hands you her looted sword before she leaves the zone for tougher pastures.
 
-		@@.friend;“She was probably about eight,”@@ $friend announces, before collapsing on the sofa in a heap of <<if $flags.friendIsMale>>chuckles<<else>>giggles<<endif>>. You look over and see that $friend is on $friendG.his_her nineteenth character of the session, having levelled each one to five while helping you get to two. On $friendG.his_her main menu you also see two level twenty characters and a forty just sitting there ready for when you go home.
+		@@.friend;“She was probably about eight,”@@ $friend announces, before collapsing on the sofa in a heap of <<if $friendG.gender == "F">>giggles<<else>>chuckles<<endif>>. You look over and see that $friend is on $friendG.his_her nineteenth character of the session, having levelled each one to five while helping you get to two. On $friendG.his_her main menu you also see two level twenty characters and a forty just sitting there ready for when you go home.
 	<</reactOnce>>\
 	<</selectScene>>\
 <<elseif $tasksFriend.manga.status eq 1>>\
-	<<reactOnce true friendPlayedQWCoW>>\
-		@@.friend;“It’s just… Well I thought we could start playing this…@@
+	@@.friend;“Um. You remember those manga I lent you?”@@
 
-		$friend lifts the covers of $friendG.his_her bed and you can see a new laptop box. $friendG.He_She pulls it out and opens it revealing not one, but two laptops. You take the brand new Wisperion and hold it reverently in your hands. 
+	You nod guiltily, having not read them yet. @@.heroT;“Sorry, $friend, not had the time.”@@ You make a note to get around to it though. 
 
-		@@.friend;“I pre-loaded it, thought it would save us time,”@@ friend announces as $friendG.he_she flops down beside you on the couch. You open the lid and the twirling logo of the game, which only came out today and sold out worldwide in forty-seven minutes, blazes on the screen.
+	<<if $friendG.QWCoW < 2>>
+		<<if $friendG.QWCoW == 0>>
+			@@.friend;“It’s just… Well I thought we could start playing this…”@@. 
 
-		As you launch the software, your character creation screen shows a scantily-clad female human healer. As you peer at the screen, you realize that she looks a bit like you, at least if you looked like a girl.
-	<<reactElse>>\
-		@@.friend;“How about Questworld of Doomcraft instead?”@@ $friend asks as $friendG.he_she pulls out the two laptops and hands you yours. Once again the game logo spins menacingly on your screen, threatening to embarrass you with eternal shame. Still, $friend seems already in love with this game.
+			$friend lifts the covers of $friendG.his_her bed and you can see a new laptop box. $friendG.He_She pulls it out and opens it, revealing not one, but two laptops. You take the brand new computer and hold it reverently in your hands. 
 
-		Unlike before though, your character creation screen shows a scantily-clad female human healer. As you peer at the screen, you realize that she looks a bit like you, at least if you looked like a girl.
-	<</reactOnce>>\
+			@@.friend;”I pre-loaded it. Thought it would save us time,”@@ friend announces as $friendG.he_she flops down beside you on the couch. You open the lid and the twirling logo of the game, which only came out today and sold out worldwide in forty-seven minutes, blazes on the screen.
 
-	$friend has a pre-selected character too, <<if $flags.friendIsMake>>a muscular warrior for him<<else>>a soaring Amazon for her<<endif>>.
+			As you launch the software, your character creation screen shows a scantily-clad female human healer. As you peer at the screen, you realise that she looks a bit like you, if you were a girl.
+		<<else>>\
+			$friend pulls out the two laptops and hands you yours. Once again the “Questworld of Doomcraft” logo spns menacingly on your screen, threatening to embarrass you with eternal shame. Even so, $friend seems to love this game already.
 
-	Not wanting to argue, especially as you have not read the magna yet, you quickly get down to playing. Most of the game seems to revolve around $friendG.him_her charging off to find things to beat up and you trailing along behind, healing and buffing. On the odd occasion you get attacked, your own life plummets like a lead balloon and you have to squeal for $friend to save you. Despite your worries, you actually find that you are quite decent at it and you make it out of the starter levels at your first try with the character. You are so elated you don’t even care how your character looks.
+			Unlike before though, your character creation screen shows a scantily-clad female human healer. As you peer at the screen, you realise that she looks a bit like you, if you were a girl. 
+		<<endif>>\
+
+		$friend has a pre-selected character too <<if $friendG.gender == "M">>a muscular warrior for him<<else>>a statuesque Amazon for <<if $friendG.gender == "T">>him<<else>>her<<endif>><<endif>>. 
+
+		Not wanting to argue, you quickly get down to playing. Most of the game seems to revolve around $friendG.him_her charging off to find things to beat up and you trailing along behind, healing and buffing. On the odd occasion you get attacked, your own life plummets like a lead balloon and you have to squeal for $friend to save you. Despite your worries, you actually find that you are quite decent at the game and you make it out of the starter levels on your first try with the character. You are so elated you don’t even care how your character looks.
+		<<set $friendG.QWCoW = 2>>\
+	<<else>>\
+		$friend pulls out the two laptops and hands you yours. Once again the Questworld of Doomcraft! logo spns menacingly on your screen, threatening to embarrass you with eternal shame. Even so, $friend seems to love this game already.
+
+		As you launch into the game, you appear in a safe spot close to where you were hunting last time. You follow $friend around, keeping $friendG.him_her alive as $friendG.he_she fights everything in sight, and only coming close to your character to save you when you squeal for help.
+
+		Time passes quickly and it’s soon time to say goodbye to Questworld and head home.
+	<<endif>>\
 <<elseif $player.daring gte 5 or $tasksFriend.manga.status gt 1>>\
+<<include [[Friend Hang Out Computer Game Crossdress]]>>\
+<!--
+	old version kept for archive purposes
 	<<selectScene HangOutFIFO2 RND2RND>>\
 	<<scene>>\
 	<<RandomImageFromPack 'Friend/FIFO' 400 400 alignRight>>\
@@ -130,4 +140,5 @@
 
 	Most of the game seems to revolve around $friendG.him_her charging off to find things to beat up and you trailing along behind, healing and buffing. On the odd occasion you get attacked, your own life plummets like a lead balloon and you have to squeal for $friend to save you. Despite your worries, you actually find that you are quite decent at it and you make it out of the starter levels at your first try with the character. You are so elated you don’t even care how your character looks.
 	<</selectScene>>\
+	-->\
 <<endif>>\

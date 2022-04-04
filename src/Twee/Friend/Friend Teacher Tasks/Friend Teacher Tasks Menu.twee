@@ -1,6 +1,17 @@
 ::Friend Teacher Tasks Menu
 /* NOTE: the conditionals in this menu items must be kept in sync with "Friend Basic Teacher Tasks" */\
-@@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
+<<set $friendG.skipGirlynessDressing = false>>\
+<<if $player.perversion.crossdressing < 7>>\
+	@@.friend;“Another wardrobe experiment?”@@ $friend asks, looking surprisingly happy about the situation. @@.friend;“What are we trying today?”@@
+<<else>>\
+	<<if playerCode.obviousFemaleAppearance()>>\
+		<<if playerCode.slutScoreBasic() > 6>>\
+			@@.friend;“Don’t you think you are taking this too far? I mean, being cute is one thing, but don’t you think you’re kinda looking a bit over the top?”@@ $friend asks, sighing and pursing $friendG.his_her lips as $friendG.he_she checks you out. @@.friend;“What did you want to do today?”@@
+		<<else>>\
+			@@.friend;“I swear you are looking cuter each time you come over,”@@ $friend says, checking you out. @@.friend;“What did you want to do today?”@@
+		<<endif>>\
+	<<endif>>\
+<<endif>>\
 \
 <<set _missingAttire = friendCode.missingAttire()>>\
 <<if _missingAttire>>\
@@ -48,5 +59,8 @@
 <<endif>>\
 <<if $tasksTeacher.practiceHeels.status == 1 && $tasksTeacher.practiceHeels.progress == 0>>\
     [[Wear heels at the mall|Friend Teacher Tasks Wear Heels]]
+<<endif>>\
+<<if $tasksTeacher.girlyDesert.status == 1 && $tasksTeacher.girlyDesert.progress == 0>>\
+	[[Eat a girly dessert at the mall|Friend Teacher Tasks Girly Dessert 1]]
 <<endif>>\
 [[Nothing Right Now|Friend Basic Teacher Tasks]]

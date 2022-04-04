@@ -5,7 +5,7 @@
 
 	@@.malevoice10;“Well, you’re still young,”@@ $cheerFriend.name’s father says as he takes a big bite of not-meatloaf. @@.malevoice10;“You’ve still get plenty of time to find the man of your dreams. After all, guys love cheerleaders.”@@
 
-	@@.heroT;“Yeah…”@@ you respond, noticing that $cheerFriend.name is looking at you with a <<if $cheerFriend.affinity >5>>disappointed<<else>>confused<<endif>> expression.
+	@@.heroT;“Yeah…”@@ you respond, noticing that $cheerFriend.name is looking at you with a <<if $cheerFriend.affinity >= 5>>disappointed<<else>>confused<<endif>> expression.
 
 <<elseif $version == "single">>\
 	@@.heroT;“I’m, uh, just enjoying being single right now,”@@ you say.
@@ -30,7 +30,7 @@
 
 	You shake your head.
 
-	He smiles. @@.malevoice10;“Well, I’m sure someone will come along soon enough. <<if $cheerFriend.affinity > 5>>Who knows? Someone might already have their eye on you.<<endif>>”@@
+	He smiles. @@.malevoice10;“Well, I’m sure someone will come along soon enough. <<if $cheerFriend.affinity >= 5>>Who knows? Someone might already have their eye on you.<<endif>>”@@
 
 <<endif>>\
 @@.heroT;“So, $cheerFriend.name said you were in a punk band?”@@ you ask her father, trying to deflect attention away from you.
@@ -64,7 +64,7 @@ You smile back. @@.heroT;“Yeah. Thanks for having me over. It was nice. I’ll
 	@@.heroT;“Thanks, I will.”@@
 
 <<endif>>\
-$cheerFriend.name gives you a <<if $cheerFriend.affinity > 5>>brief hug<<else>>quick wave goodbye<<endif>> and you head out the door, already feeling a bit nostalgic for the closeness $cheerFriend.name seems to share with her family.
+$cheerFriend.name gives you a <<if $cheerFriend.affinity >= 5>>brief hug<<else>>quick wave goodbye<<endif>> and you head out the door, already feeling a bit nostalgic for the closeness $cheerFriend.name seems to share with her family.
 
 <<set $cheerFriend.progress = 5>>\
 <<set $time.hour=20>>\
