@@ -1073,25 +1073,25 @@
 	<<default>>You run your hands lightly over your chest, your face heating up as you imagine what you would look like with tits.
 	<</switch>>\
 <<endif>>\
-<<if ($body.permBoobs gt 0) or ($body.semiBoobs gt 0)>>\
-&#9702; Thanks to a special procedure, \
-	<<switch $body.permBoobs>>\
-	<<case 1>>you will always have at least small breasts.\
-	<<case 2>>you will always have at least average sized breasts.\
-	<<case 3>>you will always have at least big breasts.\
-	<<case 4>>your massive breasts are permanent.\
-	<<default>>\
+<<if ($body.boobs.permLevel gt 0) or ($body.boobs.semiLevel gt 0)>>\
+	&#9702; Thanks to a special procedure, \
+	<<switch $body.boobs.permLevel>>\
+		<<case 1>>you will always have at least small breasts.\
+		<<case 2>>you will always have at least average sized breasts.\
+		<<case 3>>you will always have at least big breasts.\
+		<<case 4>>your massive breasts are permanent.\
+		<<default>>\
 	<</switch>>\
-	<<if ($body.permBoobs gt 0)>>\
+	<<if $body.boobs.permLevel gt 0 and ($body.boobs.semiLevel gt $body.boobs.permLevel)>>\
 		Also \
 	<<endif>>\
-	<<if ($body.semiBoobs gt $body.permBoobs)>>\
-		<<switch $body.semiBoobs>>\
-		<<case 1>>small breasts will remain\
-		<<case 2>>average sized breasts will remain\
-		<<case 3>>big breasts will remain\
-		<<case 4>>your massive breasts will remain\
-		<<default>>\
+	<<if ($body.boobs.semiLevel gt $body.boobs.permLevel)>>\
+		<<switch $body.boobs.semiLevel>>\
+			<<case 1>>your small breasts will remain\
+			<<case 2>>your average sized breasts will remain\
+			<<case 3>>your big breasts will remain\
+			<<case 4>>your massive breasts will remain\
+			<<default>>\
 		<</switch>>\
 		unless you buy reversal treatment.\
 	<<endif>>\
@@ -1491,6 +1491,7 @@
 			<</switch>>\
 		<<elseif window.wardrobeFuncs.isItemVariantWearing('buttplug_vibro')>>\
 			&#9702; The vibro butt-plug buzzes in your asshole, casually arousing you. Slowly, blood is rushing towards your hardening boner.\
+			<<switch playerCode.isMind()>>\
 			<<case 0>>\
 				@@.hero;At least takes a while until it gets me horny again.@@
 			<<case 1>>\
