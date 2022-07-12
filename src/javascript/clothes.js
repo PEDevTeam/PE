@@ -40,48 +40,48 @@ window.clothes={
 			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
 			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
 			if (!outerwear && underwear && underwear.isFemale && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female underwear";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that wearing female underwear";
 				return false;
 			}
 			if (!outerwear && bra && bra.isFemale && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing a bra";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that wearing a bra";
 				return false;
 			}
 			if (!outerwear && stockings && stockings.isFemale && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing feminine socks";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that wearing feminine socks";
 				if (stockings.masterItem == "stockings") {
-					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing stockings";
+					State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that wearing stockings";
 				}
 				return false;
 			}
 			if (collar && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a choker";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that while wearing a choker";
 				if (collar.masterItem == "collar") {
-					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that while wearing a collar";
 				}
 				if (collar.daring >=  8) {
-					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such a collar";
+					State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that while wearing such a collar";
 				}
 				return false;
 			}
 			if (hairband && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a feminine hair accessory";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that while wearing a feminine hair accessory";
 				return false;
 			}
 			if ((eyewear && eyewear.isFemale || mouthwear) && player.perversion.guardian <= 3) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing an extra accessory";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that while wearing an extra accessory";
 				return false;
 			}
 			if (!outerwear && player.perversion.guardian <= 4) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that without clothes";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that without clothes";
 				return false;
 			}
 			if (!outerwear && !underwear && player.perversion.guardian <= 4) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that naked";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that naked";
 				return false;
 			}
 			if (((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) && (player.perversion.guardian <= 2)) {
-				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female clothing";
+				State.active.variables.reason.dressedGuardian="You don't feel comfortable enough to do that wearing female clothing";
 				return false;
 			}
 			return true;
@@ -217,7 +217,7 @@ window.clothes={
 				return false;
 			}
 			if ((eyewear && eyewear.isFemale || mouthwear) && (player.daring < window.daringValues.daringExtra)) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra acessorry";
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra accessory";
 				return false;
 			}
 			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 7 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {

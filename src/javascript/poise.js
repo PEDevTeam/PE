@@ -28,7 +28,7 @@ const poiseActions = {
         "eyes": {
             "command" : "Eyes forward.",
             "options" : ["Look straight ahead", "Look off to the side", "Look down"],
-            "position": ["staight ahead", "off to the side", "down"]
+            "position": ["straight ahead", "off to the side", "down"]
         }
     },
     "stand" : {

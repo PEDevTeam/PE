@@ -289,7 +289,7 @@ $.extend(true, window.items, {
         casualEarrings13:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_13",
-            name:"Multi Coloured Gem Earrings",
+            name:"Multi Colored Gem Earrings",
             price:50,
             daring:6,
             disabled:false,

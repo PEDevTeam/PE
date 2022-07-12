@@ -2391,7 +2391,7 @@ window.cheerList={
 		noticeFace2: false
 	},
 	game: {
-		athleticism: 0,	//PC's athelticism score portion
+		athleticism: 0,	//PC's athleticism score portion
 		presentation: 0,	//PC's presentation score.  If uniform 1, score equals 8-abs(6-adjustedSlutScore)
 		execution: 10,	//PC's execution score.  Each mistake deducts one point.
 		finalScore: 0,	//PC's final score.  Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
