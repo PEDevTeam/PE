@@ -129,6 +129,11 @@
 			<<endif>>\
 			<<set _description = "Visit ">>\
 			<<set _description += $friend>>\
+			<<if $tasksTeacher.wearDressToSchool.status == 1 && $player.perversion.friend > 3 && (not window.inventoryFuncs.ownsMasterItem('schoolDress')) && playerCode.friendUniformCheck()>>\
+				<<set _destination = "Friend Uniform 1">>\
+				<<set _description = "Call ">>\
+				<<set _description += $friend>>\
+			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.cheerFriendHouse.id)>>\
 			<<if (not window.timeCode.canVisitCheerFriend())>>\
@@ -195,7 +200,7 @@
 			<div class="tooltip">@@.halftransparent;<<print _description>>@@ <span id="test_surv" class="tooltiptext"><<print _reason>></span></div>\
 		<<endif>>\
 		<<if _quickDressForSchool>>\
-			<<if $cheerleaders.active and (inventoryFuncs.ownsMasterItem('cheerUniform')) and (window.timeCode.isTuesday() or window.timeCode.isThursday())>>\
+			<<if $cheerleaders.active and (inventoryFuncs.ownsMasterItem('cheerUniform')) and (window.timeCode.isTuesday() or window.timeCode.isThursday() or (window.timeCode.isFriday and $cheerleaders.progress == 8))>>\
 				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet("Cheerleader")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\
 			<<else>>\
 				@@.inv_action_faded;-@@ <<print '<<click " Dress for school">>>><<set itemNavigator.wearClothingSet("School")>><<updateClothes>><<replace "#clothing_selector">><<display "Clothing Selector">><</replace>><</click>>'>>\

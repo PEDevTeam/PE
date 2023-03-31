@@ -33,7 +33,7 @@ $.extend(true, window.items, {
             isFemale:true,
             isItemSet:false,
             setName:"",
-            canBuy:false,
+            canBuy:true,
             tags:{
                 plain:true,
             }

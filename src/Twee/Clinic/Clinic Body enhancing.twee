@@ -223,7 +223,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _disabled = $body.face.level1.disabled>>\
 		<<set _cost = $body.face.level1.cost>>\
 		<<set _daringRec = $body.face.level1.daring>>\
-		<<set _sceneName="surgeryFacial">>\
+		<<set _sceneName="softeningFacial">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<elseif $body.face.level lt 2>>\
@@ -232,7 +232,7 @@ Nancy asks if you want to make any changes to your body. There are options for i
 		<<set _disabled = $body.face.level2.disabled>>\
 		<<set _cost = $body.face.level2.cost>>\
 		<<set _daringRec = $body.face.level2.daring>>\
-		<<set _sceneName="softeningFacial">>\
+		<<set _sceneName="surgeryFacial">>\
 		<<set _override=false>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
@@ -1273,7 +1273,6 @@ Nancy asks if you want to make any changes to your body. There are options for i
 	<<set $player.money -= $body.face.level1.cost>>\
 	<<set $body.face.level = 1>>\
 	<<set $flags.salonNose=true>>\
-
 	@@.heroT;"I'd like to have softer facial features,"@@ you tell Nancy.
 	
 	@@.nurse;"Nice choice!"@@ She exclaims.

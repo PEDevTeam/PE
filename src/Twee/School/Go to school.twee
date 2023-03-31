@@ -371,7 +371,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			<<else>>\
 			a few punk looking guys.\
 				<<if random(3) eq 0>>\
-				the school troublemakers, just idly chatting.\
+				The school troublemakers, just idly chatting.\
 				<<elseif random(3) eq 0>>\
 				They laugh loudly, showing each other some kind of photo on their phones.\
 				<<else>>\
@@ -625,7 +625,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<<if ($tasksTeacher.askAdvice.status eq 1)>>\
 			[[Ask a girl for advice|Task Ask advice]]
 		<<endif>>\
-		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 4>>\
+		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 7>>\
 			Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
 			
 			<<set $cheerFriend.flags.acceptInvite = true>>\
@@ -641,7 +641,27 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 					<<set $cheerFriend.currentSE = 4>>\
 				<</selectScene>>\
 			<<elseif $cheerFriend.progress > 4 && $cheerFriend.progress < 8>>\
+				<<selectScene SESelector678 RND2RND>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 6>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 7>>\
+				<<scene>>\
+					<<set $cheerFriend.currentSE = 8>>\
+				<</selectScene>>\
 			<<endif>>\
+		<<endif>>\
+		<<if $cheerleaders.progress == 11 && window.timecode.isFriday() && $cheerleaders.active && cheerFriend.progress >=7>>
+			$cheerFriend.name catches you as you head to class. @@.cheerFriend;“Hey,”@@ she says, giving you a smile. @@.cheerFriend;“I saw some cute outfits at the mall while we were there, but I kinda didn’t have time to pick anything up. So, I was wondering if you wanted to go shopping with me this weekend?”@@
+
+			@@.heroT;“Yeah! Definitely!”@@ you respond, looking forward to the the one-on-one time with $cheerFriend.name.
+
+			“Cool,” she says. “Just give me a call either Saturday or Sunday. We’ll need to go like an hour or so before the mall closes. Don’t want to be those weirdos showing up at the stores just before they close down.”
+
+			“Sure. No sweat.”
+
+			$cheerFriend.name’s smile grows. “Great. See you then!” $cheerFriend.name spins on her heel and trots off, leaving you to ogle a bit as her skirt swishes enticingly across the top of her legs.
+			<<set $cheerFriend.currentSE = 9>>\
 		<<endif>>\
 		[[Go to class]]
 		<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\

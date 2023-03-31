@@ -94,6 +94,7 @@
 	<<if $player.hasAlarmClock>>\
 		<<set $player.hasAlarmClock = false>>\
 	<<endif>>\
+	<<set $player.canBuyAlarmClock = false>>\
 	<<set $flags.dreamgameCaughtTalk to true>>\
 	<<set $time.guardian.wakeHour to 7>>\
 	You open your eyes to find $guardian shaking you awake, looking down at you sternly.
@@ -217,6 +218,7 @@
 	<<if $player.hasAlarmClock>>\
 		<<set $player.hasAlarmClock = false>>\
 	<<endif>>\
+	<<set $player.canBuyAlarmClock = false>>\
 	<<if $flags.guardianFuckedByStrapon>>\
 		You open your eyes. $Guardian is there. Unusually, she is lying next to you, her hair draped across the sheets. She is watching you intently. @@.hero;Why is $guardian here?@@
 
@@ -301,14 +303,19 @@
 	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 	<<set $flags.clothesPurged to true>>\
-	<<set window.itemFuncs.enableItemVariant('maid_outfit_00')>>\
-	<<set window.itemFuncs.enableItemVariant('maid_outfit_01')>>\
-	<<addItemVariantToInventory 'maid_outfit_00'>>\
-	<<wearItemVariant 'maid_outfit_00'>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress_latex')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_headband')>>\
+	<<addItemVariantToInventory 'maid_dress'>>\
+	<<wearItemVariant 'maid_dress'>>\
 	<<addItemVariantToInventory 'stockings_39'>>\
 	<<wearItemVariant 'stockings_39'>>\
 	<<addItemVariantToInventory 'heels_39'>>\
 	<<wearItemVariant 'heels_39'>>\
+	<<addItemVariantToInventory 'maid_headband'>>\
+	<<wearItemVariant 'maid_headband'>>\
+	<<addItemVariantToInventory 'choker_00'>>\
+	<<wearItemVariant 'choker_00'>>\
 	<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
@@ -417,13 +424,15 @@
 	<<if $flags.guardianEvil>>\
 		<<set $player.perversion.guardian to 7>>\
 		<<set $flags.gTrialLatexMaid=true>>\
+		<<removeItemVariantFromInventory 'maid_dress'>>\
+		<<addItemVariantToInventory 'maid_dress_latex'>>\
+		<<wearItemVariant 'maid_dress_latex'>>\
 		<<addItemVariantToInventory 'stockings_latex_39'>>\
 		<<wearItemVariant 'stockings_latex_39'>>\
-		<<addItemVariantToInventory 'heels_stripper_00'>>\
-		<<wearItemVariant 'heels_stripper_00'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\
 		<<addItemVariantToInventory 'buttplug_vibro'>>\
 		<<wearItemVariant 'buttplug_vibro'>>\
+		<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 		Your eyes open suddenly to find $guardian angrily shaking you awake. There is a wild, unrestrained fire in $guardian's eyes. However, the absence of any of the normal empathy in her expression scares you the most.
 
 		@@.guardian;"Do I have your attention? I'd better."@@ She stares icily at your worried face, allowing you a moment to adjust to being awake so you can really understand the gravity of your situation.
@@ -476,7 +485,7 @@
 		<<if (not $flags.guardianCumDrink)>>\
 			@@.guardian;On weekends, I have arranged for you to serve as an aid at the sperm donor facility. There you'll help our clients to reach climax.@@\
 		<<endif>>\
-		@@.guardian;I'll be keeping an eye on how you do your chores. You can expect to me to punish you at the slightest sign of laziness or sloppy work. And don't worry, I will find more activities to occupy your time, too."@@
+		@@.guardian;I'll be keeping an eye on how you do your chores. You can expect me to punish you at the slightest sign of laziness or sloppy work. And don't worry, I will find more activities to occupy your time, too."@@
 		
 	<<else>>\
 		<<set $player.perversion.guardian to 6>>\
@@ -611,29 +620,25 @@
 	You are brought out of sleep by \
 		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<if $player.alarmProgress eq 0>>\
-			<<set $player.alarmProgress++>>\
 			a butt-plug alarm vibrating in your anus, bringing you to tears as your locked penis desperately strains against the cage. You try to pull the torturous device from your ass, but <<if $kinkAllow.bondage>>the plug has inflated on its own, pressing hard against your insides.<<else>>it starts to screech and wail so loudly that you push it back in, letting out a weak whimper as you gasp and pant.<<endif>> There is no choice but to endure it, so you bite your pillow and try to relax, but the butt-plug keeps you on the edge the whole time.
 			Finally, it stops, letting you pull it out and throw it on the night stand. That was a hell of a way to start the day!
 			<<elseif $player.alarmProgress eq 1>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You actually burst into tears, knowing what you have to endure. You involuntarily wiggle your ass, trying to shrug off the feeling, but the device mercilessly keeps you squirming the whole time.
 			Finally, it stops, letting you pull it out and drop it on the night stand.
 			<<elseif $player.alarmProgress eq 2>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You moan into your pillow, trying to distract yourself somehow, but with no success.
 			Finally, it stops, letting you pull it out and put it on the night stand.
 			<<elseif $player.alarmProgress lt 5>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You are tired of trying to resist this hellish device, so you just lie in bed moaning and squirming as the butt-plug wriggles in your ass.
 			Finally, it stops, letting you pull it out and put it on the night stand.
 			<<elseif $player.alarmProgress lte 8>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You submit to this feeling of being dominated, and imagine $guardian and sometimes $teacher holding you down. Somehow it makes it easier.
 			Finally, it stops, letting you pull it out and put it on the night stand. A contented expression creeps onto your face as you realize that you're getting used to and even liking it.
 			<<else>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You give in to the feelings of helplessness and even occasionally massage the base of the butt-plug, making the sensations sharper. A flow of precum stains the sheets, but you don't care as you ride the bliss of your total surrender.
 			Finally, it stops, and you pull it out and gratefully kiss the tip before carefully putting it on the night stand. You feel weirdly thankful to $guardian for putting you through this, as you have become addicted to the feeling.
 			<<endif>>\
+			<<set $player.alarmProgress++>>\
 		<<else>>\
 			<<if $player.alarmProgress lt 9>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You thank the gods that you are not locked in chastity now and slowly stroke yourself, trying to prolong it until the end of the alarm 'signal'.

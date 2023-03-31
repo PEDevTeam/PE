@@ -93,6 +93,7 @@ window.structures={
 		this.setupItemMasterOverrides();
 		this.setupTeam();
 		this.setupStores();
+		this.setupMaidOutfit();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
@@ -704,9 +705,10 @@ window.structures={
 		var clothingSets = window.itemNavigator.clothingSets;
 		if(vars.clothingSets == null){
 			vars.clothingSets = [];
-		}
-		for(var clothingSetIdx in clothingSets){
+			
+			for(var clothingSetIdx in clothingSets){
 			vars.clothingSets.push(clothingSets[clothingSetIdx])
+			}
 		}
 	},
 
@@ -748,6 +750,58 @@ window.structures={
 		vars.stores[5].availableItemVariants.push(defaultPantySet);
 		vars.stores[5].availableItemVariants.push(defaultSexyBraSet);
 		vars.stores[5].availableItemVariants.push(defaultSexyPantySet);
+	},
+	
+	setupMaidOutfit: function(){
+		var vars=State.active.variables;
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_00")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_00");
+			window.itemFuncs.addItemToInventory("maid_dress");
+			window.itemFuncs.enableItemVariant('maid_dress');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_01")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_01");
+			window.itemFuncs.addItemToInventory("maid_dress_latex");
+			window.itemFuncs.enableItemVariant('maid_dress_latex');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+
+		for (var itemIdx in vars.itemVariantsOverrides){
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39")){
+				window.itemFuncs.removeItemFromInventory("stockings_39");
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (vars.itemVariantsOverrides[itemIdx].variant == "stockings_39") {
+				if (vars.itemVariantsOverrides[itemIdx].tags.maid != true){
+					vars.itemVariantsOverrides[itemIdx].tags.maid = true;
+				}
+			}
+		}
 	},
 },
 
@@ -1236,6 +1290,13 @@ window.friendList={
 	seenDressUp: 0,
 	evilFriend: 0,
 	noUnderwear: 0,
+	ABDL: 0,
+	HOPE: 0,
+	bear: 0,
+	seenDressUpHOPE: 0,
+	seenDressUpQCWPW: 0,
+	useGamePlug: 0,
+	QWCoW: 0,
 },
 
 window.futaList={
@@ -1313,7 +1374,7 @@ window.bodyList={
 	},
 
 	hairstyle: {
-		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : curly, 5 : pigtails
+		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : pigtails, 5 : curly
 		disabled : false,
 		maxLevel : 4,
 		level0: {
@@ -1342,16 +1403,16 @@ window.bodyList={
 			disabled : true
 		},
 		level4: {
-			description : "Curly hair",
-			cost : 40,
-			image : "hair_curly_brown.jpg",
+			description : "Pigtails",
+			cost : 30,
+			image : "hair_pigtails_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
 		level5: {
-			description : "Pigtails",
-			cost : 30,
-			image : "hair_pigtails_brown.jpg",
+			description : "Curly hair",
+			cost : 40,
+			image : "hair_curly_brown.jpg",
 			daring : 6,
 			disabled : true
 		},
@@ -2269,6 +2330,7 @@ window.cheerList={
 	rainyDay: false,
 	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	ashleyProgress: 0, //progress along Ashley's path
 	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
@@ -2295,6 +2357,7 @@ window.cheerList={
 		guardianPractice: false, //allows player to practice cheerleading with guardian
 		dancePractice: false, //allows player to practice dancing
 		prankTeam: "none", //which team the player chose for the locker room prank
+		haveBoyNumber: false,
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables
@@ -2344,6 +2407,7 @@ window.cheerFriendList={
 	currentSE: 0,		//currently available side event
 	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
 	prize: 'money',		//prize offered cheer friend's brother
+	concertOutfit: 'none', //outfit chosen when shopping for the concert in side event 9
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,
@@ -2353,7 +2417,7 @@ window.cheerFriendList={
 
 	flags: {
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
-		boy: 1,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		boy: 0,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 		force: false,	//took diary by force
 		visitedHouse: false, //visited house in SE 5
 		genderPref: "", //stated preferred gender
