@@ -201,6 +201,7 @@ $.extend(true, window.items, {
                 black:true,
                 sexy:true,
                 slutty:true,
+				maid:true,
             }
         },
         gag10:{
