@@ -129,6 +129,11 @@
 			<<endif>>\
 			<<set _description = "Visit ">>\
 			<<set _description += $friend>>\
+			<<if $tasksTeacher.wearDressToSchool.status == 1 && $player.perversion.friend > 3 && (not window.inventoryFuncs.ownsMasterItem('schoolDress')) && playerCode.friendUniformCheck()>>\
+				<<set _destination = "Friend Uniform 1">>\
+				<<set _description = "Call ">>\
+				<<set _description += $friend>>\
+			<<endif>>\
 		<<endif>>\
 		<<if (_to.id eq locationsJS.cheerFriendHouse.id)>>\
 			<<if (not window.timeCode.canVisitCheerFriend())>>\

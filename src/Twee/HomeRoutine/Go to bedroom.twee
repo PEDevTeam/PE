@@ -83,6 +83,13 @@
 	<<if $cheerleaders.active == true && $cheerleaders.progress == 5 && window.timeCode.isTuesday() && !($cheerleaders.flags.skippedPractice) && !($cheerleaders.game.practiced)>>\
 		[[Practice Ashley's Cheer]]
 	<<endif>>\
+	<<if $cheerFriend.currentSE == 9 && $cheerleaders.active && window.timeCode.isWeekend() && window.timeCode.isMallOpen()>>\
+		<<if window.clothes.dressedOutside.check()>>\
+			<<print "[[Call " + $cheerFriend.name + "|Cheer SE9 Sc1]]">>
+		<<else>>\
+			<div class="tooltip">@@.halftransparent;call $cheerFriend.name@@ <span id="test_surv" class="tooltiptext"><<print $reason.dressedOutside>></span></div>\
+		<<endif>>\
+	<<endif>>\
 <<endif>>\
 <<if $flags.alarmDildoIgnore and $flags.choreDildoAlarm and (not $flags.alarmDildoBeg) and not $flags.trainingCockSuck>>\
 	[[Go and ask $guardian to remove training dildo|Suck training cock][$scene="beg"]]

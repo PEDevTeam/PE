@@ -652,4 +652,18 @@ window.playerCode={
 		player.gameSkill = skillLevel + skillImprove;
 		return skillImprove;
 	},
+	friendUniformCheck: function() {
+		var pass = true;
+		var under=window.wardrobeFuncs.getWornItem('underwear');
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
+		var stockings = window.wardrobeFuncs.getWornItem('hosiery');
+		var chastity = window.wardrobeFuncs.getWornItem('chastity');
+		var outer = window.wardrobeFuncs.getWornItem('outerwear');
+		var player=State.active.variables.player;
+
+		if((!under || (under && !under.isFemale)) || !chastity || !stockings || (!shoes ||(shoes && !shoes.isFemale)) || (player.location != locationsJS.school.id && (!outer ||(outer && !outer.isFemale))) || playerCode.isHairy()){
+			pass = false;
+		}
+		return pass;
+	}
 }

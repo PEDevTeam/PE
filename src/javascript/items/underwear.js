@@ -998,12 +998,33 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
+		sexyPanties75:{
+            masterItem:"sexyPanties",
+            variant:"panties_sexy_75",
+            name:"White and Black Transparent G-String Panties",
+            price:55,
+            daring:3,
+            disabled:false,
+            isMale:false,
+            isFemale:true,
+            isItemSet:false,
+            canBuy:false,
+            tags:{
+                sexy:true,
+                white:true,
+				black:true,
+                school:true,
+                frilly:true,
+                gstring:true,
+                gifted:true,
+            }
+        },
 
         //Latex Panties
         latexPanties00:{
             masterItem:"latexPanties",
             variant:"panties_latex_00",
-            name:"Black Full Breif Latex Panties",
+            name:"Black Full Brief Latex Panties",
             price:80,
             daring:5,
             disabled:false,

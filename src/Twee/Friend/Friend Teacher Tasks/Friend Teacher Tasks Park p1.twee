@@ -4,10 +4,10 @@
 <<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<set _hose=window.wardrobeFuncs.getWornItem('hosiery')>>\
-<<if _hose>>
-	<<set _stock = _hose.masterItem == "stockings" || _hose.masterItem == "latexStockings">>
-	<<set _socks = _hose.masterItem == "socks">>
-<<endif>>
+<<if _hose>>\
+	<<set _stock = _hose.masterItem == "stockings" || _hose.masterItem == "latexStockings">>\
+	<<set _socks = _hose.masterItem == "socks">>\
+<<endif>>\
 <<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
 <<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 <<if $friendG.parkAttempt == 1>>\
@@ -102,8 +102,9 @@
 	<<elseif (_chast and $friendG.seenChastity)>>\ 
 		$friend eyes your crotch, grinning when they recognize a particular bulge.
 
-		@@.friend;"You're still wearing that cage, huh? Good."@@
-		<<if $friendG.gender eq 'T'>>\
+		@@.friend;"You're still wearing that cage, huh? Good."@@\
+		<<if $friendG.gender eq 'T'>>
+		
 			@@.friend;"Maybe I should get one, too, then we'll match..."@@
 			<<set $friendG.friendGetChastity = 1>>\
 		<<endif>>\
@@ -131,11 +132,12 @@
 	<<else>>\
 		@@.friend;"No stockings? Not even girl's socks? Come on, $player.name - really?"@@\
 	<<endif>>\
+	
 	<<if _femaleLegWear>>\
 		<<if $friendG.friendTaskFrustration gt 0>>\
 			<<set $friendG.friendTaskFrustration -= 1>>\
 		<<endif>>\
-		$friendG.he_she peers closely at your thighs.\
+		$friendG.He_She peers closely at your thighs.\
 		<<if $body.bodyhair.level gte 1>>\
 			<<if $friendG.seenWaxedLeg == 0>>\
 				<<set $friendG.seenWaxedLeg = 1>>\
@@ -170,7 +172,7 @@
 				@@.friend;"You haven't even waxed your legs! I know you've done it before, why aren't you getting it done on a regular basis?"@@\
 			<<endif>>\
 		<<endif>>\
-	<<endif>>
+	<<endif>>\
 
 	$friend takes a second to look closely at your behind. \
 	<<if $friendG.seenPlug>>\
@@ -209,7 +211,7 @@
 
 		With $friend refusing to engage in anything other than grunts, you head home dejectedly, your task still outstanding. 
 		<<set $friendG.parkAttempt = 1>>\
-		<<display [[Travel]]
+		<<display [[Travel]]>>\
 	<<else>>\
 		[[Change for Park|Friend Teacher Tasks Park p2]]
 	<<endif>>\

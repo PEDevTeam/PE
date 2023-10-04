@@ -1178,6 +1178,7 @@ $.extend(true, window.items, {
                 red:true,
                 sexy:true,
                 slutty:true,
+				maid: true,
             }
         },
     }
