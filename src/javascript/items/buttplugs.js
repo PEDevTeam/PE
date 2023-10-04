@@ -1,0 +1,170 @@
+if(typeof window.items == "undefined"){
+    window.items = {};
+}
+
+$.extend(true, window.items, {
+    itemMasters:{
+        //Buttplugs
+        buttplugs:{
+            itemType:"bluttplug",
+            clothingSlot:"buttplug",
+            name:"Buttplugs",
+            itemMaster: "buttplugs",
+            daring:4,
+            disabled:false,
+            hasWorn:false,
+            isMale:true,
+            isFemale:true,
+            tags:{
+                plain:true,
+            }
+        },
+    },
+    itemChildren:{
+        //buttplugs
+        buttplugs00:{
+            masterItem:"buttplugs",
+            variant:"buttplug_dildo",
+            name:"Black Buttplug Dildo",
+            price:80,
+            daring:6,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:true,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs01:{
+            masterItem:"buttplugs",
+            variant:"buttplug_heart",
+            name:"Heart Shapped Buttplug",
+            price:40,
+            daring:4,
+            disabled:false,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:true,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs02:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_0",
+            name:"Inflatable Buttplug (1)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs03:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_1",
+            name:"Inflatable Buttplug (2)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs04:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_2",
+            name:"Inflatable Buttplug (3)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs05:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_3",
+            name:"Inflatable Buttplug (4)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs06:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_4",
+            name:"Inflatable Buttplug (5)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs07:{
+            masterItem:"buttplugs",
+            variant:"buttplug_inflate_5",
+            name:"Inflatable Buttplug (6)",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+        buttplugs08:{
+            masterItem:"buttplugs",
+            variant:"buttplug_vibro",
+            name:"Vibrating Buttplug",
+            price:200,
+            daring:10,
+            disabled:true,
+            isMale:true,
+            isFemale:true,
+            isItemSet:false,
+            setName:"",
+            canBuy:false,
+            tags:{
+                plain:true,
+            }
+        },
+    }
+});

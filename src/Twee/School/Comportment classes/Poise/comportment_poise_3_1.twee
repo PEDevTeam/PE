@@ -1,0 +1,29 @@
+:: comportment_poise_3_1
+<<set $player.ending.lessonSkip = true>>\
+<<if $flags.danceLessonPartner>>\
+	You show up to an empty classroom that doubles as a dance studio for your scheduled lesson along with
+	<<switch $flags.danceLessonPartner>>\
+	<<case 'guardian'>>\
+    	$guardian. The two women exchange greetings and then $teacher whispers some additional instructions. $guardian appears momentarily surprised but then looks over at you with a slight smile.
+	<<case 'evilguardian'>>\
+    	$guardian. The two women exchange greetings and then $teacher whispers some additional instructions. As she listens $guardian smiles wider, staring back at you with a look of hunger in her eyes.
+	<<case 'cheerbitch'>>\
+    	Ashley. $teacher looks slightly surprised but nods to the girl in greeting.
+	<<case 'coach'>>\
+    	the Coach. $teacher smiles enigmatically as the man gives your butt an encouraging squeeze.
+	<<case 'drama'>>\
+    	Mrs. Ravensong. The two teachers greet one another with a nod.
+	<<default>>\
+    	ERROR: unexpected partner: <<=$flags.danceLessonPartner>>\
+	<</switch>>\
+
+	Your partner motions you to join them in the center of the floor as $teacher sits down and readies the first track.
+
+	@@.teacher;“Remember your previous lessons - you want to demonstrate feminine poise, but you also need to match your movements to the specific style of music. I have a nice variety selected so pay attention, feel the music, and dance accordingly.”@@
+
+	[[Listen as the first track comes on.|comportment_poise_3_slow_1]]
+<<else>>\
+	You show up to your scheduled lesson alone. $teacher sighs and shakes her head. @@.teacher;“You foolish girl. I told you last time that for this next lesson in poise you need a partner, please do not come back until you have found someone suitable to practice with.”@@
+
+	[[Finish School Day]]
+<</if>>\

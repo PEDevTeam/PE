@@ -1,7 +1,7 @@
 :: Task crossdressAroundBlock [pos_2486_2904]
 \
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _f=playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
 <<if $scene eq "walk around block">>\
 	<<if $tasksTeacher.crossdressAroundBlock.status eq 1>>\
 		<<set $tasksTeacher.crossdressAroundBlock.status = 2>>\
@@ -22,7 +22,7 @@
 		You feel giddy and excited at the thought of going outside dressed as a girl.
 	<<endif>>\
 	
-	<<if (not _o) or (not _o.female)>>\
+	<<if (not _outerwear) or (not _outerwear.isFemale)>>\
 		You put on your dress, check how you look and prepare to go.\
 	<<endif>>\
 	Bracing yourself, you peek out of windows, checking the immediate area for neighbors. After ensuring that you won't get caught right out of the door, you quietly slip outside using the back door. You quickly head for a thickly wooded passage between houses, hoping the dense shadowing of trees there will hide you and your feminine outfit from anyone who might spot you.
@@ -36,7 +36,7 @@
 	In a panic, you dart away, hoping she didn't recognize your face in the deep shade of the trees. The neighbor, in turn, probably thought that you were a thief or something, escaping in such a hasty manner. You hear her muttering about youngsters being up to no good these days.
 	
 	Still, your fear of being discovered pushes you to move as fast as you can, and you even duck through some bushes to avoid meeting anyone else who might know you.
-	<<if _f and _f.female and _f.slutty>>\
+	<<if _shoes and _shoes.isFemale and window.inventoryFuncs.hasTag(_shoes, 'slutty')>>\
 	
 		You curse your decision to put on heels. You almost faceplant on the road several times, but by some miracle you manage to keep your balance.
 	<<endif>>\
@@ -106,8 +106,10 @@
 	
 	<<if ($player.perversion.crossdressing lte 4)>>\
 		<<set $player.perversion.crossdressing = 5>>\
-	<<elseif ($player.perversion.crossdressing eq 5)>>\
+	<<elseif ($player.perversion.crossdressing lte 5)>>\
 		<<set $player.perversion.crossdressing = 6>>\
+	<<elseif ($player.perversion.crossdressing eq 6)>>\
+		<<set $player.perversion.crossdressing = 7>>\
 		You feel much more confident in wearing female clothes. You still need to be careful and avoid neighbors or people who might recognize you, but at least you won't freeze at the thought of strangers seeing you in a dress.
 		
 		@@.reward;You think that you could actually go outside in female clothes if you would want or need to.@@

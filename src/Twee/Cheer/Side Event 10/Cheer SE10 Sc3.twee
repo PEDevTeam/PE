@@ -1,6 +1,6 @@
 ::Cheer SE10 Sc3
 <<if $cheerleaders.flags.panties == true>>\
-	<<wearClothing $removedUnder.id $removedUnder.curAlt>>\
+	<<wearItemFromStash "underwear">>\
 	You slip your panties back on, pulling them up as tightly as you can in an effort to hide them under your skirt. Checking yourself in the mirror, you can just barely see them. You pray Ashley’s perception isn’t better than yours.
 
 <<endif>>\
@@ -21,7 +21,7 @@ Mustering a flicker of resolve, you wipe away the mist forming in your eyes. You
 	@@.hero;That’s right - I’m in the costume room! Maybe I could find some stuff to help me look more “appropriate.”@@
 
 	[[Search for items to make you look more girly|Cheer SE10 Sc4]]
-	[[Go out as you are|Cheer SE10 Sc5]]
+	[[Go out as you are|Cheer SE10 Sc5][$cheerleaders.flags.falsies = false;$cheerleaders.flags.wig = false; $cheerleaders.flags.makeup = false]]
 <<else>>\
-	[[Get this over with|Cheer SE10 Sc5]]
+	[[Get this over with|Cheer SE10 Sc5][$cheerleaders.flags.falsies = false;$cheerleaders.flags.wig = false; $cheerleaders.flags.makeup = false]]
 <<endif>>\

@@ -1,66 +1,78 @@
 :: Shop events [pos_1800_2092]
 \
-<<set _item = itemsC[$player.bought]>>\
+<<set _item = window.itemFuncs.getItemByVariant($player.bought)>>\
+<<if _item>>\
+    <<set _itemVariantName = _item.variant>>\
+<<else>>\
+    <<set _itemVariantName = "">>\
+<<endif>>\
 <<if $scene eq "general">>\
 	<<if _item>>\
+        <<set _masterItem = window.itemFuncs.getItemMaster(_item.masterItem)>>\
 		<<set _repeat=false>>\
 		<<if playerCode.isMind_0()>>\
-			<<if ($player.bought eq itemsC.summerDress.id) or ($player.bought eq itemsC.skirtTop.id)>>\
-				<<set $items.summerDress.postponed = true>>\
-				<<set $items.skirtTop.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.flats.id) or ($player.bought eq itemsC.highHeel3.id)>>\
-				<<set $items.flats.postponed = true>>\
-				<<set $items.highHeel3.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.girlsneakers.id)>>\
-				<<set $items.girlsneakers.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.pantiesLatex.id) or ($player.bought eq itemsC.gString.id)>>\
-				<<set $items.pantiesLatex.postponed = true>>\
-				<<set $items.gString.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.silkyTeddy.id)>>\
-				<<set $items.silkyTeddy.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.bra.id) or ($player.bought eq itemsC.braSexy.id)>>\
-				<<set $items.bra.postponed = true>>\
-				<<set $items.braSexy.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.socks.id)>>\
-				<<set $items.socks.postponed = true>>\
-			<<elseif ($player.bought eq itemsC.stockings.id)>>\
-				<<set $items.stockings.postponed = true>>\
+			<<if (_item.masterItem=='casualDress') or (_item.masterItem=='skirtTop')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('casualDress', 'postponed', true)>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('skirtTop', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='flats') or (_item.masterItem=='heels')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('heels', 'postponed', true)>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('flats', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='girlSneakers')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('girlSneakers', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='sexyPanties') or (_item.masterItem=='latexPanties')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('sexyPanties', 'postponed', true)>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('latexPanties', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='nightie')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('nightie', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='bras') or (_item.masterItem=='sexyBras')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('bras', 'postponed', true)>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('sexyBras', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='socks')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('socks', 'postponed', true)>>\
+			<<elseif (_item.masterItem=='stockings')>>\
+				<<set _postponed = window.itemFuncs.addTagToItemMaster('stockings', 'postponed', true)>>\
 			<<endif>>\
 		<<endif>>\
-		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.female>>\
-			<<if (not $flags.firstBuyShoes) and (_item.clothingType eq itemTypes.Shoes)>>\
+		<<if ($player.daring lte 5) and ($player.perversion.mall lte 2) and _item.isFemale>>\
+			<<if (not $flags.firstBuyShoes) and (_masterItem.itemType=='shoes')>>\
 				<<set $flags.firstBuyShoes = true>>\
+				<<if $player.bought eq itemsC.flats.id && not $flags.firstBuyFlats>>\
+					<<set $flags.firstBuyFlats = true>>\
+					<<set $scene = "first buy flats">>\
+				<<else>>\
+					<<set $scene = "first buy female">>\
+				<<endif>>\
 				<<set $player.perversion.mall++>>\
-				<<set $scene = "first buy female">>\
+				<<set $delayKlopsText = true>>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyPanties) and (_item.clothingType eq itemTypes.Underwear)>>\
+			<<elseif (not $flags.firstBuyPanties) and (_masterItem.itemType=='underwear')>>\
 				<<set $flags.firstBuyPanties = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy panties">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyBras) and (_item.clothingType eq itemTypes.Bras)>>\
+			<<elseif (not $flags.firstBuyBras) and (_masterItem.itemType=='bra')>>\
 				<<set $flags.firstBuyBras = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy bra">>\
 				<<set _repeat=true>>\
-			<<elseif (not ($flags.firstBuyStockings || $tasksTeacher.wearStockings.progress > 0)) and (_item.clothingType eq itemTypes.Stockings) and (_item.id neq itemsC.socks.id)>>\
+			<<elseif (not ($flags.firstBuyStockings || $tasksTeacher.wearStockings.progress > 0)) and (_item.masterItem=='stockings')>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyStockings = true>>\
 				<<set $scene = "first buy stockings">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyNightdress) and (_item.clothingType eq itemTypes.Outerwear) and (_item.id eq itemsC.silkyTeddy.id)>>\
+			<<elseif (not $flags.firstBuyNightdress) and (_item.masterItem=='nightie')>>\
 				<<set $player.perversion.mall++>>\
 				<<set $flags.firstBuyNightdress = true>>\
 				<<set $scene = "first buy nightdress">>\
 				<<set _repeat=true>>\
-			<<elseif (not $flags.firstBuyDress) and (_item.clothingType eq itemTypes.Outerwear)>>\
+			<<elseif (not $flags.firstBuyDress) and (_masterItem.itemType=='outerwear')>>\
 				<<set $flags.firstBuyDress = true>>\
 				<<set $player.perversion.mall++>>\
 				<<set $scene = "first buy female">>\
 				<<set _repeat=true>>\
 			<<endif>>\
 		<<endif>>\
-		<<if ($player.bought eq itemsC.schoolFemale.id) and ((not $items.socks.ownAlt[0]) or ((not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])))>>\
+		<<if _item.masterItem=='schoolDress' and ((not window.inventoryFuncs.ownsMasterItem('socks') or not window.inventoryFuncs.ownsMasterItem('flats')) and not window.inventoryFuncs.ownsMasterItem('heels'))>>\
 			<<set $player.perversion.mall++>>\
 			<<set $scene = "female Uniform">>\
 			<<set _repeat=true>>\
@@ -71,15 +83,16 @@
 	<<endif>>\
 <<elseif $scene eq "first buy female">>\
 	<<if _item and ($player.perversion.mall lte 1)>>\
+        <<set _masterItem = window.itemFuncs.getItemMaster(_item.masterItem)>>\
 		<<set $flags.firstBuyFemale = true>>\
 		It's extremely embarrassing to buy the <<print _item.name.toLowerCase()>>. Clutching\ 
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
+		<<if (_masterItem.itemType=='outerwear')>>\
 			it\
 		<<else>>\
 			them\
 		<<endif>>\
 		in your hands, you approach the cashier and put\
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
+		<<if (_masterItem.itemType=='outerwear')>>\
 			it\
 		<<else>>\
 			them\
@@ -87,27 +100,26 @@
 		on the counter.
 		
 		The cashier glances at the\
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
+		<<if (_masterItem.itemType=='outerwear')>>\
 			feminine garment you've chosen\
-		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
+		<<elseif (_masterItem.itemType=='shoes')>>\
 			feminine footwear\
-		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
+			<<set $delayKlopsText = true>>\
+		<<elseif (_masterItem.itemType=='underwear')>>\
 			unmistakably feminine underwear you're buying\
-		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
+		<<elseif (_masterItem.itemType=='bras')>>\
 			bra\
-		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq itemsC.socks.id)>>\
-				feminine socks\
-			<<else>>\
-				stockings\
-			<<endif>>\
+		<<elseif (_item.masterItem=='socks')>>\
+			feminine socks\
+		<<elseif (_item.masterItem=='stockings')>>\
+			stockings\
 		<<endif>>\
 		and turns to you, lifting one eyebrow. Scarlet red, you hand the money to her, not daring to make eye contact.
 		
 		@@.heroT;\
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
+		<<if (_masterItem.itemType=='outerwear')>>\
 			"It's, \
-		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
+		<<elseif (_masterItem.itemType=='shoes')>>\
 			"They're, \
 		<<else>>\
 			"They're, \
@@ -127,6 +139,7 @@
 		
 		[[Go home|Go to bedroom][$time.addMinutes(30)]]
 	<<elseif _item>>\
+        <<set _masterItem = window.itemFuncs.getItemMaster(_item.masterItem)>>\
 		<<set $flags.secondBuyFemale = true>>\
 		The cashier glances at the <<print _item.name.toLowerCase()>> and turns to you, lifting an eyebrow. Remembering your last, awkward attempt at a cover story, you wisely choose to remain silent this time. \
 		The cashier courteously invites you to enjoy it and come back again soon.
@@ -134,24 +147,21 @@
 		You get a few weird glances as you take your purchase in hand, but no one makes a fuss over it.
 		
 		@@.reward;You bought your first\
-		<<if (_item.clothingType eq itemTypes.Outerwear)>>\
-			<<if _item.sleepWear>>\
-				feminine nightwear.\
-			<<else>>\
-				feminine clothes.\
-			<<endif>>\
-		<<elseif (_item.clothingType eq itemTypes.Shoes)>>\
+		<<if _masterItem.itemType=='nightwear'>>\
+			feminine nightwear.\
+		<<elseif _masterItem.itemType=='outerwear'>>\
+			feminine clothes.\
+		<<elseif _masterItem.itemType=='shoes'>>\
 			feminine footwear.\
-		<<elseif (_item.clothingType eq itemTypes.Underwear)>>\
+			<<set _delayKlopsText = true>>\
+		<<elseif _masterItem.itemType=='underwear'>>\
 			feminine underwear.\
-		<<elseif (_item.clothingType eq itemTypes.Bras)>>\
+		<<elseif _masterItem.itemType=='bras'>>\
 			bra.\
-		<<elseif (_item.clothingType eq itemTypes.Stockings)>>\
-			<<if ($player.bought eq itemsC.socks.id)>>\
-				feminine socks.\
-			<<else>>\
-				stockings.\
-			<<endif>>\
+		<<elseif _item.masterItem=='socks'>>\
+			feminine socks.\
+		<<elseif _item.masterItem=='stockings'>>\
+			stockings.\
 		<<endif>>\
 		@@
 
@@ -160,6 +170,11 @@
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 <!--</First buy events>-->\
+<<elseif $scene eq "first buy flats">>\
+    <<include [[Try On Flats]]>>\
+	<<set $scene = "general">>\
+	<<set $player.bought="">>\
+	<<set $delayKlopsText = true>>\
 <<elseif $scene eq "first buy panties">>\
     Clutching the panties in your hands, you timidly approach <<if $mallLingerieIntro>>Mz. Knight<<endif>> the tall, imposing shopkeeper and put them in a scrunched bundle on the counter.
 
@@ -226,20 +241,13 @@
     <<endif>>\
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
-<<elseif $scene eq "first buy bra">>\
-    <<set _braAlt to itemF.itemTwee(_item.id).storeCur>>\
-    <<switch _braAlt>>\
-       <<case 0 1 2 3 4 5 6 7 8 9>>\
-           <<set _braNumber to "0" + _braAlt>>\
-       <<default>>\
-            <<set _braNumber to _braAlt>>\
-       <</switch>>\
-    <<set _braImage to "Images/items/" + _item.image + _braNumber + ".jpg">>\
+<<elseif $scene eq "first buy bra" and _item>>\
+    <<set _braImage = 'Images/items/' + _itemVariantName + ".jpg">>\
     <<if $flags.friendBraTask>>\
 		You have no idea how to pick a bra, but $teacher told you that you need one. And not any bra, but one with matching panties.
 		<<set $flags.friendBraTask = false>>\
     <<else>>\
-        <<if $body.boobs>>\
+        <<if $body.boobs.level gt 0>>\
             Even as you stand in the shop, your pronounced boobs pull at your chest.
 
             @@.hero;I suppose I do need a bra,@@ you admit to yourself.
@@ -305,32 +313,32 @@
     @@.femvoice7;“and a son. Don’t forget, I do sell brassieres for a living. Now, top off. Chop, chop.”@@
 
     Faced with a choice between raising the ire of the towering British lady or potentially facing $bully as you leave a women’s wear shop, you feel your shoulders slump in submission. \
-    You remove your top and stand before her, your hands trying to cover up your <<if playerCode.isWearingOn(itemTypes.Bra)>>bra<<elseif $body.boobs>>breasts<<else>>flat chest<<endif>>.
+    You remove your top and stand before her, your hands trying to cover up your <<if window.wardrobeFuncs.getWornItem('bra')>>bra<<elseif $body.boobs.level gt 0>>breasts<<else>>flat chest<<endif>>.
 
     Mz. Knight looks at you with an expression of calm acceptance, as if she has seen boys coming for bra fittings every day. Her demeanour puts you at ease.
     
-    <<if playerCode.isWearingOn(itemTypes.Bra)>>\
+    <<if window.wardrobeFuncs.getWornItem('bra')>>\
         @@.femvoice7;“I see you already have one. It is not fitted correctly, though. You have made the mistakes that so many girls your age do. No matter, this can be easily rectified. Please remove it.”@@
 		
     <<endif>>\
-    <<if $body.boobs>>\
+    <<if $body.boobs.level gt 0>>\
         @@.femvoice7;“How delightful, you already have some growth. Your mother must be so proud. And you should be too, coming to terms with yourself. \
         Well, if I am to measure you, you will need to move your hands.”@@
     <<else>>\
         @@.femvoice7;“Please, there is nothing there yet to hide; now, move your hands.” @@
     <<endif>>\
 
-    Mz. Knight wields her tape and measures the area immediately below <<if $body.boobs>>your breasts<<else>>where your breasts would be, if you had any<<endif>>. \
+    Mz. Knight wields her tape and measures the area immediately below <<if $body.boobs.level gt 0>>your breasts<<else>>where your breasts would be, if you had any<<endif>>. \
     @@.femvoice7;“$player.name, this is the strap size, it relates to the first measurement on a brassiere’s sizing label. \
     For example, the one you picked yourself is a 40, or 40 inches. \
     You, my dear, are a 34, which is perfect for any young lady, erm person, your age. Remember that number.”@@
 
     @@.femvoice7;“Now, the fun bit.”@@ Hefting the measure once more, Mz. Knight wields her tape measure and wraps it around your chest\
-    <<if $body.boobs>>, making your sensitive, girly nipples tingle<<else>>, covering your nipples <<endif>>. @@.femvoice7;“You need to keep the tape parallel to the ground. \
+    <<if $body.boobs.level gt 0>>, making your sensitive, girly nipples tingle<<else>>, covering your nipples <<endif>>. @@.femvoice7;“You need to keep the tape parallel to the ground. \
     We are looking for the largest measurement.”@@ She moves the measure above and below your nipples, checking the size.
 
     @@.femvoice7;“Okay, so that measurement is @@ \
-    <<switch $body.boobs>>\
+    <<switch $body.boobs.level>>\
     <<case 0>>\
         @@.femvoice7;34 too. Still, we have trainer bras which are cute and have padded cups.”@@
 
@@ -372,22 +380,22 @@
     @@.femvoice7;”It is a brassiere; it is supposed to be tight. It is for the support of your bosoms, young lady!”@@ The change in her tone catches you off guard, then she chuckles. \
     @@.femvoice7;”You will get used to it, I am sure. And you can get very pretty ones, as you know, to attract young men to your… assets.”@@
 
-    You cannot help but look at your silhouette in the mirror. Your torso, thanks to the fitted bra and <<if $body.boobs>>your boobs<<else>>its padded cups<<endif>> give you a decidedly feminine outline.
+    You cannot help but look at your silhouette in the mirror. Your torso, thanks to the fitted bra and <<if $body.boobs.level gt 0>>your boobs<<else>>its padded cups<<endif>> give you a decidedly feminine outline.
 
     Mz. Knight snips the tag off with a pair of nail scissors. @@.femvoice7;”I have other customers, but I must say it has been a pleasure. I hope you learned something. \
     Oh, please wear it out; just put your clothing over the top. You need to get used to it, after all.”@@
     
 	<<if $player.perversion.teacher == 3>>\
-		<<switch _item.id>>\
-		<<case "bra">>\
+		<<switch _item.masterItem>>\
+		<<case "bras">>\
 			@@.hero;I have a bra, but $teacher wanted a sexy one. I should see if they have one of those too and some matching panties.@@
 			
-		<<case "braSexy">>\
-			<<if not $items.gString.ownAlt[_braAlt]>>\
+		<<case "sexyBras">>\
+			<<if (_item.isItemSet and window.inventoryFuncs.getItemsByProperty('setName', _item.setName))>>\
 				@@.hero;I have a bra, but $teacher wanted a set. I should see if they have the matching panties too.@@
 				
 			<<endif>>\
-		<<case "braLatex">>\
+		<<case "latexBras">>\
 			@@.hero;I have a bra, but $teacher wanted one that went with lacy panties. I should see if they have one of those too and some matching panties.@@
 			
 		<</switch>>\
@@ -400,10 +408,9 @@
     [[Return to Mall|Go to the mall]]
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
-	<<wearClothing _item.id _braAlt>>\
+    <<wearItemVariant _itemVariantName>>\
 	<<set $mallLingerieIntro to 1>>\
-<<elseif $scene eq "first buy stockings">>\
-    <<set _stockingsAlt to itemF.itemTwee(_item.id).storeCur>>\
+<<elseif $scene eq "first buy stockings" and _item>>\
     <<if $tasksTeacher.wearStockings.status == 1>>\
         @@.hero;Stockings I can wear with a uniform? What’s wrong with socks?@@ you ponder as you peruse the displays of stockings, tights and other items of hosiery.
     <<else>>\
@@ -440,7 +447,7 @@
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale>>\
         They will also be almost unnoticeable under your outer garments.<<endif>>@@
 
         <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
@@ -463,10 +470,14 @@
 
         She reaches out her hand and takes the stockings from you, putting them in a bag, her gaze returning to you several times as you shuffle on the spot.
 
-        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+        @@.femvoice7;“The young lady was correct; these are ideal for school… well within the permitted uniform. <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale>>\
         They will also be almost unnoticeable under your outer garments.<<endif>>@@
     <<endif>>\
-    <<if not  playerCode.isWearingOn(itemTypes.Outerwear).female and not playerCode.isWearingOn(itemTypes.Stockings)>>\
+    <<set _hosiery = window.wardrobeFuncs.getWornItem('hosiery')>>\
+    <<if _hosiery>>\
+        <<set _stockings = window.wardrobeFuncs.getWornItem('hosiery').masterItem == 'stockings'>>\
+    <<endif>>\
+    <<if not window.wardrobeFuncs.getWornItem('outerwear').isFemale and not _stockings>>\
         Mz. Knight glances around the store, which is empty for the moment. @@.femvoice7;“I wonder, have you ever worn them before?”@@
 
         @@.heroT; "Not like these, no…”@@ you admit.
@@ -485,32 +496,32 @@
         Mz. Knight chuckles at your seemingly inspired joke. @@.femvoice7;“Well perhaps a tad, but not really.@@
 
         @@.femvoice7;“Okay, remove them from the packet. Remove one of your socks and roll your trouser leg up.”@@ You try, but your  \
-        <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> are too tight. \
+        <<if window.wardrobeFuncs.isItemMasterWearing('thsirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> are too tight. \
         @@.femvoice7;“Oh dear. Well, you’ll have to take them off. Don’t balk. You have nothing I have not seen before.”@@
 
         You pause for a moment, but Mz. you really cannot afford to ruin your stockings, considering their price. Not only that, but Mz. Knight is so helpful and you are already used to $teacher and her daily \
-        inspections… You unfasten your fly and slip your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> down your \
-        <<if $body.bodyhair>>girly, waxed<<else>>hairy<<endif>> legs.
+        inspections… You unfasten your fly and slip your <<if window.wardrobeFuncs.isItemMasterWearing('thsirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> down your \
+        <<if $body.bodyhair.level gt 0>>girly, waxed<<else>>hairy<<endif>> legs.
 
         Mz. Knight looks at your bare legs and feet.
 
-        <<if playerCode.isWearingOn(itemTypes.Underwear).female>>\
-            <<if not $items.pantiesCotton.ownAlt[40] and not $items.gString.ownAlt[40] and not $items.gString.ownAlt[41] and not $items.gString.ownAlt[60] and not $items.gString.ownAlt[61] and not not $items.pantiesLatex.ownAlt[40]>>\
+        <<if window.wardrobeFuncs.getWornItem('underwear').isFemale>>\
+            <<if window.inventoryFuncs.getItemsByTag('gifted')>>\
                 @@.femvoice7;You are wearing our panties, I see. They do suit you.@@
             <<else>>\
                 @@.femvoice7;I see you have some panties of your own. Very pretty.@@
             <<endif>>\
-        <<elseif playerCode.isWearing(itemsC.jocksLucky)>>\
+        <<elseif window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
             @@.femvoice7;Oh, boxer shorts! Well, I am not sure they will go with stockings. Your choice, I suppose.@@
         <<else>>\
             @@.femvoice7;Oh my! You don’t wear… Oh dear.@@
         <<endif>>\
         
-        <<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+        <<if window.wardrobeFuncs.getWornItem('chastity')>>\
             @@.femvoice7;Aww, a little cage, how quaint.@@
         
         <<endif>>\
-        <<if $body.bodyhair>>\
+        <<if $body.bodyhair.level gt 0>>\
             @@.femvoice7;I see you have resolved the ghastly leg hair that boys have. Your legs will look wonderfully elegant in stockings; I can see why you wanted some.@@
         <<else>>\
             @@.femvoice7;You should perhaps investigate some form of hair removal. It will greatly improve both the look and the feel of your stockings. @@
@@ -534,7 +545,7 @@
         Now the rest, remember to keep your hands parallel for an even fit and less chance of a ladder. And stand when you need to.”@@
 
         <img src="Images/general/stockings_2.gif" style="width: 500px; height: auto; padding-bottom: 1em;">\
-        You ease the stocking over your knee.<<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+        You ease the stocking over your knee.<<if $body.bodyhair.level gt 0>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
         and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
         making your legs look quite unladylike despite the stocking encasing it.<<endif>>
 
@@ -545,9 +556,13 @@
 
         With a shrug, you decide that it might be better to hide the stockings under your clothing rather than leave the changing rooms with worn stockings in your hands. You hurriedly get dressed, \
         peer through the curtain and see with relief that the store is empty and $bully has gone. You pay Mz. Knight for your new stockings and head back into the mall.
-        <<wearClothing _item.id _stockingsAlt>>\
+        <<wearItemVariant _itemVariantName>>\
     <<else>>
-        Mz. Knight looks at <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>your female clothing<<elseif playerCode.isWearingOn(itemTypes.Stockings)>>your feet, noticing your stockings<<endif>>.
+        <<set _hosiery = window.wardrobeFuncs.getWornItem('hosiery')>>\
+        <<if _hosiery>>\
+            <<set _stockings = window.wardrobeFuncs.getWornItem('hosiery').masterItem == 'stockings'>>\
+        <<endif>>\
+        Mz. Knight looks at <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>your female clothing<<elseif _stockings>>your feet, noticing your stockings<<endif>>.
 
         @@.femvoice7;“How wonderful, it seems that wearing such elegant hosiery is not a new experience for you. I do hope you enjoy wearing them. ”@@
 
@@ -568,7 +583,7 @@
     <<set $scene = "general">>\
     <<set $player.bought="">>\
     <<set $mallLingerieIntro to 1>>\
-<<elseif $scene eq "first buy nightdress">>\
+<<elseif $scene eq "first buy nightdress" and _item>>\
     You scoured the laundry for something of $guardian’s you could wear to complete $teacher’s nightie task but as she sleeps primarily in the nude…
 
     You have seen programs on the TV and girls you see wear pajamas, often with pants or shorts. You’d love to find something like that, and maybe if the shorts are short enough or the top revealing enough, \
@@ -648,19 +663,19 @@
     <<endif>>\
     <<set $scene = "general">>\
     <<set $player.bought="">>\
-<<elseif $scene eq "female Uniform">><!--<Extra items for school dress>-->\
+<<elseif $scene eq "female Uniform" and _item>><!--<Extra items for school dress>-->\
 	Psyching yourself up you buy female school uniform.
 	
 	You also pick\
-	<<if (not $items.socks.ownAlt[0])>>\
-		<<addToInv 'socks'>>\
+	<<if not window.inventoryFuncs.ownsMasterItem('socks')>>\
+        <<addItemVariantToInventory 'socks_00'>>\
 		black knee high socks\
-		<<if (not $items.flats.ownAlt[0]) and (not $items.highHeel3.ownAlt[0])>>\
+		<<if (not window.inventoryFuncs.ownsMasterItem('flats')) and (not window.inventoryFuncs.ownsMasterItem('heels'))>>\
 			and\
 		<<endif>>\
 	<<endif>>\
-	<<if (not $items.flats.ownAlt[0])>>\
-		<<addToInv 'flats'>>\
+	<<if (not window.inventoryFuncs.ownsMasterItem('flats'))>>\
+        <<addItemVariantToInventory 'flats_00'>>\
 		a pair of flats\
 	<<endif>>\
 	to complete the set.
@@ -669,68 +684,73 @@
 	<<set $scene = "general">>\
 	<<set $player.bought="">>\
 <!--</Extra items for school dress>-->\ 
-<<endif>>\
-<<if $tasksTeacher.wearDressToSchool.status == 1 && $curStore == "Fashion Central" && not playerCode.owns(itemsC.schoolFemale)>>
-	Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
+<<else>>\
+    <<if $tasksTeacher.wearDressToSchool.status == 1 && $curStore == "Fashion Central" && not window.inventoryFuncs.ownsMasterItem('schoolDress')>>\
+		Looking around for the uniform section you hurry across the store, thankful that the only other customers, a cluster of girls from some other school, are on the far side of the store not looking in your direction.
 
-	You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\
-	<<if $player.money < window.itemF.cost(itemsC.schoolFemale)>>\
-		Finding what you're looking for, you balk at the price - you don't even have that much money!
+		You immediately recognize the familiar uniform that all the girls, save the cheerleaders, wear to school and start looking for one in your size.\
+		<<if $player.money lt window.itemFuncs.getItemByVariant('school_female_00').price>>\
+			Finding what you're looking for, you balk at the price - you don't even have that much money!
 
-		@@.hero;$teacher takes almost everything I earn, what am I expected to do now, steal?@@
-	<<else>>\
-		Finding what you're looking for, you wince slightly at the price; you could afford it, but...
+			@@.hero;$teacher takes almost everything I earn, what am I expected to do now, steal?@@
+		<<else>>\
+			Finding what you're looking for, you wince slightly at the price; you could afford it, but...
 
-		@@.hero;$teacher takes my money every week, and now she demands I spend even more. How's an honest guy supposed to keep up?@@
+			@@.hero;$teacher takes my money every week, and now she demands I spend even more. How's an honest guy supposed to keep up?@@
+		<<endif>>\
+
+		<<if $flags.metClothesClerk == true>>\
+			Looking around you spot $guardian's friend, Susan. Perhaps she could help you out?  Alternatively, you could always opt for the five-finger discount.
+		<<else>>\
+			Looking around you spot one of the clerks, you think you recognize her as one of $guardian's friends. Maybe she could help? Alternatively, you could always opt for the five-finger discount.
+		<<endif>>\
+
+		[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
+		[[See if the clerk can help you out|Uniform Punishment - Help]]
 	<<endif>>\
+	<<if $curStore == "Intimate Apparel" and not $shoppedBefore>>\
+        <<set $toggleStoreMenu to 1>>\
+        <<if $player.daring lt 3>>\
+            <<set $intimateBoyBrowse to 1>>\
+            You meander your way aimlessly through the mall, your mind drifting around how you can spend the <<print '$'+$player.money>> you have.\
+            You look up and realise that you have almost wandered into the wrong shop and this one is full of…
 
-	<<if $flags.metClothesClerk == true>>\
-		Looking around you spot $guardian's friend, Susan. Perhaps she could help you out?  Alternatively, you could always opt for the five-finger discount.
-	<<else>>\
-		Looking around you spot one of the clerks, you think you recognize her as one of $guardian's friends. Maybe she could help? Alternatively, you could always opt for the five-finger discount.
+            @@.hero;Panties?! @@
+
+            <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
+            You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
+            @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
+
+            [[Leave | Go to the mall][$toggleStoreMenu = false]]
+        <<else>>\
+            <<if not $mallLingerieIntro>>\
+                You spend several minutes in deliberation, walking up to, and then past the store, and then back again. \
+                Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
+                Two women, both extremely attractive and in their mid-twenties.
+
+                Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>in a school uniform<<endif>> \
+                loitering outside this shop, of all places. \
+                You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
+
+                The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
+                With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
+
+                @@.heroT;“Cotton panties?”@@
+
+                <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
+
+                [[Return to the mall | Go to the mall][$toggleStoreMenu = false]]
+            <<else>>\
+                <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
+                @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
+            <<endif>>\
+        <<endif>>\
 	<<endif>>\
-
-	[[Take the outfit into the changing room for a little shoplifting|Uniform Punishment - Steal]]
-	[[See if the clerk can help you out|Uniform Punishment - Help]]
+	<<if $curStore == "Urbane Menswear">>\
+		<<include [[Urbane_Menswear_events]]>>\
+	<<endif>>\
+	<<if $curStore == "Klip Klops" && not $delayKlopsText>>\
+		<<include [[Klip_Klop_events]]>>\
+	<<endif>>\
 <<endif>>\
-<<if $curStore == "Intimate Apparel" and not $shoppedBefore>>\
-   <<set $toggleStoreMenu to 1>>\
-   <<if $player.daring lt 3>>\
-       <<set $intimateBoyBrowse to 1>>\
-       You meander your way aimlessly through the mall, your mind drifting around how you can spend the <<print '$'+$player.money>> you have.\
-       You look up and realise that you have almost wandered into the wrong shop and this one is full of…
-
-       @@.hero;Panties?! @@
-
-       <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">\
-       You spy a sophistically-dressed lady standing behind the counter but fortunately, she doesn’t seem to have noticed you. \
-       @@.hero;I don’t need anything from here,@@ you confirm to yourself as you retreat cautiously to the safety of the mall.
-
-       [[Leave | Go to the mall][$toggleStoreMenu = false]]
-   <<else>>\
-       <<if not $mallLingerieIntro>>\
-           You spend several minutes in deliberation, walking up to, and then past the store, and then back again. \
-           Finally, you stand on the threshold of commercial femininity - a lingerie shop. You pause, lacking the courage to cross the precipice when you hear voices behind you. \
-           Two women, both extremely attractive and in their mid-twenties.
-
-           Your heart beats faster, and your pulse quickens as your cheeks burn with the shame of being caught <<if playerCode.isWearing(itemsC.schoolMale)>>in a school uniform<<endif>> \
-           loitering outside this shop, of all places. \
-           You try to hurry away, but your feet are unmoving, as if you are wearing concrete sneakers.
-
-           The gap between you and them closes rapidly, and in an instant the ladies are there behind you, patiently waiting for you to move so they can enter the store. \
-           With a mouselike squeak, you scurry into the store to get out of their way. You duck sideways towards the shop window, then turn to see if they are looking at you only, you come nose-to-gusset with…
-
-           @@.heroT;“Cotton panties?”@@
-
-           <<print '<<click "Enter the shop">><<set $toggleStoreMenu to 0>><<set $shoppedBefore to 1>><<replace "#mall">><<itemSelector ' + 5 + '>><</replace>><<set $time.addMinutes(5)>><<updateTime>><</click>>'>>
-
-           [[Return to the mall | Go to the mall][$toggleStoreMenu = false]]
-       <<else>>\
-           <img src="Images/general/Lingerie_Nanny.jpg" style="width: 150px; height: auto; float: left; padding-right: 1em;">
-           @@.femvoice7;“Welcome back, $player.name. How wonderful to see you again,”@@ says Mz. Knight with a soft knowing glint in her eye.
-       <<endif>>\
-   <<endif>>\
-<<endif>>\
-<<if $curStore == "Urbane Menswear">>\
-	<<include [[Urbane_Menswear_events]]>>\
-<<endif>>\
+<<set $delayKlopsText = false>>\

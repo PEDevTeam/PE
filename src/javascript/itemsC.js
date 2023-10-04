@@ -292,6 +292,26 @@ window.itemsC={
 		cost: 0,
 		image: "cheer_dress.jpg"
 	},
+	retroCheer : {
+		id: "retroCheer",
+		name: "Retro cheerleader uniform",
+		clothingType: window.itemTypes.Outerwear,
+		cantWearWith: 0,
+		ward: false,
+		info: true,
+		female: true,
+		sleepWear: false,
+		slutty: false,
+		disabled: true,
+		surgery: false,
+		daringRec: 0,
+		school: false,
+		cheer: false,
+		stolen: false,
+		store: 4,
+		cost: 0,
+		image: "retro_uniform.jpg"
+	},
 	sluttyCheer : {
 		id: "sluttyCheer",
 		name: "Slutty cheerleader uniform",
@@ -413,6 +433,30 @@ window.itemsC={
 		storeCur: 0,
 		storeAlt: [],
 		image: "maid_outfit_"
+	},
+	cosplayOutfit : {
+		id: "cosplayOutfit",
+		name: "Cosplay outfit",
+		clothingType: window.itemTypes.Outerwear,
+		cantWearWith: 0,
+		ward: false,
+		female: true,
+		sleepWear: false,
+		slutty: false,
+		school: false,
+		cheer: false,
+		store: -1,
+		stolen: false,
+		surgery: false,
+		daringRec: 5,
+		disabled: false,
+		cost: 0,
+		maxAlt: 2,
+		curAlt: 0,
+		ownAlt: [],
+		storeCur: 0,
+		storeAlt: [],
+		image: "cosplay_outfit_"
 	},
 	jocksLucky : {
 		id: "jocksLucky",
@@ -2042,7 +2086,7 @@ window.itemsC={
 		daringRec: 7,
 		disabled: false,
 		cost: 30,
-		image: "piercing_tongue.jpg"
+		image: "iercing_tongue.jpgp"
 	},
 	PiercingNipples: {
 		id: "PiercingNipples",

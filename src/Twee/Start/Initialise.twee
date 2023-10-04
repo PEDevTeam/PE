@@ -1,11 +1,6 @@
 :: Initialise [pos_130_4]
 \
-<<addToInv 'pyjamasMale'>>\
-<<addToInv 'casualMale'>>\
-<<addToInv 'schoolMale'>>\
-<<addToInv 'jocksLucky'>>\
-<<addToInv 'sneakers'>>\
-<<addToInv 'schoolShoes'>>\
+<<StartingInventory>>\
 \
 <<for _i to 0; _i lt Object.keys($quickSlot).length; _i++>>\
 	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "School">>\
@@ -21,8 +16,8 @@
 		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]>>\
 	<<endif>>\
 	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Maid">>\
-		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['maidOutfit']>>\
-		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0]>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['maidDress', 'heels', 'stockings']>>\
+		<<set $quickSlot[Object.keys($quickSlot)[_i]].types=[0, 39, 39]>>\
 	<<endif>>\
 	<<if $quickSlot[Object.keys($quickSlot)[_i]].name eq "Cheerleader">>\
 		<<set $quickSlot[Object.keys($quickSlot)[_i]].clothes=['rookieUniform', 'cheerBriefs', 'cheerSneakers', 'socks', 'hairbow']>>\

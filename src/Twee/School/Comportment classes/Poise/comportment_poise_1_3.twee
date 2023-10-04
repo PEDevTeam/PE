@@ -1,0 +1,59 @@
+:: comportment_poise_1_3
+<<set $sceneRound += 1>>\
+<<if $sceneRound > 1>>\
+	<<if $sceneAction == -1>>\
+    	<<set $positionStatus[$scenePosition] = Math.min($positionStatus[$scenePosition]+1,2)>>\
+	<<elseif $sceneAction > 0 >>\
+		<<set $positionStatus[$scenePosition] = $sceneAction - 1>>\
+	<<endif>>\
+	<<switch $sceneAction>>\
+	<<case 0>>\
+    	You do not shift in your position.
+
+    	<<if $positionStatus[$scenePosition] == 0>>\
+        		@@.teacher;“Perfect, you knew you were doing things properly and, rather than second guessing yourself, maintained that perfection.”@@
+    	<<else>>\
+       	 	$teacher sighs. @@.teacher;“I tell you what to correct, and yet you do not move. It is like I am talking to a lamp! And an insufficiently sexy one at that.”@@
+    	<</if>>\
+	<<case 1>>\
+		$teacher smiles.  @@.teacher;"Very good. Your adjustment was prompt and your form shows the proper feminine posture."@@
+	<<case 2>>\
+    	$teacher frowns. @@.teacher;“No, that is not right at all. Mere sitting is insufficient, you must exude poise and perfect femininity at all times, in all positions.”@@
+	<<case 3>>\
+    	$teacher scowls at you. @@.teacher;“Are you purposefully screwing up? You need to take these lessons seriously. Keep this up and you will be good for little more than as a whore, and even those need to do more than just lie there if they are to attract clients.”@@
+	<<case -1>>\
+    	You fail to respond to her command in time and relax slightly.
+		
+    	@@.teacher;“Terrible! You need to pay attention to me if you are going to learn to sit properly, now, let us try again.”@@
+	<</switch>>\
+	
+<</if>>\
+<<printPosition "seat" $positionStatus>>
+
+<<if $sceneRound > 13>>\
+	She comes to a stop in front of you. looking you over thoroughly in a final inspection.
+	
+	[[Wait.|comportment_poise_1_4]]
+<<else>>\
+	You try not to fidget as looms over you and gives the next command.
+	
+	<<if $sceneRound %2 == 0>>\
+    	<<switch ($sceneRound / 2)>>\
+    	<<case 1>>\
+        		<<printCommand "seat" "legs" "comportment_poise_1_3">>\
+    	<<case 2>>\
+        		<<printCommand "seat" "feet" "comportment_poise_1_3">>\
+    	<<case 3>>\
+        		<<printCommand "seat" "back" "comportment_poise_1_3">>\
+    	<<case 4>>\
+        		<<printCommand "seat" "hands" "comportment_poise_1_3">>\
+    	<<case 5>>\
+        		<<printCommand "seat" "chin" "comportment_poise_1_3">>\
+    	<<case 6>>\
+        		<<printCommand "seat" "eyes" "comportment_poise_1_3">>\
+    	<</switch>>\
+	<<else>>\
+    		<<printCommand "seat" "comportment_poise_1_3">>\
+	<</if>>\
+	<<timed 10s>><<set $sceneAction = -1>><<goto "comportment_poise_1_3">><</timed>>\
+<</if>>\

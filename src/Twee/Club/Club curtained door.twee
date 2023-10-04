@@ -1,6 +1,11 @@
 :: Club curtained door
 \
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<set _heels=_shoes.masterItem == 'highHeels'>>\
+<<else>>\
+	<<set _heels=false>>\
+<<endif>>\
 <<set _password to $player.clubPassword.toLowerCase()>>\
 <<if _password>>\
 	<<set _password to _password.charAt(0).toUpperCase() + _password.slice(1)>>\

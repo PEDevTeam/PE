@@ -1,6 +1,6 @@
 :: Play PSBox [pos_358_615]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<if $flags.choreRewCallOfHonor and (not $flags.newCallOfHonorPlayed)>>\
 	<<set $flags.newCallOfHonorPlayed = true>>\
 	<<set $time.addMinutes(60 - $time.minute)>>\
@@ -30,7 +30,7 @@
 <<elseif $flags.PSBoxAnnoyed>>\
 	You don't feel like playing now.
 	
-<<elseif playerCode.isHorny() and (not playerCode.masturbate.isCalm()) and _c and $flags.chastityKey>>\
+<<elseif playerCode.isHorny() and (not playerCode.masturbate.isCalm()) and _chastity and $flags.chastityKey>>\
 	<<set $flags.PSBoxAnnoyed = true>>\
 	You have a look at your PSBox games and pick random one to distract yourself from the relentless tide of lewd fantasies on your mind.
 	

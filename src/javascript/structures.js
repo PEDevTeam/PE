@@ -28,6 +28,41 @@ window.versionControl={
 },
 
 window.structures={
+	updateStructure: function(base, addon, debugPrefix) {
+		// adapted from https://stackoverflow.com/questions/14843815/#29563346
+		// TODO: use this consistently to update all structures
+		if (base === undefined) {
+			base = {};
+		}
+		for (var prop in addon) {
+			if (addon.hasOwnProperty(prop)) {
+				if (typeof addon[prop] === 'object') {
+					if (Array.isArray(addon[prop])) {
+						if (base[prop] === undefined) {
+							if (addon[prop].some(e => typeof e === 'object')) {
+								console.log(`WARNING: Array ${debugPrefix}.${prop} contains at least one object!`);
+							}
+							console.log(`Setting up array ${debugPrefix}.${prop}…`);
+							base[prop] = addon[prop];
+						} else {
+							console.log(`Array ${debugPrefix}.${prop} already exists:`, base[prop]);
+						}
+					} else if (addon[prop] === null) {
+						base[prop] = addon[prop];
+					} else{
+						console.log(`Descending into ${debugPrefix}.${prop}…`);
+						base[prop] = this.updateStructure(base[prop], addon[prop], debugPrefix+'.'+prop);
+					}
+				} else if (!base.hasOwnProperty(prop)) {
+					console.log(`Setting up ${debugPrefix}.${prop}…`);
+					base[prop] = addon[prop];
+				} else {
+					console.log(`${debugPrefix}.${prop} already exists:`, base[prop]);
+				}
+			}
+		}
+		return base;
+	},
 	updateStructures: function() {
 		// Custom versonControl script
 		// BUG - for some reason setupFriend conflicts with setupQuickSlot
@@ -43,7 +78,7 @@ window.structures={
 		this.setupFriend();
 		this.setupFuta();
 		this.setupQuickSlot();
-		this.setupItems();
+		//this.setupItems();
 		this.setupChores();
 		this.setupDreams();
 		this.setupLocations();
@@ -53,36 +88,20 @@ window.structures={
 		this.setupTasks();
 		this.setupCheer();
 		this.setupCheerFriend();
+		this.setupClothingSets();
+		this.setupItemVariantOverrides();
+		this.setupItemMasterOverrides();
 		this.setupTeam();
+		this.setupStores();
+		this.setupMaidOutfit();
 		
 		window.versionControl.update();
 		State.active.variables.gameVersion = window.gameCode.version;
 	},
 	setupPlayer: function() {
-		var vars=State.active.variables;
-		var playerList=window.playerList;
-		if (vars.player == null) {
-			vars.player = {};
-		}
-		for (var i=0; i < Object.keys(playerList).length; i++) {
-			if (vars.player[Object.keys(playerList)[i]] == null) {
-				vars.player[Object.keys(playerList)[i]] = playerList[Object.keys(playerList)[i]];
-			}
-		}
-		
-		var playerAddonsList=window.playerAddonsList;
-		for (var i=0; i < Object.keys(playerAddonsList).length; i++) {
-			if (vars.player[Object.keys(playerAddonsList)[i]] == null) {
-				vars.player[Object.keys(playerAddonsList)[i]] = {};
-				var object = vars.player[Object.keys(playerAddonsList)[i]];
-				var listObject = playerAddonsList[Object.keys(playerAddonsList)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
-		}
+		var vars = State.active.variables;
+		vars.player = this.updateStructure(vars.player, window.playerList, "player");
+		vars.player = this.updateStructure(vars.player, window.playerAddonsList, "player");
 	},
 	setupStandaloneVars: function() {
 		var vars=State.active.variables;
@@ -122,6 +141,8 @@ window.structures={
 		if (vars.reason == null) { vars.reason = {}; }
 
 		if (vars.once == null) { vars.once = {}; } /* For checks that happen only once and never used anywhere else */
+
+		if (vars.newInventory == null) { vars.newInventory = true; } //Use the new inventory system...
 		
 	},
 	setupClothesCheck: function() {
@@ -189,6 +210,7 @@ window.structures={
 		if (vars.avatar.start == null) { vars.avatar.start = 0; }
 		if (vars.avatar.help == null) { vars.avatar.help = 0; }
 		if (vars.avatar.active == null) { vars.avatar.active = 0; }
+		if (vars.avatar.classic == null) { vars.avatar.classic = 2; }
 	},
 	setupFlags: function() {
 		var vars=State.active.variables;
@@ -277,7 +299,7 @@ window.structures={
 		}
 	},
 
-	setupItems: function() {
+	setupItems_d: function() {
 		var itemsC=window.itemsC;
 		if (State.active.variables.items == null) {
 			State.active.variables.items = {};
@@ -462,16 +484,8 @@ window.structures={
 	},
 	
 	setupFriendRiddles: function() {
-		var vars=State.active.variables;
-		var riddlesList=window.friendRiddles;
-		if (vars.friendRiddles == null) {
-			vars.friendRiddles = {};
-		}
-		for (var i=0; i < Object.keys(riddlesList).length; i++) {
-			if (vars.flags[Object.keys(riddlesList)[i]] == null) {
-				vars.flags[Object.keys(riddlesList)[i]] = false;
-			}
-		}
+		var vars = State.active.variables;
+		vars.friendRiddles = this.updateStructure(vars.friendRiddles, window.friendRiddles, "friendRiddles");
 	},
 	
 	setupTalks: function() {
@@ -502,7 +516,7 @@ window.structures={
 			var found = false;
 			
 			for (var j=0; j < Object.keys(talksList).length; j++) {
-				if (talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
+				if (talksNewList[Object.keys(talksList)[i]] && talksNewList[Object.keys(talksList)[i]].id == talksList[Object.keys(talksList)[j]].id) {
 					var found = true;
 					break;
 				}
@@ -677,66 +691,115 @@ window.structures={
 		}
 	},
 	setupCheer: function (){
+		var vars = State.active.variables;
+		vars.cheerleaders = this.updateStructure(vars.cheerleaders, window.cheerList, "cheerleaders");
+	},
+	
+	setupCheerFriend: function () {
+		var vars = State.active.variables;
+		vars.cheerFriend = this.updateStructure(vars.cheerFriend, window.cheerFriendList, "cheerFriend");
+	},
+
+	setupClothingSets: function (){
 		var vars=State.active.variables;
-		var cheerList=window.cheerList;
-		if (vars.cheerleaders == null) {
-			vars.cheerleaders = {};
-		}
-		for (var i=0; i < Object.keys(cheerList).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList)[i]] = cheerList[Object.keys(cheerList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerList.flags).length; i++) {
-			if (vars.cheerleaders[Object.keys(cheerList.flags)[i]] == null) {
-				vars.cheerleaders[Object.keys(cheerList.flags)[i]] = {};
-				var object = vars.cheerleaders[Object.keys(cheerList.flags)[i]];
-				var listObject = cheerList.flags[Object.keys(cheerList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
+		var clothingSets = window.itemNavigator.clothingSets;
+		if(vars.clothingSets == null){
+			vars.clothingSets = [];
+			
+			for(var clothingSetIdx in clothingSets){
+			vars.clothingSets.push(clothingSets[clothingSetIdx])
 			}
 		}
 	},
-	
-	setupCheerFriend: function (){
+
+	setupItemVariantOverrides: function(){
 		var vars=State.active.variables;
-		var cheerFriendList=window.cheerFriendList;
-		if (vars.cheerFriend == null) {
-			vars.cheerFriend = {};
+		if(vars.itemVariantsOverrides == null){
+			vars.itemVariantsOverrides = [];
 		}
-		for (var i=0; i < Object.keys(cheerFriendList).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList)[i]] = cheerFriendList[Object.keys(cheerFriendList)[i]];
-			}
-		}
-		
-		for (var i=0; i < Object.keys(cheerFriendList.flags).length; i++) {
-			if (vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] == null) {
-				vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]] = {};
-				var object = vars.cheerFriend[Object.keys(cheerFriendList.flags)[i]];
-				var listObject = cheerFriendList.flags[Object.keys(cheerFriendList.flags)[i]];
-				for (var j=0; j < Object.keys(listObject).length; j++) {
-					if (object[Object.keys(listObject)[j]] == null) {
-						object[Object.keys(listObject)[j]] = listObject[Object.keys(listObject)[j]];
-					}
-				}
-			}
+	},
+
+	setupItemMasterOverrides: function(){
+		var vars=State.active.variables;
+		if(vars.itemMasterOverrides == null){
+			vars.itemMasterOverrides = [];
 		}
 	},
 	
-	setupTeam: function (){
+	setupTeam: function () {
+		var vars = State.active.variables;
+		vars.team = this.updateStructure(vars.team, window.teamList, "team");
+	},
+	
+	setupStores: function (){
 		var vars=State.active.variables;
-		var TeamList=window.teamList;
-		if (vars.team == null) {
-			vars.team = {};
+		var stores = window.stores;
+		if(vars.stores == null){
+			vars.stores = [];
 		}
-		for (var i=0; i < Object.keys(teamList).length; i++) {
-			if (vars.team[Object.keys(teamList)[i]] == null) {
-				vars.team[Object.keys(teamList)[i]] = teamList[Object.keys(teamList)[i]];
+		for(var storeIdx in stores){
+			vars.stores.push(stores[storeIdx])
+		}
+
+		//add in default bras and panties to store so we always have a base "set" available
+		var defaultBraSet = window.itemFuncs.getItemByVariant('bra_00');
+		var defaultPantySet = window.itemFuncs.getItemByVariant('panties_cotton_00');
+		var defaultSexyBraSet = window.itemFuncs.getItemByVariant('bra_sexy_00');
+		var defaultSexyPantySet = window.itemFuncs.getItemByVariant('panties_sexy_00');
+		vars.stores[5].availableItemVariants.push(defaultBraSet);
+		vars.stores[5].availableItemVariants.push(defaultPantySet);
+		vars.stores[5].availableItemVariants.push(defaultSexyBraSet);
+		vars.stores[5].availableItemVariants.push(defaultSexyPantySet);
+	},
+	
+	setupMaidOutfit: function(){
+		var vars=State.active.variables;
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_00")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_00");
+			window.itemFuncs.addItemToInventory("maid_dress");
+			window.itemFuncs.enableItemVariant('maid_dress');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+		if (window.inventoryFuncs.isItemVariantOwned("maid_outfit_01")){
+			window.itemFuncs.removeItemFromInventory("maid_outfit_01");
+			window.itemFuncs.addItemToInventory("maid_dress_latex");
+			window.itemFuncs.enableItemVariant('maid_dress_latex');
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39") != true) {
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("heels_39") != true) {
+				window.itemFuncs.addItemToInventory("heels_39");
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("maid_headband") != true) {
+				window.itemFuncs.addItemToInventory("maid_headband");
+				window.itemFuncs.enableItemVariant('maid_headband');
+			}
+			if (window.inventoryFuncs.isItemVariantOwned("choker_00") != true) {
+				window.itemFuncs.addItemToInventory("choker_00");
+			}
+		}
+
+		for (var itemIdx in vars.itemVariantsOverrides){
+			if (window.inventoryFuncs.isItemVariantOwned("stockings_39")){
+				window.itemFuncs.removeItemFromInventory("stockings_39");
+				window.itemFuncs.addItemToInventory("stockings_39");
+			}
+			if (vars.itemVariantsOverrides[itemIdx].variant == "stockings_39") {
+				if (vars.itemVariantsOverrides[itemIdx].tags.maid != true){
+					vars.itemVariantsOverrides[itemIdx].tags.maid = true;
+				}
 			}
 		}
 	},
@@ -806,6 +869,61 @@ window.playerList={
 	femaleName: false, //new flag
 	clubPassword: '',
 	clubPasswordFailed: false,
+	tattoos: [],
+
+	hasAlarmClock: false,
+	hasBatteries: false,
+	hasQualityBatteries: false,
+	hasPlaygirl: false,
+	hasVibrator: false,
+	hasSpyCamera: false,
+	hasStunGun: false,
+	hasCamera: false,
+	hasMassageOil: false,
+	hasNailPolish: false,
+	hasRemoteButtplug: false,
+
+	hasVideoGameDecorations: false,
+	hasPunkDecorations: false,
+	hasFantasyDecorations: false,
+	hasSportDecorations: false,
+	hasClassicLamp: false,
+	hasPurpleLamp: false,
+	hasMulticolorLamp: false,
+
+	stolenPlaygirl: false,
+	stolenPanties: false,
+	stolenSexyPanties: false,
+	stolenLatexPanties: false,
+	stolenVibrator: false,
+	stolenStungun: false,
+
+	canBuyStunGun: false,
+	canBuyAlarmClock: true,
+	canBuyBatteries: true,
+	canBuyQualityBatteries: false,
+	canBuyNailPolish: false,
+
+	alarmClockCost: 20,
+	batteriesCost: 5,
+	qualityBatteriesCost: 10,
+	playgirlCost: 100,
+	vibratorCost: 60,
+	spyCameraCost: 40,
+	stunGunCost: 200,
+	massageOilCost: 20,
+	nailPolishCost: 10,
+
+	videoGameDecorationsCost: 100,
+	punkDecorationsCost: 80,
+	fantasyDecorationsCost: 120,
+	sportDecorationsCost: 90,
+	classicLampCost: 20,
+	purpleLampCost: 35,
+	multicolorLampCost: 25,
+
+	canVisitTestLab: false,
+	shoeSize: 0,
 },
 
 window.playerAddonsList={
@@ -932,12 +1050,145 @@ window.playerAddonsList={
 		analExp: 0,
 		penisFirst: 0,
 	},
+	clothingSlots:{
+		bra: null,
+		buttplug: null,
+		chastity: null,
+		earring: null,
+		eyewear: null,
+		headwear: null,
+		hosiery: null,
+		mouth: null,
+		neckwear: null,
+		outerwear: null,
+		shoes: null,
+		underwear: null,
+		maid: null,
+	},
+	stashedClothing:{
+		bra: null,
+		buttplug: null,
+		chastity: null,
+		earring: null,
+		eyewear: null,
+		headwear: null,
+		hosiery: null,
+		mouth: null,
+		neckwear: null,
+		outerwear: null,
+		shoes: null,
+		underwear: null,
+		maid: null,
+	},
 	ending: {
 		currentEnding: "none",
 		endingsCompleted: 0,
 		endingsTotal: 1,
+		lessonSkip: false, /*toggles off daily lessons*/
 		genericEndings: ["Trophy Wife"],
 		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
+		
+		comportment:  {
+			numOfLessons: [3, 3, 3],
+			classStatus: [0, 0, 0], 	/*ettiquite, poise, bimbo; 
+									0 = not started, 1 = active, 2 = on hold, 3 = penalty class, 4 = passed, 5 = failed*/
+			stepfordPath: false,
+			preferredGender: 0, /*0 = none, 1 = female, 2 = male */
+			
+			etiquette:  {
+				progress: 0,
+				lessonFail:[0,0,0],
+				partyRepeat: false,
+				partyStart: false,
+				voicePunish: false,
+			},
+			poise:	{
+				progress:0,
+				lessonFail: [0,0,0],
+				
+			},
+			bimbo:	{
+				progress: 0,
+				lessonFail:[0,0,0],
+				hotelBimboLesson: false,
+				hotelRepeat: false,
+			},
+			partners:{
+				guardian:	{
+					id: "guardian",
+					name: "",
+					hair: [1, 2, 3, 4, 5],
+					face: [0, 1, 2],
+					lips: [0, 1, 2],
+					breasts: [0, 1, 2, 3, 4],
+					ass: [0, 1, 2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				coach:	{
+					id: "coach",
+					name: "Coach",
+					hair: [3, 4, 5],
+					face: [2],
+					lips: [2],
+					breasts: [4],
+					ass: [2],
+					smoothing: [3],
+					numOfDates: 0,
+					gender: 2,
+				},
+				ashley:	{
+					id: "ashley",
+					name: "Ashley",
+					hair: [2, 3, 4, 5],
+					face: [2],
+					lips: [2],
+					breasts: [2, 3, 4],
+					ass: [2],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				roxy:	{
+					id: "roxy",
+					name: "Roxy",
+					hair: [1, 2, 3, 4, 5],
+					face: [1, 2],
+					lips: [0],
+					breasts: [0],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+				jogger:	{
+					id: "jogger",
+					name: "the Jogger",
+					hair: [1, 2, 3, 4, 5],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3, 4],
+					ass: [1, 2],
+					smoothing: [1, 2, 3],
+					numOfDates: 0,
+					gender: 2,
+					dateSexFlag: false,
+				},
+				dramaTeacher:	{
+					id: "dramaTeacher",
+					name: "Ms. Ravensong",
+					hair: [2, 3, 5],
+					face: [1, 2],
+					lips: [1, 2],
+					breasts: [1, 2, 3],
+					ass: [0],
+					smoothing: [0, 1, 2, 3],
+					numOfDates: 0,
+					gender: 1,
+				},
+			}
+		},
 	},
 },
 
@@ -983,7 +1234,38 @@ window.friendList={
 		manicure_renewal: false,
 		manicure: false,
 		stockings: false,
-		park: true
+		park: false,
+		practiceHeels: false,
+	},
+	reactions: {
+		hair: 0,
+		color: 0,
+		beautyMark: 0,
+		heart: 0,
+		butterfly: 0,
+		bunny: 0,
+		stockings: 0,
+		sissy: 0,
+		slut: 0,
+		whore: 0,
+		makeup: 0,
+		pEars: 0,
+		pNose: 0,
+		pTongue: 0,
+		pLip: 0,
+		pBelly: 0,
+		pNipples: 0,
+		nails: 0,
+		boobs: 0,
+		lips: 0,
+		butt: 0,
+		face: 0,
+		tattooOkCount: 0,
+		tattooBadCount: 0,
+		piercingBadCount: 0,
+	},
+	body:{
+		boobs: 0,
 	},
     seenBra: 0,
     seenChastity: 0, /* whether friend saw PC's chastity cage */
@@ -1005,6 +1287,16 @@ window.friendList={
 	bonusDress: 0,
 	parkAttempt: 0,
 	parkFail: 0,
+	seenDressUp: 0,
+	evilFriend: 0,
+	noUnderwear: 0,
+	ABDL: 0,
+	HOPE: 0,
+	bear: 0,
+	seenDressUpHOPE: 0,
+	seenDressUpQCWPW: 0,
+	useGamePlug: 0,
+	QWCoW: 0,
 },
 
 window.futaList={
@@ -1027,36 +1319,499 @@ window.futaList={
 },
 
 window.bodyList={
-	bodyhair: 0,
-	penisShrink: 0,
-	hairstyle: 0,
+	bodyhair: {
+		level : 0,
+		disabled : false,
+		maxLevel : 3,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : false
+		},
+		level1: {
+			description : "Waxing",
+			cost : 20,
+			image : "hr_waxing.jpg",
+			daring : 5,
+			disabled : false
+		},
+		level2: {
+			description : "Depilatory",
+			cost : 30,
+			image : "hr_depilatory.jpg",
+			daring : 6,
+			disabled : false
+		},
+		level3: {
+			description : "Laser hair removal",
+			cost : 200,
+			image : "hr_laser.jpg",
+			daring : 7,
+			disabled : false
+		}
+	},
+
+	penisShrink: {
+		level : 0,
+		disabled : true,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Penis shrinking",
+			cost : 20,
+			image : "small_penis.jpg",
+			daring : 9,
+			disabled : true
+		},
+	},
+
+	hairstyle: {
+		level : 0, // 0 : boy, 1: short, 2 : medium, 3 : long, 4 : pigtails, 5 : curly
+		disabled : false,
+		maxLevel : 4,
+		level0: {
+			description: "Male haircut",
+			disabled: true
+		},
+		level1: {
+			description : "Short haircut",
+			cost : 20,
+			image : "hair_short_brown.jpg",
+			daring : 5,
+			disabled : true
+		},
+		level2: {
+			description : "Medium haircut",
+			cost : 30,
+			image : "hair_medium_brown.jpg",
+			daring : 6,
+			disabled : true
+		},
+		level3: {
+			description : "Long haircut",
+			cost : 50,
+			image : "hair_long_brown.jpg",
+			daring : 6,
+			disabled : true
+		},
+		level4: {
+			description : "Pigtails",
+			cost : 30,
+			image : "hair_pigtails_brown.jpg",
+			daring : 6,
+			disabled : true
+		},
+		level5: {
+			description : "Curly hair",
+			cost : 40,
+			image : "hair_curly_brown.jpg",
+			daring : 6,
+			disabled : true
+		},
+	},
+
 	hairColor: 1,
-	nose: 0,
-	earsPierced: false,
+
+	nose: {
+		level : 0, // 0 : none, 1 : classic, 2 : button, 3 : piggy
+		disabled : false,
+		maxLevel : 3,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Classic nose",
+			cost : 100,
+			image : "nose_classic.jpg",
+			daring : 6,
+			disabled : true
+		},
+		level2: {
+			description : "Button nose",
+			cost : 200,
+			image : "nose_button.jpg",
+			daring : 6,
+			disabled : true
+		},
+		level3: {
+			description : "Piggy nose",
+			cost : 20,
+			image : "nose_piggy.jpg",
+			daring : 6,
+			disabled : true
+		},
+	},
+
+	earsPierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Ears piercing",
+			cost : 30,
+			image : "piercing_ears.jpg",
+			daring : 2,
+			disabled : true
+		},
+	},
+	bellyPierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Belly piercing",
+			cost : 50,
+			image : "piercing_belly.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+	lipsPierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Lip piercing",
+			cost : 20,
+			image : "piercing_lips.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+	nipplesPierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Nipples piercing",
+			cost : 80,
+			image : "piercing_nipples.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+	nosePierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Nose piercing",
+			cost : 40,
+			image : "piercing_nose.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+	tonguePierced: {
+		level : 0,
+		disabled : false,
+		maxLevel : 1,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Tongue piercing",
+			cost : 30,
+			image : "piercing_tongue.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+
+
+	surgerySexualReassignment: {
+		level : 0,
+		disabled : false,
+		maxLevel : 2
+	},
 	
-	boobs: 0,
-	lips: 0,
-	ass: 0,
-	face: 0,
-	manicure: 0,
-	makeup: 0,
-	anal: 0,
-	
-	semiBoobs: 0,
-	semiLips: 0,
-	semiAss: 0,
-	semiFace: 0,
-	semiManicure: 0,
-	semiMakeup: 0,
-	semiAnal: 0,
-	
-	permBoobs: 0,
-	permLips: 0,
-	permAss: 0,
-	permFace: 0,
-	permManicure: 0,
-	permMakeup: 0,
-	permAnal: 0,
+	boobs: {
+		level : 0,
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 4,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Breast implants - small",
+			cost : 50,
+			image : "breast_implants_stage1.gif",
+			daring : 6,
+			disabled : true
+		},
+		level2: {
+			description : "Breast implants - average",
+			cost : 100,
+			image : "breast_implants_stage2.gif",
+			daring : 6,
+			disabled : true
+		},
+		level3: {
+			description : "Breast implants - big",
+			cost : 200,
+			image : "breast_implants_stage3.gif",
+			daring : 7,
+			disabled : true
+		},
+		level4: {
+			description : "Breast implants - massive",
+			cost : 400,
+			image : "breast_implants_stage4.gif",
+			daring : 8,
+			disabled : true
+		},
+	},
+
+	lips: {
+		level : 0, //0 : normal, 1 : enhanced, 2 : enhanced more
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 2,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Lips enhancing",
+			cost : 30,
+			image : "bm_lips.gif",
+			daring : 7,
+			disabled : true
+		},
+		level2: {
+			description : "Lips enhancing extra",
+			cost : 100,
+			image : "bm_lips_xl.gif",
+			daring : 8,
+			disabled : true
+		},
+	},
+
+	ass: {
+		level : 0,
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 2,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Ass enhancing",
+			cost : 30,
+			image : "bm_ass.gif",
+			daring : 7,
+			disabled : true
+		},
+		level2: {
+			description : "Ass enhancing extra",
+			cost : 100,
+			image : "bm_ass_xl.gif",
+			daring : 8,
+			disabled : true
+		},
+	},
+
+	face: {
+		level : 0,
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 2,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Facial softening",
+			cost : 100,
+			image : "facial_softening.jpg",
+			daring : 7,
+			disabled : true
+		},
+		level2: {
+			description : "Facial softening extra",
+			cost : 300,
+			image : "facial_surgery.jpg",
+			daring : 8,
+			disabled : true
+		},
+	},
+
+	manicure: {
+		level : 0, // 0 : normal, 1 : manicured, 2 : Garish manicure
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 2,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Manicure",
+			cost : 20,
+			image : "manicure.jpg",
+			daring : 7,
+			disabled : true
+		},
+		level2: {
+			description : "Garish manicure",
+			cost : 200,
+			image : "manicure_garish.jpg",
+			daring : 9,
+			disabled : true
+		},
+	},
+	makeup: {
+		level : 0, // 0 : none, 1 : subtle, 2 : normal, 3 : heavy, 4 : slutty
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 4,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Subtle makeup",
+			cost : 10,
+			image : "makeup_subtle.jpg",
+			daring : 5,
+			disabled : true
+		},
+		level2: {
+			description : "Professional makeup",
+			cost : 30,
+			image : "makeup_normal.jpg",
+			daring : 7,
+			disabled : true
+		},
+		level3: {
+			description : "Heavy makeup",
+			cost : 15,
+			image : "makeup_heavy.jpg",
+			daring : 8,
+			disabled : true
+		},
+		level4: {
+			description : "Bimbo makeup",
+			cost : 50,
+			image : "makeup_bimbo.jpg",
+			daring : 7,
+			disabled : true
+		},
+	},
+
+	anal: {
+		level : 0,
+		semiLevel: 0,
+		permLevel: 0,
+		disabled : false,
+		maxLevel : 3,
+		level0: {
+			description : "None",
+			cost : 0,
+			image : "none.jpg",
+			daring : 0,
+			disabled : true
+		},
+		level1: {
+			description : "Anal smoothing",
+			cost : 50,
+			image : "ass_smoothening_1.jpg",
+			daring : 8,
+			disabled : true
+		},
+		level2: {
+			description : "Anal smoothing plus",
+			cost : 100,
+			image : "ass_smoothening_2.jpg",
+			daring : 9,
+			disabled : true
+		},
+		level3: {
+			description : "Anal smoothing extra",
+			cost : 150,
+			image : "ass_smoothening_3.jpg",
+			daring : 10,
+			disabled : true
+		},
+	},
 	
 	boobsNoticedTeacher: 0,
 	lipsNoticedTeacher: 0,
@@ -1083,6 +1838,7 @@ window.bodyList={
 	analNoticedFriend: 0,
 	
 	boobsNoticedDJ: 0,
+
 },
 
 window.flagsList={
@@ -1122,6 +1878,8 @@ window.flagsList={
 	walletForgottenEnd: false,
 	firstBuyDress: false,
 	firstBuyShoes: false,
+	firstBuyFlats: false,
+	firstBuyHeels: false,
 	firstBuyPanties: false,
 	firstBuyBras: false,
 	firstBuyStockings: false,
@@ -1368,14 +2126,29 @@ window.flagsList={
 	slutRoute: false,
 	bullyRoute: false,
 	mallUrbaneIntro: false,
-	visitedCountyClub:false,
+	visitedCountyClub: false,
+	dramaTeacherDate: false,
+	mallKlipIntro: false,
+	talkSneakIn: false,
+	bribedTeacher: false,
+	healthSocks: false,
+	girlPants: false,
+	partyEars: false,
+	findDancePartner: false,
+	danceLessonPartner: "none",
+	poiseRemedialGuardian: false,
+	bimboLessonPartner: "none",
+	lessonMultiFail: false,
+	storeLastRefreshed: [-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10],
+	refreshTravel: false,
+	holdPaymentIncrease: false,
 },
 
 window.kinkList={
 	incest: false,
 	futa: false,
 
-	semenConsumptionStart: false,	
+	semenConsumptionStarted: false,	
 	semenConsumption: false,
 	creampie: false,
 	bukkake: false,
@@ -1557,6 +2330,7 @@ window.cheerList={
 	rainyDay: false,
 	canPractice: true, 	//can practice cheerleading after school
 	cleanDone: 0,	//how much cleaning of the equipment room the player has done.
+	ashleyProgress: 0, //progress along Ashley's path
 	
 	//variables for scene control over more than one page break or values that may be useful in later episodes
 	//all variables are type [bool] unless noted otherwise
@@ -1578,7 +2352,12 @@ window.cheerList={
 		falsies: false,	//PC wears a bust enhancer to the try-out, worth +1 or +2 slut score adjustment based on starting breast size
 		makeup: false,	//PC tries to put on makeup before the try-out, worth +1 slut score adjustment
 		prankBeg: false,	//PC begs for mercy to end prank
+		prank1Finish: false, //PC completed tryout prank 
 		prank2: false,	//controls access to gym prank
+		guardianPractice: false, //allows player to practice cheerleading with guardian
+		dancePractice: false, //allows player to practice dancing
+		prankTeam: "none", //which team the player chose for the locker room prank
+		haveBoyNumber: false,
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables
@@ -1628,6 +2407,7 @@ window.cheerFriendList={
 	currentSE: 0,		//currently available side event
 	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
 	prize: 'money',		//prize offered cheer friend's brother
+	concertOutfit: 'none', //outfit chosen when shopping for the concert in side event 9
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,
@@ -1637,7 +2417,7 @@ window.cheerFriendList={
 
 	flags: {
 		acceptInvite: false,	//accepting cheer friend's request to meet, [bool]
-		boy: 1,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
+		boy: 0,		//type of boy PC suggests cheer friend likes [int],[1 = jock, 2 = bad boy, 3 = nerd]
 		force: false,	//took diary by force
 		visitedHouse: false, //visited house in SE 5
 		genderPref: "", //stated preferred gender
@@ -1650,4 +2430,4 @@ window.teamList={
 	nice: "Mike",
 	center: "Carl",
 	voice: "malevoice",
-},
+}

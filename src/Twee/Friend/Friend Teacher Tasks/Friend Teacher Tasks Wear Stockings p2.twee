@@ -1,7 +1,7 @@
 ::Friend Teacher Tasks Wear Stockings p2
 \
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _under to playerCode.isWearingOn(itemTypes.Underwear)>>\
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
 \
 <<if $friendG.gender eq 'F'>>\
     $friend takes a stocking from her packet, and then grips the top with both hands. @@.friend;“Place your thumbs inside at the top and then slowly scrunch the stocking up with your fingers. \
@@ -27,7 +27,7 @@
 
     <img src="Images/general/stockings_2.gif" style="width: 500px; height: auto; padding-bottom: 1em;">\
 
-    You ease the stocking over your knee.<<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+    You ease the stocking over your knee.<<if $body.bodyhair.level gt 0>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
     and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
     making your legs look quite unladylike despite the stocking encasing it.<<endif>>
 
@@ -63,7 +63,7 @@
 
     @@.femvoice11;“Now the rest, remember to keep your hands parallel for an even fit and less chance of a run. And stand when you need to.”@@
 
-    You ease the stocking over your knee. <<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+    You ease the stocking over your knee. <<if $body.bodyhair.level gt 0>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
     and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
     making your legs look quite unladylike despite the stocking encasing it.<<endif>>
 
@@ -103,7 +103,7 @@
 
     @@.femvoice11;“Now the rest, remember to keep your hands parallel for an even fit and less chance of a run. And stand when you need to.”@@
 
-    Still unsure as to why $friend is so interested, you ease the stocking over your knee. <<if $body.bodyhair>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
+    Still unsure as to why $friend is so interested, you ease the stocking over your knee. <<if $body.bodyhair.level gt 0>> The silky material glides over your legs in one sensual smooth motion. The caress makes your breath catch, \
     and tiny goosebumps form the length of your legs.<<else>> The silky material tugs uncomfortably against each of your leg hairs. You look down and see the shadow of each hair through the material, \
     making your legs look quite unladylike despite the stocking encasing it.<<endif>>
 
@@ -120,7 +120,7 @@ With a shrug, you don’t have any reason to pull your pants back on <<if not $f
 
 @@.heroT;“Okay, I guess.”@@
 
-You return to $friendG.his_her room, the stockings caressing your legs, making your penis twitch inside your<<if _wearingChastity>>cage<<else>><<if _under.female>>panties<<else>>boxers<<endif>><<endif>> while $friendG.he_she wanders off to get \
+You return to $friendG.his_her room, the stockings caressing your legs, making your penis twitch inside your<<if _wearingChastity>>cage<<else>><<if _under.isFemale>>panties<<else>>boxers<<endif>><<endif>> while $friendG.he_she wanders off to get \
 more drinks. The feeling of your stockings swishing is so arousing that you end up covering yourself with your hands and hurriedly sitting down when you get back to the couch. \
 You cross your legs to hide your embarrassment and wait for $friend to return.
 
@@ -152,16 +152,16 @@ $friend’s attention.
 By the time you need to leave, you have become accustomed to wearing your new stockings, the feel of them against your legs and the grip of the elastic around your thigh. \
 For some reason they feel almost comforting.
 
-You pull your <<if playerCode.isWearing(itemsC.casualMale)>>jeans<<elseif playerCode.isWearing(itemsC.schoolMale)>>pants<<endif>> back on and immediately observe the new sensation of the coarse \
+You pull your <<if window.wardrobeFuncs.isItemMasterWearing('tshirtJeans')>>jeans<<elseif window.wardrobeFuncs.isItemMasterWearing('schoolUniform')>>pants<<endif>> back on and immediately observe the new sensation of the coarse \
 material of your pants brushing your skin through the sensual material. You <<if $friendG.gender eq 'F'>>hug<<else>>shoulder bump<<endif>> $friend and get ready to leave.
 
-<<addToInv 'stockings'>>\
+<<addItemVariantToInventory 'stockings_00'>>\
 <<set $friendG.tasks.stockings = true>>\
 <<set $friendG.tasks.timesHelped++>>\
 <<set $tasksTeacher.wearStockings.status = 2>>\
 <<set $tasksTeacher.wearStockings.progress++>>\
-<<if ($player.perversion.crossdressing lte 1)>>\
-    <<set $player.perversion.crossdressing++>>\
+<<if $player.perversion.friend < 5>>\
+	<<set $player.perversion.friend = 5>>\
 <<endif>>\
 [[Go Home|Leave friend's house]]\
 

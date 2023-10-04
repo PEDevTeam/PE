@@ -1,10 +1,16 @@
 :: Friend Hang Out Board Game
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _shoes to playerCode.isWearingOn(itemTypes.Shoes)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _under>>\ 
+	<<if not _under.isFemale>>\ 
+		<<set _maleUnder = true>>\ 
+	<<endif>>\ 
+<<endif>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 You open up the large unit and look down the array of games. You used to enjoy some of them, especially some of the older ones. Of course, computer games have replaced many of them, but still...
 
@@ -49,6 +55,8 @@ You open up the large unit and look down the array of games. You used to enjoy s
 	Instead of the expansion, $friend gets the original core game out and starts to set it up. You move over to help and you have soon forgotten your tinge of shame. You are soon moaning at the dice throws, running away from the villains and leaping in celebration when you finally roll the right number. You while away the time playing until it’s hometime. 
 
 	As you are getting ready to leave, $friend holds your gaze meaningfully. @@.friend;“Don’t forget my manga!”@@ $friendG.he_she says, punching you on the arm.
+<<elseif $player.daring > 4>>\
+	<<include [[Friend Hang Out Board Game Crossdress]]>>\
 <<else>>\
 	<<RandomImageFromPack 'Friend/GameMarkers' 400 400 alignRight>>\
 	<<selectScene HangOutBoardGame2 RND2RND>>\
@@ -59,7 +67,7 @@ You open up the large unit and look down the array of games. You used to enjoy s
 		<<endif>>
 
 		You are not sure that you like being given a pink peg\
-		<<if _outerwear.female>>\
+		<<if _outerwear.isFemale>>\
 			though, even if you are dressed like a girl.\
 		<<else>>\
 			though.\
@@ -72,14 +80,14 @@ You open up the large unit and look down the array of games. You used to enjoy s
 		Like all games, it takes ages to get to the\
 		<<if $time.hour gte 18>>end and it’s dark outside when you finish.\
 		<<else>>end.<<endif>>\
-		You lost, badly; a fact that $friend reminds you of, even as you are getting your <<if _shoes.heels>>heels<<else>>shoes<<endif>> on to leave.
+		You lost, badly; a fact that $friend reminds you of, even as you are getting your <<if window.inventoryFuncs.hasTag(_shoes, 'heels')>>heels<<else>>shoes<<endif>> on to leave.
 	<<scene>>\
 		@@.heroT;Dungeons of Talismania!@@
 
-	<<reactOnce true FriendDOT>>\
-		What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
-		
-	<</reactOnce>>\
+		<<reactOnce true FriendDOT>>\
+			What a blast from the past. You scan the shelf and see all of the expansions as well, all neatly stacked in a pile. Your mind drifts back to the hours you spent playing this game, with a school tie looped around your head and a tablecloth for a cape. Even a food tray for a shield and a broom for a sword.
+			
+		<</reactOnce>>\
 		$friend takes one of the Dungeons of Talismania expansions from the shelf. @@.friend;“This is new, I have never played it before.”@@
 
 		@@.heroT;“They still make them?”@@ you ask in surprise.  

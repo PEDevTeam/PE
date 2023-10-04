@@ -14,7 +14,8 @@ $friend moves ahead and reaches the car before you. Thankfully the sounds of the
 
 You experience the silent treatment all the way back to $friendG.his_her house, and you are soon abandoned inside the door. Feeling somewhat embarrassed by your decision to flee, and killing off a nice evening, you change back and prepare to leave.
 
-<<if $player.perversion.crossdressing == 6>>\
+<<set $player.perversion.crossdressing++>>\
+<<if $player.perversion.crossdressing == 7>>\
 	You pause at the door, thinking back to how you looked in the dress, and how it felt to be out with the sun on your legs and warming your bare shoulders. @@.hero;“I guess it didn’t go that badly, considering. And I did that bloody task.”@@
 
 	@@.statUp;You can now go out dressed if you want to.@@
@@ -28,4 +29,7 @@ Your heart still racing from your latest adventure, you prepare to leave.
 <<set $tasksTeacher.crossdressAtPark.progress++>>\
 <<run $time.addMinutes(120)>>\
 <<set $friendG.wordlessGoodbye to true>>\
+<<if $player.perversion.friend < 8>>\
+	<<set $player.perversion.friend = 8>>\
+<<endif>>\
 <<display [[Leave friend's house]]>>

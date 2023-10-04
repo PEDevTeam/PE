@@ -4,22 +4,23 @@
 	You quickly change into your\
 	<<if $cheerleaders.progress gte 3>>\
 		uniform,\
-		<<set playerCode.loadQuickSlot(quickSlotSets.Cheerleader)>><<set $player.quickSet=quickSlotSets.Cheerleader>><<updateClothes>>\
-	<<else>>\\
+		<<set itemNavigator.wearClothingSet('Cheerleader')>><<updateClothes>>\
+	<<else>>\
 		practice outfit,\
 	<<endif>>\
 	grab your phone, and run to the backyard.
 	
 <<else>>\
 	<<if $flags.clothesPurged>>\
-		<<set playerCode.loadQuickSlot(quickSlotSets.Casual)>><<set $player.quickSet=quickSlotSets.Casual>><<updateClothes>>\
+		<<set itemNavigator.wearClothingSet('Casual')>><<updateClothes>>\
 		You change into your casual clothes, grab your phone, and run to the backyard.
 	<<else>>\
-		<<removeClothingType 64>>\
-		<<removeClothingType 512>>\
-		<<removeClothingType 1024>>\
-		<<wearClothing 'casualMale' 0>>\
-		<<wearClothing 'sneakers' 0>>\
+		<<removeClothingItem 'hosiery'>>\
+		<<removeClothingItem 'eyewear'>>\
+		<<removeClothingItem 'mouthwear'>>\
+		<<removeClothingItem 'headwear'>>\
+		<<wearItemVariant 'tshirt_jeans_00'>>\
+		<<wearItemVariant 'sneakers_00'>>\
 		<<updateClothes>>\
 		You change into your casual boy clothes, grab your phone, and run to the backyard.
 	<<endif>>\

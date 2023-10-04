@@ -4,14 +4,21 @@
 <<set $friendG.daysSinceLastVisit to $time.day - $player.friendLastVisit>>\
 <<set $player.friendLastVisit to $time.day>>\
 <<set _femAppearance to playerCode.obviousFemaleAppearance()>>\
-<<set _outerWear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _outerWear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 \
-<<if _outerWear.female or $friendG.catchUp eq 1>>\
+<<if _outerWear.isFemale or $friendG.catchUp eq 1>>\
     <<set $friendG.visit.r2 to 2>>\
 <<endif>>\
 \
 <<if not $flags.friendNamed>>\
 	<<include [[Name friend]]>>\
+\
+<<elseif not _underwear && $friendG.noUnderwear == 0 && _outerWear.isFemale && not _outerWear.shorts>>\
+	<<include [[Friend Commando First]]>>\
+\
+<<elseif not _underwear && $friendG.noUnderwear == 1 && _outerWear.isFemale && not _outerWear.shorts>>\
+	<<include [[Friend Commando Repeat]]>>\
 \
 <<elseif $friendG.catchUp gt 0>>\
 	<<include [[Friend Mid Visit]]>>\
@@ -31,6 +38,18 @@
 <<elseif $tasksFriend.manga.status eq 1 or $tasksFriend.manga.status eq 2>>\
 	<<include [[Friend Task Manga Cont]]>>\
 \
+<<elseif $player.perversion.friend < 5 && $player.perversion.crossdressing > 1>>\
+	<<include [[Friend CD Catch-up 01]]>>\
+\
+<<elseif $player.perversion.friend < 6 && $player.perversion.crossdressing > 3>>\
+	<<include [[Friend CD Catch-up 02]]>>\
+\
+<<elseif $player.perversion.friend < 7 && $player.perversion.crossdressing > 5>>\
+	<<include [[Friend CD Catch-up 03]]>>\
+\
+<<elseif $player.perversion.friend < 8 && $player.perversion.crossdressing >= 7>>\
+	<<include [[Friend CD Catch-up 04]]>>\
+\
 <<elseif $player.daring eq 5 and $player.perversion.teacher gte 3>>\
     <<if $friendG.visit.r2 eq 0 and $tasksFriend.pantieSelfie.status gt 0>>\
         <<include [[Friend Intro Teacher Tasks]]>>\
@@ -38,7 +57,7 @@
         <<include [[Friend Basic Teacher Tasks]]>>\
     <<endif>>\
 \
-<<else>>
+<<else>>\
 	<<include [[Friend Basic Visit]]>>\
 <<endif>>\
 \

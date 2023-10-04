@@ -19,7 +19,7 @@
 	<<set window.structures.setupFriend()>>\
 	<<set window.structures.setupFuta()>>\
 	<<set window.structures.setupQuickSlot()>>\
-	<<set window.structures.setupItems()>>\
+	<!-- <<set window.structures.setupItems()>>\ -->
 	<<set window.structures.setupChores()>>\
 	<<set window.structures.setupDreams()>>\
 	<<set window.structures.setupLocations()>>\
@@ -92,7 +92,7 @@
 	<<endif>>\
 	\
 	<<if (not $player.secondInvLine)>>\
-		<<if playerCode.owns(itemsC.chastityDevice) or playerCode.owns(itemsC.bra) or playerCode.owns(itemsC.braLatex) or playerCode.owns(itemsC.braSexy)>>\
+		<<if inventoryFuncs.ownsMasterItem('chastity') or inventoryFuncs.ownsMasterItem('bras') or inventoryFuncs.ownsMasterItem('latexBras') or inventoryFuncs.ownsMasterItem('sexyBras')>>\
 			<<set $player.secondInvLine=true>>\
 		<<endif>>\
 	<<endif>>\
@@ -119,7 +119,7 @@
 	<<if $player.debugA>>\
 		<<updateDebug>>\
 	<<endif>>\
-	\
+	\ 
 <<endif>>\
 \
 \

@@ -1,0 +1,116 @@
+::Cheer Ep7 Sc1
+<<RandomImageFromPack 'Cheerleader Practice Field' 400 400 alignRight>>\
+<<if $cheerFriend.progress == 5>>\
+	@@.cheerFriend;“Hey. Thanks for coming over to my house on Satuday,”@@ $cheerFriend.name says as you line up for conditioning. @@.cheerFriend;“Hope my family wasn’t too crazy for you.”@@
+
+	@@.heroT;“No way,”@@ you reply. @@.heroT;“Was a pretty eventful visit though.”@@
+
+	$cheerFriend.name laughs. @@.cheerFriend;“Yeah. My dad said, seeing as nothing was missing from the house, you seem like a trustworthy type.”@@
+
+	@@.heroT;“Kind of an odd criteria,”@@ you comment.
+
+	She dismisses your observation with a wave of her hand. @@.cheerFriend;“It’s basically just his way of saying if we want to hang out more, it’s cool.”@@ She <<if $cheerFriend.affinity < 10>> smiles mischievously. @@.cheerFriend;“Not that he’d really be able to stop us anyways.”@@<<else>>smiles.<<endif>>
+
+	@@.heroT;“So, uh, how did the hunt for Pepper go on Monday?”@@ you ask, fishing for information to see if Sarah talked about you.
+
+	@@.cheerFriend;“The other girls and I ran around the whole school, but couldn’t find him. Then, when we checked back in with Rachel, she said another team already found him.”@@ She sighs. @@.cheerFriend;“Still, it was fun hanging out with the girls.”@@
+
+	<<if $cheerleaders.flags.sarahTalk == 2>>\
+		She turns and scowls at you. @@.cheerFriend;“I can’t believe you lied to me, by the way.”@@
+
+		@@.heroT;“Huh?”@@
+
+		@@.cheerFriend;“I asked the other girls about what you said about Sarah, and they all said you made it up.”@@
+
+		You sigh dejectedly and reply, @@.heroT;“Yeah.”@@
+
+		@@.cheerFriend;“I know you were feeling jealous, but I can’t believe you’d say something like that.”@@
+
+		You open your mouth to apologize again, but $cheerFriend.name cuts you off.
+
+		@@.cheerFriend;“Look, what’s done is done, I guess, but I’d appreciate it if you were truthful with me from now on. Lying like that isn’t going to get anyone to like you.”@@
+
+	<<endif>>\
+	$cheerFriend.name quickly shifts gears. @@.cheerFriend;“So what about you? You were teamed up with Ashley, right?”@@
+
+	@@.heroT;“Um, we actually found the platypus.”@@
+
+	@@.cheerFriend;“That’s awesome! Looks like she’s good for something after all. Where was it?”@@
+
+	You subconsciously shirk away. @@.heroT;“I, uh, don’t really want to talk about it.”@@
+
+	A look of concern darkens $cheerFriend.name’s face. @@.cheerFriend;“Wait, did something happen?”@@
+<<elseif $cheerFriend.progress < 5>>\
+	<<if $cheerFriend.progress > 2>>\
+		@@.cheerFriend;“I can’t believe you blew me off on Saturday,”@@ $cheerFriend.name chides as you line up for conditioning.
+
+		@@.heroT;“Sorry,”@@ you apologize. @@.heroT;“I kind of got busy…”@@
+
+		@@.cheerFriend;“That sucks. I really wanted to hang out. With the competition and everything, I don’t really have any free time this weekend,”@@ she says, @@.cheerFriend;“but maybe you can come hang out again the week after. If you’re not busy.”@@
+
+		@@.heroT;“Um, yeah. Wouldn’t miss it.”@@
+
+		She pouts. @@.cheerFriend;“I hope not.”@@
+
+		<<set $cheerFriend.affinity -= 1>>\
+	<<endif>>
+	@@.heroT;“So, uh, how did the hunt for Pepper go on Monday?”@@ you ask<<if $cheerFriend.progress > 2>>, trying to change the subject.<<else>> $cheerFriend.name as you line up, hoping to find out if Sarah talked about you.<<endif>>
+
+	@@.cheerFriend;“The other girls and I ran around the whole school, but couldn’t find him,”@@ she says with a sigh. @@.cheerFriend;“Then, when we checked back in with Rachel, she said another team already found him. Still, it was fun hanging out with the girls.”@@
+
+	<<if $cheerleaders.flags.sarahTalk == 2>>\
+		She turns and scowls at you. @@.cheerFriend;“I can’t believe you lied to me, by the way.”@@
+
+		@@.heroT;“Huh?”@@
+
+		@@.cheerFriend;“I asked the other girls about what you said about Sarah, and they all said you made it up.”@@
+
+		You sigh dejectedly and reply, @@.heroT;“Yeah.”@@
+
+		@@.cheerFriend;“I know you were feeling jealous, but I can’t believe you’d say something like that.”@@
+
+		You open your mouth to apologize again, but $cheerFriend.name cuts you off.
+
+		@@.cheerFriend;“Look, what’s done is done, I guess, but I’d appreciate it if you were truthful with me from now on. Lying like that isn’t going to get anyone to like you.”@@
+
+	<<endif>>\
+	$cheerFriend.name quickly shifts gears. @@.cheerFriend;“So, what about you? Did you find it?”@@
+
+	@@.heroT;“Uh, yeah,”@@ you respond timidly.
+
+	@@.cheerFriend;“Really? That’s awesome! I can’t believe you managed to find it. Who did you end up teaming up with?”@@
+
+	@@.heroT;“Ashley, actually…”@@
+
+	Concern darkens $cheerFriend.name’s face when she hears Ashley’s name. @@.cheerFriend;“Wait, Ashley? $cheerleaders.fakeName, did something happen?”@@
+<<endif>>\
+
+@@.cheerCaptain;“Ok, ladies,”@@ Rachel shouts as she steps in front of the squad, cutting off your chance to reply. @@.cheerCaptain;“Got a few announcements to make before we get all hot and sweaty. First, I’d like to remind you all that our first competition is this Friday after school. We will be meeting here to load up into the van to travel to the competition, so don’t be late! If you don’t show for competition and don’t have a good excuse, you’ll be kicked off the squad. No exceptions.”@@
+
+There is quiet murmuring from the group, full of nervous energy at the prospect of the first competition of the year.
+
+@@.cheerCaptain;“Since Friday is competition, we will not be having practice on Thursday. Instead, $teacher and I have worked together to plan a fun activity away from school to help you all relax. In order to attend the competition and the outing on Thursday, you need a release form signed by an emergency contact, preferably a parent or guardian.”@@
+
+@@.hero;Oh shit. How am I supposed to explain this to $myguardian.@@
+
+@@.cheerCaptain;“Second, I would like to announce the winners of the Spirit Day competition: Ashley, Heather, and Veronica! Let’s congratulate this year’s ‘most spirited’ cheerleaders!”@@
+
+The other girls erupt into applause, and though Ashley dismisses their adulation, it’s obvious that she’s enjoying the attention.
+
+$cheerFriend.name looks at you confused, waiting for Rachel to add your name to the list, but she never does.
+
+@@.cheerFriend;“Didn’t you say you were on their team?”@@ $cheerFriend.name asks you.
+
+@@.heroT;“Yeah,”@@ you reply.
+
+@@.cheerFriend;“That bitch! She totally cut you out.”@@ $cheerFriend.name’s hand shoots up.
+
+@@.cheerCaptain;“$cheerFriend.name, can it wait until after practice?”@@ Rachel asks.
+
+$cheerFriend.name looks at you, and you give a noncommittal shrug, begging her with your eyes not to make a big deal out of it.
+
+She sighs and lower her hand. @@.cheerFriend;“Yes, Captain,”@@ she responds.
+
+@@.cheerCaptain;“Good we’re already running late as-is. Ok, cheerleaders, let’s get ready to sweat!”@@
+
+[[Get Physical|Cheer Ep7 Sc2]]

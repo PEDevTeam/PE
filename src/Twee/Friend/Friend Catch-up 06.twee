@@ -1,9 +1,9 @@
 :: Friend Catch-up 06
 \
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
-<<set _outerwear to playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _stockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _bra to playerCode.isWearingOn(itemTypes.Bras)>>\
+<<set _heels=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'heels')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 You are not sure what to say or do and $friend has an unreadable expression on $friendG.his_her face.
 
@@ -11,7 +11,7 @@ You are not sure what to say or do and $friend has an unreadable expression on $
 
 @@.heroT;“It’s… wait. You do?”@@ you ask, in surprise. Despite $friendG.his_her words and encouraging nodding it still doesn’t sink in.
 
-<<if _outerwear.female>>\
+<<if _outerwear.isFemale>>\
 	You feel extremely self-conscious about the way you look, and you subconsciously try to pull the hem down to cover as much of your\
 	<<if playerCode.isHairless()>>silky smooth\
 	<<elseif playerCode.isWaxed()>>waxed\
@@ -36,11 +36,11 @@ You are not sure what to say or do and $friend has an unreadable expression on $
 
 <<switch playerCode.slutScoreBasic()>>\
 <<case 1 2 3>>\
-	@@.friend;“About how you look? Nah. I am not quite sure what to think, you look kind of girly and boyish all at the same time.”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down in the same way you’ve had others do to you, kind of lasciviously. @@.friend;“Are you going to go further?@@
+	@@.friend;“About how you look? Nah. I am not quite sure what to think, you look kind of girly and boyish all at the same time.”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down in the same way you’ve had others do to you, kind of lasciviously. @@.friend;“Are you going to go further?”@@
 <<case 4 5 6>>\
-	@@.friend;“About how you look? Nah, you look kinda cute, you know?”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down in the same way you’ve had others do to you, kind of lasciviously. @@.friendG;“I can’t wait to see just what you’ve got planned.@@
+	@@.friend;“About how you look? Nah, you look kinda cute, you know?”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down in the same way you’ve had others do to you, kind of lasciviously. @@.friend;“I can’t wait to see just what you’ve got planned.”@@
 <<default>>\
-	@@.friend;“About how you look? Nah. I must admit, you look kinda, well slutty I guess.”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down with a tinge of reticence amongst the lust. @@.friend;“Don’t go any further though, you would look so much better cute. Unlike most girls you can get away with toning it down, you don’t need to be so… so… slutty.@@
+	@@.friend;“About how you look? Nah. I must admit, you look kinda, well slutty I guess.”@@ $friendG.he_she says, shaking $friendG.his_her head. $friendG.He_She steps back and looks you up and down with a tinge of reticence amongst the lust. @@.friend;“Don’t go any further though, you would look so much better cute. Unlike most girls you can get away with toning it down, you don’t need to be so… so… slutty.”@@
 <</switch>>\
 
 @@.hero;Eh?!@@ You look at $friendG.him_her with a confused expression on your face.
@@ -51,8 +51,8 @@ You shake your head, and $friend laughs.
 
 @@.friend;“That’s just like you.”@@
 
-<<if _outerwear.female>>\
-	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching, and you can feel $friend’s jeans rubbing against your thigh, your penis growing hard at the sensation <<if _chastity>>and pressing against the plastic of your cage.<<else>>threatening to bulge your <<if _outerwear.skirt>>skirt<<else>>dress<<endif>><<endif>>.
+<<if _outerwear.isFemale>>\
+	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching, and you can feel $friend’s jeans rubbing against your thigh, your penis growing hard at the sensation <<if _chastity>>and pressing against the plastic of your cage.<<else>>threatening to bulge your <<if _outerwear.masterItem == 'skirtTop'>>skirt<<else>>dress<<endif>><<endif>>.
 <<else>>\
 	$friend takes your hand and moves to the couch, pulling you down beside $friendG.him_her. You are so close that your legs are touching. $friend looks at you curiously, scanning you from top to bottom as $friendG.he_she tries to work out what you have changed.
 <<endif>>\

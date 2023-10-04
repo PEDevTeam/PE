@@ -1,0 +1,18 @@
+:: comportment_bimbo_1_10
+<<if $curScene.stage1 && $curScene.stage2 && $curScene.stage3>>\
+	You re-emerge from the changing room to find $teacher smiling. @@.teacher;“I am pleased to announce that you have passed today’s lesson with flying colors. Obviously you should apply this knowledge of how to dress at all times going forward, but the important thing is that this prepares you for your next lesson. Being a delicious piece of arm candy is more than just looking the part, you must act it as well, and we will delve into that next time.”@@
+	<<set $player.ending.comportment.bimbo.progress++>>\
+<<elseif !$curScene.stage1 && !$curScene.stage2 && !$curScene.stage3>>\
+	You emerge from the changing room to find $teacher looking quite cross. @@.teacher;“I really wish you would not make things so hard on yourself, and thus me. You have utterly failed today, showing incompetence in all manners of presenting yourself. The real world is not so simple as wearing a designated uniform everyday, and you need to spend quite a bit more time  practicing how to best display your body for others.
+	
+	We will try this lesson again later.”@@
+	<<set $player.ending.comportment.bimbo.lessonFail[0] = 1>>\
+<<else>>\
+	You emerge from the changing room; $teacher’s voice is tinged with frustration as she addresses you. @@.teacher;“I really wish you would not make things so hard on yourself, and thus me. You shown significant failure today, and you had best study up on presenting yourself. The real world is not so simple as wearing a designated uniform everyday, and you need to spend quite a bit more time practicing how to best display your body for others.
+	
+	We will try this lesson again later.”@@
+<</if>>\
+
+She dismisses you with a wave.
+
+[[Finish school day]]

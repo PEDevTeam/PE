@@ -1,8 +1,9 @@
 :: Friend Teacher Tasks Mall p2
-<<set _bra to playerCode.isWearingOn(itemTypes.Bra)>>\
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _under=window.wardrobeFuncs.getWornItem('underwear')>>\
 <<set $friendG.bonusDress to true>>\
-<<if playerCode.isWaxed() || playerCode.isWearing("jocksLucky") || (not _chastity) || (not _bra)>>\
+<<if not playerCode.isHairy() || _under.isMale || (not _chastity) || (not _bra)>>\
 	<<set $friendG.bonusDress == false>>\
 <<endif>>\
 @@.hero;I made it!@@
@@ -144,7 +145,7 @@ Just then, the curtain swishes open behind you and your heart almost bursts out 
 		<<endif>>\
 
 		@@.friend;“We’d better go…”@@ he says, backing away and leaving the cubicle as suddenly as he kissed you.
-		<<<set $friendG.friendKiss += 1>>\
+		<<set $friendG.friendKiss += 1>>\
 	<<else>>\
 		@@.friend;“That really, really suits you,”@@ $friend says, beaming. He closes to you in two steps and pins you against the wall, kissing you on the cheeks and squeezing your butt before stepping away again. @@.friend;“Dress cuter,”@@ he says with a wink @@.friend;“and who knows...”@@ 
 	<<endif>>\
@@ -162,11 +163,14 @@ You both remain silent on the death-defying drive home. You distract yourself by
 
 <<set $friendG.tasks.mall = true>>\
 <<set $friendG.tasks.timesHelped++>>\
-<<addToInv summerDress 68>>\
+<<addItemVariantToInventory 'dress_casual_68'>>\
 <<set $tasksTeacher.tryingClothesMall.status = 2>>\
 <<set $tasksTeacher.tryingClothesMall.progress++>>\
-<<if ($player.perversion.crossdressing lte 1)>>\
-	<<set $player.perversion.crossdressing++>>\
+<<if ($player.perversion.crossdressing lte 5)>>\
+    <<set $player.perversion.crossdressing++>>\
+<<endif>>\
+<<if $player.perversion.friend < 6>>\
+	<<set $player.perversion.friend = 6>>\
 <<endif>>\
 \
 <<run $time.addMinutes(120)>>\

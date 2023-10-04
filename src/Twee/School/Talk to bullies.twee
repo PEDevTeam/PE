@@ -7,7 +7,7 @@
 	
 	[[Go to class]] 
 <<else>>\
-	<<if playerCode.isWearingOn(itemTypes.Outerwear).female>>\
+	<<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>\
 		<<if $kink.futa>>\
 			You walk over to the group of girls and smile at them.
 			They all notice you, and one of them asks @@.bully;"Hey cutie, you wanna help me wipe after I go for a piss?@@ Gross.
@@ -19,18 +19,17 @@
 		
 		[[Follow them to the school toilets|Go to school toilet]]
 		[[Refuse and go to class|Go to class]]
-		<<if playerCode.owns(itemsC.stunGun)>>\
+		<<if $player.hasStunGun>>\
 		[[Stun the bullies]]
 		<<endif>>\
 	<<else>>\
 		<<if $kink.futa>>\
 			You walk up to the group of girls and hesitantly ask if you can help them out, giving them a wink. One of them steps up to you and punches you hard in the shoulder. @@.bully;"Fuck off."@@ Ow, that really hurt.
 		<<else>>\
-			You walk up to the group of boys and hesitantly ask if you can help them out, giving them a wink. One of them steps up to you and punches you hard in the shoulder. @@.bully;"Fuck off, faggot."@@ Ow, that really hurt.
+			You walk up to the group of boys and hesitantly ask if you can help them out, giving them a wink. One of them steps up to you and punches you hard in the shoulder. @@.bully;"Fuck off, <<if $kinkAllow.curse>>faggot<<else>>loser<</if>>."@@ Ow, that really hurt.
 		<<endif>>\
 
 		[[Leave them and go to class|Go to class]] 
 	<<endif>>\
 <<endif>>\
-
 

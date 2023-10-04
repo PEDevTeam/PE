@@ -1,6 +1,6 @@
 :: Cheer SE4 Sc6
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend park trees" 400 400>></div>\
-<<set _uniform = playerCode.isWearingOn(itemTypes.Outerwear)>>\
+<<set _uniform=window.wardrobeFuncs.getWornItem('outerwear')>>\
 You lead $cheerFriend.name to your favorite spot in the park, a quiet meadow near the corner of the park. $cheerFriend.name spreads her towel on the ground and lays on her stomach, drying her back. You do the same as $cheerFriend.name reaches into her bag and pulls out her phone.
 
 She plugs a pair of earbuds into the jack, sticking one in her ear and offering you the other as she queues up some music. You stick the little white earbud in your ear, and for a few minutes the two of you just enjoy the warmth of the sun and the comfort of each other’s company.
@@ -47,7 +47,7 @@ You roll onto your back and lose yourself in the sun and the music playing in yo
 
 Reluctantly, you get to your feet and help $cheerFriend.name gather her things before walking back to the car with her.
 
-@@.cheerFriend;“Thanks for hanging out this afternoon,”@@ she says as she hands you your <<if not _uniform.cheer>>jacket and <<endif>>backpack. @@.cheerFriend;“See you at next practice?”@@
+@@.cheerFriend;“Thanks for hanging out this afternoon,”@@ she says as she hands you your <<if not window.inventoryFuncs.hasTag(_uniform, 'cheer')>>jacket and <<endif>>backpack. @@.cheerFriend;“See you at next practice?”@@
 
 @@.heroT;“Wouldn’t miss it.”@@
 

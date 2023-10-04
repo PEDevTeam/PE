@@ -9,7 +9,7 @@ window.daringValues={
 }
 
 window.clothes={
-	setCage: function() {
+	setCage_d: function() {
 		if (State.active.variables.flags.penisShrinkProgress) {
 			State.active.variables.items.chastityDevice.name="CB-6000S chastity device";
 			State.active.variables.items.chastityDevice.image="chastity_cb6000s.jpg";
@@ -17,9 +17,9 @@ window.clothes={
 	},
 	checkUnderwear: function() {
 		var player=State.active.variables.player;
-		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
+		var underwear=window.wardrobeFuncs.getWornItem('underwear');
 		if (player.daring < window.daringValues.daringUnderwearFemale) {
-			return underwear && !underwear.female;
+			return underwear && !underwear.isFemale;
 		} else if (player.daring < window.daringValues.daringUnderwearNone) {
 			return underwear;
 		} else {
@@ -29,36 +29,37 @@ window.clothes={
 	dressedGuardian: {
 		check: function() {
 			var player=State.active.variables.player;
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			var bra=playerCode.isWearingOn(itemTypes.Bras);
-			var stockings=playerCode.isWearingOn(itemTypes.Stockings);
-			var collar=playerCode.isWearingOn(itemTypes.Collar);
-			var hairband=playerCode.isWearingOn(itemTypes.Hairband);
-			var earrings=playerCode.isWearingOn(itemTypes.Earrings);
-			var extras=playerCode.isWearingOn(itemTypes.Extra);
-			if (!outerwear && underwear && underwear.female && player.perversion.guardian <= 3) {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var bra=window.wardrobeFuncs.getWornItem('bra');
+			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
+			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
+			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
+			if (!outerwear && underwear && underwear.isFemale && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female underwear";
 				return false;
 			}
-			if (!outerwear && bra && bra.female && player.perversion.guardian <= 3) {
+			if (!outerwear && bra && bra.isFemale && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing a bra";
 				return false;
 			}
-			if (!outerwear && stockings && stockings.female && player.perversion.guardian <= 3) {
+			if (!outerwear && stockings && stockings.isFemale && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing feminine socks";
-				if (stockings.slutty) {
+				if (stockings.masterItem == "stockings") {
 					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing stockings";
 				}
 				return false;
 			}
 			if (collar && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a choker";
-				if (collar.slutty) {
+				if (collar.masterItem == "collar") {
 					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a collar";
 				}
-				if (collar.daringRec >=  8) {
+				if (collar.daring >=  8) {
 					State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing such a collar";
 				}
 				return false;
@@ -67,7 +68,7 @@ window.clothes={
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing a feminine hair accessory";
 				return false;
 			}
-			if (extras && player.perversion.guardian <= 3) {
+			if ((eyewear && eyewear.isFemale || mouthwear) && player.perversion.guardian <= 3) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that while wearing an extra accessory";
 				return false;
 			}
@@ -79,7 +80,7 @@ window.clothes={
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that naked";
 				return false;
 			}
-			if (((outerwear && outerwear.female) || (shoes && shoes.female)) && (player.perversion.guardian <= 2)) {
+			if (((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) && (player.perversion.guardian <= 2)) {
 				State.active.variables.reason.dressedGuardian="You don't feel comforable enough to do that wearing female clothing";
 				return false;
 			}
@@ -88,8 +89,8 @@ window.clothes={
 	},
 	dressedGuardianWork: {
 		check: function() {
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			if (outerwear && outerwear.school) {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			if (outerwear && window.inventoryFuncs.hasTag(outerwear, 'school')) {
 				State.active.variables.reason.dressedGuardianWork="Clinic policy forbids wearing a school uniform while on a part time job";
 				return false;
 			}
@@ -98,46 +99,57 @@ window.clothes={
 	},
 	dressedWhore: {
 		check: function() {
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
 			if (underwear) {
-				State.active.variables.reason.dressedGuardianWork="You don't need underwear for that";
+				State.active.variables.reason.dressedWhore="You don't need underwear for that";
+				return false;
+			}
+			if (nightwear) {
+				State.active.variables.reason.dressedWhore="You can't wear sleepwear for that";
 				return false;
 			}
 			if (!outerwear) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear something";
+				State.active.variables.reason.dressedWhore="You need to wear something";
 				return false;
 			}
 			if (!shoes) {
-				State.active.variables.reason.dressedGuardianWork="You need to wear shoes";
+				State.active.variables.reason.dressedWhore="You need to wear shoes";
 				return false;
 			}
-			if (!outerwear.slutty || !shoes.slutty) {
-				State.active.variables.reason.dressedGuardianWork="You're not dressed slutty enough";
+
+			if (!window.inventoryFuncs.hasTag(outerwear, 'slutty') || !window.inventoryFuncs.hasTag(shoes, 'slutty')) {
+				State.active.variables.reason.dressedWhore="You're not dressed slutty enough";
 				return false;
 			}
-			if (outerwear.sleepWear) {
-				State.active.variables.reason.dressedGuardianWork="You can't wear sleepwear for that";
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedWhore="You can't wear your maid outfit outside";
 				return false;
 			}
+
 			return true;
 		}
 	},
 	dressedClub: {
 		check: function() {
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			if (outerwear && outerwear.school) {
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			if (outerwear && window.inventoryFuncs.hasTag(outerwear, 'school')) {
 				State.active.variables.reason.dressedClub="It's against the rules to wear any school clothes to the club";
 				return false;
 			}
-			if (outerwear && !outerwear.female) {
+			if (outerwear && !outerwear.isFemale) {
 				State.active.variables.reason.dressedClub="You don't think you could make it in wearing male clothing";
 				return false;
 			}
-			if (underwear && !underwear.female) {
+			if (underwear && !underwear.isFemale) {
 				State.active.variables.reason.dressedClub="You don't think it's a good idea to wear briefs to the club";
+				return false;
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedClub="You can't wear your maid outfit outside";
 				return false;
 			}
 			return true;
@@ -146,16 +158,18 @@ window.clothes={
 	dressedOutside: {
 		check: function() {
 			var player=State.active.variables.player;
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-			var bra=playerCode.isWearingOn(itemTypes.Bras);
-			var stockings=playerCode.isWearingOn(itemTypes.Stockings);
-			var collar=playerCode.isWearingOn(itemTypes.Collar);
-			var hairband=playerCode.isWearingOn(itemTypes.Hairband);
-			var earrings=playerCode.isWearingOn(itemTypes.Earrings);
-			var extras=playerCode.isWearingOn(itemTypes.Extra);
-			if (outerwear.sleepWear) {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var bra=window.wardrobeFuncs.getWornItem('bra');
+			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
+			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
+			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
+			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
+			if (nightwear) {
 				State.active.variables.reason.dressedOutside="You can't wear sleepwear outside";
 				return false;
 			}
@@ -167,11 +181,11 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You have to wear shoes outside";
 				return false;
 			}
-			if (outerwear && outerwear.daringRec == 13) {
+			if (outerwear && window.inventoryFuncs.hasTag(outerwear, 'maid')) {
 				State.active.variables.reason.dressedOutside="You can't go out wearing a maid uniform";
 				return false;
 			}
-			if (shoes && shoes.daringRec == 13) {
+			if (shoes && shoes.masterItem == "balletHeels") {
 				State.active.variables.reason.dressedOutside="You can't go out wearing ballet heels";
 				return false;
 			}
@@ -185,16 +199,16 @@ window.clothes={
 			}
 			if (stockings && (player.daring < window.daringValues.daringUnderwearFemale)) {
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out wearing feminine socks";
-				if (stockings.slutty) {
+				if (stockings.masterItem == "stockings") {
 					State.active.variables.reason.dressedOutside="You don't feel daring enough to go out wearing stockings";
 				}
 				return false;
 			}
-			if (collar && !collar.slutty && (player.daring < window.daringValues.daringCollar)) {
+			if (collar && collar.masterItem == "choker" && (player.daring < window.daringValues.daringCollar)) {
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing a choker";
 				return false;
 			}
-			if (collar && collar.slutty && (player.daring < collar.daringRec) && !State.active.variables.flags.collarLocked) {
+			if (collar && collar.masterItem == "collar" && (player.daring < collar.daring) && !State.active.variables.flags.collarLocked) {
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing such a collar";
 				return false;
 			}
@@ -202,26 +216,30 @@ window.clothes={
 				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing a feminine hair accessory";
 				return false;
 			}
-			if (extras && (player.daring < window.daringValues.daringExtra)) {
-				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra accessory";
+			if ((eyewear && eyewear.isFemale || mouthwear) && (player.daring < window.daringValues.daringExtra)) {
+				State.active.variables.reason.dressedOutside="You don't feel daring enough to go out while wearing an extra acessorry";
 				return false;
 			}
-			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 6 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
+			if ((player.daring < window.daringValues.daringClothesFemale) || (player.perversion.crossdressing < 7 && player.perversion.teacher < 4 && State.active.variables.tasksTeacher.wearDressToSchool.status <= 0)) {
 				if (State.active.variables.flags.flatsFlag){
-					if (outerwear.female || (shoes.female && shoes.id != "flats")) {
+					if ((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale && shoes.masterItem != "flats")) {
 						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this wearing more female clothing than your flats.";
 						return false;
 					}
 				}
 				else{
-					if (outerwear.female || shoes.female) {
+					if ((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) {
 						State.active.variables.reason.dressedOutside="You don't feel daring enough to do this in female clothing";
 						return false;
 					}
 				}
 			}
-			if (State.active.variables.flags.laundryAccident && underwear && underwear.female && playerCode.owns(itemsC.jocksLucky)) {
+			if (State.active.variables.flags.laundryAccident && underwear && underwear.isFemale && window.inventoryFuncs.isItemVariantOwned('lucky_jocks_00')) {
 				State.active.variables.reason.dressedOutside="You don't want to go outside in wet underwear";
+				return false;
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedClub="You can't wear your maid outfit outside";
 				return false;
 			}
 			return true;
@@ -229,14 +247,15 @@ window.clothes={
 	},
 	dressedFriend: {
 		check: function() {
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
 			if (!window.clothes.checkUnderwear()) {
 				State.active.variables.reason.dressedFriend="You don't feel daring enough for " + (underwear ? "that" : "no") + " underwear";
 				return false;
 			}
-			if (outerwear.sleepWear) {
+			if (nightwear) {
 				State.active.variables.reason.dressedFriend="You can't wear sleepwear outside";
 				return false;
 			}
@@ -249,10 +268,14 @@ window.clothes={
 				return false;
 			}
 			if (State.active.variables.player.daring < window.daringValues.daringClothesFemale) {
-				if (outerwear.female || shoes.female) {
+				if ((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) {
 					State.active.variables.reason.dressedFriend="You don't feel daring enough to face your friend while wearing female clothing";
 					return false;
 				}
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedClub="You can't wear your maid outfit outside";
+				return false;
 			}
 			return true;
 		}
@@ -263,10 +286,14 @@ window.clothes={
 			if (!window.clothes.dressedOutside.check(1)) {
 				return false;
 			}
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-			if ((outerwear.female || shoes.female) && (player.perversion.therapist < 3) && (player.perversion.guardian < 5)) {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			if (((outerwear && outerwear.isFemale) || (shoes && shoes.isFemale)) && (player.perversion.therapist < 3) && (player.perversion.guardian < 5)) {
 				State.active.variables.reason.dressedTherapy="You don't feel ready to visit $therapist dressed like that";
+				return false;
+			}
+			if (window.clothes.dressedMaid.checkPartial()){
+				State.active.variables.reason.dressedClub="You can't wear your maid outfit outside";
 				return false;
 			}
 			return true;
@@ -276,73 +303,78 @@ window.clothes={
 		check: function() {
 			var player=State.active.variables.player;
 			var items=State.active.variables.items;
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-			var stockings=playerCode.isWearingOn(itemTypes.Stockings);
-			var collar=playerCode.isWearingOn(itemTypes.Collar);
-			var hairband=playerCode.isWearingOn(itemTypes.Hairband);
-			var earrings=playerCode.isWearingOn(itemTypes.Earrings);
-			var extras=playerCode.isWearingOn(itemTypes.Extra);
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var underwear=window.wardrobeFuncs.getWornItem('underwear');
+			var bra=window.wardrobeFuncs.getWornItem('bra');
+			var stockings=window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			var earrings=window.wardrobeFuncs.getWornItem('earring');
+			var eyewear=window.wardrobeFuncs.getWornItem('eyewear');
+			var mouthwear=window.wardrobeFuncs.getWornItem('mouthwear');
+			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
 			if (!window.clothes.dressedOutside.check(0)) {
 				return false;
 			}
-			if (!outerwear.school) {
+			if (outerwear && !window.inventoryFuncs.hasTag(outerwear, 'school')) {
 				State.active.variables.reason.dressedSchool="You need to wear the school uniform";
 				return false;
 			}
-			if (outerwear.school && !outerwear.female && shoes.female && shoes.slutty) {
+			if (outerwear && shoes && window.inventoryFuncs.hasTag(outerwear, 'school') && !outerwear.isFemale && shoes.isFemale && window.inventoryFuncs.hasTag(shoes, 'heels')) {
 				State.active.variables.reason.dressedSchool="It is against rules to wear heels with pants";
 				return false;
 			}
 			if (player.perversion.teacher < 10) {
-				if (!shoes.school) {
+				if (!window.inventoryFuncs.hasTag(shoes, 'school')) {
 					State.active.variables.reason.dressedSchool="You need to wear proper footwear";
 					return false;
 				}
-				if (stockings && stockings.schoolAlt && (stockings.schoolAlt < items[stockings.id].curAlt) && (items[stockings.id].curAlt != 43)) {
+				if (stockings && !window.inventoryFuncs.hasTag(stockings, 'school')) {
 					State.active.variables.reason.dressedSchool="Such stockings are against school uniform regulations, I need plain black stockings";
-					if (!stockings.slutty) {
+					if (stockings.masterItem == "socks") {
 						State.active.variables.reason.dressedSchool="Such socks are against school uniform regulations, I need plain black socks";
 					}
 					return false;
 				}
-				if (hairband && hairband.schoolAlt && (hairband.schoolAlt < items[hairband.id].curAlt)) {
-					State.active.variables.reason.dressedSchool="Such a hairband is against school uniform regulations";
+				if (hairband && !window.inventoryFuncs.hasTag(hairband, 'school')) {
+					State.active.variables.reason.dressedSchool="Such hairband is against school uniform regulations";
 					return false;
 				}
-				if (shoes && shoes.schoolAlt  && (items[shoes.id].curAlt != 40) && (items[shoes.id].curAlt <62) || items[shoes.id].curAlt >67) {
-					if (shoes.schoolAlt < items[shoes.id].curAlt){
-						State.active.variables.reason.dressedSchool="This style of shoes is against school uniform regulations, I need a more conservative looking type";
-						return false;
-					}
+				if (shoes && !window.inventoryFuncs.hasTag(shoes, 'school')) {
+					State.active.variables.reason.dressedSchool="This style of shoes is against school uniform regulations, I need a more conservative looking type";
+					return false;
 				}
-				if (shoes && (shoes.daringRec >= 7)) {
+				if (shoes && (shoes.daring >= 7)) {
 					State.active.variables.reason.dressedSchool="Heeled shoes are against school uniform regulations";
 					return false;
 				}
 			}
-			if (State.active.variables.cheerleaders.active == false && (playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress))) {
-				if (outerwear.cheer || shoes.cheer || (stockings && stockings.cheer && (items[stockings.id].curAlt == 43)) || (underwear && underwear.cheer)) {
+			if (State.active.variables.cheerleaders.active == false && (window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress'))) {
+				if ((outerwear && window.inventoryFuncs.hasTag(outerwear, 'cheer')) || (shoes && window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && stockings.variant == "socks_43") || (underwear && window.inventoryFuncs.hasTag(underwear, 'cheer'))) {
 					State.active.variables.reason.dressedSchool="You have been removed from the cheer squad and are no longer allowed to wear the cheer uniform to school";
 					return false;
 				}
 			}
 			if (State.active.variables.cheerleaders.active == true) {
-				if ((outerwear && !outerwear.female) || (shoes && !shoes.female)) {
+				if ((outerwear && !outerwear.isFemale) || (shoes && !shoes.isFemale)) {
 					State.active.variables.reason.dressedSchool="Rachel has ordered you to wear girl's clothes to school while you are on the cheer squad.";
 					return false;
 				}
-				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isTuesday() || timeCode.isThursday()) && timeCode.haveSchool() && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
+				if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && (timeCode.isTuesday() || timeCode.isThursday()) && timeCode.haveSchool() && ((outerwear && !window.inventoryFuncs.hasTag(outerwear, 'cheer')) || (shoes && !window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && !stockings.variant == "socks_43") || (hairband && !hairband.variant == "hairbow_43") )) {
 					State.active.variables.reason.dressedSchool="You have cheer practice today and must wear the cheer uniform";
 					return false;
 				}
-				if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (timeCode.isMonday() && State.active.variables.cheerleaders.flags.prank2) && timeCode.haveSchool() && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
+				if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && (timeCode.isMonday() && State.active.variables.cheerleaders.flags.prank2) && timeCode.haveSchool() && ((outerwear && !window.inventoryFuncs.hasTag(outerwear, 'cheer')) || (shoes && !window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && !window.inventoryFuncs.hasTag(stockings, 'cheer') && (stockings.variant != "socks_43")) || (hairband && !window.inventoryFuncs.hasTag(hairband, 'cheer') && (!hairband.variant == "hairbow_43")))) {
 					State.active.variables.reason.dressedSchool="Ashley ordered you to wear your cheer uniform to school today.";
 					return false;
 				}
+				if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && (timeCode.isFriday() && State.active.variables.cheerleaders.progress == 8) && timeCode.haveSchool() && ((outerwear && !window.inventoryFuncs.hasTag(outerwear, 'cheer')) || (shoes && !window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && !window.inventoryFuncs.hasTag(stockings, 'cheer') && (stockings.variant != "socks_43")) || (hairband && !window.inventoryFuncs.hasTag(hairband, 'cheer') && (!hairband.variant == "hairbow_43")))) {
+					State.active.variables.reason.dressedSchool="You have a cheer competiton today and must wear your uniform.";
+					return false;
+				}
 				
-				else if ((playerCode.owns(itemsC.rookieUniform) || playerCode.owns(itemsC.cheerDress)) && (outerwear.cheer || shoes.cheer || (stockings && stockings.cheer && (items[stockings.id].curAlt == 43))) && (!outerwear.cheer || !shoes.cheer || (stockings && !stockings.cheer && (items[stockings.id].curAlt != 43)) || (hairband && !hairband.cheer && (items[hairband.id].curAlt != 43)) || (underwear && !underwear.cheer))) {
+				else if ((window.inventoryFuncs.isItemVariantOwned('rookie_uniform') || window.inventoryFuncs.isItemVariantOwned('cheer_dress')) && outerwear && (window.inventoryFuncs.hasTag(outerwear, 'cheer') || (shoes && window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && stockings.variant == "socks_43")) && ((outerwear && !window.inventoryFuncs.hasTag(outerwear, 'cheer')) || (shoes && !window.inventoryFuncs.hasTag(shoes, 'cheer')) || (stockings && !stockings.variant == "socks_43") || (hairband && !hairband.variant == "hairbow_43") )) {
 					State.active.variables.reason.dressedSchool="You cannot mix school clothes with cheer clothes";
 					return false;
 				}
@@ -353,18 +385,19 @@ window.clothes={
 	dressedSleep: {
 		check: function() {
 			var player=State.active.variables.player;
-			var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-			var shoes=playerCode.isWearingOn(itemTypes.Shoes);
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes=window.wardrobeFuncs.getWornItem('shoes');
+			var nightwear=window.wardrobeFuncs.getWornItem('nightwear');
 			if (shoes) {
 				State.active.variables.reason.dressedSleep="You can't wear shoes to bed";
 				return false;
 			}
-			if (outerwear) {
-				if (!outerwear.sleepWear) {
-					State.active.variables.reason.dressedSleep="You have to wear sleepwear to sleep";
-					return false;
-				}
-				if ((player.daring < window.daringValues.daringUnderwearFemale) && outerwear.female) {
+			if(outerwear){
+				State.active.variables.reason.dressedSleep="You have to wear sleepwear to sleep";
+				return false;
+			}
+			if (nightwear) {
+				if ((player.daring < window.daringValues.daringUnderwearFemale) && nightwear.isFemale) {
 					State.active.variables.reason.dressedSleep="You don't feel daring enough";
 					return false;
 				}
@@ -374,24 +407,73 @@ window.clothes={
 	},
 	dressedMaid: {
 		check: function() {
-			var maid=playerCode.isWearing(itemsC.maidOutfit);
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes = window.wardrobeFuncs.getWornItem('shoes');
+			var hosiery = window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+			var bra=window.wardrobeFuncs.getWornItem('bra');
+
+			if (!(outerwear && shoes && hosiery && collar && hairband)) {
+				if (State.active.variables.flags.gTrialCorset && !bra){
+					State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, corset, collar, and headband.";
+				}
+				else{
+					State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, collar, and headband.";
+				}
+
+				return false;
+			}
+
+			if (State.active.variables.flags.gTrialCorset && (bra && !window.inventoryFuncs.hasTag(bra, 'maid'))){
+				State.active.variables.reason.dressedMaid="You have to wear the proper corset with your maid outfit.";
+				return false;
+			}
+
+			var maid = window.inventoryFuncs.hasTag(outerwear, 'maid') && window.inventoryFuncs.hasTag(shoes, 'maid') && window.inventoryFuncs.hasTag(hosiery, 'maid') && window.inventoryFuncs.hasTag(collar, 'maid') && window.inventoryFuncs.hasTag(hairband, 'maid');
+
 			if (!maid) {
-				State.active.variables.reason.dressedMaid="You have to wear the maid outfit for this";
+				State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, choker, and headband.";
 				return false;
 			}
 			return true;
+		},
+
+		checkPartial: function() {
+			var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+			var shoes = window.wardrobeFuncs.getWornItem('shoes');
+			var hosiery = window.wardrobeFuncs.getWornItem('hosiery');
+			var collar=window.wardrobeFuncs.getWornItem('neckwear');
+			var hairband=window.wardrobeFuncs.getWornItem('headwear');
+
+			if (outerwear &&  window.inventoryFuncs.hasTag(outerwear, 'maid')){
+				return true;
+			}
+			if (shoes &&  window.inventoryFuncs.hasTag(shoes, 'maid')){
+				return true;
+			}
+			if (hosiery &&  window.inventoryFuncs.hasTag(hosiery, 'maid')){
+				return true;
+			}
+			if (collar &&  window.inventoryFuncs.hasTag(collar, 'maid')){
+				return true;
+			}
+			if (hairband &&  window.inventoryFuncs.hasTag(hairband, 'maid')){
+				return true;
+			}
+			return false;
 		}
 	},
 	dressedFemale: function() {
-		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-		return (!underwear || underwear.female) && outerwear.female && shoes.female;	
+		var underwear=window.wardrobeFuncs.getWornItem('underwear');
+		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
+		return (!underwear || underwear.isFemale) && outerwear && outerwear.isFemale && shoes && shoes.isFemale;	
 	},
 	dressedCheerFriend: function() {
-		var underwear=playerCode.isWearingOn(itemTypes.Underwear);
-		var outerwear=playerCode.isWearingOn(itemTypes.Outerwear);
-		var shoes=playerCode.isWearingOn(itemTypes.Shoes);
-		return (!underwear || (underwear.female && !underwear.cheer) && (outerwear.female && !(outerwear.school)) && (shoes.female && !(shoes.cheer)));	
+		var underwear=window.wardrobeFuncs.getWornItem('underwear');
+		var outerwear=window.wardrobeFuncs.getWornItem('outerwear');
+		var shoes=window.wardrobeFuncs.getWornItem('shoes');
+		return (!underwear || (underwear && underwear.isFemale && !window.inventoryFuncs.hasTag(underwear, 'cheer')) && (outerwear && outerwear.isFemale && !(window.inventoryFuncs.hasTag(outerwear, 'school'))) && (shoes && shoes.isFemale && !(window.inventoryFuncs.hasTag(shoes, 'cheer'))));	
 	}
 }

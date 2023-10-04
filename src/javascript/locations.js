@@ -137,6 +137,28 @@ window.locationsJS={
 		active: true,
 		important: false
 	},
+		teacherParty: {
+		id: "teacherParty",
+		destination: "comportment_etiquette_3_1",
+		description: "Go meet teacher at school",
+		x: -5,
+		y: 15,
+		busRange: 10,
+		remote: 0,
+		active: true,
+		important: false
+	},
+		hotelLesson: {
+		id: "hotelLesson",
+		destination: "comportment_bimbo_3_1",
+		description: "Go to the hotel for your lesson",
+		x: -15,
+		y: 5,
+		busRange: 10,
+		remote: 0,
+		active: true,
+		important: false
+	},
 	tokenPlace: {
 		id: "tokenPlace",
 		destination: "",

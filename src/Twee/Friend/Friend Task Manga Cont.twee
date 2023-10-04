@@ -1,15 +1,16 @@
 :: Friend Task Manga Cont
 \
-<<set _chastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _plug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>><<updateClothes>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
+<<removeClothingItem 'shoes'>>\
+<<updateClothes>>\
 \
 <<set _boughtList to []>>\
-<<if playerCode.owns($items.bra)>><<set _boughtList.push("a bra")>><<endif>>\
-<<if playerCode.owns($items.stockings)>><<set _boughtList.push("stockings")>>\
-<<elseif playerCode.owns($items.socks)>><<set _boughtList.push("girls socks")>><<endif>>\
-<<if playerCode.owns($items.gString)>><<set _boughtList.push("lacy panties")>><<endif>>\
+<<if inventoryFuncs.ownsMasterItem('bras')>><<set _boughtList.push("a bra")>><<endif>>\
+<<if inventoryFuncs.ownsMasterItem('stockings')>><<set _boughtList.push("stockings")>>\
+<<elseif inventoryFuncs.ownsMasterItem('socks')>><<set _boughtList.push("girls socks")>><<endif>>\
+<<if inventoryFuncs.ownsMasterItem('sexyPanties')>><<set _boughtList.push("lacy panties")>><<endif>>\
 <<if _boughtList.length gt 1>>\
 	<<set _boughtList.push("and " + _boughtList.pop())>>\
 <<endif>>\

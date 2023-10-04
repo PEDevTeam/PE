@@ -376,7 +376,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks directly into yours, silently pleading for you to take its place.  You stand up and walk towards her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
+		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks directly into yours, silently pleading for you to take its place.  You stand up and walk towards her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -552,7 +552,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher calls you up to the front, then kneels down in front of you and <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifts up your dress<<else>>unzips your pants<<endif>>.  You look back at the class who seemed stunned, <<if playerCode.isWearingOn(itemTypes.Chastity)>>and you hear her cry with frustration as she taps on your chastity device, then stands up and shrugs.  Your penis strains against its cage...<<else>><<if playerCode.isWearingOn(itemTypes.Underwear)>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth.  She sucks harder and harder...<<endif>>",
+		description: "$teacher calls you up to the front, then kneels down in front of you and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress<<else>>unzips your pants<<endif>>.  You look back at the class who seemed stunned, <<if window.wardrobeFuncs.getWornItem('chastity')>>and you hear her cry with frustration as she taps on your chastity device, then stands up and shrugs.  Your penis strains against its cage...<<else>><<if window.wardrobeFuncs.getWornItem('underwear')>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth.  She sucks harder and harder...<<endif>>",
 		check: function() {
 			return [6].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -568,7 +568,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is writing on the lower part of the whiteboard, bending at the waist.  You leave your chair and walk confidently up to her, <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifting your dress up<<else>>unzipping your pants<<endif>> <<if playerCode.isWearingOn(itemTypes.Underwear)>>and lowering your underwear <<endif>>as you approach.  With a swift move you pull down her skirt to her knees <<if playerCode.isWearingOn(itemTypes.Chastity)>>and bump your chastity device up against her naked pussy, feeling your penis strain harder and harder against the plastic.  She looks at you quizzically, and you turn to see the class giggling at your frustrated attempt...<<else>>and shove your hard cock deep into her dripping pussy with a firm thrust.  She immediately straightens up, tightening her pussy, squeezing you wonderfully, then bucks against you, moaning with need...<<endif>>",
+		description: "$teacher is writing on the lower part of the whiteboard, bending at the waist.  You leave your chair and walk confidently up to her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>> <<if window.wardrobeFuncs.getWornItem('underwear')>>and lowering your underwear <<endif>>as you approach.  With a swift move you pull down her skirt to her knees <<if window.wardrobeFuncs.getWornItem('chastity')>>and bump your chastity device up against her naked pussy, feeling your penis strain harder and harder against the plastic.  She looks at you quizzically, and you turn to see the class giggling at your frustrated attempt...<<else>>and shove your hard cock deep into her dripping pussy with a firm thrust.  She immediately straightens up, tightening her pussy, squeezing you wonderfully, then bucks against you, moaning with need...<<endif>>",
 		check: function() {
 			return [6].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -600,7 +600,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is walking around the classroom as the class is working away, and stops in front of your desk.  She suddenly holds down your arms and calls to the boy sitting behind you.  He <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>lifts up your dress <<else>>unzips and pulls down your pants <<endif>><<if playerCode.isWearingOn(itemTypes.Underwear)>>and <<if playerCode.isWearingOn(itemTypes.Outerwear).female>>removes your <<endif>>underwear, <<endif>><<if playerCode.isWearingOn(itemTypes.AnalPlug)>>pops out your butt-plug, <<endif>>then rams his thick cock deep into your rectum.  You look up at $teacher to see her smiling evilly and leaning in to kiss you...",
+		description: "$teacher is walking around the classroom as the class is working away, and stops in front of your desk.  She suddenly holds down your arms and calls to the boy sitting behind you.  He <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress <<else>>unzips and pulls down your pants <<endif>><<if window.wardrobeFuncs.getWornItem('underwear')>>and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>removes your <<endif>>underwear, <<endif>><<if window.wardrobeFuncs.getWornItem('buttplug')>>pops out your butt-plug, <<endif>>then rams his thick cock deep into your rectum.  You look up at $teacher to see her smiling evilly and leaning in to kiss you...",
 		check: function() {
 			return State.active.variables.player.perversion.teacher >= 7;
 		}

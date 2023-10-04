@@ -1,0 +1,68 @@
+:: comportment_poise_3_final
+<<set $remedialGuardian = false>>\
+<<if $sceneDance1 == 4 && $sceneDance2 == 4 && $sceneDance3 == 4>>\
+	$teacher grins, her words confirming what you already knew. @@.teacher;“It should come as no surprise when I tell you that you were utterly perfect. Be it sensuous grace, flirty energy or a depraved, slutty offering you did it all. Thanks to my training, your body has become a finely tuned instrument, ready to inspire lust or love at any who beholds you. Very well done, you have proven your mastery of poise.”@@
+
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.poise.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if _failedLessons > 1>>\
+		$teacher's grin quickly fades. @@.teacher;“That said, I have not forgotten about your previous failures. You shall have one extra lesson, a final reinforcement of your lessons in poise. <<if $poiseRemedialGuardian>>And, if you recall, $guardian was kind enough to offer her assistance in your instruction. <<endif>>Then, and only then, shall I consider your lessons in poise complete.  Is that understood?"@@  
+		
+		You nod.
+		
+		@@.teacher;"Then you are dismissed."@@
+		
+		You thank your partner for their time and they depart, leaving you to hurriedly gather your things and be on your way yourself.
+		<<set $player.ending.comportment.classStatus[1] = 3>>\
+	<<else>>\
+		You thank your partner for their time and they depart, leaving you to catch your breath, thank $teacher for her instruction, and then be on your way yourself.
+		<<set $player.ending.comportment.classStatus[1] = 4>>\
+	<<endif>>\
+
+	<<set $player.ending.comportment.poise.progress++>>\
+	[[Finish school day]]
+<<elseif $sceneDance1 == 0 && $sceneDance2 == 0 && $sceneDance3 == 0>>\
+	$teacher sighs as your partner shakes their head. @@.teacher;“What am I going to do with you? Timing, emotion, movement... everything you did today was completely wrong. For all your prior success if you cannot feel the rhythm and use that to amp up your femininity well...”@@ Glancing at your partner $teacher waves them off. 
+
+	<<set $player.ending.comportment.poise.lessonFail[2] = 1>>\
+	<<set _failedLessons = 0>>\
+	<<for _val range $player.ending.comportment.etiquette.lessonFail>>\
+		<<set _failedLessons += _val>>\
+	<</for>>\
+	<<if failedLessons > 1>>\
+		@@.teacher;“Thank you for your time, and I am sorry it was such a waste. It appears this pathetic thing is in need for some severe remedial training.”@@
+
+		<<switch $flags.danceLessonPartner>>\
+		<<case 'guardian'>>\
+			$guardian shakes her head, shooting you a comforting glance as she walks past you towards the door. @@.guardian;“There, there. Just know that it really is for your own good. I will see you at home, and I had better not hear anything about you not doing your best at the next <<if $kink.incest>>parent<<else>>guardian<</if>>-teacher meeting!”@@
+		<<case 'evilguardian'>>\
+			$guardian leers at you but does not move. @@.guardian;“Let me know when the next lesson is. I would quite like to lend a hand in making sure my pet PROPERLY learns her lesson.”@@
+
+			@@.teacher;“But of course,”@@ $teacher replies with a grin.
+			<<set $flags.poiseRemedialGuardian = true>>\
+		<<case 'cheerbitch'>>\
+			Ashley shakes her head and flashes you a cruel grin and heads for the door. Turning back just before stepping out of the room she smiles at $teacher. @@.cheerBitch;“Give it to her good. That pathetic bitch deserves it.”@@ Ashley’s laughter hangs in the room behind her as she leaves.
+		<<case 'coach'>>\
+			With a noncommittal shrug Coach shakes his head, squeezing your ass in passing as he leaves the room.
+		<<case 'drama'>>\
+			With a shrug Mrs. Ravensong departs, waving goodbye to $teacher and leaving you alone with your “instructor.”
+		<<default>>\
+			ERROR: unexpected partner: <<=_$flags.danceLessonPartner>>\
+		<</switch>>\
+	<<endif>>\
+	
+	@@.teacher;"We shall try again next time.  Remember, you can not progress in your lessons until you properly complete this class.@@
+
+	You nod your understanding, quickly grab your things, and make an exit.
+	
+	[[Finish school day]]
+<<else>>\
+	<<set $player.ending.comportment.classStatus[1] = 1>>\
+	$teacher sighs, clearly disappointed in your performance. @@.teacher;"You weren't a total disaster, but it seems there is still much work to be done. We shall try again next time.  Remember, you can not progress in your lessons until you properly complete this class.
+	
+	"Would you mind helping us again?"@@ $teacher asks your dance partner, who responds that they'd be more than happy to. $teacher thanks your dance partner, while you grab your things and make a hasty exit.
+	
+	[[Finish school day]]
+<<endif>>\

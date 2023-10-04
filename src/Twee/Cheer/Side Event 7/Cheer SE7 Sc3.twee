@@ -1,0 +1,51 @@
+::Cheer SE7 Sc3
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem("hosiery")>>\
+$cheerFriend.name looks you over in your <<if not window.wardrobeFuncs.isItemMasterWearing("cheerUniform")>>cheer outfit<<else>>school uniform<<endif>>. @@.cheerFriend;“It kind of sucks that we can’t go get something nicer from your place,”@@ she muses, @@.cheerFriend;“but this is an exhibition for a punk-rock band. Maybe we can turn your uniform into some sort of teenage rebellion sort of thing.”@@
+
+She dives into the closet and rummages around. @@.cheerFriend;“I think your hair and makeup will have to do a lot of the heavy lifting,”@@ she says as items of clothing come flying out of the closet. @@.cheerFriend;“Especially considering my stuff might not fit you…”@@ You dodge a pair of jean shorts, and she exclaims, @@.cheerFriend;“Perfect!”@@
+
+$cheerFriend.name comes out of the closet holding a pair of black tights and passes them to you. @@.cheerFriend;“Here, put these on,”@@ she orders.
+
+<<if window.inventoryFuncs.hasTag(_outerwear, "shorts")>>\
+	You look over the tights and consider the logistics of how to put the tights on without revealing the secret between your legs. 
+
+	@@.cheerFriend;“Oh, sorry,”@@ $cheerFriend.name says when she notices your hesitation. @@.cheerFriend;“You probably want some privacy to change.”@@ She spins around and faces the other direction. @@.cheerFriend;“Just let me know when you’re done.”@@
+
+	You slip off your shoes<<if _stockings && (window.wardrobeFuncs.isItemMasterWearing("stockings") || window.wardrobeFuncs.isItemMasterWearing("latexStockings"))>>, remove your stockings,<<elseif _stockings && window.wardrobeFuncs.isItemMasterWearing("socks")>>, remove your socks,<<endif>> and pull off your shorts. It takes some doing to slide the tights onto your feet, but with a little effort, you finally get the tights in place. You pull your shorts back on, subconsciously rubbing your legs together, enjoying the slick feeling of the nylon covering your legs. You pull your shoes back on, and tell $cheerFriend.name that she can look.
+<<else>>\
+	You slip off your shoes<<if _stockings && (window.wardrobeFuncs.isItemMasterWearing("stockings") || window.wardrobeFuncs.isItemMasterWearing("latexStockings"))>> and remove your stockings<<elseif _stockings && window.wardrobeFuncs.isItemMasterWearing("socks")>> and remove your socks<<endif>>. You take great care not to keep your skirt in place as you slide the tights up your legs and settle them around your waist,
+<<endif>>\
+
+@@.cheerFriend;“Awesome,”@@ $cheerFriend.name says as she grabs a pair of scissors of the nearby vanity. @@.cheerFriend;“Time to make things a bit more punk.”@@
+
+She knees down in front of you and grabs the material covering your thighs. With a few quick snips and pulls, $cheerFriend.name introduces a strategic series of runs in the material, exposing patches of skin beneath.
+
+@@.cheerFriend;“Step one is done,”@@ she says with a smile, stepping back to examine her work. @@.cheerFriend;“Now, for step two.”@@
+
+<<if not window.inventoryFuncs.hasTag(_outerwear, "shorts")>>\
+	$cheerFriend.name grabs the waistband of your skirt, flipping it over on itself a couple of times and causing the hem to rise. 
+
+	@@.heroT;“Woah, woah, wait!”@@ you stammer, hoping to stop her before she reveals what’s hiding underneath the skirt.
+
+	@@.cheerFriend;“What's wrong?”@@ $cheerFriend.name asks. @@.cheerFriend;“You can’t be a rocker if you don’t show off a little. This is like the classic way to sex up a school uniform. Well, one of them, anyways. Besides, those tights are dark enough that no one will see up your skirt even if you do flash them.”@@
+
+	You’re still a bit nervous about exposure, but don’t put up further protest as $cheerFriend.name gets the skirt to her liking. She smiles at you. @@.cheerFriend;“Besides, if that bothers you, you’re going to hate what we do for step three.”@@
+
+<<endif>>\
+$cheerFriend.name steps forward and\
+<<if window.inventoryFuncs.hasTag(_outerwear, "school")>>\
+	starts unbuttoning your shirt.
+
+	@@.cheerFriend;“Calm down. I’m not trying to sneak a peek,”@@ she says as the feeling of her fingers working your buttons sends shivers down your spine. Once the shirt is unbuttoned, she hikes up the bottom of the shirt, and ties it off just below your <<if playerCode.haveBoobs()>>breasts<<else>>chest<<endif>>.
+<<else>>\
+	hikes up the bottom of your shirt, using the slack to tie it off just below your <<if playerCode.haveBoobs()>>breasts<<else>>chest<<endif>>.
+<<endif>>\
+
+<<if $body.bellyPierced.level > 0>>\
+	$cheerFriend.name chuckles when she sees your navel piercing. @@.cheerFriend;“You’ve had a belly button ring this whole time?”@@ she asks. @@.cheerFriend;“Maybe you’re more hardcore than I thought.”@@ She laughs. @@.cheerFriend;“Well, at least it’ll fit with your new look.@@
+
+<<endif>>\
+@@.cheerFriend;“Now that you’re all dressed, time for some makeup,”@@ $cheerFriend.name announces. 
+
+[[Finish your outfit|Cheer SE7 Sc4]]

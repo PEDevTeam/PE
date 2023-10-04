@@ -1,0 +1,1311 @@
+:: Have breakfast old [pos_879_459]
+\
+<<if playerCode.isMaid()>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Maid Morning" 400 400>></div>\	
+<<else>>\
+	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cereal Milk" 400 400>></div>\	
+<<endif>>\
+\
+<<set $flags.guardianCondomsDone = false>>\
+<<set _skipEnd = false>>\
+<<set _skipComments = false>>\
+\
+<<if window.timeCode.guardian.isAwake() or playerCode.isMaid()>>\
+	<<if playerCode.isMaid()>>\
+	<!--<maid start>*********************-->\
+		<<if playerCode.owns(itemsC.maidOutfit) and (not playerCode.isWearing(itemsC.maidOutfit))>>\
+			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<<set window.playerCode.clothesOverride()>>\
+			<<if $flags.gTrialPenisGag>>\
+			You slide the dildo gag down your throat and fasten the straps, the taste of cum filling your mouth.\
+			<<endif>>\
+			You put on your sexy\
+			<<if $flags.gTrialLatexMaid>>\
+			<<set $items.maidOutfit.curAlt=1>>\
+			latex\
+			<<endif>>\
+			maid uniform, stockings,\
+			<<if $flags.gTrialBalletHeels>>\
+			ballet\
+			<<endif>>\
+			heels and a cute headband.
+			<<if $flags.gTrialGiantVibroPlug>>\
+				<<if playerCode.owns(itemsC.buttPlugVibro)>>\
+					<<wearClothing 'buttPlugVibro'>>\
+				<<endif>>\
+			After applying lots of lubricant, you slowly sit on the vibro butt-plug until it pops tightly into your anus.\
+			<<endif>>\
+			<<set playerCode.loadQuickSlot(quickSlotSets.Maid)>>\
+			<<set window.playerCode.clothesOverride()>>\
+			<<updateClothes>>\
+		<<endif>>\
+
+		<<if $player.perversion.guardianCooldown gt 1>>\
+			First, you clean and iron $guardian's clothes for the day, then you prepare fresh towels for the bathroom and go to her bedroom.\
+			There, you wake her up by gently rubbing her feet, just how she likes.\
+			<<if $player.perversion.guardian gte 7>>\
+				You slowly massage her and help her dress as she gets up. Then, you walk her to the bathroom and treat her like an empress, tending to her every whim. You help her wash, cleaning her gently with a soft cloth, until she sends you off to prepare breakfast.
+			<<endif>>\
+		<<endif>>\
+		As $guardian goes to the bathroom, you prepare breakfast for her.\
+		<<if $flags.gTrialPenisGag>>\
+		You unfasten the straps on your gag and slide it out.
+		<<endif>>\
+		You pour a bowl of your favorite cereal for yourself, \
+		<<if (not $flags.guardianCumDrink) or $flags.guardianCondomsAsk>>\
+			add milk from the fridge, and sit at the table.
+
+			As you begin to eat, \
+		<<elseif (not $flags.guardianCondoms)>>\
+			cover it in cum from the bottle $guardian brought home last night from the clinic, and sit at the table.
+
+			You begin to eat, feeling the globs of cum slide down your throat and coating your teeth, just as \
+		<<else>>\
+			then take the <<print random(2, 5)>>0 or so used condoms out of the cum box and squeeze the stale cum out of each of them over your cereal. You begin to eat, the cum of countless anonymous men sliding down your throat into your belly, just as \
+		<<endif>>\
+		$guardian enters looking fresh and warm from her shower. \
+		<<if (not $flags.guardianCumDrink) or $flags.guardianCondomsAsk>>\
+			She smiles at you and sips her coffee, as you serve her.
+			<<if $flags.gTrialPenisGag>>\
+				The taste of the cereal is tainted by the after-taste from the gag, but you still finish the bowl.
+			<<endif>>\
+		<<elseif (not $flags.guardianCondoms)>>\
+			@@.guardian;"How's your breakfast taste? Nice and creamy?"@@ she asks with a laugh. You can only blush in response.
+		<<else>>\
+			She recoils slightly at the sight of what you're eating, but recovers enough to give you a nasty grin. @@.guardian;"Oh, my god, you're gross. Eat up, Cum Dump."@@
+		<<endif>>\
+		<<if $flags.gTrialPenisGag>>\
+			Finishing, you take the dildo gag in hand. You give it a long and thorough licking, like it was a delicious ice cream treat, then place it back into its box. Entertained by the show, $guardian smiles, knowing you will be enjoying the aftertaste for the rest of the day.
+		<<endif>>\
+		<<if (not $flags.newBoyfriendIntro) and ($player.perversion.guardian gte 6) and ($player.perversion.guardianCooldown gt 12)>>\
+			<<set $flags.newBoyfriendIntro = true>>\
+			<<if $flags.guardianEvil>>\
+				<<set $chores.suckGuardianBoyfriend.active = true>>\
+				<<set $chores.cleanGuardianPussy.active = true>>\
+				<<set $flags.newBoyfriend=true>>\
+				@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@
+				
+				As you nod, she continues. @@.guardian;"Funny story - $futa.he_she apologized and actually paid for cleaning. And asked me for a date."@@ You don't like how smug she looks. 
+
+				@@.guardian;"So, you are also getting new chores from now on."@@
+
+				You aren't really sure what to say to that.
+
+				@@.guardian;"I told $futa.him_her everything about you. $futa.He_She is more than willing to put your sorry ass through hell if I ask $futa.him_her to."@@
+				
+			<<else>>\
+				<<set _skipEnd = true>>\
+				<<set _skipComments = true>>\
+				@@.guardian;"You remember how I told you about some idiot who spilled his coffee on me?"@@ $guardian looks a bit uncertain and somewhat guilty.
+				
+				As you nod, she continues. @@.guardian;"Funny story, $futa.he_she apologized and actually paid for cleaning."@@ 
+
+				She hesitates, but looks at you and confesses.
+
+				@@.guardian;"$futa.He_She asked me out on a date."@@
+
+				You're not really sure what to say to that. @@.guardian;"I know, I know. My last $futa.boy_girl////friend was a total shit. I really messed up there. This\
+				<<if $kink.futa>>girl<<else>>guy<<endif>>\
+				is actually sweet, but after all that, I won't go if you are against it. I don't want to put you in a tough position again."@@
+				
+				[[Tell her you agree, but only on one condition|Guardian kinky reward][$scene="boyfriend yes"]]
+				[[Tell that you don't want to share her with anyone|Guardian kinky reward][$scene="boyfriend no"]]
+			<<endif>>\
+		<<elseif $flags.guardianBoyfriendMet>>\
+			<<set $flags.guardianBoyfriendMet = false>>\
+		
+			<<if $player.perversion.boyfriend eq 1>>\
+				@@.guardian;"You know, I've noticed my $futa.boy_girl////friend is really curious about you. It's perfectly understandable, with how sexy you are in this uniform,"@@ $guardian says, winking.
+				
+				@@.guardian;"I haven't actually told $futa.him_her that you're @@\
+				<<if $kink.incest>>\
+					@@.guardian;my son.@@\
+				<<else>>\
+					@@.guardian;a boy.@@\
+				<<endif>>\
+				@@.guardian;Honestly, it's a bit embarrassing to bring it up. But, don't get any funny ideas - keep your distance and don't encourage $futa.him_her."@@
+				
+				She gives you a pointed look, making you flare up in indignation.
+				
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					@@.hero;Like hell I would encourage anything from $futa.him_her!@@\
+				<<case 1>>\
+					@@.hero;Like hell I would encourage anything from $futa.him_her, no matter how attractive $futa.he_she is!@@\
+				<<default>>\
+					@@.hero;$futa.He_She is kinda attractive, but I should listen to $myguardian.@@\
+				<</switch>>\
+				You keep silent, though, and it seems that $guardian misinterprets your reaction.
+				
+				@@.guardian;"I know $futa.he_she has good looks, but $futa.he_she can be a real jerk from time to time. Sometimes, I wonder why I keep $futa.him_her around."@@ 
+				
+				$Guardian's gaze wanders a bit before settling on you again.
+				
+				@@.guardian;"Still, I draw the line there. No fucking my $futa.boy_girl////friend in my house."@@
+				
+				A level stare lets you know that she is really serious about it.
+				<<if $flags.guardianFuckedByStrapon>>\
+
+					She suddenly softens. A bit shyly, she adds, @@.guardian;"I... I will fuck you plenty with my strap-on if you'll be a good boy."@@
+				<<endif>>\
+					
+			<<elseif $player.perversion.boyfriend eq 2>>\
+				@@.guardian;"My $futa.boy_girl////friend told me that you've been a real tease."@@ 
+				
+				$Guardian gives you a hard look, but quickly breaks down into a snicker after seeing your shocked face. 
+				
+				@@.guardian;"I know, I know. $futa.He_She can be full of shit sometimes. Just ignore $futa.him_her - a couple of sleazy compliments and a little light flirting won't kill you. Believe me, it will pass."@@
+				
+				You doubt massaging your anus counts as 'light flirting,' but hopefully $guardian's right about it passing.
+				
+				@@.guardian;"You should have seen your face when I told you. Damn, where's a camera when you need one?"@@ 
+				
+				You find yourself pouting, and $guardian enjoys a chuckle at your expense.
+				
+			<<endif>>\
+		<<elseif (random(2) eq 0) and window.timeCode.isSaturday() and (not $flags.partyMaidTask) and ($player.perversion.guardian gte 7) and ($player.perversion.guardianCooldown gt 8)>>\
+			<<set $flags.partyMaidTask = true>>\
+			
+			<<if (not $flags.partyMaidDone)>>\
+			@@.guardian;"I have something for you that will suit your abilities. I’ve been talking to my friend Juliette about your excellent skills as a slutty maid, and she happens to need one just like you. You remember her don’t you? She used to visit <<if $kink.incest>>us<<else>>your mother<<endif>> with her daughter. I always thought you had a crush on her."@@
+
+			You did! Juliette's daughter was named Lily, and you have been dreaming about her since you were seven. She used to go to the same school as you. A few years older than you, she graduated and went to college this year. You are consoled that she's been away during your ordeal with the teacher - but it's not that she ever seemed to notice you, anyway. Your heart sinks at the possibility she could find out what you have become.
+
+			@@.guardian;"You see, Juliette is throwing an adult-themed party at her new home, and she wants someone to serve food and entertain the guests. I couldn’t think of anything more entertaining than a silly little sissy like you, so I offered her your services. Don’t you dare let me down! You're a disappointment as a male, but you've shown yourself to be quite the whore these few months. 
+			
+			"So, this is what you get for being such a slut: During your time with Juliette, she will have absolute authority over you. I’ve given her total permission to punish you as she sees fit. She can spank you if you misbehave, or worse - it’s up to her imagination, really. Believe me, she is very imaginative. 
+			
+			"I don’t think her daughter will be attending the party, but I’d wager you will see her. Or rather, she will see you and what you really are."@@
+
+			She lets her words sink in, watching your crestfallen expression with a smug smile.
+			
+			@@.guardian;"I will be //very// disappointed if you don't go, so be a good boy and don't forget about it."@@
+
+			@@.hero;Damn, she is really serious about this. I'd better go to that party.@@
+
+			@@.guardian;"Unfortunately, I won’t be able to able to make it to the party - I have so much work to do at the clinic this weekend. However, I told Juliette to take as many pictures and recordings as she can. I wouldn’t want to miss your first foray into the professional maid business."@@
+			<<else>>\
+			@@.guardian;"You remember Juliette? She loved your performance at the party and would like you to repeat it if possible."@@
+			
+			You shudder as you recall what happened there last time. $Guardian responds to your apprehension with a haughty laugh.
+			
+			@@.guardian;"I know you loved it. Don't be late, and don't forget your //special// uniform."@@
+			<<endif>>\
+			
+		<<endif>>\
+\
+<!--</Maid start>*********************-->\
+	<<else>>\
+	<!--<regular start>*********************-->\
+		<!--<clothes check for guardian>-->\
+		<<if playerCode.isWearingOn(itemTypes.Outerwear) and playerCode.isWearingOn(itemTypes.Outerwear).sleepWear and playerCode.isWearingOn(itemTypes.Outerwear).female and (not $flags.nightieSleep)>>\
+			<<if $player.perversion.guardian lte 2>>\
+				<<wearClothing 'pyjamasMale'>>\
+				You don't want $guardian to find out what you are wearing, so you quickly change to your regular pajamas.
+			<<else>>\
+				<<if playerCode.isMind_0()>>\
+					You don't want to give $guardian anything else to tease you with, so you quickly change to your regular pajamas.
+					<<wearClothing 'pyjamasMale'>>\
+				<<else>>\
+					This silky nightie is so soft and comfy that you can't bring yourself to change into your ordinary nightwear. $Guardian might tease you for it, but in your sleepy haze, you decide to roll with it.
+					<<set $flags.nightieSleep = true>>\
+				<<endif>>\
+			<<endif>>
+		<<elseif $player.perversion.guardian lte 4 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and (not playerCode.isWearingOn(itemTypes.Underwear))>>\
+			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+				<<wearClothing 'silkyTeddy'>>\
+				You don't feel comfortable being naked around $guardian, so you put on your soft, comfy nightie.
+			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+				<<wearClothing 'pyjamasMale'>>\
+				You don't feel comfortable being naked around $guardian, so you put on your pajamas.
+			<<endif>>
+		<<elseif $player.perversion.guardian lte 3 and (not playerCode.isWearingOn(itemTypes.Outerwear)) and playerCode.isWearingOn(itemTypes.Underwear)>>\
+			<<if playerCode.owns(itemsC.silkyTeddy) and ($player.perversion.guardian gte 3) and (not playerCode.isMind_0()) and $flags.nightieSleep>>\
+				<<wearClothing 'silkyTeddy'>>\
+				You don't feel comfortable having only your underwear on around $guardian, so you put on your soft, comfy nightie.
+			<<elseif playerCode.owns(itemsC.pyjamasMale)>>\
+				<<wearClothing 'pyjamasMale'>>\
+				You don't feel comfortable having only your underwear on around $guardian, so you put on your pajamas.
+			<<endif>>
+		<<endif>>\
+		<!--</clothes check for guardian>-->\
+		You walk to the kitchen and pour yourself a bowl of your favorite cereal. You add milk from the fridge, then sit at the table.
+
+		As you begin to eat, $guardian enters looking fresh and warm from her shower. \
+		<<if $player.perversion.guardian eq 0>>\
+			She smiles at you and picks up her morning coffee.
+		<<elseif ($player.perversion.guardian eq 1) or (($player.perversion.guardian gt 1) and ($player.therapistMode eq false))>>\
+			She frowns at you for a moment.
+			
+			<<if $player.therapistMode eq false>>\
+				<<set playerCode.activateTherapist(2)>>\
+				<<if ($player.perversion.guardian lte 2)>>\
+					@@.guardian;"I've decided you need to see a therapist to work out why you would invade my privacy like you did.@@\
+				<<else>>\
+					@@.guardian;"I've decided you need to see a therapist to help you work out your new interests.@@\
+					<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen or $items.playgirlMagazine.stolen>>\
+						@@.guardian;You know, I've found my\
+						<<if $items.pantiesCotton.stolen or $items.pantiesLatex.stolen>>\
+							panties\
+						<<elseif $items.playgirlMagazine.stolen>>\
+							magazine\
+						<<endif>>\
+						in your room. You have to know that some things are private.@@\
+					<<endif>>\
+				<<endif>>\
+				@@.guardian;I've set up appointments for you every\
+				<<for _i to 0; _i lt $player.therapistDays.length; _i++>>\
+					<<if _i gt 0>>\
+						<<if $player.therapistDays.length - _i gt 1>>\
+							,\
+						<<else>>\
+							and\
+						<<endif>>\
+					<<endif>>\
+					<<print weekdaysCode[$player.therapistDays[_i]]>><</for>>."@@
+					
+				@@.guardian;"Also, I think you should do more housework."@@\
+				
+			<<else>>\
+				After a moment, she relaxes and her expression warms a bit.
+			<<endif>>\
+		<<elseif $player.perversion.guardian eq 2>>\
+			With a calculating look in her eyes, she smiles and picks up her morning coffee, eyeing you closely.
+		<<elseif $flags.guardianRuinedDress and (not $flags.chorePunKinky)>>\
+			$Guardian acts a bit awkwardly around you today. She doesn't talk about yesterday, maybe because she's embarrassed about her drinking or her outburst at the end. Determined to resolve the issue, you decide to confront her about //the punishment// last evening.
+		<<elseif [3,4].includes($player.perversion.guardian) and [1,2].includes($player.perversion.guardianCorruption)>>\
+			<<if $player.perversion.guardianCorruption eq 1>>\
+				$Guardian is a bit awkward around you today. Noticing your stare, she smiles apologetically, but you catch some sort of wild gleam in her eyes. Reflexively you rub your butt, recalling recent events.
+				
+				Thankfully she doesn't comment on that //punishment// of yours.
+			<<else>>\
+				She smiles at you and picks up her morning coffee. You catch her biting lip and looking at you dreamily before she notices your stare and averts her eyes.
+			<<endif>>\
+			<<set $player.perversion.guardianCorruption++>>\
+		<<elseif $player.perversion.guardian eq 4 and [11,12,13,14].includes($player.perversion.guardianCorruption)>>\
+			<<if $player.perversion.guardianCorruption eq 11>>\
+				$Guardian glances at you and quickly averts her eyes, slightly blushing. She looks unsure how to act around you and her nervousness seems contagious, so you both sit there in awkward silence for some time.
+				
+				Finally, $guardian decides to break the silence with, @@.guardian;"You have a very sensitive butt for a boy."@@ 
+				
+				You almost choke on your cereal and scrunch in a coughing fit, trying to avoid flaring up like tomato. You glare at her, but she hides behind her cup of coffee, smiling and trying to look innocent. You bet her timing was intentional.
+				
+				Waiting to get back at her, you lie in wait for the moment she takes a sip from her cup, and quip, @@.heroT;"And I had to squeeze out the towel that I used to wipe the chair you were sitting on."@@
+				
+				You are rewarded with the sight of her doing a spit-take, which launches her last sip of coffee into a mist that settles over half the table. 
+				
+				Caught off guard by your sassy response, she suddenly dissolves in giggles. After a few seconds, you both are laughing.
+
+				You help her clean up the mess as the awkward tension between you finally fades. You finish your breakfast without further incident.
+			<<elseif $player.perversion.guardianCorruption eq 12>>\
+				$Guardian still acts a bit awkwardly around you, throwing you strange glances sometimes. You wonder what she thinks about //the thing//, but you are too afraid to ask directly, and she doesn't say a word to clue you to what her issue is.
+				
+				This uncertainty keeps you extremely nervous, but you decide to give it some time and wait for her to make first move.
+			<<elseif $player.perversion.guardianCorruption eq 13>>\
+				Today, she is mostly her usual self. She smiles at you as she picks up her morning coffee, but you catch a certain evasiveness in her glance. You get the sense she was going to ask something, but wavered at the last second.
+				
+				You stare at her with an anticipating look, but she just makes some random comment about the weather, avoiding the issue.
+			<<elseif $player.perversion.guardianCorruption eq 14>>\
+				She smiles at you and picks up her morning coffee. She has an unusual gleam in her eyes today.
+			<<endif>>\
+			<<set $player.perversion.guardianCorruption++>>\
+		<<else>>\
+			She smiles at you and picks up her morning coffee.
+		<<endif>>\
+\
+		<<if $time.day == 1 && !$kink.incest>>\
+			@@.guardian;"Don't forget - I'm going to be away for at least a few months doing my sales run,"@@ $guardian says, @@.guardian;"so $babysitter is on her way over here to look after you."@@
+
+			$babysitter is your childhood babysitter. Even though you're now old enough to be left on your own, your mother still asks $babysitter over, knowing she's eager to get out of her parents' house.  Your relationship with $babysitter has never really changed, and she naturally assumes a motherly role with you. 
+			
+			Your house only has two bedrooms, so she just uses your mother's. It's great that you get on well together, undoubtedly helped by how knock-out beautiful she is. If only she didn't have a $futa.boy_girl////friend...
+
+		<<endif>>\
+\
+		<<if $minigames.dreamgame.playedToday and (not $flags.dreamgameCaught)>>\
+			@@.guardian;"Were you in my bedroom this morning? I'd prefer you to stay in bed until I've woken up, so I've taken your alarm clock and put it into storage. No need for more than one alarm."@@
+			
+			@@.hero;Damn.@@
+				
+			<<removeFromInv 'alarmClock'>>\
+		<<endif>>\
+	<!--</regular start>*********************-->\
+	<<endif>>\
+\
+	<!--<reaction to bodymods>*********************-->\
+	<<if $flags.salonPenalty and (not $flags.guardianNoticesalonPenalty) and (not _skipComments)>>\
+		<<set $flags.guardianNoticesalonPenalty = true>>\
+		<<set $flags.guardianNoticetattooHeart = true>>\
+		<<set $flags.guardianNoticeLipsEnhancingXL = true>>\
+		<<set $flags.guardianNoticeGarishManicure = true>>\
+		<<set $flags.guardianNoticeHeavyMakeup = true>>\
+		<<set $flags.guardianNoticebeautyMark = true>>\
+		<<set $flags.guardianNoticenosePiggy = true>>\
+		<<if $player.perversion.guardian lte 2>>\
+			@@.guardian;"So, I was trying to stay calm and give you time to finish waking up, but... what the hell is going on? What happened to you!?!"@@
+			With a heavy sigh, you tell her how Nancy tricked you into this.
+			@@.guardian;"Uhuh.."@@
+		<<elseif $player.perversion.guardian lte 4>>\
+			@@.guardian;"So, I was trying to stay calm and give you time to finish waking up, but... what the hell is going on? What happened to you!?!"@@
+			With a heavy sigh, you tell her how Nancy tricked you into this.
+			@@.guardian;"Uhuh... That's a tad extreme."@@
+		<<elseif $player.perversion.guardian lte 6>>\
+			@@.guardian;"So, I was trying to stay calm and give you time to finish waking up, but... what the hell is going on? What happened to you!?!"@@
+			With a heavy sigh, you tell her how Nancy tricked you into this.
+			@@.guardian;"How do you feel about it? You can be honest with me."@@
+			<<switch playerCode.isMind()>>\
+			<<case 0>>\
+				You start by telling her you hate it. Under $guardian's steady gaze, however, you reluctantly add that it also turns you on, even though you don't want it to.
+			<<case 1>>\
+				You say you dislike it. To your surprise, under $guardian's steady gaze, more words tumble out, and you find yourself admitting that it also excites you - maybe it's even a turn-on.
+				@@.guardian;"So, would you change back right now if you could?"@@
+				You almost say 'yes,' but stop yourself. You hesitantly confess you're curious how this style will affect the way people treat you. So, maybe, it's okay to look this way, just for a little bit.
+			<<default>>\
+				You have a hard time admitting your feelings, but after some hesitation and $guardian's urging, you do. You decide that you're actually tempted to see if you can get used to it.
+				@@.guardian;"Well, that was unexpected. Honestly, looking like this might bring you a lot of trouble, but... who am I kidding? The way you look, even I'd want to plow you, and I don't even have a cock myself. I say go for it - at least you'll be able to get all the dicks you want."@@
+			<</switch>>\
+		<<elseif $player.perversion.guardian gte 7>>\
+			@@.guardian;"So, I was trying to stay calm and give you time to finish waking up, but... how did I miss your sudden makeover?"@@
+			With a heavy sigh you tell her how Nancy tricked you into this.
+			
+			@@.guardian;"AHAHAHAHAahahahaha..."@@
+			
+			You spend several humiliating minutes as $guardian laughs at your expense. Finally, she calms down enough to talk.
+			
+			@@.guardian;"Don't you dare change anything. Your looks finally match the slut you've shown yourself to be!"@@
+		<<endif>>\
+	<<endif>>\
+	<<if $body.earsPierced>>\
+		<<if (not $flags.guardianNoticePiercingEars)>>\
+			<<set $flags.guardianNoticePiercingEars = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"You got your ears pierced...?"@@
+				You tell her a lot of guys your age get their ears pierced. It looks cool.
+				@@.guardian;"But... you pierced both ears?"@@
+				Your eyes fall. You weakly mutter that it's just in case you lose one.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You... got your ears pierced? I'm not judging you, but..."@@
+				Your cheeks flush a bit anyway.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"You got your ears pierced? They look nice."@@
+			<<elseif $player.perversion.guardian gte 7>>\
+				<<if playerCode.isWearing(itemsC.hoopsEarrings)>>\
+					@@.guardian;"So, you've pierced your ears? I love your hoop earrings - they're just right for a slut like you."@@
+				<<else>>\
+					@@.guardian;"So, you've pierced your ears? I suggest some hoop earrings - they're more appropriate for a slut like you."@@
+				<<endif>>\
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.PiercingLips)>>\
+		<<if (not $flags.guardianNoticePiercingLips)>>\
+			<<set $flags.guardianNoticePiercingLips = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Is that a... you got a lip ring? What were you thinking?!?"@@
+				Timidly, you try to explain that it's a popular thing to get these days, but she just looks at you with disapproval.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Really? You got a lip ring?"@@
+				You try to tell her that it is a popular thing to do these days, but she only looks at you doubtfully.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"You have a lip ring. Not entirely surprising, I suppose, but still..."@@
+				You tell her that it is a popular thing to do these days. She replies only with a blank stare and a long sigh.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"You got a lip ring. I don't like them, but for a slut like you, I guess it's actually fitting."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.PiercingNose)>>\
+		<<if (not $flags.guardianNoticePiercingNose)>>\
+			<<set $flags.guardianNoticePiercingNose = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"You got your nose pierced! Are you kidding me?!?"@@
+				You sheepishly tell her that a lot of boys at school have a piercing or two.
+				@@.guardian;"If you say so, but that's not the point. That piercing looks extremely girly!"@@
+				Failing to find a reasonable explanation, you blush and mumble a vague response. $Guardian just looks at you, her eyes full of confusion.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You got your nose pierced? But it looks so girly!"@@
+				You say that you think they're getting more popular lately, and try to cover for your embarrassment. She just shakes her head slowly in disapproval.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"You have a nose piercing. Not entirely surprising, I suppose, but still..."@@
+				You touch it with your hand and look away, pretending not to be embarrassed.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"You have a nose piercing? I guess it goes along with all the other slutty things you've chosen lately."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.PiercingTongue)>>\
+		<<if (not $flags.guardianNoticePiercingTongue)>>\
+			<<set $flags.guardianNoticePiercingTongue = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				$Guardian notices your lisp, but you manage to play it off, saying you bit your tongue.
+			<<elseif $player.perversion.guardian lte 4>>\
+				$Guardian notices your lisp and, after a brief hesitation, you admit that you've gotten your tongue pierced. She just looks at you disapprovingly, but doesn't ask you to remove it.
+			<<elseif $player.perversion.guardian lte 6>>\
+				$Guardian notices your lisp and, after a brief hesitation, you admit that you've gotten your tongue pierced.
+				@@.guardian;"I don't like piercings in general, but I guess you must have a use for it."@@
+			<<elseif $player.perversion.guardian gte 7>>\
+				$Guardian notices your lisp and, after a brief hesitation, you admit that you've gotten your tongue pierced.
+				@@.guardian;"I don't like piercings in general, but I've heard that a pierced tongue adds to the pleasure of anyone you're servicing with your mouth. Nice thinking, slut."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.hairstyle.level eq 1)>>\
+		<<if (not $flags.guardianNoticeHairShort)>>\
+			<<set $flags.guardianNoticeHairShort = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"I like your new haircut, but... isn't it a bit feminine?"@@
+				You reassure her, saying that a lot of boys are going for metrosexual hairstyles like this.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Hmm.. nice haircut."@@
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Nice haircut. I see you still like your hair short, but at least you got it styled properly,"@@ $guardian smiles and nods approvingly.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. A short haircut? Is my sissy maid too lazy to take care of big-girl hair?"@@
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.hairstyle.level eq 2)>>\
+		<<if (not $flags.guardianNoticeHairMedium)>>\
+			<<set $flags.guardianNoticeHairMedium = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"I like your new haircut, but... isn't it a bit girly?"@@
+				You reassure her, saying that lots of boys are going for the shaggy rocker look these days.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Hmm.. nice haircut."@@
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Nice haircut. It's good to see you looking for your own style."@@ $Guardian smiles, nodding approvingly.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. Nice haircut."@@
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.hairstyle.level eq 3)>>\
+		<<if (not $flags.guardianNoticeHairLong)>>\
+			<<set $flags.guardianNoticeHairLong = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Your new haircut.. it looks very feminine."@@
+				You reassure her, telling her that lots of boys have long hair.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Oh, so you like having long hair?"@@
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"I like what you did with your hair. It's good to see you looking for your own style."@@ $Guardian smiles, nodding approvingly.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. Nice haircut."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.hairstyle.level eq 4)>>\
+		<<if (not $flags.guardianNoticeHairPigtails)>>\
+			<<set $flags.guardianNoticeHairPigtails = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Erm, why are you wearing your hair in pigtails?"@@
+				
+				You just mumble that some girl dared you to do it. $Guardian smiles, trying not to giggle.
+				
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"That is a very peculiar hair style you've got. I guess it could be both innocent and slutty."@@
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Nice pigtails. I like seeing you exploring your own style."@@ $Guardian smiles, nodding approvingly.
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. This hair style is nice. Just make sure you dress slutty enough and wear lots of makeup, to send the right message."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.hairstyle.level eq 5)>>\
+		<<if (not $flags.guardianNoticeHairCurly)>>\
+			<<set $flags.guardianNoticeHairCurly = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Erm, why are you wearing your hair curled into dangling ringlets?"@@
+				
+				You just mumble that some girl dared you to do it. $Guardian smiles, trying not to giggle.
+				
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Your new hairstyle is... interesting. I never suspected you'd go for the 'dolly' look."@@
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"I love your new hair style! It's perfect and looks so great with your maid outfit."@@
+				
+				$Guardian smiles brightly, obviously pleased with your decision.
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Nice hair style! With your slutty nature, the 'fuck-doll' vibe is perfect for you!"@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.makeup eq 2)>>\
+		<<if (not $flags.guardianNoticeNormalMakeup)>>\
+			<<set $flags.guardianNoticeNormalMakeup = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"So... why are you wearing makeup? And such a feminine style, too."@@
+				
+				You just mumble some lame excuse about losing a bet, but $guardian doesn't look very convinced.
+				
+				@@.guardian;"Uhuh.."@@
+				
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"So, now you're wearing makeup? I have to admit, it looks good on you, but..."@@ 
+				
+				$Guardian looks a bit puzzled.
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Nice makeup. It's subtle work, but it completely transforms your face."@@
+
+				$Guardian looks a little impressed at how you pulled that off. You just mumble a 'thank you.'
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Nice makeup - makes you look sexy. Good choice."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.makeup eq 3)>>\
+		<<if (not $flags.guardianNoticeBimboMakeup)>>\
+			<<set $flags.guardianNoticeBimboMakeup = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"So... exactly why are you painted like an airheaded bimbo?"@@
+				
+				You just mumble some lame excuse about losing a bet, but $guardian doesn't look very convinced.
+				
+				@@.guardian;"Uhuh.."@@
+				
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You look like a total bimbo. I have to admit, it looks good on you, though."@@ 
+				
+				$Guardian looks a bit puzzled.
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Nice makeup. It's a little overdone, but overall it does a good job... if you're going for brainless bimbo."@@ 
+				
+				$Guardian looks at you with puzzlement. Extremely embarrassed, you just mumble a 'thank you.'
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Nice makeup, you look like a total bimbo. Good choice."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.makeup eq 4)>>\
+		<<if (not $flags.guardianNoticeHeavyMakeup)>>\
+			<<set $flags.guardianNoticeHeavyMakeup = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"So.. why exactly are you painted like a two-dollar whore?"@@
+				
+				You just mumble some lame excuse about losing a bet, but $guardian doesn't look convinced at all.
+				
+				@@.guardian;"Uhuh.."@@
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You look like a two-dollar whore! I must admit, it's strangely arousing, despite the garish colors."@@ Mixed emotions play across $guardian's face.
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Such trashy makeup... huh, wait a second... oh, now I see. It was deliberate! Wow, that's genius - the overdone makeup looks cheap, but it comes together for an incredible 'come fuck me' allure."@@ 
+				
+				$Guardian looks intrigued.
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"With this makeup, you look like a whore. Pretty much on point, I'd say."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.boobs eq 4)>>\
+		<<if (not $flags.guardianNoticeBreastsDD)>>\
+			<<set $flags.guardianNoticeBreastsDD = true>>\
+			<<if $player.perversion.guardian lte 4>>\
+				@@.guardian;"Oh, my god! Your breasts... you really want to have them this big? I remember wanting a bigger chest when I was your age, but... I need to think about this..."@@
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Wow, your breasts are huge! I never thought I would say this, but they really suit you. They do make you look extremely slutty though..."@@
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. You finally have breasts that match your inner slut. I bet you'd enjoy having a man groping and squeezing those melons."@@
+				
+			<<endif>>\
+			<<switch playerCode.isMind()>>\
+			<<case 0>>\
+				You just mumble some lame excuse about why you got them.
+				
+			<<case 1>>\
+				Your face grows rosy red, but you admit that they feel nice, even if you're still getting used to them.
+				
+			<<default>>\
+				You squeeze your tits and say that you like them very much.
+				
+			<</switch>>\
+		<<elseif (random(10) eq 0)>>\
+			@@.guardian;"I bet you enjoy having such giant boobs."@@
+			
+		<<endif>>\
+	<<elseif ($body.boobs eq 3)>>\
+		<<if (not $flags.guardianNoticeBreastsC)>>\
+			<<set $flags.guardianNoticeBreastsC = true>>\
+			<<if $player.perversion.guardian lte 4>>\
+				@@.guardian;"Oh, my - those are very obviously breasts. I never thought you would... Never mind. Just tell me, do you like them?"@@
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Those look great on you, honey. That's a decent cup size, too. I'm so glad you're coming out of your shell."@@
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. I see you've gotten a boob job. You're on the right track, slut, but wouldn't you look better with even bigger ones?"@@
+				
+			<<endif>>\
+			<<switch playerCode.isMind()>>\
+			<<case 0>>\
+				You just mumble some lame excuse about why you got them.
+				
+			<<case 1>>\
+				Your face flushes red, but you admit that they feel nice, even if you're still getting used to them.
+				
+			<<default>>\
+				You squeeze your tits and say that you like them very much.
+				
+			<</switch>>\
+		<<elseif (random(10) eq 0)>>\
+			@@.guardian;"I bet you enjoy having such big boobs."@@
+			
+		<<endif>>\
+	<<elseif ($body.boobs eq 2)>>\
+		<<if (not $flags.guardianNoticeBreastsB)>>\
+			<<set $flags.guardianNoticeBreastsB = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Hmm... Wait a second, do you have breasts? What happened?!? Are you feeling alright?"@@
+				
+				Startled by $guardian's panic, you tell her about the treatment you got at the clinic.
+				
+				@@.guardian;"So, you want to have breasts...? I never realized.... This... This will change things."@@
+				
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Hmm... Wait a second, do you have breasts? You're taking this further than I thought you would."@@
+				
+				You just mumble some vague explanation about trying new things, but it comes out sounding so lame that you don't even believe it yourself.
+				
+				@@.guardian;"Uhuh.."@@
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Hmm... Wait a second, do you have breasts? They look great on you! I'm glad you decided to try it out."@@
+				
+				Embarrassed, you can only mumble thank you.
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. I see you've gotten a boob job. Nice thinking slut, but they'll need to be even larger if you want the kind of attention I think you do."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.boobs eq 1)>>\
+		<<if (not $flags.guardianNoticeBreastsA)>>\
+		<<set $flags.guardianNoticeBreastsA = true>>\
+			<<if $player.perversion.guardian lte 4>>\
+				@@.guardian;"Huh. You look different today... I can't say for sure why, though."@@
+				
+				You make some lame excuse about putting on some weight, while trying to cover your small breasts.
+				
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Huh. There's something different about you today. I can't say for sure what, though."@@
+				
+				You admit that you got a boob job.
+				
+				@@.guardian;"Oh, wow. Now that you've pointed it out, I can see the difference. They look good on you."@@
+				
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Huh. I see you've gotten a boob job. Nice thinking slut, but they'll need to be way bigger if you want to get the attention I know you crave."@@
+				
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.tattooHeart)>>\
+		<<if (not $flags.guardianNoticetattooHeart)>>\
+			<<set $flags.guardianNoticetattooHeart = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Is that a tattoo? Why did you get something so... extremely feminine?"@@
+				You lie, saying it's only temporary, and that it's a new fashion... $Guardian doesn't look very convinced.
+				@@.guardian;"Uhuh.."@@
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Is that a tattoo?"@@
+				You lie, saying it's only temporary, and that it's a new fashion... $Guardian doesn't look very convinced.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"That heart tattoo looks nice, though I do not approve of tattoos in general."@@ $Guardian gives you slightly disapproving look.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You just lower your eyes, wondering what you were thinking when you got this tattoo.
+				<<case 1>>\
+					Though your cheeks redden up at her words, you actually think this particular tattoo is cute.
+				<<default>>\
+					You pout and say that you really like this tattoo.
+				<</switch>>\
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Nice tattoo - though a big 'slut' script on your forehead would send the message more clearly."@@ $Guardian smirks at your shocked expression.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You just lower your eyes, wondering what you were thinking when you got this tattoo.
+				<<case 1>>\
+					Though your cheeks redden up at her words, you actually think this particular tattoo is cute.
+				<<default>>\
+					You pout and say that you really like this tattoo.
+				<</switch>>\
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if playerCode.owns(itemsC.beautyMark)>>\
+		<<if (not $flags.guardianNoticebeautyMark)>>\
+			<<set $flags.guardianNoticebeautyMark = true>>\
+			@@.guardian;"Is that a beauty mark? That's unusual."@@
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.nose.level eq 1)>>\
+		<<if (not $flags.guardianNoticenoseClassic)>>\
+			<<set $flags.guardianNoticenoseClassic = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Your nose seems different."@@
+				You laugh it off.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Your nose seems different, is it prettier?"@@
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Your nose seems different, is it prettier?"@@
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Your nose seems different, is it prettier?"@@
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.nose.level eq 2)>>\
+		<<if (not $flags.guardianNoticenoseButton)>>\
+			<<set $flags.guardianNoticenoseButton = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Your nose seems different."@@
+				You laugh it off.
+			<<else>>\
+				@@.guardian;"Your nose seems different, so small and cute."@@
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.nose.level eq 3)>>\
+		<<if (not $flags.guardianNoticenosePiggy)>>\
+			<<set $flags.guardianNoticenosePiggy = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Your nose looks different. What happened?"@@
+				Not sure how to explain it, you say that you lost a weird dare.
+				@@.guardian;"It looks.. a little... piggy. You'll change it back soon, right?"@@
+				You assure her that you are going to change it back as soon as possible.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Your nose looks different. What happened?"@@
+				Not sure how to explain it, you say that you lost a weird dare.
+				@@.guardian;"It looks.. a little... piggy. You'll change it back soon, right?"@@
+				You assure her that you are going to change it back as soon as possible.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Your nose looks different. What happened?"@@
+				Not sure how to explain it, you say that you lost a weird dare.
+				@@.guardian;"It looks.. a little... piggy. You'll change it back soon, right?"@@
+				You assure her that you are going to change it back as soon as possible.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"You have a piggy nose!"@@
+				Not sure how to explain it, you say that you lost a weird dare and you're going to change it back as soon as possible.
+				@@.guardian;"Actually, don't... I think it looks good on a dirty little slut like you."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.lips eq 1)>>\
+		<<if (not $flags.guardianNoticeLipsEnhancing)>>\
+			<<set $flags.guardianNoticeLipsEnhancing = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Hmm... your lips look puffy? Are you okay?"@@
+				You reassure her, and try to explain that you must be having an allergic reaction or something.
+				@@.guardian;"Oh, ok, but tell me if it gets worse."@@
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You got your lips plumped? They look really feminine. Do.. do you like it?"@@ $Guardian looks a bit confused by how girly you've started to look.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You say that they feel a bit weird and you're still getting used to them.
+				<<case 1>>\
+					Your face flushes red, but you admit that they feel nice, though you're still getting used to them.
+				<<default>>\
+					You pout and say that you actually like them this way.
+				<</switch>>\
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"I love how you look with those full, pouty lips, it really brings out the erotic character of your face."@@ $Guardian giggles.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You say that they feel a bit weird and you're still getting used to them.
+				<<case 1>>\
+					Your face flushes red, but you admit that they feel nice, though you're still getting used to them.
+				<<default>>\
+					You pout and say that you actually like them this way.
+				<</switch>>\
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Well look at you, sexy lips. I bet you can't wait to wrap them around a fat juicy cock, can you, slut?"@@ $Guardian smiles wickedly.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					Humiliated, you just lower your eyes in shame.
+				<<case 1>>\
+					Your face flushes red, as you think that $guardian may be right.
+				<<default>>\
+					You pout and say that she is wrong, though you find your mouth watering for some reason...
+				<</switch>>\
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.lips eq 2)>>\
+		<<if (not $flags.guardianNoticeLipsEnhancingXL)>>\
+			<<set $flags.guardianNoticeLipsEnhancingXL = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"I.. I don't even know what to say about these lips of yours. This has really thrown me for a loop."@@
+				You try to explain it, but you're at a loss for an excuse that would be the least bit believable.
+				@@.guardian;"We will talk later."@@
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"You got your lips enlarged again? They look so fake, and kind of whorish."@@ $Guardian looks at you disapprovingly.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You say that you don't really enjoy looking like this, but... you're at a loss for an excuse that would be the least bit believable. $Guardian just gives you an understanding smile. It's obvious she thinks you're just being shy about your preferences.
+				<<case 1>>\
+					You mostly agree with her, but some tiny part of you gets a thrill from the kind of attention you're getting with your cocksucking lips.
+				<<default>>\
+					You guess you can see her point... but you're really enjoying all the attention you're getting with your cocksucking lips.
+				<</switch>>\
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"You look like a whore with those cocksucking lips. I'm not judging, just trying to be honest. It's ok if that's the message you want to send."@@ $Guardian looks at you, obviously conflicted.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					You say that you don't really enjoy looking like this, but... you're at a loss for an excuse that would be the least bit believable, and $guardian just gives you an understanding smile. It's obvious she thinks that you're just being shy about your preferences.
+				<<case 1>>\
+					You mostly agree with her, but some tiny part of you gets a thrill from the kind of attention you're getting with your cocksucking lips.
+				<<default>>\
+					You guess you can see her point... but you're really enjoying all the attention you're getting with your cocksucking lips.
+				<</switch>>\
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Well, well, well... look at you. With those lips there's no question about what your hobbies are, huh? I want you to put these to use as soon as possible."@@ $Guardian smiles wickedly.
+				<<switch playerCode.isMind()>>\
+				<<case 0>>\
+					Humiliated, you just lower your eyes in shame.
+				<<case 1>>\
+					Your face flushes red, as you think that $guardian may be right.
+				<<default>>\
+					You pout and say that she is wrong, though you find your mouth watering for some reason...
+				<</switch>>\
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<<if ($body.manicure.level eq 1)>>\
+		<<if (not $flags.guardianNoticeManicure)>>\
+			<<set $flags.guardianNoticeManicure = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"Oh... you got a manicure? That is rather unusual for a boy."@@
+				Not ready to come clean, you just explain that you lost a dare.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Oh... you got a manicure? It looks good on you?"@@ $Guardian looks unsure how to react.
+				You blush and try to hide your manicured nails, mumbling thanks.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"A French manicure for a French maid,"@@ $guardian giggles. @@.guardian;"It looks good, though it must be inconvenient at times."@@
+				Embarrassed, you just mumble thanks.
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Nice manicure. I guess it's only fitting, you'll want your hands to look pretty when your fingers are wrapped around a fat cock."@@ $Guardian smirks wickedly.
+			<<endif>>\
+		<<endif>>\
+	<<elseif ($body.manicure.level eq 2)>>\
+		<<if (not $flags.guardianNoticeGarishManicure)>>\
+			<<set $flags.guardianNoticeGarishManicure = true>>\
+			<<if $player.perversion.guardian lte 2>>\
+				@@.guardian;"What is that on your fingers?!"@@
+				You try to hide your manicured nails and mumble some lame excuse, but $guardian doesn't look convinced.
+			<<elseif $player.perversion.guardian lte 4>>\
+				@@.guardian;"Oh... you got a new manicure? Isn't it a little... slutty?"@@ $Guardian raises an eyebrow at your chosen style.
+				
+				You blush, but there is no point in hiding the manicure with how long and obvious it is. You just try to bullshit her about it being a new fashion, but $guardian doesn't look convinced at all.
+			<<elseif $player.perversion.guardian lte 6>>\
+				@@.guardian;"Oh my, what a slutty manicure,"@@ $guardian giggles.
+				
+				@@.guardian;"You know, it actually looks great on you. I just wasn't expecting you to show such commitment to your role."@@
+			<<elseif $player.perversion.guardian gte 7>>\
+				@@.guardian;"Oh my, what a slutty manicure. Good choice, slut. Now you won't have to worry about breaking a nail when you're getting fucked on your hands and knees."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>\
+	<!--</reaction to bodymods>*********************-->\
+	<!--<rewards and punishments>*********************-->\
+	<<if $flags.choreReward and ($time.weekDay() gte 3) and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1) and (not _skipComments)>>\
+		<<if $player.perversion.guardianCorruption eq 15 and $player.perversion.guardian eq 4 and $time.weekDay() lte 4>>\
+			<<set $flags.choreReward = false>>\
+			<<set _skipEnd = true>>\
+			<<set _skipComments = true>>\
+
+			$Guardian suddenly looks a bit nervous. She fidgets on her seat, glances at you and says.
+			
+			@@.guardian;"About my last //present//, I... I got carried away. I'm sorry."@@
+
+			She quickly glances at you again and continues.
+			
+			@@.guardian;"I just wanted to ask if you are ok."@@
+			
+			[[Say that you loved it|Guardian kinky reward][$scene="strapon yes";$time.addMinutes(30); $player.perversion.guardianCorruption=18]]
+			[[Say that it was too weird|Guardian kinky reward][$scene="strapon no";$time.addMinutes(30); $player.perversion.guardianCorruption=17]]
+			
+		<<elseif $flags.gTrialStrapOn and (not $flags.guardianStrapon) and (not $flags.straponSurprise) and [5,6].includes($player.perversion.guardian)>>\	
+			<<set $flags.straponSurprise = true>>\
+			
+			$Guardian winks at you and cheerfully tells that she has a surprise for you this weekend. She seems to revel in keeping you fidgeting, savoring her juicy secret. You do your best to fish the slightest detail from her, all to no avail. She's adamant about it, so you're left to wonder what she has planned this time.
+			
+		<<elseif (not $flags.choreRewSpinning) and [3,4].includes($player.perversion.guardian)>>\
+			<<set $flags.choreReward = false>>\
+			<<set $flags.choreRewSpinning = true>>\
+			<<set _skipComments = true>>\
+			
+			$Guardian leans toward you and whispers conspiratorially, @@.guardian;"I have something special for you."@@ For a tiny moment, you recall one of your fantasies featuring her, letting yourself indulge in a fleeting hope of wish fulfillment.
+
+			She walks out of the kitchen for a bit and returns with a skateboard. It's not just any skateboard, either: it's the most coveted deck on the market right now, with a cool tribal design, top-of-the-line trucks and the best ceramic bearings you can buy. It's obvious she spent both time and some good money getting it.
+
+			But you can't keep the disappointment off your face - why did she have to get //this// one?
+			
+			It's not that you didn't dream about owning a board like this, maybe as recently last year. Hell, you might still love to skate with it, even if you haven't done any riding for some time.
+
+			The thing is, not too long ago, a punk classmate of yours - one of $bully's inner circle - lost a skateboard. Since you were already his favorite target, $bully wasted no time accusing you of stealing it.
+
+			You shudder, remembering how $bully and his asshole friends ganged up on you and surrounded you, cruelly interrogating you as their main suspect. They were out for blood. The bruises you got while getting away from them lasted for days. Eventually, the rumor died out and $bully went back to his normal level of douchery, but nobody ever found out what really happened to the board.
+
+			The skateboard in $guardian's hands looks //just like the one $bully's friend lost.//
+
+			You probably could repaint it or something, but if you were ever seen with it by those punks and they figured it out, you'd be a dead man.
+			
+			Seeing your fallen face, $guardian's smile falters @@.guardian;"Sorry, I just thought that you liked this stuff. I should have asked."@@
+			
+			It isn't her fault, and you really don't want her to feel bad about it, so you hurry to reassure her. Embarrassed to admit your cowardice, you make up a story that your friend had a bad fall while skating and doesn't skate anymore, so you don't want to remind your friend about that.
+			
+			$Guardian nods and agrees it's unfortunate, but you feel like she sees right through your thin story. You can tell she's just as disappointed as you are, and probably thinks you just don't want to be rude about a bad gift. 
+
+			She says she'll figure out what to do with the skateboard and promises she'll try to find something more to your liking next time. You feel a little guilty about it, but you're genuinely thankful she went to all the effort to make you happy.
+			
+		<<elseif ($time.weekDay() eq 6) and (not $flags.choreRewCallOfHonor)>>\
+			<<set $flags.choreReward = false>>\
+			<<set $flags.choreRewCallOfHonor = true>>\
+			<<set _skipComments = true>>\
+		
+			@@.guardian;"Hey, $player.name, I got you something special for all the hard work you've been doing."@@ 
+
+			$Guardian hands you a new version of //Call of Honor// for your PSBox. It's not just any version, either - it's the Ultra-Black Day One Obsessive Completist Edition! You can barely believe your eyes as you hold the black-with-hologram-printed packaging in your very hands. Pre-orders were sold out for this well ahead of launch day - how did she...?
+
+			$Guardian sees your face, and quickly answers your question. @@.guardian;"The guy at the game store said this is the one to have right now. They were officially out of those, but I flirted with him a little and he gave me one out of the employee stash."@@
+		
+			You examine the epic gift, still in total disbelief. You gush words of thanks, barely containing your urge to play immediately.
+
+			$Guardian wraps you in a big hug and kisses you on the cheek. @@.guardian;"You're welcome, sweetie."@@
+
+			@@.hero;Hell, yeah!@@
+
+		<<elseif ($time.weekDay() eq 6) and $flags.guardianStrapon and ($player.choresPercent gte 70) and ($player.choreFailsCurrent lte 1)>>\
+
+			@@.guardian;"Since you been so good this week, you can ask me to give your ass a one thorough fucking."@@
+	
+		<<endif>>\
+	<<elseif ($time.weekDay() eq 3) and ($flags.choreLazy or ($player.choreFailsCurrent gte 4))>>\
+		<<if (($player.perversion.guardianCorruption eq 15 and $flags.guardianPunishVibrator) or $player.perversion.guardianCorruption eq 17) and $player.perversion.guardian eq 4>>\
+			<<set $flags.straponForced = true>>\
+		
+			@@.guardian;"It seems you still haven't learned your lesson about being lazy. If you don't change your approach, I will come up with something unorthodox to keep you motivated."@@
+		
+		<<endif>>\
+	<<endif>>\
+	<!--</rewards and punishments>*********************-->\
+	<!--<commenting on masturbation>*********************-->\
+	<<if ($player.perversion.guardian gte 4) and ($player.masturbationType gt 0) and (not _skipComments)>>\
+		<<if $player.perversion.guardianWatch lte 4>><!--Intro comments-->\
+			<<set $player.perversion.guardianWatch ++>>\
+			<<if $player.perversion.guardianWatch eq 1>>\
+				@@.guardian;"It is embarrassing to watch recordings of the things you do when you're alone, but someone should."@@ You're humiliated by the realization $guardian watched what you did yesterday.
+			<<elseif $player.perversion.guardianWatch eq 2>>\
+				@@.guardian;"Wanky, wanky."@@ $Guardian drops the line casually and you know what she must have seen on yesterday's recording. Your cheeks burn with embarrassment.
+			<<elseif $player.perversion.guardianWatch eq 3>>\
+				@@.guardian;"I really shouldn't comment on your performance yesterday, but it was lacking."@@ $Guardian winks, smiling. Damn, she is getting used to watching you, and seems to enjoy making you blush.
+			<<elseif $player.perversion.guardianWatch eq 4>>\
+				$Guardian whistles the song 'Satisfaction' and you know what she must be hinting. You try to ignore her, but your body language betrays you as you blush and sink lower into your seat.
+			<<else>>\
+				@@.guardian;"You know, I think you could benefit from some feedback on your performance during your 'almost private' time."@@
+				@@.hero; Oh god, no. Kill me now.@@
+			<<endif>>\
+		<<else>>\
+			<<set _rc = random(10)>>\
+			<<if _rc lte 0>>@@.guardian;"So, I watched your private show again.@@\
+			<<elseif _rc lte 1>>@@.guardian;"Guess what I was watching last evening.@@\
+			<<elseif _rc lte 2>>@@.guardian;"I saw your video last night and found your lack of restraint... intriguing.@@\
+			<<elseif _rc lte 3>>@@.guardian;"You were a naughty boy, $player.name.@@\
+			<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;"I see my horny maid needed some private time.@@\
+			<<elseif _rc lte 5>>@@.guardian;"Oh naughty, naughty!@@\
+			<<elseif _rc lte 6>>@@.guardian;"I think you enjoy the fact that I watch you all sweaty and hot.@@\
+			<<elseif _rc lte 7 and $player.perversion.guardian gte 5>>@@.guardian;"So my lusty maid had some solo fun, huh?@@\
+			<<elseif _rc lte 8 and [9,10,11].includes($player.masturbationType)>>@@.guardian;"Oh, my. You looked so sweet fucking yourself with a dildo.@@\
+			<<elseif _rc lte 9 and [1,3,5,7,9].includes($player.masturbationType)>>@@.guardian;"I'm bet it was an interesting experience for you last night.@@\
+			<<else>>@@.guardian;"You put on such show last night.@@\
+			<<endif>>\
+			<<if $player.masturbationType eq 1>><!--Watch porn in chastity-->\
+				@@.guardian;It was funny to watch you squirming, panting, desperate for release as you watched that porn yesterday.@@\
+				<<if $player.perversion.guardian eq 7>>\
+					@@.guardian;I bet you were envious of that slut being fucked in every hole.@@\
+				<<endif>>\
+			<<elseif $player.masturbationType eq 2>><!--Watch porn and wank-->\
+				@@.guardian;After all the kinky stuff you've been up to, I honestly wasn't expecting something as vanilla as jerking off while watching porn.@@\
+			<<elseif $player.masturbationType eq 3>><!--Spy cam in chastity-->\
+				@@.guardian;I don't like you watching me when I, uh... but I'd be a hypocrite to deny you that. I should show you yesterday's video. The look on your face when I came was priceless! I bet you dreamed of being fucked silly last night.@@\
+			<<elseif $player.masturbationType eq 4>><!--Spy cam wank-->\
+				@@.guardian;So you like to masturbate watching me undressed and erm...@@ \
+				<<if (not playerCode.isWearingOn(itemTypes.Chastity))>>\
+					@@.guardian;I hope it felt really good, as it will be the last time for you@@ \
+					<<if $player.perversion.guardian gte 5>>\
+						@@.guardian;until next weekend."@@\
+					<<else>>\
+						@@.guardian;until tomorrow."@@ Damn... but you don't have the key so it is going to be until next weekend.\
+					<<endif>>\
+					$Guardian hands you your chastity cage and you obediently put it on and lock it.\
+					<<wearClothing 'chastityDevice'>>\
+					<<if (not $flags.chastityLocked)>>\
+						<<set $flags.chastityLocked=true>>\
+					<<endif>>\
+				<<else>>\
+					@@.guardian;I'm sure that you put on your chastity cage afterwards. Good boy.@@\
+				<<endif>>\
+			<<elseif $player.masturbationType eq 5>><!--Playgirl magazine chastity-->\
+				@@.guardian;Oh, my... I didn't know you enjoyed that kind of material. You looked so lovely ogling those muscular bulls while helplessly squirming, all locked up down there. I bet you dreamed about being held down and fucked hard last night.@@\
+			<<elseif $player.masturbationType eq 6>><!--Playgirl magazine no chast-->\
+				@@.guardian;Oh my, I didn't know you enjoyed that kind of material. I bet you dreamed about being held down and thoroughly fucked last night.@@\
+			<<elseif $player.masturbationType eq 7>><!--Vibrator on cage-->\
+				@@.guardian;It was funny watching you try to get release by using a vibrator on your chastity cage.@@\
+			<<elseif $player.masturbationType eq 8>><!--Vibrator on penis-->\
+				@@.guardian;It was interesting to watch you using a vibrator to get off that way.@@\
+			<<elseif [9,10,11].includes($player.masturbationType)>><!--Vibrator in ass, chastity=9, cum=10, no chast=11-->\
+				<<set _rc = random(7)>>\
+				<<if _rc lte 0>>@@.guardian;I have to admit, the footage was hot!@@\
+					<<if $player.perversion.guardian eq 7>>
+						@@.guardian;Did you imagine one of your classmates fucking you raw? Or was it $teacher with huge strap-on? Maybe you could give me a hint at the next parental meeting so I would know your taste?@@\
+					<<endif>>\
+				<<elseif _rc lte 1 and $items.vibrator.stolen>>@@.guardian;You know, I have fond memories with that dildo, did you lick it clean after you stole it from my bedroom?@@\
+				<<elseif _rc lte 2>>@@.guardian;Oh, my. You looked so sweet fucking yourself with a dildo.@@\
+				<<elseif _rc lte 3>>@@.guardian;Do you think I should show last night’s footage to friends at work? Just kidding, I'm keeping you to myself.@@\
+				<<elseif _rc lte 4>>@@.guardian;Maybe next time, you could stick the dildo on a stool and ride it cowgirl.@@\
+				<<elseif _rc lte 5>>@@.guardian;You are such a sissy slut, going at it for so long. Your ass must be really sore now.@@\
+				<<elseif _rc lte 6>>@@.guardian;I think you gonna need a bigger boat, and when I say boat, I really mean dildo.@@\
+				<<else>>@@.guardian;It was so hot! I wonder if you imagined a hunk guy or a curvy girl with a strap-on when you fucked yourself with that dildo.@@\
+				<<endif>>\
+			<<elseif $player.masturbationType eq 14>><!--Horse dildo-->\
+				@@.guardian;Oh, my god, It was incredible you could fit that monstrosity in your ass, but I'd be careful, stretch it too much and the boys won't like your hole anymore.@@\
+			<<endif>>\
+		<<endif>>\
+		<<if [1,3,5,7,9].includes($player.masturbationType)>>\
+			<<set _rc = random(10)>>\
+			<<if _rc lte 0>>@@.guardian;I just love how you kept yourself hot and bothered without achieving release. I bet you had really interesting dreams last night."@@\
+			<<elseif _rc lte 1>>@@.guardian;You tortured yourself nice and good, but nothing to show for it. Oh sweet sissy!"@@\
+			<<elseif _rc lte 2>>@@.guardian;I bet you are still horny, my little pervert."@@\
+			<<elseif _rc lte 3>>@@.guardian;Oh sad little sissy, no release for all that effort. I can feel the heat coming from you. Perhaps you need a cold shower to relax?"@@\
+			<<elseif _rc lte 4 and $player.perversion.guardian gte 5>>@@.guardian;So fitting for a little sissy maid to stay horny all the time."@@\
+			<<elseif _rc lte 5>>@@.guardian;I'm sure you love your little chastity cage."@@\
+			<<elseif _rc lte 6 and [5,7].includes($player.perversion.guardian)>>@@.guardian;No release for our sissy maid? I like it."@@\
+			<<elseif _rc lte 7>>@@.guardian;It was so sad, but also very hot to watch so much effort and no release."@@\
+			<<elseif _rc lte 8>>@@.guardian;I bet it's frustrating to be so horny, while wearing chastity. Good for you."@@\
+			<<elseif _rc lte 9 and [5,7].includes($player.perversion.guardian)>>@@.guardian;I think it was a rather fitting night for my sissy maid. Good job on keeping yourself horny and frustrated."@@\
+			<<else>>@@.guardian;I think I like how your chastity cage affect your behavior."@@\
+			<<endif>>\
+		<<elseif [10,11,14].includes($player.masturbationType)>>\
+			<<set _rc = random(3)>>\
+			<<if _rc lte 0>>@@.guardian;You came without touching your penis even once. You've become a complete butt-slut, haven't you?"@@\
+			<<elseif _rc lte 1>>@@.guardian;I noticed how you leaked too! You were really enjoying yourself."@@\
+			<<elseif _rc lte 2>>@@.guardian;Oh and I love how you cum like a girl now."@@\
+			<<else>>@@.guardian;And you even came like a proper sissy."@@\
+			<<endif>>\
+		<<else>>\
+			<<set _rc = random(3)>>\
+			<<if _rc lte 0>>@@.guardian;At least you got your release."@@\
+			<<elseif _rc lte 1>>@@.guardian;You make such funny face when you cum."@@\
+			<<elseif _rc lte 2>>@@.guardian;You're adorable when you slump after cumming."@@\
+			<<else>>@@.guardian;And don't forget to clean up after cumming."@@\
+			<<endif>>\
+		<<endif>>\
+	<<set $player.masturbationType = 0>>\
+	
+	<<endif>>\
+	<!--</commenting on masturbation>*********************-->\
+	<!--<commenting on chores>*********************-->\
+	<<if window.timeCode.isMonday() and ($time.day gt 7) and $player.perversion.guardianCooldown gt 3 and (not _skipComments)>>\
+		<<if ($player.choresPercent gte 70)>>\
+			<<set $flags.choreReward = true>>\
+		<<elseif ($player.choresPercent lte 30)>>\
+			<<set $flags.choreLazy = true>>\
+		<<endif>>\
+		<<if $player.perversion.guardian eq 0>>\
+			<<if $flags.choreReward>>\
+				@@.guardian;"I've noticed how hard you're working to keep the house clean. Good work! Keep it up."@@
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedPSBox = true>>\
+				@@.guardian;"I've noticed that you've been neglecting your chores. No more PSBox for you until you stop being so lazy."@@
+			<<endif>>\
+		<<elseif $player.perversion.guardian eq 1>>\
+			<<if $flags.choreReward>>\
+				@@.guardian;"I've noticed how hard you're working to keep the house clean. Keep it up."@@
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedPSBox = true>>\
+				<<set $flags.confiscatedInternet = true>>\
+				@@.guardian;"I've noticed you're neglecting your chores. No more PSBox or Internet for you until you stop being so lazy."@@
+			<<endif>>\
+		<<elseif $player.perversion.guardian eq 2>>\
+			<<if $flags.choreReward>>\
+				@@.guardian;"I've noticed how hard you're working to keep the house clean. You better keep it up, considering your behavior."@@
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedPSBox = true>>\
+				<<set $flags.confiscatedInternet = true>>\
+				@@.guardian;"I've noticed you've been blowing off your chores. No more PSBox or Internet for you until you stop being so lazy."@@
+			<<endif>>\
+		<<elseif $player.perversion.guardian eq 3>>\
+			<<if $flags.choreReward>>\
+				@@.guardian;"I've noticed how hard you're working to keep the house clean. Good work! Keep it up."@@
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedPSBox = true>>\
+				<<set $flags.confiscatedInternet = true>>\
+				@@.guardian;"I've noticed you're not getting your chores done. No more PSBox or Internet for you until you stop being so lazy. Also I may come up with something to occupy your free time, as you have too much of it."@@
+			<<endif>>\
+		<<elseif $player.perversion.guardian eq 4>>\
+			<<if $flags.choreReward>>\
+				<<if $player.perversion.guardianCooldown lte 9>>\
+					@@.guardian;"It is so much easier around here since you started helping around the house more. You know, I think I could get used to this."@@
+				<<else>>\
+					@@.guardian;"I've noticed how hard you've been working to keep up with your housework. I'm sure you'd make a good maid someday if you keep up this kind of effort."@@
+				<<endif>>\
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedInternet = true>>\
+				<<set $flags.confiscatedVibrator = true>>\
+				@@.guardian;"I'm really tired of you slacking off on your chores. No more Internet for you, and no more playing with your //toys// until you stop being so lazy. I'm taking them away, and don't ask me to return them until you start helping out around here again. Since you can't be bothered to spare your 'precious' time for your responsibilities, I might need to come up with some things to occupy you."@@
+			<<endif>>\
+		<<elseif $player.perversion.guardian gte 5>>\
+			<<if $flags.choreReward>>\
+				@@.guardian;"Who is our little obedient maid? You are! Yes, you are!"@@
+			<<elseif $flags.choreLazy>>\
+				<<set $flags.confiscatedVibrator = true>>\
+				@@.guardian;"I've noticed you haven't been taking care of your chores, and I'm disappointed. I'm taking away your vibrator until you stop getting so distracted. You can ask for it back after you've started acting like a proper maid."@@
+			<<endif>>\
+		<<endif>>\
+	<<endif>>
+	<<if ($time.weekDay() eq 1) and ($allowance gt 0)>>\
+		<<if (not $flags.choreRewAllowance) and $flags.choreReward and (random(1) eq 0)>>\
+			<<set $flags.choreRewAllowance = true>>\
+			<<set $flags.choreReward = false>>\
+			<<set $allowance += 5>>\
+			@@.guardian;"Since you've worked so hard lately, I'm adding a little bonus to your allowance."@@
+		<<elseif (not $flags.chorePunAllowance) and $flags.choreLazy and (random(1) eq 0)>>\
+			<<set $flags.chorePunAllowance = true>>\
+			<<set $allowance -= 5>>\
+			@@.guardian;"Since you've been so lazy lately, I'm docking your allowance. I hope you do better this week."@@
+		<<else>>\
+			@@.guardian;"It's that time of the week again, so here's your allowance."@@
+		<<endif>>\
+		
+		@@.reward;You earned <<print "$"+$allowance>>!@@
+
+		<<set $player.money+=$allowance>>\
+	<<endif>>\
+	<!--</commenting on chores>*********************-->\
+	<<if (not _skipEnd)>>\
+		<!--<breakfast finish>*********************-->\
+		<<if $player.perversion.guardian eq 5>>\
+			<<if $player.perversion.guardianCooldown eq 1>>\
+				@@.guardian;"I see you're still having trouble with your new duties, but I appreciate the effort."@@
+				
+			<<elseif $player.perversion.guardianCooldown eq 2>>\
+				@@.guardian;"Much better today, I knew you would get used to your new duties in no time."@@
+				
+			<<elseif $player.perversion.guardianCooldown eq 3>>\
+				@@.guardian;"Who is our little obedient maid? You are! Yes, you are!"@@
+				
+			<<endif>>\
+		<<endif>>\
+		<<if $player.perversion.guardian eq 0>>\
+			@@.guardian;"Have a wonderful day<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says lovingly.
+
+			<<if not window.timeCode.isWeekend()>>You secretly roll your eyes, inwardly disputing that a school day could ever be wonderful. <<endif>> You give her a hug and go back to your room to get dressed.
+		<<elseif $player.perversion.guardian eq 1>>\
+			@@.guardian;"Have a wonderful day<<if not window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says sarcastically. 
+			
+			You shake off dread for the day ahead, accept the kiss she plants on your forehead, and go back to your room to get dressed.
+		<<elseif $player.perversion.guardian eq 2>>\
+			@@.guardian;"Enjoy your day,"@@ $guardian says coolly. 
+			
+			You go to give her a hug, but she steps away and just stares out the window, her back to you and her arms folded. Sensing she is still upset with you, you go back to your room to get dressed.
+		<<elseif $player.perversion.guardian eq 3>>\
+			@@.guardian;"Have a great day<<if not window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, hesitantly.
+
+			You shake off your dread at what the day might bring, accept the kiss she plants on your forehead, and go back to your room to get dressed.
+		<<elseif $player.perversion.guardian eq 4>>\
+			@@.guardian;"Have a great day<<if not window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, winking. 
+			
+			You shake off your dread at what the day might bring, accept the kiss she plants on your cheek, and go back to your room to get dressed.
+		<<elseif $player.perversion.guardian eq 5>>\
+			<<selectScene guardian_morning_5 RND>>\
+			<<scene 40>>\
+			@@.guardian;"Have a wonderful day<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, winking. 
+			
+			You <<if not window.timeCode.isWeekend()>>blush at her teasing about your extra school activities, <<endif>>give her a hug and go back to your room.
+			<<scene 40>>\
+			@@.guardian;"You're off<<if !window.timeCode.isWeekend()>> to school<<else>> from school today<<endif>>? Wait, come here,"@@ $guardian says, standing and walking over to you. She raises her hands, looking you in the eyes, and softly strokes your cheek. 
+			
+			@@.guardian;"Have a good day, $player.name."@@ 
+			
+			She leans close to your face, and kisses you lightly on the lips. Then, she winks and goes back to her coffee. A bit flustered, you hesitantly head to your room to get dressed.
+			<<scene 20>>\
+			$Guardian absentmindedly plays with her hair and looks at you. Catching your eyes, she stands and walks over to you. 
+			
+			@@.guardian;"Come here, sweetheart."@@ 
+			
+			She strokes your hair for a moment, and then hugs you tightly. It feels nice and comforting, though $guardian's hand, teasingly groping your bottom, sends you squirming out of her embrace in a fit of ticklish giggles. Finally she releases you and, with a playful swat on your butt, directs you to your room.
+			<</selectScene>>\
+		<<elseif $player.perversion.guardian eq 6>>\
+			<<selectScene guardian_morning_6 RND>>\
+			<<scene 40>>@@.guardian;"You're out<<if !window.timeCode.isWeekend()>> to school<<endif>>? Wait, come here,"@@ $guardian says, standing and walking over to you. 
+			
+			She raises her hands, looking you in the eyes, and softly strokes your cheek. 
+			
+			@@.guardian;"Have a good day, my cute, little maid."@@ 
+			
+			She leans close to your face and kisses you on the lips. Then, a bright smile on her face, she goes back to her coffee. Still flustered, you absentmindedly go back to your room to get dressed.
+			<<scene 40>>@@.guardian;"You're out<<if !window.timeCode.isWeekend()>> to school<<endif>>? Wait, come here,"@@ $guardian says, standing and walking towards you.
+			
+			She raises her hands, looking you in the eyes, and softly strokes your cheek. 
+			
+			@@.guardian;"Have a good day, $player.name."@@ 
+			
+			She leans close to your face and kisses you on the lips. Then, a bright smile on her face, she goes back to her coffee. Still flustered, you absentmindedly go back to your room to get dressed.
+			<<scene 20>>$Guardian absentmindedly plays with her hair and looks at you. Catching your eyes, she stands and comes over to you. 
+			
+			@@.guardian;"Come here, sweetheart."@@ 
+			
+			She strokes your hair for a moment, then suddenly grabs you close to her, her lips on yours. You feel her tongue invading your mouth, and you can't do anything but respond to her sudden embrace. 
+			
+			@@.guardian;"Good luck<<if !window.timeCode.isWeekend()>> at school<<endif>>," she says, breaking the kiss. 
+			
+			With a light grope on your bottom, $guardian leads you in direction to your room, in order to let you get dressed.@@
+			<</selectScene>>\
+		<<elseif $player.perversion.guardian eq 7>>\
+			@@.guardian;"Good work. Have a great day<<if !window.timeCode.isWeekend()>> at school<<endif>>,"@@ $guardian says, winking. 
+			
+			You <<if not window.timeCode.isWeekend()>>feel hot as you understand what she is implying. You <<endif>>turn back to her, lift your skirt and push out your butt, and are rewarded with a sound slap on your rump. You go back to your room with a hitch in your step.
+		<<endif>>\
+		<!--</breakfast finish>*********************-->\
+		<<set $time.addMinutes(30)>>\
+		<<if $player.moreBlowjobs>>\
+		
+			Your jaw feels stronger today.
+		<<endif>>\
+
+		<<if ($time.day eq 1) and (not $kink.incest)>>\
+			[[Go to your bedroom|Go to bedroom][$guardian=$babysitter; $Guardian=$babysitter; $myguardian=$babysitter; $Myguardian=$babysitter]]
+		<<elseif window.timeCode.isSunday() and $flags.partyMaidTask and (not $flags.partyMaidDone)>>\
+			@@.guardian;"$player.name, do you remember when I told you I'd be very disappointed if you ditched the party? Well, now I am. Juliette was so sad about her ruined plans, and now she's pissed at me for putting her in that position with her friends. Follow me... you owe her an apology!"@@
+			
+			[[Follow her|Task party maid][$flags.partyMaidStarted=false; $flags.partyMaidPunish=true; $flags.partyMaidTask=false;]]
+		<<else>>\
+			[[Go to your room|Go to bedroom]]
+		<<endif>>\
+	<<endif>>\
+
+<<else>><!--Guardian is absent-->\
+	You go in to the kitchen and pour your favorite cereal into a bowl, \
+	add milk from the fridge, and sit at the table.  It's a bit lonely without $guardian here to talk to, and you finish eating in no time.
+	<<if ($time.weekDay() eq 1) and ($allowance gt 0)>>\
+
+		As you put your bowl in the sink you see a note from $guardian that says "In case I don't see you this morning, here's your weekly allowance".  Underneath the note is $<<print $allowance>>. Sweet!
+		<<set $player.money+=$allowance>>\
+	<<endif>>\
+
+	<<set window.timeCode.addMinutes(15)>>\
+	<<if $player.moreBlowjobs>>\
+	
+		Your jaw feels stronger today.
+	<<endif>>\
+	
+	[[Go to your room|Go to bedroom]]
+<<endif>>\
+

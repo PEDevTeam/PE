@@ -3,10 +3,10 @@
 <<case 'evil'>>\
 	Though nervous, you are too intimidated by $guardian to do anything but obey. She leads you back into the dining room and bends you over the table.  With a quick tug on your clothes, she exposes your rear and gives it a “friendly” slap before laying her silicone cock in between your cheeks.
 
-	@@.guardian;“Such a luscious ass. To tell you the truth, I doubt I would have been able to resist partaking even if you had remembered desert...”@@
+	@@.guardian;“Such a luscious ass. To tell you the truth, I doubt I would have been able to resist partaking even if you had remembered dessert...”@@
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Guardian Strapon First Latex" 300 300>></div>\
-	<<if playerCode.isWearingOn(itemTypes.AnalPlug)>>Removing your plug, she lines up with your hole, holds your hips with both hands,<<else>>Lining up with your hole, she holds your hips with both hands<</if>> and pulls, driving into you. Your rear spreads before her artificial cock. The rubber phallus is anything but small, and you cannot help but moan as she plunges deep, her thick member pressing against your sensitive prostate.
+	<<if window.wardrobeFuncs.getWornItem('buttplug')>>Removing your plug, she lines up with your hole, holds your hips with both hands,<<else>>Lining up with your hole, she holds your hips with both hands<</if>> and pulls, driving into you. Your rear spreads before her artificial cock. The rubber phallus is anything but small, and you cannot help but moan as she plunges deep, her thick member pressing against your sensitive prostate.
 
 	@@.guardian;“That’s it, nice and tight. I want to feel it when I fuck you...”@@ She whispers, leaning over to nip at your ear as you are driven into the table by the pressure of her hips.
 
@@ -19,6 +19,15 @@
 	Her rigid body slowly relaxes as the orgasm passes, though your own climax remains stubbornly out of reach of your exhausted, used body.
 
 	@@.guardian;“Hmmf, not bad,”@@ she concludes as she slides off of you, standing behind you for a moment as your jelly legs give out and you slide off the table and down to the floor. @@.guardian;“Don’t forget to clean up,”@@ she states simply as she pulls off the strapon and tosses it to you. Still unable to get up after your hard fucking, you decide to start your cleaning with $guardian’s rubber cock.
+	
+	<<if $flags.findDancePartner>>\
+		As $guardian is about to leave, you are reminded of $teacher's order to find a partner for you next poise class. You hurriedly grab $guardian's attention, and explain the situation.
+		
+		$guardian smiles sinisterly, and tells you that she would be happy to help with your classes before finally leaving the room.
+		
+		<<set $flags.danceLessonPartner = 'evilguardian'>>\
+		<<set $flags.findDancePartner = false>>\
+	<<endif>>
 <<case 'wife'>>\
 	You softly reply that you would love to be her obedient wife. In response, her arm appears around your shoulders and she pulls you in for a kiss.
 
@@ -47,7 +56,7 @@
 	You have a final moment to behold her beauty as she looms over you, the robe swaying around her like a cape. Your gaze flits back and forth between her lovely face and her artificial cock glistening with lube, and you lift your hips in invitation.
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Guardian Strapon First" 300 300>></div>\
-	$guardian crawls onto the bed, <<if playerCode.isWearingOn(itemTypes.AnalPlug)>>removing your plug and <</if>>gently sliding into you before leaning forward to share a kiss as she starts slowly rolling her hips.
+	$guardian crawls onto the bed, <<if window.wardrobeFuncs.getWornItem('buttplug')>>removing your plug and <</if>>gently sliding into you before leaning forward to share a kiss as she starts slowly rolling her hips.
 
 	You moan with lust as she pressures your prostate, smooth, deep strokes sending ecstatic pleasure bouncing between your bodies. Your hands pull her tight as she pins you to the bed and continues thrusting into you.
 
@@ -57,6 +66,14 @@
 
 	She looks down at you spread across her bed and smiles, helping you back to your feet to give you a parting kiss before she heads to the bathroom to clean up.
 
+	<<if $flags.findDancePartner>>\
+		As $guardian is about to leave, you are reminded of $teacher's order to find a partner for you next poise class. You hurriedly grab $guardian's attention, and explain the situation.
+		
+		$guardian smiles, and tells you that she would be happy to help with your classes before finally retiring to take her shower.
+		
+		<<set $flags.danceLessonPartner = 'guardian'>>\
+		<<set $flags.findDancePartner = false>>\
+	<<endif>>
 	You hear her start a shower, and momentarily consider joining her before chickening out and retreat from her bedroom.
 <<case 'nosex'>>\
 	$guardian smiles as you thank her for the compliment, and while there is a small moment of seemingly unfulfilled potential between the two of you, it soon passes.  Dinner is lovely, if quiet.
@@ -66,9 +83,18 @@
 	You allow yourself a little mental celebration, at least until she says, @@.guardian;"...but you still need to take care of anything that was in the sink from before dinner."@@
 
 	@@.hero;"Damn it..."@@
+	
+	<<if $flags.findDancePartner>>\
+		As $guardian is about to leave, you are reminded of $teacher's order to find a partner for you next poise class. You hurriedly grab $guardian's attention, and explain the situation.
+		
+		$guardian smiles, and tells you that she would be happy to help with your classes before finally retiring to do the dishes.
+		<<set $flags.danceLessonPartner = 'guardian'>>\
+		<<set $flags.findDancePartner = false>>\
+	<<endif>>
 <</switch>>\
 
 <<set playerCode.masturbate.cum()>>\
 <<set $tasksTeacher.goOnDate.status = 2>>\
+<<set $player.ending.comportment.partners.guardian.numOfDates +=1>>\
 <<set $time.addMinutes(105)>>\
 [[Go to bedroom]]

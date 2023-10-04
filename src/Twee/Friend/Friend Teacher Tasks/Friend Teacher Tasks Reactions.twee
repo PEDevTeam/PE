@@ -1,22 +1,18 @@
 ::Friend Teacher Tasks Reactions
 \
-<<set _wearingBoxers to playerCode.isWearing(itemsC.jocksLucky)>>\
-<<set _wearingChastity to playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _wearingLacyBra to playerCode.isWearing(itemsC.braSexy)>>\
-<<set _wearingPlug to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-<<set _wearingPanties to playerCode.isWearingOn(itemTypes.Underwear).female>>\
-<<set _wearingStockings to playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _shavedLegs to $body.bodyhair>>\
-<<set _wornBra to playerCode.isWearingOn(itemTypes.Bras)>>\
-<<if _wornBra>>\
-    <<set _bra to itemF.itemTwee(_wornBra.id)>>\
-    <<set _braAlt to _bra.curAlt>>\
-<<endif>>\
+<<set _wearingBoxers to window.wardrobeFuncs.isItemMasterWearing('boxers')>>\
+<<set _wearingChastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _wearingLacyBra to window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
+<<set _wearingPlug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+<<set _wearingPanties=window.wardrobeFuncs.getWornItem('underwear').isFemale>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _shavedLegs = $body.bodyhair.level gt 0>>\
+<<set _wornBra=window.wardrobeFuncs.getWornItem('bra')>>\
 \
 \
 <<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status>>\
 \
-    <<if _wearingLacyBra and _braAlt eq 60 or _braAlt eq 61>>\
+    <<if _wearingLacyBra and (_wornBra.variant == 'bra_sexy_60' or _wornBra.variant == 'bra_sexy_61')>>\
         @@.friend;“Awesome, you are wearing the bra I gave you!” @@
     \
     <<elseif _wornBra>>\
@@ -39,7 +35,7 @@
     <<if _wearingChastity>>\
         <<if not $friendG.seenChastity>>\
             @@.friend;“Wait, what’s that?”@@ $friend squeals. You look down at your <<if _wearingBoxers>>boxers<<elseif _wearingPanties>>panties<<else>>naked cage<<endif>> in horror and try to cover yourself \
-            up with your hands. @@.friend;“No, don’t…”@@  $friendG.he_she instructs, leaping over to you and pulling your hands away. $friendG.He_She taps it with a fingernail.  ”What’s that?”
+            up with your hands. @@.friend;“No, don’t…”@@  $friendG.he_she instructs, leaping over to you and pulling your hands away. $friendG.He_She taps it with a fingernail.  @@.friend;”What’s that?”@@
 
             @@.heroT;“I, um…”@@ you mumble. @@.heroT;“It’s a kind of cage, you know, it’s um…”@@
 
@@ -73,7 +69,7 @@
 <<endif>>\
 \
 \
-<<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status or $tasksTeacherBody.legHairRemoval.status or $tasksTeacherwearStockingsstatus>>\
+<<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status or $tasksTeacherwearStockingsstatus>>\
 \
     <<if _shavedLegs>>\
         <<if not $friendG.seenWaxedLeg>>\
@@ -87,7 +83,7 @@
         <<endif>>\
     \
     <<else>>\
-        @@.friend;“You know, the dress might look better with shaved legs. It’s a big step though I know…”@@ $friend muses.
+        @@.friend;“Honestly… I think you might look better with shaved legs. It’s a big step, though, I know…”@@ $friend muses.
     \
     <<endif>>\
 <<endif>>\
@@ -95,7 +91,7 @@
 \
 <<if $tasksTeacher.selfieFemaleClothes.status or $tasksTeacher.selfieNightwear.status or $tasksTeacherBody.legHairRemoval.status or $tasksTeacherwearStockingsstatus>>\
 \
-    <<if _wearingStockings>>\
+    <<if _stockings and (_stockings.masterItem == 'stockings' or _stockings.masterItem == 'latexStockings')>>\
         <<if not $friendSeenStockings>>\
             @@.friend;“You are wearing stockings?”@@ $friend asks in awe.  $friendG.He_She reaches out and runs a finger around your upper thigh, making your breath catch in your throat. You groan as your penis quivers in tension. @@.friend;“They look great.”@@
             \

@@ -1,5 +1,5 @@
 :: Friend Teacher Tasks Bra 3
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _chast=window.wardrobeFuncs.getWornItem('chastity')>>\
 \
 <<if $friendG.gender eq 'F'>>\
     @@.friend;”They look harder to put on than they are. It’s all about technique and deft fingers. Having deft fingers is good for so many other things too!”@@ $friend says with a wink. @@.friend;”Hey, what do they call a lesbian with big hands?”@@
@@ -8,7 +8,7 @@
 
     ”Yes! Okay, want me to help you?”
 
-    The thought of taking your top off in front of her makes your heart leap. <<if $wornUnderwear.female>> @@.hero;What if she sees the top of my panties?@@<<endif>> However, there is no way you can do this by yourself, so you nod in resignation.
+    The thought of taking your top off in front of her makes your heart leap. <<if $wornUnderwear.isFemale>> @@.hero;What if she sees the top of my panties?@@<<endif>> However, there is no way you can do this by yourself, so you nod in resignation.
 
     @@.friend;”Oh wait, before we start, did you, you know, wear them today?”@@
 
@@ -20,7 +20,7 @@
         Unsure of what is making you do it, you pull your trousers’ waistband down at the side, revealing just a sliver of her panties.
 
         @@.friend;”Oh my God how awesome. Now you are going to match, just like me!”@@
-    <<elseif $wornUnderwear.female>>\
+    <<elseif $wornUnderwear.isFemale>>\
         Unsure of what is making you do it, you pull your trousers waistband down at the side, revealing just a sliver of your panties.
 
         @@.friend;”Oh my God you bought some of your own. You’re going to have to start wearing mine though with the bra or you won’t match. And you have to match to be cute!”@@
@@ -46,7 +46,7 @@
 
         @@.hero;What is going on with her? Perhaps it’s some sort of reward for me confessing to her?@@
 
-        Whatever her reason, she turns to face you and lowers her arms so you can see her pert breasts in all their glory.<<if _c>> Your penis pushes painfully against your cage <<else>> Your penis threatens to bulge the front of your trousers.<<endif>>
+        Whatever her reason, she turns to face you and lowers her arms so you can see her pert breasts in all their glory.<<if _chast>> Your penis pushes painfully against your cage <<else>> Your penis threatens to bulge the front of your trousers.<<endif>>
 
         The sight of her breasts, her pert, naked and magnificent breasts, makes you want to swoon. You feel bad for looking, for staring, but $friend chose to…
 
@@ -81,7 +81,7 @@
     @@.friend;”Sorry $player.name, but you don’t exactly have firm pecs either, do you? Maybe if you exercised more…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. \
     @@.friend;”It’s a push-up bra, so it kind of makes its own clevage. Awesome, right? Now you just adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 61>>
+    <<set _braAlt to 'bra_sexy_61'>>
 \
 <<elseif $friendG.gender eq 'T'>>\
     @@.friend;“You know, $player.name, I am kind of looking forward to this. Learning together…”@@ $friend lifts his bra and checks the label. @@.friend;“It says mine is a C cup. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?@@
@@ -97,7 +97,7 @@
 
     The thought of trying on a bra in front of him makes your stomach swirl weirdly.
 
-    <<if $wornUnderwear.female>>@@.hero; What if he sees my panties?@@<<endif>>\
+    <<if $wornUnderwear.isFemale>>@@.hero; What if he sees my panties?@@<<endif>>\
     \
     However, there is no way you can do this by yourself, so you nod in resignation.
 
@@ -112,7 +112,7 @@
 
         @@.friend;”Oh my God, how awesome. Now you are going to match, just like me!”@@ He pauses for a moment and then shyly reveals the top of his panties, sheer red and lacy and racy.
     \
-    <<elseif $wornUnderwear.female>>\
+    <<elseif $wornUnderwear.isFemale>>\
         Unsure of what is making you do it, you pull your trousers waistband down at the side, revealing just a sliver of your panties.
 
         @@.friend; ”Oh my God, you bought some of your own. You’re going to have to start wearing the ones I gave you with the bra though or you won’t match. And you have to match to be cute! Unless you buy the bra to go with them too…”@@ He pauses for a moment and then shyly reveals the top of his panties, sheer, red and lacy.
@@ -151,7 +151,7 @@
 
     @@.friend;”Push-up bra. Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 60>>
+    <<set _braAlt to 'bra_sexy_60'>>
 \
 <<else>>\
     @@.friend; ”I’m sure we can sort it out for you. I think it looks more complicated than it is,”@@ $friend says more in hope than conviction. @@.friend;“The one you’re holding is a size B. Oh, have you ever wondered why A, B, C, D, DD, E, F, G, and H are the letters used to define bra sizes?”@@
@@ -164,7 +164,7 @@
 
     @@.friend; ”Want me to help you?”@@
 
-    The thought of trying on a bra in front of him makes your stomach swirl weirdly. <<if $wornUnderwear.female>>@@.hero;What if he sees my panties?@@<<endif>> However, there is no way you can do this by yourself, so you nod in resignation.
+    The thought of trying on a bra in front of him makes your stomach swirl weirdly. <<if $wornUnderwear.isFemale>>@@.hero;What if he sees my panties?@@<<endif>> However, there is no way you can do this by yourself, so you nod in resignation.
 
     @@.friend;”Oh wait, before we start, did you, you know, wear them today?”@@
 
@@ -175,7 +175,7 @@
 
         @@.friend;”Oh my God, how awesome. Now you are going to match, top and bottom!”@@ He pauses for a moment with a slightly vacant look.
     \
-    <<elseif $wornUnderwear.female>>\
+    <<elseif $wornUnderwear.isFemale>>\
         Unsure of what is making you do it, you pull your trousers’ waistband down at the side, revealing just a sliver of your panties.
 
         @@.friend;”Oh my God, you bought some of your own. You’re going to have to start wearing the ones I gave you with the bra though, or you won’t match. $friendsis always wore matching ones. Unless you buy the bra to go with them too, I guess…”@@ He pauses for a moment with a slightly vacant look.
@@ -216,15 +216,15 @@
     @@.friend; ”Sorry, $player.name, but you don’t exactly have a six pack either do you? More exercise…?“@@ $friend pauses while you fiddle with your skin, pulling it up until the bra is comfortable and, much to your surprise, you see a minuscule shadow, almost like the start of a cleavage. @@.friend;”Push-up bra. \
     Awesome, right? Now you adjust the straps and get comfortable.“@@
     \
-    <<set _braAlt to 60>>
+    <<set _braAlt to 'bra_sexy_60'>>
 \
 <<endif>>\
 \
-<<set $player.clothes to clone($player.clothesTmp)>>\
-<<addToInv braSexy _braAlt>>\
-<<wearClothing braSexy _braAlt>>\
-<<set $player.clothesTmp to clone($player.clothes)>>\
-<<removeClothingType 4>>\
+<<set $player.clothingSlots to clone($player.clothingSlotsTmp)>>\
+<<addItemVariantToInventory _braAlt>>
+<<wearItemVariant _braAlt>>
+<<set $player.clothingSlotsTmp to clone($player.clothingSlots)>>\
+<<removeClothingItem 'Outerwear'>>\
 \
 You reach for your top, but $friend swipes it away.
 
@@ -236,6 +236,9 @@ So instead of getting dressed, you reluctantly agree to sit as you are and watch
 <<set $flags.friendBraTask = false>>\
 <<set $friendG.tasks.bra = true>>\
 <<set $friendG.tasks.timesHelped = 0>>\
+<<if $player.perversion.friend < 5>>\
+	<<set $player.perversion.friend = 5>>\
+<<endif>>\
 [[Leave friend's house][$time.addMinutes(90); $friendG.visit.c3 = 1]]
 
 

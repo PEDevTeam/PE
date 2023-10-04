@@ -42,13 +42,14 @@ window.wordsCode={
 		if (body.lips == 1) { vars.lips="plump lips"; }
 		if (body.lips == 2) { vars.lips="puffy lips"; }
 		vars.penis="penis";
-		if (window.playerCode.isWearingOn(itemTypes.Chastity)) { vars.penis="caged penis"; }
+		if (window.wardrobeFuncs.getWornItem('chastity')) { vars.penis="caged penis"; }
 		if (body.penisShrink == 1) { 
 			vars.penis="small penis"; 
-			if (window.playerCode.isWearingOn(itemTypes.Chastity)) { vars.penis="tiny caged penis"; }
+			if (window.wardrobeFuncs.getWornItem('chastity')) { vars.penis="tiny caged penis"; }
 			}
 		vars.skirt="dress";
-		if (window.playerCode.isWearing(itemsC.skirtTop) || window.playerCode.isWearing(itemsC.sluttyschoolFemale)) { vars.skirt="skirt"; }
+		//if (window.playerCode.isWearing(itemsC.skirtTop) || window.playerCode.isWearing(itemsC.sluttyschoolFemale)) { vars.skirt="skirt"; }
+		if (window.wardrobeFuncs.isItemMasterWearing('skirtTop') || window.wardrobeFuncs.isItemMasterWearing('sluttySchoolDress')) { vars.skirt="skirt"; }
 		vars.chest="flat chest";
 		if (body.boobs == 1) { vars.chest="tiny breasts"; }
 		if (body.boobs == 2) { vars.chest="breasts"; }

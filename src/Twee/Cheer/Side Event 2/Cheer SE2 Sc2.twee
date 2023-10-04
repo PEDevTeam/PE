@@ -1,10 +1,10 @@
 :: Cheer SE2 Sc2
 <div style="float: right; margin: 10px;"><<RandomImageFromPack "Adult Book Shop" 400 400>></div>\
-$cheerFriend.name wanders into the adult store, curiously examining its goods. She wanders the toy aisles, laughing at the more extreme playthings the store has to offer, but clearly not interested in any of them. She moves on to the lingerie section, browsing the racks of lacy unmentionables. Finally, she grabs a hanger and runs off to the dressing room.
-
-In a few minutes, $cheerFriend.name returns. @@.cheerFriend;“Well, I’ve got your surprise.”@@ She shrugs each shoulder, both arms clearly hiding something behind her back. @@.cheerFriend;“Which hand do you want?”@@
-
 <<if $version == 0>>\
+	$cheerFriend.name wanders into the adult store, curiously examining its goods. She wanders the toy aisles, laughing at the more extreme playthings the store has to offer, but clearly not interested in any of them. She moves on to the lingerie section, browsing the racks of lacy unmentionables. Finally, she grabs a hanger and runs off to the dressing room.
+
+	In a few minutes, $cheerFriend.name returns. @@.cheerFriend;“Well, I’ve got your surprise.”@@ She shrugs each shoulder, both arms clearly hiding something behind her back. @@.cheerFriend;“Which hand do you want?”@@
+
 	[[Left|Cheer SE2 Sc2][$version = 1]]
 	[[Right|Cheer SE2 Sc2][$version = 1]]
 <<else>>\
@@ -45,7 +45,7 @@ In a few minutes, $cheerFriend.name returns. @@.cheerFriend;“Well, I’ve got 
 		You reach into the bag and pull out another lingerie set, matching $cheerFriend.name’s. Except, instead of pink, this one is in a pale aqua. 
 
 		<<if playerCode.isMind == 1>>Timidly,<<else>>Enthusiastically,<<endif>> you strip off your clothes and slide into the sultry outfit, noting how <<if playerCode.isMind == 1>>poorly<<else>>beautifully<<endif>> your chest fills the bra cups and how appealing the thong makes your <<if playerCode.scoreAss() == 1>>heart-shaped<<elseif playerCode.scoreAss() == 2>>bubble<<endif>> butt look. Your <<if $kink.penisShrink or $kink.sph>>cute, little<<endif>> penis is covered tightly by the thong, rapidly stiffening thanks to the show $cheerFriend.name gave you\ 
-		<<if playerCode.isWearingOn(window.itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			earlier. Something seems a bit off for a moment, but the soft material of the underwear cradling your cock distracts you too much to nail down exactly what it is.
 		<<else>>\
 			earlier.

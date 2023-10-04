@@ -5,26 +5,38 @@
 	<<if ($time.hour <= 5) or ($time.hour >= 21)>>\
 		<<goto [[Beauty Salon]]>>\
 	<<endif>>\
-<<if ($body.bodyhair eq 3)>>\
+<<if ($body.bodyhair.level eq 3)>>\
 	Nancy smiles and tells you that you don't need this kind of service anymore. @@.nurse;"Your soft, smooth skin is permanently hair-free, sweetie! That hair is gone forever, aren't you so glad?  Only men, and boys, have hair in those places."@@ She smiles, eyeing your girlish complexion knowingly.
 
 <<elseif not $flags.salonHairRemoval>>\
 	Nancy smiles and ask if you want depilatory, waxing or maybe a more permanent solution?
 
 	<img id="item_preview" class="hidden">\
-	<<if $body.bodyhair eq 0>>\
-		<<set _item=itemsC.Waxing>>\
+	<<if $body.bodyhair.level eq 0>>\
+		<<set _image = $body.bodyhair.level1.image>>\
+		<<set _name = $body.bodyhair.level1.description>>\
+		<<set _disabled = $body.bodyhair.level1.disabled>>\
+		<<set _cost = $body.bodyhair.level1.cost>>\
+		<<set _daringRec = $body.bodyhair.level1.daring>>\
 		<<set _sceneName="Waxing">>\
-		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0)>>\
+		<<set _override=($tasksTeacherBody.legHairRemoval.status gt 0) or ($player.perversion.crossdressing > 3)>>\
 		<<display "Clinic buy menu">>
 	<<endif>>\
 \
-	<<set _item=itemsC.Depilatory>>\
+	<<set _image = $body.bodyhair.level2.image>>\
+	<<set _name = $body.bodyhair.level2.description>>\
+	<<set _disabled = $body.bodyhair.level2.disabled>>\
+	<<set _cost = $body.bodyhair.level2.cost>>\
+	<<set _daringRec = $body.bodyhair.level2.daring>>\
 	<<set _sceneName="Depilatory">>\
-	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
+	<<set _override=($tasksTeacherBody.hairRemoval.status gt 0) or ($tasksTeacherBody.hairRemoval_renewal.status gt 0) or ($body.bodyhair > 0 &&$player.perversion.crossdressing > 3)>>\
 	<<display "Clinic buy menu">>
 \
-	<<set _item=itemsC.LaserHairRemoval>>\
+	<<set _image = $body.bodyhair.level3.image>>\
+	<<set _name = $body.bodyhair.level3.description>>\
+	<<set _disabled = $body.bodyhair.level3.disabled>>\
+	<<set _cost = $body.bodyhair.level3.cost>>\
+	<<set _daringRec = $body.bodyhair.level3.daring>>\
 	<<set _sceneName="LaserHairRemoval">>\
 	<<set _override=($tasksTeacherBody.hairRemoval_renewal.status gt 0)>>\
 	<<display "Clinic buy menu">>
@@ -35,17 +47,16 @@
 [[Return|Beauty Salon][$scene=""; $random.stored=0]]
 <<else>>\
 	<<set _first=true>>\
-	<<if ($body.bodyhair eq 1)>>\
+	<<if ($body.bodyhair.level eq 1)>>\
 		<<set _first=false>>\
 	<<endif>>\
 	<<if $scene eq "Waxing">>\
-		<<if ($body.bodyhair eq 2)>>\
+		<<if ($body.bodyhair.level eq 2)>>\
 			<<set _first=false>>\
 		<<endif>>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Waxing" 400 400>></div>\
-		<<set _item=itemsC.Waxing>>\
-		<<buyItem _item.id>>\
-		<<set $body.bodyhair = 1>>\
+		<<set $player.money = $player.money - $body.bodyhair.level1.cost>>
+		<<set $body.bodyhair.level = 1>>\
 		<<set $flags.salonHairRemoval to true>>\
 		Nancy leads you to one of the salon's spa chairs, helping you settle into a reclined position. She asks you to take off your clothing and shoes to give her access to your legs. You do, leaving your legs completely exposed.
 
@@ -75,9 +86,8 @@
 	
 	<<elseif $scene eq "Depilatory">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Depilatory" 400 400>></div>\
-		<<set _item=itemsC.Depilatory>>\
-		<<buyItem _item.id>>\
-		<<set $body.bodyhair = 2>>\
+		<<set $player.money = $player.money - $body.bodyhair.level2.cost>>
+		<<set $body.bodyhair.level = 2>>\
 		<<set $flags.salonHairRemoval to true>>\
 		Nancy takes you to a private spa room, makes you strip down. Once you've taken your clothes off, she has you lay down on the salon table.
 
@@ -103,9 +113,8 @@
 
 	<<elseif $scene eq "LaserHairRemoval">>\
 		<div style="float: right; margin: 10px;"><<RandomImageFromPack "HR Laser" 400 400>></div>\
-		<<set _item=itemsC.LaserHairRemoval>>\
-		<<buyItem _item.id>>\
-		<<set $body.bodyhair = 3>>\
+		<<set $player.money = $player.money - $body.bodyhair.level3.cost>>
+		<<set $body.bodyhair.level = 3>>\
 		Nancy takes you to a private spa room, and asks you to take off your clothes. You do, and she invites you to lay down on the procedure table.
 		
 		There is a large laser aperture above you, with a special shield to protect your eyes from the beam.

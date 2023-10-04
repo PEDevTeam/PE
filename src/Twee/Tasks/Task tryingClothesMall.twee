@@ -1,7 +1,7 @@
 :: Task tryingClothesMall [pos_2880_2905]
 \
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
 <<set $tasksTeacher.tryingClothesMall.status = 2>>\
 <<set $tasksTeacher.tryingClothesMall.progress++>>\
 <<if ($player.perversion.crossdressing lte 3)>>\
@@ -39,7 +39,7 @@ You check the other dresses, but the others are all even bigger than the one tha
 <<endif>>\
 
 Shrugging off the over-sized dress, you unzip the minidress and try to put it on. \
-<<if _c>>\
+<<if _chastity>>\
 	Luckily, your //excitement// is subdued by the chastity cage, so you won't tent the dress in a certain place. \
 <<endif>>\
 It's a really tight fit, and you have to put some effort zipping it up. 
@@ -47,7 +47,7 @@ It's a really tight fit, and you have to put some effort zipping it up.
 The sensation of the dress tightly hugging your figure is strange, but it's certainly not bad. In fact, it's actually pleasantly snug, almost comforting, and a bit arousing.
 
 Your reflection in the mirror makes you stare in shock. The dress completely changes your appearance, making you look very feminine, despite\
-<<if _c>>\
+<<if _chastity>>\
 	<<if $flags.penisShrinkProgress gte 1>>\
 		the small chastity cage making almost unnoticable bulge at the crotch region,\
 	<<else>>\

@@ -1,13 +1,13 @@
 :: Good morning [pos_639_373]
 \
-<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-<<set _o=playerCode.isWearingOn(itemTypes.Outerwear)>>\
-<<set _br=playerCode.isWearingOn(itemTypes.Bras)>>\
-<<set _st=playerCode.isWearingOn(itemTypes.Stockings)>>\
-<<set _co=playerCode.isWearingOn(itemTypes.Collar)>>\
-<<set _hb=playerCode.isWearingOn(itemTypes.Hairband)>>\
-<<set _ex=playerCode.isWearingOn(itemTypes.Extra)>>\
+<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
+<<set _outerwear=window.wardrobeFuncs.getWornItem('outerwear')>>\
+<<set _nightwear=window.wardrobeFuncs.getWornItem('nightwear')>>\
+<<set _bra=window.wardrobeFuncs.getWornItem('bra')>>\
+<<set _stockings=window.wardrobeFuncs.getWornItem('hosiery')>>\
+<<set _neckwear=window.wardrobeFuncs.getWornItem('neckwear')>>\
+<<set _headwear=window.wardrobeFuncs.getWornItem('headwear')>>\
 \
 <<display "Daily resets">>\
 \
@@ -27,7 +27,7 @@
 			<<set $roomSize = 4>>\
 		<<endif>>\
 		<<display "Show bedroom">>\
-	<<elseif _c and random(1) eq 0>>\
+	<<elseif _chastity and random(1) eq 0>>\
 		<<if playerCode.isMaid()>>\
 			<div style="float: right; margin: 10px;"><<RandomImageFromPack "Morning Chastity Maid" 450 450>></div>\
 		<<else>>\
@@ -38,9 +38,9 @@
 	<<endif>>\
 <<endif>>\
 \
-<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<if ($tasksTeacher.trialChastity.status eq 4) and ($player.exp.chastityExp gte 3) and window.wardrobeFuncs.getWornItem('chastity')>>\
 	<<set $tasksTeacher.trialChastity.status = 6>>\
-<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and playerCode.isWearingOn(itemTypes.Chastity)>>\
+<<elseif ($tasksTeacher.trialChastity.status eq 6) and ($player.exp.chastityExp gte 3) and window.wardrobeFuncs.getWornItem('chastity')>>\
 
 	You've slept well, despite wearing a chastity cage. You can't believe how quickly you got used to it.
 	
@@ -49,7 +49,7 @@
 	<<set $tasksTeacher.trialChastity.status = 5>>\
 	/*<<set $tasksTeacher.trialChastity.text.checkMe.reminder = "You completed the trial, now you should return the device to the shop.">>*/\
 <<endif>>\
-<<if $kinkAllow.penisShrink and $flags.penisShrinkSleep and ($flags.penisShrinkProgress gte 1) and ($body.penisShrink eq 1) and $time.weekDay() eq 5>>\
+<<if $kinkAllow.penisShrink and $flags.penisShrinkSleep and ($flags.penisShrinkProgress gte 1) and ($body.penisShrink.level eq 1) and $time.weekDay() eq 5>>\
 	<<set $flags.penisShrinkSleep = false>>\
 	<<set $therapistTalks.talkPenisShrinkingEnd.start = true>>\
 	<<set _tt=10>>\
@@ -70,10 +70,11 @@
 	You open your eyes to find $guardian shaking you awake, looking down at you sternly.
 	
 	<<if $player.perversion.guardian lte 2>>\
-		<<if (_o and _o.female and _o.sleepWear)>>\
+		<<if (_nightwear and _nightwear.isFemale)>>\
+		
 			Luckily she hasn't pulled the blanket off you and exposed your frilly nightie.
 			
-		<<elseif (_u and _u.female) or _br or _co or _co or _ex>>\
+		<<elseif (_underwear and _underwear.isFemale) or _bra or _neckwear>>\
 			Luckily she hasn't pulled the blanket off you and exposed your compromising attire.
 			
 		<<endif>>\
@@ -90,19 +91,19 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 2>>\
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
-	<<if playerCode.owns(itemsC.alarmClock)>>\
-	<<removeFromInv 'alarmClock'>>\
+	<<if $player.hasAlarmClock>>\
+		<<set $player.hasAlarmClock = false>>\
 	<<endif>>\
+	<<set $player.canBuyAlarmClock = false>>\
 	<<set $flags.dreamgameCaughtTalk to true>>\
 	<<set $time.guardian.wakeHour to 7>>\
 	You open your eyes to find $guardian shaking you awake, looking down at you sternly.
 
 	<<if $player.perversion.guardian lte 2>>\
-		<<if (_o and _o.female and _o.sleepWear)>>\
+		<<if (_nightwear and _nightwear.isFemale)>>\
 			Luckily, your frilly nightie stays hidden under the covers.
 			
-		<<elseif (_u and _u.female)>>\
+		<<elseif (_underwear and _underwear.isFemale)>>\
 			Luckily, your frilly underwear stays hidden under the covers.
 			
 		<<endif>>\
@@ -130,7 +131,7 @@
 	<<endif>>\
 	[[Get up and have breakfast|Have breakfast]]
 		<!--</caught groping Guardian>-->\
-<<elseif ($player.perversion.guardian lte 2) and ($flags.talkClinicWork or $flags.guardianNoticeBreastsB or $flags.guardianNoticeLipsEnhancingXL)>>\
+<<elseif ($player.perversion.guardian lte 2) and ($flags.talkClinicWork or $flags.talkSneakIn or $flags.guardianNoticeBreastsB or $flags.guardianNoticeLipsEnhancingXL)>>\
 	<!--<caught crossdressing at work at clinic or breasts B cup or LipsXL noticed>-->\
 	<<set $time.guardian.wakeHour to 7>>\
 	<<set $player.perversion.guardianCooldown to 1>>\
@@ -141,6 +142,10 @@
 		@@.guardian;"You embarrassed me in front of my co-workers, wearing a dress to the clinic! 
 		
 		"You know what? It's fine. I'm not about to question your sexuality, $player.name, but this@@\
+	<<elseif $flags.talkSneakIn>>\
+		Your eyes slowly open. You see $guardian shaking you awake, looking concerned.
+
+		@@.guardian;"I'm not about to question your sexuality, $player.name, but discovering that you have been wearing women's clothing outside@@\
 	<<else>>\
 		Your eyes slowly open. You see $guardian shaking you awake, looking concerned.
 
@@ -152,12 +157,12 @@
 		<<endif>>\
 	<<endif>>\
 	@@.guardian;has been a real eye-opener. I've got some ideas that you may like.  Or not...\
-<!----><<if $flags.dreamgameCaught>>\
+	<<if $flags.dreamgameCaught>>\
 
 
-<!---->"At least now I know what made you sneak into my bedroom. I'm still angry, but I'll try to be understanding.\
-<!----><<endif>>\
-<!---->"@@
+	"At least now I know what made you sneak into my bedroom. I'm still angry, but I'll try to be understanding.\
+	<<endif>>\
+	"@@
 	
 	[[Get up and have breakfast|Have breakfast]]
 	<!--</breasts B cup noticed>-->\
@@ -167,8 +172,8 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 4>>\
 	<<set $player.masturbationType = 0>>\
-	<<if (not playerCode.owns(itemsC.vibrator))>>\
-		<<addToInv 'vibrator'>>\
+	<<if (not $player.hasVibrator)>>\
+		<<set $player.hasVibrator = true>>\
 	<<endif>>\
 	Your eyes slowly open. $Guardian is shaking you awake, looking down at you sternly.
 
@@ -210,10 +215,10 @@
 	<<set $time.guardian.wakeHour to 7>>\
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<set $player.perversion.guardian to 5>>\
-	<<if playerCode.owns(itemsC.alarmClock)>>\
-		<<removeFromInv 'alarmClock'>>\
+	<<if $player.hasAlarmClock>>\
+		<<set $player.hasAlarmClock = false>>\
 	<<endif>>\
-	<<set $items.alarmClock.disabled=true>>\
+	<<set $player.canBuyAlarmClock = false>>\
 	<<if $flags.guardianFuckedByStrapon>>\
 		You open your eyes. $Guardian is there. Unusually, she is lying next to you, her hair draped across the sheets. She is watching you intently. @@.hero;Why is $guardian here?@@
 
@@ -290,54 +295,64 @@
 	<<endif>>\
 	She puts some sort of maid uniform on a chair near the bed and then unlocks your binds. It looks like something from an adults-only Halloween party, or maybe some roleplay porn.
 
-	<<set playerCode.getNaked()>>\
-	<<set window.playerCode.purgeMaleClothes()>>\
-	<<set window.playerCode.disableMaleClothes()>>\
+	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
+	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", false)>>\
+	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", false)>>\
+	<<set itemFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
+	<<set itemFuncs.disableItemVariantsByProperty('isMale', true)>>\
+	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
+	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 	<<set $flags.clothesPurged to true>>\
-	<<addToInv 'maidOutfit'>>\
-	<<wearClothing 'maidOutfit'>>\
-	<<addToInv 'stockings' 39>>\
-	<<set $items.stockings.curAlt=39>>\
-	<<wearClothing 'stockings'>>\
-	<<addToInv 'highHeel3' 39>>\
-	<<set $items.highHeel3.curAlt=39>>\
-	<<wearClothing 'highHeel3'>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_dress_latex')>>\
+	<<set window.itemFuncs.enableItemVariant('maid_headband')>>\
+	<<addItemVariantToInventory 'maid_dress'>>\
+	<<wearItemVariant 'maid_dress'>>\
+	<<addItemVariantToInventory 'stockings_39'>>\
+	<<wearItemVariant 'stockings_39'>>\
+	<<addItemVariantToInventory 'heels_39'>>\
+	<<wearItemVariant 'heels_39'>>\
+	<<addItemVariantToInventory 'maid_headband'>>\
+	<<wearItemVariant 'maid_headband'>>\
+	<<addItemVariantToInventory 'choker_00'>>\
+	<<wearItemVariant 'choker_00'>>\
+	<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 	<<if ($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing. She told me you prefer to wear dresses to school, anyway. There's no need for confusion.@@\
 	<<else>>\
 		@@.guardian;"As for your regular clothes, I took $teacher's suggestion and threw out all your male clothing except for the school uniform.@@\
-		<<addToInv 'schoolMale'>>\
-		<<addToInv 'schoolShoes'>>\
+		<<addItemVariantToInventory 'school_male'>>\
+		<<addItemVariantToInventory 'black_shoes_00'>>\
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.silkyTeddy))>>\
+	<<if (not inventoryFuncs.ownsMasterItem('nightie'))>>\
 		@@.guardian;I got you something new to sleep in. I'm sure you'll love it.@@\
-		<<addToInv 'silkyTeddy'>>\
+		<<addItemVariantToInventory 'nightie_00'>>\ 
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.summerDress)) and (not playerCode.owns(itemsC.sluttyDress))>>\
+	<<if (not inventoryFuncs.ownsMasterItem('casualDress')) and (not inventoryFuncs.ownsMasterItem('sluttyDress'))>>\
 		@@.guardian;I got you a dress as a little present from me.@@\
-		<<addToInv 'summerDress'>>\
+		<<addItemVariantToInventory 'dress_casual_00'>>\ 
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.gString))>>\
+	<<if (not inventoryFuncs.ownsMasterItem('sexyPanties'))>>\
 		@@.guardian;Also I've got you some underwear.@@\
-		<<addToInv 'gString' 40>>\
+		<<addItemVariantToInventory 'panties_sexy_40'>>\ 
 	<<endif>>\
-	<<if $items.gString.ownAlt[40]>>\
-		<<addToInv 'braSexy' 40>>\
+	<<if inventoryFuncs.isItemVariantOwned('panties_sexy_40') >>\ 
+		<<addItemVariantToInventory 'bra_sexy_40'>>\ 
 	<<endif>>\
-	<<if $items.pantiesCotton.ownAlt[40]>>\
-		<<addToInv 'bra' 40>>\
+	<<if inventoryFuncs.isItemVariantOwned('panties_cotton_40') >>\ 
+		<<addItemVariantToInventory 'bra_40'>>\ 
 	<<endif>>\
-	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not playerCode.owns(itemsC.schoolFemale))>>\
+	<<if (($player.perversion.teacher gte 4) or $tasksTeacher.wearDressToSchool.status gt 0) and (not inventoryFuncs.ownsMasterItem('schoolDress'))>>\
 		@@.guardian;I even got you a new school uniform.@@\
-		<<addToInv 'schoolFemale'>>\
+		<<addItemVariantToInventory 'school_female_00'>>\ 
 	<<endif>>\
-	<<if (not playerCode.owns(itemsC.flats)) and (not $items.highHeel3.ownAlt[0])>>\
-		<<if playerCode.owns(itemsC.schoolShoes)>>\
+	<<if (not inventoryFuncs.ownsMasterItem('flats')) and (not inventoryFuncs.isItemVariantOwned('heels_00'))>>\
+		<<if inventoryFuncs.ownsMasterItem('blackShoes')>>\
 			@@.guardian;I brought you my old shoes since you need something to go with your new clothes.@@\
 		<<else>>\
 			@@.guardian;I brought you my old shoes since you don't have any left.@@\
 		<<endif>>\
-		<<addToInv 'highHeel3'>>\
+		<<addItemVariantToInventory 'heels_00'>>\
 	<<endif>>\
 
 	<<if $player.room.style lte 4>>\
@@ -351,10 +366,22 @@
 	<<elseif $player.room.style eq 3>><<set $player.room.style = 8>>\
 	<<elseif $player.room.style eq 4>><<set $player.room.style = 9>>\
 	<<endif>>\
-	<<if playerCode.owns(itemsC.roomGamer) and $player.room.style neq 6>><<removeFromInv 'roomGamer'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomPunk) and $player.room.style neq 7>><<removeFromInv 'roomPunk'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomGeek) and $player.room.style neq 8>><<removeFromInv 'roomGeek'>><<endif>>\
-	<<if playerCode.owns(itemsC.roomSport) and $player.room.style neq 9>><<removeFromInv 'roomSport'>><<endif>>\
+	<<if inventoryFuncs.isItemVariantOwned('room_gamer')>>\
+		<<addItemVariantToInventory 'room_gamer_girl'>>\
+		<<removeItemVariantFromInventory 'room_gamer'>>\
+	<<endif>>\
+	<<if inventoryFuncs.isItemVariantOwned('room_punk')>>\
+		<<addItemVariantToInventory 'room_punk_girl'>>\
+		<<removeItemVariantFromInventory 'room_punk'>>\
+	<<endif>>\
+	<<if inventoryFuncs.isItemVariantOwned('room_geek')>>\
+		<<addItemVariantToInventory 'room_geek_girl'>>\
+		<<removeItemVariantFromInventory 'room_geek'>>\
+	<<endif>>\
+	<<if inventoryFuncs.isItemVariantOwned('room_sport')>>\
+		<<addItemVariantToInventory 'room_sport_girl'>>\
+		<<removeItemVariantFromInventory 'room_sport'>>\
+	<<endif>>\
 	<<set $player.room.junk=[]>>\
 \
 	<<if $flags.dreamgameCaughtWin>>\
@@ -396,19 +423,16 @@
 	<<set $player.perversion.guardianCooldown to 1>>\
 	<<if $flags.guardianEvil>>\
 		<<set $player.perversion.guardian to 7>>\
-		<<set $items.maidOutfit.curAlt=1>>\
-		<<set $items.maidOutfit.ownAlt[0]=false>>\
-		<<set $items.maidOutfit.ownAlt[1]=true>>\
 		<<set $flags.gTrialLatexMaid=true>>\
-		<<addToInv 'stockingsLatex' 39>>\
-		<<set $items.stockingsLatex.curAlt=39>>\
-		<<wearClothing 'stockingsLatex'>>\
-		<<addToInv 'stilettoHeels' 39>>\
-		<<set $items.stilettoHeels.curAlt=39>>\
-		<<wearClothing 'stilettoHeels'>>\
+		<<removeItemVariantFromInventory 'maid_dress'>>\
+		<<addItemVariantToInventory 'maid_dress_latex'>>\
+		<<wearItemVariant 'maid_dress_latex'>>\
+		<<addItemVariantToInventory 'stockings_latex_39'>>\
+		<<wearItemVariant 'stockings_latex_39'>>\
 		<<set $flags.gTrialGiantVibroPlug to true>>\
-		<<addToInv 'buttPlugVibro'>>\
-		<<wearClothing 'buttPlugVibro'>>\
+		<<addItemVariantToInventory 'buttplug_vibro'>>\
+		<<wearItemVariant 'buttplug_vibro'>>\
+		<<set window.itemNavigator.newOrUpdatedClothingSetFromWorn('Maid')>>\
 		Your eyes open suddenly to find $guardian angrily shaking you awake. There is a wild, unrestrained fire in $guardian's eyes. However, the absence of any of the normal empathy in her expression scares you the most.
 
 		@@.guardian;"Do I have your attention? I'd better."@@ She stares icily at your worried face, allowing you a moment to adjust to being awake so you can really understand the gravity of your situation.
@@ -461,7 +485,7 @@
 		<<if (not $flags.guardianCumDrink)>>\
 			@@.guardian;On weekends, I have arranged for you to serve as an aid at the sperm donor facility. There you'll help our clients to reach climax.@@\
 		<<endif>>\
-		@@.guardian;I'll be keeping an eye on how you do your chores. You can expect to me to punish you at the slightest sign of laziness or sloppy work. And don't worry, I will find more activities to occupy your time, too."@@
+		@@.guardian;I'll be keeping an eye on how you do your chores. You can expect me to punish you at the slightest sign of laziness or sloppy work. And don't worry, I will find more activities to occupy your time, too."@@
 		
 	<<else>>\
 		<<set $player.perversion.guardian to 6>>\
@@ -473,9 +497,9 @@
 		
 		@@.guardian;"You won't see $futa.him_her ever again, I will make sure of that."@@ 
 
-Noticing your worried face at her angry outburst, she quickly reassures you. 
+		Noticing your worried face at her angry outburst, she quickly reassures you. 
 
-@@.guardian;"Nothing drastic - I just happened to know some things about $futa.him_her, that would give $futa.his_her big trouble if they were ever to get out. $futa.He_She won't dare cross me."@@
+		@@.guardian;"Nothing drastic - I just happened to know some things about $futa.him_her, that would give $futa.his_her big trouble if they were ever to get out. $futa.He_She won't dare cross me."@@
 
 		She shakes her head and gives you a sad smile @@.guardian;"Well, at least $futa.his_her true, shitty colors came out now. It would have been more painful to rip that bandage off if things stayed the same way longer. I should be grateful to you for that."@@
 		
@@ -543,7 +567,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 
 	[[Go for breakfast|Have breakfast]]
 	<!--</condoms collecting2>--><!--Cum kink scene-->\
-<<elseif playerCode.owns(itemsC.alarmClock) and (not window.timeCode.isWeekend())>>\
+<<elseif $player.hasAlarmClock and (not window.timeCode.isWeekend())>>\
 	<!--<alarm>--><!--Alarms clock-->\
 	A repeating, shrill noise pierces your dream, slowly growing louder and louder. You fight to remain asleep, but eventually you're forced to open your eyes to see what it is.
 	
@@ -594,31 +618,27 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	<!--<maid morning>--><!--Special alarms-->\
 	<<if $flags.dreamgameCaughtWin>>\
 	You are brought out of sleep by \
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<if $player.alarmProgress eq 0>>\
-			<<set $player.alarmProgress++>>\
-			a butt-plug alarm vibrating in your anus, bringing you to tears as your locked penis desperately strains against the cage. You try to pull the torturous device from your ass, but it starts to screech and wail so loudly that you push it back in, letting out a weak whimper as you gasp and pant. There is no choice but to endure it, so you bite your pillow and try to relax, but the butt-plug keeps you on the edge the whole time.
+			a butt-plug alarm vibrating in your anus, bringing you to tears as your locked penis desperately strains against the cage. You try to pull the torturous device from your ass, but <<if $kinkAllow.bondage>>the plug has inflated on its own, pressing hard against your insides.<<else>>it starts to screech and wail so loudly that you push it back in, letting out a weak whimper as you gasp and pant.<<endif>> There is no choice but to endure it, so you bite your pillow and try to relax, but the butt-plug keeps you on the edge the whole time.
 			Finally, it stops, letting you pull it out and throw it on the night stand. That was a hell of a way to start the day!
 			<<elseif $player.alarmProgress eq 1>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You actually burst into tears, knowing what you have to endure. You involuntarily wiggle your ass, trying to shrug off the feeling, but the device mercilessly keeps you squirming the whole time.
 			Finally, it stops, letting you pull it out and drop it on the night stand.
 			<<elseif $player.alarmProgress eq 2>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You moan into your pillow, trying to distract yourself somehow, but with no success.
 			Finally, it stops, letting you pull it out and put it on the night stand.
 			<<elseif $player.alarmProgress lt 5>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You are tired of trying to resist this hellish device, so you just lie in bed moaning and squirming as the butt-plug wriggles in your ass.
 			Finally, it stops, letting you pull it out and put it on the night stand.
 			<<elseif $player.alarmProgress lte 8>>\
-			<<set $player.alarmProgress++>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You submit to this feeling of being dominated, and imagine $guardian and sometimes $teacher holding you down. Somehow it makes it easier.
 			Finally, it stops, letting you pull it out and put it on the night stand. A contented expression creeps onto your face as you realize that you're getting used to and even liking it.
 			<<else>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You give in to the feelings of helplessness and even occasionally massage the base of the butt-plug, making the sensations sharper. A flow of precum stains the sheets, but you don't care as you ride the bliss of your total surrender.
 			Finally, it stops, and you pull it out and gratefully kiss the tip before carefully putting it on the night stand. You feel weirdly thankful to $guardian for putting you through this, as you have become addicted to the feeling.
 			<<endif>>\
+			<<set $player.alarmProgress++>>\
 		<<else>>\
 			<<if $player.alarmProgress lt 9>>\
 			the familiar feeling of the butt-plug alarm vibrating in your anus. You thank the gods that you are not locked in chastity now and slowly stroke yourself, trying to prolong it until the end of the alarm 'signal'.
@@ -642,10 +662,11 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 			Finally, it stops, and you pull it out and gratefully kiss the tip before carefully putting it on the night stand. You feel weirdly thankful to $guardian for putting you through this, as you have become addicted to the feeling.
 			<<endif>>\
 		<<endif>>\
+		<<run playerCode.upArousalTo(20,20)>>/* therapist talk explicitly states this makes the PC frustrated and horny so arousal should at least be 20 */\
 		
 	<<elseif $flags.dreamgameCaught>>\
 	You are brought out of sleep by \
-		<<if playerCode.isWearingOn(itemTypes.Chastity)>>\
+		<<if window.wardrobeFuncs.getWornItem('chastity')>>\
 			<<if $player.alarmProgress eq 0>>\
 			an alarm butt-plug vibrating in your anus bringing you to tears as your locked penis desperately strains against the cage. That was a hell of a way to start the day!
 			<<elseif $player.alarmProgress eq 1>>\
@@ -666,6 +687,7 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 		<<else>>\
 			the familiar feeling of the alarm butt-plug vibrating in your anus. You thank the gods that you are not locked in chastity now.
 		<<endif>>\
+		<<run playerCode.upArousalTo(20,20)>>/* therapist talk explicitly states this makes the PC frustrated and horny so arousal should at least be 20 */\
 		
 	<<else>>\
 	You are brought out of sleep by \
@@ -716,11 +738,11 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 
 			You open your eyes slowly, gradually becoming aware of $guardian gently shaking you awake.
 			
-			<<if _u.female or (_o.female and _o.sleepWear) or _br>>\
+			<<if _underwear and _underwear.isFemale or (_nightwear and _nightwear.isFemale) or _bra>>\
 				She pulls the covers back a little and sees what you're wearing. 
 				
-				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _u.female>>underwear<<else>>nightclothes<<endif>>?"@@
-				<<if _c and (not _u) and (not $flags.guardianNoticeChastity)>>\
+				@@.guardian;"What on earth, $player.name! Why are you wearing girls' <<if _underwear and _underwear.isFemale>>underwear<<else>>nightclothes<<endif>>?"@@
+				<<if _chastity and (not _underwear) and (not $flags.guardianNoticeChastity)>>\
 					<<set $flags.guardianNoticeChastity = true>>\
 					Her eyes widen as she notices your chastity cage peeking from under your nightie. @@.guardian;"Oh my..."@@
 				<<endif>>\
@@ -787,5 +809,4 @@ Noticing your worried face at her angry outburst, she quickly reassures you.
 	<!--</default morning>-->\
 <<endif>>\
 <!--</Waking up>-->\
-
 

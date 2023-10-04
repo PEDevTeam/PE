@@ -4,7 +4,8 @@
 	You decide to go along with $therapist's crazy idea.
 	<<display "Watch porn on computer">>\
 	
-	<<if _c>>\
+	<<set _chast = window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<if _chast>>\
 		It's torture to watch such juicy porn while being locked in chastity, so you quickly pop the pill that $therapist gave you. Unfortunately, it doesn't seem to make it easier. If anything, you're just getting hornier.
 		
 		Time to open the box she gave you.
@@ -13,7 +14,7 @@
 		
 		Time to open the box she gave you.
 	<<endif>>\
-	<<wearClothing 'chastityDevice'>>\
+	<<wearRandomItemByMaster 'chastity'>>\
 	<<set $player.punishments.aphrodisiacDuration = 2>>\
 	<<set playerCode.upArousalTo(70,70)>>\
 
@@ -49,14 +50,14 @@
 		You can hardly wait to use it.
 		
 	<<endif>>\
-	<<if not playerCode.owns(itemsC.vibrator)>>\
-		<<addToInv $items.vibrator.id>>\
+	<<if not $player.hasVibrator>>\
+		<<set $player.hasVibrator = true>>
 	<<endif>>\
 	[[Use Sissy Trainer|Therapist sleep][$scene="Therapist sleep3"]]
 <<else>>\
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Therapist Dildo Play" 400 400>></div>\
-	<<set _b to playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<if _b>>\
+	<<set _plug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<if _plug>>\
 		You remove your butt-plug, give it a quick cleaning and put it to one side.
 
 	<<endif>>\

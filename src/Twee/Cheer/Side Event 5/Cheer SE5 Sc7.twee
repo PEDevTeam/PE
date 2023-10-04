@@ -30,7 +30,7 @@ You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ 
 	@@.hero;All right feet, don’t fail me now.@@
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend DDR" 400 400>></div>\
-	<<if ($player.gameSkill + $player.fitness) > 40>>\
+	<<if ($player.gameSkill + $player.fitness) > 30>>\
 		You’ve set the difficulty to easy, so the game isn’t too hard. Thankfully, your gaming experience has given you decent hand-eye coordination, and your exercise with the cheer squad keeps your stamina up while dancing. Your score isn’t the best, but you manage to keep a decent combo.
 
 		Andrew, on the other hand, seems to be cursed with two left feet. His steps are slow and deliberate and often a half-beat ahead or behind. By the time the song is finished, his score is far below yours. @@.malevoice9;“Dang it. Can’t believe I lost to a girl...,”@@ you hear Andrew mutter as he goes to his bed to get your prize.
@@ -62,24 +62,9 @@ You grab the copy of <<if $version == "shooter">>Call of Honor<<else>>Bustin’ 
 <<elseif $cheerFriend.prize == "panties">>\
 	Trying to be as discreet as possible, you reach up under your skirt and slide off your panties.
 
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
-	<<set _panties = false>>\
-	<<if _u.maxAlt>>\
-		<<for _i=0; _i lt $items[_u.id].ownAlt.length; _i++>>\
-			<<if $items[_u.id].ownAlt[_i]>>\
-				<<if ($items[_u.id].curAlt eq _i)>>\
-					<<set $items[_u.id].ownAlt[_i] = null>>\
-				<<else>>\
-					<<set _pantiesNewCur=_i>>\
-					<<set _panties=true>>\
-				<<endif>>\
-			<<endif>>\
-		<</for>>\
-	<<endif>>\
-	<<removeClothing _u.id>>\
-	<<if (not _panties)>>\
-		<<removeFromInv _u.id>>\
-	<<endif>>\
+	<<set _wornItem=window.wardrobeFuncs.getWornItem('underwear')>>\
+	<<removeClothingItem 'underwear'>>\
+	<<removeItemVariantFromInventory _wornItem.variant>>\
 	@@.malevoice9;“Thank you,”@@ Andrew says as he snatches them from your hand and runs over to the dresser. To your surprise, he returns holding a small wad of soft pink fabric.
 
 	<div style="float: right; margin: 10px;"><<RandomImageFromPack "Cheerfriend Panties" 400 400>></div>\

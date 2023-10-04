@@ -160,7 +160,7 @@ window.therapySessions=[
 			State.active.variables.player.perversion.therapistCooldown=3;
 		},
 		finishHypno: function() {
-			window.misc.unpostponeClothes();
+			//window.misc.unpostponeClothes();
 			State.active.variables.player.perversion.therapistCooldown++;
 			if (State.active.variables.player.perversion.therapistCooldown > 5) {
 				State.active.variables.player.perversion.therapistCooldown=0;
@@ -266,7 +266,7 @@ window.therapySessions=[
 		},
 		finishSession: function() {},
 		finishHypno: function() {
-			window.misc.unpostponeClothes();
+			//window.misc.unpostponeClothes();
 			State.active.variables.player.perversion.therapistCooldown++;
 			if (State.active.variables.player.perversion.therapistCooldown > 5) {
 				State.active.variables.player.perversion.therapistCooldown=0;
@@ -631,7 +631,7 @@ window.kinks= [
 	},
 	{
 		name: "Small penis",
-		code: "Sexual Prowess Hypotherapy",
+		code: "Sexual Prowess Hypnotherapy",
 		image: "hypno_sph.gif",
 		imagePack: "Hypno SPH",
 		fadeOut: [

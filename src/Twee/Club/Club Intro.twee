@@ -1,7 +1,12 @@
 :: Club Intro [pos_216_1085]
 \
-<<set _nails to $body.manicure>>\
-<<set _heels to playerCode.isWearingOn(itemTypes.Shoes).heels>>\
+<<set _nails to $body.manicure.level gt 0>>\
+<<set _shoes=window.wardrobeFuncs.getWornItem('shoes')>>\
+<<if _shoes>>\
+	<<set _heels=_shoes.masterItem == 'highHeels'>>\
+<<else>>\
+	<<set _heels=false>>\
+<<endif>>\
 \
 <<if $scene eq "ApproachBouncer">><!--<ApproachBouncer>-->\
 	Composing yourself as much as you’re able, you smooth your clothes, take a deep breath and walk towards the bouncer, hoping for the best.
@@ -154,13 +159,13 @@
 	[[Go through the doors|Club Intro][$scene="GoInside"]]
 	<!--</KissGirl>-->\
 <<elseif $scene eq "FlashPanties">><!--<FlashPanties>-->\
-	<<set _c=playerCode.isWearingOn(itemTypes.Chastity)>>\
-	<<set _b=playerCode.isWearingOn(itemTypes.AnalPlug)>>\
-	<<set _u=playerCode.isWearingOn(itemTypes.Underwear)>>\
+	<<set _chastity=window.wardrobeFuncs.getWornItem('chastity')>>\
+	<<set _buttplug=window.wardrobeFuncs.getWornItem('buttplug')>>\
+	<<set _underwear=window.wardrobeFuncs.getWornItem('underwear')>>\
 	@@.hero;“Here goes nothing,”@@ you say to yourself.
 
 	You lift the front hem of your outer clothes and gingerly pull the fabric to your waist.\
-	<<if _u>>\
+	<<if _underwear>>\
 		You also find the waistband of your underwear and tug it down a few inches so your $penis is exposed. The brisk air now feels perceptibly cooler with your intimate parts bared.
 	<<else>>\
 		Your $penis falls into view as its veil is lifted, the brisk air becoming noticeably cooler with your intimate parts exposed.
