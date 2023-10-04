@@ -651,6 +651,18 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 				<</selectScene>>\
 			<<endif>>\
 		<<endif>>\
+		<<if $cheerleaders.progress == 11 && window.timeCode.isFriday() && $cheerleaders.active && $cheerFriend.progress >=7>>
+			$cheerFriend.name catches you as you head to class. @@.cheerFriend;“Hey,”@@ she says, giving you a smile. @@.cheerFriend;“I saw some cute outfits at the mall while we were there, but I kinda didn’t have time to pick anything up. So, I was wondering if you wanted to go shopping with me this weekend?”@@
+
+			@@.heroT;“Yeah! Definitely!”@@ you respond, looking forward to the the one-on-one time with $cheerFriend.name.
+
+			“Cool,” she says. “Just give me a call either Saturday or Sunday. We’ll need to go like an hour or so before the mall closes. Don’t want to be those weirdos showing up at the stores just before they close down.”
+
+			“Sure. No sweat.”
+
+			$cheerFriend.name’s smile grows. “Great. See you then!” $cheerFriend.name spins on her heel and trots off, leaving you to ogle a bit as her skirt swishes enticingly across the top of her legs.
+			<<set $cheerFriend.currentSE = 9>>\
+		<<endif>>\
 		[[Go to class]]
 		<<if ($player.perversion.teacher eq 6) and $flags.bullyTaskGiven>>\
 			<<print '[[Talk to the '+$futa.boys_girls+'|Talk to bullies]]'>>
