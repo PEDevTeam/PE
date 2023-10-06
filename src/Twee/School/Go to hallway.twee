@@ -643,7 +643,7 @@
 	<<endif>>\
 	<<if ((not $player.perversion.teacherCooldown eq 0) and $player.perversion.teacher eq 3) or (($player.perversion.teacherCooldown eq 0) and ($player.perversion.teacher eq 4))>>\
 		<<if window.wardrobeFuncs.isItemMasterWearing('sexyPanties') and window.wardrobeFuncs.isItemMasterWearing('sexyBras')>>\
-			<<if (_underwear.setName == _bra.setName)>>\
+			<<if (_underwear.setName != "" && _bra.setName != "" && _underwear.setName == _bra.setName)>>\
 				@@.teacher;<<openQuote>>$<<print rewardMoney.teacherBra>> for wearing matching underwear.@@\
 				<<set _deduction+=rewardMoney.teacherFemaleUnderwear>>\
 			<<else>>\
@@ -713,7 +713,7 @@
 			@@.teacher;<<openQuote>>$<<print rewardMoney.cheerPractice>> for <<if $cheerleaders.progress gt 3>>participating in cheer activities<<else>>helping the cheer squad<<endif>>.@@\
 			<<set _deduction+=rewardMoney.cheerPractice>>\
 		<<else>>\
-			@@.teacher;<<openQuote>>Rachel was not pleased that you neglected your duties with the cheer squad yesterday.  No deduction.@@\
+			@@.teacher;<<openQuote>>Rachel was not pleased that you neglected your duties with the cheer squad yesterday. No deduction.@@\
 		<<endif>>\
 	<<else>>\
 		<<if $flags.coachPosing>>\
@@ -780,7 +780,7 @@
 			@@.teacher;<<openQuote>>$<<print rewardMoney.teacherSchoolslut>> for doing your part as the school slut.@@\
 			<<set _deduction+=rewardMoney.teacherSchoolslut>>\
 		<<else>>\
-			@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well.  I gave you that new uniform for a reason.@@\
+			@@.teacher;<<openQuote>>I heard you performed your school slut duties yesterday, but in order for me to reduce your debt, you must look like a slut as well. I gave you that new uniform for a reason.@@\
 		<<endif>>\
 	<<endif>>\
 	<<if $cheerleaders.active == true and $cheerleaders.progress == -1 and $cheerleaders.flags.beg == false>>\
@@ -836,7 +836,7 @@
 	<<if window.timeCode.isFriday() && $player.perversion.teacher == 10>>\
 		<<if $flags.slutGoodEnd > 0>>\
 		
-			$teacher smiles at you warmly. @@.teacher;"Do not forget about your reward tonight.  The address is on the card I gave you.@@
+			$teacher smiles at you warmly. @@.teacher;"Do not forget about your reward tonight. The address is on the card I gave you.@@
 		<<elseif $flags.slutBadEnd > 0>>\
 		
 			$teacher looks at you sternly. @@.teacher;"For your own sake, I suggest you make it to the club tonight for your punishment.@@
@@ -1109,7 +1109,7 @@
 
 	After a long wait, $teacher finally comes out of the classroom to talk to you.
 
-	@@.teacher;"I've had enough of you distracting this class.  I'm giving you detention.  Hopefully, that will teach you to respect your education."@@
+	@@.teacher;"I've had enough of you distracting this class. I'm giving you detention. Hopefully, that will teach you to respect your education."@@
 
 	Ugh! Detention blows. She's always picking on you for stuff like this. You consider protesting but $teacher is just too intimidating. 
 	
@@ -1117,7 +1117,7 @@
 
 	<<if not ($flags.femaleSchool) and _outerwear.isFemale>>\
 		<<set $flags.femaleSchool to true>>\
-		@@.teacher;"I am not going to ask why you are wearing the //girls'// school uniform.  All I will say is that as far as I know, it is not against the rules, and frankly, I think it suits you."@@
+		@@.teacher;"I am not going to ask why you are wearing the //girls'// school uniform. All I will say is that as far as I know, it is not against the rules, and frankly, I think it suits you."@@
 		
 	<<endif>>\
 	[[Accept your punishment|Finish school day][$player.detention=true]]

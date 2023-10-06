@@ -23,10 +23,9 @@
 	<<endif>>\
 
 	<<if ($tasksEmail.WebcamTail.status gte 2)>>\
-		<<set $tasksEmail.WebcamTail.status = 3>>\
 		After some time, the familiar *bing* from your computer notifies you that a new video of your activities has been recorded.
 
-		[[Send video|UploadPorn]]
+		[[Send video|UploadPorn][$tasksEmail.WebcamTail.status = 3]]
 	<<endif>>\
 	[[Return|Go to bedroom]]
 

@@ -28,8 +28,8 @@ $.extend(true, window.items, {
             daring:3,
             disabled:false,
             hasWorn:false,
-            isMale:true,
-            isFemale:false,
+            isMale:false,
+            isFemale:true,
             tags:{
                 plain:true,
                 

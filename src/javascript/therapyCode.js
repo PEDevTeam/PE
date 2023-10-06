@@ -42,7 +42,7 @@ window.therapyArrivals= [
 		}
 	},
 	{
-		text: "You arrive right on time at $therapist's office, but she's running a bit late with her current patient.  After a few minutes of waiting, she finally calls you in.",
+		text: "You arrive right on time at $therapist's office, but she's running a bit late with her current patient. After a few minutes of waiting, she finally calls you in.",
 		chance: 10,
 		priority: 5,
 		perversion: {
@@ -59,7 +59,7 @@ window.therapyArrivals= [
 
 window.therapySessions=[
 	{	//Introduction , first scene
-		text: "You don't have to wait long, and as she shows out her previous patient, she welcomes you in with a smile.  Her office is softly lit, with expensive furniture and the traditional comfortable couch.\n\nWith a gesture toward the couch, she says, @@.therapist;\"Hello $player.name, I'm $therapist, and I'm glad you could make it. Please make yourself comfy and relax. There's some water there if you need some, and I have fresh cookies if you're feeling hungry.\"@@\n\nYou are, and the cookie is chocolate and perfect. You sit on the couch and enjoy it while she waits patiently. As you look around the room, you spot a PSBox console sitting in her TV cabinet, and she notices you glancing at it.\n\n\@@.therapist;\"Call of Honor is my favorite when I have a spare session slot. Do you play?\"@@\n\nHell yeah, you do! You spend a few minutes discussing tactics and favorite maps. She seems awesome.\n\n@@.therapist;\"You're here because $guardian was worried about your behavior at home. Would you like to tell me about that?\"@@\n\nYou want to trust $therapist, but talking about it is embarrassing, so you explain it was just a misunderstanding, and awkwardly try to switch topics. She nods and says she believes you. She also says you can discuss anything with her if and when you are ready to talk. She hints that she's studied a lot of unique relationships, and would be glad to help with friendly advice and give you some pointers.\n\nThe hour whizzes by in no time, and you're left feeling confident that $therapist will play a big role in helping you mature. You give her a hug that she returns with equal sentiment, and leave with your head high.",
+		text: "You don't have to wait long, and as she shows out her previous patient, she welcomes you in with a smile. Her office is softly lit, with expensive furniture and the traditional comfortable couch.\n\nWith a gesture toward the couch, she says, @@.therapist;\"Hello $player.name, I'm $therapist, and I'm glad you could make it. Please make yourself comfy and relax. There's some water there if you need some, and I have fresh cookies if you're feeling hungry.\"@@\n\nYou are, and the cookie is chocolate and perfect. You sit on the couch and enjoy it while she waits patiently. As you look around the room, you spot a PSBox console sitting in her TV cabinet, and she notices you glancing at it.\n\n\@@.therapist;\"Call of Honor is my favorite when I have a spare session slot. Do you play?\"@@\n\nHell yeah, you do! You spend a few minutes discussing tactics and favorite maps. She seems awesome.\n\n@@.therapist;\"You're here because $guardian was worried about your behavior at home. Would you like to tell me about that?\"@@\n\nYou want to trust $therapist, but talking about it is embarrassing, so you explain it was just a misunderstanding, and awkwardly try to switch topics. She nods and says she believes you. She also says you can discuss anything with her if and when you are ready to talk. She hints that she's studied a lot of unique relationships, and would be glad to help with friendly advice and give you some pointers.\n\nThe hour whizzes by in no time, and you're left feeling confident that $therapist will play a big role in helping you mature. You give her a hug that she returns with equal sentiment, and leave with your head high.",
 		hasPassage: false,
 		chance: 10,
 		priority: 10,
@@ -84,7 +84,7 @@ window.therapySessions=[
 		finishHypno: function() {}
 	},
 	{	//Introduction , second scene
-		text: "$therapist calls you in, and she can tell straight away that something new is troubling you.  With a little prodding, you tell her how your teacher $teacher is blackmailing you.  $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her about the damning choices you made at school, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers.  You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print rewardMoney.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
+		text: "$therapist calls you in, and she can tell straight away that something new is troubling you. With a little prodding, you tell her how your teacher $teacher is blackmailing you. $therapist is initially shocked, and talks about exposing her to the principal, but once you tell her about the damning choices you made at school, she sees your predicament.\n\n@@.therapist;\"I've got an idea that may buy you some time. Money is your problem right now, and if you pay her off, it will give you some time to figure out how to handle her. Who knows? She may get tired of the whole thing or come to her senses.\"@@\n\n$therapist is thoughtful for a few moments while you look to her for help.\n\n@@.therapist;\"I'm running a hypnosis research project that pays decent money to volunteers. You're a little on the young side to participate, but I should be able to wrangle things for you. If you agree, I'll conduct the research during our sessions, and just refund the money $guardian is paying me straight to you. That's $<<print rewardMoney.hypnosis>> a session, if you're interested.\"@@\n\nHell yeah! Easy money! You agree quickly.\n\n@@.therapist;\"Great! Well, today's session is over, so we'll get into that next time. But before you leave, I need you to fill a short survey for the initial information for my research. Some of questions there might appear strange, but it is really necessary, so, please, don't overthink it and answer honestly.\"@@",
 		hasPassage: true,
 		passage: "TherapistSurvey",
 		chance: 10,
@@ -169,7 +169,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Talking about Friend
-		text: "You mention that the stress of performing for $teacher is starting to get to you, and you're finding it hard to relax at nights. $therapist is thoughtful for a moment. @@.therapist;\"Something that has worked wonderfully for another client of mine are regular massages. Not only does he find the massages pleasurable, but he experiences total relaxation for the next couple of days.\"@@ Sounds nice.\n\n@@.therapist;\"I think he pays around $300 an hour to have one of the girls at the brothel take care of him... That might explain why he enjoys them so much.\"@@ She laughs. @@.therapist;\"That's no good for you though. We're trying to //save// you money.\"@@\n\n$therapist taps her fingers on her knee while she thinks. @@.therapist;\"Perhaps you know someone who could give you a massage for free? $Guardian, or a friend?\"@@ You think about whether $guardian would do that for you, but decide that based on the way things are going between the two of you, she wouldn't. $friend though... $friendG.he_she might be up for it.\n\nYou tell $therapist about $friend. She smiles brightly.\n\n @@.therapist;\"Oh, that sounds perfect! If $friend is generous enough to do that for you, I think it might really help you cope with your stress.\"@@\n\n You smile at each other.  You feel better already.",
+		text: "You mention that the stress of performing for $teacher is starting to get to you, and you're finding it hard to relax at nights. $therapist is thoughtful for a moment. @@.therapist;\"Something that has worked wonderfully for another client of mine are regular massages. Not only does he find the massages pleasurable, but he experiences total relaxation for the next couple of days.\"@@ Sounds nice.\n\n@@.therapist;\"I think he pays around $300 an hour to have one of the girls at the brothel take care of him... That might explain why he enjoys them so much.\"@@ She laughs. @@.therapist;\"That's no good for you though. We're trying to //save// you money.\"@@\n\n$therapist taps her fingers on her knee while she thinks. @@.therapist;\"Perhaps you know someone who could give you a massage for free? $Guardian, or a friend?\"@@ You think about whether $guardian would do that for you, but decide that based on the way things are going between the two of you, she wouldn't. $friend though... $friendG.he_she might be up for it.\n\nYou tell $therapist about $friend. She smiles brightly.\n\n @@.therapist;\"Oh, that sounds perfect! If $friend is generous enough to do that for you, I think it might really help you cope with your stress.\"@@\n\n You smile at each other. You feel better already.",
 		hasPassage: false,
 		chance: 10,
 		priority: 5,
@@ -222,7 +222,7 @@ window.therapySessions=[
 	},
 	// Following sessions are essentially null-content sessions that may allow for further hypno, but contain no unique therapist content
 	{	//Routine, until Teacher route start
-		text: "$therapist calls you in, and the two of you pick up from where you left the previous session.  It's wonderful to talk openly with someone you trust so completely.\n\nThe hour whizzes by in no time, and the session finishes with one of the nice hugs that you're now looking forward to.",
+		text: "$therapist calls you in, and the two of you pick up from where you left the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nThe hour whizzes by in no time, and the session finishes with one of the nice hugs that you're now looking forward to.",
 		hasPassage: false,
 		chance: 10,
 		priority: 0,
@@ -245,7 +245,7 @@ window.therapySessions=[
 		finishHypno: function() {}
 	},
 	{	//Routine for perversion 3 (mind_0)
-		text: "$therapist calls you in, and the two of you pick up where you left off in the previous session.  It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have a hypnosis session?\"@@\n\nYou're hesitant about it, and a little scared by how it affected you last time. What if you start enjoying what's happening to you?",
+		text: "$therapist calls you in, and the two of you pick up where you left off in the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while, you feel like you've discussed everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have a hypnosis session?\"@@\n\nYou're hesitant about it, and a little scared by how it affected you last time. What if you start enjoying what's happening to you?",
 		hasPassage: false,
 		chance: 10,
 		priority: 1,
@@ -300,7 +300,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Routine for perversion 4 (mind_1)
-		text: "$therapist calls you in, and the two of you pick up from where you ended your last session.  It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while you feel you've discussed everything going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have another hypnosis session?\"@@\n\nYou're still not sure if you should go further with these hypnotherapy sessions.",
+		text: "$therapist calls you in, and the two of you pick up from where you ended your last session. It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while you feel you've discussed everything going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left if you'd like to have another hypnosis session?\"@@\n\nYou're still not sure if you should go further with these hypnotherapy sessions.",
 		text: "",
 		hasPassage: false,
 		chance: 10,
@@ -330,7 +330,7 @@ window.therapySessions=[
 		}
 	},
 	{	//Routine for perversion 5 (mind_2)
-		text: "$therapist calls you in, and the two of you pick up from where you left off in the previous session.  It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while you feel you've covered everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left. Are you ready for another hypnosis session?\"@@\n\nYes. Yes, you are.",
+		text: "$therapist calls you in, and the two of you pick up from where you left off in the previous session. It's wonderful to talk openly with someone you trust so completely.\n\nAfter a while you feel you've covered everything that's been going on recently, and $therapist looks at her watch. @@.therapist;\"Well, we still have some time left. Are you ready for another hypnosis session?\"@@\n\nYes. Yes, you are.",
 		hasPassage: false,
 		chance: 10,
 		priority: 0,

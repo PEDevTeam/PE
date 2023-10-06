@@ -1,6 +1,6 @@
 ::choose_partner
 <!--
-	Backwards compatability code.  Might delete later once most players have cleared it.
+	Backwards compatability code. Might delete later once most players have cleared it.
 -->\
 <<if $flags.bimboLessonPartner == "Coach">>\
 	<<set $player.ending.comportment.preferredGender = 2>>\
@@ -39,7 +39,7 @@
 			<<endif>>\
 		<</for>>\
 		<<if _matchFound>>\
-			@@.teacher;"<<print _partnerArr[_bestMatch].name>>, in particular, was very interested when I spoke to <<if _partnerArr[_bestMatch].gender == 1>>him<<else>>her<<endif>>.@@\
+			@@.teacher;"<<print _partnerArr[_bestMatch].name>>, in particular, was very interested when I spoke to <<if _partnerArr[_bestMatch].gender == 2>>him<<else>>her<<endif>>.@@\
 			<<if _partnerArr[_bestMatch].hair.includes($body.hairstyle.level) &&
 				_partnerArr[_bestMatch].face.includes($body.face.level) &&
 				_partnerArr[_bestMatch].lips.includes($body.lips.level) &&
@@ -47,7 +47,7 @@
 				_partnerArr[_bestMatch].ass.includes($body.ass.level) &&
 				_partnerArr[_bestMatch].smoothing.includes($body.anal.level)>>\
 				<<set $partnerOffered = true>>\
-				@@.teacher;<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.
+				@@.teacher;<<if _partnerArr[_bestMatch].gender == 2>>He<<else>>She<<endif>> also said <<if _partnerArr[_bestMatch].gender == 2>>he<<else>>she<<endif>> finds you quite attractive.
 				
 				Are you interested in marrying _partnerArr[_bestMatch].name?"@@
 			
@@ -126,7 +126,7 @@
 				_partnerArr[_i].ass.includes($body.ass.level) &&
 				_partnerArr[_i].smoothing.includes($body.anal.level)>>\
 					<<if _i != _bestMatch || (_i == _bestMatch && _partnerArr[_i].gender != $player.ending.comportment.preferredGender)>>\
-						@@.teacher;"<<if _partnerArr[_bestMatch].gender == 1>>He<<else>>She<<endif>> said <<if _partnerArr[_bestMatch].gender == 1>>he<<else>>she<<endif>> finds you quite attractive.@@
+						@@.teacher;"<<if _partnerArr[_bestMatch].gender == 2>>He<<else>>She<<endif>> said <<if _partnerArr[_bestMatch].gender == 2>>he<<else>>she<<endif>> finds you quite attractive.@@
 						<<set _newBest = _i>>\
 						<<set _newBestFound = true>>\
 						<<break>>\
@@ -184,7 +184,7 @@
 <<set _partnerArr = []>>\
 You tell teacher you're interested in marrying someone else.
 
-$teacher rolls her eyes.  @@.teacher;"So picky,"@@ she says. @@.teacher;"There may still be a few other people who are interested, but if you want to marry one of them, you should probably go on some dates.@@
+$teacher rolls her eyes. @@.teacher;"So picky,"@@ she says. @@.teacher;"There may still be a few other people who are interested, but if you want to marry one of them, you should probably go on some dates.@@
 
 <<for _i = 0; _i < Object.keys(_partners).length;_i++>>\
 	<<if _partners[Object.keys(_partners)[_i]].numOfDates == 0>>\
@@ -215,7 +215,7 @@ $teacher rolls her eyes.  @@.teacher;"So picky,"@@ she says. @@.teacher;"There m
 ::I'm not interested in getting married yet
 You tell $teacher you're not interested in getting married to anyone yet.
 
-@@.teacher;"Very well.  Just let me know you're ready to find your spouse, and I'll get you set up."@@
+@@.teacher;"Very well. Just let me know you're ready to find your spouse, and I'll get you set up."@@
 
 [[Finish school day]]
 
@@ -273,11 +273,11 @@ You ask $teacher about _partners[$id].name.
 	<<case "guardian">>\
 		@@.teacher;She said she would love you no matter how you looked, but she thinks a girly hairstyle would look better on you.@@
 	<<case "coach">>\
-		@@.teacher;$futa.He_She said $futa.he_she wants you to look like the biggest bimbo possible; huge tits, jiggly ass, dick sucking lips, the works.  Oh, and $futa.he_she wants your asshole velvety smooth.@@
+		@@.teacher;$futa.He_She said $futa.he_she wants you to look like the biggest bimbo possible; huge tits, jiggly ass, dick sucking lips, the works. Oh, and $futa.he_she wants your asshole velvety smooth.@@
 	<<case "ashley">>\
 		@@.teacher;She said she was not interested unless you were 'properly feminized.'  Doing just the bare minimum of your feminine trasformation won't satisfy her.@@
 	<<case "roxy">>\
-		@@.teacher;Roxy said she likes the 'femboy aesthetic,' which she claimed was a girly hairstyle, feminine facial shape, small lips, no breasts, and a plump ass.  Also, considering how much she likes to assfuck you, you should probably look into getting some anal smoothing done.@@
+		@@.teacher;Roxy said she likes the 'femboy aesthetic,' which she claimed was a girly hairstyle, feminine facial shape, small lips, no breasts, and a plump ass. Also, considering how much she likes to assfuck you, you should probably look into getting some anal smoothing done.@@
 	<<case "jogger">>\
 		@@.teacher;He said he wanted you looking at least a little girly all over, and since he'll be fucking your ass, you should look into some anal smoothing as well.@@
 	<<case "dramaTeacher">>\
@@ -299,7 +299,7 @@ You ask $teacher about _partners[$id].name.
 <<elseif $chosenPartner == "ashley">>\
 	<<include [[Ashley Trophy Wife Ending Sc1]]>>\
 <<else>>\
-	Sorry.  We are still preparing the chapel.  For now, keep enjoying the game in sandbox mode.  You can talk to teacher again if you want to check for a new partner.
+	Sorry. We are still preparing the chapel. For now, keep enjoying the game in sandbox mode. You can talk to teacher again if you want to check for a new partner.
 
 	[[Finish school day]]
 <<endif>>\

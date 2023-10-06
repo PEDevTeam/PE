@@ -85,7 +85,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing.  As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you softly approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
+		description: "It's a sunny day and $guardian is lying on a towel in the backyard, sun bathing. As you walk closer, you can see she's naked, her soft skin glistening with tanning oil. She seems to be asleep, but as you softly approach, she turns her head to you and smiles, asking if you would rub more oil over her skin. You reach towards her with trembling hands...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -149,7 +149,7 @@ window.dreamsGuardian={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "You walk into the kitchen and find $guardian sitting on the floor with her back against the cabinets.  Her dress is hiked up and she's slowly pushing a huge cucumber into her pussy. Your eyes meet, but she doesn't stop. Instead, she just smiles at you lustfully. As she hilts the vegetable to her inner limit, she asks you for a carrot from the fridge...",
+		description: "You walk into the kitchen and find $guardian sitting on the floor with her back against the cabinets. Her dress is hiked up and she's slowly pushing a huge cucumber into her pussy. Your eyes meet, but she doesn't stop. Instead, she just smiles at you lustfully. As she hilts the vegetable to her inner limit, she asks you for a carrot from the fridge...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.guardian);
 		}
@@ -344,7 +344,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher undoes the top buttons of her blouse and leans forward to give you a better look at her soft breasts beneath.  You float forward until you're almost breathing on them, and she takes your head in her hands and pulls you firmly into her cleavage.  Her soft tits press against your cheeks and you bring your hands up to finally touch....",
+		description: "$teacher undoes the top buttons of her blouse and leans forward to give you a better look at her soft breasts beneath. You float forward until you're almost breathing on them, and she takes your head in her hands and pulls you firmly into her cleavage. Her soft tits press against your cheeks and you bring your hands up to finally touch....",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -376,7 +376,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it.  She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks directly into yours, silently pleading for you to take its place.  You stand up and walk towards her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
+		description: "$teacher idly takes a covered marker and puts one end in her mouth, gently moving it in and out, then runs her tongue all around it. She closes her eyes and gently sucks on it as if it were a real cock, then opens her eyes and looks directly into yours, silently pleading for you to take its place. You stand up and walk towards her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>>...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -392,7 +392,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher's clothes melt away and she stands there teaching the class dressed only in her lacy bra, panties and high-heels.  You can easily see her hard nipples poking through the lace, and she smiles at you as you focus on her pussy, seeing a damp spot appear as she enjoys being the focus of your attention.  She reaches behind her back and unclips her bra...",
+		description: "$teacher's clothes melt away and she stands there teaching the class dressed only in her lacy bra, panties and high-heels. You can easily see her hard nipples poking through the lace, and she smiles at you as you focus on her pussy, seeing a damp spot appear as she enjoys being the focus of your attention. She reaches behind her back and unclips her bra...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -408,7 +408,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is helping the student in front of you and bends down to his level.  Her short skirt rides up her smooth naked legs, just covering her crotch.  You reach forward and slide your hand up the inside of her thigh, hearing her voice catch as she continues helping the other boy. Her skin gets warmer and softer as your hand disappears under her skirt...",
+		description: "$teacher is helping the student in front of you and bends down to his level. Her short skirt rides up her smooth naked legs, just covering her crotch. You reach forward and slide your hand up the inside of her thigh, hearing her voice catch as she continues helping the other boy. Her skin gets warmer and softer as your hand disappears under her skirt...",
 		check: function() {
 			return [0,1].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -440,7 +440,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher takes hold of her blouse and rips it open, scattering some buttons over the floor.  Her braless tits stand firm and proud with pink nipples begging to be sucked.  She walks over to you, her breasts bouncing, grabbing the back of your head and firmly pulling your mouth over a succulent nipple.  She moans as you flick your tongue over it...",
+		description: "$teacher takes hold of her blouse and rips it open, scattering some buttons over the floor. Her braless tits stand firm and proud with pink nipples begging to be sucked. She walks over to you, her breasts bouncing, grabbing the back of your head and firmly pulling your mouth over a succulent nipple. She moans as you flick your tongue over it...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -456,7 +456,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher calls you up to her desk where she's sitting, then swivels in her chair and motions for you to kneel.  As you do, she puts her legs on your shoulders and pulls you in slowly.  You kiss your way up her calves, around her knees and up her soft thighs.  She hikes her skirt up, showing you a glimpse of lacy panties, before pulling you firmly...",
+		description: "$teacher calls you up to her desk where she's sitting, then swivels in her chair and motions for you to kneel. As you do, she puts her legs on your shoulders and pulls you in slowly. You kiss your way up her calves, around her knees and up her soft thighs. She hikes her skirt up, showing you a glimpse of lacy panties, before pulling you firmly...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -472,7 +472,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them gently for a moment, before slowly moving them down your chest.  You feel your cock grow hard as she continues moving towards it, then deftly avoiding it as she continues past along your legs.  She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
+		description: "$teacher is standing behind you and puts her hands on your shoulders, resting them gently for a moment, before slowly moving them down your chest. You feel your cock grow hard as she continues moving towards it, then deftly avoiding it as she continues past along your legs. She pauses, and you feel her breath on your ear as she starts moving her hands back up, this time along the inside of your legs, closer and closer to your cock...",
 		check: function() {
 			return [2,3].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -504,7 +504,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is standing at the whiteboard and drops her marker.  She bends over at the waist, keeping her legs straight. That causes her skirt to pull tighter and tighter around her ass, until suddenly it rips open along the seam, showing her glorious bare ass.  Rather than cover it or stand up, she instead pivots and looks at you, smiling, then runs her hand up her leg and pushes a finger deep into her wet pussy.  She finger fucks herself for a moment then pulls out and puts it against her mouth...",
+		description: "$teacher is standing at the whiteboard and drops her marker. She bends over at the waist, keeping her legs straight. That causes her skirt to pull tighter and tighter around her ass, until suddenly it rips open along the seam, showing her glorious bare ass. Rather than cover it or stand up, she instead pivots and looks at you, smiling, then runs her hand up her leg and pushes a finger deep into her wet pussy. She finger fucks herself for a moment then pulls out and puts it against her mouth...",
 		check: function() {
 			return [4,5].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -520,7 +520,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher opens her desk drawer and pulls out a thick 10 inch dildo with a suction cup base. She stands up and slaps the dildo onto the middle of her chair, bends over and licks the tip, getting it wet.  Then she hikes up her skirt and moves into position, positioning the dildo in the right spot, and then starts to sit.  She looks you in the eyes as the dildo slowly disappears up her pussy, inch after inch until finally...",
+		description: "$teacher opens her desk drawer and pulls out a thick 10 inch dildo with a suction cup base. She stands up and slaps the dildo onto the middle of her chair, bends over and licks the tip, getting it wet. Then she hikes up her skirt and moves into position, positioning the dildo in the right spot, and then starts to sit. She looks you in the eyes as the dildo slowly disappears up her pussy, inch after inch until finally...",
 		check: function() {
 			return [4,5].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -536,7 +536,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher lifts her skirt up, sits on the corner of her desk facing the class, and spreads her legs.  She takes a covered marker, places it against her wet pussy, and slowly pushes it in.  She smiles at you and beckons with one finger for you to come forward. As you reach her she pulls the marker out and puts it to your lips.  You inhale her scent and open your mouth...",
+		description: "$teacher lifts her skirt up, sits on the corner of her desk facing the class, and spreads her legs. She takes a covered marker, places it against her wet pussy, and slowly pushes it in. She smiles at you and beckons with one finger for you to come forward. As you reach her she pulls the marker out and puts it to your lips. You inhale her scent and open your mouth...",
 		check: function() {
 			return [4,5].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -552,7 +552,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher calls you up to the front, then kneels down in front of you and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress<<else>>unzips your pants<<endif>>.  You look back at the class who seemed stunned, <<if window.wardrobeFuncs.getWornItem('chastity')>>and you hear her cry with frustration as she taps on your chastity device, then stands up and shrugs.  Your penis strains against its cage...<<else>><<if window.wardrobeFuncs.getWornItem('underwear')>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth.  She sucks harder and harder...<<endif>>",
+		description: "$teacher calls you up to the front, then kneels down in front of you and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress<<else>>unzips your pants<<endif>>. You look back at the class who seemed stunned, <<if window.wardrobeFuncs.getWornItem('chastity')>>and you hear her cry with frustration as she taps on your chastity device, then stands up and shrugs. Your penis strains against its cage...<<else>><<if window.wardrobeFuncs.getWornItem('underwear')>>then you feel her wrench down your underwear and engulf<<else>>but your attention is immediately drawn back as she engulfs<<endif>> your hard cock with her wet mouth. She sucks harder and harder...<<endif>>",
 		check: function() {
 			return [6].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -568,7 +568,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is writing on the lower part of the whiteboard, bending at the waist.  You leave your chair and walk confidently up to her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>> <<if window.wardrobeFuncs.getWornItem('underwear')>>and lowering your underwear <<endif>>as you approach.  With a swift move you pull down her skirt to her knees <<if window.wardrobeFuncs.getWornItem('chastity')>>and bump your chastity device up against her naked pussy, feeling your penis strain harder and harder against the plastic.  She looks at you quizzically, and you turn to see the class giggling at your frustrated attempt...<<else>>and shove your hard cock deep into her dripping pussy with a firm thrust.  She immediately straightens up, tightening her pussy, squeezing you wonderfully, then bucks against you, moaning with need...<<endif>>",
+		description: "$teacher is writing on the lower part of the whiteboard, bending at the waist. You leave your chair and walk confidently up to her, <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifting your dress up<<else>>unzipping your pants<<endif>> <<if window.wardrobeFuncs.getWornItem('underwear')>>and lowering your underwear <<endif>>as you approach. With a swift move you pull down her skirt to her knees <<if window.wardrobeFuncs.getWornItem('chastity')>>and bump your chastity device up against her naked pussy, feeling your penis strain harder and harder against the plastic. She looks at you quizzically, and you turn to see the class giggling at your frustrated attempt...<<else>>and shove your hard cock deep into her dripping pussy with a firm thrust. She immediately straightens up, tightening her pussy, squeezing you wonderfully, then bucks against you, moaning with need...<<endif>>",
 		check: function() {
 			return [6].includes(State.active.variables.player.perversion.teacher);
 		}
@@ -600,7 +600,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher is walking around the classroom as the class is working away, and stops in front of your desk.  She suddenly holds down your arms and calls to the boy sitting behind you.  He <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress <<else>>unzips and pulls down your pants <<endif>><<if window.wardrobeFuncs.getWornItem('underwear')>>and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>removes your <<endif>>underwear, <<endif>><<if window.wardrobeFuncs.getWornItem('buttplug')>>pops out your butt-plug, <<endif>>then rams his thick cock deep into your rectum.  You look up at $teacher to see her smiling evilly and leaning in to kiss you...",
+		description: "$teacher is walking around the classroom as the class is working away, and stops in front of your desk. She suddenly holds down your arms and calls to the boy sitting behind you. He <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>lifts up your dress <<else>>unzips and pulls down your pants <<endif>><<if window.wardrobeFuncs.getWornItem('underwear')>>and <<if window.wardrobeFuncs.getWornItem('outerwear').isFemale>>removes your <<endif>>underwear, <<endif>><<if window.wardrobeFuncs.getWornItem('buttplug')>>pops out your butt-plug, <<endif>>then rams his thick cock deep into your rectum. You look up at $teacher to see her smiling evilly and leaning in to kiss you...",
 		check: function() {
 			return State.active.variables.player.perversion.teacher >= 7;
 		}
@@ -616,7 +616,7 @@ window.dreamsTeacher={
 		once: false,
 		chance: 10,
 		highestStartPriority: 0,
-		description: "$teacher calls up three of the biggest boys to the front of the class and instructs them to drop their pants and underwear.  The class gasps as they do, revealing huge erections.  Then she calls for you to come up and suck them off.  With your cheeks burning in embarrassment, and the girls giggling at you, you walk up and kneel in front of the first boy.  He wastes no time in jamming it in your mouth and face fucks you as the class chants \"$player.name, $player.name, $player.name\"...",
+		description: "$teacher calls up three of the biggest boys to the front of the class and instructs them to drop their pants and underwear. The class gasps as they do, revealing huge erections. Then she calls for you to come up and suck them off. With your cheeks burning in embarrassment, and the girls giggling at you, you walk up and kneel in front of the first boy. He wastes no time in jamming it in your mouth and face fucks you as the class chants \"$player.name, $player.name, $player.name\"...",
 		check: function() {
 			return State.active.variables.player.perversion.teacher >= 7;
 		}
