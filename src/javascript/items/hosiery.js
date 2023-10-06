@@ -532,6 +532,7 @@ $.extend(true, window.items, {
                 white:true,
                 plain:true,
                 school:true,
+				cheer: true,
             }
         },
 

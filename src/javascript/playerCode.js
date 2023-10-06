@@ -250,7 +250,7 @@ window.playerCode={
 		//var fo=this.isWearingOn(itemTypes.Outerwear).female;
 		//var fs=this.isWearingOn(itemTypes.Shoes).slutty;
 		//var e=this.isWearingOn(itemTypes.Earrings);
-		var fo=window.wardrobeFuncs.getWornItem('outerwear').isFemale;
+		var fo=!window.wardrobeFuncs.getWornItem('outerwear').isMale;
 		var fs=window.inventoryFuncs.hasTag(window.wardrobeFuncs.getWornItem('shoes'), 'slutty');
 		var e=window.wardrobeFuncs.getWornItem('earring');
 		if (fo || fs || e || body.makeup.level>1 || body.hairstyle.level>1 || body.boobs.level>1 || body.lips.level>1 || body.manicure.level>0) {

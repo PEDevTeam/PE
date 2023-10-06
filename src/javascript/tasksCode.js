@@ -133,7 +133,7 @@ window.tasksTeacher={
 		hasPassage: false,
 		text: {
 			given: "@@.teacher;\"You have to sleep all night in a corset.\"@@",
-			perform: "Despite your exhaustion, you struggle to get to sleep. The corset squeezes you incessantly, barely letting you get enough air to breathe.  Even yawning is painful. [[Go to sleep|Good morning][window.timeCode.newDay()]]",
+			perform: "Despite your exhaustion, you struggle to get to sleep. The corset squeezes you incessantly, barely letting you get enough air to breathe. Even yawning is painful. [[Go to sleep|Good morning][window.timeCode.newDay()]]",
 			finish: "$teacher widely smiles.\n\n@@.teacher;\"I didn't want to tell you in class, but this looks great on you $player.name.@@",
 			fail: "@@.teacher;\"You're a bad, bad boy",
 			reminder: "@@.teacher;\"Don't forget about your corset training",
@@ -375,7 +375,7 @@ window.tasksTeacher={
 		text: {
 			given: "@@.teacher;\"I have a task for you today. You need to try some things to understand women better. Film yourself applying makeup - lipstick, eyeshadow and so on. I want to see a real effort.\"@@",
 			perform: "",
-			finish: "$teacher takes your phone and watches the video.\n\n@@.teacher;\"Hmm, your first try was pitiful. The second too, but I see that you actually tried towards the end. You are clearly a beginner, $player.name, but you should keep at it - you'll learn eventually.  Until you do, you can always get help from the professionals if you want your makeup done right.@@",
+			finish: "$teacher takes your phone and watches the video.\n\n@@.teacher;\"Hmm, your first try was pitiful. The second too, but I see that you actually tried towards the end. You are clearly a beginner, $player.name, but you should keep at it - you'll learn eventually. Until you do, you can always get help from the professionals if you want your makeup done right.@@",
 			fail: "@@.teacher;\"You did not even try to apply makeup? I am disappointed. Take a mark for not bothering.\"@@",
 			reminder: "@@.teacher;\"Don't forget to try applying makeup.\"@@",
 			checkMe: {

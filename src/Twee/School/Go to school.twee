@@ -348,7 +348,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			<<elseif _outerwear and _outerwear.isFemale and (_slutScoreBasic lte 3)>>\
 				You are walking to school in your <<if window.inventoryFuncs.hasTag(_outerwear, 'cheer')>>cheerleader uniform<<else>>female uniform<<endif>>. It feels a bit ill-fitting, and you try to hide your embarrassment the best you can. However, most of the people you cross stare in puzzlement at you, probably trying to work out if you're a girl or a boy. You see\
 			<<elseif _outerwear and (not _outerwear.isFemale) and (_slutScoreBasic lte 5)>>\
-				You are walking to school noticing how most of the people you cross stare a bit at you, probably puzzled by your feminine appearance.  You see\
+				You are walking to school noticing how most of the people you cross stare a bit at you, probably puzzled by your feminine appearance. You see\
 			<<elseif (_slutScoreBasic lte 7)>>\
 				Your <<if (_slutScoreBasic eq 6)>>alluring<<else>>sexy<<endif>> appearance draws glances and occasional undressing stares. Near school, you adjust your uniform once more and go ahead. You see\
 			<<elseif (_slutScoreBasic gte 8)>>\
@@ -574,11 +574,11 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 		<<if $time.day eq 1>>\
 			<<if $kink.futa>>\
 				<<set $bully="Berta">>\
-				The school troublemakers spot you and come over, pushing you around a little - just like they do most days.  You've learned the hard way that doing what they want keeps you from getting beaten up by the girls.
+				The school troublemakers spot you and come over, pushing you around a little - just like they do most days. You've learned the hard way that doing what they want keeps you from getting beaten up by the girls.
 			
 				The biggest girl, whose name you vaguely recall is $bully, demands your wallet. You hand it over.
 			<<else>>\
-				The school troublemakers spot you and come over, pushing you around a little - just like they do most days.  You've learned the hard way that doing what they want keeps you from getting beaten up.
+				The school troublemakers spot you and come over, pushing you around a little - just like they do most days. You've learned the hard way that doing what they want keeps you from getting beaten up.
 				
 				The biggest boy, whose name you vaguely recall is $bully, demands your wallet. You hand it over.
 			<<endif>>\
@@ -592,7 +592,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			
 			@@.bully;"Thanks, twerp!"@@ 
 			
-			$futa.He_She laughs at you as they walk off into school. You pick up your wallet and check inside. $futa.He_She took $<<print $player.money-$allowance>>.  Doh.
+			$futa.He_She laughs at you as they walk off into school. You pick up your wallet and check inside. $futa.He_She took $<<print $player.money-$allowance>>. Doh.
 			
 			<<set $player.money=$allowance>>\
 			<<set $flags.bullySteal=true>>\
@@ -626,7 +626,7 @@ Luckily, your school, Pepperton Academy, is just a few streets over. It’s an e
 			[[Ask a girl for advice|Task Ask advice]]
 		<<endif>>\
 		<<if ((($cheerleaders.progress >= 3 && $cheerleaders.progress <11) && window.timeCode.isWednesday()) || ($cheerleaders.progress == 4 && (window.timeCode.isFriday() || window.timeCode.isMonday())) || ($cheerleaders.progress == 9 && window.timeCode.isMonday())) && $cheerleaders.active && $cheerFriend.progress < 7>>\
-			Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>.  Without missing a beat, you quickly respond yes and that you can't wait to see her.
+			Your phone buzzes as you receive a text from $cheerFriend.name asking if you want to hang out <<if $cheerFriend.progress < 1>>at lunch<<else>>this afternoon<<endif>>. Without missing a beat, you quickly respond yes and that you can't wait to see her.
 			
 			<<set $cheerFriend.flags.acceptInvite = true>>\
 			<<if $cheerFriend.progress < 1>>\

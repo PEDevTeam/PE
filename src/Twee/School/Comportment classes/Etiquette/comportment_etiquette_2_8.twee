@@ -1,10 +1,10 @@
 :: comportment_etiquette_2_8
 <<if $player.ending.comportment.etiquette.scene1=="success" && $player.ending.comportment.etiquette.scene2=="success" && $player.ending.comportment.etiquette.scene3=="success">>\
-	$teacher smiles. @@.teacher;“Excellently done. Today you have demonstrated the exact sort of poise in public that I desired you to learn. For your next lesson, I would like you to join me at my home for a small get together this weekend.  It will be a good chance for you to practice these lessons in a situation that demands proper conduct.  If you fail to show, I will punish you severely, do you understand?”@@
+	$teacher smiles. @@.teacher;“Excellently done. Today you have demonstrated the exact sort of poise in public that I desired you to learn. For your next lesson, I would like you to join me at my home for a small get together this weekend. It will be a good chance for you to practice these lessons in a situation that demands proper conduct. If you fail to show, I will punish you severely, do you understand?”@@
 
 	You nod.
 
-	@@.teacher;“Very good.  Meet me at school on Satuday before 6pm, and I shall take you to my home.  Now, let us return to Pepperton,”@@ $teacher says as she leads you back to her car.
+	@@.teacher;“Very good. Meet me at school on Satuday before 6pm, and I shall take you to my home. Now, let us return to Pepperton,”@@ $teacher says as she leads you back to her car.
 	<<set $player.ending.comportment.etiquette.progress++>>\
 	<<set $player.ending.comportment.classStatus[0] = 2>>\
 	<<set $player.ending.comportment.etiquette.partyStart = true>>\
@@ -15,7 +15,7 @@
 	<<set $player.ending.comportment.etiquette.lessonFail[1] = 1>>\
 <<elseif $player.ending.comportment.etiquette.scene1=="crit_fail" || $player.ending.comportment.etiquette.scene2=="crit_fail" || $player.ending.comportment.etiquette.scene3=="crit_fail">>\
 	<<if $player.ending.comportment.etiquette.scene1=="success" || $player.ending.comportment.etiquette.scene2=="success" || $player.ending.comportment.etiquette.scene3=="success">>\
-    	She sighs and shakes her head. @@.teacher;“Your behavior continues to be wildly inconsistent.  On some  accounts you behave perfectly, yet on others you were an abject failure. Perhaps if you try harder on our next trip, you will manage to make something of yourself.  For now, though, I believe a nice walk back to school will help you focus your mind.”@@
+    	She sighs and shakes her head. @@.teacher;“Your behavior continues to be wildly inconsistent. On some  accounts you behave perfectly, yet on others you were an abject failure. Perhaps if you try harder on our next trip, you will manage to make something of yourself. For now, though, I believe a nice walk back to school will help you focus your mind.”@@
 	<<else>>\
     	$teacher sighs @@.teacher;“Today I saw nothing but failure. Perhaps you made some effort, but you still have a long way to go before your behavior becomes acceptable. We shall have to try this again sometime. For now, we will begin your punishment by having you walk back to school.”@@
 	<</if>>\

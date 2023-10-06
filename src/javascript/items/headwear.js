@@ -506,6 +506,7 @@ $.extend(true, window.items, {
                 black:true,
                 plain:true,
                 school:true,
+				cheer: true,
             }
         },    
     }

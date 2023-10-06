@@ -1086,7 +1086,7 @@ window.playerAddonsList={
 		endingsTotal: 1,
 		lessonSkip: false, /*toggles off daily lessons*/
 		genericEndings: ["Trophy Wife"],
-		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner.  Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
+		endingDescriptions: ["@@.teacher;You will be trained to be the perfect arm candy and sexual partner. Instruction will consist of proper deportment, as well as sexual techniqes. You will also be required to go on dates with prospective partners and modify your body into one your potential partner will be proud to show off.@@"], 
 		
 		comportment:  {
 			numOfLessons: [3, 3, 3],
@@ -1735,7 +1735,7 @@ window.bodyList={
 		},
 	},
 	makeup: {
-		level : 0, // 0 : none, 1 : subtle, 2 : normal, 3 : heavy, 4 : slutty
+		level : 0, // 0 : none, 1 : subtle, 2 : normal, 3 : bimbo, 4 : heavy
 		semiLevel: 0,
 		permLevel: 0,
 		disabled : false,
@@ -1762,17 +1762,17 @@ window.bodyList={
 			disabled : true
 		},
 		level3: {
-			description : "Heavy makeup",
-			cost : 15,
-			image : "makeup_heavy.jpg",
-			daring : 8,
-			disabled : true
-		},
-		level4: {
 			description : "Bimbo makeup",
 			cost : 50,
 			image : "makeup_bimbo.jpg",
 			daring : 7,
+			disabled : true
+		},
+		level4: {
+			description : "Heavy makeup",
+			cost : 15,
+			image : "makeup_heavy.jpg",
+			daring : 8,
 			disabled : true
 		},
 	},
@@ -2393,10 +2393,10 @@ window.cheerList={
 	},
 	game: {
 		athleticism: 0,	//PC's athelticism score portion
-		presentation: 0,	//PC's presentation score.  If uniform 1, score equals 8-abs(6-adjustedSlutScore)
-		execution: 10,	//PC's execution score.  Each mistake deducts one point.
-		finalScore: 0,	//PC's final score.  Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
-		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods.  Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
+		presentation: 0,	//PC's presentation score. If uniform 1, score equals 8-abs(6-adjustedSlutScore)
+		execution: 10,	//PC's execution score. Each mistake deducts one point.
+		finalScore: 0,	//PC's final score. Eventually equal to (cheerleaders.game.athleticism + cheerleaders.game.presentation + cheerleaders.game.execution*2)/4
+		adjustedSlutScore: 0,	//basic slut score adjusted for temporary mods. Eventually equal to max(slutScoreBasic, min(7, cheerleaders.game.adjustedSlutScore)
 		practiced: false, //practiced ashley's cheer before tryout.
 	}
 },

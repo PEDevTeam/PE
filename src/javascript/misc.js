@@ -106,33 +106,33 @@ window.misc={
 		var items=window.itemsC;
 		var cost=0;
 		if (body.semiAss > body.permAss) {
-			if (body.semiAss == 2) { cost+=items.AssEnhancingXL.cost; }
-			if (body.semiAss == 1) { cost+=items.AssEnhancing.cost; }
+			if (body.semiAss == 2) { cost+=body.ass.level2.cost; }
+			if (body.semiAss == 1) { cost+=body.ass.level1.cost; }
 		}
 		if (body.semiLips > body.permLips) {
-			if (body.semiLips == 2) { cost+=items.LipsEnhancingXL.cost; }
-			if (body.semiLips == 1) { cost+=items.LipsEnhancing.cost; }
+			if (body.semiLips == 2) { cost+=body.lips.level2.cost; }
+			if (body.semiLips == 1) { cost+=body.lips.level1.cost; }
 		}
 		if (body.semiManicure > body.permManicure) {
-			if (body.semiManicure == 2) { cost+=items.GarishManicure.cost; }
-			if (body.semiManicure == 1) { cost+=items.Manicure.cost; }
+			if (body.semiManicure == 2) { cost+=body.manicure.level2.cost; }
+			if (body.semiManicure == 1) { cost+=body.manicure.level1.cost; }
 		}
 		if (body.semiBoobs > body.permBoobs) {
-			if (body.semiBoobs == 4) { cost+=items.breastImplantsDD.cost; }
-			if (body.semiBoobs == 3) { cost+=items.breastImplantsC.cost; }
-			if (body.semiBoobs == 2) { cost+=items.breastImplantsB.cost; }
-			if (body.semiBoobs == 1) { cost+=items.breastImplantsA.cost; }
+			if (body.semiBoobs == 4) { cost+=body.boobs.level4.cost; }
+			if (body.semiBoobs == 3) { cost+=body.boobs.level3.cost; }
+			if (body.semiBoobs == 2) { cost+=body.boobs.level2.cost; }
+			if (body.semiBoobs == 1) { cost+=body.boobs.level1.cost; }
 		}
 		if (body.semiMakeup > body.permMakeup) {
-			if (body.semiMakeup == 4) { cost+=items.HeavyMakeup.cost; }
-			if (body.semiMakeup == 3) { cost+=items.BimboMakeup.cost; }
-			if (body.semiMakeup == 2) { cost+=items.NormalMakeup.cost; }
-			if (body.semiMakeup == 1) { cost+=items.SubtleMakeup.cost; }
+			if (body.semiMakeup == 4) { cost+=body.makeup.level4.cost; }
+			if (body.semiMakeup == 3) { cost+=body.makeup.level3.cost; }
+			if (body.semiMakeup == 2) { cost+=body.makeup.level2.cost; }
+			if (body.semiMakeup == 1) { cost+=body.makeup.level1.cost; }
 		}
 		if (body.semiAnal > body.permAnal) {
-			if (body.semiAnal == 3) { cost+=items.analSmoothing3.cost; }
-			if (body.semiAnal == 2) { cost+=items.analSmoothing2.cost; }
-			if (body.semiAnal == 1) { cost+=items.analSmoothing1.cost; }
+			if (body.semiAnal == 3) { cost+=body.anal.level3.cost; }
+			if (body.semiAnal == 2) { cost+=body.anal.level2.cost; }
+			if (body.semiAnal == 1) { cost+=body.anal.level1.cost; }
 		}
 		cost = 10*Math.round(cost/20);
 		// half cost rounded by 10
@@ -273,7 +273,7 @@ window.friendRiddles = [
 		answer: "Toothpaste!"
 	},
 	{
-		question: "Some people prefer being on top, others prefer being on the bottom, and it always involves a bed.  What is it?",
+		question: "Some people prefer being on top, others prefer being on the bottom, and it always involves a bed. What is it?",
 		answer: "A bunk bed!"
 	},
 	{

@@ -156,7 +156,7 @@
 			@@.guardian;such... extreme lips, even a temporary ones,@@\
 		<<endif>>\
 	<<endif>>\
-	@@.guardian;has been a real eye-opener. I've got some ideas that you may like.  Or not...\
+	@@.guardian;has been a real eye-opener. I've got some ideas that you may like. Or not...\
 	<<if $flags.dreamgameCaught>>\
 
 
@@ -293,13 +293,13 @@
 		@@.guardian;"You will work as my personal maid, wearing a uniform while doing chores and following every one of my orders at home."@@
 	
 	<<endif>>\
-	She puts some sort of maid uniform on a chair near the bed and then unlocks your binds. It looks like something from an adults-only Halloween party, or maybe some roleplay porn.
+	She puts some sort of maid uniform on a chair near the bed<<if $flags.guardianFuckedByStrapon == "true>> and then unlocks your binds<<endif>>. It looks like something from an adults-only Halloween party, or maybe some roleplay porn.
 
 	<<set wardrobeFuncs.removeAllClothingWithChastityCheck()>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", false)>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", false)>>\
-	<<set itemFuncs.removeItemsFromInventoryByProperty('isMale', true)>>\
-	<<set itemFuncs.disableItemVariantsByProperty('isMale', true)>>\
+	<<set itemFuncs.removeItemsFromInventoryByProperty('isFemale', false)>>\
+	<<set itemFuncs.disableItemVariantsByProperty('isFemale', false)>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("chastity", "isMale", true)>>\
 	<<run window.itemFuncs.overrideItemMasterProperty("buttplugs", "isMale", true)>>\
 	<<set $flags.clothesPurged to true>>\
@@ -711,7 +711,7 @@
 <<else>>\
 	<!--<default morning>--><!--Perv to 3 if nightie-->\
 	<<if window.timeCode.isWeekend() and ($time.day gt 0)>><!--<weekend>-->\
-		You gradually become aware of the sun streaming through your curtains, and you gently wake up, stretch and smile.  
+		You gradually become aware of the sun streaming through your curtains, and you gently wake up, stretch and smile. 
 		
 		No school today!
 		<<if $flags.batteriesExpire>>\
@@ -749,7 +749,7 @@
 				
 				She looks at you while you struggle to give her an answer.
 				
-				@@.guardian;"You know what? It's fine. I'm not about to question your sexuality, $player.name, but this has been a real eye-opener. I've got some ideas that you may like.  Or not..."@@
+				@@.guardian;"You know what? It's fine. I'm not about to question your sexuality, $player.name, but this has been a real eye-opener. I've got some ideas that you may like. Or not..."@@
 				
 				She lets go of your bedding, and you try your best to cover up.
 				
@@ -774,7 +774,7 @@
 			
 		<<endif>>\
 		<<if $player.alarmClockGuardian>>\
-			@@.guardian;"I need to wash my hair, so I'll be a while in the shower.  You'll have to organize your own breakfast this morning."@@
+			@@.guardian;"I need to wash my hair, so I'll be a while in the shower. You'll have to organize your own breakfast this morning."@@
 			
 		<<else>>\
 			<<if (not $flags.guardianSnoopingCaught)>>\
