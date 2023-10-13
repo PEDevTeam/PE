@@ -21,7 +21,7 @@ $.extend(true, window.items, {
         },
     },
     itemChildren:{
-        tattoo00:{
+        tattoo_bunny:{
             masterItem:"tattoos",
             variant:"tattoo_bunny",
             name:"Bunny Tattoo",
@@ -39,7 +39,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo01:{
+        tattoo_butterfly:{
             masterItem:"tattoos",
             variant:"tattoo_butterfly",
             name:"Butterfly Tattoo",
@@ -57,7 +57,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo02:{
+        tattoo_heart:{
             masterItem:"tattoos",
             variant:"tattoo_heart",
             name:"Heart Tattoo",
@@ -75,7 +75,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo03:{
+        tattoo_sissy:{
             masterItem:"tattoos",
             variant:"tattoo_sissy",
             name:"Sissy Tattoo",
@@ -92,7 +92,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo04:{
+        tattoo_slut:{
             masterItem:"tattoos",
             variant:"tattoo_slut",
             name:"Slut Tattoo",
@@ -109,7 +109,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo05:{
+        tattoo_stockings:{
             masterItem:"tattoos",
             variant:"tattoo_stockings",
             name:"Stockings Tattoo",
@@ -126,7 +126,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo06:{
+        tattoo_stupidwhore:{
             masterItem:"tattoos",
             variant:"tattoo_stupidwhore",
             name:"Stupid Whore Tattoo",
@@ -143,7 +143,7 @@ $.extend(true, window.items, {
                 tattoo:true,
             }
         },
-        tattoo07:{
+        beauty_mark:{
             masterItem:"tattoos",
             variant:"beauty_mark",
             name:"Beauty Mark",

@@ -38,7 +38,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
          //pajamas
-         pajamas00:{
+         male_pyjamas_00:{
             masterItem:"pyjamas",
             variant:"male_pyjamas_00",
             name:"Grey Tartan Pyjamas",
@@ -56,7 +56,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        pajamas01:{
+        male_pyjamas_01:{
             masterItem:"pyjamas",
             variant:"male_pyjamas_01",
             name:"Black Pyjamas",
@@ -76,7 +76,7 @@ $.extend(true, window.items, {
         },
 
         //nightie
-        nightie00:{
+        nightie_00:{
             masterItem:"nightie",
             variant:"nightie_00",
             name:"Black Satin Teddie",
@@ -94,7 +94,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        nightie01:{
+        nightie_01:{
             masterItem:"nightie",
             variant:"nightie_01",
             name:"Grey Sheer Satin Nightie",
@@ -112,7 +112,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        nightie02:{
+        nightie_02:{
             masterItem:"nightie",
             variant:"nightie_02",
             name:"Black Frilly Nightie",
@@ -130,7 +130,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        nightie03:{
+        nightie_03:{
             masterItem:"nightie",
             variant:"nightie_03",
             name:"Pink Satin Teddie",
@@ -148,7 +148,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        nightie04:{
+        nightie_04:{
             masterItem:"nightie",
             variant:"nightie_04",
             name:"Yellow Satin Teddie",
@@ -166,7 +166,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        nightie05:{
+        nightie_05:{
             masterItem:"nightie",
             variant:"nightie_05",
             name:"Black Satin Nightie with Fur",

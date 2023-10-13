@@ -66,7 +66,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //bras
-        bras00:{
+        bra_00:{
             masterItem:"bras",
             variant:"bra_00",
             name:"White Lacy Bra",
@@ -84,7 +84,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras01:{
+        bra_01:{
             masterItem:"bras",
             variant:"bra_01",
             name:"White Frilly Bra",
@@ -102,7 +102,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras02:{
+        bra_02:{
             masterItem:"bras",
             variant:"bra_02",
             name:"White Cotton Bra with Frilly Back",
@@ -120,7 +120,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras03:{
+        bra_03:{
             masterItem:"bras",
             variant:"bra_03",
             name:"White Polkadot Bra with Grey Lace",
@@ -138,7 +138,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras04:{
+        bra_04:{
             masterItem:"bras",
             variant:"bra_04",
             name:"Pink Satin Bra",
@@ -156,7 +156,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras05:{
+        bra_05:{
             masterItem:"bras",
             variant:"bra_05",
             name:"Pink Cotton Bra with Blue Bow",
@@ -174,7 +174,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras06:{
+        bra_06:{
             masterItem:"bras",
             variant:"bra_06",
             name:"Pink Cotton Bra with White Lace Trim",
@@ -192,7 +192,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras07:{
+        bra_07:{
             masterItem:"bras",
             variant:"bra_07",
             name:"Black Strapless Bra",
@@ -210,7 +210,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras08:{
+        bra_08:{
             masterItem:"bras",
             variant:"bra_08",
             name:"Blue Cotton Patterned Bra",
@@ -228,7 +228,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras09:{
+        bra_09:{
             masterItem:"bras",
             variant:"bra_09",
             name:"Green Lacy Bra",
@@ -246,7 +246,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras10:{
+        bra_10:{
             masterItem:"bras",
             variant:"bra_10",
             name:"Blue and Grey Sports Bra",
@@ -265,7 +265,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras11:{
+        bra_11:{
             masterItem:"bras",
             variant:"bra_11",
             name:"Red and Grey Sports Bra",
@@ -284,7 +284,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras12:{
+        bra_12:{
             masterItem:"bras",
             variant:"bra_12",
             name:"White Sports Bra with Grey Straps",
@@ -302,7 +302,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras13:{
+        bra_13:{
             masterItem:"bras",
             variant:"bra_13",
             name:"Baby Blue Bra",
@@ -320,7 +320,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras14:{
+        bra_14:{
             masterItem:"bras",
             variant:"bra_14",
             name:"Blue Sports Bra with Pink Trim",
@@ -338,7 +338,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras15:{
+        bra_15:{
             masterItem:"bras",
             variant:"bra_15",
             name:"Blue Lacy Bra",
@@ -356,7 +356,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras16:{
+        bra_16:{
             masterItem:"bras",
             variant:"bra_16",
             name:"Grey Lacy Bra",
@@ -374,7 +374,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras17:{
+        bra_17:{
             masterItem:"bras",
             variant:"bra_17",
             name:"Black Lacy Bra",
@@ -392,7 +392,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras18:{
+        bra_18:{
             masterItem:"bras",
             variant:"bra_18",
             name:"Pink Long Bra with Pink Straps",
@@ -410,7 +410,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras19:{
+        bra_19:{
             masterItem:"bras",
             variant:"bra_19",
             name:"Blue Sheer Bra with Black Straps",
@@ -428,7 +428,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras20:{
+        bra_20:{
             masterItem:"bras",
             variant:"bra_20",
             name:"Cream Cotton Bra",
@@ -446,7 +446,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras21:{
+        bra_21:{
             masterItem:"bras",
             variant:"bra_21",
             name:"Green Frilly Bra",
@@ -464,7 +464,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras22:{
+        bra_22:{
             masterItem:"bras",
             variant:"bra_22",
             name:"Black Bra",
@@ -482,7 +482,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        bras40:{
+        bra_40:{
             masterItem:"bras",
             variant:"bra_40",
             name:"Black Polkadot Bra with Red Trim and Bow",
@@ -502,7 +502,7 @@ $.extend(true, window.items, {
         },
 
         //sexyBras
-        sexyBras00:{
+        bra_sexy_00:{
             masterItem:"sexyBras",
             variant:"bra_sexy_00",
             name:"Red Tartan Sexy Bra",
@@ -520,7 +520,7 @@ $.extend(true, window.items, {
                 tartan:true,
             }
         },
-        sexyBras01:{
+        bra_sexy_01:{
             masterItem:"sexyBras",
             variant:"bra_sexy_01",
             name:"Red Sexy Bra with Black Straps and Trim",
@@ -537,7 +537,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras02:{
+        bra_sexy_02:{
             masterItem:"sexyBras",
             variant:"bra_sexy_02",
             name:"Pink Sexy Bra with Black Straps and Bow",
@@ -554,7 +554,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras03:{
+        bra_sexy_03:{
             masterItem:"sexyBras",
             variant:"bra_sexy_03",
             name:"Pink Polkadot Sexy Bra with Black Trim",
@@ -571,7 +571,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras04:{
+        bra_sexy_04:{
             masterItem:"sexyBras",
             variant:"bra_sexy_04",
             name:"Blue Lacy Sexy Bra with White Straps",
@@ -588,7 +588,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras05:{
+        bra_sexy_05:{
             masterItem:"sexyBras",
             variant:"bra_sexy_05",
             name:"Bright Pink and Baby Pink Lacy Sexy Bra",
@@ -605,7 +605,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras06:{
+        bra_sexy_06:{
             masterItem:"sexyBras",
             variant:"bra_sexy_06",
             name:"Purple Lacy Sexy Bra with Pink Straps",
@@ -622,7 +622,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras07:{
+        bra_sexy_07:{
             masterItem:"sexyBras",
             variant:"bra_sexy_07",
             name:"Pink Sexy Bra with Black Lace",
@@ -639,7 +639,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras08:{
+        bra_sexy_08:{
             masterItem:"sexyBras",
             variant:"bra_sexy_08",
             name:"Yellow Satin Sexy Bra with Black Straps and Trim",
@@ -656,7 +656,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras09:{
+        bra_sexy_09:{
             masterItem:"sexyBras",
             variant:"bra_sexy_09",
             name:"Purple Sexy Bra with Light Purple Straps and Trim",
@@ -673,7 +673,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras10:{
+        bra_sexy_10:{
             masterItem:"sexyBras",
             variant:"bra_sexy_10",
             name:"Purple Sexy Bra with Frilly Trim and Bow",
@@ -690,7 +690,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras11:{
+        bra_sexy_11:{
             masterItem:"sexyBras",
             variant:"bra_sexy_11",
             name:"Pink Sexy Low Cut Bra with Black Straps and Bows",
@@ -707,7 +707,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras12:{
+        bra_sexy_12:{
             masterItem:"sexyBras",
             variant:"bra_sexy_12",
             name:"Blue Sexy Satin Bra with Black Straps and Trim",
@@ -724,7 +724,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras13:{
+        bra_sexy_13:{
             masterItem:"sexyBras",
             variant:"bra_sexy_13",
             name:"Blue Sexy Coton Bra with White Trim",
@@ -741,7 +741,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras14:{
+        bra_sexy_14:{
             masterItem:"sexyBras",
             variant:"bra_sexy_14",
             name:"Black Lacy Sexy Bra",
@@ -758,7 +758,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras15:{
+        bra_sexy_15:{
             masterItem:"sexyBras",
             variant:"bra_sexy_15",
             name:"Black Sexy Bra with Black Lacing and Bow",
@@ -775,7 +775,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras16:{
+        bra_sexy_16:{
             masterItem:"sexyBras",
             variant:"bra_sexy_16",
             name:"Black Sheer Sexy Bra with Black Straps",
@@ -792,7 +792,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras17:{
+        bra_sexy_17:{
             masterItem:"sexyBras",
             variant:"bra_sexy_17",
             name:"Pink Sexy Full Cup Bra",
@@ -809,7 +809,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras18:{
+        bra_sexy_18:{
             masterItem:"sexyBras",
             variant:"bra_sexy_18",
             name:"Red Lacy Sexy Bra",
@@ -826,7 +826,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras19:{
+        bra_sexy_19:{
             masterItem:"sexyBras",
             variant:"bra_sexy_19",
             name:"White Leopard Pink Sexy Bra",
@@ -843,7 +843,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras20:{
+        bra_sexy_20:{
             masterItem:"sexyBras",
             variant:"bra_sexy_20",
             name:"Black Lacy Sexy Bra",
@@ -860,7 +860,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras21:{
+        bra_sexy_21:{
             masterItem:"sexyBras",
             variant:"bra_sexy_21",
             name:"Black Sheer Lacy Sexy Bra",
@@ -877,7 +877,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras22:{
+        bra_sexy_22:{
             masterItem:"sexyBras",
             variant:"bra_sexy_22",
             name:"White Lacy Sexy Bra with Pink Trim",
@@ -894,7 +894,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras23:{
+        bra_sexy_23:{
             masterItem:"sexyBras",
             variant:"bra_sexy_23",
             name:"Pink Frilly Sexy Bra",
@@ -911,7 +911,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras24:{
+        bra_sexy_24:{
             masterItem:"sexyBras",
             variant:"bra_sexy_24",
             name:"Black Sheer Sexy Bra with Black Straps",
@@ -928,7 +928,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras25:{
+        bra_sexy_25:{
             masterItem:"sexyBras",
             variant:"bra_sexy_25",
             name:"Black Sexy Bra with Black Lacy Trim",
@@ -945,7 +945,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras26:{
+        bra_sexy_26:{
             masterItem:"sexyBras",
             variant:"bra_sexy_26",
             name:"Pink Sexy Bra with Black Straps and Trim",
@@ -962,7 +962,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras27:{
+        bra_sexy_27:{
             masterItem:"sexyBras",
             variant:"bra_sexy_27",
             name:"Pink and Grey Sexy Bra",
@@ -980,7 +980,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras40:{
+        bra_sexy_40:{
             masterItem:"sexyBras",
             variant:"bra_sexy_40",
             name:"Black Sexy Bra with Pink Bow and Ribbon",
@@ -997,7 +997,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras41:{
+        bra_sexy_41:{
             masterItem:"sexyBras",
             variant:"bra_sexy_41",
             name:"Red Lacy Sexy Bra",
@@ -1014,7 +1014,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras60:{
+        bra_sexy_60:{
             masterItem:"sexyBras",
             variant:"bra_sexy_60",
             name:"Pink Sexy Bra",
@@ -1031,7 +1031,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras61:{
+        bra_sexy_61:{
             masterItem:"sexyBras",
             variant:"bra_sexy_61",
             name:"Pink Sexy Bra",
@@ -1048,7 +1048,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras63:{
+        bra_sexy_63:{
             masterItem:"sexyBras",
             variant:"bra_sexy_63",
             name:"Blue & Cream Sexy Bra",
@@ -1065,7 +1065,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        sexyBras74:{
+        bra_sexy_74:{
             masterItem:"sexyBras",
             variant:"bra_sexy_74",
             name:"Purple Sexy Frilly Bra",
@@ -1087,7 +1087,7 @@ $.extend(true, window.items, {
 
 
         //latexBras
-        latexBras00:{
+        bra_latex_00:{
             masterItem:"latexBras",
             variant:"bra_latex_00",
             name:"Black Low Cut Latex Bra",
@@ -1105,7 +1105,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexBras01:{
+        bra_latex_01:{
             masterItem:"latexBras",
             variant:"bra_latex_01",
             name:"Black Full Cup Latex Bra",
@@ -1123,7 +1123,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        latexBras02:{
+        bra_latex_02:{
             masterItem:"latexBras",
             variant:"bra_latex_02",
             name:"Black Cutout Latex Bra",
@@ -1143,7 +1143,7 @@ $.extend(true, window.items, {
         },
 
         //corsets
-        corsets62:{
+        corset_62:{
             masterItem:"corsets",
             variant:"corset_62",
             name:"White Boned Corset",
@@ -1162,7 +1162,7 @@ $.extend(true, window.items, {
 				maid: true
             }
         },
-        corsets73:{
+        corset_73:{
             masterItem:"corsets",
             variant:"corset_73",
             name:"Red Boned Corset with Black Trim",

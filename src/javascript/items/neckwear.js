@@ -36,7 +36,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //chokers
-        chokers00:{
+        choker_00:{
             masterItem:"chokers",
             variant:"choker_00",
             name:"Black Choker with White Lace and Black Bow",
@@ -54,7 +54,7 @@ $.extend(true, window.items, {
 				maid:true,
             }
         },
-        chokers01:{
+        choker_01:{
             masterItem:"chokers",
             variant:"choker_01",
             name:"Black Choker with Gold Clasp and Chain",
@@ -71,7 +71,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers02:{
+        choker_02:{
             masterItem:"chokers",
             variant:"choker_02",
             name:"Black Lacy Choker",
@@ -88,7 +88,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers03:{
+        choker_03:{
             masterItem:"chokers",
             variant:"choker_03",
             name:"Black Choker with Love Heart Clasp and Diamonds",
@@ -105,7 +105,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers04:{
+        choker_04:{
             masterItem:"chokers",
             variant:"choker_04",
             name:"Black Gothic Choker with Cross and Chains",
@@ -122,7 +122,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers05:{
+        choker_05:{
             masterItem:"chokers",
             variant:"choker_05",
             name:"Diamond Choker with Black Ribbon and Bow",
@@ -139,7 +139,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers06:{
+        choker_06:{
             masterItem:"chokers",
             variant:"choker_06",
             name:"Small Black Choker with Metal Pendant",
@@ -156,7 +156,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        chokers07:{
+        choker_07:{
             masterItem:"chokers",
             variant:"choker_07",
             name:"Black Choker with Metal Cat Shaped Clasp",
@@ -175,7 +175,7 @@ $.extend(true, window.items, {
         },
 
         //collar
-        collar00:{
+        collar_00:{
             masterItem:"collar",
             variant:"collar_00",
             name:"Pink Collar with Gold Love Heart",
@@ -192,7 +192,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar01:{
+        collar_01:{
             masterItem:"collar",
             variant:"collar_01",
             name:"Black Leather Collar with Purple Jewels",
@@ -209,7 +209,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar02:{
+        collar_02:{
             masterItem:"collar",
             variant:"collar_02",
             name:"Black Leather Collar with Metal Ring",
@@ -226,7 +226,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar03:{
+        collar_03:{
             masterItem:"collar",
             variant:"collar_03",
             name:"Black Collar with Metal Ring and Spikes",
@@ -243,7 +243,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar04:{
+        collar_04:{
             masterItem:"collar",
             variant:"collar_04",
             name:"Black Collar with Bell",
@@ -260,7 +260,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar05:{
+        collar_05:{
             masterItem:"collar",
             variant:"collar_05",
             name:"White Leather Collar with Gold Love Heart",
@@ -277,7 +277,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar06:{
+        collar_06:{
             masterItem:"collar",
             variant:"collar_06",
             name:"Red Collar with Black Lace",
@@ -294,7 +294,7 @@ $.extend(true, window.items, {
                 sexy:true,
             }
         },
-        collar07:{
+        collar_bitch:{
             masterItem:"collar",
             variant:"collar_bitch",
             name:"Black Bitch Collar",
@@ -313,7 +313,7 @@ $.extend(true, window.items, {
                 bitchcollar:true,
             }
         },
-        collar08:{
+        collar_sissy_00:{
             masterItem:"collar",
             variant:"collar_sissy_00",
             name:"Pink Sissy Collar with Dog Tag",
@@ -332,7 +332,7 @@ $.extend(true, window.items, {
                 sissycollar:true,
             }
         },
-        collar09:{
+        collar_sissy_01:{
             masterItem:"collar",
             variant:"collar_sissy_01",
             name:"Pink Sissy Collar with Metal Ring",
@@ -351,7 +351,7 @@ $.extend(true, window.items, {
                 sissycollar:true,
             }
         },
-        collar10:{
+        collar_steel:{
             masterItem:"collar",
             variant:"collar_steel",
             name:"Metal Collar with Metal Ring",

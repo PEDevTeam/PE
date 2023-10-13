@@ -96,7 +96,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //Boxers
-        luckyBoxers00:{
+        lucky_jocks_00:{
             masterItem:"boxers",
             variant:"lucky_jocks_00",
             name:"Grey Brown Gorilla Boxers",
@@ -114,7 +114,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers01:{
+        lucky_jocks_01:{
             masterItem:"boxers",
             variant:"lucky_jocks_01",
             name:"Blue Tartan Boxers",
@@ -132,7 +132,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers02:{
+        lucky_jocks_02:{
             masterItem:"boxers",
             variant:"lucky_jocks_02",
             name:"Yellow Flowered Boxers",
@@ -150,7 +150,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers03:{
+        lucky_jocks_03:{
             masterItem:"boxers",
             variant:"lucky_jocks_03",
             name:"Plain Grey Boxers",
@@ -168,7 +168,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers04:{
+        lucky_jocks_04:{
             masterItem:"boxers",
             variant:"lucky_jocks_04",
             name:"Plain Black Boxers",
@@ -186,7 +186,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers05:{
+        lucky_jocks_05:{
             masterItem:"boxers",
             variant:"lucky_jocks_05",
             name:"Plain Black Boxers with White Band",
@@ -204,7 +204,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers06:{
+        lucky_jocks_06:{
             masterItem:"boxers",
             variant:"lucky_jocks_06",
             name:"Yellow Ducky Boxers",
@@ -223,7 +223,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        luckyBoxers07:{
+        lucky_jocks_07:{
             masterItem:"boxers",
             variant:"lucky_jocks_07",
             name:"Red Tartan Boxers",
@@ -243,7 +243,7 @@ $.extend(true, window.items, {
         },
 
         //Plain Panties
-        cottonPanties00:{
+        panties_cotton_00:{
             masterItem:"plainPanties",
             variant:"panties_cotton_00",
             name:"White Panties with Lace Side",
@@ -262,7 +262,7 @@ $.extend(true, window.items, {
 
             }
         },
-        cottonPanties01:{
+        panties_cotton_01:{
             masterItem:"plainPanties",
             variant:"panties_cotton_01",
             name:"White Ruffled Panties",
@@ -281,7 +281,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        cottonPanties02:{
+        panties_cotton_02:{
             masterItem:"plainPanties",
             variant:"panties_cotton_02",
             name:"White Frilly Panties",
@@ -300,7 +300,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        cottonPanties03:{
+        panties_cotton_03:{
             masterItem:"plainPanties",
             variant:"panties_cotton_03",
             name:"White with Grey Polkadot Frilly Panties",
@@ -320,7 +320,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        cottonPanties04:{
+        panties_cotton_04:{
             masterItem:"plainPanties",
             variant:"panties_cotton_04",
             name:"Plain Pink Panties with Girly Writing",
@@ -339,7 +339,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        cottonPanties05:{
+        panties_cotton_05:{
             masterItem:"plainPanties",
             variant:"panties_cotton_05",
             name:"Pink and White Striped Plain Panties",
@@ -358,7 +358,7 @@ $.extend(true, window.items, {
                 striped:true,
             }
         },
-        cottonPanties06:{
+        panties_cotton_06:{
             masterItem:"plainPanties",
             variant:"panties_cotton_06",
             name:"Plain Pink Panties with White Band",
@@ -377,7 +377,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        cottonPanties07:{
+        panties_cotton_07:{
             masterItem:"plainPanties",
             variant:"panties_cotton_07",
             name:"Grey Panties with Koala Logo",
@@ -396,7 +396,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        cottonPanties40:{
+        panties_cotton_40:{
             masterItem:"plainPanties",
             variant:"panties_cotton_40",
             name:"Black with White Polkadot Boyshort Panties",
@@ -418,7 +418,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        cottonPanties50:{
+        panties_cotton_50:{
             masterItem:"plainPanties",
             variant:"panties_cotton_50",
             name:"Purple Panties with Grey Stripes",
@@ -436,7 +436,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        cottonPanties60:{
+        panties_cotton_60:{
             masterItem:"plainPanties",
             variant:"panties_cotton_60",
             name:"Pastel Blue Plain Panties with Frilly White Edges",
@@ -457,7 +457,7 @@ $.extend(true, window.items, {
             }
         },
         //Sexy Panties
-        sexyPanties00:{
+        panties_sexy_00:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_00",
             name:"Red Tartan Sexy Panties with Lace Side",
@@ -476,7 +476,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        sexyPanties01:{
+        panties_sexy_01:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_01",
             name:"Sexy Red Panties with Black Dots and Lacing",
@@ -495,7 +495,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        sexyPanties02:{
+        panties_sexy_02:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_02",
             name:"Righ Waisted Sexy Pink Panties",
@@ -514,7 +514,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        sexyPanties03:{
+        panties_sexy_03:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_03",
             name:"Sexy Pink Panties with Black Dots and Frilly Lacing",
@@ -534,7 +534,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        sexyPanties04:{
+        panties_sexy_04:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_04",
             name:"Lacy Blue G-String Panties",
@@ -554,7 +554,7 @@ $.extend(true, window.items, {
                 gstring: true,
             }
         },
-        sexyPanties05:{
+        panties_sexy_05:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_05",
             name:"Lacy Pink and Cream G-String Panties",
@@ -574,7 +574,7 @@ $.extend(true, window.items, {
                 gstring: true,
             }
         },
-        sexyPanties06:{
+        panties_sexy_06:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_06",
             name:"Lacy Purple G-String Panties",
@@ -594,7 +594,7 @@ $.extend(true, window.items, {
                 gstring:true,
             }
         },
-        sexyPanties07:{
+        panties_sexy_07:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_07",
             name:"Pink G-String Panteis with Frilly Black Lacing",
@@ -614,7 +614,7 @@ $.extend(true, window.items, {
                 gstring:true,
             }
         },
-        sexyPanties08:{
+        panties_sexy_08:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_08",
             name:"Sexy Yellow Panties with Black Lacing",
@@ -633,7 +633,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        sexyPanties09:{
+        panties_sexy_09:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_09",
             name:"Lacy Purple G-String Panties with Black Bow",
@@ -653,7 +653,7 @@ $.extend(true, window.items, {
                 gstring:true,
             }
         },
-        sexyPanties10:{
+        panties_sexy_10:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_10",
             name:"Frilly Purple G-String Panties",
@@ -673,7 +673,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties11:{
+        panties_sexy_11:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_11",
             name:"Sexy Lacy Pink Panties with Black Ribbon",
@@ -692,7 +692,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        sexyPanties12:{
+        panties_sexy_12:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_12",
             name:"Blue and Black Sexy Panties with Ribbon and Lace",
@@ -712,7 +712,7 @@ $.extend(true, window.items, {
                 
             }
         },
-        sexyPanties13:{
+        panties_sexy_13:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_13",
             name:"Sexy Blue Panties with White Frilly Trim",
@@ -731,7 +731,7 @@ $.extend(true, window.items, {
                 frilly:true,
             }
         },
-        sexyPanties14:{
+        panties_sexy_14:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_14",
             name:"Lacy Black G-String Panties",
@@ -751,7 +751,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties15:{
+        panties_sexy_15:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_15",
             name:"Lacy Black Dotted G-String Panties",
@@ -771,7 +771,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties16:{
+        panties_sexy_16:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_16",
             name:"Lacy and Strappy Black G-String Panties",
@@ -791,7 +791,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties17:{
+        panties_sexy_17:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_17",
             name:"White Strappy G-String Panties",
@@ -811,7 +811,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties18:{
+        panties_sexy_18:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_18",
             name:"Frilly Red G-String Panties",
@@ -831,7 +831,7 @@ $.extend(true, window.items, {
                 gstring:true
             }
         },
-        sexyPanties40:{
+        panties_sexy_40:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_40",
             name:"Black High Waisted G-String Panties with Pink Bows",
@@ -852,7 +852,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties41:{
+        panties_sexy_41:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_41",
             name:"Frilly and Strappy Red G-String Panties",
@@ -873,7 +873,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties60:{
+        panties_sexy_60:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_60",
             name:"Pink Frilly G-String Panties",
@@ -894,7 +894,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties61:{
+        panties_sexy_61:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_61",
             name:"Pink Frilly G-String Panties",
@@ -915,7 +915,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties62:{
+        panties_sexy_62:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_62",
             name:"White Strappy G-String Panties",
@@ -935,7 +935,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties63:{
+        panties_sexy_63:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_63",
             name:"Blue & Cream Frilly G-String Panties",
@@ -956,7 +956,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties73:{
+        panties_sexy_73:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_73",
             name:"Blue & Cream Frilly G-String Panties",
@@ -977,7 +977,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-        sexyPanties74:{
+        panties_sexy_74:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_74",
             name:"Purple Frilly Panties",
@@ -998,7 +998,7 @@ $.extend(true, window.items, {
                 gifted:true,
             }
         },
-		sexyPanties75:{
+		panties_sexy_75:{
             masterItem:"sexyPanties",
             variant:"panties_sexy_75",
             name:"White and Black Transparent G-String Panties",
@@ -1021,7 +1021,7 @@ $.extend(true, window.items, {
         },
 
         //Latex Panties
-        latexPanties00:{
+        panties_latex_00:{
             masterItem:"latexPanties",
             variant:"panties_latex_00",
             name:"Black Full Brief Latex Panties",
@@ -1040,7 +1040,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        latexPanties01:{
+        panties_latex_01:{
             masterItem:"latexPanties",
             variant:"panties_latex_01",
             name:"Black Bikini Latex Panties with Pink Decoration",
@@ -1059,7 +1059,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        latexPanties02:{
+        panties_latex_02:{
             masterItem:"latexPanties",
             variant:"panties_latex_02",
             name:"Black Latex G-String Panties",
@@ -1079,7 +1079,7 @@ $.extend(true, window.items, {
                 gstring:true,
             }
         },
-        latexPanties40:{
+        panties_latex_40:{
             masterItem:"latexPanties",
             variant:"panties_latex_40",
             name:"Pink Latex Panties with Black Bow",
@@ -1101,7 +1101,7 @@ $.extend(true, window.items, {
         },
 
         //cheerBriefs
-        cheerBriefs00:{
+        cheer_briefs:{
             masterItem:"cheerBriefs",
             variant:"cheer_briefs",
             name:"Red Cheerleader Briefs",
@@ -1122,7 +1122,7 @@ $.extend(true, window.items, {
         },
 
         //diapers
-        diaper00:{
+        diaper_00:{
             masterItem:"diapers",
             variant:"diaper_00",
             name:"Pink ABDL Diaper",
