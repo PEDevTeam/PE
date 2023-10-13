@@ -35,7 +35,7 @@ $.extend(true, window.items, {
         }
     },
     itemChildren:{
-        lamp00:{
+        lamp_classic:{
             masterItem:"lamps",
             variant:"lamp_classic",
             name:"Classic Lamp",
@@ -51,7 +51,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        lamp01:{
+        lamp_purple:{
             masterItem:"lamps",
             variant:"lamp_purple",
             name:"Purple Lamp",
@@ -67,7 +67,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        lamp02:{
+        lamp_tube:{
             masterItem:"lamps",
             variant:"lamp_tube",
             name:"Tube Lamp",
@@ -84,7 +84,7 @@ $.extend(true, window.items, {
             }
         },
 
-        room00:{
+        room_gamer:{
             masterItem:"rooms",
             variant:"room_gamer",
             name:"Video Game Themed Decorations",
@@ -100,7 +100,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room01:{
+        room_gamer_girl:{
             masterItem:"rooms",
             variant:"room_gamer_girl",
             name:"Video Game Themed Decorations",
@@ -116,7 +116,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room02:{
+        room_geek:{
             masterItem:"rooms",
             variant:"room_geek",
             name:"Fantasy Themed Decorations",
@@ -132,7 +132,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room03:{
+        room_geek_girl:{
             masterItem:"rooms",
             variant:"room_geek_girl",
             name:"Fantasy Themed Decorations",
@@ -148,7 +148,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room04:{
+        room_punk:{
             masterItem:"rooms",
             variant:"room_punk",
             name:"Various Punky Decorations",
@@ -164,7 +164,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room05:{
+        room_punk_girl:{
             masterItem:"rooms",
             variant:"room_punk_girl",
             name:"Various Punky Decorations",
@@ -180,7 +180,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room06:{
+        room_sport:{
             masterItem:"rooms",
             variant:"room_sport",
             name:"Sport Themed Decorations",
@@ -196,7 +196,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room07:{
+        room_sport_girl:{
             masterItem:"rooms",
             variant:"room_sport_girl",
             name:"Sport Themed Decorations",
@@ -212,7 +212,7 @@ $.extend(true, window.items, {
                 room:true
             }
         },
-        room08:{
+        room_girly_girl:{
             masterItem:"rooms",
             variant:"room_girly_girl",
             name:"Girly Girl Room Decorations",

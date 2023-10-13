@@ -50,7 +50,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //sunglasses
-        sunglasses00:{
+        sunglasses_00:{
             masterItem:"sunglasses",
             variant:"sunglasses_00",
             name:"Aviator Sunglasses with Pink Lenses",
@@ -67,7 +67,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses01:{
+        sunglasses_01:{
             masterItem:"sunglasses",
             variant:"sunglasses_01",
             name:"Wayfarer Sunglasses with Pink Frames",
@@ -84,7 +84,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses02:{
+        sunglasses_02:{
             masterItem:"sunglasses",
             variant:"sunglasses_02",
             name:"Wayferer Sunglasses with Pink and Black Frames",
@@ -102,7 +102,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses03:{
+        sunglasses_03:{
             masterItem:"sunglasses",
             variant:"sunglasses_03",
             name:"Pink Plastic Ladies Sunglasses",
@@ -119,7 +119,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses04:{
+        sunglasses_04:{
             masterItem:"sunglasses",
             variant:"sunglasses_04",
             name:"Black Ladies Sunglasses with Metal Decoration",
@@ -136,7 +136,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses05:{
+        sunglasses_05:{
             masterItem:"sunglasses",
             variant:"sunglasses_05",
             name:"Aviator Sunglasses with Grey Lenses",
@@ -153,7 +153,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses06:{
+        sunglasses_06:{
             masterItem:"sunglasses",
             variant:"sunglasses_06",
             name:"Metal Framed Sunglasses with Yellow Lenses",
@@ -170,7 +170,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses07:{
+        sunglasses_07:{
             masterItem:"sunglasses",
             variant:"sunglasses_07",            
             name:"Tortoise Brown Ladies Sunglasses",
@@ -187,7 +187,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses08:{
+        sunglasses_08:{
             masterItem:"sunglasses",
             variant:"sunglasses_08",
             name:"Tortise Red Ladies Sunglasses with Gold Trim",
@@ -204,7 +204,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses09:{
+        sunglasses_09:{
             masterItem:"sunglasses",
             variant:"sunglasses_09",
             name:"Black Sunglasses with Blue Highlights",
@@ -221,7 +221,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses10:{
+        sunglasses_10:{
             masterItem:"sunglasses",
             variant:"sunglasses_10",
             name:"Red Ladies Sunglasses",
@@ -238,7 +238,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        sunglasses11:{
+        sunglasses_11:{
             masterItem:"sunglasses",
             variant:"sunglasses_11",
             name:"Tortise Brown Ladies Sunglasses with Wide Arms",
@@ -257,7 +257,7 @@ $.extend(true, window.items, {
         },
 
         //glasses
-        glasses00:{
+        glasses_00:{
             masterItem:"glasses",
             variant:"glasses_00",
             name:"Round Frame Harry Potter Glasses",
@@ -273,7 +273,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses01:{
+        glasses_01:{
             masterItem:"glasses",
             variant:"glasses_01",
             name:"Black Frame Librarian Glasses",
@@ -290,7 +290,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses02:{
+        glasses_02:{
             masterItem:"glasses",
             variant:"glasses_02",
             name:"Gold Round Frame Harry Potter Glasses",
@@ -306,7 +306,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses03:{
+        glasses_03:{
             masterItem:"glasses",
             variant:"glasses_03",
             name:"Black Framed Glasses",
@@ -323,7 +323,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses04:{
+        glasses_04:{
             masterItem:"glasses",
             variant:"glasses_04",
             name:"Black Framed Ladies Glasses",
@@ -340,7 +340,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses05:{
+        glasses_05:{
             masterItem:"glasses",
             variant:"glasses_05",
             name:"Pink Framed Ladies Glasses",
@@ -357,7 +357,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses06:{
+        glasses_06:{
             masterItem:"glasses",
             variant:"glasses_06",
             name:"Tortoise Brown Ladies Glasses",
@@ -374,7 +374,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses07:{
+        glasses_07:{
             masterItem:"glasses",
             variant:"glasses_07",
             name:"Thin Black Framed Ladies Glasses",
@@ -391,7 +391,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses08:{
+        glasses_08:{
             masterItem:"glasses",
             variant:"glasses_08",
             name:"Blue Framed Ladies Glasses",
@@ -408,7 +408,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        glasses09:{
+        glasses_09:{
             masterItem:"glasses",
             variant:"glasses_09",
             name:"Pink Framed Librarian Glasses",
@@ -427,7 +427,7 @@ $.extend(true, window.items, {
         },
 
         //blindfold
-        blindfold00:{
+        blindfold_00:{
             masterItem:"blindfold",
             variant:"blindfold_00",
             name:"Black Leather Blindfold",
@@ -444,7 +444,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold01:{
+        blindfold_01:{
             masterItem:"blindfold",
             variant:"blindfold_01",
             name:"Red Suede Blindfold",
@@ -461,7 +461,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold02:{
+        blindfold_02:{
             masterItem:"blindfold",
             variant:"blindfold_02",
             name:"Red Sleep Mask Blindfold",
@@ -478,7 +478,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        blindfold03:{
+        blindfold_03:{
             masterItem:"blindfold",
             variant:"blindfold_03",
             name:"Black Leather Blindfold with Nose Mould",

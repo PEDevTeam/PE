@@ -23,7 +23,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
          //Maid
-         maid00:{
+         maid_outfit_00:{
             masterItem:"maid",
             variant:"maid_outfit_00",
             name:"Frilly French Maid Outfit",
@@ -39,7 +39,7 @@ $.extend(true, window.items, {
                 maid:true,
             }
         },
-        maid01:{
+        maid_outfit_01:{
             masterItem:"maid",
             variant:"maid_outfit_01",
             name:"Latex Maid Outfit",

@@ -36,7 +36,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //hairbands
-        hairbands00:{
+        hairband_00:{
             masterItem:"hairbands",
             variant:"hairband_00",
             name:"Red Hairband with Red Bow",
@@ -54,7 +54,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbands01:{
+        hairband_01:{
             masterItem:"hairbands",
             variant:"hairband_01",
             name:"Black Hairband with Diamonds",
@@ -72,7 +72,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbands02:{
+        hairband_02:{
             masterItem:"hairbands",
             variant:"hairband_02",
             name:"Pink Hairband with Pink Bow",
@@ -90,7 +90,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbands03:{
+        hairband_03:{
             masterItem:"hairbands",
             variant:"hairband_03",
             name:"Blue Hairband with Blue Bow",
@@ -108,7 +108,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbands04:{
+        hairband_04:{
             masterItem:"hairbands",
             variant:"hairband_04",
             name:"Black Hairband with Black Bow",
@@ -126,7 +126,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbands05:{
+        hairband_05:{
             masterItem:"hairbands",
             variant:"hairband_05",
             name:"Blue and Silver Tiara",
@@ -143,7 +143,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbands06:{
+        hairband_06:{
             masterItem:"hairbands",
             variant:"hairband_06",
             name:"Tortoise Brown Hairband",
@@ -160,7 +160,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbands07:{
+        hairband_07:{
             masterItem:"hairbands",
             variant:"hairband_07",
             name:"Pink Satin Hairband with Bow",
@@ -177,7 +177,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbands08:{
+        hairband_08:{
             masterItem:"hairbands",
             variant:"hairband_08",
             name:"White Hairband with Pink Bow",
@@ -194,7 +194,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbands09:{
+        hairband_09:{
             masterItem:"hairbands",
             variant:"hairband_09",
             name:"Black Cat Ear Hairband",
@@ -211,7 +211,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-		maidHairband:{
+		maid_headband:{
 			masterItem:"hairbands",
 			variant:"maid_headband",
 			name:"Black Maid Headband",
@@ -230,7 +230,7 @@ $.extend(true, window.items, {
 		},
 
         //hairbows
-        hairbows00:{
+        hairbow_00:{
             masterItem:"hairbows",
             variant:"hairbow_00",
             name:"Tartan Red Hairbow",
@@ -249,7 +249,7 @@ $.extend(true, window.items, {
                 school:true,
             }
         },
-        hairbows01:{
+        hairbow_01:{
             masterItem:"hairbows",
             variant:"hairbow_01",
             name:"Black Hairbow",
@@ -266,7 +266,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows02:{
+        hairbow_02:{
             masterItem:"hairbows",
             variant:"hairbow_02",
             name:"Pink Hairbow",
@@ -283,7 +283,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows03:{
+        hairbow_03:{
             masterItem:"hairbows",
             variant:"hairbow_03",
             name:"Purple Hairbow",
@@ -300,7 +300,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows04:{
+        hairbow_04:{
             masterItem:"hairbows",
             variant:"hairbow_04",
             name:"White Hairbow with Pink Polkadots",
@@ -317,7 +317,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows05:{
+        hairbow_05:{
             masterItem:"hairbows",
             variant:"hairbow_05",
             name:"Black Hairbow with White Polkadots",
@@ -334,7 +334,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows06:{
+        hairbow_06:{
             masterItem:"hairbows",
             variant:"hairbow_06",
             name:"Pink Hairbow",
@@ -351,7 +351,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows07:{
+        hairbow_07:{
             masterItem:"hairbows",
             variant:"hairbow_07",
             name:"Red Hairbow with Diamond Loveheart",
@@ -368,7 +368,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows08:{
+        hairbow_08:{
             masterItem:"hairbows",
             variant:"hairbow_08",
             name:"Pink Hairbow with Shiny Silver",
@@ -385,7 +385,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows09:{
+        hairbow_09:{
             masterItem:"hairbows",
             variant:"hairbow_09",
             name:"Light Green Hairbow",
@@ -402,7 +402,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows10:{
+        hairbow_10:{
             masterItem:"hairbows",
             variant:"hairbow_10",
             name:"Pink Hairbow with White Polkadots",
@@ -419,7 +419,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows11:{
+        hairbow_11:{
             masterItem:"hairbows",
             variant:"hairbow_11",
             name:"Red Velvet Hairbow",
@@ -436,7 +436,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows12:{
+        hairbow_12:{
             masterItem:"hairbows",
             variant:"hairbow_12",
             name:"Rainbow Hairbow",
@@ -453,7 +453,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows13:{
+        hairbow_13:{
             masterItem:"hairbows",
             variant:"hairbow_13",
             name:"Pink and Purple Hairbow with Flower",
@@ -471,7 +471,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows14:{
+        hairbow_14:{
             masterItem:"hairbows",
             variant:"hairbow_14",
             name:"Blue Gingham Hairbow",
@@ -488,7 +488,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        hairbows15:{
+        hairbow_43:{
             masterItem:"hairbows",
             variant:"hairbow_43",
             name:"Red, White and Black Hairbow",

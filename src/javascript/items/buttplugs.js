@@ -22,7 +22,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //buttplugs
-        buttplugs00:{
+        buttplug_dildo:{
             masterItem:"buttplugs",
             variant:"buttplug_dildo",
             name:"Black Buttplug Dildo",
@@ -38,7 +38,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs01:{
+        buttplug_heart:{
             masterItem:"buttplugs",
             variant:"buttplug_heart",
             name:"Heart Shapped Buttplug",
@@ -54,7 +54,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs02:{
+        buttplug_inflate_0:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_0",
             name:"Inflatable Buttplug (1)",
@@ -70,7 +70,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs03:{
+        buttplug_inflate_1:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_1",
             name:"Inflatable Buttplug (2)",
@@ -86,7 +86,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs04:{
+        buttplug_inflate_2:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_2",
             name:"Inflatable Buttplug (3)",
@@ -102,7 +102,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs05:{
+        buttplug_inflate_3:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_3",
             name:"Inflatable Buttplug (4)",
@@ -118,7 +118,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs06:{
+        buttplug_inflate_4:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_4",
             name:"Inflatable Buttplug (5)",
@@ -134,7 +134,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs07:{
+        buttplug_inflate_5:{
             masterItem:"buttplugs",
             variant:"buttplug_inflate_5",
             name:"Inflatable Buttplug (6)",
@@ -150,7 +150,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        buttplugs08:{
+        buttplug_vibro:{
             masterItem:"buttplugs",
             variant:"buttplug_vibro",
             name:"Vibrating Buttplug",

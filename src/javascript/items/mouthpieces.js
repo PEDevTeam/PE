@@ -22,7 +22,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //gag
-        gag00:{
+        gag_00:{
             masterItem:"gag",
             variant:"gag_00",
             name:"Black Leather Ball Gag",
@@ -40,7 +40,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag01:{
+        gag_01:{
             masterItem:"gag",
             variant:"gag_01",
             name:"Black Leather Ring Gag",
@@ -58,7 +58,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag02:{
+        gag_02:{
             masterItem:"gag",
             variant:"gag_02",
             name:"Black Leather Anal Bead Gag",
@@ -76,7 +76,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag03:{
+        gag_03:{
             masterItem:"gag",
             variant:"gag_03",
             name:"Black Leather Lips Gag",
@@ -94,7 +94,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag04:{
+        gag_04:{
             masterItem:"gag",
             variant:"gag_04",
             name:"Black Leather Dildo Gag",
@@ -112,7 +112,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag05:{
+        gag_05:{
             masterItem:"gag",
             variant:"gag_05",
             name:"Black Leather Dog Bone Gag",
@@ -130,7 +130,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag06:{
+        gag_06:{
             masterItem:"gag",
             variant:"gag_06",
             name:"Black Leather Metal Hook Gag",
@@ -148,7 +148,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag07:{
+        gag_07:{
             masterItem:"gag",
             variant:"gag_07",
             name:"Red and Black Leather Ring Gag",
@@ -167,7 +167,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag08:{
+        gag_08:{
             masterItem:"gag",
             variant:"gag_08",
             name:"Black Leather Gasmask Gag",
@@ -185,7 +185,7 @@ $.extend(true, window.items, {
                 slutty:true,
             }
         },
-        gag09:{
+        gag_09:{
             masterItem:"gag",
             variant:"gag_09",
             name:"Black Leather Cock Gag",
@@ -204,7 +204,7 @@ $.extend(true, window.items, {
 				maid:true,
             }
         },
-        gag10:{
+        gag_10:{
             masterItem:"gag",
             variant:"gag_10",
             name:"Black Leather Inflatable Gag",

@@ -64,7 +64,7 @@ $.extend(true, window.items, {
     },
     itemChildren:{
         //casualEarrings
-        casualEarrings00:{
+        earrings_casual_00:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_00",
             name:"Diamond Stud Earrings",
@@ -81,7 +81,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings01:{
+        earrings_casual_01:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_01",
             name:"Diamond Stud Flower Earrings",
@@ -98,7 +98,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings02:{
+        earrings_casual_02:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_02",
             name:"Blue Gem Earrings",
@@ -115,7 +115,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings03:{
+        earrings_casual_03:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_03",
             name:"Pearl Earrings",
@@ -132,7 +132,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings04:{
+        earrings_casual_04:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_04",
             name:"Ornate Pearl Earrings",
@@ -149,7 +149,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings05:{
+        earrings_casual_05:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_05",
             name:"White Gold Heart Earrings",
@@ -166,7 +166,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings06:{
+        earrings_casual_06:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_06",
             name:"Black Gem Stud",
@@ -183,7 +183,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings07:{
+        earrings_casual_07:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_07",
             name:"Ruby and Diamond Earrings",
@@ -200,7 +200,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings08:{
+        earrings_casual_08:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_08",
             name:"Purple and Green Gem Earring",
@@ -218,7 +218,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings09:{
+        earrings_casual_09:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_09",
             name:"Pearl Band Earrings",
@@ -235,7 +235,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings10:{
+        earrings_casual_10:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_10",
             name:"Delicate Emerald Earrings",
@@ -252,7 +252,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings11:{
+        earrings_casual_11:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_11",
             name:"Small Green Earrings with Gold Chain",
@@ -269,7 +269,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings12:{
+        earrings_casual_12:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_12",
             name:"Purple Gem Earrings",
@@ -286,7 +286,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },                
-        casualEarrings13:{
+        earrings_casual_13:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_13",
             name:"Multi Coloured Gem Earrings",
@@ -305,7 +305,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings14:{
+        earrings_casual_14:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_14",
             name:"Diamond and Gold Earrings",
@@ -322,7 +322,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings15:{
+        earrings_casual_15:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_15",
             name:"Diamond Stud and Gold Hoop Earrings",
@@ -339,7 +339,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        casualEarrings16:{
+        earrings_casual_16:{
             masterItem:"casualEarrings",
             variant:"earrings_casual_16",
             name:"Small Gold Chain Earrings",
@@ -358,7 +358,7 @@ $.extend(true, window.items, {
         },
 
         //classyEarrings
-        classyEarrings00:{
+        earrings_classy_00:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_00",
             name:"Sapphire and Diamond Earrings",
@@ -375,7 +375,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings01:{
+        earrings_classy_01:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_01",
             name:"Silver Diamond Earrings",
@@ -392,7 +392,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings02:{
+        earrings_classy_02:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_02",
             name:"Amethyst Earrings",
@@ -409,7 +409,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings03:{
+        earrings_classy_03:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_03",
             name:"Ruby and Diamond Gold Earrings",
@@ -426,7 +426,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings04:{
+        earrings_classy_04:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_04",
             name:"Sapphire Silver Earrings",
@@ -443,7 +443,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings05:{
+        earrings_classy_05:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_05",
             name:"Ruby and Obsidian Gold Earrings",
@@ -461,7 +461,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings06:{
+        earrings_classy_06:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_06",
             name:"Ruby and Amethyst Silver Earrings",
@@ -479,7 +479,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings07:{
+        earrings_classy_07:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_07",
             name:"Antiuqe Emerald Earrings",
@@ -496,7 +496,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings08:{
+        earrings_classy_08:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_08",
             name:"Antique Emerald and Gold Earrings",
@@ -513,7 +513,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings09:{
+        earrings_classy_09:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_09",
             name:"Ruby and Diamond Intricate Earrings",
@@ -530,7 +530,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings10:{
+        earrings_classy_10:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_10",
             name:"Silver Ribbon and Diamond Earrings",
@@ -547,7 +547,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings11:{
+        earrings_classy_11:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_11",
             name:"Topaz Flower and Gold Chain Earrings",
@@ -565,7 +565,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings12:{
+        earrings_classy_12:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_12",
             name:"Gold Bar Earrings",
@@ -582,7 +582,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings13:{
+        earrings_classy_13:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_13",
             name:"Diamond Wreith Earrings",
@@ -599,7 +599,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings14:{
+        earrings_classy_14:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_14",
             name:"Large Sapphire and Gold Earrings",
@@ -616,7 +616,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings15:{
+        earrings_classy_15:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_15",
             name:"Ruby Dangle Earrings",
@@ -633,7 +633,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        classyEarrings16:{
+        earrings_classy_16:{
             masterItem:"classyEarrings",
             variant:"earrings_classy_16",
             name:"Large Amethyst Earrings",
@@ -652,7 +652,7 @@ $.extend(true, window.items, {
         },
 
         //flashyEarrings
-        flashyEarrings00:{
+        earrings_flashy_00:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_00",
             name:"Large Gold Hoop Earrings",
@@ -669,7 +669,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings01:{
+        earrings_flashy_01:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_01",
             name:"Large Gold Hoop Earrings with Gold Bells",
@@ -686,7 +686,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings02:{
+        earrings_flashy_02:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_02",
             name:"Large Gold and Silver Hoop Earrings with Diamonds",
@@ -704,7 +704,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings03:{
+        earrings_flashy_03:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_03",
             name:"Large Gold Twisty Earrings with Diamond Stud",
@@ -721,7 +721,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings04:{
+        earrings_flashy_04:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_04",
             name:"Copper Branching Earrings with Pearls",
@@ -738,7 +738,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings05:{
+        earrings_flashy_05:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_05",
             name:"Gold Sun Shaped Dangling Earrings",
@@ -755,7 +755,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings06:{
+        earrings_flashy_06:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_06",
             name:"Red Flower Shaped Dangling Earrings",
@@ -772,7 +772,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings07:{
+        earrings_flashy_07:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_07",
             name:"Crystal Dangling Earrings",
@@ -789,7 +789,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings08:{
+        earrings_flashy_08:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_08",
             name:"Pink Tassle Earrings",
@@ -806,7 +806,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings09:{
+        earrings_flashy_09:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_09",
             name:"Large Wide Gold Hoop Earrings",
@@ -823,7 +823,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings10:{
+        earrings_flashy_10:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_10",
             name:"Large Gold Hoop Earrings with Cutouts and Diamonds",
@@ -840,7 +840,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings11:{
+        earrings_flashy_11:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_11",
             name:"Gold Hoop Earrings with Love Heart",
@@ -857,7 +857,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings12:{
+        earrings_flashy_12:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_12",
             name:"Dangling Diamond Earrings",
@@ -874,7 +874,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings13:{
+        earrings_flashy_13:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_13",
             name:"Silver Hoop Earrings with Diamonds and Onynx",
@@ -891,7 +891,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings14:{
+        earrings_flashy_14:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_14",
             name:"Textured Silver Hoop Earrings",
@@ -908,7 +908,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings15:{
+        earrings_flashy_15:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_15",
             name:"Gold Hoop Earrings with Diamond Insert",
@@ -925,7 +925,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        flashyEarrings16:{
+        earrings_flashy_16:{
             masterItem:"flashyEarrings",
             variant:"earrings_flashy_16",
             name:"Garnet and Diamond Dangling Earrings",
@@ -944,7 +944,7 @@ $.extend(true, window.items, {
         },
 
         //plasticEarrings
-        plasticEarrings00:{
+        earrings_plastic_00:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_00",
             name:"Blue Plastic Hoop Earrings",
@@ -963,7 +963,7 @@ $.extend(true, window.items, {
         },
 
         //Plastic Earrings
-        plasticEarrings01:{
+        earrings_plastic_01:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_01",
             name:"Red Love Heart Plastic Earrings",
@@ -980,7 +980,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings02:{
+        earrings_plastic_02:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_02",
             name:"Pink Plastic Love Heart Earrings",
@@ -997,7 +997,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings03:{
+        earrings_plastic_03:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_03",
             name:"Blue Plastic Split Hoop Earrings",
@@ -1014,7 +1014,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings04:{
+        earrings_plastic_04:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_04",
             name:"Pink Plastic Ring Earrings",
@@ -1031,7 +1031,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings05:{
+        earrings_plastic_05:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_05",
             name:"Blue Plastic Flower Earrings",
@@ -1048,7 +1048,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings06:{
+        earrings_plastic_06:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_06",
             name:"Blue Plastic Ring Earrings with Decoration",
@@ -1065,7 +1065,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings07:{
+        earrings_plastic_07:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_07",
             name:"Blue Plastic Rectangle Patterned Earrings",
@@ -1082,7 +1082,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings08:{
+        earrings_plastic_08:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_08",
             name:"Pink Bubble Earrings",
@@ -1099,7 +1099,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings09:{
+        earrings_plastic_09:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_09",
             name:"Pink Plastic Earrings",
@@ -1116,7 +1116,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings10:{
+        earrings_plastic_10:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_10",
             name:"Yellow Plastic Round Earrings",
@@ -1133,7 +1133,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings11:{
+        earrings_plastic_11:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_11",
             name:"Orange Egg Shaped Plastic Earrings",
@@ -1150,7 +1150,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings12:{
+        earrings_plastic_12:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_12",
             name:"Black and White Sphere Earrings",
@@ -1168,7 +1168,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings13:{
+        earrings_plastic_13:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_13",
             name:"Plastic and Gold Diamond Shaped Plastic Earrings",
@@ -1186,7 +1186,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings14:{
+        earrings_plastic_14:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_14",
             name:"Red, Yellow and Pink Oval Plastic Earrings",
@@ -1205,7 +1205,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings15:{
+        earrings_plastic_15:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_15",
             name:"Red Circle Dangling Earrings",
@@ -1222,7 +1222,7 @@ $.extend(true, window.items, {
                 plain:true,
             }
         },
-        plasticEarrings16:{
+        earrings_plastic_16:{
             masterItem:"plasticEarrings",
             variant:"earrings_plastic_16",
             name:"Blue and Gold Flower Earrings",
