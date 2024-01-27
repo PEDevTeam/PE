@@ -4,7 +4,7 @@ if(typeof window.items == "undefined"){
 
 $.extend(true, window.items, {
     itemMasters:{
-        //Tatoos
+        //Room Items
         lamps:{
             itemType:"roomItems",
             clothingSlot:"lamps",

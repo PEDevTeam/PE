@@ -28,14 +28,14 @@
 	<<print "[[Rely on your experience hanging out with "+$friend+" to see you through|Anime club task][$scene = 'quiz auto';$method = 'auto']]">>
 	[[Focus and try to answer yourself|Anime club task][$scene = "quiz 1"; $method = "self"]]
 <<elseif $scene == "quiz 1">>\
-	The ringleader raises an eyebrow, something in your look of determination seeming to surprise him. @@.malevoice1;“Alright, I’ll go first - Which of the 4 is not a firing mode the DOMINATOR in Psycho Pass: Paralyser, Eliminator, Decomposer, Neutraliser?”@@
+	The ringleader raises an eyebrow, something in your look of determination seeming to surprise him. @@.malevoice1;“Alright, I’ll go first - Which of the 4 is not a firing mode the DOMINATOR in Psycho Pass: Paralyzer, Eliminator, Decomposer, Neutralizer?”@@
 
 	<<if $player.perversion.friend >=1>>\
-		@@.hero;Psh, this is easy, there’s no such thing as a Neutraliser mode!@@
+		@@.hero;Psh, this is easy, there’s no such thing as a Neutralizer mode!@@
 
 	<<endif>>\
-	[[Neutraliser|Anime club task][$answer='correct'; $scene = "quiz 2"]]
-	[[Paralyser|Anime club task][$answer='wrong';$answer_val='Paralyser'; $scene = "quiz 2"]]
+	[[Neutralizer|Anime club task][$answer='correct'; $scene = "quiz 2"]]
+	[[Paralyzer|Anime club task][$answer='wrong';$answer_val='Paralyzer'; $scene = "quiz 2"]]
 	[[Eliminator|Anime club task][$answer='wrong';$answer_val='Eliminator'; $scene = "quiz 2"]]
 	[[Decomposer|Anime club task][$answer='wrong';$answer_val='Decomposer'; $scene = "quiz 2"]]
 	[[Say you don’t know|Anime club task][$answer='ignorant'; $scene = "quiz 2"]]
@@ -43,7 +43,7 @@
 	<<switch $answer>>\
 	<<case 'correct'>>\
 		<<set $correctAnswers += 1>>\
-		You confidently state, @@.heroT;“Neutraliser.”@@
+		You confidently state, @@.heroT;“Neutralizer.”@@
 
 		The guy nods, though you notice the woman’s gaze narrows as she barks her response. @@.femvoice6;“Psh, that was an easy one,"@@ she complains. @@.femvoice6;"Come on, ask her something harder!”@@
 	<<case 'wrong'>>\
@@ -163,7 +163,7 @@
 
 		@@.malevoice2;“Aww, come on, let her stay. I mean we could use more female members, right?”@@ one of the other guys states, rising to your defense.
 
-		You note a dagger-sharp glance from the girl targetting the offending dude. You //really// get the feeling that she doesn’t want the competition. Her annoyance lasts for but a moment as she seems to notice that nearly every member of the club, save the ringleader, is looking imploringly at her. In an instant, her expression is replaced with sticky-sweet artificial welcome.
+		You note a dagger-sharp glance from the girl targeting the offending dude. You //really// get the feeling that she doesn’t want the competition. Her annoyance lasts for but a moment as she seems to notice that nearly every member of the club, save the ringleader, is looking imploringly at her. In an instant, her expression is replaced with sticky-sweet artificial welcome.
 
 		@@.femvoice6;“Oh, I suppose it would be nice to have another girl around. Only, well, you’re so ignorant… Tell you what, how about I help you to keep you from saying any more embarrassing things until you learn something?”@@
 
@@ -175,7 +175,7 @@
 
 		[[Sit down|Anime club task][$gag=true; $scene = "watch"]]
 	<<elseif ($correctAnswers==1 || $correctAnswers==2)>>\
-		@@.malevoice1;“Huh, I guess you know SOMETHING, tho you’re obviously kind of a casual. Alright, you can join the club but try not to bother anyone.”@@
+		@@.malevoice1;“Huh, I guess you know SOMETHING, though you’re obviously kind of a casual. Alright, you can join the club but try not to bother anyone.”@@
 
 		You mutter your thanks, letting out a held breath as you try to puzzle out why you were so worried about garnering their approval.
 

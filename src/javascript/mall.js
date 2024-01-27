@@ -41,7 +41,7 @@ macros.showStore = {
         }
 
         if(params.length != 1){
-            throwerror(place, "showStore only accepts 1 paramater");
+            throwerror(place, "showStore only accepts 1 parameter");
             return;
         }
         var storeDiv = document.createElement('div');

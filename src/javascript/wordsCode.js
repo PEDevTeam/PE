@@ -36,7 +36,7 @@ window.wordsCode={
 		var body=State.active.variables.body;
 		vars.ass="ass";
 		vars.butt="butt";
-		if (body.ass == 1) { vars.ass="heartshaped ass"; vars.butt="shapely butt"; }
+		if (body.ass == 1) { vars.ass="heart-shaped ass"; vars.butt="shapely butt"; }
 		if (body.ass == 2) { vars.ass="curvy ass"; vars.butt="bubble butt"; }
 		vars.lips="lips";
 		if (body.lips == 1) { vars.lips="plump lips"; }

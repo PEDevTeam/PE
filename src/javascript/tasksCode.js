@@ -739,7 +739,7 @@ window.tasksTeacher={
 		name:"Task Practice heels",
 		hasPassage: true,
 		text: {
-			given: "@@.teacher;\"I believe it is a wondeful time for you to learn the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.\"@@",
+			given: "@@.teacher;\"I believe it is a wonderful time for you to learn the joy of heels, how elegantly they stretch your legs, and how others appreciate your form as you sway in them. I expect an image on my phone, a still or short video, of you in the mall wearing heels.\"@@",
 			perform: "",
 			finish: "$teacher looks at the video on your phone and smiles. @@.teacher;You most certainly needed the practice, and yet you started to learn another essential skill. Interesting camera angle,”@@ she says, smiling widely.",
 			fail: "@@.teacher;\"You failed to do as requested. It cannot be that hard to practice walking in heels. Take a mark.\"@@",
@@ -830,7 +830,7 @@ window.tasksTeacher={
 	},
 	suckPopsickle: {	// perv 3-4, cross 7-8
 		id: "suckPopsickle",
-		name:"Task Suck popsickle",
+		name:"Task Suck popsicle",
 		hasPassage: true,
 		text: {
 			given: "@@.teacher;\"I have a special task for you today. Dress as a girl and suck a popsicle suggestively in a public place.\"@@",
@@ -985,7 +985,7 @@ window.tasksTeacher={
 			given: "@@.teacher;\"I have a special task for you today. Go somewhere public while dressed as a girl, and take a selfie that shows your chastity.\"@@",
 			perform: "",
 			finish: "$teacher looks at the photo on your phone.\n\n@@.teacher;\"Nice. I bet it was an interesting experience for you.@@",
-			fail: "@@.teacher;\"No selfie? Are you so afraid someone will discover your secret? A mark for timidness.\"@@",
+			fail: "@@.teacher;\"No selfie? Are you so afraid someone will discover your secret? A mark for timidity.\"@@",
 			reminder: "@@.teacher;\"Don't forget to make a chastity selfie at some public place.\"@@",
 			checkMe: {
 				given: "make a selfie that shows chastity somewhere public.",
@@ -1123,7 +1123,7 @@ window.tasksTeacher={
 			perform: "",
 			finish: "$teacher examines your pink wristband from the club.\n\n@@.teacher;\"Well, it seems you can pass as a girl after all. Honestly, that’s great news for you, because you are not very good at passing for a boy.@@",
 			fail: "@@.teacher;\"You could not even get in the doors? I’m disappointed in you – are you too scared to even try?\"@@",
-			reminder: "@@.teacher;\"Be sure not to miss ladies night at the club this Saturday. Remember, you need get the bouncer to let you in.\"@@",
+			reminder: "@@.teacher;\"Be sure not to miss ladies\’ night at the club this Saturday. Remember, you need get the bouncer to let you in.\"@@",
 			checkMe: {
 				given: "to go to the club on Saturday evening and get in for ladies\’ night by dressing as a girl.",
 				finish: "You did it.",
@@ -1170,7 +1170,7 @@ window.tasksTeacher={
 			fail: "@@.teacher;\"You did not get a girl to take a selfie with you in the ladies\’ bathroom like I asked. Maybe you should work harder on your appearance if you\’re finding it difficult.\"@@",
 			reminder: "@@.teacher;\"I will remind you – you\’re to go to the club this weekend and take a selfie with a girl in the ladies\’ restroom.\"@@",
 			checkMe: {
-				given: "go to the club this weekend. Take a selfie with a girl in the ladies room.",
+				given: "go to the club this weekend. Take a selfie with a girl in the ladies\’ room.",
 				finish: "You did it.",
 				fail: "",
 				reminder: "You haven't done it yet."
@@ -1763,9 +1763,9 @@ window.tasksTeacher={
 		name:"Task Ask to be fucked",
 		hasPassage: true,
 		text: {
-			given: "@@.teacher;\"You were really obedient this week, just like a proper sissy should be. So your special task for today is to ask $guardian to fuck you with a strapon.\"@@",
+			given: "@@.teacher;\"You were really obedient this week, just like a proper sissy should be. So your special task for today is to ask $guardian to fuck you with a strap-on.\"@@",
 			perform: "",
-			finish: "$teacher smiles to you.\n\n@@.teacher;\"I've heard that you really enjoyed being fucked with that strapon.@@",
+			finish: "$teacher smiles to you.\n\n@@.teacher;\"I've heard that you really enjoyed being fucked with that strap-on.@@",
 			fail: "$teacher shakes her head, she knows you didn't ask $guardian to fuck you. @@.teacher;\"Such a silly sissy, you don't even realize when I'm giving you a present. Such ungratefulness. Perhaps you can appreciate this mark?\"@@",
 			reminder: "@@.teacher;\"Don't forget to ask $guardian fuck you.\"@@",
 			checkMe: {
@@ -1994,7 +1994,7 @@ window.tasksTeacher={
 		name:"Task Reward team",
 		hasPassage: true,
 		text: {
-			given: "@@.teacher;\"<<set _prompt to random(2)>><<if $tasksTeacher.rewardTeam.progress == 0>>Coach had a special request for you. $futa.He_She said $futa.he_she promised one of the teams some 'play time' with you if they won their game. Go to the locker room after class, and $futa.he_she will give you more instructions. Oh, and make sure you wear that cute cheerleader outfit I gave you. I assume you've been bringing it to school with you as I instructed.<<else>><<if _prompt == 0>>Coach said he was looking for you. Go see what $futa.he_she wants.<<elseif _prompt == 1>>Some students said they were looking forward to seeing you after school today. Make sure to show them a good time.<<elseif _prompt>>I want you to spend some time serving your fellow students.<<endif>><<endif>>\"@@",
+			given: "@@.teacher;\"<<set _prompt to random(2)>><<if $tasksTeacher.rewardTeam.progress == 0>>Coach has a special request for you. $futa.He_She said $futa.he_she promised one of the teams some 'play time' with you if they won their game. Go to the locker room after class, and $futa.he_she will give you more instructions. Oh, and make sure you wear that cute cheerleader outfit I gave you. I assume you've been bringing it to school with you as I instructed.<<else>><<if _prompt == 0>>Coach said he was looking for you. Go see what $futa.he_she wants.<<elseif _prompt == 1>>Some students said they were looking forward to seeing you after school today. Make sure to show them a good time.<<elseif _prompt>>I want you to spend some time serving your fellow students.<<endif>><<endif>>\"@@",
 			perform: "",
 			finish: "$teacher smirks at you.\n\n@@.teacher;\"Coach said that the team was very satisfied with your performance.@@",
 			fail: "@@.teacher;\"Coach said you failed to satisfy the sports team. Take a mark.\"@@",

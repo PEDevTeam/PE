@@ -17,14 +17,14 @@ An example from 'Snoop in guardian bedroom.twee'
 <</selectScene>>\
 
 Whenever this is run, it will randomly choose one of the <<scene>> and
-display it. It will remember the choosen <<scene>> and the next time
-it is run, it will avoid choosing the same <<scene>> agian.
+display it. It will remember the chosen <<scene>> and the next time
+it is run, it will avoid choosing the same <<scene>> again.
 
-This is often the desiered behavior as the player will not be as
+This is often the desired behavior as the player will not be as
 immersed if they get exactly the same text the next time.
 
 If there is only two (or one) <<scene>>, it will choose randomly from
-the scenes withouth this test. This is to avoid it ping-pong'ing
+the scenes without this test. This is to avoid it ping-ponging
 between the two scenes.
 
 Lets look at the fist line: <<selectScene snoopItem RND>>
@@ -55,7 +55,7 @@ For strategy RND2RND, <<selectScene>> will first go through all the
 <<scene>> in random order. Once all <<scene> has been displayed, it
 will start to randomly select <<scene>> just as if strategy was RND.
 
-You can think of it as if <<selectScene>> shuffels all the <<scene>>,
+You can think of it as if <<selectScene>> shuffles all the <<scene>>,
 just like a deck of cards. Then it behaves just like SEQ2RND.
 
 For strategies SEQ and RND you can add a <<restIsRandom>> among the
@@ -90,11 +90,11 @@ It will behave exatly like this:
 <</selectScene>>
 
 RND with <<restIsRandom>> behaves slightly differently. It will start
-off by shuffeling the <<scene>> before the <<restIsRandom>> and
+off by shuffling the <<scene>> before the <<restIsRandom>> and
 display them one by one.
 
 In the example above it could be CCCC, AAAA, BBBB, or BBBB, CCCC, AAAA
-(or even AAAA, BBBB, CCCC, all shuffles are equally likley).
+(or even AAAA, BBBB, CCCC, all shuffles are equally likely).
 
 The scenes after <<restIsRandom>> works the same way as for SEQ with
 <<restIsRandom>>.
@@ -148,7 +148,7 @@ This will work as you expect it. 9 out of 10 times 'Common' will be chosen. This
 
 This will not work as you might expect. Once 'Common' is chosen, its
 chance is taken out of the calculation and 'Not common 1' or 'Not
-common 2' will be choosen. You will most likley end up with the sequence of 'Common', 'Not common 1/2', 'Common', 'Not coomon 1/2' etc..
+common 2' will be chosen. You will most likely end up with the sequence of 'Common', 'Not common 1/2', 'Common', 'Not common 1/2' etc..
 
 Either we need to introduce a new strategy RANDOM for this but in the
 meantime we can do this:
@@ -200,7 +200,7 @@ like this (not in PE as of 0.7903):
 <<scene-if boolean_expression>> or
 <<scene-if boolean_expression chance>>
 
-April asked for it to gate fetiches. If boolean_expression is true,
+April asked for it to gate fetishes. If boolean_expression is true,
 the scene is considered.  You can not have all <<scene-if>> because if
 all boolean_expression are false, there must be at least one <<scene>>
 to chose from.
