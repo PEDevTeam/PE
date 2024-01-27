@@ -1,0 +1,24 @@
+::Cheer SE9 Sc6
+<<if $cheerFriend.concertOutfit != "none">>\
+	@@.cheerFriend;“Here you go!”@@ $cheerFriend.name says as she hands you your bag.\
+<<else>>\
+	@@.cheerFriend;“Well, that was fun,”@@ $cheerFriend.name says, giving you a smile as you exit the store.\
+<<endif>>\
+@@.cheerFriend;“You need me to drop you off back home?”@@ she asks.
+
+@@.heroT;“Uh, no that’s ok,”@@ you say, hoping to keep $cheerFriend.name as far away from $guardian as you can. @@.heroT;“I’ll just catch the bus from here.”@@
+
+@@.cheerFriend;“Gotcha,”@@ $cheerFriend.name says. <<if $cheerFriend.affinity > 10>> She wraps you up into a tight hug<<if $cheerFriend.affinity > 15>> and kisses you on the cheek<<endif>>. <<endif>>@@.cheerFriend;“Thanks for hanging out today. This was fun.”@@
+
+@@.heroT;“Yeah,”@@ you reply, your cheeks quickly turning red.
+
+@@.cheerFriend;“See you at practice on Tuesday?”@@
+
+@@.heroT;“Wouldn’t miss it.”@@
+
+$cheerFriend.name gives you a wave and trots off, heading back for the parking lot, leaving you lost in the sound of your thundering heart.
+
+<<set $cheerFriend.currentSE = 0>>\
+<<set $cheerFriend.progress += 1>>\
+<<set $time.addMinutes(180)>>\
+<<display [[Travel]]>>

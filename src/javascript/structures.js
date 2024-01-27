@@ -2357,6 +2357,7 @@ window.cheerList={
 		guardianPractice: false, //allows player to practice cheerleading with guardian
 		dancePractice: false, //allows player to practice dancing
 		prankTeam: "none", //which team the player chose for the locker room prank
+		haveBoyNumber: false,
 
 		//notice body mods flags for cheer captain and cheer friend 
 		//in cheer arc, both trigger off the same set of variables
@@ -2406,6 +2407,7 @@ window.cheerFriendList={
 	currentSE: 0,		//currently available side event
 	name: 'Lauren',		//Name for cheer friend, [str], default = 'Lauren'
 	prize: 'money',		//prize offered cheer friend's brother
+	concertOutfit: 'none', //outfit chosen when shopping for the concert in side event 9
 	
 	//current attraction of cheer friend to PC (affinity + modified slut score), [int]
 	//attraction: affinity + ((5-abs(window.playerCode.slutScoreBasic() - 6))+(floor(window.playerCode.slutScore()/10)-2)) ,

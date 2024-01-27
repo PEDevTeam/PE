@@ -433,7 +433,7 @@ window.clothes={
 			var maid = window.inventoryFuncs.hasTag(outerwear, 'maid') && window.inventoryFuncs.hasTag(shoes, 'maid') && window.inventoryFuncs.hasTag(hosiery, 'maid') && window.inventoryFuncs.hasTag(collar, 'maid') && window.inventoryFuncs.hasTag(hairband, 'maid');
 
 			if (!maid) {
-				State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, collar, and headband.";
+				State.active.variables.reason.dressedMaid="You have to wear the full maid outfit for this, including dress, heels, stockings, choker, and headband.";
 				return false;
 			}
 			return true;
